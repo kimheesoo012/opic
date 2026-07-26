@@ -219,7 +219,7 @@ h3.sub{font-size:13.5px;font-weight:700;margin:14px 0 8px;color:#444}
     <div class="sec-head"><h1>Background Survey</h1></div>
     <p class="page-desc">질문을 읽고 정확히 답변해 주시기 바랍니다. 설문에 대한 응답을 기초로 개인별 문항이 출제됩니다.</p>
     <div class="preset-bar">
-      <div class="pb-title"><span>⭐ 저장된 설문 세트 — 누르면 전체 항목이 한 번에 선택됩니다</span>
+      <div class="pb-title"><span>⭐ 저장된 설문 세트 — 누르면 설문이 채워지고 <b>바로 시험이 시작</b>됩니다</span>
         <span style="display:flex;gap:6px">
           <button class="pb-btn" onclick="savePreset()">＋ 현재 설문을 세트로 저장</button>
           <button class="pb-btn" onclick="exportPresets()">코드 복사</button>
@@ -721,7 +721,7 @@ const state={
   recog:null, recogActive:false,
   totalSec:40*60, timerId:null, timerStarted:false,
   recSec:0, recTimerId:null,
-  replayId:null, replayLeft:0, ttsVol:1, ttsRate:0.92, voiceName:null, recMime:"", ttsPlaying:false,
+  replayId:null, replayLeft:0, ttsVol:1, ttsRate:0.92, voiceName:null, recMime:"", ttsPlaying:false, ttsKeep:null,
   testBlob:null, currentText:"", _afterSave:null, progId:null
 };
 const $=id=>document.getElementById(id);
@@ -835,7 +835,7 @@ const SEED_ME=[
    ids:["movie","performance","concert","park","beach","bar","cafe","music","photo","nosport","domestic","homevacation"]}
 ];
 const SEED_PUB=[
-  {n:"무난한 기본 세트 (12개)",
+  {n:"기본 세트",
    j:"일 경험 없음",s:"아니오 — 수강 후 5년 이상 지났습니다",h:"개인주택이나 아파트에 홀로 거주",
    ids:["movie","cafe","park","beach","tv","music","cooking","reading","walking","domestic","overseas","homevacation"]}
 ];
@@ -870,7 +870,7 @@ function renderPresets(){
   const list=psLoad().list;
   if(!list.length){box.innerHTML='<span class="pb-none">저장된 세트가 없습니다. 설문을 다 고른 뒤 「＋ 현재 설문을 세트로 저장」을 누르거나, 「기본 세트 복원」을 눌러 보세요.</span>';return;}
   box.innerHTML=list.map((pr,i)=>
-    `<span class="chip" onclick="applyPreset(${i})" title="누르면 이 세트로 전체 선택됩니다">${escapeHtml(pr.n)} <span style="color:#aaa;font-weight:400">(${pr.ids.length})</span>`
+    `<span class="chip" onclick="applyPreset(${i})" title="누르면 이 세트로 설문을 채우고 바로 시험을 시작합니다">${escapeHtml(pr.n)} <span style="color:#aaa;font-weight:400">(${pr.ids.length})</span>`
     +`<span class="x" title="이름 변경" onclick="event.stopPropagation();renamePreset(${i})">✎</span>`
     +`<span class="x" title="삭제" onclick="event.stopPropagation();deletePreset(${i})">✕</span></span>`
   ).join("");
@@ -900,7 +900,22 @@ function applyPreset(i){
   const ids=new Set(pr.ids);
   ["sv-leisure","sv-hobby","sv-sport","sv-travel"].forEach(b=>setChecksByIds(b,ids));
   checkSurvey();
-  toast(`「${pr.n}」 적용 — ${state.survey.picks.size}개 선택`);
+  toast(`「${pr.n}」 적용 — 바로 시험을 시작합니다`);
+  quickStart();
+}
+/* 설문/자가진단/셋업/연습문항을 건너뛰고 곧바로 본 시험으로 */
+async function quickStart(){
+  if(!state.saLevel)state.saLevel=5;                 // 자가진단 기본 5단계
+  setSteps(3);
+  if(!state.micStream)await initMic();               // 마이크 권한 (이미 있으면 생략)
+  buildQuestions();
+  state.recordings=new Array(15).fill(null);
+  state.transcripts=new Array(15).fill("");
+  state.durations=new Array(15).fill(0);
+  $("liveOptExam").checked=$("liveOptIntro").checked;
+  syncLiveBox();
+  $("replayOptExam").checked=$("replayOptIntro").checked;
+  beginMainTest();
 }
 function savePreset(){
   const {job,student,home,pickIds}=state.survey;
@@ -1111,29 +1126,43 @@ function utterWith(text,voice,onEnd,onStart){
   u.onerror=()=>{onEnd&&onEnd();};
   return u;
 }
+let speakSeq=0;
 function speak(text,onEnd){
+  const my=++speakSeq;
   speechSynthesis.cancel();
-  let v=state.voiceName?engVoices.find(x=>x.name===state.voiceName):null;
-  if(!v)v=engVoices[0];
+  clearInterval(state.ttsKeep);
   let started=false,done=false;
   state.ttsPlaying=true;
-  const finish=()=>{if(!done){done=true;
-    // 스피커 잔향이 인식에 섞이지 않도록 살짝 늦게 해제
-    setTimeout(()=>{state.ttsPlaying=false;},250);
-    onEnd&&onEnd();}};
-  speechSynthesis.speak(utterWith(text,v,finish,()=>{started=true;}));
-  /* 무음 감시: 1.6초 안에 재생이 시작되지 않으면 로컬 음성으로 자동 재시도 */
-  setTimeout(()=>{
-    if(started||done)return;
-    const local=engVoices.find(x=>x.localService!==false&&x!==v);
-    speechSynthesis.cancel();
-    speechSynthesis.speak(utterWith(text,local||null,finish,()=>{started=true;}));
-    if(local&&local.name!==state.voiceName){
-      state.voiceName=local.name;
-      const sel=$("voiceSel");if(sel)sel.value=local.name;
-      toast("선택한 음성이 재생되지 않아 「"+local.name+"」로 전환했습니다.");
-    }
-  },1600);
+  const finish=()=>{
+    if(done||my!==speakSeq)return;done=true;
+    clearInterval(state.ttsKeep);
+    setTimeout(()=>{state.ttsPlaying=false;},250);   // 스피커 잔향이 인식에 섞이지 않게
+    onEnd&&onEnd();
+  };
+  const go=(voice,isRetry)=>{
+    if(my!==speakSeq)return;
+    speechSynthesis.speak(utterWith(text,voice,finish,()=>{started=true;}));
+    // Chrome이 긴 문장을 도중에 끊어버리는 버그 회피
+    clearInterval(state.ttsKeep);
+    state.ttsKeep=setInterval(()=>{try{speechSynthesis.resume();}catch(e){}},4000);
+    if(isRetry)return;
+    // 네트워크 음성은 첫 재생에 시간이 걸리므로 넉넉히 기다린다
+    setTimeout(()=>{
+      if(started||done||my!==speakSeq)return;
+      const local=engVoices.find(x=>x.localService===true&&x!==voice)||engVoices.find(x=>x!==voice);
+      speechSynthesis.cancel();
+      if(local){
+        state.voiceName=local.name;
+        const sel=$("voiceSel");if(sel)sel.value=local.name;
+        toast("음성이 재생되지 않아 「"+local.name+"」로 전환했습니다.");
+      }
+      setTimeout(()=>go(local||null,true),150);
+    },3500);
+  };
+  let v=state.voiceName?engVoices.find(x=>x.name===state.voiceName):null;
+  if(!v)v=engVoices[0];
+  // cancel() 직후 곧바로 speak() 하면 Chrome에서 무음이 되는 알려진 버그가 있어 살짝 띄운다
+  setTimeout(()=>go(v,false),120);
 }
 
 /* ================= 문항 구성 ================= */
