@@ -219,7 +219,7 @@ h3.sub{font-size:13.5px;font-weight:700;margin:14px 0 8px;color:#444}
     <div class="sec-head"><h1>Background Survey</h1></div>
     <p class="page-desc">질문을 읽고 정확히 답변해 주시기 바랍니다. 설문에 대한 응답을 기초로 개인별 문항이 출제됩니다.</p>
     <div class="preset-bar">
-      <div class="pb-title"><span>⭐ 저장된 설문 세트 — 누르면 설문이 채워지고 <b>바로 시험이 시작</b>됩니다</span>
+      <div class="pb-title"><span>저장된 설문 세트 — 누르면 설문이 채워지고 바로 시험이 시작됩니다</span>
         <span style="display:flex;gap:6px">
           <button class="pb-btn" onclick="savePreset()">＋ 현재 설문을 세트로 저장</button>
           <button class="pb-btn" onclick="exportPresets()">코드 복사</button>
@@ -283,7 +283,7 @@ h3.sub{font-size:13.5px;font-weight:700;margin:14px 0 8px;color:#444}
     <p class="page-desc">질문 청취 및 답변 녹음 기능을 사전 점검합니다.</p>
     <div class="hint" id="browserNote" style="display:none"></div>
     <h2 class="part">Step 1. 성우 음성 선택 &amp; 스피커 점검</h2>
-    <p class="page-desc" style="margin-bottom:8px">Ava 음성을 고르고 미리듣기로 확인해 주세요. <b>목록 위쪽일수록 자연스러운 음성</b>입니다 (⭐ = 고품질).</p>
+    <p class="page-desc" style="margin-bottom:8px">질문을 읽어줄 음성을 고르고 미리듣기로 확인해 주세요.</p>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px">
       <select id="voiceSel" style="font-family:inherit;font-size:13.5px;padding:6px 8px;border:1px solid #bbb;border-radius:3px;min-width:280px;max-width:100%"></select>
       <button class="btn-sub" style="margin:0" onclick="testSpeaker()">🔊 미리듣기</button>
@@ -740,17 +740,16 @@ function renderRadio(elId,arr,key){
   const box=$(elId);
   arr.forEach(label=>{
     const d=document.createElement("label");d.className="opt";
-    d.innerHTML=`<input type="radio" name="${key}"> <span>${label}</span>`;
-    d.onclick=()=>{
-      const already=d.classList.contains("selected");
-      box.querySelectorAll(".opt").forEach(o=>o.classList.remove("selected"));
-      if(already){                                               // 같은 항목을 다시 누르면 선택 해제
-        state.survey[key]=null;
-        setTimeout(()=>{d.querySelector("input").checked=false;},0);
-      }else{
-        state.survey[key]=label;d.classList.add("selected");     // 체크 자체는 브라우저 기본 동작에 맡긴다
-      }
-      checkSurvey();};
+    d.innerHTML=`<input type="radio" name="${key}" autocomplete="off"> <span>${label}</span>`;
+    const inp=d.querySelector("input");
+    inp.addEventListener("click",()=>{
+      // 화면의 체크 표시가 아니라 내부 상태를 기준으로 판단한다 (새로고침 복원과 어긋나지 않게)
+      const already=(state.survey[key]===label);
+      box.querySelectorAll(".opt").forEach(o=>{o.classList.remove("selected");o.querySelector("input").checked=false;});
+      if(already){state.survey[key]=null;}                       // 같은 항목을 다시 누르면 선택 해제
+      else{state.survey[key]=label;d.classList.add("selected");inp.checked=true;}
+      checkSurvey();
+    });
     box.appendChild(d);
   });
 }
@@ -758,7 +757,7 @@ function renderCheck(elId,arr){
   const box=$(elId);
   arr.forEach(([id,label])=>{
     const d=document.createElement("label");d.className="opt";d.dataset.pid=id;d.dataset.plabel=label;
-    d.innerHTML=`<input type="checkbox"> <span>${label}</span>`;
+    d.innerHTML=`<input type="checkbox" autocomplete="off"> <span>${label}</span>`;
     /* preventDefault 를 쓰지 않고, input 의 실제 checked 를 유일한 기준으로 삼는다. */
     d.querySelector("input").addEventListener("change",ev=>{
       const on=ev.target.checked;
@@ -826,7 +825,7 @@ function finishSurvey(){setSteps(2);showScreen("scr-sa");}
 /* 주소 뒤에 ?me 가 붙으면 개인용 모드로 동작한다.
    - 개인용: 내 12개 세트 / 실시간 음성인식 기본 ON
    - 공유용: 범용 세트 / 음성인식 기본 OFF (마이크 팝업으로 놀라지 않게) */
-const IS_ME=/[?&]me(\b|=)/.test(location.search);
+const IS_ME=true;   // 개인용 전용
 const PRESET_KEY=IS_ME?"opic_sim_presets_v3_me":"opic_sim_presets_v3_pub";
 /* 최초 1회만 씨앗으로 넣어 주고, 이후에는 사용자가 자유롭게 수정/삭제 */
 const SEED_ME=[
@@ -985,7 +984,7 @@ function renderSA(){
   const box=$("saList");
   SA_LEVELS.forEach((txt,i)=>{
     const d=document.createElement("div");d.className="sa-item";
-    d.innerHTML=`<div class="sa-num">${i+1}</div><input type="radio" name="sa"><button class="sa-audio" type="button">🔊 Sample Audio</button><p>${txt}${i===4?'<span class="rec-tag">권장 (AL 목표)</span>':''}</p>`;
+    d.innerHTML=`<div class="sa-num">${i+1}</div><input type="radio" name="sa"><button class="sa-audio" type="button">🔊 Sample Audio</button><p>${txt}</p>`;
     d.querySelector(".sa-audio").onclick=e=>{e.stopPropagation();speak(SA_SAMPLES[i],()=>{});};
     d.onclick=()=>{state.saLevel=i+1;box.querySelectorAll(".sa-item").forEach(o=>{o.classList.remove("selected");o.querySelector("input").checked=false;});d.classList.add("selected");d.querySelector("input").checked=true;$("btnSaDone").disabled=false;};
     box.appendChild(d);
@@ -998,13 +997,13 @@ function testSpeaker(){speak("This is a speaker test. If you can hear this sente
 async function initMic(){
   try{
     state.micStream=await navigator.mediaDevices.getUserMedia({audio:true});
-    $("micStatus").innerHTML="✅ 마이크 권한이 허용되었습니다. 마이크 테스트를 진행해 주세요.";
+    $("micStatus").innerHTML="마이크 권한이 허용되었습니다.";
     const ctx=new (window.AudioContext||window.webkitAudioContext)();
     const src=ctx.createMediaStreamSource(state.micStream);
     const an=ctx.createAnalyser();an.fftSize=512;src.connect(an);
     const data=new Uint8Array(an.frequencyBinCount);
     (function loop(){an.getByteFrequencyData(data);const v=Math.min(100,Math.round(data.reduce((a,b)=>a+b,0)/data.length*1.8));$("micLevel").style.width=v+"%";requestAnimationFrame(loop);})();
-  }catch(e){$("micStatus").innerHTML="❌ 마이크 권한이 거부되었습니다. 주소창의 마이크 아이콘에서 권한을 허용한 뒤 새로고침해 주세요.";}
+  }catch(e){$("micStatus").innerHTML="마이크 권한이 거부되었습니다. 주소창의 마이크 아이콘에서 권한을 허용한 뒤 새로고침해 주세요.";}
 }
 /* 브라우저가 실제로 녹음할 수 있는 포맷을 고른다.
    Chrome/Firefox → audio/webm, Safari → audio/mp4.
@@ -1042,7 +1041,7 @@ function testMic(){
     state.testBlob=blobOf(ch,mr);
     btn.disabled=false;btn.textContent="🎙️ 마이크 테스트 시작 (4초)";
     $("btnMicPlay").disabled=false;$("btnSetupDone").disabled=false;
-    $("micStatus").innerHTML="✅ 녹음 완료 ("+state.testBlob.type+" / "+Math.round(state.testBlob.size/1024)+" KB). ▶ 녹음 확인으로 들어보세요.";
+    $("micStatus").innerHTML="녹음 완료 ("+Math.round(state.testBlob.size/1024)+" KB). 녹음 확인으로 들어보세요.";
     toast("녹음 완료. ▶ 녹음 확인으로 들어보세요.");
   };
   mr.start(1000);setTimeout(()=>{if(mr.state!=="inactive")mr.stop();},4000);
@@ -1059,7 +1058,8 @@ const NICE_NAME=/Ava|Allison|Susan|Zoe|Joanna|Jenny|Aria|Nicky|Serena|Samantha|K
 const REMOTE_TTS_OK=(location.protocol==="https:"||location.protocol==="http:");
 function voiceScore(v){
   const n=(v.name||"")+" "+(v.voiceURI||"");let s=0;
-  if(/Premium|Enhanced|Neural|Natural|Siri/i.test(n))s+=120;   // macOS 고품질 다운로드 음성
+  if(/Natural|Neural/i.test(n))s+=200;                         // Google/MS 최신 자연음성
+  if(/Premium|Enhanced|Siri/i.test(n))s+=120;                  // macOS 고품질 다운로드 음성
   if(v.localService===false)s+=REMOTE_TTS_OK?70:-400;          // 네트워크 음성: http(s)에서만 사용
   if(/Google/i.test(n))s+=REMOTE_TTS_OK?50:0;
   if(/Microsoft/i.test(n)&&/Online|Natural/i.test(n))s+=REMOTE_TTS_OK?60:0;
@@ -1078,18 +1078,10 @@ loadVoices();speechSynthesis.onvoiceschanged=loadVoices;
 function renderVoiceSel(){
   const sel=$("voiceSel");if(!sel||!engVoices.length)return;
   const keep=state.voiceName;
-  sel.innerHTML=engVoices.map(v=>`<option value="${v.name.replace(/"/g,'&quot;')}">${isNiceVoice(v)?"⭐ ":""}${v.name} (${v.lang})</option>`).join("");
+  sel.innerHTML=engVoices.map(v=>`<option value="${v.name.replace(/"/g,'&quot;')}">${v.name} (${v.lang})</option>`).join("");
   const target=keep&&engVoices.some(v=>v.name===keep)?keep:engVoices[0].name;
   sel.value=target;state.voiceName=target;
   const v=engVoices.find(x=>x.name===target);
-  const hint=$("voiceHint");
-  if(hint){
-    if(v&&isNiceVoice(v))hint.innerHTML="✅ 고품질 음성이 선택되었습니다.";
-    else hint.innerHTML="⚠️ 이 브라우저에서 쓸 수 있는 음성이 모두 기본(기계음) 품질입니다.<br>"+
-      "· <b>macOS</b>: 시스템 설정 → 손쉬운 사용 → 읽어주기 → 시스템 음성 → <b>음성 관리</b>에서 "+
-      "<b>Ava / Allison / Zoe (Premium 또는 Enhanced)</b> 를 다운로드한 뒤 이 페이지를 새로고침하세요.<br>"+
-      "· <b>Chrome</b>에서 열면 네트워크 음성 <b>Google US English</b> 를 쓸 수 있어 훨씬 자연스럽습니다.";
-  }
 }
 document.addEventListener("DOMContentLoaded",()=>{
   $("volSlider").addEventListener("input",e=>{state.ttsVol=e.target.value/100;});
@@ -1104,13 +1096,9 @@ document.addEventListener("DOMContentLoaded",()=>{
   if(IS_ME)$("liveOptIntro").checked=true;   // 개인용은 받아쓰기 기본 사용
   const isChrome=/Chrome/.test(navigator.userAgent)&&!/Edg|OPR/.test(navigator.userAgent);
   const note=$("browserNote");let msg="";
-  if(!isChrome)msg+="ℹ️ 지금 브라우저는 Chrome이 아닙니다. Safari는 <b>음성인식 정확도가 많이 떨어지고 성우 음성도 기계음</b>이라 Chrome을 권장합니다.<br>";
-  if(location.protocol==="file:")msg+="⚠️ <b>파일을 직접 열면 마이크 권한이 저장되지 않습니다.</b> 터미널에서 "+
-    "<code style=\"background:#eee;padding:1px 5px\">cd ~/Downloads &amp;&amp; python3 -m http.server 8000</code> 을 실행한 뒤 "+
-    "<b>http://localhost:8000/</b> 에서 이 파일을 열면 권한 팝업이 한 번만 뜨고, 더 자연스러운 네트워크 음성도 쓸 수 있습니다.";
-  if(!IS_ME&&location.protocol!=="file:")msg+="👋 <b>처음이신가요?</b> 실제 OPIc과 같은 순서(설문 → 자가진단 → 셋업 → 연습문항 → 본시험 15문항)로 진행됩니다. "+
-    "답변은 자동 녹음되고, 끝나면 다시 들어볼 수 있어요. 마이크 권한을 <b>허용</b>해 주세요.<br>"+
-    "말한 내용을 영어 텍스트로 받아쓰게 하려면 아래 <b>실시간 음성인식</b>을 켜세요. (Chrome 전용)";
+  if(!isChrome)msg+="지금 브라우저는 Chrome이 아닙니다. Safari에서는 음성인식 정확도가 크게 떨어집니다. Chrome에서 응시해 주세요.<br>";
+
+
   if(note&&msg){note.style.display="block";note.innerHTML=msg;}
   setTimeout(loadVoices,300);
 });
@@ -1510,6 +1498,17 @@ renderCheck("sv-sport",SV.sport);
 renderCheck("sv-travel",SV.travel);
 renderSA();
 renderPresets();
+/* 새로고침/뒤로가기 때 브라우저가 체크 상태만 복원해 놓아, 화면은 선택돼 보이는데
+   내부 상태는 비어 있어 Next 가 잠기는 문제가 있었다. 화면을 내부 상태에 맞춰 초기화한다. */
+function syncFormToState(){
+  document.querySelectorAll("#scr-survey input, #scr-sa input").forEach(i=>{i.checked=false;});
+  document.querySelectorAll("#scr-survey .opt, #scr-sa .sa-item").forEach(o=>o.classList.remove("selected"));
+  state.survey={job:null,student:null,home:null,picks:new Set(),pickIds:new Set()};
+  state.saLevel=null;
+  const b=$("btnSaDone");if(b)b.disabled=true;
+}
+syncFormToState();
+window.addEventListener("pageshow",e=>{if(e.persisted)syncFormToState();});
 svRender();
 setSteps(0);
 </script>
