@@ -1,0 +1,189 @@
+// 학습 기록 저장소. IndexedDB 우선, 안 되면 localStorage, 테스트에서는 메모리.
+export const SCHEMA_VERSION = 1;
+export const APP_ID = 'toeic-trainer';
+
+const KV_KEYS = ['profile', 'settings', 'reviews', 'wrongNote', 'vocab', 'scoreHistory', 'sessions', 'studyLog', 'active'];
+
+export function defaultState() {
+  return {
+    profile: { goal: 850, baseline: { LC: 395, RC: 360 }, onboarded: false, createdAt: Date.now() },
+    settings: { theme: 'auto', rate: 1.0, voices: {}, preview: true, course: 20, autoplay: true },
+    attempts: [],
+    reviews: {},
+    wrongNote: {},
+    vocab: {},
+    scoreHistory: [],
+    sessions: [],
+    studyLog: {},
+    active: null,
+  };
+}
+
+// ---- 어댑터 ----
+export function memoryAdapter() {
+  const kv = new Map();
+  let attempts = [];
+  return {
+    kind: 'memory',
+    async loadAll() { return { kv: Object.fromEntries(kv), attempts: attempts.slice() }; },
+    async put(key, val) { kv.set(key, JSON.parse(JSON.stringify(val))); },
+    async addAttempt(a) { attempts.push(a); },
+    async replaceAll(state) {
+      kv.clear();
+      for (const k of KV_KEYS) kv.set(k, JSON.parse(JSON.stringify(state[k])));
+      attempts = state.attempts.slice();
+    },
+  };
+}
+
+export function lsAdapter(ls = globalThis.localStorage) {
+  const P = 'tt:';
+  return {
+    kind: 'localStorage',
+    async loadAll() {
+      const kv = {};
+      for (const k of KV_KEYS) {
+        const v = ls.getItem(P + k);
+        if (v != null) kv[k] = JSON.parse(v);
+      }
+      const at = ls.getItem(P + 'attempts');
+      return { kv, attempts: at ? JSON.parse(at) : [] };
+    },
+    async put(key, val) { ls.setItem(P + key, JSON.stringify(val)); },
+    async addAttempt(a) {
+      const at = JSON.parse(ls.getItem(P + 'attempts') || '[]');
+      at.push(a);
+      ls.setItem(P + 'attempts', JSON.stringify(at));
+    },
+    async replaceAll(state) {
+      for (const k of KV_KEYS) ls.setItem(P + k, JSON.stringify(state[k]));
+      ls.setItem(P + 'attempts', JSON.stringify(state.attempts));
+    },
+  };
+}
+
+function reqP(req) {
+  return new Promise((res, rej) => { req.onsuccess = () => res(req.result); req.onerror = () => rej(req.error); });
+}
+
+export async function idbAdapter(name = 'toeic-trainer') {
+  const db = await new Promise((res, rej) => {
+    const r = indexedDB.open(name, 1);
+    r.onupgradeneeded = () => {
+      const d = r.result;
+      if (!d.objectStoreNames.contains('kv')) d.createObjectStore('kv');
+      if (!d.objectStoreNames.contains('attempts')) d.createObjectStore('attempts', { autoIncrement: true });
+    };
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+    r.onblocked = () => rej(new Error('IndexedDB blocked'));
+  });
+  const tx = (stores, mode) => db.transaction(stores, mode);
+  return {
+    kind: 'indexedDB',
+    async loadAll() {
+      const t = tx(['kv', 'attempts'], 'readonly');
+      const kvStore = t.objectStore('kv');
+      const keys = await reqP(kvStore.getAllKeys());
+      const vals = await reqP(kvStore.getAll());
+      const kv = {};
+      keys.forEach((k, i) => { kv[k] = vals[i]; });
+      const attempts = await reqP(t.objectStore('attempts').getAll());
+      return { kv, attempts };
+    },
+    async put(key, val) {
+      const t = tx(['kv'], 'readwrite');
+      t.objectStore('kv').put(JSON.parse(JSON.stringify(val)), key);
+      await new Promise((res, rej) => { t.oncomplete = res; t.onerror = () => rej(t.error); });
+    },
+    async addAttempt(a) {
+      const t = tx(['attempts'], 'readwrite');
+      t.objectStore('attempts').add(a);
+      await new Promise((res, rej) => { t.oncomplete = res; t.onerror = () => rej(t.error); });
+    },
+    async replaceAll(state) {
+      const t = tx(['kv', 'attempts'], 'readwrite');
+      const kv = t.objectStore('kv');
+      const at = t.objectStore('attempts');
+      kv.clear();
+      at.clear();
+      for (const k of KV_KEYS) kv.put(JSON.parse(JSON.stringify(state[k])), k);
+      for (const a of state.attempts) at.add(a);
+      await new Promise((res, rej) => { t.oncomplete = res; t.onerror = () => rej(t.error); });
+    },
+  };
+}
+
+// ---- 저장소 ----
+export async function openStore(adapter) {
+  const state = defaultState();
+  const { kv, attempts } = await adapter.loadAll();
+  for (const k of KV_KEYS) {
+    if (kv[k] !== undefined && kv[k] !== null) {
+      state[k] = typeof state[k] === 'object' && !Array.isArray(state[k]) && state[k] !== null ? { ...state[k], ...kv[k] } : kv[k];
+    }
+  }
+  if (kv.active === null) state.active = null;
+  state.attempts = attempts || [];
+  const store = {
+    state,
+    adapter,
+    async save(key) { await adapter.put(key, state[key]); },
+    async saveMany(keys) { for (const k of keys) await adapter.put(k, state[k]); },
+    async addAttempt(a) {
+      state.attempts.push(a);
+      await adapter.addAttempt(a);
+    },
+    exportData(appVersion) {
+      const data = {};
+      for (const k of KV_KEYS) if (k !== 'active') data[k] = state[k];
+      data.attempts = state.attempts;
+      return { app: APP_ID, schema: SCHEMA_VERSION, appVersion, exportedAt: new Date().toISOString(), data };
+    },
+    // 검증을 통과한 경우에만 교체한다. 실패하면 기존 기록은 그대로.
+    async importData(obj) {
+      const errs = validateImport(obj);
+      if (errs.length) return { ok: false, errors: errs };
+      const next = defaultState();
+      for (const k of KV_KEYS) if (k !== 'active' && obj.data[k] !== undefined) next[k] = obj.data[k];
+      next.profile = { ...defaultState().profile, ...obj.data.profile };
+      next.settings = { ...defaultState().settings, ...obj.data.settings };
+      next.attempts = obj.data.attempts;
+      next.active = null;
+      await adapter.replaceAll(next);
+      Object.assign(state, next);
+      return { ok: true, count: next.attempts.length };
+    },
+    async reset() {
+      const next = defaultState();
+      await adapter.replaceAll(next);
+      Object.assign(state, next);
+    },
+  };
+  return store;
+}
+
+const isObj = (x) => x && typeof x === 'object' && !Array.isArray(x);
+
+export function validateImport(obj) {
+  const errs = [];
+  if (!isObj(obj)) return ['JSON 객체가 아닙니다.'];
+  if (obj.app !== APP_ID) errs.push('이 앱에서 내보낸 파일이 아닙니다.');
+  if (!Number.isInteger(obj.schema)) errs.push('버전 정보가 없습니다.');
+  else if (obj.schema > SCHEMA_VERSION) errs.push(`더 새로운 버전(${obj.schema})의 파일입니다. 앱을 업데이트하세요.`);
+  if (!isObj(obj.data)) return [...errs, 'data 항목이 없습니다.'];
+  const d = obj.data;
+  if (!Array.isArray(d.attempts)) errs.push('attempts가 배열이 아닙니다.');
+  else {
+    const bad = d.attempts.findIndex((a) => !isObj(a) || typeof a.qid !== 'string' || typeof a.correct !== 'boolean' || !Number.isFinite(a.t) || !Number.isInteger(a.part));
+    if (bad >= 0) errs.push(`attempts[${bad}] 형식 오류`);
+  }
+  for (const k of ['profile', 'settings', 'reviews', 'wrongNote', 'vocab', 'studyLog']) {
+    if (d[k] !== undefined && !isObj(d[k])) errs.push(`${k} 형식 오류`);
+  }
+  for (const k of ['scoreHistory', 'sessions']) {
+    if (d[k] !== undefined && !Array.isArray(d[k])) errs.push(`${k} 형식 오류`);
+  }
+  if (isObj(d.profile) && d.profile.goal !== undefined && !Number.isFinite(d.profile.goal)) errs.push('목표 점수 형식 오류');
+  return errs;
+}
