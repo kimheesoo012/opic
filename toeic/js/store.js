@@ -27,7 +27,10 @@ export function memoryAdapter() {
     kind: 'memory',
     async loadAll() { return { kv: Object.fromEntries(kv), attempts: attempts.slice() }; },
     async put(key, val) { kv.set(key, JSON.parse(JSON.stringify(val))); },
-    async addAttempt(a) { attempts.push(a); },
+    async putAttempt(a) {
+      const i = attempts.findIndex((x) => x.id === a.id);
+      if (i >= 0) attempts[i] = { ...a }; else attempts.push({ ...a });
+    },
     async replaceAll(state) {
       kv.clear();
       for (const k of KV_KEYS) kv.set(k, JSON.parse(JSON.stringify(state[k])));
@@ -50,9 +53,10 @@ export function lsAdapter(ls = globalThis.localStorage) {
       return { kv, attempts: at ? JSON.parse(at) : [] };
     },
     async put(key, val) { ls.setItem(P + key, JSON.stringify(val)); },
-    async addAttempt(a) {
+    async putAttempt(a) {
       const at = JSON.parse(ls.getItem(P + 'attempts') || '[]');
-      at.push(a);
+      const i = at.findIndex((x) => x.id === a.id);
+      if (i >= 0) at[i] = a; else at.push(a);
       ls.setItem(P + 'attempts', JSON.stringify(at));
     },
     async replaceAll(state) {
@@ -72,7 +76,7 @@ export async function idbAdapter(name = 'toeic-trainer') {
     r.onupgradeneeded = () => {
       const d = r.result;
       if (!d.objectStoreNames.contains('kv')) d.createObjectStore('kv');
-      if (!d.objectStoreNames.contains('attempts')) d.createObjectStore('attempts', { autoIncrement: true });
+      if (!d.objectStoreNames.contains('attempts')) d.createObjectStore('attempts', { keyPath: 'id' });
     };
     r.onsuccess = () => res(r.result);
     r.onerror = () => rej(r.error);
@@ -96,9 +100,9 @@ export async function idbAdapter(name = 'toeic-trainer') {
       t.objectStore('kv').put(JSON.parse(JSON.stringify(val)), key);
       await new Promise((res, rej) => { t.oncomplete = res; t.onerror = () => rej(t.error); });
     },
-    async addAttempt(a) {
+    async putAttempt(a) {
       const t = tx(['attempts'], 'readwrite');
-      t.objectStore('attempts').add(a);
+      t.objectStore('attempts').put(JSON.parse(JSON.stringify(a)));
       await new Promise((res, rej) => { t.oncomplete = res; t.onerror = () => rej(t.error); });
     },
     async replaceAll(state) {
@@ -108,7 +112,7 @@ export async function idbAdapter(name = 'toeic-trainer') {
       kv.clear();
       at.clear();
       for (const k of KV_KEYS) kv.put(JSON.parse(JSON.stringify(state[k])), k);
-      for (const a of state.attempts) at.add(a);
+      for (const a of state.attempts) at.put(a);
       await new Promise((res, rej) => { t.oncomplete = res; t.onerror = () => rej(t.error); });
     },
   };
@@ -130,9 +134,11 @@ export async function openStore(adapter) {
     adapter,
     async save(key) { await adapter.put(key, state[key]); },
     async saveMany(keys) { for (const k of keys) await adapter.put(k, state[k]); },
-    async addAttempt(a) {
-      state.attempts.push(a);
-      await adapter.addAttempt(a);
+    // 같은 id면 갱신(오답 원인 태그 등), 없으면 추가
+    async putAttempt(a) {
+      const i = state.attempts.findIndex((x) => x.id === a.id);
+      if (i >= 0) state.attempts[i] = a; else state.attempts.push(a);
+      await adapter.putAttempt(a);
     },
     exportData(appVersion) {
       const data = {};
@@ -148,7 +154,7 @@ export async function openStore(adapter) {
       for (const k of KV_KEYS) if (k !== 'active' && obj.data[k] !== undefined) next[k] = obj.data[k];
       next.profile = { ...defaultState().profile, ...obj.data.profile };
       next.settings = { ...defaultState().settings, ...obj.data.settings };
-      next.attempts = obj.data.attempts;
+      next.attempts = obj.data.attempts.map((a, i) => (a.id ? a : { ...a, id: `imp-${i}-${a.t}` }));
       next.active = null;
       await adapter.replaceAll(next);
       Object.assign(state, next);

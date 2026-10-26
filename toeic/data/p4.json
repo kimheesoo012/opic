@@ -1,0 +1,1265 @@
+{
+ "units": [
+  {
+   "id": "p4-s01",
+   "part": 4,
+   "speakers": {
+    "S": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "script": [
+    {
+     "s": "S",
+     "t": "Attention, shoppers. Thank you for visiting Greenleaf Market."
+    },
+    {
+     "s": "S",
+     "t": "Our seafood counter will be closing early today, at five o'clock, for equipment maintenance."
+    },
+    {
+     "s": "S",
+     "t": "If you'd like fresh fish for tonight's dinner, please visit the counter before then."
+    },
+    {
+     "s": "S",
+     "t": "Also, don't forget that this week only, all frozen vegetables are twenty percent off."
+    },
+    {
+     "s": "S",
+     "t": "And customers who use our mobile app will receive an extra five percent off at checkout. Thank you for shopping with us."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p4.gist",
+     "difficulty": 1,
+     "question": "Where is the announcement being made?",
+     "choices": [
+      "At a supermarket",
+      "At a restaurant",
+      "At a fish farm",
+      "At an appliance store"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'Attention, shoppers'와 Greenleaf Market, 해산물 코너, 냉동 채소 할인으로 보아 슈퍼마켓 안내 방송이다.",
+      "traps": [
+       null,
+       "dinner는 손님이 집에서 먹을 저녁 이야기다.",
+       "생선을 '판매'하는 코너가 있을 뿐 양식장이 아니다.",
+       "equipment는 해산물 코너 장비 점검 이야기다."
+      ]
+     },
+     "id": "p4-s01-1",
+     "vocab": [
+      {
+       "w": "checkout",
+       "pos": "n",
+       "m": "계산대, 계산"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p4.detail",
+     "difficulty": 2,
+     "question": "Why will the seafood counter close early?",
+     "choices": [
+      "To perform maintenance on equipment",
+      "Because some staff are absent",
+      "Because of a holiday",
+      "To count its inventory"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "해산물 코너는 장비 점검(for equipment maintenance) 때문에 5시에 일찍 닫는다.",
+      "traps": [
+       null,
+       "직원 결근 이야기는 없다.",
+       "휴일 이야기는 없다.",
+       "재고 조사 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "for equipment maintenance",
+       "a": "To perform maintenance on equipment"
+      }
+     ],
+     "id": "p4-s01-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p4.detail",
+     "difficulty": 2,
+     "question": "How can customers receive an additional discount?",
+     "choices": [
+      "By using a mobile application",
+      "By buying fresh fish",
+      "By shopping before five o'clock",
+      "By signing up for a newsletter"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "모바일 앱을 쓰는 고객은 계산 시 5퍼센트를 추가로 할인받는다.",
+      "traps": [
+       null,
+       "생선 구매는 할인 조건이 아니다.",
+       "5시는 해산물 코너 마감 시간이다. 숫자 재활용 함정.",
+       "소식지 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "customers who use our mobile app",
+       "a": "By using a mobile application"
+      }
+     ],
+     "id": "p4-s01-3"
+    }
+   ],
+   "kind": "announcement"
+  },
+  {
+   "id": "p4-s02",
+   "part": 4,
+   "speakers": {
+    "S": {
+     "g": "m",
+     "accent": "AU"
+    }
+   },
+   "script": [
+    {
+     "s": "S",
+     "t": "Hi, Ms. Duarte. This is Phil from Crestview Realty, returning your call about the office space on Elm Street."
+    },
+    {
+     "s": "S",
+     "t": "You mentioned you'd like to move in by the first of next month. Well, the current tenant is leaving two weeks early, so that won't be a problem."
+    },
+    {
+     "s": "S",
+     "t": "I know you were concerned about parking. The building has twenty reserved spaces for tenants."
+    },
+    {
+     "s": "S",
+     "t": "That's not all. There's also a public garage across the street that offers monthly rates."
+    },
+    {
+     "s": "S",
+     "t": "I've arranged a viewing for Wednesday at ten. If that doesn't suit you, please call me at 555-0172."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p4.gist",
+     "difficulty": 2,
+     "question": "What is the purpose of the message?",
+     "choices": [
+      "To respond to an inquiry about office space",
+      "To confirm that a lease has been signed",
+      "To request a payment",
+      "To advertise a parking garage"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "Elm Street 사무실에 대한 전화에 회신(returning your call)하며 입주 시기, 주차, 둘러보기 일정을 안내한다.",
+      "traps": [
+       null,
+       "아직 둘러보기 단계라 계약 체결 확인이 아니다.",
+       "결제 요청은 없다.",
+       "주차장은 문의에 답하며 소개한 정보일 뿐 광고가 목적이 아니다."
+      ]
+     },
+     "para": [
+      {
+       "p": "returning your call about the office space",
+       "a": "respond to an inquiry about office space"
+      }
+     ],
+     "id": "p4-s02-1",
+     "vocab": [
+      {
+       "w": "tenant",
+       "pos": "n",
+       "m": "세입자, 입주자"
+      },
+      {
+       "w": "viewing",
+       "pos": "n",
+       "m": "(부동산) 둘러보기"
+      }
+     ]
+    },
+    {
+     "type": "intent",
+     "concept": "p4.intent",
+     "difficulty": 4,
+     "question": "Why does the speaker say, “That's not all”?",
+     "choices": [
+      "To introduce another parking option",
+      "To say the building has more than twenty spaces",
+      "To correct a previous mistake",
+      "To recommend a different building"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "건물에 전용 주차 공간 20개가 있다고 말한 뒤 '그게 다가 아니다'라며 길 건너 공영 주차장을 추가로 소개한다.",
+      "traps": [
+       null,
+       "건물 안 주차 공간이 20개보다 많다는 뜻이 아니다. 문장 뜻 그대로 해석하게 만드는 함정.",
+       "앞의 말을 정정하는 것이 아니라 정보를 덧붙인다.",
+       "다른 건물을 추천하는 것이 아니다."
+      ]
+     },
+     "tags": [
+      "trap"
+     ],
+     "id": "p4-s02-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p4.next",
+     "difficulty": 2,
+     "question": "What has the speaker arranged?",
+     "choices": [
+      "A tour of a property",
+      "A meeting with the current tenant",
+      "A parking permit",
+      "A moving company"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "수요일 10시에 사무실 둘러보기(a viewing)를 잡아 두었다고 했다.",
+      "traps": [
+       null,
+       "현 세입자는 일찍 나간다는 정보로만 나온다.",
+       "주차 허가증 이야기는 없다.",
+       "이사 업체 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "I've arranged a viewing",
+       "a": "A tour of a property"
+      }
+     ],
+     "id": "p4-s02-3"
+    }
+   ],
+   "kind": "telephone message"
+  },
+  {
+   "id": "p4-s03",
+   "part": 4,
+   "speakers": {
+    "S": {
+     "g": "f",
+     "accent": "GB"
+    }
+   },
+   "script": [
+    {
+     "s": "S",
+     "t": "Good morning, everyone, and welcome to the Halston Glass Factory tour. My name is Irene, and I'll be your guide today."
+    },
+    {
+     "s": "S",
+     "t": "We'll start in the furnace room, where you'll see our artists shaping glass by hand. It gets very hot in there, so please stay behind the yellow line at all times."
+    },
+    {
+     "s": "S",
+     "t": "After that, we'll visit the design studio, where our team creates new patterns for vases and lamps."
+    },
+    {
+     "s": "S",
+     "t": "The tour ends in our gift shop, where you'll receive ten percent off with your tour ticket."
+    },
+    {
+     "s": "S",
+     "t": "You're welcome to take photos everywhere except in the design studio. Now, let's get started."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p4.gist",
+     "difficulty": 1,
+     "question": "Who most likely is the speaker?",
+     "choices": [
+      "A tour guide",
+      "A glass artist",
+      "A gift shop clerk",
+      "A safety inspector"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "공장 견학 환영 인사와 함께 'I'll be your guide today'라고 소개했다.",
+      "traps": [
+       null,
+       "유리 작가들은 견학 중 보게 될 사람들이다.",
+       "선물 가게는 견학 마지막 장소일 뿐이다.",
+       "안전 수칙을 안내하지만 점검관이 아니다."
+      ]
+     },
+     "id": "p4-s03-1",
+     "vocab": [
+      {
+       "w": "furnace",
+       "pos": "n",
+       "m": "용광로"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p4.detail",
+     "difficulty": 2,
+     "question": "What are listeners asked to do in the furnace room?",
+     "choices": [
+      "Stay behind a marked line",
+      "Wear protective glasses",
+      "Turn off their phones",
+      "Keep their hands in their pockets"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "용광로실은 매우 뜨거우니 항상 노란 선 뒤에 있으라고 했다.",
+      "traps": [
+       null,
+       "보안경 이야기는 없다.",
+       "휴대폰을 끄라는 말은 없다.",
+       "손을 주머니에 넣으라는 말은 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "stay behind the yellow line",
+       "a": "Stay behind a marked line"
+      }
+     ],
+     "id": "p4-s03-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p4.detail",
+     "difficulty": 3,
+     "question": "Where are listeners NOT allowed to take pictures?",
+     "choices": [
+      "In the furnace room",
+      "In the design studio",
+      "In the gift shop",
+      "In the lobby"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "디자인 스튜디오를 제외한 모든 곳에서 사진 촬영이 가능하다고 했다.",
+      "traps": [
+       "용광로실은 안전선 주의 장소이지 촬영 금지 장소가 아니다.",
+       null,
+       "선물 가게는 할인 정보와 함께 나왔을 뿐이다.",
+       "로비는 언급되지 않았고 '디자인 스튜디오 외 모든 곳'에 해당한다."
+      ]
+     },
+     "tags": [
+      "trap"
+     ],
+     "id": "p4-s03-3"
+    }
+   ],
+   "kind": "tour"
+  },
+  {
+   "id": "p4-s04",
+   "part": 4,
+   "speakers": {
+    "S": {
+     "g": "m",
+     "accent": "US"
+    }
+   },
+   "script": [
+    {
+     "s": "S",
+     "t": "This is Mike Sullivan with your morning traffic report."
+    },
+    {
+     "s": "S",
+     "t": "Drivers heading downtown on Highway 9 should expect delays of about twenty minutes because of road repairs near the Fulton Bridge. Two of the three lanes are closed until noon."
+    },
+    {
+     "s": "S",
+     "t": "If you can, take Route 4 instead. It's moving smoothly this morning."
+    },
+    {
+     "s": "S",
+     "t": "Also, the city's free shuttle bus to Riverside Stadium will begin running tomorrow, ahead of Saturday's championship game."
+    },
+    {
+     "s": "S",
+     "t": "Stay tuned for the weather forecast after this short break."
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p4.detail",
+     "difficulty": 2,
+     "question": "What is causing delays on Highway 9?",
+     "choices": [
+      "Construction work",
+      "A traffic accident",
+      "Bad weather",
+      "A sports event"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "Fulton Bridge 근처 도로 보수 공사(road repairs) 때문에 지연된다고 했다.",
+      "traps": [
+       null,
+       "사고 이야기는 없다.",
+       "날씨는 다음에 나올 예보일 뿐이다.",
+       "경기는 셔틀버스 안내에서 나온 정보다."
+      ]
+     },
+     "para": [
+      {
+       "p": "road repairs",
+       "a": "Construction work"
+      }
+     ],
+     "id": "p4-s04-1",
+     "vocab": [
+      {
+       "w": "stay tuned",
+       "pos": "phr",
+       "m": "(채널을) 고정하다"
+      }
+     ]
+    },
+    {
+     "type": "suggest",
+     "concept": "p4.next",
+     "difficulty": 2,
+     "question": "What does the speaker recommend?",
+     "choices": [
+      "Using a different road",
+      "Taking a shuttle bus",
+      "Leaving home early",
+      "Taking the subway"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "가능하면 Route 4를 대신 이용하라(take Route 4 instead)고 권했다.",
+      "traps": [
+       null,
+       "셔틀버스는 경기장행이며 내일부터 운행한다는 소식일 뿐이다.",
+       "일찍 출발하라는 말은 없다.",
+       "지하철 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "take Route 4 instead",
+       "a": "Using a different road"
+      }
+     ],
+     "id": "p4-s04-2"
+    },
+    {
+     "type": "next",
+     "concept": "p4.next",
+     "difficulty": 2,
+     "question": "What will listeners hear after the break?",
+     "choices": [
+      "A weather forecast",
+      "A sports update",
+      "An interview",
+      "Some music"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'Stay tuned for the weather forecast after this short break'라고 했다.",
+      "traps": [
+       null,
+       "경기 이야기는 셔틀버스 안내에서 나왔을 뿐이다.",
+       "인터뷰 예고는 없다.",
+       "음악 이야기는 없다."
+      ]
+     },
+     "id": "p4-s04-3"
+    }
+   ],
+   "kind": "broadcast"
+  },
+  {
+   "id": "p4-s05",
+   "part": 4,
+   "speakers": {
+    "S": {
+     "g": "f",
+     "accent": "AU"
+    }
+   },
+   "script": [
+    {
+     "s": "S",
+     "t": "Let's look at last quarter's sales figures."
+    },
+    {
+     "s": "S",
+     "t": "As you can see, the East region had the strongest results again, thanks largely to the new distribution center there."
+    },
+    {
+     "s": "S",
+     "t": "But today I want to focus on the region with the lowest sales. Starting next month, we'll be adding three sales representatives there and running a regional advertising campaign."
+    },
+    {
+     "s": "S",
+     "t": "I'd like each of you to send me your ideas for the campaign by Friday."
+    }
+   ],
+   "questions": [
+    {
+     "type": "graphic",
+     "concept": "p4.graphic",
+     "difficulty": 3,
+     "question": "Look at the graphic. Which region will receive additional staff?",
+     "choices": [
+      "North",
+      "South",
+      "East",
+      "West"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "판매 실적이 가장 낮은 지역에 영업 사원 3명을 추가한다고 했다. 표에서 가장 낮은 곳은 South(140만 달러)다.",
+      "traps": [
+       "North는 두 번째로 높다.",
+       null,
+       "East는 가장 높은 지역으로 칭찬받았다. 담화에서 직접 들린 지역명 함정.",
+       "West는 두 번째로 낮다."
+      ]
+     },
+     "tags": [
+      "trap"
+     ],
+     "id": "p4-s05-1",
+     "vocab": [
+      {
+       "w": "sales representative",
+       "pos": "n",
+       "m": "영업 사원"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p4.detail",
+     "difficulty": 2,
+     "question": "According to the speaker, why did the East region perform well?",
+     "choices": [
+      "A new distribution center opened there.",
+      "Prices were reduced.",
+      "More staff were hired.",
+      "An advertising campaign was launched."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'thanks largely to the new distribution center there'라고 이유를 밝혔다.",
+      "traps": [
+       null,
+       "가격 인하 이야기는 없다.",
+       "인력 추가는 판매가 가장 낮은 지역에 대한 계획이다.",
+       "광고 캠페인도 앞으로 판매가 낮은 지역에서 할 일이다."
+      ]
+     },
+     "id": "p4-s05-2"
+    },
+    {
+     "type": "request",
+     "concept": "p4.next",
+     "difficulty": 2,
+     "question": "What are listeners asked to do by Friday?",
+     "choices": [
+      "Submit suggestions",
+      "Visit a regional office",
+      "Hire representatives",
+      "Review a budget"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "금요일까지 캠페인 아이디어를 보내 달라(send me your ideas)고 했다.",
+      "traps": [
+       null,
+       "지역 사무소 방문 이야기는 없다.",
+       "채용은 회사 계획이지 청자에게 시킨 일이 아니다.",
+       "예산 검토 요청은 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "send me your ideas",
+       "a": "Submit suggestions"
+      }
+     ],
+     "id": "p4-s05-3"
+    }
+   ],
+   "kind": "meeting",
+   "graphic": {
+    "kind": "table",
+    "title": "Last Quarter Sales by Region",
+    "header": [
+     "Region",
+     "Sales"
+    ],
+    "rows": [
+     [
+      "North",
+      "$2.1 million"
+     ],
+     [
+      "South",
+      "$1.4 million"
+     ],
+     [
+      "East",
+      "$2.8 million"
+     ],
+     [
+      "West",
+      "$1.9 million"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "p4-s06",
+   "part": 4,
+   "speakers": {
+    "S": {
+     "g": "m",
+     "accent": "GB"
+    }
+   },
+   "script": [
+    {
+     "s": "S",
+     "t": "Good evening, and thank you all for coming to the Westbrook Business Awards."
+    },
+    {
+     "s": "S",
+     "t": "Our next award honors an entrepreneur who has made a lasting contribution to our community."
+    },
+    {
+     "s": "S",
+     "t": "Ten years ago, Leila Haddad opened a small bicycle repair shop on Main Street. Today, Haddad Cycles has four stores and employs more than sixty people."
+    },
+    {
+     "s": "S",
+     "t": "Ms. Haddad also started a program that teaches bicycle maintenance to local high school students, free of charge."
+    },
+    {
+     "s": "S",
+     "t": "Please join me in welcoming this year's Business Leader of the Year, Leila Haddad."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p4.gist",
+     "difficulty": 1,
+     "question": "What is the purpose of the speech?",
+     "choices": [
+      "To present an award",
+      "To open a new store",
+      "To announce a retirement",
+      "To promote a product"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "시상식에서 올해의 비즈니스 리더 수상자를 소개하는 연설이다.",
+      "traps": [
+       null,
+       "매장 수(four stores)는 성과 소개일 뿐 개점 행사가 아니다.",
+       "은퇴 이야기는 없다.",
+       "제품 홍보가 목적이 아니다."
+      ]
+     },
+     "id": "p4-s06-1",
+     "vocab": [
+      {
+       "w": "entrepreneur",
+       "pos": "n",
+       "m": "기업가"
+      },
+      {
+       "w": "free of charge",
+       "pos": "phr",
+       "m": "무료로"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p4.detail",
+     "difficulty": 2,
+     "question": "What is mentioned about Haddad Cycles?",
+     "choices": [
+      "It has grown to several locations.",
+      "It sells used cars.",
+      "It opened last year.",
+      "It is moving to Main Street."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "작은 수리점에서 시작해 지금은 매장 네 곳과 직원 60명 이상이 있다고 했다.",
+      "traps": [
+       null,
+       "자전거 회사다.",
+       "10년 전에 문을 열었다.",
+       "Main Street는 처음 가게를 연 곳이다."
+      ]
+     },
+     "para": [
+      {
+       "p": "has four stores",
+       "a": "has grown to several locations"
+      }
+     ],
+     "id": "p4-s06-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p4.detail",
+     "difficulty": 2,
+     "question": "What does Ms. Haddad's program offer?",
+     "choices": [
+      "Free lessons for students",
+      "Discounted bicycles",
+      "Jobs for retirees",
+      "College scholarships"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "지역 고등학생에게 자전거 정비를 무료로 가르치는 프로그램이다.",
+      "traps": [
+       null,
+       "자전거 할인 이야기는 없다.",
+       "은퇴자 일자리 이야기는 없다.",
+       "장학금 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "teaches bicycle maintenance to local high school students, free of charge",
+       "a": "Free lessons for students"
+      }
+     ],
+     "id": "p4-s06-3"
+    }
+   ],
+   "kind": "speech"
+  },
+  {
+   "id": "p4-s07",
+   "part": 4,
+   "speakers": {
+    "S": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "script": [
+    {
+     "s": "S",
+     "t": "Before we open the warehouse this morning, I have an update."
+    },
+    {
+     "s": "S",
+     "t": "Starting today, all incoming packages must be scanned at the receiving desk before they're moved to the shelves."
+    },
+    {
+     "s": "S",
+     "t": "I know what you're thinking. It'll slow us down. But last month, we lost track of nearly fifty packages, and scanning will let us see exactly where every item is."
+    },
+    {
+     "s": "S",
+     "t": "To make this easier, we've added two more scanners at the receiving desk. Jamal will show you how to use them right after this meeting."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p4.gist",
+     "difficulty": 1,
+     "question": "Where does the talk most likely take place?",
+     "choices": [
+      "At a warehouse",
+      "At a post office",
+      "At an electronics store",
+      "At a library"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'Before we open the warehouse this morning'이라고 했고, 입고 상품 스캔과 선반 이야기가 이어진다.",
+      "traps": [
+       null,
+       "packages가 나오지만 우체국 직원 대상 이야기가 아니다.",
+       "scanners는 업무 도구일 뿐이다.",
+       "shelves가 나오지만 도서관이 아니다."
+      ]
+     },
+     "id": "p4-s07-1",
+     "vocab": [
+      {
+       "w": "lose track of",
+       "pos": "phr",
+       "m": "~의 행방을 놓치다"
+      }
+     ]
+    },
+    {
+     "type": "intent",
+     "concept": "p4.intent",
+     "difficulty": 4,
+     "question": "Why does the speaker say, “I know what you're thinking”?",
+     "choices": [
+      "To acknowledge a likely concern",
+      "To ask listeners for ideas",
+      "To correct a mistake",
+      "To introduce a new employee"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "새 스캔 절차를 발표한 뒤 '무슨 생각하는지 안다, 느려질 거라고'라며 직원들이 가질 만한 우려를 먼저 인정하고 이유를 설명한다.",
+      "traps": [
+       null,
+       "의견을 묻는 것이 아니다.",
+       "실수를 정정하는 것이 아니다.",
+       "Jamal은 시연할 사람으로 나오며 신입 소개가 아니다."
+      ]
+     },
+     "tags": [
+      "trap"
+     ],
+     "id": "p4-s07-2"
+    },
+    {
+     "type": "next",
+     "concept": "p4.next",
+     "difficulty": 2,
+     "question": "What will happen right after the meeting?",
+     "choices": [
+      "Staff will receive a demonstration.",
+      "Packages will be delivered.",
+      "New scanners will be ordered.",
+      "The warehouse will close."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "회의 직후 Jamal이 스캐너 사용법을 보여 줄 것이라고 했다.",
+      "traps": [
+       null,
+       "배송 이야기는 없다.",
+       "스캐너는 이미 두 대 추가했다.",
+       "오히려 창고 문을 열기 전 회의다."
+      ]
+     },
+     "para": [
+      {
+       "p": "Jamal will show you how to use them",
+       "a": "receive a demonstration"
+      }
+     ],
+     "id": "p4-s07-3"
+    }
+   ],
+   "kind": "workplace talk"
+  },
+  {
+   "id": "p4-s08",
+   "part": 4,
+   "speakers": {
+    "S": {
+     "g": "f",
+     "accent": "GB"
+    }
+   },
+   "script": [
+    {
+     "s": "S",
+     "t": "Thank you for calling Lumen Internet. Please note that our office will be closed on Monday for a national holiday."
+    },
+    {
+     "s": "S",
+     "t": "If you're calling because your Internet service is not working, we may already be aware of the issue. Please check the service status page on our Web site before speaking with a technician."
+    },
+    {
+     "s": "S",
+     "t": "To speak with a technician now, please choose the appropriate option from the menu."
+    },
+    {
+     "s": "S",
+     "t": "Calls may be recorded for training purposes."
+    }
+   ],
+   "questions": [
+    {
+     "type": "graphic",
+     "concept": "p4.graphic",
+     "difficulty": 3,
+     "question": "Look at the graphic. Which number should a caller press to speak with a technician?",
+     "choices": [
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "기술자와 통화하려면 메뉴에서 알맞은 번호를 고르라고 했다. 기술자 = Technical support이므로 2번이다.",
+      "traps": [
+       "1번은 요금 청구(Billing)다.",
+       null,
+       "3번은 신규 가입(New accounts)이다.",
+       "4번 상담원(Operator)은 일반 안내라 기술자 연결이 아니다."
+      ]
+     },
+     "id": "p4-s08-1",
+     "vocab": [
+      {
+       "w": "appropriate",
+       "pos": "adj",
+       "m": "적절한"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p4.detail",
+     "difficulty": 1,
+     "question": "Why will the office be closed on Monday?",
+     "choices": [
+      "Because of a holiday",
+      "Because of a power outage",
+      "Because staff will be in training",
+      "Because the office is moving"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'closed on Monday for a national holiday'라고 했다.",
+      "traps": [
+       null,
+       "정전은 언급되지 않았다. 인터넷 장애와 혼동시키는 함정.",
+       "training은 통화 녹음 목적(training purposes)에 나온 단어다.",
+       "이전 이야기는 없다."
+      ]
+     },
+     "id": "p4-s08-2"
+    },
+    {
+     "type": "suggest",
+     "concept": "p4.next",
+     "difficulty": 2,
+     "question": "What are callers encouraged to do?",
+     "choices": [
+      "Check a Web page",
+      "Restart their equipment",
+      "Call back on Monday",
+      "Send an e-mail"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "기술자와 통화하기 전에 웹사이트의 서비스 상태 페이지를 확인하라고 했다.",
+      "traps": [
+       null,
+       "장비 재시작 이야기는 없다.",
+       "월요일은 휴무일이다.",
+       "이메일 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "check the service status page on our Web site",
+       "a": "Check a Web page"
+      }
+     ],
+     "id": "p4-s08-3"
+    }
+   ],
+   "kind": "recorded message",
+   "graphic": {
+    "kind": "table",
+    "title": "Customer Service Menu",
+    "header": [
+     "Press",
+     "Department"
+    ],
+    "rows": [
+     [
+      "1",
+      "Billing"
+     ],
+     [
+      "2",
+      "Technical support"
+     ],
+     [
+      "3",
+      "New accounts"
+     ],
+     [
+      "4",
+      "Operator"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "p4-s09",
+   "part": 4,
+   "speakers": {
+    "S": {
+     "g": "f",
+     "accent": "AU"
+    }
+   },
+   "script": [
+    {
+     "s": "S",
+     "t": "Welcome to today's workshop on writing effective business e-mails. I'm Grace Tan, and I've been teaching business communication for fifteen years."
+    },
+    {
+     "s": "S",
+     "t": "In the first hour, we'll look at common mistakes, such as writing subject lines that are too vague."
+    },
+    {
+     "s": "S",
+     "t": "Then, after a short coffee break, you'll practice rewriting some real e-mails that our company has received."
+    },
+    {
+     "s": "S",
+     "t": "The handouts I'm passing around now include a checklist you can keep at your desk."
+    },
+    {
+     "s": "S",
+     "t": "Let's begin by having everyone introduce themselves and say which department they're from."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p4.gist",
+     "difficulty": 1,
+     "question": "What is the workshop about?",
+     "choices": [
+      "Writing business e-mails",
+      "Giving presentations",
+      "Managing a team",
+      "Using new software"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "첫 문장에서 '효과적인 비즈니스 이메일 작성' 워크숍이라고 했다.",
+      "traps": [
+       null,
+       "발표 기술 이야기는 없다.",
+       "팀 관리 이야기는 없다.",
+       "소프트웨어 이야기는 없다."
+      ]
+     },
+     "id": "p4-s09-1",
+     "vocab": [
+      {
+       "w": "vague",
+       "pos": "adj",
+       "m": "모호한"
+      },
+      {
+       "w": "handout",
+       "pos": "n",
+       "m": "유인물"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p4.detail",
+     "difficulty": 2,
+     "question": "What will listeners do after the break?",
+     "choices": [
+      "Rewrite some e-mails",
+      "Watch a video",
+      "Take a test",
+      "Meet with clients"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "커피 휴식 후 회사가 받은 실제 이메일을 고쳐 쓰는 연습을 한다고 했다.",
+      "traps": [
+       null,
+       "영상 이야기는 없다.",
+       "시험 이야기는 없다.",
+       "고객을 만나는 일정은 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "practice rewriting some real e-mails",
+       "a": "Rewrite some e-mails"
+      }
+     ],
+     "id": "p4-s09-2"
+    },
+    {
+     "type": "next",
+     "concept": "p4.next",
+     "difficulty": 2,
+     "question": "What will listeners do next?",
+     "choices": [
+      "Introduce themselves",
+      "Take a coffee break",
+      "Read the checklist aloud",
+      "Fill out a survey"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "마지막에 '모두 자기소개와 소속 부서를 말하는 것으로 시작하자'고 했다.",
+      "traps": [
+       null,
+       "커피 휴식은 첫 한 시간 이후다.",
+       "체크리스트는 책상에 두고 쓰라고 했을 뿐 읽으라는 말은 없다.",
+       "설문 이야기는 없다."
+      ]
+     },
+     "id": "p4-s09-3"
+    }
+   ],
+   "kind": "workshop"
+  },
+  {
+   "id": "p4-s10",
+   "part": 4,
+   "speakers": {
+    "S": {
+     "g": "m",
+     "accent": "US"
+    }
+   },
+   "script": [
+    {
+     "s": "S",
+     "t": "Hello, everyone. I have some news about our office relocation."
+    },
+    {
+     "s": "S",
+     "t": "The new building on Harbor Road is finally ready, and we'll be moving in two weeks."
+    },
+    {
+     "s": "S",
+     "t": "Believe it or not, it's even closer to the subway station than our current office."
+    },
+    {
+     "s": "S",
+     "t": "Each department will receive packing materials on Monday. Please label all boxes with your name and department."
+    },
+    {
+     "s": "S",
+     "t": "The IT team will move the computers over the weekend, so you won't have to worry about those. If you have any questions, please contact Olivia Grant in Facilities."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p4.gist",
+     "difficulty": 1,
+     "question": "What is the main topic of the announcement?",
+     "choices": [
+      "An office move",
+      "A new subway line",
+      "A computer upgrade",
+      "A hiring plan"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "첫 문장에서 사무실 이전(office relocation) 소식을 전한다고 했다.",
+      "traps": [
+       null,
+       "지하철역은 새 건물의 위치 장점으로 나온다.",
+       "컴퓨터는 IT팀이 옮긴다는 정보일 뿐이다.",
+       "채용 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "office relocation",
+       "a": "An office move"
+      }
+     ],
+     "id": "p4-s10-1",
+     "vocab": [
+      {
+       "w": "relocation",
+       "pos": "n",
+       "m": "이전"
+      }
+     ]
+    },
+    {
+     "type": "intent",
+     "concept": "p4.intent",
+     "difficulty": 3,
+     "question": "What does the speaker imply when he says, “Believe it or not, it's even closer to the subway station”?",
+     "choices": [
+      "The new location is surprisingly convenient.",
+      "He is not sure where the building is.",
+      "Employees should drive to work.",
+      "The subway station will close soon."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'믿기 어렵겠지만 지하철역에서 더 가깝다'는 말은 새 위치가 생각보다 편리하다는 뜻이다.",
+      "traps": [
+       null,
+       "위치를 모르는 것이 아니다.",
+       "운전하라는 뜻이 아니다. 오히려 지하철이 더 가깝다.",
+       "역이 문을 닫는다는 말은 없다."
+      ]
+     },
+     "id": "p4-s10-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p4.detail",
+     "difficulty": 2,
+     "question": "What will the IT team do?",
+     "choices": [
+      "Move the computers",
+      "Provide packing boxes",
+      "Label the equipment",
+      "Answer employees' questions"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "IT팀이 주말에 컴퓨터를 옮길 것이라고 했다.",
+      "traps": [
+       null,
+       "포장 자재는 부서별로 '받는' 것이고 IT팀이 준다는 말은 없다.",
+       "상자에 이름을 붙이는 것은 직원들의 일이다.",
+       "문의는 시설팀의 Olivia Grant에게 하라고 했다."
+      ]
+     },
+     "id": "p4-s10-3"
+    }
+   ],
+   "kind": "announcement"
+  }
+ ]
+}
