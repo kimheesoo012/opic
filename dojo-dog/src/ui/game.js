@@ -1,15 +1,17 @@
 // 게임 화면: 위 조작 줄 → LCD 창 → 이야기 칸 → 선택 버튼. 시간 흐름, 오토, 배속.
 import * as G from '../engine/core.js';
 import { SEASON_MS, SPEEDS, FIRST_EVENT_MS, AUTO_WORD_MS, eventShowMs, resultShowMs } from '../engine/pace.js';
-import { SEASON_JA, SEASON_KO, STAT_KO, STAGES, ROLE_KO, ROLES, personFor } from '../engine/world.js';
+import { SEASON_JA, SEASON_KO, STAT_KO, STAT_JA, STAGES, ROLE_KO, ROLE_JA, ROLES, personFor } from '../engine/world.js';
 import { SUB_TITLES } from '../data/index.js';
-import { resolveKo, plainKo } from '../engine/text.js';
+import { resolveKo, plainKo, plainJa, splitSentJa, splitSentKo } from '../engine/text.js';
 import { h, renderJa, renderKo, renderSpeaker, plainSegs, sceneTargets, LINES } from './render.js';
 import { itemOf } from '../engine/study.js';
 import { LCD } from './pixel/lcd.js';
 import { idlePlan, eventPlan, lookFor } from './pixel/director.js';
 import { icon } from './icons.js';
 import { store } from './store.js';
+import { quizLog, noteScene, sceneQuizDue, cardDue, reschedule } from '../engine/quizplan.js';
+import { planQuiz, renderQuiz } from './playquiz.js';
 
 const CAT = { daily: '日常', kendo: '稽古', sub: 'サブストーリー', iincho: '委員長', cast: '道場の人々', milestone: '節目', hub: '日常' };
 const STAT_ORDER = ['hap', 'hea', 'back', 'soc', 'brave', 'mis'];
@@ -34,6 +36,10 @@ export class GameView {
   get set() {
     return this.app.settings;
   }
+  // 일본어 몰입 모드(기본): 서술·제목·선택지·결과를 일본어로, 한국어는 문장을 탭했을 때만
+  get ja() {
+    return (this.set.lang || 'ja') === 'ja';
+  }
 
   mount() {
     const s = this.s;
@@ -55,11 +61,13 @@ export class GameView {
     this.canvas = h('canvas', { class: 'lcd-canvas', 'aria-hidden': 'true' });
     this.bigEl = h('div', { class: 'lcd-big', 'aria-live': 'polite' });
     this.lcdBox = h('div', { class: 'lcd', onclick: () => this.skip() }, this.canvas, this.bigEl, h('span', { class: 'lcd-skip', 'aria-hidden': 'true' }, icon('skip', 14)));
+    // 도트 창 접기: 작은 화면에서 대사를 읽을 자리를 넓힌다 (설정에 기억)
+    this.foldBtn = h('button', { class: 'fold-btn', type: 'button', onclick: () => this.toggleFold() });
     this.statsEl = h('button', { class: 'stats', type: 'button', 'aria-expanded': 'false', 'aria-label': '능력치', onclick: () => this.toggleStats() });
     this.statsDetail = h('div', { class: 'stats-detail', hidden: true });
     this.prog = h('i');
     this.device = h('div', { class: 'device' },
-      h('div', { class: 'lcd-info' }, this.whenEl, this.stageBtn, this.ageEl),
+      h('div', { class: 'lcd-info' }, this.whenEl, this.stageBtn, this.ageEl, this.foldBtn),
       this.lcdBox,
       h('div', { class: 'progress' }, this.prog),
       this.statsEl,
@@ -93,17 +101,40 @@ export class GameView {
     this.lcd && this.lcd.stop();
   }
 
+  // 접힘 여부: 직접 고른 값이 있으면 그 값, 없으면 아주 낮은 화면(600px 미만)에서는 늘 접어 둔다 (장면마다 열고 닫으면 화면이 흔들린다)
+  isFolded() {
+    if (typeof this.set.lcdFold === 'boolean') return this.set.lcdFold;
+    return window.innerHeight < 600;
+  }
+  toggleFold() {
+    this.set.lcdFold = !this.isFolded();
+    this.app.saveSettings();
+    this.fitLcd();
+  }
+  renderFold() {
+    const fold = this.isFolded();
+    this.el.classList.toggle('lcd-fold', fold);
+    this.foldBtn.textContent = this.ja ? (fold ? '▼ ひらく' : '▲ たたむ') : fold ? '▼ 펼치기' : '▲ 접기';
+    this.foldBtn.setAttribute('aria-expanded', String(!fold));
+    this.foldBtn.setAttribute('aria-label', fold ? '도트 창 펼치기' : '도트 창 접기');
+  }
+
   // LCD는 기기 픽셀 기준 정수 배율로만 키운다 (도트가 고르게 보이도록)
   fitLcd() {
     const dpr = window.devicePixelRatio || 1;
     const avail = Math.max(160, this.device.clientWidth - 16);
-    // 이야기가 펼쳐질 때는 도트 창을 줄여 대사와 선택지에 자리를 내준다
-    const busy = this.s.phase !== 'season';
-    const short = window.innerHeight < 760;
-    const tiny = window.innerHeight < 700;
-    const target = busy ? Math.min(avail, tiny ? 175 : short ? 230 : 290) : Math.min(avail, short ? 300 : 420);
-    this.el.classList.toggle('tiny', busy && tiny);
-    this.el.classList.toggle('compact', busy && short);
+    // 이야기가 펼쳐질 때는 도트 창을 줄여 대사와 선택지에 자리를 내준다.
+    // 높이 기준: iPhone SE Safari(주소창 포함) ≈ 548px, iPhone 13/14 Safari ≈ 664px, 홈 화면 앱 667 / 844px
+    const vh = window.innerHeight;
+    const short = vh < 760;
+    const tiny = vh < 700;
+    const mini = vh < 600;
+    // 장면이 바뀔 때 크기·간격이 오르내리면 화면 전체가 흔들려 어지럽다. 화면 높이로만 정하고 장면과 무관하게 고정한다.
+    const target = Math.min(avail, mini ? 160 : tiny ? 175 : short ? 230 : 290);
+    this.el.classList.toggle('tiny', tiny);
+    this.el.classList.toggle('compact', short);
+    this.el.classList.toggle('xs', mini);
+    this.renderFold();
     const k = Math.max(1, Math.floor((target * dpr) / 160));
     const w = (k * 160) / dpr;
     this.canvas.style.width = w + 'px';
@@ -115,7 +146,7 @@ export class GameView {
     const now = performance.now();
     const dt = Math.min(200, now - this.last);
     this.last = now;
-    if (this.paused || this.app.modalOpen()) return;
+    if (this.paused || this.app.modalOpen() || this.quiz) return;
     const sp = this.set.speed;
     const s = this.s;
     switch (s.phase) {
@@ -184,11 +215,31 @@ export class GameView {
     }
     const sea = G.season(s);
     this.big(`${SEASON_JA[sea]}　${G.yearNo(s)}年目`, false);
-    this.log(`${SEASON_KO[sea]}. ${this.ageText()}.`);
+    this.log(`${SEASON_KO[sea]}. ${this.ageText()}.`, `${SEASON_JA[sea]}。${this.ageTextJa()}。`);
     this.renderHud();
     this.setIdle();
     this.renderIdle();
     this.save();
+    // 학습 모드: 계절이 바뀔 때 가끔 복습 카드 (이야기와 따로, 예전에 만난 말)
+    if (cardDue(quizLog(s), this.set, s.t)) this.openQuiz('card');
+  }
+
+  // 플레이 중 학습: src 'scene'(장면 뒤 확인 문제) | 'card'(복습 카드). 문제가 없으면 아무것도 하지 않는다.
+  openQuiz(src) {
+    const log = quizLog(this.s);
+    const plan = planQuiz(log, src);
+    if (src === 'scene') reschedule(log, this.set);
+    if (!plan) return false;
+    if (src === 'card') log.lastCard = this.s.t;
+    this.quiz = src;
+    this.wait = 0;
+    renderQuiz(this.app, this, plan, src, log, () => {
+      this.quiz = null;
+      this.save();
+      this.renderPhase();
+    });
+    this.resetScroll();
+    return true;
   }
 
   skip() {
@@ -244,6 +295,11 @@ export class GameView {
     this.app.saveGame(this.s);
   }
 
+  ageTextJa() {
+    const t = this.s.t;
+    if (t < 4) return `生後${3 + t * 3}か月`;
+    return `${Math.floor(t / 4)}歳`;
+  }
   ageText() {
     const t = this.s.t;
     if (t < 4) return `생후 ${3 + t * 3}개월`;
@@ -281,9 +337,10 @@ export class GameView {
     this.whenEl.textContent = `${SEASON_JA[sea]} ${G.yearNo(s)}年目`;
     const st = STAGES.find((x) => x.id === G.stage(s));
     this.stageBtn.textContent = st.ja;
-    this.ageEl.textContent = `${s.dog.name} · ${this.ageText()}`;
-    this.statsEl.replaceChildren(...STAT_ORDER.map((k) => h('span', { class: 'stat', title: STAT_KO[k] }, icon(k, 16), h('span', { class: 'bar' }, h('i', { style: `width:${s.st[k]}%` })))));
-    this.statsDetail.replaceChildren(...STAT_ORDER.map((k) => h('span', null, icon(k, 16), `${STAT_KO[k]} ${Math.round(s.st[k])}`)));
+    const STAT = this.ja ? STAT_JA : STAT_KO;
+    this.ageEl.textContent = `${s.dog.name} · ${this.ja ? this.ageTextJa() : this.ageText()}`;
+    this.statsEl.replaceChildren(...STAT_ORDER.map((k) => h('span', { class: 'stat', title: STAT[k] }, icon(k, 16), h('span', { class: 'bar' }, h('i', { style: `width:${s.st[k]}%` })))));
+    this.statsDetail.replaceChildren(...STAT_ORDER.map((k) => h('span', null, icon(k, 16), `${STAT[k]} ${Math.round(s.st[k])}`)));
     if (first) this.fitLcd();
   }
 
@@ -293,18 +350,19 @@ export class GameView {
     this.ticker.replaceChildren(...ROLES.map((r) => {
       const p = personFor(s.cast, r);
       return h('button', { class: 'who' + (this.lastNews && prev[r] !== s.news[r] ? ' flash' : ''), type: 'button', onclick: () => this.castSheet(r) },
-        h('b', null, p.ko), h('span', null, s.news[r] || ''));
+        h('b', { lang: this.ja ? 'ja' : null }, this.ja ? p.call : p.ko),
+        h('span', { lang: this.ja && s.newsJa && s.newsJa[r] ? 'ja' : null }, this.ja && s.newsJa && s.newsJa[r] ? plainJa(s.newsJa[r], { s }) : s.news[r] || ''));
     }));
     this.lastNews = { ...s.news };
   }
 
-  log(text) {
+  log(text, textJa = null) {
     this.pendingLog = this.pendingLog || [];
-    this.pendingLog.push(text);
+    this.pendingLog.push(this.ja && textJa ? textJa : text);
   }
   flushLog() {
     const s = this.s;
-    for (const l of s.log.splice(0)) this.log(l.text);
+    for (const l of s.log.splice(0)) this.log(l.text, l.textJa ? plainJa(l.textJa, { s }) : null);
     for (const t of this.pendingLog || []) this.logEl.prepend(h('p', null, t));
     this.pendingLog = [];
     while (this.logEl.children.length > 4) this.logEl.lastChild.remove();
@@ -339,31 +397,81 @@ export class GameView {
     };
   }
 
-  renderLines(lines, title) {
+  // 장면의 학습 대상: 대사(+ 일본어 모드에서는 서술 문장)에서 고른다. 만난 것으로 기록하고, 장면 뒤 확인 문제에 쓴다.
+  sceneIds(tpls) {
+    const targetIds = sceneTargets(tpls, this.set);
+    this.app.meet(targetIds, this.s);
+    if (this.bag) {
+      this.bag.lines += tpls.length;
+      for (const id of targetIds) {
+        this.bag.ids.add(id);
+        const hit = tpls.find((t) => lineHas(t, id));
+        if (hit) this.bag.where[id] = hit;
+      }
+    }
+    return targetIds;
+  }
+
+  // 일본어 서술: 문장마다 탭하면 그 문장의 한국어가 아래에 나온다 (낱말 밑줄을 탭하면 해설 창)
+  narrBlock(ja, ko, title, targets, cls = 'ev-text jp') {
+    const jaS = splitSentJa(ja);
+    const koS = splitSentKo(resolveKo(ko || '', { s: this.s }));
+    const aligned = jaS.length === koS.length;
+    const p = h('p', { class: cls, lang: 'ja' });
+    const koBox = h('div', { class: 'sent-ko', hidden: true, lang: 'ko' });
+    let open = -1;
+    const spans = jaS.map((sent, i) => {
+      const ctx = this.ctxFor(null);
+      ctx.targets = targets;
+      const scene = () => ({ tpl: sent, role: null, ja: plainJa(sent, { s: this.s }), ko: aligned ? koS[i] : koS.join(' '), sp: '', title, when: this.ageText() });
+      ctx.onWord = (key) => this.app.openWord(key, scene());
+      ctx.onGrammar = (key) => this.app.openGrammar(key, scene());
+      const span = h('span', { class: 'sent', role: 'button', tabindex: '0', 'aria-label': '이 문장 번역' }, renderJa(sent, ctx));
+      const toggle = () => {
+        spans.forEach((x) => x.classList.remove('on'));
+        if (open === i) {
+          koBox.hidden = true;
+          open = -1;
+          return;
+        }
+        open = i;
+        span.classList.add('on');
+        koBox.textContent = aligned ? koS[i] : koS.join(' ');
+        koBox.hidden = false;
+        this.app.noteTranslate(sent);
+      };
+      span.addEventListener('click', toggle);
+      span.addEventListener('keydown', (e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), toggle()));
+      return span;
+    });
+    spans.forEach((x, i) => p.append(x, i < spans.length - 1 ? '' : ''));
+    return h('div', { class: 'narr' }, p, koBox);
+  }
+
+  renderLines(lines, title, ids = null) {
     const box = h('div', { class: 'lines' });
     const kos = [];
     const focus = !!this.set.focus;
-    const targetIds = sceneTargets(lines.map((l) => l[1]), this.set);
+    const targetIds = ids || this.sceneIds(lines.map((l) => l[1]));
     const targets = new Set(targetIds);
-    this.app.meet(targetIds, this.s);
     const scenes = {};
     for (const [sp, ja, ko] of lines) {
       const ctx = this.ctxFor(sp);
       ctx.targets = targets;
       const koText = resolveKo(ko, { s: this.s });
-      const koEl = h('div', { class: 'ko', hidden: true }, koText);
+      const koEl = h('div', { class: 'ko', hidden: this.ja }, koText);
       kos.push(koEl);
       const scene = () => ({ tpl: ja, role: sp, ja: plainSegs(ja, { s: this.s, speaker: sp }), ko: koText, sp: spLabelText(sp, this.s), title, when: `${this.ageText()} ${SEASON_KO[G.season(this.s)]}` });
       for (const id of targetIds) if (!scenes[id] && lineHas(ja, id)) scenes[id] = scene;
       ctx.onWord = (key) => this.app.openWord(key, scene());
       ctx.onGrammar = (key) => this.app.openGrammar(key, scene());
       // 학습 집중 모드: 대사마다 번역 버튼
-      const lineTool = focus ? h('button', { class: 'mini-btn line-ko', type: 'button', onclick: (e) => { koEl.hidden = !koEl.hidden; e.currentTarget.textContent = koEl.hidden ? '번역' : '닫기'; } }, '번역') : null;
+      const lineTool = focus && this.ja ? h('button', { class: 'mini-btn line-ko', type: 'button', onclick: (e) => { koEl.hidden = !koEl.hidden; e.currentTarget.textContent = koEl.hidden ? '訳' : '閉じる'; if (!koEl.hidden) this.app.noteTranslate(ja); } }, '訳') : null;
       box.append(h('div', { class: 'line' }, h('div', { class: 'sp' }, renderSpeaker(sp, this.s, this.set.furigana, ctx), lineTool), h('div', { class: 'ja' }, renderJa(ja, ctx)), koEl));
     }
-    if (kos.length && !focus) {
+    if (kos.length && !focus && this.ja) {
       let on = false;
-      const btn = h('button', { class: 'mini-btn', type: 'button', onclick: () => { on = !on; kos.forEach((k) => (k.hidden = !on)); btn.textContent = on ? '번역 닫기' : '번역'; } }, '번역');
+      const btn = h('button', { class: 'mini-btn', type: 'button', onclick: () => { on = !on; kos.forEach((k) => (k.hidden = !on)); btn.textContent = on ? '訳を閉じる' : '訳'; if (on) lines.forEach((l) => this.app.noteTranslate(l[1])); } }, '訳');
       box.append(h('div', { class: 'tools' }, btn));
     }
     // 학습 집중 모드: 이 장면의 학습 대상 목록 (탭하면 해설)
@@ -377,20 +485,34 @@ export class GameView {
     return box;
   }
 
-  // 한국어 해설. 길면 네 줄까지만 보이고 「더보기」로 펼친다 (버튼은 아래 칸에 따로 있어 가려지지 않는다)
+  // 일본어 제목: 탭하면 한국어 제목
+  titleEl(ja, ko) {
+    if (!ja) return h('h3', { class: 'ev-title' }, resolveKo(ko || '', { s: this.s }));
+    const koEl = h('span', { class: 'title-ko', hidden: true, lang: 'ko' }, ko);
+    const el = h('h3', { class: 'ev-title jp', lang: 'ja', role: 'button', tabindex: '0', onclick: () => (koEl.hidden = !koEl.hidden) }, renderJa(ja, { ...this.ctxFor(null), targets: new Set() }), koEl);
+    return el;
+  }
+
+  // 한국어 해설은 상황만 짧게: 앞 문장(40자 안팎)만 보이고 나머지는 「더보기」. 일본어 대사가 주인공이다.
   koBlock(text, title) {
     const ctx = this.ctxFor(null);
     ctx.onWord = (key) => this.app.openWord(key, { ja: '', ko: plainKo(text), sp: '', title, when: this.ageText() });
-    const p = h('p', { class: 'ev-text' }, renderKo(text, ctx));
+    const { head, rest } = splitContext(text);
+    const p = h('p', { class: 'ev-text ctx' }, renderKo(head, ctx));
     if (ctx.newTerms.length) store.saveSeenTerms(this.seenTerms);
-    if (plainKo(text).length < 90) return p;
-    p.classList.add('clamp');
-    const more = h('button', { class: 'more-btn', type: 'button', onclick: () => { const open = p.classList.toggle('clamp'); more.textContent = open ? '더보기' : '접기'; } }, '더보기');
-    requestAnimationFrame(() => { if (p.scrollHeight <= p.clientHeight + 2) more.remove(); });
-    return h('div', null, p, more);
+    if (!rest) return p;
+    const more = h('button', { class: 'more-btn', type: 'button', 'aria-expanded': 'false', onclick: () => {
+      more.remove();
+      const c2 = this.ctxFor(null);
+      c2.onWord = ctx.onWord;
+      p.append(' ', renderKo(rest, c2));
+    } }, '더보기');
+    p.append(' ', more);
+    return p;
   }
 
   refresh() {
+    if (this.quiz) return;
     const s = this.s;
     const keep = this.wait;
     const top = this.panel.scrollTop;
@@ -415,7 +537,20 @@ export class GameView {
     else if (s.phase === 'word') this.showWord();
     else if (s.phase === 'farewell') return this.app.toFarewell(s);
     this.fitLcd();
-    this.panel.scrollTop = 0;
+    this.resetScroll();
+  }
+
+  // 장면이 바뀌면 새 글의 처음부터 보이게 한다.
+  // iOS Safari는 관성 스크롤 중에 scrollTop 지정을 무시하므로, 잠깐 overflow를 막고 맞춘다. 배치가 끝난 뒤 한 번 더.
+  resetScroll() {
+    const p = this.panel;
+    p.style.overflowY = 'hidden';
+    p.scrollTop = 0;
+    if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
+    requestAnimationFrame(() => {
+      p.scrollTop = 0;
+      p.style.overflowY = '';
+    });
   }
 
   showEvent(again = false) {
@@ -426,6 +561,7 @@ export class GameView {
     // 오토 선택은 장면마다 한 번만 정한다 (설정을 바꿔 다시 그려도 그대로)
     if (!again || this.autoIdx === undefined) this.autoIdx = G.autoChoice(this.s);
     const ev = G.EV.get(v.id);
+    if (!again) this.bag = { ids: new Set(), where: {}, lines: 0 };
     if (!again) {
       const plan = eventPlan(this.s, v, this.elapsed / SEASON_MS);
       this.lcd.setPlan(plan, this.s);
@@ -434,22 +570,54 @@ export class GameView {
         this.app.sound.sfx('big');
       } else if (ev.cat === 'kendo' || ev.kendo) this.app.sound.sfx('shinai');
     }
-    const head = h('div', { class: 'ev-cat' }, (v.sub ? 'サブストーリー' : CAT[v.cat] || '') + (v.who ? ` · ${ROLE_KO[v.who]}` : ''));
-    this.panel.replaceChildren(head, h('h3', { class: 'ev-title' }, v.title), v.text ? this.koBlock(v.text, v.title) : '', v.lines.length ? this.renderLines(v.lines, v.title) : '');
+    const head = h('div', { class: 'ev-cat' }, (v.sub ? 'サブストーリー' : CAT[v.cat] || '') + (v.who ? ` · ${(this.ja ? ROLE_JA : ROLE_KO)[v.who]}` : ''));
+    if (this.ja && v.textJa) {
+      // 일본어 몰입: 제목·서술 일본어, 서술 문장도 학습 대상에 넣는다
+      const narr = splitSentJa(v.textJa);
+      const ids = this.sceneIds([...narr, ...v.lines.map((l) => l[1])]);
+      const targets = new Set(ids);
+      this.panel.replaceChildren(head, this.titleEl(v.titleJa, v.title), this.narrBlock(v.textJa, v.text, v.title, targets), v.lines.length ? this.renderLines(v.lines, v.title, ids) : '');
+    } else {
+      this.panel.replaceChildren(head, h('h3', { class: 'ev-title' }, v.title), v.text ? this.koBlock(v.text, v.title) : '', v.lines.length ? this.renderLines(v.lines, v.title) : '');
+    }
     this.choiceBtns = [];
     this.manualOnce = false;
     const btns = [];
     const calm = this.autoActive() && v.choices.length && !v.mini;
+    // 「선택지: 중요한 장면만」: 작은 장면은 개가 성격대로 움직인다. 대사를 읽고 つぎへ (원하면 직접 고르기)
+    const dogActs = !calm && this.set.choiceMode !== 'all' && !v.major && !v.mini && v.choices.length > 1 && this.autoIdx >= 0;
+    // 직접 고르는 장면도 선택지는 「행동 고르기」를 누른 뒤에 펼친다 (먼저 일본어 대사를 다 읽을 수 있게)
+    const askFirst = !calm && !dogActs && !v.mini && v.choices.length > 1;
     if (calm) {
       this.autoLine = h('span', { class: 'auto-line-text' }, 'オート');
-      btns.push(h('div', { class: 'auto-line' }, this.autoLine, h('button', { class: 'mini-btn', type: 'button', onclick: () => this.takeOver() }, '직접 고르기')));
+      btns.push(h('div', { class: 'auto-line' }, this.autoLine, h('button', { class: 'mini-btn', type: 'button', onclick: () => this.takeOver() }, this.ja ? '自分で選ぶ' : '직접 고르기')));
+    }
+    if (dogActs) {
+      btns.push(h('div', { class: 'dog-acts' },
+        h('button', { class: 'btn primary', type: 'button', onclick: () => this.doChoose(this.autoIdx, true) }, 'つぎへ'),
+        h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { e.currentTarget.parentNode.remove(); for (const [, b] of this.choiceBtns) b.hidden = false; } }, this.ja ? '自分で選ぶ' : '직접 고르기')));
+    }
+    if (askFirst) {
+      btns.push(h('button', { class: 'btn primary open-choices', type: 'button', onclick: (e) => { e.currentTarget.remove(); for (const [, b] of this.choiceBtns) b.hidden = false; } }, this.ja ? 'どうする？' : '행동 고르기'));
     }
     if (v.mini && !this.autoActive()) btns.push(this.tambourine(v));
     else if (v.choices.length) {
       for (const c of v.choices) {
-        const b = h('button', { class: 'btn' + (c.ok ? '' : ' off'), type: 'button', disabled: !c.ok, hidden: calm, onclick: () => this.doChoose(c.i, false) }, h('span', null, c.t, !c.ok && c.why ? h('div', { class: 'why' }, c.why) : null));
-        this.choiceBtns.push([c.i, b]);
-        btns.push(b);
+        const jp = this.ja && c.tJa;
+        const why = !c.ok && (jp && c.whyJa ? c.whyJa : c.why);
+        const ko = jp ? h('span', { class: 'choice-ko', hidden: true, lang: 'ko' }, c.t) : null;
+        const label = jp ? renderJa(c.tJa, { ...this.ctxFor(null), targets: new Set() }) : c.t;
+        const b = h('button', { class: 'btn' + (c.ok ? '' : ' off'), type: 'button', disabled: !c.ok, lang: jp ? 'ja' : null, onclick: () => this.doChoose(c.i, false) }, h('span', null, label, ko, why ? h('div', { class: 'why' }, jp && c.whyJa ? plainJa(c.whyJa, { s: this.s }) : why) : null));
+        // 번역은 선택과 따로: 「訳」을 눌러도 고르지 않는다
+        const tr = jp ? h('button', { class: 'tr-btn', type: 'button', 'aria-label': '이 선택지 번역', 'aria-pressed': 'false', onclick: (e) => {
+          e.stopPropagation();
+          ko.hidden = !ko.hidden;
+          tr.setAttribute('aria-pressed', String(!ko.hidden));
+          if (!ko.hidden) this.app.noteTranslate(c.tJa);
+        } }, '訳') : null;
+        const row = h('div', { class: 'choice-row', hidden: calm || dogActs || askFirst }, b, tr);
+        this.choiceBtns.push([c.i, row, b, jp ? plainJa(c.tJa, { s: this.s }) : c.t]);
+        btns.push(row);
       }
     } else btns.push(h('button', { class: 'btn primary', type: 'button', onclick: () => this.doChoose(-1, false) }, 'つぎへ'));
     this.foot.replaceChildren(...btns);
@@ -466,10 +634,10 @@ export class GameView {
   showAutoPick() {
     this.autoShown = true;
     const pair = this.choiceBtns.find(([i]) => i === this.autoIdx);
-    if (this.autoLine && pair && !this.manualOnce) this.autoLine.textContent = `オート · ${pair[1].textContent}`;
+    if (this.autoLine && pair && !this.manualOnce) this.autoLine.textContent = `オート · ${pair[3]}`;
     if (pair) {
-      pair[1].classList.add('auto-pick');
-      pair[1].append(h('span', { class: 'auto-badge' }, 'オート'));
+      pair[2].classList.add('auto-pick');
+      pair[2].append(h('span', { class: 'auto-badge' }, 'オート'));
     }
   }
 
@@ -501,19 +669,29 @@ export class GameView {
       }
       this.lcd.setPlan({ ...this.lcd.plan, bubble: ok ? 'heart' : r.notes.includes('실패') ? 'sweat' : null }, this.s);
     }
-    const body = [h('div', { class: 'ev-cat' }, CAT[ev.cat] || ''), h('h3', { class: 'ev-title' }, title)];
-    if (r.choice) body.push(h('div', { class: 'res-choice' }, (r.auto ? 'オート · ' : '') + r.choice));
-    if (r.res) body.push(this.koBlock(r.res, title));
-    if (r.lines.length) body.push(this.renderLines(r.lines, title));
+    const jp = this.ja && (r.resJa || ev.titleJa);
+    const body = [h('div', { class: 'ev-cat' }, CAT[ev.cat] || ''), jp && ev.titleJa ? this.titleEl(ev.titleJa, title) : h('h3', { class: 'ev-title' }, title)];
+    if (r.choice) body.push(h('div', { class: 'res-choice', lang: jp && r.choiceJa ? 'ja' : null }, (r.auto ? `${this.s.dog.name} · ` : '') + (jp && r.choiceJa ? plainJa(r.choiceJa, { s: this.s }) : r.choice)));
+    if (jp && r.resJa) {
+      const narr = splitSentJa(r.resJa);
+      const ids = this.sceneIds([...narr, ...r.lines.map((l) => l[1])]);
+      body.push(this.narrBlock(r.resJa, r.res, title, new Set(ids)));
+      if (r.lines.length) body.push(this.renderLines(r.lines, title, ids));
+    } else {
+      if (r.res) body.push(this.koBlock(r.res, title));
+      if (r.lines.length) body.push(this.renderLines(r.lines, title));
+    }
     if (r.delta.length) {
       body.push(h('div', { class: 'deltas' }, r.delta.map((d) => {
-        const name = d.k.startsWith('b_') ? `${d.k === 'b_iincho' ? '위원장' : personFor(this.s.cast, d.k.slice(2)).ko} 유대` : STAT_KO[d.k];
+        const p = d.k.startsWith('b_') && d.k !== 'b_iincho' ? personFor(this.s.cast, d.k.slice(2)) : null;
+        const name = d.k.startsWith('b_') ? (this.ja ? `${d.k === 'b_iincho' ? '委員長' : p.call}との絆` : `${d.k === 'b_iincho' ? '위원장' : p.ko} 유대`) : (this.ja ? STAT_JA : STAT_KO)[d.k];
         return h('span', { class: 'delta ' + (d.v > 0 ? 'up' : 'down') }, `${name} ${d.v > 0 ? '+' : ''}${d.v}`);
       })));
     }
-    for (const n of r.notes.filter((x) => x !== '성공' && x !== '실패')) body.push(h('p', { class: 'note' }, n));
+    const notes = this.ja && r.notesJa ? r.notesJa.filter((x) => x !== '成功' && x !== '失敗') : r.notes.filter((x) => x !== '성공' && x !== '실패');
+    for (const n of notes) body.push(h('p', { class: 'note' }, n));
     if (r.foil) {
-      body.push(h('div', { class: 'stamp' }, '作戦阻止', h('small', null, `통산 ${this.s.foiled}회`)));
+      body.push(h('div', { class: 'stamp' }, '作戦阻止', h('small', null, this.ja ? `通算${this.s.foiled}回` : `통산 ${this.s.foiled}회`)));
       if (!again) this.big('作戦阻止');
     }
     if (r.clear) {
@@ -534,26 +712,34 @@ export class GameView {
     if (this.s.phase !== 'result') return;
     G.ack(this.s);
     this.elapsed = Math.min(this.elapsed, SEASON_MS - 1500);
+    // 일본어 대사가 있던 장면이 끝났다: 학습 기록에 남기고, 차례가 되면 확인 문제 (사건 순서는 그대로)
+    const bag = this.bag;
+    this.bag = null;
+    const log = quizLog(this.s);
+    if (bag && bag.lines) noteScene(log, [...bag.ids], bag.where, this.set);
     this.save();
     this.renderHud();
+    if (bag && bag.lines && sceneQuizDue(log, this.set) && this.openQuiz('scene')) return;
     this.renderPhase();
   }
 
   showWord() {
     const w = this.s.pendingWord;
     this.wait = 0;
+    const jp = this.ja && w.qJa;
     const q = resolveKo(w.q, { s: this.s });
-    const input = h('input', { class: 'word-input', id: 'word-input', maxlength: '30', placeholder: '직접 쓰기', 'aria-label': '한마디' });
-    this.panel.replaceChildren(h('div', { class: 'ev-cat' }, '節目'), h('h3', { class: 'ev-title' }, q));
+    const input = h('input', { class: 'word-input', id: 'word-input', maxlength: '30', placeholder: jp ? '自分で書く' : '직접 쓰기', 'aria-label': '한마디' });
+    this.panel.replaceChildren(h('div', { class: 'ev-cat' }, '節目'), jp ? this.titleEl(w.qJa, q) : h('h3', { class: 'ev-title' }, q));
+    const presets = jp && w.presetsJa ? w.presetsJa : w.presets;
     this.foot.replaceChildren(
-      ...w.presets.map((p) => h('button', { class: 'btn', type: 'button', onclick: () => this.doWord(p) }, p)),
-      h('div', { class: 'row' }, input, h('button', { class: 'mini-btn', type: 'button', style: 'min-width:72px', onclick: () => input.value.trim() && this.doWord(input.value) }, '남기기')));
+      ...presets.map((p, i) => h('button', { class: 'btn', type: 'button', lang: jp ? 'ja' : null, title: jp ? w.presets[i] : null, onclick: () => this.doWord(p) }, p)),
+      h('div', { class: 'row' }, input, h('button', { class: 'mini-btn', type: 'button', style: 'min-width:72px', onclick: () => input.value.trim() && this.doWord(input.value) }, jp ? '残す' : '남기기')));
   }
 
   doWord(text, auto) {
     if (this.s.phase !== 'word') return;
     G.setWord(this.s, text, auto);
-    if (auto) this.log(`オート: 「${text}」`);
+    if (auto) this.log(`オート: 「${text}」`, `オート：「${text}」`);
     this.save();
     this.renderPhase();
   }
@@ -566,7 +752,7 @@ export class GameView {
     const period = 620;
     const ring = h('div', { class: 'ring' });
     const drum = h('div', { class: 'drum', role: 'button', tabindex: '0', 'aria-label': '탬버린' }, ring, h('span', null, '♪'));
-    const score = h('div', { class: 'score' }, '탭: 시작');
+    const score = h('div', { class: 'score' }, this.ja ? 'タップでスタート' : '탭: 시작');
     const box = h('div', { class: 'mini' }, drum, score);
     let t0 = 0;
     let raf = 0;
@@ -613,7 +799,7 @@ export class GameView {
       hit();
     });
     drum.addEventListener('keydown', (e) => (e.key === ' ' || e.key === 'Enter') && hit());
-    return h('div', null, h('p', { class: 'note', style: 'text-align:center' }, '고리가 닿을 때 탭'), box);
+    return h('div', null, h('p', { class: 'note', style: 'text-align:center' }, this.ja ? '輪が重なったらタップ' : '고리가 닿을 때 탭'), box);
   }
 
   // ───── 근황·메뉴 ─────
@@ -623,12 +809,12 @@ export class GameView {
     const ach = s.ach[role];
     const back = h('div', { class: 'modal-back', onclick: (e) => e.target === back && back.remove() },
       h('div', { class: 'modal' },
-        h('div', { class: 'ev-cat' }, ROLE_KO[role]),
-        h('h3', { class: 'ev-title' }, p.ko, h('small', { class: 'note', lang: 'ja', style: 'margin-left:8px' }, p.s ? (/^[ァ-ヶー]+$/.test(p.s) ? `${p.s}・${p.g}` : `${p.s} ${p.g}`) : p.g)),
-        h('p', null, s.news[role]),
-        h('p', { class: 'note' }, `유대 ${s.bond[role]}`),
-        ach.length ? h('ul', null, ach.map((a) => h('li', null, `${Math.floor(a.t / 4)}살 — ${a.text}`))) : null,
-        h('button', { class: 'btn primary', type: 'button', onclick: () => back.remove() }, '닫기')));
+        h('div', { class: 'ev-cat' }, this.ja ? ROLE_JA[role] : ROLE_KO[role]),
+        h('h3', { class: 'ev-title' }, this.ja ? p.call : p.ko, h('small', { class: 'note', lang: 'ja', style: 'margin-left:8px' }, p.s ? (/^[ァ-ヶー]+$/.test(p.s) ? `${p.s}・${p.g}` : `${p.s} ${p.g}`) : p.g)),
+        this.ja && s.newsJa && s.newsJa[role] ? h('p', { lang: 'ja', title: s.news[role] }, plainJa(s.newsJa[role], { s })) : h('p', null, s.news[role]),
+        h('p', { class: 'note' }, this.ja ? `絆 ${s.bond[role]}` : `유대 ${s.bond[role]}`),
+        ach.length ? h('ul', this.ja ? { lang: 'ja' } : null, ach.map((a) => h('li', null, this.ja ? `${Math.floor(a.t / 4)}歳 — ${a.textJa ? plainJa(a.textJa, { s }) : a.text}` : `${Math.floor(a.t / 4)}살 — ${a.text}`))) : null,
+        h('button', { class: 'btn primary', type: 'button', onclick: () => back.remove() }, this.ja ? '閉じる' : '닫기')));
     this.app.root.append(back);
   }
 
@@ -645,9 +831,18 @@ export class GameView {
           h('button', { class: 'btn center', type: 'button', onclick: () => { close(); this.save(); this.app.go('wordbook'); } }, '単語帳'),
           h('button', { class: 'btn center', type: 'button', onclick: () => { close(); this.save(); this.app.go('review'); } }, '復習')),
         h('button', { class: 'btn center', type: 'button', onclick: () => { close(); this.save(); this.app.go('title'); } }, 'タイトル'),
-        h('button', { class: 'btn primary', type: 'button', onclick: close }, '닫기'))));
+        h('button', { class: 'btn primary', type: 'button', onclick: close }, this.ja ? '閉じる' : '닫기'))));
     this.app.root.append(back);
   }
+}
+
+// 한국어 해설을 앞부분(상황)과 나머지로 나눈다. 문장 단위로 40자 안팎까지 (첫 문장은 항상 통째로).
+export function splitContext(text) {
+  const parts = String(text).split(/(?<=[.!?…」])\s+/);
+  let head = parts[0];
+  let i = 1;
+  while (i < parts.length && plainKo(head + ' ' + parts[i]).length <= 40) head += ' ' + parts[i++];
+  return { head, rest: parts.slice(i).join(' ') };
 }
 
 function lineHas(tpl, id) {

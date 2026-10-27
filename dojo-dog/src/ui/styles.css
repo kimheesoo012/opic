@@ -220,7 +220,7 @@ h3.h { font-family: var(--f-display); font-weight: 400; font-size: 19px; margin:
 .lcd-info { display: flex; align-items: center; gap: 8px; padding: 0 4px 6px; font-family: var(--f-display); font-size: 16px; min-height: 30px; }
 .lcd-info .when { white-space: nowrap; }
 .lcd-info .age { margin-left: auto; color: #b9c3d6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; font-family: var(--f-body); }
-.stage-chip { font-family: var(--f-display); font-size: 16px; color: #e8c447; border: 1px solid #5a6380; background: transparent; border-radius: 6px; padding: 0 8px; min-height: 28px; cursor: pointer; }
+.stage-chip { font-family: var(--f-display); font-size: 16px; color: #e8c447; border: 1px solid #5a6380; background: transparent; border-radius: 6px; padding: 0 8px; min-height: 28px; cursor: pointer; white-space: nowrap; flex: none; }
 .lcd { position: relative; display: grid; place-items: center; background: var(--lcd-edge); border-radius: 6px; padding: 4px; overflow: hidden; cursor: pointer; }
 .lcd-canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; width: 320px; height: 192px; transition: transform 0.35s ease; }
 .lcd.zoom .lcd-canvas { animation: zoom 1.6s ease; }
@@ -332,3 +332,110 @@ ruby rt { line-height: 1; }
 .game.tiny .ev-text.clamp { -webkit-line-clamp: 3; }
 .game.tiny .ev-title { font-size: 18px; margin-bottom: 4px; }
 .game.tiny .foot { max-height: 42vh; }
+.v-conn { margin-top: 6px; font-size: 16px; }
+.v-conn b { font-weight: 600; color: var(--ink2); }
+
+/* ───── 4판: 실제 iPhone 화면 가독성 ───── */
+/* 보이는 높이(주소창·툴바를 뺀 높이)에 맞춘다. 100vh는 iOS Safari에서 화면보다 길어 아래 선택지가 밀려난다 */
+@supports (height: 100dvh) { html { height: 100dvh; } }
+html, body { overflow: hidden; overscroll-behavior: none; }
+.panel { padding-bottom: 20px; scroll-padding-top: 8px; min-height: 120px; }
+@supports (height: 100dvh) { .foot { max-height: 42dvh; } }
+/* 도트 창 접기 단추와 접힌 상태 (계절·성장 단계·나이만 한 줄로) */
+.fold-btn { flex: 0 0 auto; min-height: 36px; min-width: 44px; padding: 0 10px; margin-left: 4px; border-radius: 8px; border: 1px solid #5a6380; background: transparent; color: #e9e6dc; font-family: var(--f-body); font-size: 14px; cursor: pointer; white-space: nowrap; }
+.lcd-info .age { margin-left: auto; }
+.game.lcd-fold .lcd, .game.lcd-fold .progress, .game.lcd-fold .stats, .game.lcd-fold .stats-detail { display: none; }
+.game.lcd-fold .device { padding: 4px 8px; }
+.game.lcd-fold .lcd-info { padding: 0 2px; min-height: 36px; }
+/* 이야기 중 짧은 화면: 오토 안내 줄을 숨기고(オート 단추 색으로 상태가 보인다) 조작 줄을 낮춘다 */
+.game.compact .auto-cap { display: none; }
+.game.compact .topbar { padding-top: 4px; padding-bottom: 4px; }
+.game.compact .line .ja { line-height: 2.05; }
+.game.compact .lines { gap: 8px; }
+.game.compact .foot .btn { padding-top: 8px; padding-bottom: 8px; }
+.game.compact .foot { gap: 6px; padding-top: 6px; }
+.game.xs .ctl, .game.xs .seg button { min-height: 44px; }
+.game.xs .lcd-info { font-size: 14px; min-height: 0; padding-bottom: 2px; }
+.game.xs .lcd-info .age { display: none; }
+.game.xs .fold-btn, .game.lcd-fold .fold-btn { margin-left: auto; }
+.game.xs .stage-chip { min-height: 24px; font-size: 14px; }
+.game.xs .device { padding: 6px; }
+.game.xs .progress { margin-top: 4px; }
+.game.xs .ev-title { font-size: 18px; margin: 0 0 4px; }
+.game.xs .ev-cat { font-size: 14px; }
+.scroll { padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }
+/* ───── 5판: 일본어가 먼저 ───── */
+.ev-text.ctx { font-size: 16px; line-height: 1.6; color: var(--ink2); margin: 0 0 8px; }
+.ev-text.ctx .more-btn { display: inline; min-height: 0; padding: 0 2px; font-size: 15px; }
+.dog-acts { display: flex; gap: 8px; align-items: stretch; }
+.dog-acts .btn { flex: 1; }
+.dog-acts .mini-btn { min-height: 48px; }
+/* ───── 6판: 움직임 줄이기 (멀미) ───── */
+/* 큰 장면에서 도트 창이 커졌다 작아지던 효과를 없앤다. 큰 글자는 제자리에서 나타났다 사라지기만 한다 */
+.lcd.zoom .lcd-canvas { animation: none; }
+.lcd-canvas { transition: none; }
+.modal { animation: none; }
+.stamp { animation: none; }
+#app { transition: none; }
+/* ───── 7판: 플레이 중 학습 ───── */
+.q-line { margin: 6px 0 8px; }
+.q-blank { display: inline-block; min-width: 3.2em; text-align: center; border-bottom: 2px solid var(--accent); color: var(--accent); }
+.q-why { margin: 0 0 4px; }
+.q-opt[aria-disabled='true'] { cursor: default; }
+.life-study h4 { margin: 12px 0 4px; font-size: 16px; color: var(--accent); }
+.life-study .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.life-study .chip { border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; font-family: var(--f-ja); background: var(--surface2); }
+.life-study .weak { margin: 0; padding-left: 18px; }
+.life-study .weak b { font-family: var(--f-ja); font-weight: 600; }
+/* ───── 8판: 일본어 몰입 ───── */
+.ev-text.jp { font-family: var(--f-ja); font-size: 17px; line-height: 2.1; margin: 0 0 4px; color: var(--ink); }
+.ev-text.jp .sent { cursor: pointer; border-radius: 4px; }
+.ev-text.jp .sent.on { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.sent-ko { font-size: 16px; color: var(--ink2); border-left: 3px solid var(--accent); padding: 4px 10px; margin: 2px 0 10px; background: var(--surface); border-radius: 0 8px 8px 0; }
+.ev-title.jp { font-family: var(--f-ja); cursor: pointer; }
+.title-ko { display: block; font-size: 15px; font-weight: 400; color: var(--ink2); margin-top: 2px; }
+.choice-row { display: flex; gap: 6px; align-items: stretch; }
+.choice-row[hidden] { display: none; }
+.choice-row > .btn { flex: 1; min-width: 0; }
+.choice-row .btn[lang='ja'] { font-family: var(--f-ja); line-height: 1.9; }
+.tr-btn { flex: 0 0 48px; min-height: 48px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface2); color: var(--ink2); font-family: var(--f-ja); font-size: 16px; cursor: pointer; }
+.tr-btn[aria-pressed='true'] { border-color: var(--accent); color: var(--accent); }
+.choice-ko { display: block; font-family: var(--f-body); font-size: 15px; color: var(--ink2); margin-top: 2px; line-height: 1.5; }
+
+/* ───── JLPT N2対策 ───── */
+.n2-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 10px; scrollbar-width: none; }
+.n2-tabs button { flex: none; min-height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-size: 15px; cursor: pointer; }
+.n2-tabs button[aria-pressed='true'] { background: var(--wood); color: #1a1209; font-weight: 700; border-color: var(--wood); }
+.n2-sum { display: grid; gap: 6px; width: 100%; text-align: left; border: 1px solid var(--line); background: var(--surface); border-radius: 12px; padding: 10px; cursor: pointer; color: var(--ink); font: inherit; margin-top: 8px; }
+.n2-sum-head { font-family: var(--f-display); color: var(--accent); }
+.n2-grid { grid-template-columns: repeat(4, 1fr); }
+.n2-types { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.n2-type { display: grid; grid-template-columns: 1fr auto; gap: 2px 6px; text-align: left; min-height: 64px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; }
+.n2-type span { font-weight: 700; }
+.n2-type small, .n2-type em { color: var(--mute); font-style: normal; font-size: 13px; }
+.n2-type b { justify-self: end; font-size: 14px; }
+.n2-type:disabled { opacity: 0.5; }
+.n2-list { gap: 6px; }
+.n2-row { display: grid; grid-template-columns: auto 1fr; gap: 0 10px; align-items: baseline; text-align: left; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; }
+.n2-w { font-size: 18px; font-weight: 700; }
+.n2-r { color: var(--mute); font-size: 14px; }
+.n2-m { grid-column: 1 / -1; font-size: 14px; }
+.n2-st { grid-column: 1 / -1; font-size: 12px; color: var(--mute); }
+.n2-st.s1 { color: var(--accent); }
+.n2-st.s2 { color: #2f8f4e; }
+.n2-filters .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.chip-btn { min-height: 34px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; cursor: pointer; }
+.chip-btn[aria-pressed='true'] { background: var(--wood); color: #1a1209; border-color: var(--wood); }
+.q-u { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.why { padding-left: 18px; display: grid; gap: 6px; }
+.why li.ans b { color: #2f8f4e; }
+.passage p { line-height: 1.9; margin: 0 0 10px; }
+.passage .ko, .script .ko { color: var(--mute); font-size: 14px; margin: -4px 0 10px; }
+.script .line { display: grid; grid-template-columns: 2.2em 1fr; gap: 2px 6px; padding: 4px 0; }
+.script .line .ko { grid-column: 2; }
+.weak-row { display: grid; grid-template-columns: 1fr auto auto auto; gap: 8px; align-items: center; }
+.n2-grid { grid-template-columns: repeat(2, 1fr); }
+.n2-grid b { writing-mode: horizontal-tb; white-space: nowrap; }
+.why li { color: var(--ink); }
+.why li b { color: var(--ink2); }
+.why li.ans, .why li.ans b { color: #2f8f4e; }

@@ -149,7 +149,7 @@ test('복습 문제: 새 유형(일본어 고르기·문맥·문법 구별)도 �
   }
   console.log(`  정답이 혼자 가장 긴 문제 ${((longest / total) * 100).toFixed(1)}%, 혼자 가장 짧은 문제 ${((shortest / total) * 100).toFixed(1)}%`);
   assert.ok(longest / total < 0.3 && shortest / total < 0.3);
-  for (const k of Object.keys(GRAMMAR)) {
+  for (const k of Object.keys(GRAMMAR).filter((x) => !GRAMMAR[x].x)) {
     const q = makeQuestion('g:' + k, 'z', null, { kind: 'gform' });
     assert.equal(new Set(q.options).size, 4, k);
     assert.equal(q.options[q.answer], GRAMMAR[k].f);
@@ -242,4 +242,112 @@ test('옛 저장 데이터: 1판 설정·상태를 그대로 불러온다', asyn
     else if (back.phase === 'word') G.setWord(back, G.autoWord(back), true);
   }
   assert.ok(back.t > 0);
+});
+
+// ───── 4판: 일본어 표시 전수 검사 ─────
+const flat = (segs) => segs.flatMap((sg) => (sg && sg.s ? sg.s : [sg]));
+const rubyOf = (tpl) => flat(LINES.lines[tpl]).filter(Array.isArray);
+const S0 = '[声]が[小]さい！　そんな声じゃ勝て〘っこない|っこない〙ぞ。もう[一回]！';
+
+test('「N2 이상 어휘만」: 声・小さい・一回 같은 쉬운 말에는 후리가나가 없다', () => {
+  const r = rubyOf(S0);
+  for (const w of ['声', '小', '一回', '勝']) {
+    const it = r.find((x) => x[0] === w);
+    assert.ok(it, w);
+    assert.equal(showRuby('n2', it[2], { hardKanji: !!it[3] }), false, `${w}: N2 모드에서 읽기가 보임 (수준 ${it[2]})`);
+    assert.equal(showRuby('hard', it[2], { hardKanji: !!it[3] }), false, `${w}: 어려운 한자 모드에서 읽기가 보임`);
+    assert.equal(showRuby('always', it[2]), true, w);
+  }
+  // 勝てっこない: 「勝」을 「かち」로 읽던 형태소 오류
+  assert.deepEqual(r.find((x) => x[0] === '勝').slice(0, 2), ['勝', 'か']);
+});
+
+test('일상어가 N2 이상으로 추정되지 않는다 (N2 모드에서 읽기가 숨는 말)', () => {
+  const easy = ['眼鏡', '帽子', '玄関', '冗談', '掃除', '簡単', '健康', '連絡', '暑い', '狭い', '軽い', '授業', '好物', '前足', '小声', '大吉', '柴犬', '麺', '年越し'];
+  const seen = new Map();
+  for (const tpl of [...Object.keys(LINES.lines), ...Object.keys(LINES.ex)]) for (const it of flat(LINES.lines[tpl] || LINES.ex[tpl]).filter(Array.isArray)) seen.set(it[0], it[2]);
+  for (const w of easy) {
+    const code = VOCAB[w] ? lvCode(VOCAB[w].lv) : seen.get(w);
+    if (!code) continue;
+    assert.equal(showRuby('n2', code), false, `${w}: 수준 ${code}`);
+  }
+});
+
+test('읽기 검사: 학습 단어의 읽기가 어휘 DB 읽기와 같다 (대사·예문 전부)', () => {
+  const k2h = (s) => s.replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
+  const bad = [];
+  for (const src of ['lines', 'ex']) {
+    for (const segs of Object.values(LINES[src])) {
+      for (const sg of segs) {
+        if (!sg || !sg.v || !VOCAB[sg.v]) continue;
+        const lastK = sg.s.map((x) => Array.isArray(x)).lastIndexOf(true);
+        if (lastK < 0) continue;
+        const pre = k2h(sg.s.slice(0, lastK + 1).map((x) => (typeof x === 'string' ? x : x[1])).join(''));
+        const surf = sg.s.map((x) => (typeof x === 'string' ? x : x[0])).join('');
+        const all = k2h(sg.s.map((x) => (typeof x === 'string' ? x : x[1])).join(''));
+        const r = k2h(VOCAB[sg.v].r);
+        if (surf === sg.v ? all !== r : !r.startsWith(pre)) bad.push(`${sg.v}(${r}) ← ${surf}(${all})`);
+      }
+    }
+  }
+  assert.deepEqual(bad, []);
+});
+
+test('읽기 검사: 전수 검토에서 찾은 오독이 다시 생기지 않는다', () => {
+  const pairs = new Set();
+  // 한자어 뒤에 붙은 조각(廃棄物의 物=ぶつ, 外国人의 人=じん)은 맞는 읽기이므로 앞에 한자 조각이 없는 것만 본다
+  const OK_CTX = { '生=なま': /生ごみ|生卵|生意気|生放送/ };
+  for (const src of ['lines', 'ex', 'speakers']) for (const [tpl, segs] of Object.entries(LINES[src])) {
+    const surf = flat(segs).map((it) => (Array.isArray(it) ? it[0] : typeof it === 'string' ? it : '')).join('');
+    const list = flat(segs).filter((it) => !(Array.isArray(it) && OK_CTX[it[0] + '=' + it[1]] && OK_CTX[it[0] + '=' + it[1]].test(surf)));
+    list.forEach((it, i) => Array.isArray(it) && !(Array.isArray(list[i - 1]) && it[0].length === 1) && pairs.add(it[0] + '=' + it[1]));
+  }
+  for (const bad of ['物=ぶつ', '仕=つかまつ', '打=だ', '生=なま', '位=い', '守り=もり', '目下=もっか', '勝=かち']) assert.ok(!pairs.has(bad), bad);
+  for (const good of ['洗濯物=せんたくもの', '仕太刀=したち', '打太刀=うちだち', '一年生=いちねんせい', '勝=か']) assert.ok(pairs.has(good), good);
+});
+
+test('문법 표시: 강조 범위가 문법 형태(f)와 같은 글자로 시작하고, 접속 설명이 문장마다 있다', () => {
+  const head = (f) => f.replace(/^～/, '').split(/[・(（～]/)[0];
+  const voiced = { て: 'てで', た: 'ただ', と: 'とど' };
+  const missing = [];
+  for (const [tpl, segs] of Object.entries(LINES.lines)) {
+    for (const sg of segs) {
+      if (!sg || !sg.g) continue;
+      const g = GRAMMAR[sg.g];
+      const surf = sg.s.map((x) => (typeof x === 'string' ? x : x[0])).join('');
+      const forms = g.f.split('・').map(head);
+      const ok = forms.some((h0) => (voiced[h0[0]] || h0[0]).includes(surf[0]));
+      assert.ok(ok, `${sg.g}: 「${surf}」가 형태 「${g.f}」와 맞지 않음 (${tpl.slice(0, 20)})`);
+      if (!sg.c) missing.push(`${sg.g} ${tpl.slice(0, 20)}`);
+    }
+  }
+  assert.deepEqual(missing, [], '접속 설명이 없는 문법 표시');
+});
+
+test('문법 접속 설명: っこない는 가능형 어간에 붙는다고 보이고, 대사의 강조와 같다', () => {
+  const sg = LINES.lines[S0].find((x) => x && x.g === 'っこない');
+  assert.match(sg.c, /^勝て（勝つ의 가능형 勝てる의 ます형）$/);
+  assert.match(GRAMMAR.っこない.c, /ます형＋っこない/);
+  assert.match(GRAMMAR.っこない.c, /勝てる/);
+  // 과거형은 사전형이 아니라 た형으로 설명한다
+  const all = Object.values(LINES.lines).flat().filter((x) => x && x.g && x.c);
+  for (const x of all) if (/(た|だ)（/.test(x.c)) assert.ok(!/의 사전형/.test(x.c), x.c);
+});
+
+test('고유명사 규칙: 일반 낱말(夏·毎日)은 고유명사로 처리하지 않는다', () => {
+  const p = new Set();
+  for (const segs of Object.values(LINES.lines)) for (const it of flat(segs).filter(Array.isArray)) if (it[2] === 'P') p.add(it[0]);
+  for (const w of ['夏', '毎日', '山の上']) assert.ok(!p.has(w), w);
+  assert.equal(showRuby('n2', 'P', { first: true }), true);
+  assert.equal(showRuby('n2', 'P', { first: false }), false);
+  assert.equal(showRuby('off', 'P', { first: true }), false);
+});
+
+test('수+조수사 읽기: 촉음·반탁음·와어 수사·4/7/9의 읽기', async () => {
+  const { numberAt } = await import('../tools/numread.mjs');
+  const cases = { 三十八票: 'さんじゅうはっぴょう', 五十本: 'ごじゅっぽん', 十分間: 'じゅっぷんかん', 一年間: 'いちねんかん', 何百人: 'なんびゃくにん', 十二人: 'じゅうににん', 二日: 'ふつか', 十日目: 'とおかめ', 四人: 'よにん', 四時: 'よじ', 九時: 'くじ', 三階: 'さんがい', 三歩: 'さんぽ', 六本: 'ろっぽん', 一か月: 'いっかげつ', 四年生: 'よねんせい', 三十年来: 'さんじゅうねんらい' };
+  for (const [w, r] of Object.entries(cases)) assert.equal(numberAt(w, 0)?.r, r, w);
+  assert.equal(numberAt('統一', 1), null, '낱말 속 一은 건드리지 않는다');
+  assert.equal(numberAt('十分に分かった', 0), null, '충분하다는 뜻의 十分');
+  assert.equal(numberAt('四分の一', 0).r, 'よんぶん');
 });

@@ -8,7 +8,7 @@ import { store } from './store.js';
 const POS = { n: '명사', v: '동사', a: 'い형용사', na: 'な형용사', adv: '부사', exp: '표현' };
 
 export function levelLabel(lv) {
-  return lv === '범위 밖' ? '검도 용어' : `${lv} 추정`;
+  return lv === '범위 밖' ? '검도 용어' : lv;
 }
 
 // 단어장: { 'key' | 'g:key': { key, at, n, last, scenes: [{ja, ko, sp, title, when}] } }
@@ -32,17 +32,25 @@ export function firstScene(app, id, mode, opts = {}) {
   const s = app.state || app.refState();
   const wb = store.wordbook()[id[0] === 'g' ? id : id.slice(2)];
   const saved = wb && wb.scenes && wb.scenes.find((x) => x.tpl);
-  const info = saved ? { ...(sceneOf(saved.tpl, s) || {}), ...saved } : firstSceneOf(id, s);
+  const info = saved && !opts.blank ? { ...(sceneOf(saved.tpl, s) || {}), ...saved } : firstSceneOf(id, s);
   if (!info || !info.tpl) return null;
   const ko = h('div', { class: 'ko', hidden: true }, info.ko);
   return h('div', null,
-    h('div', { class: 'line' }, h('div', { class: 'ja' }, renderJa(info.tpl, { s, speaker: info.role, mode, targets: new Set([id]) })), ko),
+    h('div', { class: 'line' }, h('div', { class: 'ja' }, renderJa(info.tpl, { s, speaker: info.role, mode, targets: new Set([id]), blankG: opts.blank ? id.slice(2) : null })), ko),
     h('div', { class: 'row', style: 'justify-content:space-between' }, h('span', { class: 'note' }, info.situation || ''), opts.noKo ? null : koToggle(ko)));
 }
 
 function koToggle(koEl) {
   let on = false;
   return h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { on = !on; koEl.hidden = !on; e.currentTarget.textContent = on ? '번역 닫기' : '번역'; } }, '번역');
+}
+
+// 이 문장에서 문법이 붙은 말: 생성기가 만든 접속(例: 勝て（勝つ의 가능형 勝てる의 ます형）)＋문법 표면
+export function connText(tpl, key) {
+  const sg = (LINES.lines[tpl] || []).find((x) => x && x.g === key);
+  if (!sg || !sg.c) return null;
+  const surf = sg.s.map((it) => (typeof it === 'string' ? it : it[0])).join('');
+  return `${sg.c} ＋ ${surf}`;
 }
 
 // 게임 속 문장 · 해석 · 상황
@@ -56,6 +64,7 @@ function sceneBlock(app, scene, id, mode) {
     h('div', { class: 'line' },
       h('div', { class: 'ja' }, renderJa(info.tpl, { s, speaker: info.role, mode, targets: new Set([id]) })),
       h('div', { class: 'ko' }, info.ko)),
+    id[0] === 'g' && connText(info.tpl, id.slice(2)) ? h('div', { class: 'v-conn' }, h('b', null, '이 문장의 접속 '), h('span', { lang: 'ja' }, connText(info.tpl, id.slice(2)))) : null,
     situ ? h('div', { class: 'note' }, situ) : null);
 }
 
@@ -80,12 +89,14 @@ function saveButton(key, scene) {
   return b;
 }
 
-function modal(app, label, ...kids) {
+export function modal(app, label, ...kids) {
   const close = () => back.remove();
   const back = h('div', { class: 'modal-back', onclick: (e) => e.target === back && close() },
     h('div', { class: 'modal', role: 'dialog', 'aria-label': label }, ...kids, h('button', { class: 'btn primary close-btn', type: 'button', onclick: close }, '閉じる')));
   app.root.append(back);
-  back.querySelector('.close-btn').focus();
+  // 닫기 단추에 초점을 두되, 창은 맨 위(표현·뜻)부터 보이게 한다
+  back.querySelector('.close-btn').focus({ preventScroll: true });
+  back.querySelector('.modal').scrollTop = 0;
 }
 
 // 단어를 탭하면 보이는 창. 저장은 「단어장 저장」을 눌렀을 때만.

@@ -20,11 +20,11 @@ const phone = { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isM
 async function run() {
   const ctx = await browser.newContext(phone);
   await ctx.addInitScript(() => {
-    if (!localStorage.getItem('dojoinu.settings')) localStorage.setItem('dojoinu.settings', JSON.stringify({ speed: 16, auto: true, autoMode: 'major', furigana: 'hard', sound: false }));
+    if (!localStorage.getItem('dojoinu.settings')) localStorage.setItem('dojoinu.settings', JSON.stringify({ speed: 16, auto: true, autoMode: 'major', furigana: 'hard', sound: false, playMode: 'watch' }));
   });
   const p = await ctx.newPage();
   const errs = [];
-  p.on('pageerror', (e) => errs.push(e.message));
+  p.on('pageerror', (e) => errs.push(e.message + ' @ ' + String(e.stack || '').split('\n').slice(1, 6).join(' ')));
   p.on('console', (m) => m.type() === 'error' && errs.push(m.text()));
   await p.goto(BASE + 'index.html');
   await p.click('text=はじめから');
@@ -61,7 +61,7 @@ async function run() {
     await target.click();
     await p.waitForSelector('.modal');
     const txt = await p.textContent('.modal');
-    ok('학습 대상 탭 → 학습 창 (DB 내용·게임 속 문장·저장 버튼)', /추정|검도 용어/.test(txt) && /例文|접속/.test(txt) && /게임 속 문장/.test(txt) && /단어장 저장/.test(txt), txt.slice(0, 50).replace(/\s+/g, ' '));
+    ok('학습 대상 탭 → 학습 창 (DB 내용·게임 속 문장·저장 버튼)', /수준(N[1-5]|검도 용어)/.test(txt) && !/추정/.test(txt) && /例文|접속/.test(txt) && /게임 속 문장/.test(txt) && /단어장 저장/.test(txt), txt.slice(0, 50).replace(/\s+/g, ' '));
     await p.click('.modal .save-btn');
     ok('「단어장 저장」으로 저장', /저장됨/.test(await p.textContent('.modal .save-btn')));
     await p.screenshot({ path: OUT + '/word-popup.png' });
@@ -81,7 +81,13 @@ async function run() {
   // 진행 + 중간 이어하기
   const t0 = Date.now();
   await p.waitForTimeout(15000);
-  const before = await p.evaluate(() => window.__dojoinu.state.t);
+  // 멈춘 뒤 읽는다 (16배속에서는 읽은 직후 계절이 넘어갈 수 있다)
+  const before = await p.evaluate(() => {
+    const a = window.__dojoinu;
+    if (!a.view.paused) a.view.togglePause();
+    a.view.save();
+    return a.state.t;
+  });
   await p.screenshot({ path: OUT + '/mid-game.png' });
   await p.reload();
   await p.waitForSelector('text=つづきから');
@@ -116,6 +122,11 @@ async function run() {
   });
   fs.writeFileSync(OUT + '/result-card.png', Buffer.from(card.b64, 'base64'));
   ok('결과 카드 이미지 (1080×1920)', card.w === 1080 && card.h === 1920, `${card.w}×${card.h}`);
+  // 이번 견생의 일본어 정리 (만난 N2 어휘·문법, 퀴즈, 취약 표현, 다음 복습)
+  const life = await p.$eval('.life-study', (e) => e.textContent).catch(() => '');
+  await p.$eval('.life-study', (e) => e.scrollIntoView({ block: 'start' })).catch(() => {});
+  await p.screenshot({ path: OUT + '/life-study.png' });
+  ok('견생 정리: 이번 판의 일본어', /만난 N2 어휘/.test(life) && /만난 N2 문법/.test(life) && /퀴즈/.test(life), life.slice(0, 60).replace(/\s+/g, ' '));
   const [dl] = await Promise.all([p.waitForEvent('download', { timeout: 8000 }).catch(() => null), p.click('text=カードを保存')]);
   ok('カードを保存 → 내려받기', !!dl, dl ? dl.suggestedFilename() : '내려받기 이벤트 없음');
   await p.screenshot({ path: OUT + '/result.png', fullPage: true });
@@ -176,7 +187,7 @@ async function run() {
   if (cont) {
     await cont.click();
     const info = await p.textContent('.card');
-    ok('이어지는 세계 설정', /선대/.test(info), info.match(/선대.*/)?.[0] || '');
+    ok('이어지는 세계 설정', /선대|先代/.test(info), info.match(/(선대|先代).*/)?.[0] || '');
   }
   await p.click('text=この子と生きる');
   await p.waitForSelector('text=今日の一問');
@@ -220,7 +231,7 @@ async function legacyData() {
   });
   const p = await ctx.newPage();
   const errs = [];
-  p.on('pageerror', (e) => errs.push(e.message));
+  p.on('pageerror', (e) => errs.push(e.message + ' @ ' + String(e.stack || '').split('\n').slice(1, 6).join(' ')));
   await p.goto(BASE + 'index.html');
   const set = await p.evaluate(() => window.__dojoinu.settings);
   ok('옛 설정 이전 (furigana hard → n2, 배속 유지)', set.furigana === 'n2' && set.speed === 2 && set.studyLevel === 'n2', JSON.stringify({ f: set.furigana, sp: set.speed, lv: set.studyLevel }));

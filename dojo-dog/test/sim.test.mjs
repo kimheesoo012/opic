@@ -107,6 +107,11 @@ test('이벤트 데이터 형식', () => {
   for (const e of ALL_EVENTS) {
     assert.ok(!ids.has(e.id), '중복 id ' + e.id);
     ids.add(e.id);
+    // 뺀 장면: 진행 번호를 지키려고 자리만 남긴 것. 절대 나오지 않아야 한다
+    if (e.removed) {
+      assert.ok(e.skip && e.req && !e.req({}), e.id + ' 뺀 장면은 늘 건너뛴다');
+      continue;
+    }
     assert.ok(e.title, e.id + ' 제목');
     assert.ok(['daily', 'kendo', 'sub', 'iincho', 'cast', 'milestone', 'hub'].includes(e.cat), e.id + ' 분류');
     for (const c of e.choices || []) {

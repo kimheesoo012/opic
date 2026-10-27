@@ -16,8 +16,14 @@ import subs from './subs.js';
 import iincho from './iincho.js';
 import chains from './chains.js';
 
+import { JA } from './ja/all.js';
+import { attachJa } from './ja/index.js';
+
 export const ALL_EVENTS = [
   ...core, ...kid, ...roshi, ...shihan, ...okami, ...worker, ...elder, ...kor,
   ...walk, ...beside, ...life, ...life2, ...kendo, ...subs, ...iincho, ...chains,
 ];
+
+for (const e of ALL_EVENTS) attachJa(e, JA[e.id]);
+export { attachJa };
 export { SUB_TITLES } from './subs.js';

@@ -9,7 +9,7 @@ import * as esbuild from 'esbuild';
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const r = (...p) => path.join(ROOT, ...p);
 
-const js = (await esbuild.build({ entryPoints: [r('src/ui/main.js')], bundle: true, minify: true, format: 'iife', target: ['es2020', 'safari14'], write: false, loader: { '.json': 'json' }, legalComments: 'none' })).outputFiles[0].text;
+const js = (await esbuild.build({ entryPoints: [r('src/ui/main.js')], bundle: true, minify: process.env.NOMIN ? false : true, format: 'iife', target: ['es2020', 'safari14'], write: false, loader: { '.json': 'json' }, legalComments: 'none' })).outputFiles[0].text;
 const css = (await esbuild.build({ entryPoints: [r('src/ui/styles.css')], bundle: true, minify: true, write: false })).outputFiles[0].text;
 const ver = crypto.createHash('sha1').update(js + css).digest('hex').slice(0, 10);
 const safeJs = js.replace(/<\/script/gi, '<\\/script');

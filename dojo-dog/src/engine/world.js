@@ -1,4 +1,5 @@
 // 세계 설정: 성격, 털, 지역, 도장, 인물. 모두 오리지널 설정.
+import { PEOPLE_JA, PERSONALITY_JA, REGION_JA, DOJO_JA, DOJO_LABEL_JA } from '../data/ja/misc.js';
 
 export const SEASONS = ['spring', 'summer', 'autumn', 'winter'];
 export const SEASON_KO = { spring: '봄', summer: '여름', autumn: '가을', winter: '겨울' };
@@ -18,6 +19,7 @@ export function stageOf(ageYears) {
 
 export const STAT_KEYS = ['hap', 'hea', 'back', 'soc', 'brave', 'mis'];
 export const STAT_KO = { hap: '행복', hea: '건강', back: '허리 건강', soc: '사회성', brave: '용감함', mis: '장난기' };
+export const STAT_JA = { hap: '幸せ', hea: '健康', back: '腰の調子', soc: '社交性', brave: '勇気', mis: 'いたずら心' };
 
 // 자동 선택 성향: 선택지 태그별 가중치
 export const PERSONALITIES = [
@@ -44,6 +46,8 @@ export const HAIRS = [
   { id: 'wire', ja: 'ワイヤー', ko: '와이어(강모)' },
 ];
 
+for (const p of PERSONALITIES) p.descJa = PERSONALITY_JA[p.id];
+
 export const DOG_NAMES = [
   ['コテツ', '코테츠'], ['ムサシ', '무사시'], ['あずき', '아즈키'], ['きなこ', '키나코'], ['ちくわ', '치쿠와'],
   ['モナカ', '모나카'], ['ダイズ', '다이즈'], ['こむぎ', '코무기'], ['ゴンタ', '곤타'], ['おもち', '오모치'],
@@ -63,6 +67,9 @@ export const DOJOS = [
   { id: 'kids', ko: '아이들로 북적이는 동네 도장', name: 'こども剣友会', nameKo: '어린이 검우회', desc: '저녁 6시가 되면 아이들 목소리로 지붕이 들썩인다.', st: { soc: 6 }, bg: '元・小学校の先生', bgKo: '전직 초등학교 교사' },
   { id: 'pro', ko: '경찰·실업팀 출신 사범의 도장', name: '坂上剣道場', nameKo: '사카가미 검도장', desc: '현경 특련(特練) 출신 사범이 연 도장. 연습은 짧고 굵다.', st: { hea: 6 }, bg: '元・県警の特練員', bgKo: '전직 현경 특별훈련원' },
 ];
+
+for (const r of REGIONS) r.descJa = REGION_JA[r.id];
+for (const d of DOJOS) Object.assign(d, { descJa: DOJO_JA[d.id], labelJa: DOJO_LABEL_JA[d.id] });
 
 // 인물. 역할(role)에 사람이 배정되고, 세대가 바뀌면 다른 사람이 같은 역할을 맡는다.
 // call: 일본어 기본 호칭 / g: 이름 / s: 성 / c: 친근한 호칭 / ko: 한국어 해설용 이름 / I: 1인칭
@@ -87,6 +94,8 @@ export const PEOPLE = {
   yuki: { s: '朝倉', g: 'ユキ', call: 'ユキさん', c: 'ユキさん', ko: '유키 씨', I: '私', age: 38, dan: '二段', desc: '도장 사무 담당. 개 담당.' },
 };
 
+for (const [id, d] of Object.entries(PEOPLE_JA)) PEOPLE[id].descJa = d;
+
 // 다음 세대에서 역할을 이어받을 때의 호칭
 export const PROMOTE = {
   makoto: { roshi: { call: '坂上先生', c: '坂上先生', ko: '사카가미 선생' } },
@@ -97,6 +106,7 @@ export const PROMOTE = {
 
 export const ROLES = ['roshi', 'shihan', 'okami', 'kid', 'worker', 'elder', 'kor'];
 export const ROLE_KO = { roshi: '노사범', shihan: '사범', okami: '도장 살림', kid: '초등부', worker: '사회인 수련생', elder: '늦깎이 어르신', kor: '한국인 수련생', iincho: '이웃' };
+export const ROLE_JA = { roshi: '老師範', shihan: '師範', okami: '道場の切り盛り', kid: '少年部', worker: '社会人の門下生', elder: '遅咲きの門下生', kor: '韓国から来た門下生', iincho: '隣人' };
 
 export const GEN1 = { roshi: 'washio', shihan: 'makoto', okami: 'chiharu', kid: 'hinata', worker: 'miura', elder: 'fumi', kor: 'sojin' };
 const POOLS = { kid: ['youta', 'minori', 'hinata'], worker: ['takumi', 'kouhei', 'miura'], elder: ['setsuko', 'kiyo', 'fumi'], kor: ['dabin', 'haneul', 'sojin'], okami: ['yuki', 'chiharu'] };

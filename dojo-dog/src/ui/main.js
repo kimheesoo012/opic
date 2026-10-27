@@ -2,13 +2,14 @@
 import * as G from '../engine/core.js';
 import { COATS, HAIRS, PERSONALITIES } from '../engine/world.js';
 import { meet as srsMeet, dueIds } from '../engine/study.js';
-import { h } from './render.js';
+import { h, LINES } from './render.js';
 import { store } from './store.js';
 import { Sound } from './audio.js';
 import { GameView } from './game.js';
 import { farewellScreen, memorialScreen, resultScreen } from './end.js';
 import { wordPopup, grammarPopup } from './vocabui.js';
 import { studyScreen, quizScreen, dailyIds, progressBox } from './studyui.js';
+import { n2Screen, n2SummaryBox } from './n2ui.js';
 import { LCD, fitCanvas } from './pixel/lcd.js';
 import { lookFor } from './pixel/director.js';
 import { icon } from './icons.js';
@@ -64,7 +65,7 @@ class App {
     this.root.append(el);
     el.scrollTop = 0;
   }
-  go(name, arg) {
+  go(name, arg, arg2) {
     if (this.view && name !== 'game') {
       this.view.unmount();
       this.view = null;
@@ -87,6 +88,8 @@ class App {
         return this.mountScreen(studyScreen(this, 'book'));
       case 'history':
         return this.mountScreen(this.historyScreen());
+      case 'n2':
+        return this.mountScreen(n2Screen(this, arg || 'home', arg2));
       case 'settings':
         return this.mountScreen(this.settingsScreen());
       default:
@@ -122,6 +125,20 @@ class App {
       s.met = s.met || [];
       for (const id of ids) if (!s.met.includes(id)) s.met.push(id);
     }
+  }
+  // 번역을 열었다: 그 문장의 학습 대상에 「번역 확인」을 센다 (오답으로 치지 않는다. 복습 순서에만 쓴다)
+  noteTranslate(tpl) {
+    const segs = (LINES.lines[tpl] || []).filter((x) => x && (x.v || x.g));
+    if (!segs.length) return;
+    const srs = store.srs();
+    let changed = false;
+    for (const sg of segs) {
+      const id = sg.g ? 'g:' + sg.g : 'v:' + sg.v;
+      if (!srs[id]) continue;
+      srs[id].tr = (srs[id].tr || 0) + 1;
+      changed = true;
+    }
+    if (changed) store.saveSrs(srs);
   }
   // 대사 자리표시자를 채우기 위한 기준 상태 (게임 밖 화면에서 예문을 보여 줄 때)
   refState() {
@@ -241,7 +258,19 @@ class App {
         e.currentTarget.setAttribute('aria-checked', String(!has));
         changed();
       } }, label)));
+    const freq = h('div', null,
+      h('div', { class: 'field-label' }, '플레이 중 퀴즈'),
+      grid('quizFreq', [['off', '끄기'], ['low', '적게'], ['mid', '보통'], ['high', '많이']]),
+      h('p', { class: 'note small' }, '보통: 4~5장면마다 한 문제, 가끔 복습 카드. 틀린 말은 몇 문제 뒤 다른 형태로 다시 나온다.'));
+    freq.hidden = set.playMode === 'watch';
     return h('div', { class: 'study-box' },
+      h('div', { class: 'field-label' }, '표시 언어'),
+      grid('lang', [['ja', '日本語（몰입）'], ['ko', '한국어']]),
+      h('p', { class: 'note small' }, '日本語: 서술·선택지·결과가 일본어. 문장을 탭하면 그 문장의 한국어, 선택지는 「訳」. 한국어: 예전처럼 한국어 서술 + 일본어 대사.'),
+      h('div', { class: 'field-label' }, '모드'),
+      grid('playMode', [['study', '학습 모드'], ['watch', '감상 모드']], () => (freq.hidden = set.playMode === 'watch')),
+      h('p', { class: 'note small' }, '감상 모드: 퀴즈와 복습 카드가 저절로 나오지 않는다. 학습 모드: 장면 사이 확인 문제와 복습 카드가 나온다. 復習 메뉴는 두 모드 모두 쓸 수 있다.'),
+      freq,
       h('div', { class: 'field-label' }, 'ふりがな'),
       grid('furigana', [['always', '항상'], ['n2', 'N2 이상 어휘만'], ['hard', '어려운 한자·고유명사만'], ['off', '끄기']]),
       h('div', { class: 'field-label' }, '학습 수준'),
@@ -249,7 +278,9 @@ class App {
       custom,
       sw('hideEasy', '쉬운 단어 학습 표시 끄기'),
       sw('focus', '학습 집중 모드'),
-      h('p', { class: 'note small' }, 'JLPT 등급은 공식 목록이 없어 추정 분류다.'));
+      h('div', { class: 'field-label' }, '선택지'),
+      grid('choiceMode', [['major', '중요한 장면만'], ['all', '모든 장면']]),
+      h('p', { class: 'note small' }, '「중요한 장면만」: 나머지 장면에서는 개가 성격대로 움직이고, 대사를 읽은 뒤 つぎへ만 누른다.'));
   }
   furiganaRow() {
     return this.studyControls();
@@ -269,8 +300,9 @@ class App {
         h('div', null, h('h1', { class: 'logo', lang: 'ja' }, '道場犬'), h('p', { class: 'subtitle', lang: 'ja' }, 'ある道場の、ある犬の一生')),
         h('div', { class: 'device title-device' }, h('div', { class: 'lcd' }, cv)),
         h('button', { class: 'study-strip', type: 'button', onclick: () => this.go('review') }, h('span', { class: 'due' }, h('b', null, '今日の復習'), h('span', null, String(due))), progressBox(srs)),
+        n2SummaryBox(this),
         h('div', { class: 'btns' },
-          has ? h('button', { class: 'btn primary', type: 'button', onclick: () => this.resume(save) }, `つづきから · ${save.state.dog.name} ${Math.floor(save.state.t / 4)}살`) : null,
+          has ? h('button', { class: 'btn primary', type: 'button', onclick: () => this.resume(save) }, `つづきから · ${save.state.dog.name} ${Math.floor(save.state.t / 4)}歳`) : null,
           h('button', { class: has ? 'btn center' : 'btn primary', type: 'button', onclick: () => this.go('birth') }, 'はじめから'),
           h('div', { class: 'row' },
             h('button', { class: 'btn center', type: 'button', onclick: () => this.go('review') }, '復習'),
@@ -298,7 +330,8 @@ class App {
     const cv = h('canvas', { class: 'lcd-canvas', 'aria-hidden': 'true' });
     const info = h('dl', { class: 'kv' });
     const nameIn = h('input', { class: 'word-input', id: 'dog-name', maxlength: '8', 'aria-label': '名前' });
-    const gloss = (ja, ko) => h('button', { class: 'gloss', type: 'button', lang: 'ja', onclick: () => this.toast(`${ja} — ${ko}`) }, ja);
+    const jp = (this.settings.lang || 'ja') === 'ja';
+    const gloss = (ja, ko, jaNote) => h('button', { class: 'gloss', type: 'button', lang: 'ja', onclick: () => this.toast(jp && jaNote ? `${ja} — ${jaNote}（${ko}）` : `${ja} — ${ko}`) }, ja);
     const make = () => {
       s = G.newLife({ seed: String(Date.now()) + Math.random().toString(36).slice(2, 7), world, legacy });
       s.born = new Date().getFullYear();
@@ -310,10 +343,10 @@ class App {
       info.replaceChildren(
         h('dt', null, '毛色'), h('dd', null, gloss(coat.ja, coat.ko)),
         h('dt', null, '毛'), h('dd', null, gloss(hair.ja, hair.ko)),
-        h('dt', null, '性格'), h('dd', null, gloss(per.ja, per.desc)),
-        h('dt', null, '町'), h('dd', null, w.region.ko),
-        h('dt', null, '道場'), h('dd', null, gloss(w.dojoName, w.dojo.ko)),
-        ...(w.continued ? [h('dt', null, '代'), h('dd', null, `${w.gen}대째 · 선대 ${s.prevDog.name}`)] : []));
+        h('dt', null, '性格'), h('dd', null, gloss(per.ja, per.desc, per.descJa)),
+        h('dt', null, '町'), h('dd', null, jp ? gloss(w.region.ja, w.region.desc, w.region.descJa) : w.region.ko),
+        h('dt', null, '道場'), h('dd', null, gloss(w.dojoName, w.dojo.ko, w.dojo.labelJa)),
+        ...(w.continued ? [h('dt', null, '代'), h('dd', null, jp ? `${w.gen}代目 · 先代 ${s.prevDog.name}` : `${w.gen}대째 · 선대 ${s.prevDog.name}`)] : []));
       if (lcd) {
         lcd.dog = s.dog;
         lcd.draw();
@@ -368,10 +401,10 @@ class App {
         hist.length
           ? h('div', { class: 'list' }, hist.map((x) => h('div', { class: 'card' },
               h('div', { class: 'row', style: 'justify-content:space-between' }, h('b', { lang: 'ja', style: 'font-size:20px' }, x.name), h('span', { class: 'note' }, new Date(x.at).toLocaleDateString())),
-              h('div', { class: 'note' }, `${x.dojoName} · ${x.gen}대째 · ${x.years}년`),
+              h('div', { class: 'note', lang: 'ja' }, `${x.dojoName} · ${x.gen}代目 · ${x.years}年`),
               h('div', null, x.titles.map((t) => h('span', { class: 'title-badge' }, t.ja))),
               x.lastWord ? h('div', null, `“${x.lastWord}”`) : null)))
-          : h('p', { class: 'note' }, '기록 없음')),
+          : h('p', { class: 'note' }, 'まだ記録がない（기록 없음）')),
       h('div', { class: 'sheet-foot', style: 'position:static' }, h('button', { class: 'btn center', type: 'button', onclick: () => this.go('title') }, '戻る')));
   }
 
