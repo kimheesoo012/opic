@@ -1,0 +1,110 @@
+p5-030|t1	having은 분사라 본동사가 되지 못한다.
+p5-030|t2	is는 been과 결합할 수 없다(is been 불가).
+p5-031|why	plan은 to부정사를 목적어로 취하는 동사다(plan to do). 따라서 to open이 정답이다.
+p5-031|t0	open은 동사원형이라 plans 뒤에 바로 올 수 없다(동사 두 개 연속).
+p5-031|t2	opening은 동명사다. plan은 동명사를 목적어로 취하지 않는다.
+p5-031|t3	opened는 과거형·과거분사로 plans 뒤 목적어 자리에 맞지 않는다.
+p5-032|why	recommend는 동명사를 목적어로 취한다(recommend doing). '최종 수치가 나올 때까지 미팅을 미루자고 권했다'는 뜻으로 postponing이 정답이다.
+p5-032|t1	postpone은 동사원형이라 recommended 바로 뒤에 올 수 없다.
+p5-032|t2	to postpone은 recommend 뒤에 바로 쓰지 않는다. recommend 사람 to do 형태와 혼동시키는 함정.
+p5-032|t3	postponed는 과거형이라 동사가 겹친다.
+p5-033|why	look forward to에서 to는 전치사라 뒤에 명사나 동명사가 온다. collaborating(협력하는 것)이 정답이다.
+p5-033|t0	collaborate(동사원형)는 to를 to부정사로 착각하게 만드는 대표 함정이다. look forward to의 to는 전치사라 동사원형이 올 수 없다.
+p5-033|t1	be collaborated는 동사원형 형태이고, collaborate는 자동사라 수동태도 어색하다.
+p5-033|t2	have collaborated도 동사원형으로 시작하는 형태라 전치사 to 뒤에 올 수 없다.
+p5-034|why	콤마 뒤에 완전한 문장이 있으므로 앞부분은 수식어다. '대기 시간을 줄이기 위해'라는 목적을 나타내는 to부정사 To reduce가 정답이다.
+p5-034|t0	Reduce로 시작하면 명령문이 되어 뒤의 절과 접속사 없이 연결될 수 없다.
+p5-034|t1	Reduced는 과거분사로 '줄어든'이라는 수동 의미인데, 은행이 대기 시간을 줄이는 능동 관계라 맞지 않는다.
+p5-034|t3	Reduction은 명사라 뒤에 목적어 customer wait times를 바로 취할 수 없다.
+p5-035|why	be committed to(~에 전념하다)의 to는 전치사다. 뒤에 목적어(the environmental impact)를 취하면서 전치사 뒤에 올 수 있는 동명사 minimizing이 정답이다.
+p5-035|t0	minimize(동사원형)는 be committed to 뒤를 to부정사로 착각할 때 고르는 함정이다. 이 to는 전치사.
+p5-035|t2	be minimized는 수동형이라 뒤의 목적어와 맞지 않고, 전치사 뒤에 올 수도 없다.
+p5-035|t3	minimal(최소한의)은 형용사라 전치사의 목적어가 될 수 없고 뒤 명사구와도 연결되지 않는다.
+p5-036|why	문서는 '첨부된' 대상이므로 수동 의미의 과거분사 attached가 명사 documents를 꾸민다.
+p5-036|t0	attach는 동사원형이라 관사와 명사 사이 수식 자리에 올 수 없다.
+p5-036|t1	attaching은 '첨부하는'이라는 능동 의미라 문서가 스스로 첨부하는 꼴이 된다.
+p5-036|t2	attachment documents는 명사+명사로 쓰지 않는 표현이다.
+p5-037|why	주어는 사물인 results(결과)이고, 결과가 팀을 '고무시키는' 쪽이다. 감정을 일으키는 사물에는 -ing 형태 encouraging을 쓴다.
+p5-037|t1	encourage는 동사원형이라 were 뒤에 올 수 없다.
+p5-037|t2	encouraged는 '사람이 고무된' 상태를 나타낸다. 주어가 사물(results)이므로 맞지 않는 감정 분사 함정.
+p5-037|t3	encouragement는 명사라 '결과=격려'가 되어 to the team과 어색하게 연결된다.
+p5-038|why	Participants를 뒤에서 꾸미는 분사 자리다. 참가자(사람)가 '관심을 느끼는' 것이므로 interested (in)가 정답이다.
+p5-038|t0	interesting은 '흥미를 일으키는'이라는 뜻으로 사람이 주어일 때는 '흥미로운 참가자'가 되어 의미가 달라진다.
+p5-038|t1	interest는 명사·동사원형이라 이 위치에서 Participants를 수식할 수 없다.
+p5-038|t3	interests는 동사로 보면 본동사가 should register와 겹치고, 수도 맞지 않는다.
+p5-039|why	분사구문의 의미상 주어는 주절 주어 the manufacturer다. 제조업체가 높은 수요에 '고무된' 것이고 뒤에 by가 있으므로 과거분사 Encouraged가 정답이다.
+p5-039|t0	Encouraging은 능동이라 '제조업체가 수요를 고무시키며'가 되고, 뒤의 by와도 맞지 않는다.
+p5-039|t1	Encourage로 시작하면 명령문이 되어 주절과 연결이 안 된다.
+p5-039|t2	To encourage는 '고무시키기 위해'라는 목적이라 뒤의 by the strong demand와 어울리지 않는다.
+p5-040|why	Anyone을 뒤에서 꾸미는 분사가 필요하고, 뒤에 목적어 a parking permit이 있으므로 능동의 현재분사 requesting(~을 요청하는)이 정답이다. 본동사는 must apply.
+p5-040|t0	requested는 수동이라 뒤에 목적어를 취할 수 없고 '요청받은 사람'이 되어 뜻이 바뀐다.
+p5-040|t2	requests는 동사로 보면 must apply와 본동사가 두 개가 된다.
+p5-040|t3	request는 동사원형·명사라 Anyone을 수식하는 자리에 올 수 없다.
+p5-041|why	전치사 to 뒤는 목적격 자리이므로 him이 정답이다. forward의 주어는 assistant라서 재귀대명사가 아니라 목적격을 쓴다.
+p5-041|t1	he는 주격이라 전치사 뒤에 올 수 없다.
+p5-041|t2	his는 소유격이라 뒤에 명사가 필요하다.
+p5-041|t3	himself는 동작의 주체와 대상이 같을 때 쓴다. forward의 주체는 assistant, 받는 사람은 Mr. Castillo라 재귀대명사가 아니다.
+p5-042|why	빈칸 뒤에 명사 findings가 있으므로 명사 앞 소유격 their가 정답이다.
+p5-042|t0	they는 주격이라 명사 앞에 올 수 없다.
+p5-042|t1	them은 목적격이라 명사를 꾸밀 수 없다.
+p5-042|t3	theirs는 소유대명사(그들의 것)로 뒤에 명사가 오지 않는다.
+p5-043|why	문장이 이미 완전하고, 빈칸은 '직접, 몸소'라는 강조 용법의 재귀대명사 자리다. 주어 Ms. Patel에 맞춘 herself가 정답이다.
+p5-043|t0	her는 목적어·소유격 역할인데 answered의 목적어 the phones가 이미 있다.
+p5-043|t1	hers(그녀의 것)는 '그녀의 것 전화를 받았다'로 오해할 수 있지만 the phones 뒤에 붙는 자리가 아니다.
+p5-043|t2	she는 주격이라 문장 끝에 올 수 없다.
+p5-044|why	found + 목적어 + 보어(more detailed) 구조에서 목적어가 필요하다. 앞 문장과 비교 대상이 '제안서'이므로 '우리의 제안서'를 가리키는 소유대명사 ours가 정답이다.
+p5-044|t0	our는 소유격이라 뒤에 명사가 있어야 한다.
+p5-044|t1	ourselves는 주어가 we일 때만 목적어로 쓸 수 있는데 주어는 the client다.
+p5-044|t3	we는 주격이라 found의 목적어 자리에 올 수 없다.
+p5-045|why	familiarize oneself with(~에 익숙해지다)는 목적어가 주어 자신이어야 하는 표현이다. 주어 New employees에 맞춘 재귀대명사 themselves가 정답이다.
+p5-045|t0	they는 주격이라 동사 familiarize의 목적어가 될 수 없다.
+p5-045|t2	their는 소유격이라 뒤에 명사가 필요하다.
+p5-045|t3	theirs는 '그들의 것'이라 자신을 익숙하게 한다는 의미가 되지 않는다.
+p5-046|why	선행사가 사람(The consultant)이고, 관계절 we hired ___ 에서 hired의 목적어가 빠져 있다. 사람 목적격 관계대명사 whom이 정답이다.
+p5-046|t1	which는 사물 선행사에 쓴다.
+p5-046|t2	whose는 뒤에 명사가 바로 와야 한다(whose + 명사).
+p5-046|t3	what은 선행사를 포함한 관계대명사라 앞에 선행사 The consultant가 있으면 쓸 수 없다.
+p5-047|why	빈칸 뒤에 명사 résumés가 바로 오고 '지원자들의 이력서'라는 소유 관계다. 소유격 관계대명사 whose가 정답이다.
+p5-047|t1	who 뒤에는 동사가 와야 한다(who arrive). 여기서는 명사가 바로 이어진다.
+p5-047|t2	which는 사물 선행사에 쓰고, 뒤에 명사가 바로 오는 구조에도 맞지 않는다.
+p5-047|t3	whom은 목적격이라 뒤에 '주어+동사'가 와야 하고 소유 관계를 나타내지 못한다.
+p5-048|why	관계절 the annual sales conference will be held는 주어와 수동태 동사를 갖춘 완전한 문장이다. 장소 선행사(The hotel) 뒤 완전한 절을 이끄는 관계부사 where가 정답이다.
+p5-048|t0	which 뒤에는 주어나 목적어가 빠진 불완전한 절이 와야 한다. 'in which'였다면 가능.
+p5-048|t1	what은 선행사를 포함하므로 The hotel 뒤에 올 수 없다.
+p5-048|t2	whose 뒤에는 무관사 명사가 와야 하고, 소유 관계도 성립하지 않는다.
+p5-049|why	explains의 목적어 자리에 선행사 없이 명사절이 와야 하고, 절 안에서 do의 목적어가 빠져 있다. '~하는 것'이라는 뜻의 what이 정답이다.
+p5-049|t0	that 명사절은 뒤에 완전한 절이 와야 하는데 do의 목적어가 빠져 있다.
+p5-049|t1	whose 뒤에는 무관사 명사가 와서 '누구의 ~'가 되어야 하는데 의미가 통하지 않는다.
+p5-049|t3	who는 사람을 묻는 말로, 뒤에 이미 주어 new staff members가 있어 'who + 주어 + should do'는 성립하지 않는다.
+p5-050|why	콤마 뒤에 접속사 없이 새 동사 contained가 나오므로 두 절을 잇는 관계대명사가 필요하다. 사물 선행사 blueprints를 받는 '수량어 + of + which' 구조의 which가 정답이다.
+p5-050|t0	them은 대명사라 접속 기능이 없다. 'several of them'을 쓰려면 and가 필요하다.
+p5-050|t2	whom은 사람 선행사에 쓴다. 선행사 blueprints는 사물.
+p5-050|t3	that은 전치사 of 뒤나 콤마 뒤(계속적 용법)에 쓸 수 없다.
+p5-051|why	빈칸 뒤에 주어(the train)와 동사(was delayed)가 있는 절이 오므로 접속사가 필요하다. '지연됐지만 제시간에 도착했다'는 양보 관계라 Although가 정답이다.
+p5-051|t0	Despite는 전치사라 뒤에 명사(구)만 올 수 있다. 의미는 맞지만 품사가 틀린 대표 함정.
+p5-051|t2	However는 접속부사라 두 절을 하나의 문장으로 연결하지 못한다.
+p5-051|t3	Because of는 전치사이고 의미도 '때문에'라 대조 관계와 맞지 않는다.
+p5-052|why	빈칸 뒤가 명사구(the holiday shopping season)뿐이므로 전치사가 필요하다. '~ 동안'이라는 의미의 전치사 during이 정답이다.
+p5-052|t0	while은 '~하는 동안'이라는 뜻은 같지만 접속사라 뒤에 절이 와야 한다.
+p5-052|t1	when은 접속사로 뒤에 주어+동사가 필요하다.
+p5-052|t3	as long as(~하는 한)는 조건 접속사라 명사구만 받을 수 없다.
+p5-053|why	뒤에 절(the original receipt is presented)이 오므로 접속사 자리다. '영수증을 제시하지 않으면 환불하지 않는다'는 조건이라 unless(~하지 않는 한)가 정답이다.
+p5-053|t1	otherwise는 부사(그렇지 않으면)라 절과 절을 접속사처럼 연결할 수 없다.
+p5-053|t2	without은 전치사라 뒤에 절이 올 수 없다.
+p5-053|t3	in case of는 전치사구라 명사만 받는다.
+p5-054|why	빈칸 뒤가 명사구(its higher price)뿐이라 전치사가 필요하다. Notwithstanding은 '~에도 불구하고'라는 뜻의 전치사로 쓸 수 있어 정답이다.
+p5-054|t0	Even though는 뜻은 맞지만 접속사라 뒤에 절이 와야 한다.
+p5-054|t1	Whereas(반면에)는 접속사라 명사구를 받을 수 없고 의미도 대조 비교다.
+p5-054|t2	Nevertheless는 접속부사로 명사구 앞에서 전치사 역할을 하지 못한다.
+p5-055|why	뒤에 절(the total cost stays …)이 이어지고, '예산 안이라면 승인하겠다'는 조건 관계다. 조건 접속사 provided that(~라면)이 정답이다.
+p5-055|t0	in spite of는 전치사라 절을 받을 수 없고, 의미도 양보라 조건 관계와 맞지 않는다.
+p5-055|t1	in addition to는 전치사구(~에 더하여)라 절이 올 수 없다.
+p5-055|t3	regardless는 부사로, regardless of(~와 상관없이) 형태로 써도 명사만 받는다.
+p5-056|why	제출은 한 번에 끝나는 동작이고 '3월 14일 금요일까지 (완료)'라는 마감 기한이므로 by가 정답이다.
+p5-056|t0	until은 '~까지 계속'이라 동작이 그때까지 이어질 때 쓴다(stay until). 제출 마감에는 by.
+p5-056|t1	since는 '~ 이후로'라 마감 기한을 나타내지 않는다.
+p5-056|t2	within은 '~ 이내에'로 기간(within three days)과 쓰며 날짜 앞에는 쓰지 않는다.
+p5-057|why	on behalf of는 '~을 대표하여'라는 뜻으로, 영업부 전체를 대표해 연설한다는 문맥에 맞는다.
+p5-057|t0	in spite of(~에도 불구하고)는 '영업부 전체에도 불구하고 연설한다'가 되어 의미가 통하지 않는다.
+p5-057|t2	in front는 뒤에 of가 있어야 명사를 받을 수 있다(in front of).
+p5-057|t3	instead는 부사라 뒤에 바로 명사가 올 수 없다(instead of 필요).

@@ -1,0 +1,996 @@
+{
+ "units": [
+  {
+   "id": "p5-086",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 1,
+   "question": "Please ------- the attached registration form and return it to the personnel office by Friday.",
+   "choices": [
+    "complete",
+    "perform",
+    "conduct",
+    "achieve"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "用紙（form）に「記入を済ませる」はcomplete a form。記入してから返却するという流れにも合う。",
+    "traps": [
+     null,
+     "performは「（業務・公演を）行う」なので用紙と合わない。",
+     "conductは「（調査・会議を）実施する」で、conduct a surveyのように使う。用紙には使わない。",
+     "achieveは「（目標を）達成する」なのでformと結びつかない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "personnel office",
+     "pos": "n",
+     "m": "人事課"
+    }
+   ]
+  },
+  {
+   "id": "p5-087",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 2,
+   "question": "The Grandview Hotel can ------- up to 500 guests in its main ballroom.",
+   "choices": [
+    "accommodate",
+    "attend",
+    "reside",
+    "consist"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "accommodateは「（人数を）収容する」という他動詞で、up to 500 guestsを目的語にとる。施設の収容人数を言うときの代表的な動詞。",
+    "traps": [
+     null,
+     "attendは「出席する」なので、ホテルが客に出席するという意味になり合わない。",
+     "reside（住む）は自動詞なので目的語をとれない（reside in）。",
+     "consistはconsist of（〜から成る）の形でだけ使う自動詞。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "accommodate",
+     "pos": "v",
+     "m": "収容する"
+    },
+    {
+     "w": "ballroom",
+     "pos": "n",
+     "m": "宴会場"
+    }
+   ]
+  },
+  {
+   "id": "p5-088",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The office manager ------- staff that the building would close early on Friday for maintenance.",
+   "choices": [
+    "explained",
+    "announced",
+    "informed",
+    "said"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "空所の後ろに人の目的語（staff）+ that節が来る。この形をとる動詞はinform（inform 人 that …）。",
+    "traps": [
+     "explainは人を直接目的語にとらない（explain to staff that …）。",
+     "announceも人の目的語を直接とらない（announce to staff that …）。",
+     null,
+     "said（say）も人を直接目的語にしない（say to staff またはtell staff）。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "maintenance",
+     "pos": "n",
+     "m": "保守、メンテナンス"
+    }
+   ]
+  },
+  {
+   "id": "p5-089",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Our technicians will ------- the issue as soon as they receive your service request.",
+   "choices": [
+    "attend",
+    "deal",
+    "respond",
+    "address"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "addressは「（問題に）対処する」という他動詞で、the issueを直接目的語にとる。",
+    "traps": [
+     "attendはこの意味ではattend to the issueのように前置詞toが必要。",
+     "dealはdeal with the issueの形で使う必要がある。",
+     "respondはrespond toのように前置詞が必要。意味が似た自動詞がひっかけ。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "address",
+     "pos": "v",
+     "m": "（問題に）対処する"
+    }
+   ]
+  },
+  {
+   "id": "p5-090",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 3,
+   "question": "The CEO ------- the success of the product launch to the hard work of the design team.",
+   "choices": [
+    "contributed",
+    "attributed",
+    "distributed",
+    "recognized"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "attribute A to Bは「AをBのおかげ（せい）だと考える」という意味。成功をデザインチームの努力のおかげだとしたという意味になる。",
+    "traps": [
+     "contribute A to Bは「AをBに寄付・貢献する」で、「成功を努力に寄付した」となり意味が通じない。形が似た紛らわしい語。",
+     null,
+     "distribute A to Bは「AをBに配る」なので意味が合わない。",
+     "recognizeはrecognize A for Bの形でほめるときに使い、toとは結びつかない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "attribute A to B",
+     "pos": "v",
+     "m": "AをBのおかげだと考える"
+    },
+    {
+     "w": "launch",
+     "pos": "n",
+     "m": "発売"
+    }
+   ]
+  },
+  {
+   "id": "p5-091",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 2,
+   "tags": [
+    "trap"
+   ],
+   "question": "Audience members are asked to ------- from using mobile phones during the performance.",
+   "choices": [
+    "prevent",
+    "avoid",
+    "refrain",
+    "stop"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "空所の後ろのfrom + -ingと結びつく自動詞はrefrain（控える）。refrain from doingはお知らせによく出る表現。",
+    "traps": [
+     "preventはprevent 目的語 from -ingの形なので目的語が必要。",
+     "avoidは直接動名詞を目的語にとる（avoid using）。fromが付くと誤り。",
+     null,
+     "stopも直接動名詞をとる（stop using）。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "refrain from",
+     "pos": "v",
+     "m": "〜を控える"
+    }
+   ]
+  },
+  {
+   "id": "p5-092",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 1,
+   "question": "The color printer is still under -------, so the repair will be free of charge.",
+   "choices": [
+    "warranty",
+    "discount",
+    "inspection",
+    "delivery"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "under warrantyは「保証期間中の」という意味。保証期間中なので修理が無料という因果関係が成り立つ。",
+    "traps": [
+     null,
+     "under discountという表現はない（at a discount）。",
+     "under inspection（点検中）は使えるが、「点検中なので修理が無料」という理由の関係が成り立たない。",
+     "under deliveryという表現は使わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "under warranty",
+     "pos": "phr",
+     "m": "保証期間中の"
+    },
+    {
+     "w": "free of charge",
+     "pos": "phr",
+     "m": "無料で"
+    }
+   ]
+  },
+  {
+   "id": "p5-093",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 2,
+   "question": "The new branch offers a wide ------- of financial services for small businesses.",
+   "choices": [
+    "field",
+    "distance",
+    "level",
+    "range"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "a wide range ofは「幅広い、さまざまな〜」という決まった表現。",
+    "traps": [
+     "fieldは「分野」で、a wide field of servicesとは言わない。",
+     "distance（距離）はサービスの多様さと関係ない。",
+     "levelは「水準」なので、a wide level ofでは意味が成り立たない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "a wide range of",
+     "pos": "phr",
+     "m": "幅広い"
+    }
+   ]
+  },
+  {
+   "id": "p5-094",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 2,
+   "question": "Employees should keep all receipts as ------- of their travel expenses.",
+   "choices": [
+    "reason",
+    "proof",
+    "cause",
+    "fact"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "領収書は出張経費を「証明するもの」。as proof of（〜の証拠として）が文脈に合う。",
+    "traps": [
+     "reason（理由）は、領収書が経費の理由になるわけではないので不自然。",
+     null,
+     "cause（原因）も領収書と経費の関係に合わない。",
+     "fact（事実）は 'as fact of' という表現では使わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "travel expense",
+     "pos": "n",
+     "m": "出張経費"
+    }
+   ]
+  },
+  {
+   "id": "p5-095",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 3,
+   "question": "The factory was fined for failing to operate in ------- with environmental regulations.",
+   "choices": [
+    "obedience",
+    "permission",
+    "attention",
+    "compliance"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "in compliance with（〜に従って、〜を順守して）は規則・法律と一緒に使う決まった表現。規則を守れず罰金を払ったという流れ。",
+    "traps": [
+     "obedience（服従）は人・命令に使い、in obedience withという表現は使わない（in obedience to）。",
+     "permission（許可）にはin permission withという表現がない。",
+     "attentionは「注意」なので、規則順守の意味にならない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "in compliance with",
+     "pos": "phr",
+     "m": "〜に従って"
+    },
+    {
+     "w": "fine",
+     "pos": "v",
+     "m": "罰金を科す"
+    }
+   ]
+  },
+  {
+   "id": "p5-096",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Ms. Kwan was given full ------- for organizing the company's twentieth anniversary celebration.",
+   "choices": [
+    "responsibility",
+    "obligation",
+    "duty",
+    "reliance"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "be given full responsibility for -ing（〜の全責任を任される）が自然な表現。イベント準備の責任者を任されたという意味。",
+    "traps": [
+     null,
+     "obligationは「（法的・道義的な）義務」で、ふつうan obligation to doの形をとり、full obligation forは不自然。",
+     "dutyも「義務」だが、full duty for -ingとは言わない。意味が似た名詞で迷わせるひっかけ。",
+     "reliance（依存）はreliance onの形で使い、意味も合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "anniversary",
+     "pos": "n",
+     "m": "記念日"
+    }
+   ]
+  },
+  {
+   "id": "p5-097",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 1,
+   "question": "A ------- of the meeting will be sent to everyone who was unable to attend.",
+   "choices": [
+    "summit",
+    "summary",
+    "sample",
+    "symbol"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "出席できなかった人に送るのは会議の「要約」。summaryが正解。",
+    "traps": [
+     "summitは「首脳会談、頂上」で、つづりが似たひっかけ。",
+     null,
+     "sample（見本）は会議の内容と合わない。",
+     "symbol（象徴）は文脈と関係ない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "summary",
+     "pos": "n",
+     "m": "要約"
+    }
+   ]
+  },
+  {
+   "id": "p5-098",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 1,
+   "question": "The history museum is ------- closed for renovations but will reopen in May.",
+   "choices": [
+    "previously",
+    "lately",
+    "currently",
+    "formerly"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "現在時制is closedと「5月に再開する」という未来の予定が続くので、「現在」を意味するcurrentlyが正解。",
+    "traps": [
+     "previously（以前に）は過去時制と合う。",
+     "lately（最近）は主に現在完了と使う（has lately been）。",
+     null,
+     "formerly（かつて）は過去の状態を言うので、今休館中という意味と合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "reopen",
+     "pos": "v",
+     "m": "営業を再開する"
+    }
+   ]
+  },
+  {
+   "id": "p5-099",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 2,
+   "question": "The new procedure has ------- reduced the time needed to process insurance claims.",
+   "choices": [
+    "highly",
+    "significantly",
+    "extremely",
+    "deeply"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "reduce, increase, improveのような変化を表す動詞は、significantly（大幅に）とよく結びつく。",
+    "traps": [
+     "highlyはhighly recommended, highly qualifiedのように一部の形容詞・分詞とだけ結びつき、reduceとは使わない。",
+     null,
+     "extremelyは主に形容詞を強調する（extremely busy）。動詞reducedの修飾は不自然。",
+     "deeplyは感情（deeply moved）と合い、数値の減少とは合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "insurance claim",
+     "pos": "n",
+     "m": "保険金請求"
+    },
+    {
+     "w": "procedure",
+     "pos": "n",
+     "m": "手順、手続き"
+    }
+   ]
+  },
+  {
+   "id": "p5-100",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 2,
+   "question": "Please arrive at least fifteen minutes before your ------- appointment time.",
+   "choices": [
+    "punctual",
+    "eventual",
+    "scheduled",
+    "frequent"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "「予約した時間の15分前に来て」という意味なので、「予定された」を意味するscheduledが正解。",
+    "traps": [
+     "punctual（時間を守る）は人に使う形容詞なので、appointment timeを修飾するのは不自然。",
+     "eventual（最終的な）は予約時間と合わない。",
+     null,
+     "frequent（頻繁な）は繰り返しの回数を言う形容詞なので、1つの予約時刻（appointment time）を修飾すると意味が通じない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "punctual",
+     "pos": "adj",
+     "m": "時間を守る"
+    }
+   ]
+  },
+  {
+   "id": "p5-101",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 3,
+   "question": "The front desk staff were ------- helpful during our stay, especially when our luggage was delayed.",
+   "choices": [
+    "remarkably",
+    "densely",
+    "mutually",
+    "vacantly"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "形容詞helpfulの程度を強調する副詞が必要。remarkably（驚くほど）が「特に荷物が遅れたとき」というほめる文脈に合う。",
+    "traps": [
+     null,
+     "densely（密集して）はdensely populatedのように密度に使う。",
+     "mutually（お互いに）はmutually beneficialのように相互の関係に使う。",
+     "vacantly（ぼんやりと）は意味が文脈と正反対。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "remarkably",
+     "pos": "adv",
+     "m": "著しく、驚くほど"
+    }
+   ]
+  },
+  {
+   "id": "p5-102",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The supplier has ------- met its delivery deadlines, so we plan to renew the contract.",
+   "choices": [
+    "hardly",
+    "rarely",
+    "nearly",
+    "consistently"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "so we plan to renew the contract（だから契約を更新する予定）という結果になるには、締め切りを「一貫して」守っていたはず。consistentlyが正解。",
+    "traps": [
+     "hardly（ほとんど〜ない）は否定の意味なので、契約更新という結果と矛盾する。",
+     "rarely（めったに〜ない）も否定の意味なので、後ろのso節と合わない。",
+     "nearly metは「ほぼ守った（実際には守れなかった）」という意味なので、更新の理由として弱い。意味を逆に取りやすいひっかけ。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "renew",
+     "pos": "v",
+     "m": "更新する"
+    }
+   ]
+  },
+  {
+   "id": "p5-103",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The budget proposal received ------- support from the board, with all twelve members voting in favor.",
+   "choices": [
+    "anonymous",
+    "numerous",
+    "partial",
+    "unanimous"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "12人全員が賛成したという後ろの説明に合うのは、「満場一致の」を意味するunanimous。",
+    "traps": [
+     "anonymous（匿名の）はつづりが似た紛らわしい語で、公開投票の文脈と合わない。",
+     "numerousは可算名詞の複数形と使う（numerous members）。不可算のsupportは修飾できない。",
+     "partial（部分的な）は「全員賛成」という内容と矛盾する。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "unanimous",
+     "pos": "adj",
+     "m": "満場一致の"
+    },
+    {
+     "w": "in favor",
+     "pos": "phr",
+     "m": "賛成して"
+    }
+   ]
+  },
+  {
+   "id": "p5-104",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 1,
+   "question": "Customers who ------- an order before noon will receive their items the next business day.",
+   "choices": [
+    "place",
+    "put",
+    "set",
+    "give"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "「注文する」はplace an orderが決まった表現。",
+    "traps": [
+     null,
+     "put an orderとは言わない（put in an orderは可能だがinが抜けている）。",
+     "set an orderは「順番を決める」のように聞こえるだけで、「注文する」ではない。",
+     "give an orderは「命令を出す」という意味。orderの別の意味を使ったひっかけ。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "place an order",
+     "pos": "phr",
+     "m": "注文する"
+    }
+   ]
+  },
+  {
+   "id": "p5-105",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 2,
+   "question": "The research team will ------- a survey of 2,000 consumers next month.",
+   "choices": [
+    "attend",
+    "conduct",
+    "raise",
+    "gain"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "conduct a survey（アンケート調査を実施する）はよく出るコロケーション。",
+    "traps": [
+     "attendは会議・イベントに「出席する」で、surveyとは結びつかない。",
+     null,
+     "raiseはraise funds, raise concernsのように使い、アンケート調査とは合わない。",
+     "gain（得る）はgain experienceのように使う。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "conduct",
+     "pos": "v",
+     "m": "実施する"
+    }
+   ]
+  },
+  {
+   "id": "p5-106",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The revised safety regulations will take ------- on January 1.",
+   "choices": [
+    "place",
+    "action",
+    "effect",
+    "part"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "法律・規則が「施行される、効力を生じる」はtake effect。",
+    "traps": [
+     "take placeはイベント・出来事が「行われる、起こる」に使う。規則の施行には使わないひっかけ。",
+     "take actionは人が「措置をとる」なので、規則が主語にはなれない。",
+     null,
+     "take partは「参加する」（take part in）で、人が主語。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "take effect",
+     "pos": "phr",
+     "m": "施行される、効力を生じる"
+    }
+   ]
+  },
+  {
+   "id": "p5-107",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 2,
+   "question": "Seating at the awards dinner is ------- limited, so guests are encouraged to reply early.",
+   "choices": [
+    "strictly",
+    "closely",
+    "eagerly",
+    "deeply"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "strictly limited（厳しく制限された）は、座席・人数の制限を知らせるときの代表的なコロケーション。",
+    "traps": [
+     null,
+     "closelyはclosely monitored, closely relatedのように使う。",
+     "eagerly（熱心に、心待ちに）はeagerly awaitedのように期待を表す。",
+     "deeplyは感情と合う副詞。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "strictly",
+     "pos": "adv",
+     "m": "厳しく"
+    }
+   ]
+  },
+  {
+   "id": "p5-108",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 3,
+   "question": "Several employees have ------- concerns about the new overtime policy.",
+   "choices": [
+    "risen",
+    "raised",
+    "arisen",
+    "lifted"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "raise concerns（懸念を示す）はよく出るコロケーション。raiseは目的語をとる他動詞。",
+    "traps": [
+     "risenは自動詞riseの過去分詞なので、目的語concernsをとれない。",
+     null,
+     "arisenも自動詞arise（生じる）の過去分詞なので目的語をとれない。Concerns have arisenなら可能。",
+     "liftはlift a ban（禁止を解除する）のように使い、「懸念を持ち上げる」とは言わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "raise concerns",
+     "pos": "phr",
+     "m": "懸念を示す"
+    },
+    {
+     "w": "overtime",
+     "pos": "n",
+     "m": "残業"
+    }
+   ]
+  },
+  {
+   "id": "p5-109",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 2,
+   "question": "After months of negotiation, the two companies finally ------- an agreement.",
+   "choices": [
+    "arrived",
+    "came",
+    "reached",
+    "went"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "reach an agreement（合意に達する）は決まったコロケーション。reachは他動詞なので直接目的語をとる。",
+    "traps": [
+     "arriveは自動詞なので、arrive at an agreementのように前置詞が必要。",
+     "came（come）はcome to an agreementの形でtoが必要。",
+     null,
+     "wentは意味も形も合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "negotiation",
+     "pos": "n",
+     "m": "交渉"
+    }
+   ]
+  },
+  {
+   "id": "p5-110",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 2,
+   "question": "Fuel prices have ------- sharply over the past two months.",
+   "choices": [
+    "raised",
+    "aroused",
+    "rose",
+    "risen"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "空所の後ろに目的語がないので自動詞が必要。rise（上がる）の過去分詞risenが正解。",
+    "traps": [
+     "raisedは他動詞raise（上げる）の過去分詞なので目的語が必要。rise/raiseの混同を狙ったひっかけ。",
+     "aroused（呼び起こす）は他動詞で、感情・関心に使う。",
+     "roseはriseの過去形なので、haveの後ろ（現在完了）には入らない。現在完了には過去分詞risenが必要。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "sharply",
+     "pos": "adv",
+     "m": "急激に"
+    }
+   ]
+  },
+  {
+   "id": "p5-111",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 3,
+   "question": "The new tax law will ------- small businesses in several ways.",
+   "choices": [
+    "effect",
+    "infect",
+    "affect",
+    "effective"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "willの後ろの動詞の原形の位置で、「中小企業に影響を与える」という意味が必要。affectが正解。",
+    "traps": [
+     "effectは主に名詞（影響）で、動詞では「（変化を）もたらす」という意味なので、effect businessesでは意味が合わない。",
+     "infectは「感染させる」で、つづりのひっかけ。",
+     null,
+     "effectiveは形容詞なのでwillの後ろには入らない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "affect",
+     "pos": "v",
+     "m": "影響を与える"
+    }
+   ]
+  },
+  {
+   "id": "p5-112",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The hotel offers ------- discounts to guests who stay for more than a week.",
+   "choices": [
+    "considerate",
+    "considering",
+    "considered",
+    "considerable"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "割引の「規模がかなりの」という意味のconsiderableがdiscountsを修飾する。",
+    "traps": [
+     "considerate（思いやりのある）は人の性格に使う紛らわしい語。",
+     "consideringは前置詞・接続詞（〜を考えると）なので、名詞の前の形容詞の位置に合わない。",
+     "consideredは「熟考した上での」という意味で、割引とは合わない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "considerable",
+     "pos": "adj",
+     "m": "かなりの"
+    }
+   ]
+  },
+  {
+   "id": "p5-113",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Switching to LED lighting is an ------- way to reduce the building's energy costs.",
+   "choices": [
+    "economical",
+    "economic",
+    "economy",
+    "economics"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "費用を「節約する」方法という意味なので、economical（経済的な、節約になる）が正解。",
+    "traps": [
+     null,
+     "economicは「経済（学）の」という意味で、economic growthのように使う。費用削減の意味ではない。",
+     "economyは名詞なので、anとwayの間の形容詞の位置に合わない。",
+     "economics（経済学）は名詞。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "economical",
+     "pos": "adj",
+     "m": "節約になる、経済的な"
+    }
+   ]
+  },
+  {
+   "id": "p5-114",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 3,
+   "question": "Please ------- the boxes on the bottom shelf near the loading dock.",
+   "choices": [
+    "lie",
+    "lay",
+    "lain",
+    "lying"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "空所の後ろに目的語the boxesがあるので、他動詞lay（置く）が必要。命令文なので動詞の原形lay。",
+    "traps": [
+     "lie（横たわる、置かれている）は自動詞なので目的語をとれない。lie/layの混同を狙ったひっかけ。",
+     null,
+     "lainはlieの過去分詞なので命令文には使えない。",
+     "lyingは現在分詞なので命令文の動詞になれない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "loading dock",
+     "pos": "n",
+     "m": "荷積み場"
+    }
+   ]
+  },
+  {
+   "id": "p5-115",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 2,
+   "question": "The board accepted the CFO's ------- to postpone the expansion until next year.",
+   "choices": [
+    "advise",
+    "advised",
+    "advice",
+    "advisable"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "所有格the CFO'sの後ろ、acceptedの目的語の位置は名詞。advice（助言）がto postponeに修飾される。",
+    "traps": [
+     "adviseは動詞なので、所有格の後ろの名詞の位置には入らない。つづりが1文字違いの紛らわしい語。",
+     "advisedは過去形・過去分詞なので名詞の位置に合わない。",
+     null,
+     "advisable（望ましい）は形容詞。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "expansion",
+     "pos": "n",
+     "m": "拡張"
+    }
+   ]
+  }
+ ]
+}

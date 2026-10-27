@@ -1,0 +1,302 @@
+{
+ "concepts": [
+  {
+   "id": "p5.pos.noun",
+   "part": 5,
+   "group": "grammar",
+   "name": "品詞: 名詞の位置",
+   "targetSec": 20,
+   "summary": "冠詞（a/the）・所有格・形容詞の後ろ、前置詞の後ろ、動詞の主語・目的語の位置には名詞が入る。同じ語根の名詞が2つある場合（人を表す名詞と、物・行為を表す名詞）は、可算・不可算と意味で選ぶ。",
+   "tip": "冠詞・所有格・形容詞の後ろ、前置詞の後ろは名詞。可算名詞の単数形は冠詞なしでは使えない。"
+  },
+  {
+   "id": "p5.pos.adj",
+   "part": 5,
+   "group": "grammar",
+   "name": "品詞: 形容詞の位置",
+   "targetSec": 20,
+   "summary": "名詞の前で修飾する位置と、be/become/remain/seemの後ろの補語の位置には形容詞が入る。make/keep/find + 目的語 + 形容詞（目的格補語）もよく出る。",
+   "tip": "名詞の前、be・become・remain・seemの後ろの補語、make・keep・find + 目的語の後ろは形容詞。"
+  },
+  {
+   "id": "p5.pos.adv",
+   "part": 5,
+   "group": "grammar",
+   "name": "品詞: 副詞の位置",
+   "targetSec": 20,
+   "summary": "完全な文に付け加える位置、動詞・形容詞・他の副詞の前で修飾する位置、be + ___ + p.p.の間には副詞が入る。空所を抜いても文が完全なら、まず副詞を疑う。",
+   "tip": "空所を抜いても文が完全なら副詞。beとp.p.の間、haveとp.p.の間も副詞。"
+  },
+  {
+   "id": "p5.verb.tense",
+   "part": 5,
+   "group": "grammar",
+   "name": "動詞の時制",
+   "targetSec": 20,
+   "summary": "時を表す表現が時制を決める。since/for + 期間 → 現在完了、by the time + 過去 → 過去完了、next/by + 未来 → 未来（完了）。時・条件の副詞節（when, if, once, as soon as）では未来の代わりに現在時制を使う。",
+   "tip": "since・for + 期間は現在完了、by the time + 過去は過去完了。時・条件の副詞節では未来の代わりに現在形。"
+  },
+  {
+   "id": "p5.verb.voice",
+   "part": 5,
+   "group": "grammar",
+   "name": "能動態・受動態",
+   "targetSec": 20,
+   "summary": "空所の後ろに目的語があれば能動態、なければ（by + 動作主や副詞だけなら）まず受動態を疑う。ただし自動詞（arrive, occur, rise）には受動態がない。",
+   "tip": "空所の後ろに目的語があれば能動態、なければ受動態。自動詞（occur, arrive, rise）に受動態はない。"
+  },
+  {
+   "id": "p5.verb.agree",
+   "part": 5,
+   "group": "grammar",
+   "name": "主語と動詞の一致",
+   "targetSec": 20,
+   "summary": "主語と動詞の間に前置詞句や関係詞節が入っていたら、本当の主語を探す。each/every + 単数、the number of + 単数、a number of + 複数。命令文と助動詞の後ろは動詞の原形。",
+   "tip": "修飾語を取り除いて本当の主語を探す。each・every・the number ofは単数、a number ofは複数。"
+  },
+  {
+   "id": "p5.verb.form",
+   "part": 5,
+   "group": "grammar",
+   "name": "準動詞: to不定詞・動名詞",
+   "targetSec": 20,
+   "summary": "動詞ごとに後ろに続く形が決まっている。plan/decide/aim + to do、consider/avoid/recommend + -ing、look forward to/be committed to + -ing（このtoは前置詞）。目的（〜するために）はto doまたはin order to do。",
+   "tip": "plan・decide + to do、consider・avoid・recommend + -ing。look forward to・be committed toのtoは前置詞。"
+  },
+  {
+   "id": "p5.participle",
+   "part": 5,
+   "group": "grammar",
+   "name": "分詞: -ing・-ed",
+   "targetSec": 20,
+   "summary": "修飾される名詞が動作をするなら-ing（能動）、動作を受けるなら-ed（受動）。感情を表す動詞は、人が感じるなら-ed（interested）、物が感情を引き起こすなら-ing（interesting）。分詞構文も主語との関係で判断する。",
+   "tip": "修飾される名詞が動作をするなら-ing、受けるなら-ed。人が感じる感情は-ed。"
+  },
+  {
+   "id": "p5.pronoun",
+   "part": 5,
+   "group": "grammar",
+   "name": "代名詞: 格・再帰",
+   "targetSec": 20,
+   "summary": "名詞の前は所有格、動詞・前置詞の後ろは目的格、主語の位置は主格。主語と目的語が同じものなら再帰代名詞。by oneselfは「一人で」、on one's ownも同じ意味。所有代名詞（mine, theirs）は「所有格 + 名詞」の代わり。",
+   "tip": "名詞の前は所有格、動詞・前置詞の後ろは目的格。主語と目的語が同じなら再帰代名詞。"
+  },
+  {
+   "id": "p5.rel",
+   "part": 5,
+   "group": "grammar",
+   "name": "関係詞",
+   "targetSec": 20,
+   "summary": "先行詞が人ならwho/whom、物ならwhich、後ろにすぐ名詞が来るならwhose。後ろの文が完全なら関係副詞（where, when）または前置詞 + which、不完全なら関係代名詞。先行詞がなければwhat（= the thing which）。",
+   "tip": "人はwho、物はwhich、後ろにすぐ名詞が来ればwhose。後ろの節が完全なら関係副詞、先行詞がなければwhat。"
+  },
+  {
+   "id": "p5.conj",
+   "part": 5,
+   "group": "grammar",
+   "name": "接続詞と前置詞の区別",
+   "targetSec": 20,
+   "summary": "空所の後ろに主語 + 動詞が来れば接続詞（although, because, while, unless）、名詞（句）だけなら前置詞（despite, because of, during）。2つの節の意味の関係（譲歩、理由、条件）まで確認する。",
+   "tip": "後ろに主語 + 動詞が来れば接続詞、名詞（句）だけなら前置詞。次に意味の関係を確認する。"
+  },
+  {
+   "id": "p5.prep",
+   "part": 5,
+   "group": "grammar",
+   "name": "前置詞",
+   "targetSec": 20,
+   "summary": "時点のby（〜までに完了）とuntil（〜までずっと）、期間のfor（数字の期間）とduring（出来事）、位置のamong（3つ以上の間）とbetween（2つの間）。慣用表現（in charge of, on behalf of, in accordance with）はかたまりで覚える。",
+   "tip": "byは締め切り、untilは継続。for + 数字の期間、during + 出来事。amongは3つ以上、betweenは2つ。"
+  },
+  {
+   "id": "p5.subj",
+   "part": 5,
+   "group": "grammar",
+   "name": "仮定法",
+   "targetSec": 20,
+   "summary": "If + 過去形 → would + 動詞の原形（現在の事実の反対）、If + had p.p. → would have p.p.（過去の事実の反対）。if節のshouldは未来の不確かな仮定で、Ifを省略するとShould/Had/Wereが文頭に出る（倒置）。",
+   "tip": "If + 過去形 → would + 原形、If + had p.p. → would have p.p.。If省略ではShould・Had・Wereが前に出る。"
+  },
+  {
+   "id": "p5.inversion",
+   "part": 5,
+   "group": "grammar",
+   "name": "倒置",
+   "targetSec": 20,
+   "summary": "否定語（Never, Rarely, Not only, Only + 副詞句）が文頭に来ると、助動詞・be動詞が主語の前に出る。Enclosed/Attached is… のように補語が前に出る倒置も出題される。",
+   "tip": "否定語（Never, Rarely, Hardly, Not only, Only + 副詞句）が文頭に来ると、助動詞・be動詞が主語の前に出る。"
+  },
+  {
+   "id": "p5.compare",
+   "part": 5,
+   "group": "grammar",
+   "name": "比較",
+   "targetSec": 20,
+   "summary": "thanがあれば比較級、the + ___ + of/in/everは最上級、as ___ asの間は原級。比較級の強調はmuch/even/far（veryは不可）。the 比較級, the 比較級の構文もよく出る。",
+   "tip": "thanがあれば比較級、the + 最上級 + in/of、as 〜 asの間は原級。比較級の強調はmuch・even・far。"
+  },
+  {
+   "id": "p5.quant",
+   "part": 5,
+   "group": "grammar",
+   "name": "数量表現・限定詞",
+   "targetSec": 20,
+   "summary": "each/every/another + 単数名詞、many/few/several/a number of + 複数名詞、much/little/a great deal of + 不可算名詞。all/most/some of the + 名詞は、その名詞に数を合わせる。",
+   "tip": "each・every + 単数、many・few・several + 複数、much・little + 不可算。most of the + 名詞は名詞に数を合わせる。"
+  },
+  {
+   "id": "p5.correl",
+   "part": 5,
+   "group": "grammar",
+   "name": "相関接続詞",
+   "targetSec": 20,
+   "summary": "ペアで覚える: both A and B, either A or B, neither A nor B, not only A but (also) B, whether A or B。ペアが合わない選択肢（both … or）は不正解。",
+   "tip": "both A and B, either A or B, neither A nor B, not only A but also B, whether A or B."
+  },
+  {
+   "id": "p5.voc.verb",
+   "part": 5,
+   "group": "vocab",
+   "name": "語彙: 動詞",
+   "targetSec": 20,
+   "summary": "意味だけで選ばず、後ろに続く形を確認する。例: remind A of B, inform A of/that, notify A of, address（問題に対処する）, accommodate（収容する）。",
+   "tip": "意味と一緒に後ろの形を見る。inform・notify + 人 + of/that、address + 目的語、refrain from。"
+  },
+  {
+   "id": "p5.voc.noun",
+   "part": 5,
+   "group": "vocab",
+   "name": "語彙: 名詞",
+   "targetSec": 20,
+   "summary": "空所の前後の語との組み合わせで判断する。例: meet the deadline, under warranty, a range of options, in compliance with regulations。",
+   "tip": "空所の前後の語との結びつきで選ぶ。under warranty, a range of, in compliance with。"
+  },
+  {
+   "id": "p5.voc.adjadv",
+   "part": 5,
+   "group": "vocab",
+   "name": "語彙: 形容詞・副詞",
+   "targetSec": 20,
+   "summary": "形容詞は修飾する名詞と合うか、副詞は動詞・時制と合うかを見る。例: currently（現在進行中）とpreviously（過去）、nearly（ほぼ、数字の前）とhardly（ほとんど〜ない）。",
+   "tip": "時制・文脈と合うかを見る。currentlyは現在、previouslyは過去、nearlyは数字の前。"
+  },
+  {
+   "id": "p5.voc.colloc",
+   "part": 5,
+   "group": "vocab",
+   "name": "語彙: コロケーション",
+   "targetSec": 20,
+   "summary": "TOEICによく出る語の組み合わせをかたまりで覚える: place an order, conduct a survey, raise concerns, take effect, highly recommended, strictly prohibited, reach an agreement。",
+   "tip": "組み合わせで覚える。place an order, conduct a survey, raise concerns, take effect, reach an agreement。"
+  },
+  {
+   "id": "p5.voc.confuse",
+   "part": 5,
+   "group": "vocab",
+   "name": "語彙: 紛らわしい語",
+   "targetSec": 20,
+   "summary": "意味や形が似ている語を区別する: rise（自動詞）とraise（他動詞）、lieとlay、affect（動詞）とeffect（名詞）、considerable（かなりの）とconsiderate（思いやりのある）、economic（経済の）とeconomical（節約になる）。",
+   "tip": "rise・raise, lie・lay, affect・effect, considerable・considerate, economic・economical."
+  },
+  {
+   "id": "p6.grammar",
+   "part": 6,
+   "group": "grammar",
+   "name": "Part 6 文法",
+   "targetSec": 30,
+   "summary": "Part 6の文法問題は、空所の文だけでは答えが2つ以上考えられることが多い。前後の文の時点（もう終わったことか、これからのことか）と、指しているものを確認する。",
+   "tip": "空所の文だけでは答えが複数ありうる。前後の文の時点と指しているもので選ぶ。"
+  },
+  {
+   "id": "p6.vocab",
+   "part": 6,
+   "group": "vocab",
+   "name": "Part 6 文脈語彙",
+   "targetSec": 30,
+   "summary": "空所の文だけを見ると複数の語が入りうる。文書全体の状況（おわび、案内、宣伝）と、前の文ですでに触れた内容を指す語を選ぶ。",
+   "tip": "文書全体の状況と前の文の内容に合う語を選ぶ。"
+  },
+  {
+   "id": "p6.connector",
+   "part": 6,
+   "group": "grammar",
+   "name": "Part 6 つなぎの副詞",
+   "targetSec": 30,
+   "summary": "前の文と空所の文の関係を先に決める: 対比（However, Nevertheless）、追加（In addition, Moreover）、結果（Therefore, As a result）、例示（For example）、代案（Otherwise, Instead）。",
+   "tip": "前の文との関係を先に決める。対比はHowever、追加はIn addition、結果はAs a result、例示はFor example。"
+  },
+  {
+   "id": "p6.insert",
+   "part": 6,
+   "group": "reading",
+   "name": "Part 6 文挿入",
+   "targetSec": 30,
+   "summary": "空所の前の文と後ろの文を両方読み、代名詞（this, they）・指示語（such, these）が指すものがあるか確認する。内容が正しくても流れ（時間の順序、話題）が切れるなら不正解。",
+   "tip": "前後の文を両方読み、指示語・代名詞が指すものがあるか確認する。"
+  },
+  {
+   "id": "p7.purpose",
+   "part": 7,
+   "group": "reading",
+   "name": "Part 7 主題・目的",
+   "summary": "文書の目的はたいてい最初の段落（I am writing to…, This is to inform…）にある。本文の一部の内容だけを扱った選択肢は狭すぎて不正解になる。",
+   "tip": "目的はたいてい最初の段落にある。一部の内容だけを扱った選択肢は狭すぎる。"
+  },
+  {
+   "id": "p7.detail",
+   "part": 7,
+   "group": "reading",
+   "name": "Part 7 詳細",
+   "summary": "設問のキーワードを本文で探し、その文の周辺を正確に読む。正解は本文の表現を言い換えた（パラフレーズ）ものがほとんど。",
+   "tip": "キーワードの周辺を正確に読む。正解は本文の表現を言い換えたものが多い。"
+  },
+  {
+   "id": "p7.not",
+   "part": 7,
+   "group": "reading",
+   "name": "Part 7 NOT・事実確認",
+   "summary": "NOT問題は4つの選択肢を本文と1つずつ照らし合わせ、「書かれているもの」3つを消す。一部だけ合っている選択肢（数字や対象が違う）に注意する。",
+   "tip": "4つの選択肢を本文と1つずつ照らし合わせ、書かれている3つを消す。"
+  },
+  {
+   "id": "p7.inference",
+   "part": 7,
+   "group": "reading",
+   "name": "Part 7 推測",
+   "summary": "suggested/implied/most likelyの問題は、本文に直接書かれていないが根拠の文から確実に導ける内容を選ぶ。常識的にありそうでも根拠がない選択肢は不正解。",
+   "tip": "本文に直接はないが、根拠の文から確実に導けるものだけを選ぶ。"
+  },
+  {
+   "id": "p7.synonym",
+   "part": 7,
+   "group": "reading",
+   "name": "Part 7 同義語",
+   "summary": "辞書の代表的な意味ではなく、その文での意味を選ぶ。選択肢を元の語の位置に入れて読み、意味が保たれるか確認する。",
+   "tip": "辞書の代表的な意味ではなく、その文での意味。選択肢を入れて読んでみる。"
+  },
+  {
+   "id": "p7.intent",
+   "part": 7,
+   "group": "reading",
+   "name": "Part 7 意図問題",
+   "summary": "チャットでの 'Sure thing.'、'That's a relief.' のような短い発言の意図は、直前のメッセージへの反応である。直前のメッセージが何を提案・質問したかを先に確認する。",
+   "tip": "引用された発言は直前のメッセージへの反応。直前のメッセージが何を尋ね、何を提案したかを見る。"
+  },
+  {
+   "id": "p7.insert",
+   "part": 7,
+   "group": "reading",
+   "name": "Part 7 文の位置",
+   "summary": "与えられた文のつなぎ語（also, however, as a result）と指示語（this, these, such）を手がかりに、その前に来るべき内容を本文から探す。",
+   "tip": "与えられた文のつなぎ語と指示語を手がかりに、前に来るべき内容を探す。"
+  },
+  {
+   "id": "p7.link",
+   "part": 7,
+   "group": "reading",
+   "name": "Part 7 クロスリファレンス",
+   "summary": "ある文書の情報（例: 注文番号、日付、割引条件）を別の文書の表・日程とつなげて初めて答えが出る。設問が聞いている対象がどの文書にあるか、つなぐ手がかりが何かを先に決める。",
+   "tip": "ある文書の条件と別の文書の表・日程をつなげて答えを出す。つなぐ手がかりを先に決める。"
+  }
+ ]
+}

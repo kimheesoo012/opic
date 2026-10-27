@@ -1,0 +1,1198 @@
+{
+ "units": [
+  {
+   "id": "p5-116",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 1,
+   "question": "The ------- of the new branch is scheduled for early March.",
+   "choices": [
+    "open",
+    "opened",
+    "opening",
+    "opens"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "定冠詞Theの後ろで、前置詞句of the new branchに修飾される主語の位置なので名詞が必要。openingは「開店」という名詞として使われる。",
+    "traps": [
+     "openは動詞・形容詞なので、冠詞の後ろの主語の位置で「開店」という名詞にはならない。",
+     "openedは動詞の過去形・過去分詞なので主語になれない。",
+     null,
+     "opensは動詞の3人称単数形なので冠詞の後ろには入らない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "branch",
+     "pos": "n",
+     "m": "支店"
+    }
+   ]
+  },
+  {
+   "id": "p5-117",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 1,
+   "question": "Please read the safety ------- before using the cutting machine.",
+   "choices": [
+    "instruct",
+    "instructive",
+    "instructed",
+    "instructions"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "readの目的語の位置で、safetyと一緒に複合名詞safety instructions（安全上の指示）を作る。",
+    "traps": [
+     "instructは動詞の原形なので、the safetyの後ろの目的語の位置には入らない。",
+     "instructive（ためになる）は形容詞なので名詞の位置を埋められない。",
+     "instructedは過去形・過去分詞なので目的語になれない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-118",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 2,
+   "question": "Ms. Ruiz received ------- for her outstanding work on the merger.",
+   "choices": [
+    "recognize",
+    "recognizable",
+    "recognized",
+    "recognition"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "receivedの目的語の位置に名詞が必要。recognition（評価、表彰）は不可算名詞なので冠詞なしで使える。",
+    "traps": [
+     "recognizeは動詞の原形なので、動詞receivedの目的語になれない。",
+     "recognizable（見分けがつく）は形容詞なので目的語の位置には入らない。",
+     "recognizedは過去分詞なので目的語の名詞の位置を埋められない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "merger",
+     "pos": "n",
+     "m": "合併"
+    },
+    {
+     "w": "outstanding",
+     "pos": "adj",
+     "m": "優れた"
+    }
+   ]
+  },
+  {
+   "id": "p5-119",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 3,
+   "question": "Mr. Lee has extensive ------- in negotiating contracts with overseas suppliers.",
+   "choices": [
+    "experiences",
+    "experienced",
+    "experience",
+    "experiencing"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "「〜する上で積んだ経験、経歴」という意味のexperienceは不可算名詞。extensive experience in -ing（〜における幅広い経験）が決まった表現。",
+    "traps": [
+     "experiencesは可算名詞として使うと「個々の体験」という意味になり、仕事の経歴を言うextensive 〜 in -ingと合わない。名詞の位置だということだけを見て選びやすいひっかけ。",
+     "experienced（熟練した）は形容詞なので、extensiveの後ろの名詞の位置を埋められない。",
+     null,
+     "experiencingは動名詞として使うと「経験すること」になり、extensiveが修飾するのは不自然で意味も合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "extensive",
+     "pos": "adj",
+     "m": "幅広い、大規模な"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-120",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 1,
+   "question": "The Harbor Inn offers ------- rooms at reasonable prices.",
+   "choices": [
+    "comfortable",
+    "comfort",
+    "comfortably",
+    "comforts"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "動詞offersと名詞roomsの間は名詞を修飾する形容詞の位置。comfortable（快適な）が正解。",
+    "traps": [
+     null,
+     "comfortは名詞・動詞なのでroomsを修飾できない。",
+     "comfortablyは副詞なので名詞を修飾できない。",
+     "comfortsは動詞・複数名詞なので形容詞の位置に合わない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-121",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 1,
+   "question": "The revised travel policy will become ------- on July 1.",
+   "choices": [
+    "effect",
+    "effectively",
+    "effective",
+    "effectiveness"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "becomeは形容詞の補語をとる。become effectiveは「（規則が）施行される」という意味。",
+    "traps": [
+     "effectは名詞なので、becomeの後ろでは「方針 = 効果」となり不自然。take effectと混同しやすい。",
+     "effectivelyは副詞なのでbecomeの補語になれない。",
+     null,
+     "effectiveness（効果）は名詞なので、補語にすると意味が通じない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-122",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 2,
+   "question": "Customer feedback on the redesigned app has been largely -------.",
+   "choices": [
+    "positively",
+    "positive",
+    "positivity",
+    "positives"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "has beenの後ろの補語の位置。largelyは補語を修飾する副詞なので、その後ろには形容詞positive（肯定的な）が来る。",
+    "traps": [
+     "positivelyは副詞なのでbe動詞の補語になれない。largelyの後ろなので副詞を選びやすいひっかけ。",
+     null,
+     "positivityは名詞なので「フィードバック = 前向きさ」となり不自然。",
+     "positivesは複数名詞なので、補語にすると「フィードバックが長所たちだ」となり意味が合わない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-123",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 3,
+   "question": "The marketing director considers the proposed slogan too ------- to appeal to younger customers.",
+   "choices": [
+    "tradition",
+    "traditionally",
+    "traditionalism",
+    "traditional"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "consider + 目的語 + 補語の形にtoo 〜 to doが組み合わさっている。目的格補語の位置でtooの後ろなので、形容詞traditionalが必要。",
+    "traps": [
+     "traditionは名詞なので、tooに修飾される補語の位置に合わない。",
+     "traditionallyは副詞。tooの後ろなので副詞を選びやすいが、目的格補語は形容詞でなければならない。",
+     "traditionalism（伝統主義）は名詞なので補語には不自然。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "appeal to",
+     "pos": "phr",
+     "m": "〜の心を引きつける"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-124",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 1,
+   "question": "The package was ------- delivered to the wrong address.",
+   "choices": [
+    "mistakenly",
+    "mistake",
+    "mistaken",
+    "mistakes"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "be動詞と過去分詞の間（was ___ delivered）は副詞の位置。mistakenly（誤って）が正解。",
+    "traps": [
+     null,
+     "mistakeは名詞・動詞なので受動態の間には入らない。",
+     "mistakenは形容詞・過去分詞なので、was mistaken deliveredのように動詞が重なる。",
+     "mistakesは名詞の複数形・動詞なので副詞の位置に合わない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-125",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 1,
+   "question": "Ms. Chen speaks ------- when she presents to international clients.",
+   "choices": [
+    "confidently",
+    "confident",
+    "confidence",
+    "confide"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "speaksは自動詞なので、後ろは動詞を修飾する副詞の位置。confidently（自信を持って）が正解。",
+    "traps": [
+     null,
+     "confidentは形容詞なので動詞speaksを修飾できない。",
+     "confidenceは名詞なので、自動詞の後ろに目的語のようには置けない。",
+     "confideは動詞の原形なのでspeaksの後ろには入らない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-126",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 2,
+   "question": "The board meeting ended ------- after the budget was approved.",
+   "choices": [
+    "short",
+    "shortly",
+    "shorten",
+    "shortness"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "shortly afterは「〜の直後に」という副詞の表現。自動詞endedを修飾する副詞shortlyが正解。",
+    "traps": [
+     "shortも副詞として使われるが「急に、不足して」という意味で、short afterでは「直後に」という意味にならない。",
+     null,
+     "shortenは動詞なのでendedの後ろには入らない。",
+     "shortnessは名詞なので副詞の位置に合わない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-127",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 3,
+   "question": "Applications that are not ------- completed will be returned to the sender.",
+   "choices": [
+    "full",
+    "fullness",
+    "fully",
+    "fuller"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "are notと過去分詞completedの間は副詞の位置。fully completedは「すべて記入された」。",
+    "traps": [
+     "fullは形容詞なので過去分詞を修飾できない。「完全な」という訳語につられやすいひっかけ。",
+     "fullnessは名詞なので受動態の間には入らない。",
+     null,
+     "fullerは形容詞の比較級なので副詞の位置に合わない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-128",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 1,
+   "question": "Ms. Park ------- the quarterly report to the director yesterday afternoon.",
+   "choices": [
+    "submits",
+    "will submit",
+    "has submitted",
+    "submitted"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "yesterday afternoonは終わった過去の時点なので、単純過去submittedが正解。",
+    "traps": [
+     "submitsは現在時制なのでyesterdayと合わない。",
+     "will submitは未来なので過去の時点と矛盾する。",
+     "has submittedのような現在完了は、yesterdayのように明確な過去の時点を表す語とは一緒に使わない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-129",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 2,
+   "question": "The technician ------- the copier when the power suddenly went out.",
+   "choices": [
+    "repairs",
+    "will repair",
+    "was repairing",
+    "has repaired"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "停電（went out）が起きた瞬間に進行中だった動作は、過去進行形was repairingで表す。",
+    "traps": [
+     "repairsは現在なので、過去の出来事（went out）と時制が合わない。",
+     "will repairは未来なので過去の瞬間と合わない。",
+     null,
+     "has repairedは現在を基準にした完了なので、when + 過去の時点とは一緒に使わない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-130",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 2,
+   "question": "As soon as the new manager -------, she will meet with each team member.",
+   "choices": [
+    "will arrive",
+    "arrived",
+    "arriving",
+    "arrives"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "As soon asは時の副詞節を導く接続詞なので、未来のことでも現在時制arrivesを使う。主節はwill meet。",
+    "traps": [
+     "主節が未来なのでwill arriveを選びやすいが、時の副詞節にはwillを使わない。",
+     "arrivedは過去なので、これからのこと（will meet）と合わない。",
+     "arrivingは分詞なので、副詞節に動詞がなくなる。",
+     null
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-131",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 3,
+   "question": "Ms. Adams ------- at the firm for only two months when she was promoted to team leader.",
+   "choices": [
+    "had worked",
+    "has worked",
+    "works",
+    "will have worked"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "昇進した過去の時点（was promoted）までの2か月間働いたので、過去完了had workedが正解。",
+    "traps": [
+     null,
+     "has workedは現在を基準にするので、過去の時点までの期間を表せない。",
+     "worksは現在なので過去の話と合わない。",
+     "will have workedは未来を基準にするので、過去の出来事と矛盾する。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "promote",
+     "pos": "v",
+     "m": "昇進させる"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-132",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 1,
+   "question": "The conference room ------- every evening by the cleaning staff.",
+   "choices": [
+    "cleans",
+    "is cleaned",
+    "cleaning",
+    "has cleaned"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "会議室は掃除「される」側で、by + 動作主が続く。every evening（繰り返し）なので、現在の受動態is cleaned。",
+    "traps": [
+     "cleansは能動態なので「会議室が掃除する」となり、目的語もない。",
+     null,
+     "cleaningは分詞なので述語動詞になれない。",
+     "has cleanedは能動態なので目的語が必要。"
+    ]
+   }
+  },
+  {
+   "id": "p5-133",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 2,
+   "question": "The new overtime policy ------- to all employees at last week's meeting.",
+   "choices": [
+    "was explained",
+    "explained",
+    "explaining",
+    "has explained"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "方針は説明「される」側で、後ろに目的語がない。last weekなので過去の受動態was explained。",
+    "traps": [
+     null,
+     "explainedは能動の過去なので「方針が説明した」になる。",
+     "explainingは分詞なので述語動詞がなくなる。",
+     "has explainedは能動態で、先週という過去の時点とも合わない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-134",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 2,
+   "question": "Our sales team ------- several new clients since January.",
+   "choices": [
+    "has been attracted",
+    "was attracted",
+    "has attracted",
+    "attracting"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "空所の後ろに目的語several new clientsがあるので能動態で、since Januaryと合う現在完了has attractedが正解。",
+    "traps": [
+     "has been attractedは受動態なので、後ろに目的語が来られない。",
+     "was attractedも受動態で、sinceと過去時制が合わない。",
+     null,
+     "attractingは分詞なので述語動詞になれない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-135",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 3,
+   "question": "The results of the customer survey ------- to the board after they are reviewed by our analysts.",
+   "choices": [
+    "present",
+    "are presenting",
+    "have presented",
+    "will be presented"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "結果は役員会に発表「される」側で、after節の後の未来のこと。未来の受動態will be presented。",
+    "traps": [
+     "presentは能動態なので結果が発表する主体になり、目的語もない。",
+     "are presentingは能動の進行形なので目的語が必要。",
+     "have presentedは能動の完了なので、意味も形も合わない。",
+     null
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-136",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 1,
+   "question": "The manager and her assistant ------- attending the trade show in Berlin.",
+   "choices": [
+    "is",
+    "are",
+    "was",
+    "has"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "A and Bが主語なら複数。attendingと一緒に進行形を作る複数のbe動詞areが正解。",
+    "traps": [
+     "isは単数の動詞なので、2人が主語の文と合わない。",
+     null,
+     "wasは単数形。",
+     "hasはattendingと組み合わせられない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-137",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 2,
+   "question": "One of the printers on the third floor ------- repairs.",
+   "choices": [
+    "need",
+    "needing",
+    "needs",
+    "have needed"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "One of + 複数名詞の主語はOne（単数）。単数動詞needsが正解。",
+    "traps": [
+     "needはprintersに合わせた複数形。本当の主語はOne。",
+     "needingは分詞なので述語動詞になれない。",
+     null,
+     "have neededは複数の動詞の形。"
+    ]
+   }
+  },
+  {
+   "id": "p5-138",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 2,
+   "question": "Neither the director nor the managers ------- aware of the schedule change.",
+   "choices": [
+    "was",
+    "is",
+    "has been",
+    "were"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "neither A nor Bは動詞をBに合わせる。Bのthe managersが複数なのでwereが正解。",
+    "traps": [
+     "wasは単数なので、近い方の主語managersと合わない。",
+     "isも単数の動詞なので、近い方の主語managersと合わない。",
+     "has beenは単数の動詞の形。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-139",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 3,
+   "question": "Every room in the newly renovated hotel ------- a view of the harbor.",
+   "choices": [
+    "offer",
+    "offers",
+    "offering",
+    "have offered"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "Every + 単数名詞は単数扱い。in the newly renovated hotelは修飾語なので、単数動詞offers。",
+    "traps": [
+     "offerは複数の動詞の形。修飾語が長いので主語を見失いやすい。",
+     null,
+     "offeringは分詞なので述語動詞になれない。",
+     "have offeredは複数の動詞の形。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-140",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 1,
+   "question": "The company decided ------- its headquarters to Busan.",
+   "choices": [
+    "to move",
+    "move",
+    "moving",
+    "moved"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "decideはto不定詞を目的語にとるので（decide to do）、to moveが正解。",
+    "traps": [
+     null,
+     "moveは動詞の原形なので、decidedの直後には入らない。",
+     "movingは動名詞で、decideは動名詞を目的語にとらない。",
+     "movedだと動詞が重なる。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "headquarters",
+     "pos": "n",
+     "m": "本社"
+    }
+   ]
+  },
+  {
+   "id": "p5-141",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 1,
+   "question": "Mr. Kim enjoys ------- with clients from many different countries.",
+   "choices": [
+    "work",
+    "to work",
+    "worked",
+    "working"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "enjoyは動名詞を目的語にとるので（enjoy doing）、workingが正解。",
+    "traps": [
+     "workは動詞の原形なので、enjoysの後ろには入らない。",
+     "to work: enjoyはto不定詞を目的語にとらない。",
+     "workedだと動詞が重なる。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-142",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 2,
+   "question": "Please remember ------- the lights when you leave the office tonight.",
+   "choices": [
+    "to turn off",
+    "turning off",
+    "turn off",
+    "turned off"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "remember to doは「（これから）〜することを覚えておく」、remember -ingは「（過去に）〜したことを覚えている」。今夜することなのでto turn off。",
+    "traps": [
+     null,
+     "remember turning offは「電気を消した覚えがある」という過去の意味なので文脈と合わない。",
+     "turn offは動詞の原形なので、rememberの直後には入らない。",
+     "turned offだと動詞が重なる。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-143",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 3,
+   "question": "The new software enables employees ------- their working hours from their phones.",
+   "choices": [
+    "record",
+    "recording",
+    "to record",
+    "recorded"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "enable + 目的語 + to do（〜が…できるようにする）の形なので、to recordが正解。",
+    "traps": [
+     "recordは動詞の原形なので、enableの目的格補語になれない（使役動詞let・makeではない）。",
+     "recordingはenableの目的格補語の形ではない。",
+     null,
+     "recordedは「記録された」という受動の意味で、従業員が記録する能動の関係と合わない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-144",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 1,
+   "question": "The ------- price includes delivery and installation.",
+   "choices": [
+    "quote",
+    "quoted",
+    "quoting",
+    "quotes"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "価格は「提示された（見積もられた）」側なので、受動の意味の過去分詞quotedがpriceを修飾する。",
+    "traps": [
+     "quoteは動詞・名詞なので、冠詞と名詞の間の修飾の位置に合わない。",
+     null,
+     "quotingは「見積もりを出す」という能動なので、価格が見積もりを出すことになる。",
+     "quotesは名詞の複数形・動詞なので形容詞の位置には入らない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "quote",
+     "pos": "v",
+     "m": "見積もりを出す"
+    }
+   ]
+  },
+  {
+   "id": "p5-145",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 1,
+   "question": "Employees were ------- by the news of the company's expansion.",
+   "choices": [
+    "excite",
+    "exciting",
+    "excited",
+    "excitement"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "主語Employees（人）が知らせによって「わくわくした」。人が感じる感情は-ed形のexcited。",
+    "traps": [
+     "exciteは動詞の原形なのでwereの後ろには入らない。",
+     "excitingは「わくわくさせる」なので従業員が他人をわくわくさせることになり、後ろのbyとも合わない。",
+     null,
+     "excitementは名詞なので「従業員 = 興奮」となり不自然。"
+    ]
+   }
+  },
+  {
+   "id": "p5-146",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 2,
+   "question": "Orders ------- after 3 P.M. will be shipped the next business day.",
+   "choices": [
+    "receiving",
+    "received",
+    "receive",
+    "receives"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "Ordersを後ろから修飾する分詞の位置。注文は「受け付けられる」側なので過去分詞received。述語動詞はwill be shipped。",
+    "traps": [
+     "receivingは能動なので、注文が何かを受け取るという意味になる。",
+     null,
+     "receiveは動詞の原形なので、述語動詞が重なる。",
+     "receivesも動詞なので、will be shippedと述語動詞が2つになる。"
+    ]
+   }
+  },
+  {
+   "id": "p5-147",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 3,
+   "question": "------- the instructions carefully, Mr. Ito assembled the bookshelf in under an hour.",
+   "choices": [
+    "Following",
+    "Followed",
+    "Follows",
+    "Follower"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "分詞構文の主語は主節のMr. Itoで、彼が説明書に「従った」能動の関係。後ろに目的語the instructionsもあるので、現在分詞Following。",
+    "traps": [
+     null,
+     "Followedは受動なので、Mr. Itoが説明書に従われたという意味になり、目的語もとれない。",
+     "Followsは動詞なので、接続詞なしで2つの節がつながってしまう。",
+     "Followerは名詞なので文の形が成り立たない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-148",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 1,
+   "question": "Ms. Garcia sent the contract to ------- lawyer for review.",
+   "choices": [
+    "she",
+    "hers",
+    "herself",
+    "her"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "空所の後ろの名詞lawyerを修飾する所有格herが必要。",
+    "traps": [
+     "sheは主格なので名詞の前には入らない。",
+     "hersは所有代名詞なので後ろに名詞は来ない。",
+     "herselfは再帰代名詞なので名詞を修飾できない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-149",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 1,
+   "question": "The clients liked the design, so ------- signed the contract immediately.",
+   "choices": [
+    "them",
+    "their",
+    "themselves",
+    "they"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "soの後ろの節の主語の位置なので、主格theyが正解。",
+    "traps": [
+     "themは目的格なので主語になれない。",
+     "theirは所有格なので後ろに名詞が必要。",
+     "themselvesは主語の位置には使わない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-150",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 2,
+   "question": "The staff members organized the farewell party by -------.",
+   "choices": [
+    "they",
+    "themselves",
+    "them",
+    "their"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "by oneselfは「自分たちだけで、自力で」という意味。主語The staff membersと同じものなのでthemselves。",
+    "traps": [
+     "theyは主格なので前置詞の後ろには入らない。",
+     null,
+     "by themは「彼ら（ほかの人たち）によって」という意味になり、主語とは別の人を指す。",
+     "theirは所有格なので後ろに名詞が必要。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "farewell party",
+     "pos": "n",
+     "m": "送別会"
+    }
+   ]
+  },
+  {
+   "id": "p5-151",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 3,
+   "question": "The sales figures for this quarter are higher than ------- for the same period last year.",
+   "choices": [
+    "that",
+    "them",
+    "those",
+    "it"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "比べる対象は「昨年の同じ期間の販売数値」。前の複数名詞figuresの代わりになる代名詞はthose。",
+    "traps": [
+     "thatは単数名詞の代わりになる。figuresは複数なので合わない。",
+     "themは目的格なので、thanの後ろで修飾語for 〜を伴って名詞の代わりにはなれない。",
+     null,
+     "itは単数で、修飾語に修飾される代名詞としては使わない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-152",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 1,
+   "question": "The employee ------- won this year's service award has worked here for ten years.",
+   "choices": [
+    "who",
+    "which",
+    "whose",
+    "whom"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "先行詞が人で、関係詞節の主語が抜けている（___ won）。主格の関係代名詞who。",
+    "traps": [
+     null,
+     "whichは先行詞が物のときに使う。",
+     "whoseの後ろには名詞が来る必要がある。",
+     "whomは目的格なので主語の位置には使えない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-153",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 1,
+   "question": "The printer ------- we bought last month has already broken down.",
+   "choices": [
+    "who",
+    "whose",
+    "which",
+    "what"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "先行詞が物（printer）で、関係詞節we bought ___ では目的語が抜けている。whichが正解。",
+    "traps": [
+     "whoは先行詞が人のときに使う。",
+     "whoseの後ろにはすぐ名詞が来る必要がある。",
+     null,
+     "whatは先行詞を含むので、The printerの後ろには使えない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-154",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 2,
+   "question": "This is the factory ------- our kitchen appliances are assembled.",
+   "choices": [
+    "which",
+    "what",
+    "who",
+    "where"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "関係詞節our kitchen appliances are assembledは完全な受動態の文。場所の先行詞の後ろで完全な節には関係副詞where。",
+    "traps": [
+     "whichの後ろには不完全な節が来る。in whichなら可能。",
+     "whatは先行詞がないときに使う。",
+     "whoは先行詞が人のときに使う。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "assemble",
+     "pos": "v",
+     "m": "組み立てる"
+    }
+   ]
+  },
+  {
+   "id": "p5-155",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 3,
+   "question": "Please forward the invoice to ------- is in charge of the Henderson project.",
+   "choices": [
+    "whoever",
+    "whomever",
+    "who",
+    "whom"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "前置詞toの目的語になる名詞節が必要で、節の中ではisの主語が抜けている。先行詞なしで「〜する人は誰でも」を表す主格whoever。",
+    "traps": [
+     null,
+     "whomeverは目的格なので、isの主語の位置を埋められない。前置詞toの後ろなので目的格を選びやすいひっかけ。",
+     "whoは先行詞が必要な関係代名詞か疑問詞として使われる。この位置には先行詞がない。",
+     "whomも目的格なので主語の位置に合わない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-156",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 1,
+   "question": "The store was closed for two hours ------- a power outage.",
+   "choices": [
+    "because",
+    "because of",
+    "although",
+    "despite"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "空所の後ろは名詞句（a power outage）で、「停電のために」という理由。前置詞because of。",
+    "traps": [
+     "becauseは接続詞なので、後ろに節が必要。",
+     null,
+     "althoughは接続詞で、意味も譲歩。",
+     "despiteは前置詞だが「〜にもかかわらず」なので、理由の関係と合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "power outage",
+     "pos": "n",
+     "m": "停電"
+    }
+   ]
+  },
+  {
+   "id": "p5-157",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 1,
+   "question": "Please wait in the lobby ------- your name is called.",
+   "choices": [
+    "during",
+    "by",
+    "within",
+    "until"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "後ろに節（your name is called）が来て、「名前が呼ばれるまで」待つという意味。接続詞until。",
+    "traps": [
+     "duringは前置詞なので節を受けられない。",
+     "byは接続詞として使われない（by the timeは可能）。",
+     "withinは「〜以内に」という前置詞なので節を受けられない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-158",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 2,
+   "question": "------- the weather was poor, the outdoor concert was held as planned.",
+   "choices": [
+    "Even though",
+    "In spite of",
+    "Because",
+    "Unless"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "後ろに節が来て、「天気が悪かったが予定どおり開かれた」という譲歩の関係。Even though。",
+    "traps": [
+     null,
+     "In spite ofは前置詞なので節を受けられない。",
+     "Becauseは理由なので「天気が悪かったから予定どおり開かれた」となり不自然。",
+     "Unless（〜しない限り）は条件なので意味が合わない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-159",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 3,
+   "question": "The seminar was postponed ------- the speaker's flight had been canceled.",
+   "choices": [
+    "due to",
+    "because",
+    "owing",
+    "although"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "後ろに主語（the speaker's flight）と動詞（had been canceled）のある節が来て、延期の理由を表す。接続詞because。",
+    "traps": [
+     "due toは意味は合うが前置詞なので節を受けられない。",
+     null,
+     "owingはowing toの形でなければならず、その場合も名詞しか受けない。",
+     "althoughは譲歩なので理由の関係と合わない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-160",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 1,
+   "question": "The museum is open ------- 9 A.M. to 6 P.M. every day.",
+   "choices": [
+    "at",
+    "in",
+    "from",
+    "on"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "from A to Bは「〜から…まで」という範囲の表現。",
+    "traps": [
+     "atは1つの時点（at 9 A.M.）に使い、toとは組にならない。",
+     "inは時刻の前には使わない。",
+     null,
+     "onは曜日・日付の前に使う。"
+    ]
+   }
+  }
+ ]
+}

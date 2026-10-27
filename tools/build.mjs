@@ -6,7 +6,11 @@ import { execSync } from 'node:child_process';
 import * as esbuild from 'esbuild';
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
-const app = path.join(root, 'toeic');
+// 인자로 앱 폴더를 받는다(기본 toeic). toeic-ja는 서비스 워커만 만든다.
+const APP = process.argv[2] || 'toeic';
+const app = path.join(root, APP);
+// 같은 출처(github.io)의 두 앱이 서로의 캐시를 지우지 않도록 접두어를 나눈다
+const PREFIX = APP === 'toeic' ? 'toeic900-' : `${APP.replace(/-/g, '')}-`;
 const dist = path.join(root, 'dist');
 fs.mkdirSync(dist, { recursive: true });
 
@@ -25,7 +29,7 @@ const version = hash.digest('hex').slice(0, 12);
 const precache = ['./', ...files];
 const sw = `// 자동 생성 파일 (tools/build.mjs) — 직접 수정하지 마세요.
 const VERSION = '${version}';
-const CACHE = 'toeic900-' + VERSION;
+const CACHE = '${PREFIX}' + VERSION;
 const PRECACHE = ${JSON.stringify(precache, null, 0)};
 
 self.addEventListener('install', (e) => {
@@ -33,7 +37,7 @@ self.addEventListener('install', (e) => {
 });
 
 self.addEventListener('activate', (e) => {
-  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k.startsWith('toeic900-') && k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
+  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k.startsWith('${PREFIX}') && k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
 
 // 캐시 우선(오프라인 실행), 없으면 네트워크 후 캐시에 저장. 페이지 이동은 index.html로.
@@ -51,7 +55,8 @@ self.addEventListener('fetch', (e) => {
 });
 `;
 fs.writeFileSync(path.join(app, 'sw.js'), sw);
-console.log(`sw.js: ${precache.length}개 파일, 버전 ${version}`);
+console.log(`${APP}/sw.js: ${precache.length}개 파일, 버전 ${version}`);
+if (APP !== 'toeic') process.exit(0);
 
 // ② 단일 HTML (Artifact·파일 하나로 열기용: 서비스 워커 없음, 데이터 내장)
 const idx = JSON.parse(fs.readFileSync(path.join(app, 'data/index.json')));

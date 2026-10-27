@@ -1,0 +1,1042 @@
+{
+ "units": [
+  {
+   "id": "p5-001",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 1,
+   "question": "Ms. Okafor's ------- of the quarterly budget helped the team avoid unnecessary expenses.",
+   "choices": [
+    "analyze",
+    "analysis",
+    "analytical",
+    "analyzed"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "空所は所有格Ms. Okafor'sの直後で、動詞helpedの主語の位置。所有格の後ろで 'of the quarterly budget' に修飾される名詞analysis（分析）が入って文が完成する。",
+    "traps": [
+     "analyzeは動詞の原形なので、所有格の後ろの主語の位置には入らない。",
+     null,
+     "analytical（分析的な）は形容詞。所有格の後ろに形容詞だけがあって名詞がなければ主語が成り立たない。",
+     "analyzedは過去形・過去分詞。文の動詞はすでにhelpedで、所有格の後ろには名詞が必要。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "quarterly",
+     "pos": "adj",
+     "m": "四半期ごとの"
+    },
+    {
+     "w": "unnecessary",
+     "pos": "adj",
+     "m": "不要な"
+    }
+   ]
+  },
+  {
+   "id": "p5-002",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 2,
+   "question": "All applicants must submit proof of ------- along with their résumés.",
+   "choices": [
+    "employment",
+    "employ",
+    "employer",
+    "employed"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "前置詞ofの後ろは名詞の位置で、'proof of employment' は「在職証明」という意味の自然な表現。employmentは不可算名詞なので冠詞なしで使える。",
+    "traps": [
+     null,
+     "employは動詞なので前置詞ofの目的語にはなれない。",
+     "employer（雇用主）も名詞だが可算名詞なので冠詞なしの単数では使えず、「雇用主の証明」では意味も不自然。人を表す名詞と行為を表す名詞のひっかけ。",
+     "employedは形容詞・過去分詞で、前置詞の後ろの名詞の位置に単独では入らない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "proof",
+     "pos": "n",
+     "m": "証明（書）、証拠"
+    },
+    {
+     "w": "submit",
+     "pos": "v",
+     "m": "提出する"
+    }
+   ]
+  },
+  {
+   "id": "p5-003",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Several ------- for the assistant manager position were invited to a second interview.",
+   "choices": [
+    "applicant",
+    "applicants",
+    "applications",
+    "applying"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "Severalの後ろには複数名詞が来て、面接に「招かれた（were invited）」のは人でなければならない。したがって人を表す複数名詞applicants（応募者たち）が正解。",
+    "traps": [
+     "applicantは単数なのでSeveralと一緒に使えない。",
+     null,
+     "applications（応募書類）も複数名詞だが、書類は面接に招かれない。形だけ合って意味が違う代表的なひっかけ。",
+     "applyingは動名詞で、Severalに修飾される複数名詞の位置に合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "position",
+     "pos": "n",
+     "m": "職、ポジション"
+    }
+   ]
+  },
+  {
+   "id": "p5-004",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 2,
+   "question": "Employees must complete safety ------- before operating the new packaging machinery.",
+   "choices": [
+    "train",
+    "trained",
+    "trainer",
+    "training"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "completeの目的語の位置に名詞が必要。safety training（安全研修）は「名詞 + 名詞」の複合名詞で、trainingは不可算なので冠詞なしで使える。",
+    "traps": [
+     "trainは動詞（または「列車」）で、意味も形も合わない。",
+     "trainedは過去分詞なので、completeの目的語になる名詞の位置を埋められない。",
+     "trainer（講師）は可算名詞なので冠詞が必要で、「安全講師を完了する」では意味も成り立たない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "machinery",
+     "pos": "n",
+     "m": "機械類（不可算）"
+    },
+    {
+     "w": "operate",
+     "pos": "v",
+     "m": "（機械を）操作する"
+    }
+   ]
+  },
+  {
+   "id": "p5-005",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The service desk received ------- from several clients regarding the delayed shipments.",
+   "choices": [
+    "complaint",
+    "complain",
+    "complaints",
+    "complained"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "receivedの目的語の位置に名詞が必要。complaintは可算名詞なので、冠詞なしで使うには複数形complaintsにする必要がある。several clientsから複数の苦情という点も合う。",
+    "traps": [
+     "complaintは可算名詞の単数形なので、a/theなしで単独では使えない。品詞だけ見て選ぶと引っかかる。",
+     "complainは動詞なのでreceivedの目的語になれない。",
+     null,
+     "complainedは動詞の過去形で、すでに動詞receivedがある文にもう1つは入らない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "regarding",
+     "pos": "prep",
+     "m": "〜に関して"
+    },
+    {
+     "w": "shipment",
+     "pos": "n",
+     "m": "出荷（品）"
+    }
+   ]
+  },
+  {
+   "id": "p5-006",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 1,
+   "question": "The new filing system has made the archive much more ------- to staff members.",
+   "choices": [
+    "accessible",
+    "access",
+    "accessibly",
+    "accessibility"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "make + 目的語（the archive）+ 目的格補語の形。補語の位置には形容詞が入るので、moreと比較級を作るaccessible（利用しやすい）が正解。",
+    "traps": [
+     null,
+     "accessは名詞・動詞で、much more access toでは「より多くの利用権」という意味になり、目的語the archiveを説明する補語の形が崩れる。",
+     "accessiblyは副詞なので目的格補語の位置に入らない。",
+     "accessibilityは名詞で、補語の位置で形容詞の代わりには使えない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "archive",
+     "pos": "n",
+     "m": "記録保管所、資料室"
+    }
+   ]
+  },
+  {
+   "id": "p5-007",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 1,
+   "question": "Lakeside Catering is known for its ------- service and reasonable prices.",
+   "choices": [
+    "rely",
+    "reliably",
+    "reliability",
+    "reliable"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "所有格itsと名詞serviceの間は、名詞を修飾する形容詞の位置。reliable（信頼できる）がand の後ろのreasonable pricesとも「形容詞 + 名詞」で並列になる。",
+    "traps": [
+     "relyは動詞で、名詞の前の修飾の位置には入らない。",
+     "reliablyは副詞なので名詞serviceを修飾できない。",
+     "reliability serviceは「名詞 + 名詞」の複合名詞として成り立たない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "reasonable",
+     "pos": "adj",
+     "m": "（価格が）手頃な、妥当な"
+    }
+   ]
+  },
+  {
+   "id": "p5-008",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 1,
+   "question": "The instructions for assembling the shelves were not as ------- as customers had expected.",
+   "choices": [
+    "clearly",
+    "clear",
+    "clarity",
+    "clarify"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "be動詞wereの補語の位置で、as 〜 asの原級比較の間。be動詞の後ろの補語は形容詞なのでclear（明確な）が正解。",
+    "traps": [
+     "clearlyは副詞なのでbe動詞の補語になれない。as 〜 asの間という点だけに注目すると選びやすいひっかけ。",
+     null,
+     "clarityは名詞。主語instructionsを説明する補語に「明確さ」が来ると「説明書 = 明確さ」となり不自然。",
+     "clarifyは動詞の原形なのでwereの後ろには入らない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "assemble",
+     "pos": "v",
+     "m": "組み立てる"
+    }
+   ]
+  },
+  {
+   "id": "p5-009",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Although the proposal seemed ------- at first, the committee eventually rejected it because of its high cost.",
+   "choices": [
+    "promising",
+    "promise",
+    "promised",
+    "promisingly"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "seemは後ろに形容詞の補語をとる。企画書が「有望に見えた」という意味なので、「見込みのある」という意味の形容詞promisingが正解。Although（〜だが）とrejectedの対比も自然。",
+    "traps": [
+     null,
+     "promiseは名詞・動詞で、第2文型の動詞seemedの補語になる形容詞の位置に合わない。",
+     "promisedは「約束された」という受動の意味で、「企画書が約束されたように見えた」となり意味が通じない。",
+     "promisinglyは副詞なのでseemの補語になれない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "eventually",
+     "pos": "adv",
+     "m": "最終的に"
+    },
+    {
+     "w": "reject",
+     "pos": "v",
+     "m": "断る、却下する"
+    }
+   ]
+  },
+  {
+   "id": "p5-010",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The finance committee found the revised budget ------- with the company's long-term goals.",
+   "choices": [
+    "consist",
+    "consistently",
+    "consistent",
+    "consistency"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "find + 目的語（the revised budget）+ 形容詞の補語の形で、「改訂予算が長期目標と一致していると判断した」という意味。be consistent with（〜と一致している）がそのまま補語として使われている。",
+    "traps": [
+     "consistは動詞（consist of: 〜から成る）で、目的格補語の位置に合わない。",
+     "consistentlyは副詞。findの後ろの目的格補語に副詞は入らないが、「一貫して」という訳につられて選びやすい。",
+     null,
+     "consistencyは名詞なので「予算 = 一貫性」となり、補語として不自然。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "revised",
+     "pos": "adj",
+     "m": "改訂された"
+    },
+    {
+     "w": "long-term",
+     "pos": "adj",
+     "m": "長期的な"
+    }
+   ]
+  },
+  {
+   "id": "p5-011",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 1,
+   "question": "The technicians worked ------- to restore the network before business hours began on Monday.",
+   "choices": [
+    "tirelessly",
+    "tireless",
+    "tiredness",
+    "tire"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "workedは自動詞で、文はすでに完全。空所は動詞を修飾する副詞の位置なので、tirelessly（疲れを知らずに）が正解。",
+    "traps": [
+     null,
+     "tirelessは形容詞なので動詞workedを修飾できない。",
+     "tiredness（疲労）は名詞なので、自動詞workedの後ろに目的語のようには置けない。",
+     "tireは動詞・名詞でこの位置に合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "restore",
+     "pos": "v",
+     "m": "復旧させる、回復させる"
+    }
+   ]
+  },
+  {
+   "id": "p5-012",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 1,
+   "question": "Sales of the compact model have increased ------- since the price was reduced in March.",
+   "choices": [
+    "steady",
+    "steadiness",
+    "steadied",
+    "steadily"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "increaseはここでは自動詞で、'Sales have increased' だけで文が完全。動詞を修飾する副詞steadily（着実に）が入る。",
+    "traps": [
+     "steadyは形容詞なので動詞increasedを修飾できない。",
+     "steadinessは名詞で、自動詞の後ろの目的語の位置のようには使えない。",
+     "steadiedは過去形・過去分詞で、すでに動詞（have increased）がある文に合わない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "compact",
+     "pos": "adj",
+     "m": "小型の"
+    }
+   ]
+  },
+  {
+   "id": "p5-013",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 2,
+   "question": "The large conference room is ------- reserved for client meetings on Thursday afternoons.",
+   "choices": [
+    "typical",
+    "typicality",
+    "typically",
+    "typify"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "be動詞と過去分詞の間（is ___ reserved）は副詞の位置。typically（通常、一般的に）が受動態の動詞を修飾する。",
+    "traps": [
+     "typicalは形容詞なのでbeとp.p.の間に入らない。",
+     "typicalityは名詞なので受動態の間には入らない。",
+     null,
+     "typifyは動詞の原形なので、isの後ろ、p.p.の前には入らない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "reserve",
+     "pos": "v",
+     "m": "予約する、（用途のために）取っておく"
+    }
+   ]
+  },
+  {
+   "id": "p5-014",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Ms. Duval's presentation on supply chain costs was ------- well received by the regional directors.",
+   "choices": [
+    "exception",
+    "exceptionally",
+    "exceptional",
+    "excepted"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "空所は副詞wellを修飾する位置。副詞を修飾するのは副詞なので、exceptionally（並外れて、とても）が正解。'exceptionally well received' は「非常に好評だった」という意味。",
+    "traps": [
+     "exceptionは名詞で、副詞wellの前には入らない。",
+     null,
+     "exceptionalは形容詞なので副詞wellを修飾できない。「wasの後ろの補語 = 形容詞」と思わせるひっかけ。",
+     "exceptedは「除外された」という過去分詞で、意味も合わずwellも修飾できない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "supply chain",
+     "pos": "n",
+     "m": "サプライチェーン"
+    },
+    {
+     "w": "regional",
+     "pos": "adj",
+     "m": "地域の"
+    }
+   ]
+  },
+  {
+   "id": "p5-015",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 2,
+   "question": "Only candidates who have ------- completed the online assessment will be contacted for an interview.",
+   "choices": [
+    "success",
+    "successfully",
+    "successful",
+    "succeed"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "haveと過去分詞completedの間は副詞の位置。successfully（うまく、成功裏に）が現在完了の動詞を修飾する。",
+    "traps": [
+     "successは名詞で、haveとp.p.の間には入らない。",
+     null,
+     "successfulは形容詞なので動詞を修飾できない。",
+     "succeedは動詞の原形。have succeeded completedのように動詞が重なってしまう。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "assessment",
+     "pos": "n",
+     "m": "評価"
+    },
+    {
+     "w": "candidate",
+     "pos": "n",
+     "m": "候補者、応募者"
+    }
+   ]
+  },
+  {
+   "id": "p5-016",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 1,
+   "question": "Mr. Abara ------- in the accounting department since he joined the firm in 2019.",
+   "choices": [
+    "has worked",
+    "works",
+    "will work",
+    "is working"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "since + 過去の時点（he joined … in 2019）は過去から今まで続くことを表すので、現在完了has workedが正解。",
+    "traps": [
+     null,
+     "worksは単純現在で、sinceと一緒に「そのときから今まで」を表せない。",
+     "will workは未来なので、過去の時点からの継続を表せない。",
+     "is workingは現在進行形なので、sinceの構文と合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "accounting department",
+     "pos": "n",
+     "m": "経理部"
+    }
+   ]
+  },
+  {
+   "id": "p5-017",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 2,
+   "question": "By the time the new shipment arrived, the store ------- out of the advertised blenders.",
+   "choices": [
+    "sells",
+    "has sold",
+    "had sold",
+    "will have sold"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "By the time + 過去（arrived）は「出荷品が届いたときにはすでに」という意味なので、それより前に終わったことは過去完了had soldで表す。sell out ofは「〜を売り切る」。",
+    "traps": [
+     "sellsは現在時制なので、過去の時点（arrived）を基準にした話と合わない。",
+     "has soldは現在を基準にした完了で、過去の時点より前のことを表せない。",
+     null,
+     "will have soldは未来完了。By the timeの後ろが現在時制なら可能だが、arrivedは過去。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "advertised",
+     "pos": "adj",
+     "m": "広告された"
+    },
+    {
+     "w": "sell out of",
+     "pos": "phr",
+     "m": "〜を売り切る"
+    }
+   ]
+  },
+  {
+   "id": "p5-018",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Once the renovation -------, the restaurant will offer outdoor seating for up to forty guests.",
+   "choices": [
+    "will be completed",
+    "completes",
+    "was completed",
+    "is completed"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "Once（いったん〜すれば）は時・条件の副詞節を作る接続詞なので、未来のことでも現在時制で書く。改装は「完了される」側なので、受動態の現在is completedが正解。",
+    "traps": [
+     "主節が未来（will offer）なのでwill be completedを選びやすいが、時の副詞節では未来の代わりに現在時制を使う。",
+     "completesは能動態。renovationは自分で完了させる主体ではなく、完了される側。",
+     "was completedは過去なので、これから起こること（will offer）と時点が合わない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "renovation",
+     "pos": "n",
+     "m": "改装、リフォーム"
+    },
+    {
+     "w": "up to",
+     "pos": "phr",
+     "m": "最大〜まで"
+    }
+   ]
+  },
+  {
+   "id": "p5-019",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 2,
+   "question": "The revised quarterly report ------- to all shareholders next Friday.",
+   "choices": [
+    "sent",
+    "was sent",
+    "has been sent",
+    "will be sent"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "next Fridayは未来の時点で、報告書は「送られる」側。未来の受動態will be sentが正解。",
+    "traps": [
+     "sentは過去の能動で「報告書が送った」になり、時点も合わない。",
+     "was sentは過去時制なのでnext Fridayと矛盾する。",
+     "has been sentは現在完了で、未来の時点next Fridayと一緒には使えない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "shareholder",
+     "pos": "n",
+     "m": "株主"
+    }
+   ]
+  },
+  {
+   "id": "p5-020",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "By the end of next month, Ms. Ortega ------- the company for exactly twenty years.",
+   "choices": [
+    "has served",
+    "will serve",
+    "will have served",
+    "had served"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "By + 未来の時点（the end of next month）と期間（for twenty years）が一緒に使われると、「そのときには〜してきたことになる」という未来完了will have servedが正解。",
+    "traps": [
+     "has servedは現在までの完了で、基準の時点が未来（next month）なので合わない。",
+     "will serveは単純未来で、「by 未来の時点 + for 期間」の積み重ねの意味を表せない。最もよくあるひっかけ。",
+     null,
+     "had servedは過去を基準にした完了なのでnext monthと矛盾する。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "serve",
+     "pos": "v",
+     "m": "（会社・職で）勤める"
+    }
+   ]
+  },
+  {
+   "id": "p5-021",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 1,
+   "question": "All visitors ------- to sign in at the front desk upon arrival.",
+   "choices": [
+    "require",
+    "are required",
+    "requiring",
+    "have required"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "来訪者は記帳するよう「求められる」側で、空所の後ろに目的語がなくto不定詞が続く。be required to do（〜しなければならない）の受動態が正解。",
+    "traps": [
+     "requireは能動態なので「来訪者が記帳を求める」となって意味が逆になり、後ろに目的語もない。",
+     null,
+     "requiringは分詞で、文に述語動詞がなくなる。",
+     "have requiredは能動の現在完了で、requireの後ろに必要な目的語がない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "upon arrival",
+     "pos": "phr",
+     "m": "到着してすぐ"
+    },
+    {
+     "w": "sign in",
+     "pos": "phr",
+     "m": "（来訪者名簿に）記帳する"
+    }
+   ]
+  },
+  {
+   "id": "p5-022",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 2,
+   "question": "Last year's awards ceremony ------- by more than 300 employees and their families.",
+   "choices": [
+    "was attended",
+    "attended",
+    "has attended",
+    "attending"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "授賞式は「出席される」側で、by + 動作主（more than 300 employees）が続く。Last year'sから過去なので、過去の受動態was attendedが正解。",
+    "traps": [
+     null,
+     "attendedは能動の過去で「授賞式が出席した」となり、attendの後ろに必要な目的語もない。",
+     "has attendedは能動態なので目的語が必要で、時点（last year）も現在完了と合わない。",
+     "attendingは分詞で、述語動詞の役割を果たせない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "awards ceremony",
+     "pos": "n",
+     "m": "授賞式"
+    }
+   ]
+  },
+  {
+   "id": "p5-023",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 2,
+   "question": "The marketing team ------- several new slogans for the spring campaign.",
+   "choices": [
+    "has been proposed",
+    "was proposed",
+    "proposing",
+    "has proposed"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "空所の後ろに目的語several new slogansがあり、チームがスローガンを「提案する」主体なので、能動態has proposedが正解。",
+    "traps": [
+     "has been proposedは受動態なので後ろに目的語が来られず、「チームが提案された」という意味になる。",
+     "was proposedも受動態なので、目的語slogansと一緒に使えない。",
+     "proposingは分詞で、述語動詞のない文になる。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "propose",
+     "pos": "v",
+     "m": "提案する"
+    }
+   ]
+  },
+  {
+   "id": "p5-024",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Unexpected delays ------- during the installation of the new inventory software last week.",
+   "choices": [
+    "were occurred",
+    "have been occurred",
+    "occurred",
+    "occurring"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "occur（起こる）は目的語をとらない自動詞なので受動態がない。last weekから過去なので、occurredが正解。",
+    "traps": [
+     "日本語の「発生させられた」のような発想で受動態を選びやすいが、自動詞occurは受動態にできない。",
+     "have been occurredも自動詞の受動態なので不可能で、last weekと現在完了も合わない。",
+     null,
+     "occurringは分詞で、文の述語動詞になれない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "inventory",
+     "pos": "n",
+     "m": "在庫"
+    },
+    {
+     "w": "installation",
+     "pos": "n",
+     "m": "設置"
+    }
+   ]
+  },
+  {
+   "id": "p5-025",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The distribution agreement will ------- by both parties before the end of the business day.",
+   "choices": [
+    "sign",
+    "be signed",
+    "have signed",
+    "signing"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "契約書は署名「される」側で、後ろにby both partiesがある。助動詞willの後ろに受動態の原形be signedが入る。",
+    "traps": [
+     "signは能動態なので契約書が署名する主体になり、目的語もない。",
+     null,
+     "have signedは能動の完了で、「契約書が署名しただろう」となり成り立たない。",
+     "signingはwillの後ろには入らない（will + 動詞の原形）。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "distribution",
+     "pos": "n",
+     "m": "流通、配布"
+    },
+    {
+     "w": "party",
+     "pos": "n",
+     "m": "（契約の）当事者"
+    }
+   ]
+  },
+  {
+   "id": "p5-026",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 1,
+   "question": "The list of approved vendors ------- updated every six months.",
+   "choices": [
+    "is",
+    "are",
+    "were",
+    "be"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "主語の中心は単数名詞The listで、of approved vendorsは修飾語。every six monthsは繰り返されることなので、現在の単数isが正解。",
+    "traps": [
+     null,
+     "areは直前のvendors（複数）に数を合わせたひっかけ。本当の主語はlist。",
+     "wereは複数かつ過去なので、主語list、繰り返しの意味のどちらとも合わない。",
+     "beは動詞の原形なので、主語の後ろの述語動詞の位置には入らない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "vendor",
+     "pos": "n",
+     "m": "販売業者、納入業者"
+    },
+    {
+     "w": "approved",
+     "pos": "adj",
+     "m": "承認された"
+    }
+   ]
+  },
+  {
+   "id": "p5-027",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 2,
+   "question": "Each of the regional managers ------- expected to submit a progress report by Friday.",
+   "choices": [
+    "are",
+    "being",
+    "is",
+    "have been"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "Each of + 複数名詞は「それぞれ」という意味で単数扱い。したがって単数動詞isが正解。",
+    "traps": [
+     "areはmanagersに数を合わせたもので、主語Eachは単数。",
+     "beingは分詞なので述語動詞になれない。",
+     null,
+     "have beenは複数の動詞の形なので、単数の主語Eachと合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "progress report",
+     "pos": "n",
+     "m": "進捗報告書"
+    }
+   ]
+  },
+  {
+   "id": "p5-028",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 2,
+   "question": "The number of customers using the mobile ordering app ------- doubled over the past year.",
+   "choices": [
+    "has",
+    "have",
+    "having",
+    "to have"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "The number of + 複数名詞は「〜の数」という1つの数値なので単数扱い。over the past yearと合う現在完了の単数has doubledが正解。",
+    "traps": [
+     null,
+     "haveはcustomersに合わせた複数形。複数動詞を使うのはa number of（多くの）のときだけ。",
+     "havingは分詞なので述語動詞になれない。",
+     "to haveはto不定詞なので述語動詞の位置に入らない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "double",
+     "pos": "v",
+     "m": "2倍になる"
+    }
+   ]
+  },
+  {
+   "id": "p5-029",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Employees who wish to attend the leadership seminar ------- their supervisor's approval in advance.",
+   "choices": [
+    "needs",
+    "need",
+    "needing",
+    "has needed"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "主語はEmployees（複数）で、who wish to attend the leadership seminarは主語を修飾する関係詞節。複数の主語に合うneedが正解。",
+    "traps": [
+     "needsは直前のseminar（単数）に数を合わせたひっかけ。",
+     null,
+     "needingは分詞なので述語動詞になれない。",
+     "has neededは単数の動詞の形なので、複数の主語Employeesと合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "in advance",
+     "pos": "phr",
+     "m": "前もって"
+    },
+    {
+     "w": "approval",
+     "pos": "n",
+     "m": "承認"
+    }
+   ]
+  },
+  {
+   "id": "p5-030",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "A number of complaints about the new parking policy ------- been received this week.",
+   "choices": [
+    "has",
+    "having",
+    "is",
+    "have"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "A number of + 複数名詞は「多くの〜」という意味で複数扱い。後ろのbeen receivedと一緒に現在完了の受動態を作る複数形haveが正解。",
+    "traps": [
+     "hasはpolicy（単数）や 'number' だけを見て選んだひっかけ。A number ofは複数。",
+     "havingは分詞なので述語動詞になれない。",
+     "isはbeenと組み合わせられない（is beenは不可）。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "policy",
+     "pos": "n",
+     "m": "方針、規定"
+    }
+   ]
+  }
+ ]
+}

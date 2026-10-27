@@ -1,0 +1,1019 @@
+{
+ "units": [
+  {
+   "id": "p5-031",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 1,
+   "question": "The company plans ------- a second distribution center in the southern region next year.",
+   "choices": [
+    "open",
+    "to open",
+    "opening",
+    "opened"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "planはto不定詞を目的語にとる動詞（plan to do）。したがってto openが正解。",
+    "traps": [
+     "openは動詞の原形なので、plansの直後には入らない（動詞が2つ続く）。",
+     null,
+     "openingは動名詞。planは動名詞を目的語にとらない。",
+     "openedは過去形・過去分詞で、plansの後ろの目的語の位置に合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "distribution center",
+     "pos": "n",
+     "m": "物流センター"
+    }
+   ]
+  },
+  {
+   "id": "p5-032",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 2,
+   "question": "Ms. Hwang recommended ------- the client meeting until the final figures were available.",
+   "choices": [
+    "postponing",
+    "postpone",
+    "to postpone",
+    "postponed"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "recommendは動名詞を目的語にとる（recommend doing）。「最終的な数値が出るまで会議を延期するよう勧めた」という意味でpostponingが正解。",
+    "traps": [
+     null,
+     "postponeは動詞の原形なので、recommendedの直後には入らない。",
+     "to postponeはrecommendの直後には置かない。recommend 人 to doの形と混同させるひっかけ。",
+     "postponedは過去形なので動詞が重なる。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "postpone",
+     "pos": "v",
+     "m": "延期する"
+    },
+    {
+     "w": "figure",
+     "pos": "n",
+     "m": "数値"
+    }
+   ]
+  },
+  {
+   "id": "p5-033",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Everyone at Dalton Engineering looks forward to ------- with the new research partners in Osaka.",
+   "choices": [
+    "collaborate",
+    "be collaborated",
+    "have collaborated",
+    "collaborating"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "look forward toのtoは前置詞なので、後ろに名詞か動名詞が来る。collaborating（協力すること）が正解。",
+    "traps": [
+     "collaborate（動詞の原形）は、toをto不定詞と勘違いさせる代表的なひっかけ。look forward toのtoは前置詞なので動詞の原形は来ない。",
+     "be collaboratedは動詞の原形の形で、collaborateは自動詞なので受動態も不自然。",
+     "have collaboratedも動詞の原形で始まる形なので、前置詞toの後ろには入らない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "collaborate",
+     "pos": "v",
+     "m": "協力する"
+    }
+   ]
+  },
+  {
+   "id": "p5-034",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 2,
+   "question": "------- customer wait times, the bank has added two more tellers during lunch hours.",
+   "choices": [
+    "Reduce",
+    "Reduced",
+    "To reduce",
+    "Reduction"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "カンマの後ろに完全な文があるので、前半は修飾語。「待ち時間を減らすために」という目的を表すto不定詞To reduceが正解。",
+    "traps": [
+     "Reduceで始めると命令文になり、後ろの節と接続詞なしではつながらない。",
+     "Reducedは過去分詞で「減らされた」という受動の意味だが、銀行が待ち時間を減らす能動の関係なので合わない。",
+     null,
+     "Reductionは名詞なので、後ろの目的語customer wait timesを直接とれない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "teller",
+     "pos": "n",
+     "m": "（銀行の）窓口係"
+    }
+   ]
+  },
+  {
+   "id": "p5-035",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The board is committed to ------- the environmental impact of its manufacturing operations.",
+   "choices": [
+    "minimize",
+    "minimizing",
+    "be minimized",
+    "minimal"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "be committed to（〜に専念する）のtoは前置詞。後ろに目的語（the environmental impact）をとり、前置詞の後ろにも置ける動名詞minimizingが正解。",
+    "traps": [
+     "minimize（動詞の原形）は、be committed toの後ろをto不定詞と勘違いすると選ぶひっかけ。このtoは前置詞。",
+     null,
+     "be minimizedは受動の形なので後ろの目的語と合わず、前置詞の後ろにも置けない。",
+     "minimal（最小限の）は形容詞なので前置詞の目的語になれず、後ろの名詞句ともつながらない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "be committed to",
+     "pos": "phr",
+     "m": "〜に専念する"
+    },
+    {
+     "w": "impact",
+     "pos": "n",
+     "m": "影響"
+    }
+   ]
+  },
+  {
+   "id": "p5-036",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 1,
+   "question": "Please read the ------- documents carefully before the meeting on Thursday.",
+   "choices": [
+    "attach",
+    "attaching",
+    "attachment",
+    "attached"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "書類は「添付される」側なので、受動の意味の過去分詞attachedが名詞documentsを修飾する。",
+    "traps": [
+     "attachは動詞の原形なので、冠詞と名詞の間の修飾の位置には入らない。",
+     "attachingは「添付する」という能動の意味で、書類が自分で添付することになってしまう。",
+     "attachment documentsは「名詞 + 名詞」としては使わない表現。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "attached",
+     "pos": "adj",
+     "m": "添付された"
+    }
+   ]
+  },
+  {
+   "id": "p5-037",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 2,
+   "question": "The results of the customer survey were ------- to the product development team.",
+   "choices": [
+    "encouraging",
+    "encourage",
+    "encouraged",
+    "encouragement"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "主語は物であるresults（結果）で、結果がチームを「励ます」側。感情を引き起こす物には-ing形のencouragingを使う。",
+    "traps": [
+     null,
+     "encourageは動詞の原形なのでwereの後ろには入らない。",
+     "encouragedは「人が励まされた」状態を表す。主語が物（results）なので合わない、感情を表す分詞のひっかけ。",
+     "encouragementは名詞なので「結果 = 励まし」となり、to the teamとのつながりも不自然。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "encouraging",
+     "pos": "adj",
+     "m": "励みになる、明るい"
+    }
+   ]
+  },
+  {
+   "id": "p5-038",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 2,
+   "question": "Participants ------- in the workshop should register at the information booth by noon.",
+   "choices": [
+    "interesting",
+    "interest",
+    "interested",
+    "interests"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "Participantsを後ろから修飾する分詞の位置。参加者（人）が「興味を持つ」ので、interested (in)が正解。",
+    "traps": [
+     "interestingは「興味を引き起こす」という意味で、「面白い参加者」となり意味が変わる。",
+     "interestは名詞・動詞の原形なので、この位置でParticipantsを修飾できない。",
+     null,
+     "interestsを動詞と見ると述語動詞がshould registerと重なり、数も合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "register",
+     "pos": "v",
+     "m": "登録する"
+    }
+   ]
+  },
+  {
+   "id": "p5-039",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "------- by the strong demand, the manufacturer increased production of its electric scooters.",
+   "choices": [
+    "Encouraging",
+    "Encourage",
+    "To encourage",
+    "Encouraged"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "分詞構文の意味上の主語は主節の主語the manufacturer。メーカーが高い需要に「励まされた」のであり、後ろにbyがあるので過去分詞Encouragedが正解。",
+    "traps": [
+     "Encouragingは能動なので「メーカーが需要を励まして」となり、後ろのbyとも合わない。",
+     "Encourageで始めると命令文になり、主節とつながらない。",
+     "To encourageは「励ますために」という目的なので、後ろのby the strong demandと合わない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "demand",
+     "pos": "n",
+     "m": "需要"
+    },
+    {
+     "w": "production",
+     "pos": "n",
+     "m": "生産（量）"
+    }
+   ]
+  },
+  {
+   "id": "p5-040",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Anyone ------- a parking permit for the new garage must apply through the facilities office.",
+   "choices": [
+    "requested",
+    "requesting",
+    "requests",
+    "request"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "Anyoneを後ろから修飾する分詞が必要で、後ろに目的語a parking permitがあるので、能動の現在分詞requesting（〜を申請する）が正解。述語動詞はmust apply。",
+    "traps": [
+     "requestedは受動なので後ろに目的語をとれず、「申請された人」となって意味が変わる。",
+     null,
+     "requestsを動詞と見ると、must applyと述語動詞が2つになる。",
+     "requestは動詞の原形・名詞なので、Anyoneを修飾する位置に入らない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "permit",
+     "pos": "n",
+     "m": "許可証"
+    },
+    {
+     "w": "facilities office",
+     "pos": "n",
+     "m": "施設管理部"
+    }
+   ]
+  },
+  {
+   "id": "p5-041",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 1,
+   "question": "Mr. Castillo asked his assistant to forward the invoice to ------- by the end of the day.",
+   "choices": [
+    "him",
+    "he",
+    "his",
+    "himself"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "前置詞toの後ろは目的格の位置なので、himが正解。forwardの主語はassistantなので、再帰代名詞ではなく目的格を使う。",
+    "traps": [
+     null,
+     "heは主格なので前置詞の後ろには入らない。",
+     "hisは所有格なので後ろに名詞が必要。",
+     "himselfは動作をする人と受ける人が同じときに使う。forwardするのはassistant、受け取るのはMr. Castilloなので再帰代名詞ではない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "forward",
+     "pos": "v",
+     "m": "転送する"
+    },
+    {
+     "w": "invoice",
+     "pos": "n",
+     "m": "請求書、送り状"
+    }
+   ]
+  },
+  {
+   "id": "p5-042",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 1,
+   "question": "The interns presented ------- findings to the senior research staff on Friday.",
+   "choices": [
+    "they",
+    "them",
+    "their",
+    "theirs"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "空所の後ろに名詞findingsがあるので、名詞の前の所有格theirが正解。",
+    "traps": [
+     "theyは主格なので名詞の前には入らない。",
+     "themは目的格なので名詞を修飾できない。",
+     null,
+     "theirsは所有代名詞（彼らのもの）なので、後ろに名詞は来ない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "findings",
+     "pos": "n",
+     "m": "（調査）結果"
+    }
+   ]
+  },
+  {
+   "id": "p5-043",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 2,
+   "question": "Since the receptionist was on leave, Ms. Patel answered the phones -------.",
+   "choices": [
+    "her",
+    "hers",
+    "she",
+    "herself"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "文はすでに完全で、空所は「自ら、直接」という強調用法の再帰代名詞の位置。主語Ms. Patelに合わせたherselfが正解。",
+    "traps": [
+     "herは目的格・所有格だが、answeredの目的語the phonesはすでにある。",
+     "hers（彼女のもの）は「彼女のものの電話に出た」と誤解しやすいが、the phonesの後ろに付く位置ではない。",
+     "sheは主格なので文末には入らない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "on leave",
+     "pos": "phr",
+     "m": "休暇中の"
+    }
+   ]
+  },
+  {
+   "id": "p5-044",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Our proposal was shorter than the other firms', but the client found ------- more detailed.",
+   "choices": [
+    "our",
+    "ourselves",
+    "ours",
+    "we"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "found + 目的語 + 補語（more detailed）の形で目的語が必要。前の文と比べる対象が「企画書」なので、「私たちの企画書」を指す所有代名詞oursが正解。",
+    "traps": [
+     "ourは所有格なので後ろに名詞が必要。",
+     "ourselvesは主語がweのときだけ目的語に使えるが、主語はthe client。",
+     null,
+     "weは主格なのでfoundの目的語の位置には入らない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "detailed",
+     "pos": "adj",
+     "m": "詳細な"
+    }
+   ]
+  },
+  {
+   "id": "p5-045",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 2,
+   "question": "New employees are encouraged to familiarize ------- with the safety procedures before their first shift.",
+   "choices": [
+    "they",
+    "themselves",
+    "their",
+    "theirs"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "familiarize oneself with（〜に慣れる、〜をよく知る）は、目的語が主語自身でなければならない表現。主語New employeesに合わせた再帰代名詞themselvesが正解。",
+    "traps": [
+     "theyは主格なので動詞familiarizeの目的語になれない。",
+     null,
+     "theirは所有格なので後ろに名詞が必要。",
+     "theirsは「彼らのもの」なので、自分自身を慣れさせるという意味にならない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "familiarize oneself with",
+     "pos": "phr",
+     "m": "〜をよく理解しておく"
+    },
+    {
+     "w": "shift",
+     "pos": "n",
+     "m": "交代勤務、シフト"
+    }
+   ]
+  },
+  {
+   "id": "p5-046",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 1,
+   "question": "The consultant ------- we hired last spring helped us reorganize the warehouse.",
+   "choices": [
+    "whom",
+    "which",
+    "whose",
+    "what"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "先行詞が人（The consultant）で、関係詞節we hired ___ ではhiredの目的語が抜けている。人を表す目的格の関係代名詞whomが正解。",
+    "traps": [
+     null,
+     "whichは先行詞が物のときに使う。",
+     "whoseは後ろにすぐ名詞が来る必要がある（whose + 名詞）。",
+     "whatは先行詞を含む関係代名詞なので、前に先行詞The consultantがあると使えない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "reorganize",
+     "pos": "v",
+     "m": "再編成する"
+    }
+   ]
+  },
+  {
+   "id": "p5-047",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 2,
+   "question": "Applicants ------- résumés arrive after the deadline will not be considered.",
+   "choices": [
+    "whose",
+    "who",
+    "which",
+    "whom"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "空所の後ろにすぐ名詞résumésが来て、「応募者たちの履歴書」という所有の関係。所有格の関係代名詞whoseが正解。",
+    "traps": [
+     null,
+     "whoの後ろには動詞が来る（who arrive）。ここでは名詞がすぐ続いている。",
+     "whichは先行詞が物のときに使い、後ろにすぐ名詞が来る形にも合わない。",
+     "whomは目的格なので後ろに「主語 + 動詞」が必要で、所有の関係を表せない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "deadline",
+     "pos": "n",
+     "m": "締め切り"
+    }
+   ]
+  },
+  {
+   "id": "p5-048",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 2,
+   "question": "The hotel ------- the annual sales conference will be held is located near the convention center.",
+   "choices": [
+    "which",
+    "what",
+    "whose",
+    "where"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "関係詞節the annual sales conference will be heldは、主語と受動態の動詞がそろった完全な文。場所の先行詞（The hotel）の後ろで完全な節を導く関係副詞whereが正解。",
+    "traps": [
+     "whichの後ろには主語か目的語が抜けた不完全な節が来る。'in which' なら可能。",
+     "whatは先行詞を含むので、The hotelの後ろには置けない。",
+     "whoseの後ろには冠詞のない名詞が必要で、所有の関係も成り立たない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "convention center",
+     "pos": "n",
+     "m": "コンベンションセンター"
+    }
+   ]
+  },
+  {
+   "id": "p5-049",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The training manual explains ------- new staff members should do if a customer requests a refund.",
+   "choices": [
+    "that",
+    "whose",
+    "what",
+    "who"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "explainsの目的語の位置に先行詞なしで名詞節が必要で、節の中ではdoの目的語が抜けている。「〜すること」という意味のwhatが正解。",
+    "traps": [
+     "thatの名詞節は後ろに完全な節が必要だが、doの目的語が抜けている。",
+     "whoseの後ろには冠詞のない名詞が来て「誰の〜」となるが、意味が通じない。",
+     null,
+     "whoは人を尋ねる語で、後ろにすでに主語new staff membersがあるので 'who + 主語 + should do' は成り立たない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "refund",
+     "pos": "n",
+     "m": "返金"
+    },
+    {
+     "w": "manual",
+     "pos": "n",
+     "m": "説明書、マニュアル"
+    }
+   ]
+  },
+  {
+   "id": "p5-050",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The engineers reviewed the blueprints, several of ------- contained errors in the electrical layout.",
+   "choices": [
+    "them",
+    "which",
+    "whom",
+    "that"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "カンマの後ろに接続詞なしで新しい動詞containedが出てくるので、2つの節をつなぐ関係代名詞が必要。物の先行詞blueprintsを受ける「数量語 + of + which」の形のwhichが正解。",
+    "traps": [
+     "themは代名詞なので接続の働きがない。'several of them' を使うならandが必要。",
+     null,
+     "whomは先行詞が人のときに使う。先行詞blueprintsは物。",
+     "thatは前置詞ofの後ろやカンマの後ろ（非制限用法）では使えない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "blueprint",
+     "pos": "n",
+     "m": "設計図"
+    },
+    {
+     "w": "layout",
+     "pos": "n",
+     "m": "配置（図）"
+    }
+   ]
+  },
+  {
+   "id": "p5-051",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 1,
+   "question": "------- the train was delayed by forty minutes, most passengers arrived in time for the opening speech.",
+   "choices": [
+    "Despite",
+    "Although",
+    "However",
+    "Because of"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "空所の後ろに主語（the train）と動詞（was delayed）のある節が来るので接続詞が必要。「遅れたが時間どおりに着いた」という譲歩の関係なのでAlthoughが正解。",
+    "traps": [
+     "Despiteは前置詞なので後ろに名詞（句）しか来ない。意味は合うが品詞が違う代表的なひっかけ。",
+     null,
+     "Howeverは接続副詞なので、2つの節を1つの文につなげない。",
+     "Because ofは前置詞で、意味も「〜のために」なので対比の関係と合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "in time for",
+     "pos": "phr",
+     "m": "〜に間に合うように"
+    }
+   ]
+  },
+  {
+   "id": "p5-052",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 2,
+   "question": "The store will remain open until 9 P.M. ------- the holiday shopping season.",
+   "choices": [
+    "while",
+    "when",
+    "during",
+    "as long as"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "空所の後ろが名詞句（the holiday shopping season）だけなので前置詞が必要。「〜の間」という意味の前置詞duringが正解。",
+    "traps": [
+     "whileも「〜する間」という意味だが接続詞なので、後ろに節が必要。",
+     "whenは接続詞で、後ろに主語 + 動詞が必要。",
+     null,
+     "as long as（〜する限り）は条件の接続詞なので、名詞句だけは受けられない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "remain",
+     "pos": "v",
+     "m": "〜のままである"
+    }
+   ]
+  },
+  {
+   "id": "p5-053",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 2,
+   "question": "Refunds will not be issued ------- the original receipt is presented at the time of return.",
+   "choices": [
+    "unless",
+    "otherwise",
+    "without",
+    "in case of"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "後ろに節（the original receipt is presented）が来るので接続詞の位置。「レシートを提示しない限り返金しない」という条件なので、unless（〜しない限り）が正解。",
+    "traps": [
+     null,
+     "otherwiseは副詞（そうでなければ）なので、節と節を接続詞のようにはつなげない。",
+     "withoutは前置詞なので後ろに節は来ない。",
+     "in case ofは前置詞句なので名詞しか受けない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "issue",
+     "pos": "v",
+     "m": "発行する、支給する"
+    },
+    {
+     "w": "receipt",
+     "pos": "n",
+     "m": "領収書、レシート"
+    }
+   ]
+  },
+  {
+   "id": "p5-054",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "------- its higher price, the premium model has outsold the standard version in every region.",
+   "choices": [
+    "Even though",
+    "Whereas",
+    "Nevertheless",
+    "Notwithstanding"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "空所の後ろが名詞句（its higher price）だけなので前置詞が必要。Notwithstandingは「〜にもかかわらず」という意味の前置詞として使えるので正解。",
+    "traps": [
+     "Even thoughは意味は合うが接続詞なので、後ろに節が必要。",
+     "Whereas（〜である一方）は接続詞なので名詞句を受けられず、意味も対比。",
+     "Neverthelessは接続副詞で、名詞句の前で前置詞の働きはできない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "notwithstanding",
+     "pos": "prep",
+     "m": "〜にもかかわらず"
+    },
+    {
+     "w": "outsell",
+     "pos": "v",
+     "m": "〜より多く売れる"
+    }
+   ]
+  },
+  {
+   "id": "p5-055",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Ms. Reyes will approve the travel request ------- the total cost stays within the department's budget.",
+   "choices": [
+    "in spite of",
+    "in addition to",
+    "provided that",
+    "regardless"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "後ろに節（the total cost stays …）が続き、「予算内なら承認する」という条件の関係。条件の接続詞provided that（〜ならば）が正解。",
+    "traps": [
+     "in spite ofは前置詞なので節を受けられず、意味も譲歩なので条件の関係と合わない。",
+     "in addition toは前置詞句（〜に加えて）なので、節は来ない。",
+     null,
+     "regardlessは副詞で、regardless of（〜に関係なく）の形でも名詞しか受けない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "provided that",
+     "pos": "conj",
+     "m": "〜という条件で、〜ならば"
+    }
+   ]
+  },
+  {
+   "id": "p5-056",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 1,
+   "question": "Completed expense forms must be submitted ------- Friday, March 14.",
+   "choices": [
+    "until",
+    "since",
+    "within",
+    "by"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "提出は1回で終わる動作で、「3月14日金曜日までに（完了）」という締め切りなのでbyが正解。",
+    "traps": [
+     "untilは「〜までずっと」で、動作がそのときまで続く場合に使う（stay until）。提出の締め切りにはby。",
+     "sinceは「〜以来」なので締め切りを表さない。",
+     "withinは「〜以内に」で期間と一緒に使い（within three days）、日付の前には使わない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "expense form",
+     "pos": "n",
+     "m": "経費精算書"
+    }
+   ]
+  },
+  {
+   "id": "p5-057",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 2,
+   "question": "Mr. Nkemelu will speak at the trade fair ------- the entire sales department.",
+   "choices": [
+    "in spite of",
+    "on behalf of",
+    "in front",
+    "instead"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "on behalf ofは「〜を代表して」という意味で、営業部全体を代表してスピーチするという文脈に合う。",
+    "traps": [
+     "in spite of（〜にもかかわらず）では「営業部全体にもかかわらずスピーチする」となり意味が通じない。",
+     null,
+     "in frontは後ろにofがないと名詞を受けられない（in front of）。",
+     "insteadは副詞なので後ろにすぐ名詞は来ない（instead ofが必要）。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "trade fair",
+     "pos": "n",
+     "m": "見本市"
+    }
+   ]
+  },
+  {
+   "id": "p5-058",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 2,
+   "question": "The new policy was chosen ------- three alternatives presented by the planning team.",
+   "choices": [
+    "among",
+    "between",
+    "along",
+    "beside"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "選ぶ対象が3つ（three alternatives）なので、3つ以上の間を表すamongが正解。",
+    "traps": [
+     null,
+     "betweenはふつう2つの間に使う。threeを見落とすと選びやすい。",
+     "alongは「〜に沿って」という意味で、選ぶ対象とは合わない。",
+     "besideは「〜のそばに」という位置の表現。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "alternative",
+     "pos": "n",
+     "m": "代案"
+    }
+   ]
+  },
+  {
+   "id": "p5-059",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "All renovations to the lobby must be carried out ------- accordance with the city's building codes.",
+   "choices": [
+    "in",
+    "at",
+    "on",
+    "by"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "in accordance with（〜に従って）は決まった前置詞の表現。市の建築基準に従って工事しなければならないという意味。",
+    "traps": [
+     null,
+     "at accordance withという表現はない。",
+     "on accordance withもない。on behalf ofなどと混同させるひっかけ。",
+     "by accordance withという表現はない。byは「手段、期限」に使う。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "building code",
+     "pos": "n",
+     "m": "建築基準"
+    },
+    {
+     "w": "carry out",
+     "pos": "phr",
+     "m": "実行する"
+    }
+   ]
+  },
+  {
+   "id": "p5-060",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 2,
+   "question": "The factory has operated at full capacity ------- the beginning of the year.",
+   "choices": [
+    "for",
+    "since",
+    "ago",
+    "until"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "現在完了（has operated）と一緒に「年初から今まで」という始まりの時点を表すので、sinceが正解。the beginning of the yearは期間ではなく時点。",
+    "traps": [
+     "forの後ろには期間（for three months）が来る。the beginningは時点なので合わない。",
+     null,
+     "agoは 'three months ago' のように期間の後ろに付く副詞なので名詞の前には置けず、現在完了とも一緒に使わない。",
+     "untilは「〜までずっと」で終わりの時点を表す。年初までしか稼働しなかったという意味になり、現在完了（今までずっと）と合わない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "at full capacity",
+     "pos": "phr",
+     "m": "フル稼働で"
+    }
+   ]
+  }
+ ]
+}

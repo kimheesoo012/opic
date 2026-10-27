@@ -2,15 +2,17 @@
 // 불변 조건(예외 없음, 점수 범위, 복습 단계, 추천 이유 등)을 검사하고 능력-추정 상관을 확인한다.
 import fs from 'node:fs';
 import path from 'node:path';
-import { buildBank, questionsOf, targetSec } from '../toeic/js/bank.js';
-import { makeRng, DAY, clamp } from '../toeic/js/util.js';
-import { defaultState } from '../toeic/js/store.js';
-import { estimate, pCorrect, diffToB, goalGap } from '../toeic/js/scoring.js';
-import { recommend } from '../toeic/js/recommend.js';
-import { newSession, reviewAdvance, makeAttempt, applyAttempt, reviewStepResult } from '../toeic/js/sessions.js';
-import { CAUSES } from '../toeic/js/stats.js';
+// TT_APP=toeic-ja 이면 일본어판 모듈과 문제로 돌린다
+const APP = process.env.TT_APP || 'toeic';
+const { buildBank, questionsOf, targetSec } = await import(`../${APP}/js/bank.js`);
+const { makeRng, DAY, clamp, TARGETS } = await import(`../${APP}/js/util.js`);
+const { defaultState } = await import(`../${APP}/js/store.js`);
+const { estimate, pCorrect, diffToB, goalGap } = await import(`../${APP}/js/scoring.js`);
+const { recommend } = await import(`../${APP}/js/recommend.js`);
+const { newSession, reviewAdvance, makeAttempt, applyAttempt, reviewStepResult } = await import(`../${APP}/js/sessions.js`);
+const { CAUSES } = await import(`../${APP}/js/stats.js`);
 
-const dir = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../toeic/data');
+const dir = path.resolve(path.dirname(new URL(import.meta.url).pathname), `../${APP}/data`);
 const concepts = JSON.parse(fs.readFileSync(path.join(dir, 'concepts.json'))).concepts;
 const idx = JSON.parse(fs.readFileSync(path.join(dir, 'index.json')));
 const units = idx.files.flatMap((f) => JSON.parse(fs.readFileSync(path.join(dir, f))).units);
@@ -63,7 +65,7 @@ function runSession(s, env, learner, rng) {
 for (let run = 0; run < RUNS; run++) {
   const rng = makeRng(1000 + run);
   const state = defaultState();
-  state.profile.goal = rng.pick([800, 850, 900, 950, 990]);
+  state.profile.goal = rng.pick(TARGETS);
   if (rng() < 0.5) state.profile.rcScore = null;
   const learner = { ability: (rng() - 0.5) * 3, speed: 0.7 + rng() * 0.9, conceptOffset: {} };
   for (const c of concepts) learner.conceptOffset[c.id] = (rng() - 0.5) * 1.2;

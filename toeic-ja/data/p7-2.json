@@ -1,0 +1,757 @@
+{
+ "units": [
+  {
+   "id": "p7-s09",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Gregory Mills\nFrom: Customer Relations, Altamira Electronics\nDate: June 11\nSubject: Your inquiry (Case #5531)\n\nDear Mr. Mills,\n\nThank you for contacting us about the wireless headphones you purchased on May 28. We are sorry to hear that the left earpiece stopped working after only two weeks.\n\nBecause your headphones are covered by our one-year limited warranty, we will replace them at no cost. To start the process, please print the attached prepaid shipping label and send the headphones to our service center, in their original packaging if possible. Be sure to include all accessories, such as the charging cable and carrying case.\n\nYour replacement will be shipped within three business days of our receiving the returned item. You can track the status of your case on our Web site by using the case number above.\n\nSincerely,\nJoanna Petrov\nCustomer Relations"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s09-1",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What problem did Mr. Mills report?",
+     "choices": [
+      "He was charged twice for an item.",
+      "Part of a product stopped functioning.",
+      "His order arrived later than promised.",
+      "Some accessories were missing from a package."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "'the left earpiece stopped working after only two weeks' と言っている。ヘッドホンの一部（左のイヤーピース）が動かなくなった。",
+      "traps": [
+       "二重請求についての記述はない。",
+       null,
+       "配送の遅れの話はない。",
+       "付属品は「返送するときに一緒に入れるように」という案内に出てくるだけで、入っていなかったという苦情ではない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "the left earpiece stopped working",
+       "a": "Part of a product stopped functioning"
+      }
+     ]
+    },
+    {
+     "id": "p7-s09-2",
+     "type": "not",
+     "concept": "p7.not",
+     "difficulty": 2,
+     "question": "What is Mr. Mills NOT asked to do?",
+     "choices": [
+      "Print a shipping label",
+      "Include the charging cable",
+      "Pay a repair fee",
+      "Send the headphones to a service center"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "保証期間内なので 'at no cost'（無料）で交換すると言っている。修理費を払うようにという依頼はない。",
+      "traps": [
+       "'please print the attached prepaid shipping label' と頼んでいる。",
+       "'Be sure to include all accessories, such as the charging cable' と言っている。",
+       null,
+       "'send the headphones to our service center' と頼んでいる。"
+      ]
+     }
+    },
+    {
+     "id": "p7-s09-3",
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "question": "What is implied about Mr. Mills's headphones?",
+     "choices": [
+      "They were bought at a discount.",
+      "They are no longer being manufactured.",
+      "They were damaged during shipping.",
+      "They were purchased less than a year ago."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "5月28日に購入し、1年保証が適用されると言っているので、購入から1年たっていないことが分かる。",
+      "traps": [
+       "割引で買ったかどうかは書かれていない。",
+       "製造中止かどうかは書かれていない。交換品を送ると言っている。",
+       "2週間使った後に故障したのであり、配送中の破損の話はない。",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "purchased on May 28 / covered by our one-year limited warranty",
+       "a": "purchased less than a year ago"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-s10",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "web page",
+     "title": "Web Page",
+     "text": "About Sunfield Bakery\n\nSunfield Bakery began in 1987 as a small shop on Maple Avenue run by Rosa and Hector Diaz. — [1] — Over the years, word spread about their sourdough bread, and the couple soon could not keep up with demand. — [2] — In 1995, they moved to a larger building on Grant Street and hired their first employees.\n\nToday, Sunfield operates six locations across the city and supplies bread to more than 40 restaurants. — [3] — Despite its growth, the company still bakes every loaf by hand, following the same recipes the Diaz family has used from the beginning. — [4] — Their daughter, Elena Diaz, became president of the company in 2016."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s10-1",
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "question": "Why did the Diaz family most likely move to Grant Street?",
+     "choices": [
+      "The rent on Maple Avenue increased.",
+      "They wanted to open a restaurant.",
+      "They needed more space to meet demand.",
+      "Their original building was sold."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "需要に追いつけなくなり（could not keep up with demand）、もっと大きい建物（a larger building）に移って従業員を雇った。需要に応えるためにもっと広いスペースが必要だった。",
+      "traps": [
+       "家賃の話はない。",
+       "レストランを開こうとしたという内容はない。レストランにはパンを納めているだけ。",
+       null,
+       "建物の売却についての記述はない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "could not keep up with demand … a larger building",
+       "a": "needed more space to meet demand"
+      }
+     ]
+    },
+    {
+     "id": "p7-s10-2",
+     "type": "synonym",
+     "concept": "p7.synonym",
+     "difficulty": 1,
+     "question": "The word “supplies” in paragraph 2 is closest in meaning to",
+     "choices": [
+      "provides",
+      "stores",
+      "orders",
+      "equips"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "「40軒以上のレストランにパンを納めている」という意味なので、provides（提供する）が最も近い。supply A to B = provide A to B。",
+      "traps": [
+       null,
+       "stores（保管する）は供給とは違う。",
+       "orders（注文する）は方向が逆（レストランが注文する側）。",
+       "equips（備え付ける）はequip A with Bの形で使い、パンをレストランにequipすることはできない。"
+      ]
+     }
+    },
+    {
+     "id": "p7-s10-3",
+     "type": "insert",
+     "concept": "p7.insert",
+     "difficulty": 3,
+     "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
+     "sentence": "On weekends, customers often waited in line for more than an hour.",
+     "choices": [
+      "[1]",
+      "[2]",
+      "[3]",
+      "[4]"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "与えられた文は、需要が多すぎたことの具体例。「口コミで広まり需要に追いつけなかった」の直後、「もっと大きい建物に移転した」の前の[2]に入れると、原因 → 具体例 → 結果の流れが完成する。",
+      "traps": [
+       "[1]は店を始めたばかりの時点なので、口コミが広がる前に客が1時間も並んだというのは流れに合わない。",
+       null,
+       "[3]は現在の6店舗の話なので、過去時制waitedと時点が合わない。",
+       "[4]の前は手作りの方法を守る話なので、並ぶ客とつながらない。"
+      ]
+     }
+    },
+    {
+     "id": "p7-s10-4",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What is indicated about Elena Diaz?",
+     "choices": [
+      "She founded the bakery in 1987.",
+      "She manages only one of the locations.",
+      "She created a new bread recipe.",
+      "She has led the company since 2016."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "最後の文で、娘のElena Diazが2016年に会社の社長（president）になったと言っている。",
+      "traps": [
+       "1987年の創業者は両親のRosaとHector Diaz。",
+       "1店舗だけを管理しているという内容はない。",
+       "むしろ創業当時と同じレシピを守っていると言っている。",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "became president of the company in 2016",
+       "a": "has led the company since 2016"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-s11",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "article",
+     "title": "Article",
+     "text": "Coastal Air and Skyline Express to Combine Operations\nBy Neil Ashford\n\nTwo regional airlines, Coastal Air and Skyline Express, announced yesterday that they will merge by the end of the year. The combined airline will keep the Coastal Air name and will be based at Coastal's current headquarters in Halifax.\n\nThe merger is expected to give passengers more connecting options, as the two carriers serve largely different routes. Coastal Air flies mainly along the eastern coast, while Skyline Express focuses on routes to the central provinces. Together, they will serve 38 cities.\n\nExecutives said that no flights would be canceled as a result of the merger and that all current Skyline Express tickets would be honored. Frequent-flyer points from both programs will be combined into a single account for each member beginning in January.\n\nThe agreement still requires approval from the national transportation authority, which is expected to issue its decision within three months."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s11-1",
+     "type": "not",
+     "concept": "p7.not",
+     "difficulty": 2,
+     "question": "What is NOT stated about the combined airline?",
+     "choices": [
+      "It will reduce ticket prices.",
+      "It will be based in Halifax.",
+      "It will serve 38 cities.",
+      "It will use the Coastal Air name."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "本社（Halifax）、名前（Coastal Air）、就航都市の数（38）はすべて記事に出てくるが、航空券の値下げについての記述はない。",
+      "traps": [
+       null,
+       "'will be based at Coastal's current headquarters in Halifax' とある。",
+       "'Together, they will serve 38 cities' とある。",
+       "'will keep the Coastal Air name' とある。"
+      ]
+     }
+    },
+    {
+     "id": "p7-s11-2",
+     "type": "synonym",
+     "concept": "p7.synonym",
+     "difficulty": 3,
+     "tags": [
+      "trap"
+     ],
+     "question": "The word “honored” in paragraph 3 is closest in meaning to",
+     "choices": [
+      "respected",
+      "praised",
+      "awarded",
+      "accepted"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "「既存のSkyline Expressの航空券はすべてhonoredされる」という文脈で、honorは「（券・契約などを）有効と認める、受け付ける」という意味。acceptedが最も近い。",
+      "traps": [
+       "respected（尊敬される）はhonorの代表的な意味だが、航空券には合わない。辞書で1番目に載っている意味のひっかけ。",
+       "praised（ほめられる）も人や業績に使う意味。",
+       "awarded（授与される）は賞を与えるときの意味。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p7-s11-3",
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "question": "What is suggested about the two airlines?",
+     "choices": [
+      "They were founded in the same year.",
+      "They both have headquarters in Halifax.",
+      "They currently fly few of the same routes.",
+      "They have already received government approval."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "2つの航空会社は 'largely different routes'（ほぼ異なる路線）を運航していると言っている。つまり重なる路線はほとんどない。",
+      "traps": [
+       "設立年は書かれていない。",
+       "HalifaxはCoastal Airの本社。",
+       null,
+       "最後の段落で、まだ政府機関の承認が必要だと言っている。"
+      ]
+     },
+     "para": [
+      {
+       "p": "serve largely different routes",
+       "a": "fly few of the same routes"
+      }
+     ]
+    },
+    {
+     "id": "p7-s11-4",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "According to the article, what will happen in January?",
+     "choices": [
+      "The merger will receive final approval.",
+      "Loyalty program points will be merged.",
+      "Some Skyline Express flights will be canceled.",
+      "New routes to the central provinces will begin."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "'Frequent-flyer points … will be combined into a single account … beginning in January' と言っている。マイレージの統合 = ロイヤルティプログラムのポイントの統合。",
+      "traps": [
+       "承認の判断は3か月以内に出る予定と言っているだけ。",
+       null,
+       "欠航になる便はないと言っている。",
+       "新路線の開設の話はない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "Frequent-flyer points … will be combined",
+       "a": "Loyalty program points will be merged"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-s12",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "From: Laura Benson\nTo: Raj Malhotra\nDate: Tuesday, August 5\nSubject: Interview schedule\n\nHi Raj,\n\nWe have narrowed the list of candidates for the graphic designer position to three. I'd like you to join me for the second-round interviews, since the new designer will work closely with your team on the product catalog.\n\nThe interviews are scheduled for Thursday, August 7, at 10:00 A.M., 11:30 A.M., and 2:00 P.M. Each one should last about an hour. I know you have a vendor meeting on Thursday afternoon, so if you can't stay for the last interview, I can ask Carla from the marketing department to take your place.\n\nI'll send you the candidates' portfolios by tomorrow morning. Please let me know which interviews you can attend.\n\nLaura"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s12-1",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "Why does Ms. Benson want Mr. Malhotra to attend the interviews?",
+     "choices": [
+      "He will work with the person who is hired.",
+      "He is the head of the marketing department.",
+      "He designed the current product catalog.",
+      "He recommended one of the candidates."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "新しいデザイナーがMr. Malhotraのチームとカタログ作りで密に仕事をするから（since the new designer will work closely with your team）と理由を述べている。",
+      "traps": [
+       null,
+       "マーケティング部の人は代わりに入れるCarla。",
+       "カタログをデザインしたという記述はない。これから一緒に作業するということ。",
+       "候補者の推薦の話はない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "the new designer will work closely with your team",
+       "a": "He will work with the person who is hired."
+      }
+     ]
+    },
+    {
+     "id": "p7-s12-2",
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "question": "Which interview will Mr. Malhotra most likely be unable to attend?",
+     "choices": [
+      "The one at 10:00 A.M.",
+      "The one at 11:30 A.M.",
+      "He will be able to attend all of them.",
+      "The one at 2:00 P.M."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "木曜日の午後に業者との打ち合わせがあり、「最後の面接」にいられないかもしれないと言っている。最後で、しかも午後の面接は2時。",
+      "traps": [
+       "10時は午前の面接なので、業者との打ち合わせ（午後）と重ならない。",
+       "11時30分の面接は約1時間なので、午後の予定の前に終わる。",
+       "Ms. Bensonが午後の打ち合わせのために代わりの人（Carla）まで提案しているので、全部に出席するのは難しいと分かる。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p7-s12-3",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "question": "What will Ms. Benson send Mr. Malhotra by Wednesday morning?",
+     "choices": [
+      "A list of interview questions",
+      "Samples of the candidates' work",
+      "A copy of the product catalog",
+      "A contract from a vendor"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "メールの日付が火曜日で、「明日の朝までに候補者のポートフォリオを送る」と言っている。ポートフォリオ = 作品のサンプル。",
+      "traps": [
+       "面接の質問リストは書かれていない。",
+       null,
+       "カタログはこれから作業する対象で、送るとは言っていない。",
+       "業者（vendor）はMr. Malhotraの打ち合わせ相手として出てくるだけ。"
+      ]
+     },
+     "para": [
+      {
+       "p": "the candidates' portfolios",
+       "a": "Samples of the candidates' work"
+      },
+      {
+       "p": "by tomorrow morning (Tuesday → Wednesday)",
+       "a": "by Wednesday morning"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-s13",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "notice",
+     "title": "Notice",
+     "text": "Westgate Fitness Club — Membership Update\n\nStarting May 1, Westgate Fitness Club will extend its weekday hours. The club will open at 5:30 A.M. instead of 6:00 A.M. and close at 11:00 P.M. instead of 10:00 P.M. Weekend hours will remain unchanged.\n\nIn addition, members will now be able to reserve group exercise classes up to seven days in advance through our mobile app. Previously, reservations could be made only two days ahead. Members who reserve a spot but do not attend, without canceling at least two hours in advance, will not be able to book classes for one week.\n\nMonthly membership fees will not change. For questions, please speak with any staff member at the front desk."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s13-1",
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "question": "What is the main purpose of the notice?",
+     "choices": [
+      "To introduce a new fitness instructor",
+      "To explain an increase in fees",
+      "To announce changes to club services",
+      "To advertise a new club location"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "平日の営業時間の延長、クラスの予約受付期間の拡大など、クラブのサービスの変更点を知らせるお知らせ。",
+      "traps": [
+       "インストラクターの紹介はない。",
+       "月会費は変わらない（will not change）と言っている。逆の内容のひっかけ。",
+       null,
+       "新しい支店の話はない。"
+      ]
+     }
+    },
+    {
+     "id": "p7-s13-2",
+     "type": "not",
+     "concept": "p7.not",
+     "difficulty": 2,
+     "question": "What is NOT mentioned as a change?",
+     "choices": [
+      "An earlier opening time on weekdays",
+      "Longer hours on weekends",
+      "A later closing time on weekdays",
+      "Booking classes further in advance"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "'Weekend hours will remain unchanged' と言っているので、週末の営業時間の延長は変更点ではない。",
+      "traps": [
+       "平日の開館が6時 → 5時30分に早まる。",
+       null,
+       "平日の閉館が10時 → 11時に遅くなる。",
+       "予約できる期間が2日前 → 7日前に延びた。"
+      ]
+     }
+    },
+    {
+     "id": "p7-s13-3",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "question": "What will happen to members who miss a reserved class without canceling?",
+     "choices": [
+      "They will be temporarily unable to make reservations.",
+      "They will be charged a penalty fee.",
+      "Their memberships will be canceled.",
+      "They will receive a warning by e-mail."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "予約後に前もってキャンセルせずに欠席すると、「1週間クラスを予約できない」と言っている。一時的な予約制限。",
+      "traps": [
+       null,
+       "罰金の話はない。会費に関する記述は「変わらない」だけ。",
+       "会員資格の取り消しは書かれていない。",
+       "メールでの警告についての記述はない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "will not be able to book classes for one week",
+       "a": "temporarily unable to make reservations"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-s14",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "online review",
+     "title": "Online Review",
+     "text": "Review of Juniper Bistro ★★★★☆\nPosted by Carlos M.\n\nI hosted a dinner for twelve colleagues at Juniper Bistro last Friday to celebrate the completion of a major project. The private dining room was the perfect size, and the staff had arranged the tables exactly as I had requested over the phone.\n\nThe food was excellent, especially the grilled salmon and the mushroom risotto. Our server, Priya, was attentive without being intrusive and handled several special dietary requests with ease.\n\nMy only complaint is that the main courses took nearly forty minutes to arrive after we finished our appetizers. The manager apologized and offered complimentary desserts for the entire table, which was a nice gesture. I would definitely book Juniper Bistro again for a work event."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s14-1",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "Why did Carlos M. go to Juniper Bistro?",
+     "choices": [
+      "To meet with a new client",
+      "To interview a job candidate",
+      "To attend a cooking class",
+      "To celebrate the end of a work project"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "'to celebrate the completion of a major project' と目的を述べている。プロジェクトの完了 = 仕事のプロジェクトが終わったこと。",
+      "traps": [
+       "一緒に行ったのは同僚（colleagues）で、顧客ではない。",
+       "面接の話はない。",
+       "料理教室の話はない。",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "celebrate the completion of a major project",
+       "a": "celebrate the end of a work project"
+      }
+     ]
+    },
+    {
+     "id": "p7-s14-2",
+     "type": "synonym",
+     "concept": "p7.synonym",
+     "difficulty": 1,
+     "question": "The word “handled” in paragraph 2 is closest in meaning to",
+     "choices": [
+      "touched",
+      "carried",
+      "dealt with",
+      "sold"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "「いくつもの特別な食事の要望をそつなく処理した」という意味なので、dealt with（対応した）が最も近い。",
+      "traps": [
+       "touched（触った）はhandleの「手で扱う」という物理的な意味なので、要望には合わない。",
+       "carried（運んだ）では要望を処理するという意味にならない。",
+       null,
+       "sold（売った）は文脈と関係ない。"
+      ]
+     }
+    },
+    {
+     "id": "p7-s14-3",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What problem does Carlos M. mention?",
+     "choices": [
+      "The private room was too small.",
+      "His reservation could not be found.",
+      "The desserts were too expensive.",
+      "There was a long wait for the main dishes."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "唯一の不満は、前菜の後メイン料理が出るまでに40分近くかかったこと。",
+      "traps": [
+       "部屋は「ちょうどよい広さ（perfect size）」だったと言っている。",
+       "予約が漏れていたという話はない。むしろ依頼どおりにテーブルが用意されていた。",
+       "デザートは無料（complimentary）で出された。",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "the main courses took nearly forty minutes to arrive",
+       "a": "a long wait for the main dishes"
+      }
+     ]
+    },
+    {
+     "id": "p7-s14-4",
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "question": "What can be inferred about Carlos M.?",
+     "choices": [
+      "He made his reservation by telephone.",
+      "He is a regular customer at the restaurant.",
+      "He works in the restaurant industry.",
+      "He did not enjoy most of the food."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "スタッフが「私が電話で頼んだとおりに（as I had requested over the phone）」テーブルを並べたと言っているので、電話で予約・依頼したことが分かる。",
+      "traps": [
+       null,
+       "常連客だという根拠はない。「また予約する」はこれからの予定。",
+       "飲食業で働いているという根拠はない。",
+       "料理はすばらしかった（excellent）と言っている。"
+      ]
+     },
+     "para": [
+      {
+       "p": "as I had requested over the phone",
+       "a": "made his reservation by telephone"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-s15",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "letter",
+     "title": "Letter",
+     "text": "Dear Dr. Achebe,\n\nOn behalf of the organizing committee, I am delighted to confirm your participation as a keynote speaker at the Regional Healthcare Innovation Forum, to be held on November 14 at the Carlton Convention Center. — [1] —\n\nYour presentation is scheduled for 9:30 A.M. in the Grand Hall and should last approximately 45 minutes, followed by a 15-minute question-and-answer session. — [2] — Please send your presentation slides to our technical coordinator, Mr. Lewis Kang, by November 7 so that they can be tested on our equipment.\n\nAs discussed, the committee will cover your round-trip airfare and two nights at the Carlton Hotel, which is connected to the convention center. A car will meet you at the airport when you arrive. — [3] —\n\nWe are honored to have you join us. — [4] —\n\nSincerely,\nNadia Fournier\nForum Director"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s15-1",
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "question": "What is the purpose of the letter?",
+     "choices": [
+      "To invite Dr. Achebe to submit a research paper",
+      "To confirm the details of a speaking engagement",
+      "To request payment for travel expenses",
+      "To announce a change of venue"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "最初の文で基調講演者としての参加を確定すると述べ、その後に発表時間・会場・資料の提出・宿泊などの詳細を案内している。",
+      "traps": [
+       "論文の提出の依頼はない。スライドの提出を頼んでいる。",
+       null,
+       "むしろ委員会が航空運賃と宿泊費を負担する。",
+       "会場変更の話はない。"
+      ]
+     }
+    },
+    {
+     "id": "p7-s15-2",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What is Dr. Achebe asked to do by November 7?",
+     "choices": [
+      "Book a hotel room",
+      "Confirm her return flight",
+      "Submit materials for her presentation",
+      "Meet with Mr. Kang in person"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "11月7日までに発表スライドを技術担当者に送るよう頼んでいる。スライド = 発表資料。",
+      "traps": [
+       "宿泊は委員会が用意するので、自分で予約する必要はない。",
+       "航空便の確定の依頼はこの日付と結びつかない。",
+       null,
+       "Mr. Kangにはスライドを「送る」のであって、直接会うのではない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "send your presentation slides",
+       "a": "Submit materials for her presentation"
+      }
+     ]
+    },
+    {
+     "id": "p7-s15-3",
+     "type": "not",
+     "concept": "p7.not",
+     "difficulty": 2,
+     "question": "What is NOT mentioned as something the committee will provide?",
+     "choices": [
+      "Airfare",
+      "Accommodation",
+      "Transportation from the airport",
+      "Meals during the forum"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "航空運賃（round-trip airfare）、宿泊（two nights at the Carlton Hotel）、空港の送迎（A car will meet you）は書かれているが、食事の提供は出てこない。",
+      "traps": [
+       "'cover your round-trip airfare' と言っている。",
+       "'two nights at the Carlton Hotel' は宿泊の提供。",
+       "'A car will meet you at the airport' は空港からの交通手段の提供。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p7-s15-4",
+     "type": "insert",
+     "concept": "p7.insert",
+     "difficulty": 3,
+     "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
+     "sentence": "Please forward your flight details to my assistant so that the driver knows when to expect you.",
+     "choices": [
+      "[1]",
+      "[2]",
+      "[3]",
+      "[4]"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "the driverは直前の文の「空港に迎えに行く車」の運転手を指す。空港の送迎の案内の直後の[3]が適切。",
+      "traps": [
+       "[1]は参加確定のあいさつの直後なので、運転手（the driver）はまだ出てきていない。",
+       "[2]は発表時間の案内の直後なので、航空便の情報とつながらない。",
+       null,
+       "[4]は結びのあいさつの後なので、空港の送迎の文から離れ、the driverが指すものが遠くなる。"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

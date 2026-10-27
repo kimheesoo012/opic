@@ -10,7 +10,9 @@
     "test:sim": "node tools/simulate.mjs 300 14",
     "test:e2e": "node tools/e2e.mjs",
     "test": "node tools/build.mjs && node tools/test-bank.mjs && node tools/simulate.mjs 300 14 && node tools/e2e.mjs",
-    "serve": "node tools/serve.mjs"
+    "serve": "node tools/serve.mjs",
+    "build:ja": "node tools/build.mjs toeic-ja",
+    "test:ja": "node tools/build.mjs toeic-ja && TT_APP=toeic-ja node tools/test-bank.mjs && TT_APP=toeic-ja node tools/simulate.mjs 300 14 && node tools/e2e-ja.mjs"
   },
   "devDependencies": {
     "esbuild": "0.25.0"

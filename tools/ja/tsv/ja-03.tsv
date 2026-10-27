@@ -1,0 +1,110 @@
+p5-030|t1	havingは分詞なので述語動詞になれない。
+p5-030|t2	isはbeenと組み合わせられない（is beenは不可）。
+p5-031|why	planはto不定詞を目的語にとる動詞（plan to do）。したがってto openが正解。
+p5-031|t0	openは動詞の原形なので、plansの直後には入らない（動詞が2つ続く）。
+p5-031|t2	openingは動名詞。planは動名詞を目的語にとらない。
+p5-031|t3	openedは過去形・過去分詞で、plansの後ろの目的語の位置に合わない。
+p5-032|why	recommendは動名詞を目的語にとる（recommend doing）。「最終的な数値が出るまで会議を延期するよう勧めた」という意味でpostponingが正解。
+p5-032|t1	postponeは動詞の原形なので、recommendedの直後には入らない。
+p5-032|t2	to postponeはrecommendの直後には置かない。recommend 人 to doの形と混同させるひっかけ。
+p5-032|t3	postponedは過去形なので動詞が重なる。
+p5-033|why	look forward toのtoは前置詞なので、後ろに名詞か動名詞が来る。collaborating（協力すること）が正解。
+p5-033|t0	collaborate（動詞の原形）は、toをto不定詞と勘違いさせる代表的なひっかけ。look forward toのtoは前置詞なので動詞の原形は来ない。
+p5-033|t1	be collaboratedは動詞の原形の形で、collaborateは自動詞なので受動態も不自然。
+p5-033|t2	have collaboratedも動詞の原形で始まる形なので、前置詞toの後ろには入らない。
+p5-034|why	カンマの後ろに完全な文があるので、前半は修飾語。「待ち時間を減らすために」という目的を表すto不定詞To reduceが正解。
+p5-034|t0	Reduceで始めると命令文になり、後ろの節と接続詞なしではつながらない。
+p5-034|t1	Reducedは過去分詞で「減らされた」という受動の意味だが、銀行が待ち時間を減らす能動の関係なので合わない。
+p5-034|t3	Reductionは名詞なので、後ろの目的語customer wait timesを直接とれない。
+p5-035|why	be committed to（〜に専念する）のtoは前置詞。後ろに目的語（the environmental impact）をとり、前置詞の後ろにも置ける動名詞minimizingが正解。
+p5-035|t0	minimize（動詞の原形）は、be committed toの後ろをto不定詞と勘違いすると選ぶひっかけ。このtoは前置詞。
+p5-035|t2	be minimizedは受動の形なので後ろの目的語と合わず、前置詞の後ろにも置けない。
+p5-035|t3	minimal（最小限の）は形容詞なので前置詞の目的語になれず、後ろの名詞句ともつながらない。
+p5-036|why	書類は「添付される」側なので、受動の意味の過去分詞attachedが名詞documentsを修飾する。
+p5-036|t0	attachは動詞の原形なので、冠詞と名詞の間の修飾の位置には入らない。
+p5-036|t1	attachingは「添付する」という能動の意味で、書類が自分で添付することになってしまう。
+p5-036|t2	attachment documentsは「名詞 + 名詞」としては使わない表現。
+p5-037|why	主語は物であるresults（結果）で、結果がチームを「励ます」側。感情を引き起こす物には-ing形のencouragingを使う。
+p5-037|t1	encourageは動詞の原形なのでwereの後ろには入らない。
+p5-037|t2	encouragedは「人が励まされた」状態を表す。主語が物（results）なので合わない、感情を表す分詞のひっかけ。
+p5-037|t3	encouragementは名詞なので「結果 = 励まし」となり、to the teamとのつながりも不自然。
+p5-038|why	Participantsを後ろから修飾する分詞の位置。参加者（人）が「興味を持つ」ので、interested (in)が正解。
+p5-038|t0	interestingは「興味を引き起こす」という意味で、「面白い参加者」となり意味が変わる。
+p5-038|t1	interestは名詞・動詞の原形なので、この位置でParticipantsを修飾できない。
+p5-038|t3	interestsを動詞と見ると述語動詞がshould registerと重なり、数も合わない。
+p5-039|why	分詞構文の意味上の主語は主節の主語the manufacturer。メーカーが高い需要に「励まされた」のであり、後ろにbyがあるので過去分詞Encouragedが正解。
+p5-039|t0	Encouragingは能動なので「メーカーが需要を励まして」となり、後ろのbyとも合わない。
+p5-039|t1	Encourageで始めると命令文になり、主節とつながらない。
+p5-039|t2	To encourageは「励ますために」という目的なので、後ろのby the strong demandと合わない。
+p5-040|why	Anyoneを後ろから修飾する分詞が必要で、後ろに目的語a parking permitがあるので、能動の現在分詞requesting（〜を申請する）が正解。述語動詞はmust apply。
+p5-040|t0	requestedは受動なので後ろに目的語をとれず、「申請された人」となって意味が変わる。
+p5-040|t2	requestsを動詞と見ると、must applyと述語動詞が2つになる。
+p5-040|t3	requestは動詞の原形・名詞なので、Anyoneを修飾する位置に入らない。
+p5-041|why	前置詞toの後ろは目的格の位置なので、himが正解。forwardの主語はassistantなので、再帰代名詞ではなく目的格を使う。
+p5-041|t1	heは主格なので前置詞の後ろには入らない。
+p5-041|t2	hisは所有格なので後ろに名詞が必要。
+p5-041|t3	himselfは動作をする人と受ける人が同じときに使う。forwardするのはassistant、受け取るのはMr. Castilloなので再帰代名詞ではない。
+p5-042|why	空所の後ろに名詞findingsがあるので、名詞の前の所有格theirが正解。
+p5-042|t0	theyは主格なので名詞の前には入らない。
+p5-042|t1	themは目的格なので名詞を修飾できない。
+p5-042|t3	theirsは所有代名詞（彼らのもの）なので、後ろに名詞は来ない。
+p5-043|why	文はすでに完全で、空所は「自ら、直接」という強調用法の再帰代名詞の位置。主語Ms. Patelに合わせたherselfが正解。
+p5-043|t0	herは目的格・所有格だが、answeredの目的語the phonesはすでにある。
+p5-043|t1	hers（彼女のもの）は「彼女のものの電話に出た」と誤解しやすいが、the phonesの後ろに付く位置ではない。
+p5-043|t2	sheは主格なので文末には入らない。
+p5-044|why	found + 目的語 + 補語（more detailed）の形で目的語が必要。前の文と比べる対象が「企画書」なので、「私たちの企画書」を指す所有代名詞oursが正解。
+p5-044|t0	ourは所有格なので後ろに名詞が必要。
+p5-044|t1	ourselvesは主語がweのときだけ目的語に使えるが、主語はthe client。
+p5-044|t3	weは主格なのでfoundの目的語の位置には入らない。
+p5-045|why	familiarize oneself with（〜に慣れる、〜をよく知る）は、目的語が主語自身でなければならない表現。主語New employeesに合わせた再帰代名詞themselvesが正解。
+p5-045|t0	theyは主格なので動詞familiarizeの目的語になれない。
+p5-045|t2	theirは所有格なので後ろに名詞が必要。
+p5-045|t3	theirsは「彼らのもの」なので、自分自身を慣れさせるという意味にならない。
+p5-046|why	先行詞が人（The consultant）で、関係詞節we hired ___ ではhiredの目的語が抜けている。人を表す目的格の関係代名詞whomが正解。
+p5-046|t1	whichは先行詞が物のときに使う。
+p5-046|t2	whoseは後ろにすぐ名詞が来る必要がある（whose + 名詞）。
+p5-046|t3	whatは先行詞を含む関係代名詞なので、前に先行詞The consultantがあると使えない。
+p5-047|why	空所の後ろにすぐ名詞résumésが来て、「応募者たちの履歴書」という所有の関係。所有格の関係代名詞whoseが正解。
+p5-047|t1	whoの後ろには動詞が来る（who arrive）。ここでは名詞がすぐ続いている。
+p5-047|t2	whichは先行詞が物のときに使い、後ろにすぐ名詞が来る形にも合わない。
+p5-047|t3	whomは目的格なので後ろに「主語 + 動詞」が必要で、所有の関係を表せない。
+p5-048|why	関係詞節the annual sales conference will be heldは、主語と受動態の動詞がそろった完全な文。場所の先行詞（The hotel）の後ろで完全な節を導く関係副詞whereが正解。
+p5-048|t0	whichの後ろには主語か目的語が抜けた不完全な節が来る。'in which' なら可能。
+p5-048|t1	whatは先行詞を含むので、The hotelの後ろには置けない。
+p5-048|t2	whoseの後ろには冠詞のない名詞が必要で、所有の関係も成り立たない。
+p5-049|why	explainsの目的語の位置に先行詞なしで名詞節が必要で、節の中ではdoの目的語が抜けている。「〜すること」という意味のwhatが正解。
+p5-049|t0	thatの名詞節は後ろに完全な節が必要だが、doの目的語が抜けている。
+p5-049|t1	whoseの後ろには冠詞のない名詞が来て「誰の〜」となるが、意味が通じない。
+p5-049|t3	whoは人を尋ねる語で、後ろにすでに主語new staff membersがあるので 'who + 主語 + should do' は成り立たない。
+p5-050|why	カンマの後ろに接続詞なしで新しい動詞containedが出てくるので、2つの節をつなぐ関係代名詞が必要。物の先行詞blueprintsを受ける「数量語 + of + which」の形のwhichが正解。
+p5-050|t0	themは代名詞なので接続の働きがない。'several of them' を使うならandが必要。
+p5-050|t2	whomは先行詞が人のときに使う。先行詞blueprintsは物。
+p5-050|t3	thatは前置詞ofの後ろやカンマの後ろ（非制限用法）では使えない。
+p5-051|why	空所の後ろに主語（the train）と動詞（was delayed）のある節が来るので接続詞が必要。「遅れたが時間どおりに着いた」という譲歩の関係なのでAlthoughが正解。
+p5-051|t0	Despiteは前置詞なので後ろに名詞（句）しか来ない。意味は合うが品詞が違う代表的なひっかけ。
+p5-051|t2	Howeverは接続副詞なので、2つの節を1つの文につなげない。
+p5-051|t3	Because ofは前置詞で、意味も「〜のために」なので対比の関係と合わない。
+p5-052|why	空所の後ろが名詞句（the holiday shopping season）だけなので前置詞が必要。「〜の間」という意味の前置詞duringが正解。
+p5-052|t0	whileも「〜する間」という意味だが接続詞なので、後ろに節が必要。
+p5-052|t1	whenは接続詞で、後ろに主語 + 動詞が必要。
+p5-052|t3	as long as（〜する限り）は条件の接続詞なので、名詞句だけは受けられない。
+p5-053|why	後ろに節（the original receipt is presented）が来るので接続詞の位置。「レシートを提示しない限り返金しない」という条件なので、unless（〜しない限り）が正解。
+p5-053|t1	otherwiseは副詞（そうでなければ）なので、節と節を接続詞のようにはつなげない。
+p5-053|t2	withoutは前置詞なので後ろに節は来ない。
+p5-053|t3	in case ofは前置詞句なので名詞しか受けない。
+p5-054|why	空所の後ろが名詞句（its higher price）だけなので前置詞が必要。Notwithstandingは「〜にもかかわらず」という意味の前置詞として使えるので正解。
+p5-054|t0	Even thoughは意味は合うが接続詞なので、後ろに節が必要。
+p5-054|t1	Whereas（〜である一方）は接続詞なので名詞句を受けられず、意味も対比。
+p5-054|t2	Neverthelessは接続副詞で、名詞句の前で前置詞の働きはできない。
+p5-055|why	後ろに節（the total cost stays …）が続き、「予算内なら承認する」という条件の関係。条件の接続詞provided that（〜ならば）が正解。
+p5-055|t0	in spite ofは前置詞なので節を受けられず、意味も譲歩なので条件の関係と合わない。
+p5-055|t1	in addition toは前置詞句（〜に加えて）なので、節は来ない。
+p5-055|t3	regardlessは副詞で、regardless of（〜に関係なく）の形でも名詞しか受けない。
+p5-056|why	提出は1回で終わる動作で、「3月14日金曜日までに（完了）」という締め切りなのでbyが正解。
+p5-056|t0	untilは「〜までずっと」で、動作がそのときまで続く場合に使う（stay until）。提出の締め切りにはby。
+p5-056|t1	sinceは「〜以来」なので締め切りを表さない。
+p5-056|t2	withinは「〜以内に」で期間と一緒に使い（within three days）、日付の前には使わない。
+p5-057|why	on behalf ofは「〜を代表して」という意味で、営業部全体を代表してスピーチするという文脈に合う。
+p5-057|t0	in spite of（〜にもかかわらず）では「営業部全体にもかかわらずスピーチする」となり意味が通じない。
+p5-057|t2	in frontは後ろにofがないと名詞を受けられない（in front of）。
+p5-057|t3	insteadは副詞なので後ろにすぐ名詞は来ない（instead ofが必要）。

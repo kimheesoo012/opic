@@ -1,0 +1,666 @@
+{
+ "units": [
+  {
+   "id": "p7-d01",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "web page",
+     "title": "Web Page",
+     "text": "Lakeview Business Center — Meeting Room Rentals\n\nAll rentals include Wi-Fi, a projector, and a whiteboard. Catering can be arranged through our partner, Fresh Table, with at least 48 hours' notice. Customers who book three or more full days within a calendar month receive a 10% discount on the total rental fee.",
+     "table": {
+      "header": [
+       "Room",
+       "Capacity",
+       "Half day (4 hrs)",
+       "Full day"
+      ],
+      "rows": [
+       [
+        "Birch Room",
+        "10",
+        "$120",
+        "$200"
+       ],
+       [
+        "Cedar Room",
+        "25",
+        "$220",
+        "$380"
+       ],
+       [
+        "Maple Hall",
+        "60",
+        "$450",
+        "$750"
+       ]
+      ]
+     }
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: bookings@lakeviewbc.example\nFrom: Hyun-woo Lee\nDate: March 3\nSubject: Booking inquiry\n\nHello,\n\nI'm organizing a training workshop for 18 new employees of Tamura Consulting. We would need a room from 9 A.M. to 5 P.M. on March 12, 19, and 26. Could you confirm whether a suitable room is available on those dates?\n\nWe would also like lunch delivered on each day. Several participants have food allergies, so I will send you a list of their dietary restrictions by March 6.\n\nThank you,\nHyun-woo Lee"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-d01-1",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What is included with every room rental?",
+     "choices": [
+      "Presentation equipment",
+      "Lunch for participants",
+      "Free parking",
+      "A technical assistant"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "ウェブページに、すべての貸し出しにWi-Fi、プロジェクター、ホワイトボードが含まれると書かれている。プロジェクター = 発表用の機器。",
+      "traps": [
+       null,
+       "昼食は提携業者を通じて「別に」注文する必要がある。",
+       "駐車場は書かれていない。",
+       "技術サポートの人員は書かれていない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "a projector, and a whiteboard",
+       "a": "Presentation equipment"
+      }
+     ]
+    },
+    {
+     "id": "p7-d01-2",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "Which room will Mr. Lee most likely book?",
+     "choices": [
+      "The Birch Room",
+      "The Cedar Room",
+      "Maple Hall",
+      "A room at another business center"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "メールで参加者は18人と言っている。表ではBirch Room（10人）は小さすぎ、18人が入れて最もちょうどよい広さはCedar Room（25人）。",
+      "traps": [
+       "Birch Roomは定員10人なので、18人は入れない。",
+       null,
+       "Maple Hallも入れはするが60人用でずっと広く、料金も高い。'most likely' で尋ねるクロスリファレンス問題では、条件に最も合うものを選ぶ。",
+       "このセンターに合う部屋があるので、ほかの場所を予約する理由はない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "18 new employees",
+       "a": "Capacity 25 → Cedar Room"
+      }
+     ]
+    },
+    {
+     "id": "p7-d01-3",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "tags": [
+      "trap"
+     ],
+     "question": "What is suggested about Mr. Lee's booking?",
+     "choices": [
+      "It requires a security deposit.",
+      "It must be confirmed by telephone.",
+      "It is for half-day sessions.",
+      "It qualifies for a discount."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "Mr. Leeは3月12・19・26日、9時から5時まで（終日）3回予約しようとしている。ウェブページの条件「1か月以内に終日3日以上予約すると10%割引」に当てはまる。",
+      "traps": [
+       "保証金についての記述はない。",
+       "確認を電話でするようにという条件はない。",
+       "9時〜5時は8時間なので、半日（4時間）ではなく終日の貸し出し。",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "March 12, 19, and 26, 9 A.M. to 5 P.M.",
+       "a": "three or more full days within a calendar month"
+      }
+     ]
+    },
+    {
+     "id": "p7-d01-4",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "Why will Mr. Lee send a list by March 6?",
+     "choices": [
+      "To register the workshop participants",
+      "To inform the caterer of dietary needs",
+      "To request extra chairs",
+      "To confirm a payment method"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "参加者の何人かに食物アレルギーがあり、食事制限のリストを送ると言っている。昼食を用意する業者に食事の情報を知らせるため。",
+      "traps": [
+       "参加者の登録名簿ではなく、食事制限のリスト。",
+       null,
+       "いすの追加の依頼はない。",
+       "支払い方法の話はない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "a list of their dietary restrictions",
+       "a": "dietary needs"
+      }
+     ]
+    },
+    {
+     "id": "p7-d01-5",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "question": "What is true about the lunch Mr. Lee requested for March 12?",
+     "choices": [
+      "It will be prepared by Lakeview Business Center staff.",
+      "It is included in the room rental fee.",
+      "It was requested early enough to be arranged.",
+      "It must be ordered on the day of the workshop."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "ウェブページに、ケータリングは少なくとも48時間前に知らせる必要があると書かれている。Mr. Leeは3月3日に3月12日の昼食を頼んでいるので、十分早く頼んでいる。",
+      "traps": [
+       "昼食はセンターのスタッフではなく提携業者のFresh Tableが用意する。",
+       "貸出料金に含まれるのはWi-Fi・プロジェクター・ホワイトボードだけ。",
+       null,
+       "当日の注文ではなく、48時間前に知らせることが条件。"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p7-d02",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "notice",
+     "title": "Recall Notice",
+     "text": "Voluntary Recall: KitchenPro Model KX-200 Blender\n\nKitchenPro is voluntarily recalling KX-200 blenders manufactured between January and April of this year. In some units, the lid may not lock properly, which could cause contents to spill during use. No injuries have been reported.\n\nTo check whether your blender is affected, look at the serial number on the bottom of the base. Units with serial numbers beginning with 24A through 24D are included in the recall.\n\nCustomers with affected units should stop using them immediately and contact KitchenPro at 1-800-555-0199 or visit kitchenpro.example/recall. Customers may choose either a free replacement lid, which ships within two days, or a full refund, which takes up to three weeks to process."
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: support@kitchenpro.example\nFrom: Megan Walsh\nDate: June 20\nSubject: KX-200 recall\n\nHello,\n\nI bought a KX-200 blender in March as a gift for my sister. She saw your recall notice and checked the serial number, which begins with 24C. She uses the blender every morning and would prefer not to be without it for long, so we would like whichever option is faster.\n\nAlso, since I paid with my credit card, could any refund be sent to that card even though the blender is at her house?\n\nMegan Walsh"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-d02-1",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "Why is KitchenPro recalling the blenders?",
+     "choices": [
+      "A part may fail to close securely.",
+      "Several customers have been injured.",
+      "The motor tends to overheat.",
+      "The serial numbers were printed incorrectly."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'the lid may not lock properly'（ふたがきちんと閉まらないおそれがある）がリコールの理由。ふた = 部品、閉まらない = しっかり閉じない。",
+      "traps": [
+       null,
+       "'No injuries have been reported' と言っている。逆の内容のひっかけ。",
+       "モーターの過熱は書かれていない。",
+       "シリアル番号は対象製品を確認するためのもので、誤って印刷されたわけではない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "the lid may not lock properly",
+       "a": "A part may fail to close securely."
+      }
+     ]
+    },
+    {
+     "id": "p7-d02-2",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "What is indicated about the blender owned by Ms. Walsh's sister?",
+     "choices": [
+      "It was manufactured in May.",
+      "It has already been repaired.",
+      "It is included in the recall.",
+      "It was purchased online."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "メールのシリアル番号は24Cで始まり、お知らせでは24A〜24Dで始まる製品がリコールの対象だと言っている。したがってリコールの対象。",
+      "traps": [
+       "リコールの対象は1〜4月製造のもので、3月に買ったということは5月製造ではありえない根拠になる。",
+       "まだ解決方法を問い合わせている段階。",
+       null,
+       "購入経路（オンラインかどうか）は書かれていない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "begins with 24C",
+       "a": "24A through 24D are included in the recall"
+      }
+     ]
+    },
+    {
+     "id": "p7-d02-3",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "tags": [
+      "trap"
+     ],
+     "question": "Which option will Ms. Walsh most likely choose?",
+     "choices": [
+      "A replacement lid",
+      "A full refund",
+      "A new blender of a different model",
+      "A repair at a service center"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "メールで「早いほう」を希望すると言っていて、お知らせによると交換用のふたは2日以内に発送されるが、返金は最大3週間かかる。したがって交換用のふたを選ぶ。",
+      "traps": [
+       null,
+       "メールの後半で返金方法を尋ねているので選びやすいひっかけ。しかし「早いほう」という条件に合うのは交換用のふた。",
+       "別のモデルへの交換という選択肢はお知らせにない。",
+       "サービスセンターでの修理という選択肢もお知らせにない。"
+      ]
+     }
+    },
+    {
+     "id": "p7-d02-4",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What does Ms. Walsh ask about?",
+     "choices": [
+      "How to find a serial number",
+      "Where a refund would be sent",
+      "When the recall began",
+      "Whether a receipt is required"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "クレジットカードで支払ったので、返金をそのカードで受けられるか（could any refund be sent to that card）と尋ねている。",
+      "traps": [
+       "シリアル番号は弟がすでに確認した。",
+       null,
+       "リコールの開始時期は尋ねていない。",
+       "領収書が必要かどうかは尋ねていない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "could any refund be sent to that card",
+       "a": "Where a refund would be sent"
+      }
+     ]
+    },
+    {
+     "id": "p7-d02-5",
+     "type": "synonym",
+     "concept": "p7.synonym",
+     "difficulty": 2,
+     "question": "In the notice, the word “affected” in paragraph 2 is closest in meaning to",
+     "choices": [
+      "emotional",
+      "pretended",
+      "improved",
+      "impacted"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "「あなたのミキサーが（この問題の）影響を受ける製品か確認するには」という文脈なので、impacted（影響を受けた）が最も近い。",
+      "traps": [
+       "emotional（感情的な）は、affectedが「心を動かされた」というときの意味。",
+       "pretended（ふりをした）は、affectedが「気取った、わざとらしい」というときの意味。多義語のひっかけ。",
+       "improved（改善された）は文脈と逆。",
+       null
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p7-d03",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "schedule",
+     "title": "Program",
+     "text": "Northbridge Retail Association — Annual Meeting\nSaturday, September 20, Kingsley Hotel",
+     "table": {
+      "header": [
+       "Time",
+       "Session",
+       "Location"
+      ],
+      "rows": [
+       [
+        "9:00–9:30",
+        "Registration and coffee",
+        "Lobby"
+       ],
+       [
+        "9:30–10:30",
+        "Keynote: The Future of Local Shopping — Ana Torres",
+        "Ballroom A"
+       ],
+       [
+        "10:45–11:45",
+        "Panel: Hiring and Keeping Good Staff",
+        "Ballroom A"
+       ],
+       [
+        "12:00–1:00",
+        "Lunch",
+        "Garden Terrace"
+       ],
+       [
+        "1:15–2:15",
+        "Workshop: Social Media for Small Shops — Ben Okoro",
+        "Room 3"
+       ],
+       [
+        "2:30–3:30",
+        "Workshop: Managing Inventory Costs — Lisa Grant",
+        "Room 5"
+       ]
+      ]
+     }
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Registered attendees\nFrom: Peter Lunde\nDate: September 15\nSubject: Annual meeting update\n\nDear members,\n\nPlease note two changes to Saturday's program. First, because of a scheduling conflict, Ms. Grant and Mr. Okoro have switched time slots. Each of them will still use the same room as originally planned. Second, because rain is forecast, lunch will be served in Ballroom B instead of outdoors.\n\nWe look forward to seeing you.\n\nPeter Lunde\nEvents Coordinator"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-d03-1",
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "question": "What is the purpose of the e-mail?",
+     "choices": [
+      "To request feedback on a meeting",
+      "To announce revisions to an event schedule",
+      "To introduce a new keynote speaker",
+      "To confirm registration fees"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "土曜日のプログラムの2つの変更点（ワークショップの時間の入れ替え、昼食会場の変更）を知らせるメール。",
+      "traps": [
+       "意見を求める内容はない。",
+       null,
+       "基調講演者Ana Torresについての変更はない。",
+       "参加費の話はない。"
+      ]
+     }
+    },
+    {
+     "id": "p7-d03-2",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "What time will the workshop on social media begin?",
+     "choices": [
+      "9:30",
+      "12:00",
+      "1:15",
+      "2:30"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "もともとソーシャルメディアのワークショップ（Ben Okoro）は1:15だったが、メールでMs. GrantとMr. Okoroが時間帯を入れ替えたと言っている。したがってMs. Grantの元の時間の2:30に始まる。",
+      "traps": [
+       "9:30は基調講演の時間。",
+       "12:00は昼食の時間。",
+       "1:15は変更前の時間。予定表だけを見て答えると間違えるクロスリファレンスのひっかけ。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p7-d03-3",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "tags": [
+      "trap"
+     ],
+     "question": "Where will the workshop on inventory costs be held?",
+     "choices": [
+      "Room 3",
+      "Ballroom A",
+      "Room 5",
+      "Ballroom B"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "時間帯だけを入れ替え、'Each of them will still use the same room as originally planned' と言っている。Lisa Grantの在庫コストのワークショップは元どおりRoom 5で開かれる。",
+      "traps": [
+       "時間を入れ替えたからといって部屋まで変わるわけではない。Room 3はMr. Okoroの部屋。",
+       "Ballroom Aは基調講演とパネルの会場。",
+       null,
+       "Ballroom Bは変更後の昼食会場。"
+      ]
+     }
+    },
+    {
+     "id": "p7-d03-4",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "Why was the location of lunch changed?",
+     "choices": [
+      "Bad weather is expected.",
+      "The terrace is being repaired.",
+      "More people registered than expected.",
+      "A speaker requested a larger room."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'because rain is forecast'（雨の予報のため）と理由を述べている。",
+      "traps": [
+       null,
+       "テラスの修理の話はない。",
+       "登録者の増加は書かれていない。",
+       "講演者の依頼は時間の入れ替えの理由でもなく、昼食会場とも関係ない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "because rain is forecast",
+       "a": "Bad weather is expected."
+      }
+     ]
+    },
+    {
+     "id": "p7-d03-5",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "What is suggested about the Garden Terrace?",
+     "choices": [
+      "It is located in a different hotel.",
+      "It is an outdoor space.",
+      "It has a stage for speakers.",
+      "It is closed on Saturdays."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "予定表の元の昼食会場はGarden Terraceで、メールでは昼食を 'instead of outdoors'（屋外の代わりに）Ballroom Bで行うと言っている。Garden Terraceが屋外のスペースだと分かる。",
+      "traps": [
+       "すべてのイベントはKingsley Hotelで開かれる。",
+       null,
+       "ステージについての記述はない。",
+       "土曜日が休みなら、最初から予定表に入れていないはず。変更の理由は天気。"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p7-d04",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "job posting",
+     "title": "Job Posting",
+     "text": "Arbor Publishing — Editorial Assistant (Full-time)\n\nArbor Publishing, a publisher of travel guides, seeks an editorial assistant for its Vancouver office. Responsibilities include proofreading manuscripts, checking facts, and coordinating with freelance photographers.\n\nRequirements: a bachelor's degree, excellent written English, and at least one year of experience in publishing or journalism. Knowledge of a second language is an advantage. Applicants must be available to start by July 1.\n\nSend a résumé, a cover letter, and two writing samples to jobs@arborpub.example by May 31."
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: jobs@arborpub.example\nFrom: Ines Carvalho\nDate: May 28\nSubject: Editorial Assistant application\n\nDear Hiring Manager,\n\nI am writing to apply for the editorial assistant position advertised on your Web site. I recently completed a degree in English literature at the University of Toronto and have spent the past eighteen months working as a part-time reporter for the Harbourfront Weekly, where I wrote feature articles and edited community news.\n\nAs a native speaker of Portuguese who is also fluent in Spanish, I would be glad to help with your guides to South America. My current contract ends on June 15, so I would be available to begin work immediately after that date.\n\nAttached are my résumé, cover letter, and three samples of my published articles.\n\nSincerely,\nInes Carvalho"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-d04-1",
+     "type": "not",
+     "concept": "p7.not",
+     "difficulty": 2,
+     "question": "What is NOT listed as a responsibility of the position?",
+     "choices": [
+      "Taking photographs",
+      "Proofreading texts",
+      "Verifying information",
+      "Working with photographers"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "仕事は原稿の校正、事実確認、フリーのカメラマンとの調整。自分で写真を撮る仕事はない。",
+      "traps": [
+       null,
+       "proofreading manuscriptsが仕事として出てくる。",
+       "checking facts = 情報の確認（verifying information）。",
+       "coordinating with freelance photographers = カメラマンとの協力。"
+      ]
+     }
+    },
+    {
+     "id": "p7-d04-2",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "What is indicated about Ms. Carvalho's application?",
+     "choices": [
+      "It was submitted after the deadline.",
+      "It does not include a cover letter.",
+      "It includes more writing samples than requested.",
+      "It was sent by postal mail."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "求人広告は文章のサンプルを2つ求めているが、Ms. Carvalhoは記事のサンプルを3つ添付した。",
+      "traps": [
+       "締め切りは5月31日で、メールは5月28日に送っている。",
+       "カバーレター（cover letter）も添付したと言っている。",
+       null,
+       "メールで応募している。"
+      ]
+     }
+    },
+    {
+     "id": "p7-d04-3",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "What qualification of Ms. Carvalho's would most likely be considered an advantage?",
+     "choices": [
+      "Her experience living in Vancouver",
+      "Her experience managing a magazine",
+      "Her previous work at Arbor Publishing",
+      "Her knowledge of other languages"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "広告で「第2言語の知識があれば有利（an advantage）」と言っていて、Ms. Carvalhoはポルトガル語が母語で、スペイン語も流ちょうに話せる。",
+      "traps": [
+       "バンクーバーに住んだ経験は書かれていない。彼女はトロントで勉強した。",
+       "雑誌を運営したのではなく、パートタイムの記者として働いた。",
+       "Arbor Publishingで働いたことはない。",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "native speaker of Portuguese … fluent in Spanish",
+       "a": "knowledge of other languages"
+      }
+     ]
+    },
+    {
+     "id": "p7-d04-4",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "question": "What is true about Ms. Carvalho's availability?",
+     "choices": [
+      "She cannot start until August.",
+      "She will need to keep her current job part-time.",
+      "She can start before the date required in the posting.",
+      "She is available to start immediately."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "今の契約が6月15日に終わり、その直後から働けると言っている。広告の条件は「7月1日までに勤務開始が可能」なので、求められる日付より前に始められる。",
+      "traps": [
+       "8月という日付はどこにもない。",
+       "今の仕事と掛け持ちするという話はない。",
+       null,
+       "'immediately after that date' は6月15日の後すぐという意味で、今すぐではない。語だけを見て選ばせるひっかけ。"
+      ]
+     }
+    },
+    {
+     "id": "p7-d04-5",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What kind of books does Arbor Publishing produce?",
+     "choices": [
+      "Literature textbooks",
+      "Community newspapers",
+      "Photography magazines",
+      "Travel guides"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "広告の最初の文でArbor Publishingを 'a publisher of travel guides' と紹介している。メールの 'guides to South America' も同じ内容を指す。",
+      "traps": [
+       "英文学はMs. Carvalhoの専攻。",
+       "地方新聞はMs. Carvalhoが働いた所。",
+       "カメラマンと協力するとは書かれているが、写真雑誌を出しているとは書かれていない。",
+       null
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

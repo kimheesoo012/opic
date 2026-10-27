@@ -1,0 +1,803 @@
+{
+ "units": [
+  {
+   "id": "p7-s01",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "From: Daniel Cho <dcho@meridiantravel.example>\nTo: Sofia Ramirez\nDate: April 2\nSubject: Your Lisbon itinerary\n\nDear Ms. Ramirez,\n\nThank you for booking your business trip through Meridian Travel. I have attached your updated itinerary for the Lisbon trade conference. As you requested, I moved your return flight from April 18 to April 19 so that you can attend the closing reception on the final evening. The change resulted in a fare difference of $85, which has been charged to the corporate card on file.\n\nPlease note that your hotel, the Alfama Plaza, has also extended your reservation by one night at the same conference rate. Breakfast is included each day. If you would like me to arrange airport transportation, just reply to this e-mail and I will take care of it.\n\nBest regards,\nDaniel Cho\nCorporate Travel Consultant"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s01-1",
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "question": "Why did Mr. Cho write the e-mail?",
+     "choices": [
+      "To recommend a hotel in Lisbon",
+      "To request payment for a conference fee",
+      "To confirm changes to a travel schedule",
+      "To invite Ms. Ramirez to a reception"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "メールは、依頼どおり帰りの便を4月19日に変更し、ホテルも1泊延長したという内容。旅程の変更点を確認してもらうことが目的。",
+      "traps": [
+       "Alfama Plazaはすでに予約済みのホテルで、勧めている内容ではない。",
+       "85ドルは航空運賃の差額で、すでに法人カードで支払われている。会議の参加費を求めているのではない。",
+       null,
+       "closing receptionはMs. Ramirezが出席したいイベントで、Mr. Choが招待しているわけではない。本文の語を使い回したひっかけ。"
+      ]
+     },
+     "para": [
+      {
+       "p": "moved your return flight … extended your reservation",
+       "a": "changes to a travel schedule"
+      }
+     ],
+     "vocab": [
+      {
+       "w": "itinerary",
+       "pos": "n",
+       "m": "旅程表"
+      }
+     ]
+    },
+    {
+     "id": "p7-s01-2",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "question": "What is indicated about the additional night at the hotel?",
+     "choices": [
+      "It costs the same rate as the other nights.",
+      "It does not include breakfast.",
+      "It must be paid for in cash.",
+      "It is at a different hotel."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "2段落目に 'extended your reservation by one night at the same conference rate' とある。追加の1泊も同じ会議料金という意味。",
+      "traps": [
+       null,
+       "'Breakfast is included each day' と言っているので朝食は含まれる。",
+       "支払い方法は航空運賃の差額（法人カード）についてだけ書かれていて、現金払いの話はない。",
+       "同じホテル（Alfama Plaza）で予約が延長されている。"
+      ]
+     },
+     "para": [
+      {
+       "p": "at the same conference rate",
+       "a": "costs the same rate as the other nights"
+      }
+     ]
+    },
+    {
+     "id": "p7-s01-3",
+     "type": "synonym",
+     "concept": "p7.synonym",
+     "difficulty": 2,
+     "question": "In the e-mail, the phrase “take care of” in paragraph 2 is closest in meaning to",
+     "choices": [
+      "protect",
+      "watch",
+      "worry about",
+      "handle"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "「空港への交通手段が必要なら返信を、私が手配します」という文脈。ここでのtake care ofは「（用事を）処理する」という意味なので、handleが最も近い。",
+      "traps": [
+       "protect（守る）は、take care ofが人・物の世話をするときの意味に近い。この文では用事の処理を言っている。",
+       "watch（見守る）では、交通手段を手配するという意味にならない。",
+       "worry about（心配する）は文脈と関係ない。",
+       null
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p7-s02",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "text message chain",
+     "title": "Text-message chain",
+     "text": "Kevin Park [9:12 A.M.]\nHi Lena, the projector in Room 4 isn't turning on. The client presentation starts at 10.\n\nLena Ortiz [9:14 A.M.]\nDid you check that it's plugged in? The cleaning crew sometimes unplugs it.\n\nKevin Park [9:15 A.M.]\nFirst thing I tried.\n\nLena Ortiz [9:16 A.M.]\nOK. There's a portable projector in the supply closet on the second floor. I can bring it up.\n\nKevin Park [9:17 A.M.]\nThat would be great. Could you also bring an HDMI cable? Mine is too short.\n\nLena Ortiz [9:18 A.M.]\nWill do. I'll call IT about the Room 4 projector too."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s02-1",
+     "type": "intent",
+     "concept": "p7.intent",
+     "difficulty": 2,
+     "question": "At 9:15 A.M., what does Mr. Park most likely mean when he writes, “First thing I tried”?",
+     "choices": [
+      "He wants to use a different room.",
+      "He has already checked the power connection.",
+      "He was the first person to arrive at the office.",
+      "He thinks the cleaning crew damaged the projector."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "直前でMs. Ortizが「プラグが差さっているか確認したか」と尋ね、「最初にやったことだ」と答えている。つまり電源の接続はすでに確認したという意味。",
+      "traps": [
+       "別の会議室に移ろうという話はない。むしろ携帯用プロジェクターを持ってくることになる。",
+       null,
+       "Firstという語を「一番に出社した」と誤解させるひっかけ。",
+       "清掃スタッフはプラグを抜くこともあると触れられただけで、壊したという意味ではない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "First thing I tried.",
+       "a": "He has already checked the power connection."
+      }
+     ]
+    },
+    {
+     "id": "p7-s02-2",
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 1,
+     "question": "What will Ms. Ortiz most likely do next?",
+     "choices": [
+      "Bring some equipment to Mr. Park",
+      "Reschedule the client presentation",
+      "Purchase a longer cable",
+      "Clean Room 4"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "Ms. Ortizは2階の備品室の携帯用プロジェクターを持っていくと言い（I can bring it up）、HDMIケーブルも持ってきてほしいという頼みに 'Will do' と答えている。機器を持っていくことになる。",
+      "traps": [
+       null,
+       "発表の日程を変えようという話はない。",
+       "ケーブルは「買う」のではなく持っていくことになっている。",
+       "清掃スタッフの話はプラグの問題の原因として触れられただけ。"
+      ]
+     },
+     "para": [
+      {
+       "p": "I can bring it up. / Will do.",
+       "a": "Bring some equipment to Mr. Park"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-s03",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "notice",
+     "title": "Notice",
+     "text": "NOTICE TO TENANTS — Harbor Point Office Building\n\nElevator maintenance is scheduled for the weekend of July 12–13. During this time, the building's main passenger elevators will be out of service. — [1] — The freight elevator at the rear of the building will remain available for tenants who need to move heavy items. — [2] —\n\nTenants expecting deliveries that weekend should inform the security desk in advance so that a guard can escort delivery personnel to the freight elevator. — [3] —\n\nThe work is part of a building-wide modernization project that will also include new lobby lighting and an upgraded security system later this year. — [4] — Questions may be directed to the management office at extension 210."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s03-1",
+     "type": "not",
+     "concept": "p7.not",
+     "difficulty": 2,
+     "question": "What is NOT mentioned as part of the modernization project?",
+     "choices": [
+      "Elevator maintenance",
+      "New lobby lighting",
+      "Renovated restrooms",
+      "An upgraded security system"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "最後の段落で、エレベーターの作業（The work）は改修プロジェクトの一部で、ロビーの照明とセキュリティシステムも含まれると言っている。トイレの改修は書かれていない。",
+      "traps": [
+       "'The work is part of a building-wide modernization project' のThe workがエレベーターの点検なので、書かれている項目。",
+       "'new lobby lighting' がそのまま書かれている。",
+       null,
+       "'an upgraded security system' が書かれている。"
+      ]
+     }
+    },
+    {
+     "id": "p7-s03-2",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What should tenants do if they are expecting a delivery on July 12?",
+     "choices": [
+      "Use the east entrance of the building",
+      "Call extension 210 on the day of delivery",
+      "Reschedule the delivery for a weekday",
+      "Notify the security desk beforehand"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "2段落目で、その週末に配達予定のある入居者は前もって警備室に知らせる（inform the security desk in advance）必要があると言っている。",
+      "traps": [
+       "出入口についての記述はない。",
+       "内線210は問い合わせ先で、配達当日に電話するようにという案内ではない。",
+       "配達の日程を変えるようにとは言っていない。警備員が貨物用エレベーターまで案内してくれる。",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "inform the security desk in advance",
+       "a": "Notify the security desk beforehand"
+      }
+     ]
+    },
+    {
+     "id": "p7-s03-3",
+     "type": "insert",
+     "concept": "p7.insert",
+     "difficulty": 3,
+     "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
+     "sentence": "Guards will be available for this service from 8 A.M. to 6 P.M. on both days.",
+     "choices": [
+      "[1]",
+      "[2]",
+      "[3]",
+      "[4]"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "与えられた文のthis serviceは、直前で説明した「警備員が配達員を貨物用エレベーターまで案内するサービス」を指す。その文の直後の[3]が適切。",
+      "traps": [
+       "[1]の前にはエレベーターの運転停止の内容しかなく、this serviceが指すものがない。",
+       "[2]の前は貨物用エレベーターが使えるという内容。警備員（Guards）が提供するサービスはまだ出てこない。",
+       null,
+       "[4]の前は今後の改修プロジェクトの内容なので、警備サービスの時間の案内と流れが合わない。"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p7-s04",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "advertisement",
+     "title": "Advertisement",
+     "text": "Brightway Cleaning Services — Now serving offices in the downtown area!\n\nIs your office ready for the new season? Brightway offers daily, weekly, and monthly cleaning plans for businesses of all sizes. Our trained staff use only eco-friendly products, and all of our employees are fully insured.\n\nNew customers who sign a six-month contract before September 30 will receive their first month of service at half price. Window washing and carpet cleaning are available for an additional fee.\n\nCall 555-0148 or visit www.brightway.example to request a free on-site estimate."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s04-1",
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "question": "What is suggested about Brightway Cleaning Services?",
+     "choices": [
+      "It works only with large companies.",
+      "It charges a fee for estimates.",
+      "It uses strong chemical products.",
+      "It has recently expanded its service area."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "見出しの 'Now serving offices in the downtown area!'（中心部のオフィスも対応開始！）は、最近サービス地域を広げたことを示している。",
+      "traps": [
+       "'businesses of all sizes' と言っているので、規模に関係なくサービスする。",
+       "最後の文で見積もりは無料（free on-site estimate）と言っている。",
+       "'eco-friendly products' だけを使うと言っている。",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "Now serving offices in the downtown area",
+       "a": "recently expanded its service area"
+      }
+     ]
+    },
+    {
+     "id": "p7-s04-2",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "How can a new customer receive a discount?",
+     "choices": [
+      "By signing a contract before a certain date",
+      "By ordering window washing",
+      "By requesting an estimate online",
+      "By referring another business"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "9月30日より前に6か月契約をした新規顧客は、最初の月の料金が半額になると言っている。",
+      "traps": [
+       null,
+       "窓の清掃は割引の対象ではなく、追加料金がかかるサービス。",
+       "オンラインでの見積もり依頼は割引の条件ではない。",
+       "ほかの会社の紹介についての記述はない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "sign a six-month contract before September 30",
+       "a": "signing a contract before a certain date"
+      },
+      {
+       "p": "at half price",
+       "a": "a discount"
+      }
+     ]
+    },
+    {
+     "id": "p7-s04-3",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What service is available at an extra cost?",
+     "choices": [
+      "Monthly cleaning plans",
+      "Carpet cleaning",
+      "On-site estimates",
+      "Insurance for employees"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "'Window washing and carpet cleaning are available for an additional fee' と言っているので、カーペット清掃が追加料金のサービス。",
+      "traps": [
+       "月1回の清掃プランは基本プランの1つ。",
+       null,
+       "現地での見積もりは無料。",
+       "従業員の保険は会社が加入しているという説明で、顧客が別に買うサービスではない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "for an additional fee",
+       "a": "at an extra cost"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-s05",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "article",
+     "title": "Article",
+     "text": "Riverton Library Opens Business Resource Center\n\nRIVERTON (March 3) — Small-business owners in Riverton now have a new place to get help. The Riverton Public Library opened its Business Resource Center last Tuesday on the second floor of its main branch.\n\nThe center offers free access to market research databases, a collection of more than 600 books on management and finance, and four private meeting rooms that can be reserved for up to three hours at a time. Volunteers from the Riverton Chamber of Commerce will also hold one-on-one advising sessions every Thursday evening.\n\n“Many people starting a business can't afford expensive consultants,” said head librarian Martha Quinn. “We wanted to give them a place to find reliable information without cost.”\n\nThe project was funded by a grant from the Hollis Foundation. Library officials said that if the center proves popular, they hope to open a similar space at the library's east branch next year."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s05-1",
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "question": "What is the article mainly about?",
+     "choices": [
+      "The renovation of a library building",
+      "A fundraising event for a business group",
+      "The retirement of a librarian",
+      "A new service for local business owners"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "最初の段落で、図書館が小規模事業者向けのビジネス資料センターを開設したと紹介し、残りの段落もそのセンターのサービスと背景を扱っている。",
+      "traps": [
+       "センターが2階にオープンしたという内容で、建物を改装したという記事ではない。",
+       "資金は財団の助成金（grant）で、商工会議所の募金イベントの話はない。",
+       "Martha Quinnはインタビューを受けた館長で、退職の話はない。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p7-s05-2",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "According to the article, what happens on Thursday evenings?",
+     "choices": [
+      "The meeting rooms are closed to the public.",
+      "New books are added to the collection.",
+      "Business owners can receive individual advice.",
+      "Group workshops on finance are held."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "商工会議所のボランティアが毎週木曜日の夜に 'one-on-one advising sessions' を開くと言っている。1対1の相談 = 個別のアドバイス。",
+      "traps": [
+       "会議室が木曜日に閉まるという話はない。",
+       "新刊の追加についての記述はない。",
+       null,
+       "相談はグループではなく1対1（one-on-one）。financeという本文の語を使い回したひっかけ。"
+      ]
+     },
+     "para": [
+      {
+       "p": "one-on-one advising sessions",
+       "a": "receive individual advice"
+      }
+     ]
+    },
+    {
+     "id": "p7-s05-3",
+     "type": "synonym",
+     "concept": "p7.synonym",
+     "difficulty": 1,
+     "question": "The word “reliable” in paragraph 3 is closest in meaning to",
+     "choices": [
+      "trustworthy",
+      "recent",
+      "detailed",
+      "dependent"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "「高額なコンサルタントなしで信頼できる情報が見つかる場所」という文脈で、reliableは「信頼できる」なのでtrustworthyが最も近い。",
+      "traps": [
+       null,
+       "recent（最新の）は情報の時点を言うもので、信頼性とは違う。",
+       "detailed（詳しい）は情報の量を言う。",
+       "dependent（依存している）はrely（頼る）と語源が似ていて選びやすいが、意味が違う。"
+      ]
+     }
+    },
+    {
+     "id": "p7-s05-4",
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "question": "What is suggested about the library's east branch?",
+     "choices": [
+      "It is larger than the main branch.",
+      "It may get a business center in the future.",
+      "It received a grant from the Hollis Foundation.",
+      "It already offers private meeting rooms."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "最後の文で、センターが好評なら来年東分館にも同じようなスペースを開きたいと言っている。今後ビジネスセンターができる可能性がある。",
+      "traps": [
+       "分館と本館の大きさの比較はない。",
+       null,
+       "助成金は今回の本館のセンターのプロジェクトに対するもの。",
+       "会議室は本館のセンターの設備で、東分館については記述がない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "hope to open a similar space at the library's east branch next year",
+       "a": "may get a business center in the future"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-s06",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "form",
+     "title": "Order Confirmation",
+     "text": "Pelican Office Supply — Order Confirmation\nOrder number: 48213    Order date: October 6\nCustomer: Ruth Adeyemi, Linwood Dental Clinic\n\nSubtotal: $312.00\nShipping: FREE (orders over $250)\nTotal: $312.00\nEstimated delivery: October 9\n\nNote: Desk organizers are currently out of stock and will be shipped separately on October 14. You will not be charged additional shipping.",
+     "table": {
+      "header": [
+       "Item",
+       "Quantity",
+       "Unit price",
+       "Total"
+      ],
+      "rows": [
+       [
+        "Copy paper (box of 10 reams)",
+        "3",
+        "$42.00",
+        "$126.00"
+       ],
+       [
+        "Black toner cartridge",
+        "2",
+        "$68.50",
+        "$137.00"
+       ],
+       [
+        "Desk organizer",
+        "4",
+        "$12.25",
+        "$49.00"
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s06-1",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What is indicated about the order?",
+     "choices": [
+      "It qualified for free shipping.",
+      "It was placed by telephone.",
+      "It includes a discount.",
+      "It will arrive in a single shipment."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'Shipping: FREE (orders over $250)' で注文の合計が312ドルなので、送料無料の条件を満たしている。",
+      "traps": [
+       null,
+       "注文方法についての情報はない。",
+       "割引の項目はない。小計と合計が同じ。",
+       "デスクオーガナイザーは在庫切れのため10月14日に別に発送される。つまり2回に分けて届く。"
+      ]
+     },
+     "para": [
+      {
+       "p": "Shipping: FREE (orders over $250)",
+       "a": "qualified for free shipping"
+      }
+     ]
+    },
+    {
+     "id": "p7-s06-2",
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "question": "When will Ms. Adeyemi most likely receive the desk organizers?",
+     "choices": [
+      "On October 6",
+      "On October 9",
+      "On or after October 14",
+      "Before October 9"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "オーガナイザーは10月14日に別に「発送」されると言っているので、受け取るのは14日かそれ以降。",
+      "traps": [
+       "10月6日は注文日。",
+       "10月9日は残りの品物の到着予定日。日付を取り違えさせるひっかけ。",
+       null,
+       "オーガナイザーは在庫切れなので、9日より前には受け取れない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "will be shipped separately on October 14",
+       "a": "On or after October 14"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-s07",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "memo",
+     "title": "Memo",
+     "text": "MEMO\nTo: All employees\nFrom: Gwen Hollis, Office Manager\nDate: February 2\nSubject: Recycling program\n\nBeginning next Monday, Talbot & Reyes will introduce a new recycling program on every floor. — [1] — Blue bins will be placed next to each printer for paper, and green bins will be placed in the kitchens for plastic bottles and cans. — [2] —\n\nPlease do not put food waste or coffee cups in either type of bin, as this can contaminate an entire load. — [3] — The building's cleaning staff will empty the bins every evening.\n\nWe estimate that the program will reduce the amount of waste we send to landfills by about 30 percent. — [4] — Thank you for your cooperation."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s07-1",
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "question": "What is the purpose of the memo?",
+     "choices": [
+      "To announce a change in cleaning staff",
+      "To request volunteers for an event",
+      "To report the results of a survey",
+      "To explain a new waste-sorting system"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "来週月曜日から各階でリサイクルプログラムを始め、紙・プラスチック・缶を色別の回収箱に分けるよう案内している。新しい分別方法の説明が目的。",
+      "traps": [
+       "清掃スタッフは回収箱を空にするという情報で出てくるだけで、人員の変更の話はない。",
+       "ボランティア募集の内容はない。",
+       "30パーセントはアンケート結果ではなく見込み（estimate）。",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "a new recycling program",
+       "a": "a new waste-sorting system"
+      }
+     ]
+    },
+    {
+     "id": "p7-s07-2",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "According to the memo, where will the blue bins be placed?",
+     "choices": [
+      "In the kitchens",
+      "Beside the printers",
+      "In the lobby",
+      "Near the elevators"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "'Blue bins will be placed next to each printer' と言っている。next to = beside。",
+      "traps": [
+       "キッチンには緑の回収箱が置かれる。色を入れ替えて尋ねるひっかけ。",
+       null,
+       "ロビーについての記述はない。",
+       "エレベーターについての記述はない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "next to each printer",
+       "a": "Beside the printers"
+      }
+     ]
+    },
+    {
+     "id": "p7-s07-3",
+     "type": "insert",
+     "concept": "p7.insert",
+     "difficulty": 2,
+     "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
+     "sentence": "Instead, these items should be placed in the regular trash cans.",
+     "choices": [
+      "[1]",
+      "[2]",
+      "[3]",
+      "[4]"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "these itemsは直前の文の「生ごみとコーヒーカップ」を指し、Insteadは「リサイクル箱に入れずに、代わりに」という意味。その文の直後の[3]が適切。",
+      "traps": [
+       "[1]の前にはプログラム導入の知らせしかなく、these itemsが指すものがない。",
+       "[2]の前はリサイクルする品物（紙、瓶、缶）。それらを一般のごみ箱に入れろという意味になり矛盾する。",
+       null,
+       "[4]の前は廃棄物削減の見込みなので、these itemsとつながらない。"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p7-s08",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "online chat discussion",
+     "title": "Online chat discussion",
+     "text": "Aisha Bello [2:03 P.M.]\nHas anyone heard back from the caterer about Friday's lunch?\n\nTom Reed [2:05 P.M.]\nThey called this morning. They can do sandwiches for 40 people, but the vegetarian option is limited to 8.\n\nAisha Bello [2:06 P.M.]\nWe'll have at least 12 vegetarians.\n\nMei Lin [2:08 P.M.]\nI know a bakery on Fifth Street that makes great vegetable wraps. I could pick some up Friday morning.\n\nAisha Bello [2:09 P.M.]\nThat would solve it. Can you get 6?\n\nMei Lin [2:10 P.M.]\nNo problem. I'll keep the receipt for reimbursement.\n\nTom Reed [2:12 P.M.]\nThen I'll let the caterer know the final count is 40 sandwiches."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-s08-1",
+     "type": "intent",
+     "concept": "p7.intent",
+     "difficulty": 2,
+     "question": "At 2:06 P.M., what does Ms. Bello imply when she writes, “We'll have at least 12 vegetarians”?",
+     "choices": [
+      "The caterer's vegetarian option will not be enough.",
+      "She wants to cancel the catering order.",
+      "She needs a list of the attendees.",
+      "Fewer people will attend than expected."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "直前でケータリング業者のベジタリアンメニューが8人分までと言われ、「ベジタリアンは少なくとも12人」と答えている。8人分では足りないという意味。",
+      "traps": [
+       null,
+       "注文を取り消そうというのではなく、足りない分を補う方向で会話が続く。",
+       "出席者名簿を求める発言ではない。",
+       "むしろベジタリアンメニューが必要な人数のほうが多いという意味。"
+      ]
+     },
+     "para": [
+      {
+       "p": "limited to 8 → at least 12 vegetarians",
+       "a": "will not be enough"
+      }
+     ]
+    },
+    {
+     "id": "p7-s08-2",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What does Ms. Lin offer to do?",
+     "choices": [
+      "Call the caterer again",
+      "Count the number of attendees",
+      "Reserve a larger room",
+      "Buy additional food from a bakery"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "Ms. LinはFifth Streetのパン屋で野菜のラップサンドを買ってくると（I could pick some up）提案している。",
+      "traps": [
+       "ケータリング業者に連絡すると言っているのはMr. Reed。",
+       "人数を数えるという提案はない。",
+       "会場についての話はない。",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "I could pick some up",
+       "a": "Buy additional food"
+      }
+     ]
+    },
+    {
+     "id": "p7-s08-3",
+     "type": "intent",
+     "concept": "p7.intent",
+     "difficulty": 1,
+     "question": "At 2:09 P.M., what does Ms. Bello mean when she writes, “That would solve it”?",
+     "choices": [
+      "She has found a different caterer.",
+      "She approves of Ms. Lin's suggestion.",
+      "She thinks Mr. Reed caused the problem.",
+      "She wants Ms. Lin to explain her idea."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "Ms. Linがラップサンドを買ってくると言うと、「それなら解決だ」と言って6個買ってくるよう頼んでいる。提案に賛成という意味。",
+      "traps": [
+       "別の業者を見つけたという内容はない。",
+       null,
+       "Mr. Reedを責める発言ではない。",
+       "説明を求めず、すぐに数（6個）を決めている。"
+      ]
+     }
+    },
+    {
+     "id": "p7-s08-4",
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 1,
+     "question": "What will Mr. Reed most likely do next?",
+     "choices": [
+      "Contact the caterer",
+      "Go to a bakery on Fifth Street",
+      "Submit a receipt",
+      "Order 12 vegetarian sandwiches"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "最後のメッセージでMr. Reedは、ケータリング業者に最終的な数を知らせると（I'll let the caterer know）言っている。",
+      "traps": [
+       null,
+       "パン屋に行くのはMs. Lin。",
+       "レシートを保管するのもMs. Lin。",
+       "ケータリング業者のベジタリアンメニューは8人分が上限で、足りない分はラップサンドで補う。"
+      ]
+     },
+     "para": [
+      {
+       "p": "I'll let the caterer know",
+       "a": "Contact the caterer"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
