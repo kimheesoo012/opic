@@ -1,4 +1,4 @@
-// 빌드: PWA 폴더(dist/pwa), 단일 파일 아티팩트(dist/artifact/dojo-dog.html), 정적 파일 zip
+// 빌드: PWA 폴더(dist/pwa)와 그 Pages용 사본(dojo-dog/ 바로 아래), 단일 파일 아티팩트(dist/artifact/dojo-dog.html), 정적 파일 zip
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
@@ -24,6 +24,11 @@ fs.writeFileSync(path.join(out, 'index.html'), page);
 fs.writeFileSync(path.join(out, 'sw.js'), fs.readFileSync(r('src/sw.js'), 'utf8').replace('__VERSION__', ver));
 fs.copyFileSync(r('src/manifest.webmanifest'), path.join(out, 'manifest.webmanifest'));
 for (const f of fs.readdirSync(r('public/icons'))) fs.copyFileSync(r('public/icons', f), path.join(out, 'icons', f));
+
+// GitHub Pages(main 브랜치 방식)용 사본: dojo-dog/ 폴더 바로 아래에 두어 /opic/dojo-dog/ 에서 열리게 한다.
+// 서비스 워커는 이 폴더를 범위로 등록되므로 같은 도메인의 다른 앱(/opic/, /opic/toeic/ 등)에는 닿지 않는다.
+fs.rmSync(r('icons'), { recursive: true, force: true });
+fs.cpSync(out, ROOT, { recursive: true });
 
 // 아티팩트용 단일 HTML (문서 골격은 게시할 때 감싸지므로 넣지 않는다. 서비스 워커는 쓰지 않는다)
 const icon = 'data:image/png;base64,' + fs.readFileSync(r('public/icons/favicon-64.png')).toString('base64');

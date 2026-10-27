@@ -58,6 +58,11 @@ node tools/sheet.mjs dog|people|bg|scene   # 도트 시트 PNG → tools/out/
 - 사람 이름 등 고유명사는 처음 나올 때 읽기를 달고, 그 뒤로는 후리가나 설정을 따른다. 이름을 탭하면 읽기가 보인다.
 - 예전 설정(`furigana: 'hard'` 등)은 처음 불러올 때 새 설정으로 옮긴다(`migrateSettings`). 단어장·복습 기록·세계 기록은 그대로 읽는다.
 
+## 바로 열기
+
+- GitHub Pages: `https://kimheesoo012.github.io/opic/dojo-dog/` (저장소 Pages가 `main` 브랜치 루트에서 배포될 때)
+- `npm run build`가 `dist/pwa`의 내용을 `dojo-dog/` 바로 아래(`index.html`, `sw.js`, `manifest.webmanifest`, `icons/`)에도 복사한다. 게임을 고친 뒤에는 빌드 결과를 함께 커밋해야 Pages에 반영된다.
+
 ## 홈 화면 앱(PWA)으로 쓰기
 
 `dist/dojo-dog-pwa.zip`의 내용을 HTTPS 정적 호스팅(GitHub Pages, Netlify 등)에 올리고 그 주소를 휴대폰으로 연다.
