@@ -39,7 +39,7 @@ function applyTheme() {
 C.applyTheme = applyTheme;
 C.scoreCardHtml = (est) => scoreCard(est);
 
-const NAV = [['home', '홈', 'home'], ['learn', '학습', 'learn'], ['review', '복습', 'review'], ['stats', '기록', 'stats'], ['settings', '설정', 'settings']];
+const NAV = [['home', '홈', 'home'], ['learn', '학습', 'learn'], ['review', '복습', 'review'], ['stats', '기록', 'stats'], ['prefs', '설정', 'settings']];
 function navHtml(active) {
   return `<nav class="nav" aria-label="주 메뉴"><div class="nav-in">${NAV.map(([r, label, ic]) => `<button data-act="nav" data-r="${r}" ${active === r ? 'aria-current="page"' : ''}>${icons[ic]}<span>${label}</span></button>`).join('')}</div></nav>`;
 }
@@ -58,7 +58,7 @@ C.render = () => {
   if (route !== 'play') leavePlayer();
   closeSheet();
   if (route === 'play') { renderPlayer(); return; }
-  const base = route.split('/')[0];
+  const base = route.split('-')[0];
   let html = '';
   if (base === 'home') html = renderHome();
   else if (base === 'learn') html = renderLearn();
@@ -66,8 +66,8 @@ C.render = () => {
   else if (base === 'goal') html = renderGoal();
   else if (base === 'review') html = renderReview();
   else if (base === 'stats') html = renderStats();
-  else if (base === 'settings') html = renderSettings();
-  else if (base === 'train') html = renderTrain(route.split('/')[1]);
+  else if (base === 'prefs') html = renderSettings();
+  else if (base === 'train') html = renderTrain(route.split('-')[1]);
   else if (base === 'about') html = renderAbout();
   else html = renderHome();
   const navKey = { result: 'learn', goal: 'home', train: 'learn', about: 'stats' }[base] || base;
@@ -177,9 +177,9 @@ export function startActivity(c) {
     C.pending = c;
     return;
   }
-  if (c.kind === 'para') { markCourseDone(c.key); C.go('train/para'); return; }
-  if (c.kind === 'listen') { markCourseDone(c.key); C.go('train/listen'); return; }
-  if (c.kind === 'vocab') { markCourseDone(c.key); C.go('train/vocab'); return; }
+  if (c.kind === 'para') { markCourseDone(c.key); C.go('train-para'); return; }
+  if (c.kind === 'listen') { markCourseDone(c.key); C.go('train-listen'); return; }
+  if (c.kind === 'vocab') { markCourseDone(c.key); C.go('train-vocab'); return; }
   const kindMap = { diag: c.params && c.params.kind === 'deep' ? 'deep' : 'diag' };
   const kind = kindMap[c.kind] || c.kind;
   const s = newSession(kind, params, env);
@@ -222,9 +222,9 @@ function renderLearn() {
       </div></div>
     <h2>고득점 훈련</h2>
     <div class="card rec"><div class="grow"><b>Part 5 속도 훈련</b><p>시간 초과했던 문제·개념부터, 문항별 카운트다운 연속 풀이.</p></div><button class="btn sm" data-act="startKind" data-k="speed">시작</button></div>
-    <div class="card rec"><div class="grow"><b>LC 반복 듣기·받아쓰기</b><p>문장 단위 반복, 스크립트 가리기, 빈칸 단어 고르기.</p></div><a class="btn sm" href="#train/listen">열기</a></div>
-    <div class="card rec"><div class="grow"><b>RC 패러프레이즈</b><p>지문 표현 ↔ 정답 표현 짝 맞추기.</p></div><a class="btn sm" href="#train/para">열기</a></div>
-    <div class="card rec"><div class="grow"><b>단어장 퀴즈</b><p>문제 속에서 저장한 어휘를 4지선다로.</p></div><a class="btn sm" href="#train/vocab">열기</a></div>
+    <div class="card rec"><div class="grow"><b>LC 반복 듣기·받아쓰기</b><p>문장 단위 반복, 스크립트 가리기, 빈칸 단어 고르기.</p></div><a class="btn sm" href="#train-listen">열기</a></div>
+    <div class="card rec"><div class="grow"><b>RC 패러프레이즈</b><p>지문 표현 ↔ 정답 표현 짝 맞추기.</p></div><a class="btn sm" href="#train-para">열기</a></div>
+    <div class="card rec"><div class="grow"><b>단어장 퀴즈</b><p>문제 속에서 저장한 어휘를 4지선다로.</p></div><a class="btn sm" href="#train-vocab">열기</a></div>
   </div>`;
   return html;
 }
@@ -274,6 +274,25 @@ function renderResult() {
         const info = R.parts[p];
         return `<div class="small">Part ${p}: ${info.timeRatio == null ? '기록 부족' : `목표 시간의 ${pct(info.timeRatio)}%`}</div>`;
       }).join('')}<p class="small muted" style="margin:6px 0 0">${R.unanswered ? `지금 속도로 실제 RC(75분)를 풀면 Part 7에서 약 ${R.unanswered}문항을 못 풀 것으로 추정됩니다.` : '지금 속도면 RC 75분 안에 모두 풀 수 있는 페이스로 추정됩니다.'}</p></div>`;
+    }
+  }
+  if (s.kind === 'deep' || s.kind === 'mock') {
+    const byC = {};
+    for (const it of s.items) {
+      if (it.type !== 'unit') continue;
+      const unit = C.bank.unitById.get(it.unitId);
+      if (!unit) continue;
+      for (const q of questionsOf(unit)) {
+        const a = s.answers[q.id];
+        if (!a) continue;
+        const c = (byC[q.concept] ||= { n: 0, ok: 0, sec: 0, target: C.bank.conceptById.get(q.concept)?.targetSec || 0, part: unit.part });
+        c.n++; c.sec += a.sec; if (a.choice === q.answer) c.ok++;
+      }
+    }
+    const rows = Object.entries(byC).filter(([, v]) => v.n >= 2).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n);
+    if (rows.length) {
+      html += `<div class="card"><h3>유형별 실력 (2문항 이상)</h3><table class="t"><thead><tr><th>유형</th><th class="num">정답률</th><th class="num">평균/목표</th></tr></thead><tbody>${rows.map(([id, v]) => `<tr><td>${h(conceptName(C.bank, id))}</td><td class="num">${pct(v.ok / v.n)}% <span class="muted">(${v.ok}/${v.n})</span></td><td class="num">${v.part >= 5 ? `${Math.round(v.sec / v.n)}/${v.target}초` : '–'}</td></tr>`).join('')}</tbody></table>
+        <p class="xs muted" style="margin:6px 0 0">한 번의 진단은 유형당 문항이 적어 참고용입니다. 약점 판단은 누적 기록(유형당 4문항 이상)으로 합니다.</p></div>`;
     }
   }
   html += `<div class="card"><h3>파트별</h3><table class="t"><thead><tr><th>파트</th><th class="num">정답률</th><th class="num">평균 시간</th></tr></thead><tbody>${Object.entries(sum.byPart).map(([p, v]) => `<tr><td>Part ${p} ${PART_NAMES[p]}</td><td class="num">${v.n ? pct(v.correct / v.n) + '%' : '–'} <span class="muted">(${v.correct}/${v.n}${v.unanswered ? `, 미응답 ${v.unanswered}` : ''})</span></td><td class="num">${v.n ? Math.round(v.sec / v.n) + '초' : '–'}</td></tr>`).join('')}</tbody></table></div>`;
@@ -388,12 +407,13 @@ export async function boot() {
   C.store = await openBestStore();
   C.state = C.store.state;
   C.version = APP_VERSION;
+  C.embedded = !!window.__TT_DATA__;
   C.rng = makeRng(Date.now() & 0xffffffff);
   C.tts = createTTS(window);
   applyTheme();
   initPlayer(C);
   window.addEventListener('hashchange', () => C.render());
-  C.tts.init().then(() => { if (C.route === 'settings' || C.route === 'play') C.render(); });
+  C.tts.init().then(() => { if (C.route === 'prefs' || C.route === 'play') C.render(); });
   document.addEventListener('visibilitychange', () => { if (document.hidden && C.state.active) C.store.save('active'); });
   if (C.state.active && !location.hash) location.hash = 'home';
   C.render();

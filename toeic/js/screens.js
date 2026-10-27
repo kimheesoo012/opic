@@ -47,7 +47,7 @@ export function renderReview() {
   const r = retentionStats(st.attempts);
   html += `<h2>복습 효과</h2><div class="card small">같은 문제 다시 맞힘: <b>${r.repeatRight}/${r.repeatTotal}</b><br>같은 개념의 새 문제 맞힘: <b>${r.newRight}/${r.newTotal}</b>
     <p class="xs muted" style="margin:6px 0 0">같은 문제를 다시 맞힌 것(기억)과 새 문제를 맞힌 것(이해)을 따로 기록합니다.</p></div>
-    <h2>단어장 <span class="muted small">${Object.keys(st.vocab).length}개</span></h2><a class="btn block" href="#train/vocab">단어장 열기</a></div>`;
+    <h2>단어장 <span class="muted small">${Object.keys(st.vocab).length}개</span></h2><a class="btn block" href="#train-vocab">단어장 열기</a></div>`;
   return html;
 }
 on('startReview', () => {
@@ -107,10 +107,17 @@ export function renderStats() {
 }
 on('drillConcept', (el) => startSession(newSession('drill', { concept: el.dataset.c, nQ: 6 }, env())));
 on('copySummary', async () => { toast((await copyText(summaryText())) ? '복사했습니다' : '복사하지 못했습니다. 텍스트를 길게 눌러 복사하세요.'); });
-on('exportData', () => {
+on('exportData', async () => {
   const data = C.store.exportData(C.version);
   data.dataVersion = C.dataVersion;
-  download(`toeic-trainer-${dayKey(Date.now())}.json`, JSON.stringify(data));
+  const text = JSON.stringify(data);
+  if (C.embedded) {
+    // 미리보기 페이지(Artifact)는 파일 저장이 막혀 있어 클립보드로 대신한다
+    const ok = await copyText(text);
+    sheet(`<h3>기록 JSON ${ok ? '복사됨' : '복사 실패'}</h3><p class="small">이 미리보기 페이지에서는 파일 저장이 막혀 있어 ${ok ? '클립보드에 복사했습니다. 메모 앱 등에 붙여 넣어 .json 파일로 저장하세요.' : '복사도 실패했습니다. 설치형(GitHub Pages) 버전에서 내보내기를 쓰세요.'}</p><button class="btn block" data-act="closeSheet">닫기</button>`);
+    return;
+  }
+  download(`toeic-trainer-${dayKey(Date.now())}.json`, text);
   toast('내보냈습니다');
 });
 on('importPick', () => document.getElementById('importFile').click());

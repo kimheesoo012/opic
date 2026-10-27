@@ -82,6 +82,20 @@ const single = `<!doctype html>
 fs.writeFileSync(path.join(dist, 'toeic-single.html'), single);
 console.log(`dist/toeic-single.html: ${(single.length / 1024).toFixed(0)} KB`);
 
+// ②-b claude.ai Artifact용: 문서 골격 없이(게시 시 감싸짐), 높이는 100%로
+const artifact = `<title>토익 900 트레이너</title>
+<style>${css}
+html, body, #app { height: 100%; }
+.sess { height: 100%; }
+</style>
+<div id="app"><div class="page"><h1>토익 900 트레이너</h1><p class="muted">불러오는 중…</p></div></div>
+<script>window.__TT_DATA__ = ${data};</script>
+<script type="module">${js.replace(/<\/script/gi, '<\\/script')}</script>
+`;
+fs.mkdirSync(path.join(dist, 'artifact'), { recursive: true });
+fs.writeFileSync(path.join(dist, 'artifact', 'toeic-900.html'), artifact);
+console.log(`dist/artifact/toeic-900.html: ${(artifact.length / 1024).toFixed(0)} KB`);
+
 // ③ 정적 파일 zip
 const zipPath = path.join(dist, 'toeic-trainer-static.zip');
 fs.rmSync(zipPath, { force: true });

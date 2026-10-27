@@ -190,6 +190,16 @@ try {
   await p.waitForSelector('h1');
   ok('모의고사 중간 종료 → 결과(미응답 표시)', (await p.textContent('#app')).includes('미응답'));
 
+  // 심화 진단: 유형별 실력 + 시간 관리 분석
+  await p.goto(BASE + '#learn');
+  await p.click('[data-act="startKind"][data-k="deep"]');
+  await p.waitForSelector('.sess');
+  const deepTotal = await p.evaluate(() => document.querySelector('.prog .xs').textContent);
+  await answerLoop(p, { maxSteps: 600 });
+  const deepText = await p.textContent('#app');
+  ok('심화 진단 완료 → 유형별 실력·시간 관리 표시', deepText.includes('유형별 실력') && deepText.includes('시간 관리'), deepTotal);
+  await p.screenshot({ path: `${shotDir}/11b-deep-result.png`, fullPage: true });
+
   // 기록 화면 + 결과 요약 복사
   await p.goto(BASE + '#stats');
   await p.waitForSelector('[data-act="copySummary"]');
@@ -224,22 +234,22 @@ try {
 
   // 훈련 화면들
   for (const t of ['listen', 'para', 'vocab']) {
-    await p.goto(BASE + '#train/' + t);
+    await p.goto(BASE + '#train-' + t);
     await p.waitForSelector('h1');
     await p.screenshot({ path: `${shotDir}/12-train-${t}.png`, fullPage: true });
   }
-  await p.goto(BASE + '#train/listen');
+  await p.goto(BASE + '#train-listen');
   await p.click('[data-act="ltMode"][data-m="dict"]');
   const pick = await p.$('[data-act="ltPick"]');
   if (pick) await pick.click();
   ok('LC 받아쓰기(빈칸 단어 고르기)', (await p.textContent('#app')).includes('맞힘 1/1') || (await p.textContent('#app')).includes('맞힘 0/1'));
-  await p.goto(BASE + '#train/para');
+  await p.goto(BASE + '#train-para');
   await p.click('[data-act="ptChoose"]');
   ok('패러프레이즈 퀴즈', (await p.textContent('#app')).includes('맞힘'));
-  await p.goto(BASE + '#train/vocab');
+  await p.goto(BASE + '#train-vocab');
   if (await p.$('[data-act="vtSeed"]')) await p.click('[data-act="vtSeed"]');
   if (await p.$('[data-act="vtChoose"]')) { await p.click('[data-act="vtChoose"]'); ok('단어장 4지선다 복습', !!(await p.$('.choice.right'))); }
-  await p.goto(BASE + '#settings');
+  await p.goto(BASE + '#prefs');
   await p.waitForSelector('select[data-acc="US"]');
   const opts = await p.$$eval('select option', (os) => os.map((o) => o.textContent));
   ok('설정: 실제 설치된 영어 음성만 목록에 표시', !opts.some((o) => o.includes('ko-KR')) && opts.some((o) => o.includes('en-GB')));
