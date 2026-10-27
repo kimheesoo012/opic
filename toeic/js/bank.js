@@ -27,14 +27,35 @@ export function buildBank(rawUnits, concepts, { dropInvalid = true } = {}) {
   return { units, unitById, qById, byPart, byConcept, conceptById, concepts: concepts || [], report, count };
 }
 
-// 문항 목표 풀이 시간(초). 개념에 지정되어 있으면 그것, 아니면 파트 기본값.
+export function wordCount(unit) {
+  return (unit.passages || []).reduce((s, p) => {
+    let n = (p.text.match(/[A-Za-z0-9$][^\s]*/g) || []).length;
+    if (p.table) n += p.table.rows.flat().join(' ').split(/\s+/).length + p.table.header.length;
+    return s + n;
+  }, 0);
+}
+
+// 세트 목표 시간(초). Part 7: 분당 150단어로 지문을 읽고 문항당 25초. Part 6: 문항당 30초.
+export function unitTarget(unit) {
+  if (unit.part === 7) {
+    const sec = (wordCount(unit) / 150) * 60 + 25 * questionsOf(unit).length;
+    return Math.max(60, Math.round(sec / 10) * 10);
+  }
+  if (unit.part === 6) return 30 * questionsOf(unit).length;
+  return 20 * questionsOf(unit).length;
+}
+
+// 문항 목표 풀이 시간(초)
 export function targetSec(bank, q, unit) {
+  if (unit.part === 7) return Math.round(unitTarget(unit) / questionsOf(unit).length);
   const c = bank.conceptById.get(q.concept);
   if (c && c.targetSec) return c.targetSec;
-  return { 1: 8, 2: 8, 3: 12, 4: 12, 5: 20, 6: 30, 7: 60 }[unit.part] || 30;
+  return unit.part === 6 ? 30 : 20;
 }
 
 export function conceptName(bank, id) {
   const c = bank.conceptById.get(id);
   return c ? c.name : id;
 }
+
+export const LEVELS = { 1: '기본', 2: '중급', 3: '고급' };

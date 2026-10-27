@@ -67,13 +67,13 @@ const single = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>토익 900 트레이너</title>
-<meta name="description" content="진단 → 약점 분석 → 맞춤 추천 → 단계별 오답 복습 → 실전 연습. 오리지널 문제로 TOEIC L&R 고득점 훈련.">
+<title>토익 RC 트레이너</title>
+<meta name="description" content="TOEIC RC Part 5·6·7 고득점 훈련.">
 <link rel="icon" href="data:image/png;base64,${icon}">
 <style>${css}</style>
 </head>
 <body>
-<div id="app"><div class="page"><h1>토익 900 트레이너</h1><p class="muted">불러오는 중…</p></div></div>
+<div id="app"><div class="page"><h1>토익 RC 트레이너</h1><p class="muted">불러오는 중…</p></div></div>
 <script>window.__TT_DATA__ = ${data};</script>
 <script type="module">${js.replace(/<\/script/gi, '<\\/script')}</script>
 </body>
@@ -83,12 +83,12 @@ fs.writeFileSync(path.join(dist, 'toeic-single.html'), single);
 console.log(`dist/toeic-single.html: ${(single.length / 1024).toFixed(0)} KB`);
 
 // ②-b claude.ai Artifact용: 문서 골격 없이(게시 시 감싸짐), 높이는 100%로
-const artifact = `<title>토익 900 트레이너</title>
+const artifact = `<title>토익 RC 트레이너</title>
 <style>${css}
 html, body, #app { height: 100%; }
 .sess { height: 100%; }
 </style>
-<div id="app"><div class="page"><h1>토익 900 트레이너</h1><p class="muted">불러오는 중…</p></div></div>
+<div id="app"><div class="page"><h1>토익 RC 트레이너</h1><p class="muted">불러오는 중…</p></div></div>
 <script>window.__TT_DATA__ = ${data};</script>
 <script type="module">${js.replace(/<\/script/gi, '<\\/script')}</script>
 `;

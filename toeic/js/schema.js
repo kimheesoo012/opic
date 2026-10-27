@@ -38,7 +38,7 @@ export function validateQuestion(q, unit, conceptIds, errs) {
   if (!isStr(q.type)) e('type 누락');
   if (!isStr(q.concept)) e('concept 누락');
   else if (conceptIds && !conceptIds.has(q.concept)) e(`알 수 없는 concept ${q.concept}`);
-  if (!Number.isInteger(q.difficulty) || q.difficulty < 1 || q.difficulty > 5) e('difficulty는 1~5 정수');
+  if (!Number.isInteger(q.difficulty) || q.difficulty < 1 || q.difficulty > 3) e('difficulty는 1~3 정수');
   const nChoices = unit.part === 2 ? 3 : 4;
   if (!Array.isArray(q.choices) || q.choices.length !== nChoices) {
     e(`선택지는 ${nChoices}개여야 함`);

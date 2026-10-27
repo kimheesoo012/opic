@@ -81,14 +81,11 @@ export function fmtMin(sec) {
 
 export const LETTERS = ['A', 'B', 'C', 'D'];
 
-export const PART_NAMES = {
-  1: '사진 묘사', 2: '질의응답', 3: '짧은 대화', 4: '짧은 담화',
-  5: '단문 빈칸', 6: '장문 빈칸', 7: '독해',
-};
+export const PART_NAMES = { 5: '단문 빈칸', 6: '장문 빈칸', 7: '독해' };
 
-// 실제 시험의 파트별 문항 수 (ETS/IIBC 공개 형식 기준)
-export const REAL_COUNTS = { 1: 6, 2: 25, 3: 39, 4: 30, 5: 30, 6: 16, 7: 54 };
-export const LC_PARTS = [1, 2, 3, 4];
+// 실제 시험 RC의 파트별 문항 수 (ETS·IIBC 공개 형식). RC 100문항, 75분.
+export const REAL_COUNTS = { 5: 30, 6: 16, 7: 54 };
 export const RC_PARTS = [5, 6, 7];
-export const sectionOf = (part) => (part <= 4 ? 'LC' : 'RC');
+export const RC_LIMIT_SEC = 75 * 60;
+// 총점 목표. RC 목표 = 총점 목표 − LC 기준 점수
 export const TARGETS = [800, 850, 900, 950, 990];

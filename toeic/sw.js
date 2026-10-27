@@ -1,7 +1,7 @@
 // 자동 생성 파일 (tools/build.mjs) — 직접 수정하지 마세요.
-const VERSION = 'b9b3999f9173';
+const VERSION = '984af50b02ad';
 const CACHE = 'toeic900-' + VERSION;
-const PRECACHE = ["./","css/app.css","data/concepts.json","data/index.json","data/p1.json","data/p2.json","data/p3.json","data/p4.json","data/p5-1.json","data/p5-2.json","data/p5-3.json","data/p5-4.json","data/p6.json","data/p7-1.json","data/p7-2.json","data/p7-3.json","data/p7-4.json","icons/apple-touch-icon.png","icons/icon-192.png","icons/icon-512.png","icons/icon-maskable-512.png","index.html","js/app.js","js/bank.js","js/ctx.js","js/player.js","js/recommend.js","js/review.js","js/schema.js","js/scoring.js","js/screens.js","js/selection.js","js/sessions.js","js/stats.js","js/store.js","js/tts.js","js/ui.js","js/util.js","manifest.webmanifest"];
+const PRECACHE = ["./","css/app.css","data/concepts.json","data/index.json","data/p5-1.json","data/p5-2.json","data/p5-3.json","data/p5-4.json","data/p6.json","data/p7-1.json","data/p7-2.json","data/p7-3.json","data/p7-4.json","icons/apple-touch-icon.png","icons/icon-192.png","icons/icon-512.png","icons/icon-maskable-512.png","index.html","js/app.js","js/bank.js","js/ctx.js","js/player.js","js/recommend.js","js/review.js","js/schema.js","js/scoring.js","js/screens.js","js/selection.js","js/sessions.js","js/stats.js","js/store.js","js/ui.js","js/util.js","manifest.webmanifest"];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));

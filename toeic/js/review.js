@@ -92,11 +92,11 @@ export function pickReviewItem(bank, card, seen, rng, excludeQids = []) {
   const isSeen = (r) => seen.has(r.q.id);
   let pool;
   if (kind === 'easy') {
-    pool = refs.filter((r) => r.q.difficulty <= 2);
-    if (!pool.length) pool = refs.filter((r) => r.q.difficulty <= 3);
+    pool = refs.filter((r) => r.q.difficulty === 1);
+    if (!pool.length) pool = refs.filter((r) => r.q.difficulty <= 2);
   } else if (kind === 'hard') {
-    pool = refs.filter((r) => r.q.difficulty >= 4 || (r.q.difficulty >= 3 && (r.q.tags || []).includes('trap')));
-    if (!pool.length) pool = refs.filter((r) => r.q.difficulty >= 3);
+    pool = refs.filter((r) => r.q.difficulty === 3 || (r.q.difficulty === 2 && (r.q.tags || []).includes('trap')));
+    if (!pool.length) pool = refs.filter((r) => r.q.difficulty >= 2);
   } else {
     pool = refs;
   }

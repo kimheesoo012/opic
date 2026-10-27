@@ -4,7 +4,7 @@ import { mean, median, groupBy, dayKey, startOfDay, DAY } from './util.js';
 export const CAUSES = [
   { id: 'vocab', label: '모르는 어휘' },
   { id: 'grammar', label: '문법' },
-  { id: 'listen', label: '못 들음' },
+  { id: 'evidence', label: '근거 못 찾음' },
   { id: 'time', label: '시간 부족' },
   { id: 'slip', label: '실수' },
   { id: 'trap', label: '함정' },
@@ -95,4 +95,15 @@ export function todayStudySec(studyLog, now = Date.now()) {
 export function todayAttempts(attempts, now = Date.now()) {
   const s = startOfDay(now);
   return attempts.filter((a) => a.t >= s && a.t < s + DAY);
+}
+
+// 시간 초과 문제 모음: 마지막 풀이가 목표 시간을 넘긴 문항(최근 것부터)
+export function overtimeQids(attempts, now = Date.now()) {
+  const last = new Map();
+  for (const a of attempts) {
+    if (a.mode === 'review' || !a.target) continue;
+    const prev = last.get(a.qid);
+    if (!prev || a.t >= prev.t) last.set(a.qid, a);
+  }
+  return [...last.values()].filter((a) => a.sec > a.target && now - a.t < 60 * 86400000).sort((a, b) => b.t - a.t).map((a) => a.qid);
 }
