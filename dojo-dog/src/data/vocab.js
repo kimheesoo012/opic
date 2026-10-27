@@ -3,6 +3,7 @@
 import { KENDO_VOCAB } from './vocab_kendo.js';
 import { GENERAL_VOCAB } from './vocab_general.js';
 import { N2_VOCAB } from './vocab_n2.js';
+import { N2X } from './n2/vocab.js';
 
 const COMMANDS = {
   始め: { r: 'はじめ', m: '시작(심판·지도자의 구령)', ex: '主審の「始め」で試合が始まる。', exk: '주심의 「시작」으로 시합이 시작된다.', lv: 'N4', pos: 'exp', k: 1, note: '시합·연습을 시작시키는 구령.' },
@@ -10,7 +11,8 @@ const COMMANDS = {
   有り: { r: 'あり', m: '있음(판정 구령: メン有り 등)', ex: '「メン有り！」と主審が宣告した。', exk: '「면 있음!」이라고 주심이 선언했다.', lv: 'N2', pos: 'exp', k: 1, note: '심판이 一本을 인정할 때 「メン有り」「コテ有り」처럼 쓴다.' },
 };
 
-export const VOCAB = { ...GENERAL_VOCAB, ...N2_VOCAB, ...KENDO_VOCAB, ...COMMANDS };
+// 시험 대비 N2 어휘(n2/)를 먼저 깔고, 게임 대사용으로 다듬은 어휘가 같은 말이면 그쪽을 쓴다.
+export const VOCAB = { ...N2X, ...GENERAL_VOCAB, ...N2_VOCAB, ...KENDO_VOCAB, ...COMMANDS };
 
 // 활용형·가능형 등 → 표제어
 export const ALIAS = {

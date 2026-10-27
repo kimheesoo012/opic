@@ -295,7 +295,13 @@ test('읽기 검사: 학습 단어의 읽기가 어휘 DB 읽기와 같다 (대�
 
 test('읽기 검사: 전수 검토에서 찾은 오독이 다시 생기지 않는다', () => {
   const pairs = new Set();
-  for (const src of ['lines', 'ex', 'speakers']) for (const segs of Object.values(LINES[src])) for (const it of flat(segs).filter(Array.isArray)) pairs.add(it[0] + '=' + it[1]);
+  // 한자어 뒤에 붙은 조각(廃棄物의 物=ぶつ, 外国人의 人=じん)은 맞는 읽기이므로 앞에 한자 조각이 없는 것만 본다
+  const OK_CTX = { '生=なま': /生ごみ|生卵|生意気|生放送/ };
+  for (const src of ['lines', 'ex', 'speakers']) for (const [tpl, segs] of Object.entries(LINES[src])) {
+    const surf = flat(segs).map((it) => (Array.isArray(it) ? it[0] : typeof it === 'string' ? it : '')).join('');
+    const list = flat(segs).filter((it) => !(Array.isArray(it) && OK_CTX[it[0] + '=' + it[1]] && OK_CTX[it[0] + '=' + it[1]].test(surf)));
+    list.forEach((it, i) => Array.isArray(it) && !(Array.isArray(list[i - 1]) && it[0].length === 1) && pairs.add(it[0] + '=' + it[1]));
+  }
   for (const bad of ['物=ぶつ', '仕=つかまつ', '打=だ', '生=なま', '位=い', '守り=もり', '目下=もっか', '勝=かち']) assert.ok(!pairs.has(bad), bad);
   for (const good of ['洗濯物=せんたくもの', '仕太刀=したち', '打太刀=うちだち', '一年生=いちねんせい', '勝=か']) assert.ok(pairs.has(good), good);
 });
@@ -335,4 +341,13 @@ test('고유명사 규칙: 일반 낱말(夏·毎日)은 고유명사로 처리�
   assert.equal(showRuby('n2', 'P', { first: true }), true);
   assert.equal(showRuby('n2', 'P', { first: false }), false);
   assert.equal(showRuby('off', 'P', { first: true }), false);
+});
+
+test('수+조수사 읽기: 촉음·반탁음·와어 수사·4/7/9의 읽기', async () => {
+  const { numberAt } = await import('../tools/numread.mjs');
+  const cases = { 三十八票: 'さんじゅうはっぴょう', 五十本: 'ごじゅっぽん', 十分間: 'じゅっぷんかん', 一年間: 'いちねんかん', 何百人: 'なんびゃくにん', 十二人: 'じゅうににん', 二日: 'ふつか', 十日目: 'とおかめ', 四人: 'よにん', 四時: 'よじ', 九時: 'くじ', 三階: 'さんがい', 三歩: 'さんぽ', 六本: 'ろっぽん', 一か月: 'いっかげつ', 四年生: 'よねんせい', 三十年来: 'さんじゅうねんらい' };
+  for (const [w, r] of Object.entries(cases)) assert.equal(numberAt(w, 0)?.r, r, w);
+  assert.equal(numberAt('統一', 1), null, '낱말 속 一은 건드리지 않는다');
+  assert.equal(numberAt('十分に分かった', 0), null, '충분하다는 뜻의 十分');
+  assert.equal(numberAt('四分の一', 0).r, 'よんぶん');
 });
