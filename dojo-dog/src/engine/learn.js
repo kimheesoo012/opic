@@ -25,10 +25,11 @@ export function allowedLevel(code, set) {
   if (!code || code === 'P') return false;
   const level = set.studyLevel || 'n2';
   if (level === 'custom') return (set.customLevels || ['3', '2', 'K']).includes(code);
-  if (code === 'K') return set.kendoTerms !== false;
+  // 검도 용어는 JLPT 공부 대상이 아니다: 직접 고르기(custom)에서 고른 때만
+  if (code === 'K') return set.kendoTerms === true;
   if (!set.hideEasy) return true;
-  // 「쉬운 단어 학습 표시 끄기」: 고른 수준보다 두 단계 이상 쉬운 말은 강조하지 않는다
-  return Number(code) <= TARGET[level] + 1;
+  // 「쉬운 단어 학습 표시 끄기」: 고른 수준보다 쉬운 말은 강조하지 않는다 (N2 → N2·N1만)
+  return Number(code) <= TARGET[level] + 0.5;
 }
 
 // 장면 하나의 학습 대상 순위: 고른 수준에 가까운 것 → 문법 우선 → 어려운 쪽 우선 → 먼저 나온 것

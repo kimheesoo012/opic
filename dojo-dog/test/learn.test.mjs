@@ -78,10 +78,11 @@ test('생성된 루비 조각: 쉬운 말은 N2 모드에서 읽기가 숨는다
 });
 
 test('쉬운 단어 학습 표시 끄기와 학습 수준', () => {
-  // N2 학습자: N5·N4는 강조하지 않고, N3·N2·N1은 강조한다
+  // N2 학습자: N5~N3은 강조하지 않고, N2·N1만 강조한다 (검도 용어도 기본으로는 강조하지 않는다)
   assert.equal(allowedLevel('5', N2), false);
   assert.equal(allowedLevel('4', N2), false);
-  assert.equal(allowedLevel('3', N2), true);
+  assert.equal(allowedLevel('3', N2), false);
+  assert.equal(allowedLevel('K', N2), false);
   assert.equal(allowedLevel('2', N2), true);
   assert.equal(allowedLevel('1', N2), true);
   // 끄면 모두 강조
