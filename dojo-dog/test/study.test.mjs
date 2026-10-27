@@ -55,17 +55,21 @@ test('N2 학습 항목이 들어간 이벤트 비율', () => {
     wo(e.brief);
     return out;
   };
+  // 문법을 억지로 넣지 않는다: 짧은 구령·사투리 장면은 학습 항목이 없어도 된다
   const hasN2 = (t) => (LINES.lines[t] || []).some((s) => s && ((s.g && GRAMMAR[s.g].lv === 'N2') || (s.v && VOCAB[s.v] && VOCAB[s.v].lv === 'N2')));
+  const hasN3up = (t) => (LINES.lines[t] || []).some((s) => s && (s.g || (s.v && VOCAB[s.v] && ['N3', 'N2', 'N1'].includes(VOCAB[s.v].lv))));
   const evs = ALL_EVENTS.filter((e) => linesOf(e).length);
   const ok = evs.filter((e) => linesOf(e).some(hasN2));
+  const ok3 = evs.filter((e) => linesOf(e).some(hasN3up));
   const n2v = new Set();
   const n2g = new Set();
   for (const segs of Object.values(LINES.lines)) for (const s of segs) {
     if (s && s.v && VOCAB[s.v]?.lv === 'N2') n2v.add(s.v);
     if (s && s.g && GRAMMAR[s.g].lv === 'N2') n2g.add(s.g);
   }
-  console.log(`  대사가 있는 이벤트 ${evs.length}개 중 N2 항목 포함 ${ok.length}개 · 대사 속 N2 단어 ${n2v.size}개 · N2 문법 ${n2g.size}개 (N3 복습 문법 ${Object.values(GRAMMAR).filter((g) => g.lv === 'N3').length}개)`);
-  assert.ok(ok.length / evs.length >= 0.9);
+  console.log(`  대사가 있는 이벤트 ${evs.length}개 중 N2 항목 포함 ${ok.length}개, N3 이상 항목 포함 ${ok3.length}개 · 대사 속 N2 단어 ${n2v.size}개 · N2 문법 ${n2g.size}개 (N3 복습 문법 ${Object.values(GRAMMAR).filter((g) => g.lv === 'N3').length}개)`);
+  assert.ok(ok.length / evs.length >= 0.85);
+  assert.ok(ok3.length / evs.length >= 0.92);
 });
 
 test('읽기 함정은 정답과 다르고 히라가나만', () => {

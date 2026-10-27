@@ -14,9 +14,10 @@ import life2 from './daily_life2.js';
 import kendo from './kendo.js';
 import subs from './subs.js';
 import iincho from './iincho.js';
+import chains from './chains.js';
 
 export const ALL_EVENTS = [
   ...core, ...kid, ...roshi, ...shihan, ...okami, ...worker, ...elder, ...kor,
-  ...walk, ...beside, ...life, ...life2, ...kendo, ...subs, ...iincho,
+  ...walk, ...beside, ...life, ...life2, ...kendo, ...subs, ...iincho, ...chains,
 ];
 export { SUB_TITLES } from './subs.js';
