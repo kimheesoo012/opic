@@ -1,6 +1,6 @@
 // 道場犬 서비스 워커: 앱 셸을 캐시해서 오프라인에서도 실행된다.
 // 범위는 이 파일이 있는 폴더(예: /opic/dojo-dog/)뿐이고, 캐시 이름은 「dojoinu-」로 시작하는 것만 만들고 지운다.
-const VERSION = '843f6a860a';
+const VERSION = 'e810185049';
 const CACHE = 'dojoinu-' + VERSION;
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-icon.png', './icons/favicon-64.png'];
 

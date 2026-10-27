@@ -77,12 +77,14 @@ export function simulate(runs = RUNS, freq = FREQ, seed = 'qs') {
 
 export function measure(res) {
   const runs = res.out;
+  let bank = 0;
   let asks = 0, scene = 0, card = 0, dup = 0, dupNotRelearn = 0, wrong = 0, wrongReasked = 0, wrongReaskedSoon = 0, repeats = 0, kindChanged = 0, scenes = 0;
   runs.forEach(({ log }, k) => {
     scenes += log.scenes;
     const seen = new Map();
     log.asked.forEach((a, i) => {
       asks++;
+      if (a.bank) bank++;
       a.src === 'card' ? card++ : scene++;
       if (seen.has(a.id)) {
         dup++;
@@ -113,6 +115,7 @@ export function measure(res) {
     wrongReaskedSameRun: +(wrongReasked / Math.max(1, wrong)).toFixed(3),
     wrongReaskedWithin2Runs: +((wrongReasked + wrongReaskedSoon) / Math.max(1, wrong)).toFixed(3),
     repeatKindChanged: +(kindChanged / Math.max(1, repeats)).toFixed(3),
+    bankShare: +(bank / Math.max(1, asks)).toFixed(3),
   };
 }
 
