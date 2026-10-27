@@ -1,4 +1,5 @@
 # RC 문항 작성 도구: 짧은 파이썬 표기 → toeic/data/*.json. JSON이 원본이며 이 스크립트는 작성 기록이다.
+# 주의: 작성 후 tools/rebalance.py로 정답 위치를 재배치했다. toeic/data의 JSON이 원본이며, 스크립트를 다시 실행하면 재배치도 다시 해야 한다.
 import json, os
 BASE = os.path.join(os.path.dirname(__file__), '..', '..', 'toeic', 'data')
 

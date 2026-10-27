@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { validateBank, normText } from '../toeic/js/schema.js';
-import { buildBank, questionsOf } from '../toeic/js/bank.js';
+import { buildBank, questionsOf, unitTarget } from '../toeic/js/bank.js';
 
 const dir = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../toeic/data');
 const concepts = JSON.parse(fs.readFileSync(path.join(dir, 'concepts.json'))).concepts;
@@ -62,11 +62,27 @@ for (const u of bank.units) for (const q of questionsOf(u)) pos[q.answer]++;
 // 같은 문장 틀 검사(유사도 0.5 이상 쌍은 경고로 표시)
 const total = Object.values(counts).reduce((a, b) => a + b, 0);
 console.log('파트별 문항 수:', counts, '합계', total);
-console.log(`세트 수: P3 ${(bank.byPart[3] || []).length} · P4 ${(bank.byPart[4] || []).length} · P6 ${(bank.byPart[6] || []).length} · P7 ${(bank.byPart[7] || []).length} (단일 ${(bank.byPart[7] || []).filter((u) => u.passages.length === 1).length}, 이중 ${(bank.byPart[7] || []).filter((u) => u.passages.length === 2).length}, 삼중 ${(bank.byPart[7] || []).filter((u) => u.passages.length === 3).length})`);
+const p7 = bank.byPart[7] || [];
+const single = p7.filter((u) => u.passages.length === 1).length;
+const multi = p7.length - single;
+const p6 = bank.byPart[6] || [];
+console.log(`세트 수: P6 ${p6.length} (문장 삽입 ${p6.filter((u) => u.questions.some((q) => q.type === 'insert')).length}세트) · P7 ${p7.length} (단일 ${single}, 이중 ${p7.filter((u) => u.passages.length === 2).length}, 삼중 ${p7.filter((u) => u.passages.length === 3).length})`);
+const lv = {};
+for (const u of bank.units) for (const q of questionsOf(u)) { const k = `P${u.part}`; (lv[k] ||= [0, 0, 0])[q.difficulty - 1]++; }
+console.log('난이도 기본/중급/고급:', Object.entries(lv).map(([k, v]) => `${k} ${v.join('/')}`).join(' · '));
+const kinds = {};
+for (const u of p7) for (const p of u.passages) kinds[p.kind] = (kinds[p.kind] || 0) + 1;
+console.log('Part 7 지문 종류:', Object.entries(kinds).map(([k, v]) => `${k} ${v}`).join(', '));
+const tg = p7.map((u) => unitTarget(u));
+console.log(`Part 7 지문별 목표 시간: ${Math.min(...tg)}~${Math.max(...tg)}초`);
+if (Object.keys(counts).some((p) => Number(p) < 5)) fails.push('LC 문항이 RC 은행에 섞여 있음');
+if (p6.length < 25) fails.push(`Part 6 세트 ${p6.length} < 25`);
+if (single < 30) fails.push(`Part 7 단일 지문 ${single} < 30`);
+if (multi < 15) fails.push(`Part 7 이중·삼중 지문 ${multi} < 15`);
+for (const [k, v] of Object.entries(lv)) if (Math.min(...v) < 5) fails.push(`${k} 난이도 단계별 문항 부족 ${v.join('/')}`);
 console.log('정답 위치 분포 A/B/C/D:', pos.join(' / '));
 console.log(`해설 정렬 검사 ${alignChecked}개 선택지`);
-if (counts[5] < 100) fails.push(`Part 5 ${counts[5]}문항 < 100`);
-if ((bank.byPart[7] || []).length < 20) fails.push(`Part 7 세트 ${(bank.byPart[7] || []).length} < 20`);
+if (counts[5] < 200) fails.push(`Part 5 ${counts[5]}문항 < 200`);
 if (total < 300) fails.push(`총 ${total}문항 < 300`);
 warn.forEach((w) => console.log('WARN', w));
 if (fails.length) { fails.forEach((f) => console.log('FAIL', f)); console.log(`실패 ${fails.length}건`); process.exit(1); }

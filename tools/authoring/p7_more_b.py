@@ -134,7 +134,7 @@ U.append(setunit('p7-t04', 7, [
 ]))
 
 U.append(setunit('p7-t05', 7, [
- P('notice', 'Notice', "Conference Room Booking Rules — Tellis Building\n\nRooms may be booked through the online system up to 30 days in advance. Bookings longer than four hours require approval from the office manager. Room C has a video conferencing system; Rooms A and B do not. Room D seats 30; all other rooms seat 12. Please cancel unused bookings at least 24 hours in advance so that others may use the room."),
+ P('notice', 'Notice', "Conference Room Booking Rules — Tellis Building\n\nRooms may be booked through the online system up to 30 days in advance. Bookings longer than four hours require approval from the office manager. Room C is the only room with a video conferencing system. Room D seats 30; all other rooms seat 12. Please cancel unused bookings at least 24 hours in advance so that others may use the room."),
  P('schedule', 'Booking Calendar', "Booking Calendar — Tuesday, June 10",
    [["Room", "9–11", "11–1", "1–3", "3–5"], ["A", "Sales team", "", "", "HR"], ["B", "", "", "Finance", ""], ["C", "IT training", "IT training", "", "Marketing"], ["D", "", "All-staff lunch", "", ""]]),
  P('email', 'E-mail', "To: Sam Okafor\nFrom: Grace Lee\nDate: Friday, June 6\nSubject: Room for Tuesday\n\nHi Sam,\n\nI need a room on Tuesday from 1 to 3 for a call with our partners in Singapore. There will be eight of us in the room, and we'll be meeting the partners by video. Can you book something for me?\n\nAlso, I don't think the marketing team will need their 3–5 slot after all. Their client canceled.\n\nGrace")], [
@@ -144,7 +144,7 @@ U.append(setunit('p7-t05', 7, [
    question="What is required for bookings longer than four hours?"),
  q('link', L, 3, ["Room A", "Room B", "Room C", "Room D"], 2,
    "화상 회의가 필요한데 화상 장비는 C실에만 있다. 화요일 1~3시에 C실은 비어 있다.",
-   ["A실에는 화상 장비가 없다.", "B실도 장비가 없고 그 시간에 재무팀이 쓴다.", N, "D실은 화상 장비가 있다는 언급이 없다. 공지에서 장비가 있는 방은 C실뿐이다."],
+   ["A실에는 화상 장비가 없다.", "B실도 장비가 없고 그 시간에 재무팀이 쓴다.", N, "D실에는 화상 장비가 없다. 장비가 있는 방은 C실뿐이다."],
    question="Which room will Mr. Okafor most likely book for Ms. Lee?", trap=True),
  q('link', L, 2, ["Cancel their reservation", "Move to Room D", "Join the call with Singapore", "Extend their booking"], 0,
    "Ms. Lee는 마케팅팀이 3~5시 예약이 필요 없을 것 같다고 했고, 규칙상 쓰지 않는 예약은 24시간 전까지 취소해야 한다.",

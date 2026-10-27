@@ -16,17 +16,17 @@
      "concept": "p7.purpose",
      "difficulty": 1,
      "choices": [
-      "To ask for help preparing for a meeting",
       "To reschedule a client meeting",
+      "To ask for help preparing for a meeting",
       "To ask for directions to a client's office",
       "To report a broken projector"
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "교통 체증으로 늦는 Ms. Ruiz가 9시 30분 회의용 프로젝터 설치를 부탁하며 대화를 시작한다.",
       "traps": [
-       null,
        "회의 시간을 바꾸자는 말은 없다.",
+       null,
        "고객사 위치를 묻지 않는다. 회의실은 6B로 이미 정해져 있다.",
        "프로젝터가 고장 났다는 말이 아니라 설치를 부탁한 것이다."
       ]
@@ -45,19 +45,19 @@
      "concept": "p7.intent",
      "difficulty": 2,
      "choices": [
-      "Coffee has already been arranged.",
       "She wants Mr. Park to order coffee.",
       "The meeting has been canceled.",
-      "Ms. Liu will set up the projector."
+      "Ms. Liu will set up the projector.",
+      "Coffee has already been arranged."
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "커피를 주문할지 묻자 '그건 해결됐다, Ms. Liu가 어제 주문했다'고 답한다. 이미 준비되었다는 뜻이다.",
       "traps": [
-       null,
        "주문할 필요가 없다는 뜻이라 반대다.",
        "회의 취소 이야기는 없다.",
-       "Ms. Liu는 커피를 주문한 사람이다. 프로젝터는 Mr. Park이 설치한다."
+       "Ms. Liu는 커피를 주문한 사람이다. 프로젝터는 Mr. Park이 설치한다.",
+       null
       ]
      },
      "question": "At 8:53 A.M., what does Ms. Ruiz mean when she writes, “That's taken care of”?",
@@ -106,17 +106,17 @@
      "choices": [
       "A completed form",
       "A business certificate",
-      "Banking information",
-      "A product catalog"
+      "A product catalog",
+      "Banking information"
      ],
-     "answer": 3,
+     "answer": 2,
      "explanation": {
       "why": "요청한 것은 공급업체 정보 양식, 사업자 등록증 사본, 은행 계좌 정보 세 가지다. 제품 카탈로그는 없다.",
       "traps": [
        "'a completed supplier information form'을 요청했다.",
        "'a copy of your business registration certificate'를 요청했다.",
-       "'your bank account details for direct deposit'을 요청했다.",
-       null
+       null,
+       "'your bank account details for direct deposit'을 요청했다."
       ]
      },
      "question": "What is Mr. Bianchi NOT asked to send?",
@@ -127,17 +127,17 @@
      "concept": "p7.detail",
      "difficulty": 2,
      "choices": [
-      "It will be sent back.",
       "It will be paid late.",
+      "It will be sent back.",
       "It will be paid in cash.",
       "It will be forwarded to a manager."
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "'Invoices without this number will be returned to the sender'라고 했다. returned = sent back.",
       "traps": [
-       null,
        "늦게 지급된다는 말이 아니라 아예 반송된다.",
+       null,
        "현금 지급 이야기는 없다.",
        "관리자에게 전달된다는 말은 없다."
       ]
@@ -169,19 +169,19 @@
      "concept": "p7.detail",
      "difficulty": 1,
      "choices": [
-      "Report to a designated person",
       "Return to their desks",
       "Call the facilities office",
-      "Wait near the elevators"
+      "Wait near the elevators",
+      "Report to a designated person"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "밖으로 나간 뒤 층별 집결지로 가서 floor warden(층 안전 담당자)에게 보고하라고 했다.",
       "traps": [
-       null,
        "안전하다는 안내 방송이 나온 뒤에야 돌아갈 수 있다.",
        "facilities 이메일은 문의처일 뿐이다.",
-       "엘리베이터는 사용하지 말라고 했고 집결지는 건물 밖 광장이다."
+       "엘리베이터는 사용하지 말라고 했고 집결지는 건물 밖 광장이다.",
+       null
       ]
      },
      "question": "What should people do once they are outside the building?",
@@ -264,19 +264,19 @@
      "concept": "p7.purpose",
      "difficulty": 1,
      "choices": [
-      "To report a company's plans for a new facility",
       "To review a new type of robot",
       "To announce a merger of two universities",
-      "To describe the history of online retail"
+      "To describe the history of online retail",
+      "To report a company's plans for a new facility"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "기사는 Kiro Robotics가 대전에 연구 센터를 열 계획과 그 이유, 규모, 일정을 다룬다.",
       "traps": [
-       null,
        "로봇 제품 평가가 아니다.",
        "대학 두 곳과 협약을 맺었을 뿐 합병 이야기는 없다.",
-       "온라인 소매업은 매출 증가 이유로만 언급된다."
+       "온라인 소매업은 매출 증가 이유로만 언급된다.",
+       null
       ]
      },
      "question": "What is the article mainly about?",
@@ -287,17 +287,17 @@
      "concept": "p7.detail",
      "difficulty": 2,
      "choices": [
-      "Access to well-educated workers",
       "Lower office rents",
+      "Access to well-educated workers",
       "Its location near major customers",
       "Tax benefits from the city"
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "대학과 연구소가 많아서 대전을 골랐고 'We want to be close to the talent'라고 했다. 인재 확보가 이유다.",
       "traps": [
-       null,
        "임대료 이야기는 없다.",
+       null,
        "주요 고객은 온라인 소매업체라고만 했고 위치 이야기는 없다.",
        "세금 혜택은 언급되지 않았다."
       ]
@@ -378,17 +378,17 @@
      "concept": "p7.detail",
      "difficulty": 1,
      "choices": [
-      "A delivery cannot be made early.",
       "The caterer canceled the order.",
+      "A delivery cannot be made early.",
       "The workshop has been moved to another day.",
       "The dining room is too small."
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "케이터링 업체가 금요일 11시 30분 전에는 배달할 수 없다고 했다.",
       "traps": [
-       null,
        "주문 취소가 아니라 배달 시간 제약이다.",
+       null,
        "워크숍 날짜 변경 이야기는 없다.",
        "식당 크기 이야기는 없다."
       ]
@@ -407,19 +407,19 @@
      "concept": "p7.intent",
      "difficulty": 2,
      "choices": [
-      "There will be little extra time.",
       "The dining room will be crowded.",
       "The budget is limited.",
-      "The schedule needs to be changed."
+      "The schedule needs to be changed.",
+      "There will be little extra time."
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "배달 11시 30분, 점심 11시 45분이라 '괜찮겠지만 빠듯하다'는 말이다. 여유 시간이 거의 없다는 뜻.",
       "traps": [
-       null,
        "tight를 '공간이 좁다'로 오해하게 만드는 함정이다.",
        "예산 이야기는 없다.",
-       "'should be fine'이라고 했으므로 일정을 바꿀 필요는 없다."
+       "'should be fine'이라고 했으므로 일정을 바꿀 필요는 없다.",
+       null
       ]
      },
      "question": "At 3:04 P.M., what does Ms. Kim mean when she writes, “it'll be tight”?",
@@ -433,18 +433,18 @@
      "concept": "p7.detail",
      "difficulty": 1,
      "choices": [
-      "Prepare the room before the food arrives",
       "Pick up the food herself",
       "Lead the morning session",
+      "Prepare the room before the food arrives",
       "Call the caterer"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "일찍 와서 테이블과 접시를 미리 차려 두겠다고 했다.",
       "traps": [
-       null,
        "음식을 직접 가져오겠다는 말은 없다.",
        "오전 세션 진행자는 강연자다.",
+       null,
        "케이터링 업체에 연락하겠다는 말은 없다."
       ]
      },
@@ -527,17 +527,17 @@
      "concept": "p7.detail",
      "difficulty": 2,
      "choices": [
-      "Faster access to phone support",
       "An unlimited number of users",
+      "Faster access to phone support",
       "A free mobile device",
       "In-person training"
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "Team 플랜에는 최대 5명 사용과 priority phone support(우선 전화 지원)가 포함된다.",
       "traps": [
-       null,
        "사용자는 최대 5명이다.",
+       null,
        "모바일 기기 제공 이야기는 없다. 앱이 있을 뿐이다.",
        "대면 교육은 언급되지 않았다."
       ]
@@ -556,18 +556,18 @@
      "concept": "p7.detail",
      "difficulty": 1,
      "choices": [
-      "Users do not need to enter payment information to begin.",
       "It lasts for twelve months.",
       "It is available only for the Team plan.",
+      "Users do not need to enter payment information to begin.",
       "It must be started at a store."
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "'No credit card is required to start your trial'이라고 했다.",
       "traps": [
-       null,
        "체험 기간은 30일이다.",
        "플랜 제한 이야기는 없다.",
+       null,
        "웹사이트에서 가입한다."
       ]
      },
@@ -632,18 +632,18 @@
      "concept": "p7.detail",
      "difficulty": 2,
      "choices": [
-      "The day before the main conference begins",
       "On the first day of the main conference",
       "On the evening of October 14",
+      "The day before the main conference begins",
       "After the conference ends"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "워크숍은 10월 13일이고 본 행사 패스는 10월 14~15일이다. 본 행사 전날에 열린다.",
       "traps": [
-       null,
        "본 행사 첫날은 10월 14일이다.",
        "10월 14일 저녁에는 네트워킹 만찬이 있다.",
+       null,
        "워크숍은 행사 뒤가 아니라 앞이다."
       ]
      },
@@ -655,17 +655,17 @@
      "concept": "p7.inference",
      "difficulty": 2,
      "choices": [
-      "She registered early.",
       "She will speak at the conference.",
+      "She registered early.",
       "She works for a marketing firm.",
       "She canceled her registration."
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "결제 내역에 조기 등록 할인 10%가 적용되어 있다. 일찍 등록했음을 알 수 있다.",
       "traps": [
-       null,
        "연사라는 정보는 없다.",
+       null,
        "소속은 Tidewater Hotels다.",
        "결제 완료 확인서이며 취소 흔적은 없다."
       ]
@@ -678,19 +678,19 @@
      "concept": "p7.detail",
      "difficulty": 1,
      "choices": [
-      "Photo identification",
       "A printed receipt",
       "A business card",
-      "Her conference pass number"
+      "Her conference pass number",
+      "Photo identification"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "'Please bring photo identification'이라고 했다.",
       "traps": [
-       null,
        "영수증을 가져오라는 말은 없다.",
        "명함은 언급되지 않았다.",
-       "확인 번호를 가져오라는 말은 없다."
+       "확인 번호를 가져오라는 말은 없다.",
+       null
       ]
      },
      "question": "What must attendees bring to pick up their badges?",
@@ -809,18 +809,18 @@
      "concept": "p7.detail",
      "difficulty": 1,
      "choices": [
-      "To count the items in stock",
       "To renovate the store",
       "To celebrate a holiday",
+      "To count the items in stock",
       "To train new employees"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "'so that our staff can complete our annual inventory count'라고 했다. 재고 조사 = 재고 수량 확인.",
       "traps": [
-       null,
        "공사 이야기는 없다.",
        "휴일 이야기는 없다.",
+       null,
        "직원 교육 이야기는 없다."
       ]
      },
@@ -838,19 +838,19 @@
      "concept": "p7.detail",
      "difficulty": 2,
      "choices": [
-      "Collect them before the store closes",
       "Pick them up on Monday afternoon",
       "Reorder them online",
-      "Call the store on Sunday"
+      "Call the store on Sunday",
+      "Collect them before the store closes"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "그 주말에 특별 주문품을 찾아야 하는 고객은 토요일 오후 6시까지 찾아가라고 했다. 휴무 전에 찾아가라는 뜻.",
       "traps": [
-       null,
        "월요일은 재개장일이지만 주말에 필요한 고객에게 준 안내가 아니다.",
        "온라인 재주문을 권하지 않는다.",
-       "일요일에는 문을 닫는다."
+       "일요일에는 문을 닫는다.",
+       null
       ]
      },
      "question": "What are customers with special orders asked to do?",
@@ -880,17 +880,17 @@
      "concept": "p7.intent",
      "difficulty": 2,
      "choices": [
-      "Another vehicle is not available.",
       "The store closes at 4 o'clock.",
+      "Another vehicle is not available.",
       "He will arrive at the store at 4.",
       "The van will be repaired by 4."
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "북쪽 창고 트럭을 쓸 수 있는지 묻자 '4시까지 나가 있다'고 답한다. 대체 차량을 쓸 수 없다는 뜻이고, 그래서 배송을 내일로 미룬다.",
       "traps": [
-       null,
        "매장 영업 시간 이야기가 아니다.",
+       null,
        "Mr. Greco가 4시에 도착한다는 말이 아니다.",
        "밴 수리 시간 이야기가 아니다. 견인 차는 30분 뒤에 온다."
       ]
@@ -968,18 +968,18 @@
      "concept": "p7.synonym",
      "difficulty": 3,
      "choices": [
-      "honors",
       "identifies",
       "admits",
+      "honors",
       "remembers"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "상이 '성장·지역 기여·고객 서비스를 보여 준 기업을 기린다'는 뜻이다. recognize = honor.",
       "traps": [
-       null,
        "identifies(알아보다)는 recognize의 대표 뜻이지만 시상 문맥에서는 맞지 않는다. 사전 1순위 뜻 함정.",
        "admits(인정하다, 입장시키다)는 문맥과 맞지 않는다.",
+       null,
        "remembers(기억하다)도 시상 문맥과 맞지 않는다."
       ]
      },
@@ -994,17 +994,17 @@
      "concept": "p7.detail",
      "difficulty": 2,
      "choices": [
-      "Some of its graduates now work at Rosewood.",
       "It is offered only to restaurant owners.",
+      "Some of its graduates now work at Rosewood.",
       "It began six years ago.",
       "It is funded by the business council."
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "수료생 8명이 지역 업체에 채용되었고 그중 3명은 Rosewood가 직접 채용했다.",
       "traps": [
-       null,
        "구직 중인 청년 대상이다.",
+       null,
        "작년에 시작했다. 6년 전은 빵집 창업 시점이다.",
        "재원 이야기는 없다."
       ]
@@ -1036,18 +1036,18 @@
      "concept": "p7.detail",
      "difficulty": 1,
      "choices": [
-      "Up to two weeks",
       "Up to one month",
       "Only on the same day",
+      "Up to two weeks",
       "Up to 48 hours"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "'up to 14 days in advance'라고 했다. 14일 = 2주.",
       "traps": [
-       null,
        "한 달이라는 말은 없다.",
        "당일 바로 이용도 가능하지만 최대 14일 전까지 예약할 수 있다.",
+       null,
        "48시간은 언급되지 않았다."
       ]
      },
@@ -1065,19 +1065,19 @@
      "concept": "p7.inference",
      "difficulty": 2,
      "choices": [
-      "It is not always possible.",
       "It is free of charge.",
       "It requires a phone call.",
-      "It is limited to 50 minutes."
+      "It is limited to 50 minutes.",
+      "It is not always possible."
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "다른 회원이 그 차를 예약하지 않았을 때만(as long as) 연장할 수 있다. 연장이 항상 가능한 것은 아니다.",
       "traps": [
-       null,
        "연장 요금 이야기는 없다.",
        "앱에서 연장한다.",
-       "50달러는 지각 요금 상한이지 연장 시간 제한이 아니다."
+       "50달러는 지각 요금 상한이지 연장 시간 제한이 아니다.",
+       null
       ]
      },
      "question": "What is suggested about extending a trip?",
@@ -1130,19 +1130,19 @@
      "concept": "p7.purpose",
      "difficulty": 1,
      "choices": [
-      "To invite a company to an event",
       "To request a donation",
       "To announce a new degree program",
-      "To offer Ms. Alvarez a job"
+      "To offer Ms. Alvarez a job",
+      "To invite a company to an event"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "Seaview Logistics를 봄 채용 박람회에 초대하는 편지다.",
       "traps": [
-       null,
        "부스는 무료이고 기부 요청은 없다.",
        "학과는 참석 학생들의 전공으로만 언급된다.",
-       "채용 제안 편지가 아니다."
+       "채용 제안 편지가 아니다.",
+       null
       ]
      },
      "question": "What is the purpose of the letter?",
@@ -1154,18 +1154,18 @@
      "difficulty": 2,
      "choices": [
       "A table",
+      "A display screen",
       "Chairs",
-      "Electricity",
-      "A display screen"
+      "Electricity"
      ],
-     "answer": 3,
+     "answer": 1,
      "explanation": {
       "why": "부스에는 테이블, 의자 두 개, 전기가 제공된다. 화면은 언급되지 않았다.",
       "traps": [
        "'a table'이 제공된다.",
+       null,
        "'two chairs'가 제공된다.",
-       "'access to electricity'가 제공된다.",
-       null
+       "'access to electricity'가 제공된다."
       ]
      },
      "question": "What is NOT provided with each booth?",
@@ -1205,18 +1205,18 @@
      "concept": "p7.detail",
      "difficulty": 2,
      "choices": [
-      "They depend on when a company registers.",
       "They are chosen by students.",
       "They are assigned by industry.",
+      "They depend on when a company registers.",
       "They cost more near the main hall."
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "'Booth locations are assigned in the order in which registrations are received'라고 했다. 등록 순서대로 배정된다.",
       "traps": [
-       null,
        "학생이 고른다는 말은 없다.",
        "업종별 배정 이야기는 없다.",
+       null,
        "부스는 무료이고 위치별 요금 차이는 없다."
       ]
      },
@@ -1247,17 +1247,17 @@
      "concept": "p7.detail",
      "difficulty": 1,
      "choices": [
-      "Packing their own desk items",
       "Moving the department's files",
+      "Packing their own desk items",
       "Delivering boxes",
       "Assigning new desks"
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "이사 업체가 가구와 서류를 옮기지만 각자 책상 안 물건은 직접 싸야 한다.",
       "traps": [
-       null,
        "서류는 이사 업체가 옮긴다.",
+       null,
        "상자는 8월 26일에 배달된다.",
        "자리는 이미 좌석표로 정해져 있다."
       ]
@@ -1336,19 +1336,19 @@
      "concept": "p7.purpose",
      "difficulty": 1,
      "choices": [
-      "To question charges on a bill",
       "To book a room for a conference",
       "To praise the hotel staff",
-      "To change a reservation"
+      "To change a reservation",
+      "To question charges on a bill"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "잘못 청구된 것으로 보이는 두 항목에 대해 확인과 환불을 요청한다.",
       "traps": [
-       null,
        "숙박은 이미 끝났다.",
        "칭찬 내용은 없다.",
-       "예약 변경 요청이 아니다."
+       "예약 변경 요청이 아니다.",
+       null
       ]
      },
      "question": "Why did Mr. Watanabe write the e-mail?",
@@ -1365,18 +1365,18 @@
      "concept": "p7.detail",
      "difficulty": 1,
      "choices": [
-      "A booking confirmation",
       "A credit card statement",
       "A minibar receipt",
+      "A booking confirmation",
       "A conference program"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "주차 포함 조건이 적힌 예약 확인서를 첨부했다고 했다.",
       "traps": [
-       null,
        "카드 명세서를 확인했다고 했을 뿐 첨부하지 않았다.",
        "미니바 영수증은 언급되지 않았다.",
+       null,
        "컨퍼런스 일정표는 첨부하지 않았다."
       ]
      },
@@ -1414,19 +1414,19 @@
      "concept": "p7.synonym",
      "difficulty": 2,
      "choices": [
-      "investigate",
       "enter",
       "watch",
-      "expect"
+      "expect",
+      "investigate"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "'이 청구 내역을 조사해 달라'는 뜻이다. look into = investigate.",
       "traps": [
-       null,
        "enter(들어가다)는 look into의 글자 뜻에 끌린 함정이다.",
        "watch(지켜보다)는 문맥과 맞지 않는다.",
-       "expect(기대하다)는 의미가 다르다."
+       "expect(기대하다)는 의미가 다르다.",
+       null
       ]
      },
      "question": "The phrase “look into” in paragraph 3 is closest in meaning to",
