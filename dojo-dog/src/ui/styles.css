@@ -220,7 +220,7 @@ h3.h { font-family: var(--f-display); font-weight: 400; font-size: 19px; margin:
 .lcd-info { display: flex; align-items: center; gap: 8px; padding: 0 4px 6px; font-family: var(--f-display); font-size: 16px; min-height: 30px; }
 .lcd-info .when { white-space: nowrap; }
 .lcd-info .age { margin-left: auto; color: #b9c3d6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; font-family: var(--f-body); }
-.stage-chip { font-family: var(--f-display); font-size: 16px; color: #e8c447; border: 1px solid #5a6380; background: transparent; border-radius: 6px; padding: 0 8px; min-height: 28px; cursor: pointer; }
+.stage-chip { font-family: var(--f-display); font-size: 16px; color: #e8c447; border: 1px solid #5a6380; background: transparent; border-radius: 6px; padding: 0 8px; min-height: 28px; cursor: pointer; white-space: nowrap; flex: none; }
 .lcd { position: relative; display: grid; place-items: center; background: var(--lcd-edge); border-radius: 6px; padding: 4px; overflow: hidden; cursor: pointer; }
 .lcd-canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; width: 320px; height: 192px; transition: transform 0.35s ease; }
 .lcd.zoom .lcd-canvas { animation: zoom 1.6s ease; }

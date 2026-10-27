@@ -113,7 +113,7 @@ test('복습 문제: 모든 항목·유형에서 4지선다, 정답 하나, 중�
   assert.equal(makeSet(ids.slice(0, 30), 10, 'x').length, 10);
 });
 
-test('간격 반복: 1·3·7·14일, 두 번 연속 정답이면 익힘, 틀리면 처음부터', () => {
+test('간격 반복: 1·3·7일 다음은 적응형, 두 번 연속 정답이면 익힘, 틀리면 처음부터', () => {
   const srs = {};
   const t0 = Date.UTC(2026, 0, 1);
   assert.ok(meet(srs, 'v:稽古', t0));
@@ -128,7 +128,8 @@ test('간격 반복: 1·3·7·14일, 두 번 연속 정답이면 익힘, 틀리�
     gaps.push((r.due - now) / DAY);
     now = r.due;
   }
-  assert.deepEqual(gaps, SRS_DAYS);
+  assert.deepEqual(gaps.slice(0, 3), SRS_DAYS);
+  assert.equal(gaps[3], 17, '7일 × 2.45(세 번 맞혀 2.3에서 오름) → 17일');
   assert.ok(mastered(srs['v:稽古']));
   grade(srs, 'v:稽古', false, now);
   assert.equal(srs['v:稽古'].streak, 0);
@@ -140,4 +141,22 @@ test('간격 반복: 1·3·7·14일, 두 번 연속 정답이면 익힘, 틀리�
   const p = progress(srs);
   assert.equal(p.grammar, 1);
   assert.equal(p.grammarMastered, 1);
+});
+
+test('복습 우선순위: 최근 틀림 > 여러 번 틀림 > 번역 자주 봄 > 기한 지남 > 새 항목, 번역은 틀림으로 치지 않는다', async () => {
+  const { priorityIds, priorityOf } = await import('../src/engine/study.js');
+  const now = Date.UTC(2026, 5, 1);
+  const base = { met: now - 30 * DAY, box: 1, streak: 1, ok: 1, ng: 0, last: now - 10 * DAY, due: now + 5 * DAY };
+  const srs = {
+    'v:稽古': { ...base, ng: 1, streak: 0, last: now - DAY },
+    'v:道場': { ...base, ng: 3, ok: 2, streak: 1 },
+    'v:竹刀': { ...base, tr: 3 },
+    'v:防具': { ...base, due: now - 2 * DAY },
+    'v:正座': { ...base, ok: 0, streak: 0, due: now - DAY },
+    'v:礼儀': { ...base },
+  };
+  assert.deepEqual(priorityIds(srs, now), ['v:稽古', 'v:道場', 'v:竹刀', 'v:防具', 'v:正座']);
+  // 번역을 여러 번 본 것은 ng를 늘리지 않는다
+  assert.equal(srs['v:竹刀'].ng, 0);
+  assert.equal(priorityOf(srs['v:礼儀'], now), 5);
 });

@@ -22,6 +22,10 @@ const span = (freq, h) => {
   return r ? r[0] + Math.floor(rand(h) * (r[1] - r[0] + 1)) : null;
 };
 
+// 학습 집중 모드에서는 한 단계 자주 (낮음→보통, 보통→높음)
+const BUMP = { low: 'mid', mid: 'high', high: 'high', off: 'off' };
+export const freqOf = (set) => (set.focus ? BUMP[set.quizFreq || 'mid'] : set.quizFreq || 'mid');
+
 export const quizOn = (set) => (set.playMode || 'study') === 'study' && (set.quizFreq || 'mid') !== 'off';
 
 // 일본어 대사가 있는 장면이 하나 끝났다. ids: 그 장면의 학습 대상, where: id → 대사(문맥 문제에 쓴다)
@@ -32,14 +36,14 @@ export function noteScene(log, ids, where, set) {
   for (const id of ids) if (where[id]) log.where[id] = where[id];
   if (!log.nextAt) {
     const h = { rng: hashSeed(log.seed + 'n' + log.scenes) };
-    const n = span(set.quizFreq || 'mid', h);
+    const n = span(freqOf(set), h);
     if (n) log.nextAt = log.scenes + n;
   }
 }
 
 export const sceneQuizDue = (log, set) => quizOn(set) && !!log.nextAt && log.scenes >= log.nextAt;
 export function cardDue(log, set, season) {
-  const c = CARD[set.quizFreq || 'mid'];
+  const c = CARD[freqOf(set)];
   if (!quizOn(set) || !c) return false;
   const cards = log.asked.filter((a) => a.src === 'card').length;
   return season - log.lastCard >= c[0] && cards < c[1];
@@ -48,7 +52,7 @@ export function cardDue(log, set, season) {
 // 다음 확인 문제 시점을 다시 잡는다 (냈든 못 냈든)
 export function reschedule(log, set) {
   const h = { rng: hashSeed(log.seed + 'r' + log.scenes + ':' + log.asked.length) };
-  const n = span(set.quizFreq || 'mid', h);
+  const n = span(freqOf(set), h);
   log.nextAt = n ? log.scenes + n : 0;
 }
 
@@ -87,7 +91,9 @@ export function pickItem(log, srs, now, src = 'scene') {
       const weak = !!r && r.ng > 0 && r.streak === 0;
       const unsure = !r || r.streak < MASTER_STREAK;
       const fresh = src === 'scene' && recent.includes(id);
+      const peeked = !!r && (r.tr || 0) >= 2 && !mastered(r); // 번역을 자주 본 말 (틀린 것으로는 치지 않는다)
       if (due && weak) score = 80 + Math.min(r.ng, 5) * 2;
+      else if (peeked && (due || fresh || src === 'card')) score = 70 + Math.min(r.tr, 5);
       else if (fresh) score = 60 + (isN2(id) ? 10 : 0) + (id[0] === 'g' ? 4 : 0) - recent.indexOf(id) * 0.5;
       else if (due && unsure) score = src === 'card' ? 65 : 45;
       else if (due) score = src === 'card' ? 45 : 30;

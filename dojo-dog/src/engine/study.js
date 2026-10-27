@@ -1,12 +1,16 @@
 // 학습 기록과 복습(간격 반복). UI 없이 동작한다.
-// 항목 id: 'v:단어' 또는 'g:문법키'. 기록: { met, box, due, streak, ok, ng, last }
-// 간격: 1·3·7·14일. 두 번 연속 맞히면 「익힘」.
+// 항목 id: 'v:단어' 또는 'g:문법키'. 기록: { met, box, due, streak, ok, ng, last, iv, ef, tr }
+// 간격: 처음 세 번은 1·3·7일, 그다음부터는 지난 간격 × 쉬움 계수(ef). 맞히면 ef가 조금 오르고, 틀리면 내려가며 다음 날부터 다시.
+// 「번역 보기」(tr)는 틀린 것으로 치지 않는다. 복습 순서를 정할 때만 참고한다.
 import { VOCAB } from '../data/vocab.js';
 import { GRAMMAR } from '../data/grammar.js';
 import { hashSeed, rand, shuffle } from './rng.js';
 
 export const DAY = 24 * 3600 * 1000;
-export const SRS_DAYS = [1, 3, 7, 14];
+export const SRS_DAYS = [1, 3, 7];
+export const EF0 = 2.3;
+export const EF_MIN = 1.3;
+export const EF_MAX = 3;
 export const MASTER_STREAK = 2;
 
 export function itemOf(id) {
@@ -25,22 +29,54 @@ export function meet(srs, id, now = Date.now()) {
   return true;
 }
 
+// 다음 간격(일). 옛 기록(1·3·7·14일 상자, iv 없음)도 그대로 이어서 쓴다.
+export function nextInterval(r) {
+  if (r.box < SRS_DAYS.length) return SRS_DAYS[r.box];
+  const prev = r.iv || (r.box >= 4 ? 14 : 7);
+  return Math.max(prev + 1, Math.round(prev * (r.ef || EF0)));
+}
+
 export function grade(srs, id, ok, now = Date.now()) {
   const r = srs[id] || { met: now, box: 0, due: now, streak: 0, ok: 0, ng: 0, last: 0 };
+  if (r.ef == null) r.ef = EF0;
   if (ok) {
     r.ok++;
     r.streak++;
-    r.due = now + SRS_DAYS[Math.min(r.box, SRS_DAYS.length - 1)] * DAY;
-    r.box = Math.min(r.box + 1, SRS_DAYS.length);
+    r.iv = nextInterval(r);
+    r.due = now + r.iv * DAY;
+    r.box = r.box + 1;
+    r.ef = Math.min(EF_MAX, Math.round((r.ef + 0.05) * 100) / 100);
   } else {
     r.ng++;
     r.streak = 0;
     r.box = 0;
+    r.iv = 1;
     r.due = now + DAY;
+    r.ef = Math.max(EF_MIN, Math.round((r.ef - 0.3) * 100) / 100);
   }
   r.last = now;
   srs[id] = r;
   return r;
+}
+
+// 복습 우선순위: 최근에 틀림 > 여러 번 틀림 > 번역을 자주 봄 > 오래 복습하지 않음(기한 지남) > 새로 만남
+export const PRIORITY_KO = ['최근에 틀림', '여러 번 틀림', '번역을 자주 봄', '오래 복습하지 않음', '새로 만남'];
+export function priorityOf(r, now = Date.now()) {
+  if (r.ng > 0 && r.streak === 0 && now - r.last < 3 * DAY) return 0;
+  if (r.ng >= 2 && r.streak < MASTER_STREAK) return 1;
+  if ((r.tr || 0) >= 2 && r.streak < MASTER_STREAK) return 2;
+  if (r.ok + r.ng > 0 && r.due <= now) return 3;
+  if (r.ok + r.ng === 0) return 4;
+  return 5;
+}
+// 기한이 된 것 + 위 1~3 순위(기한 전이라도)를 우선순위·기한 순으로
+export function priorityIds(srs, now = Date.now()) {
+  return Object.keys(srs)
+    .filter((id) => itemOf(id))
+    .map((id) => ({ id, p: priorityOf(srs[id], now), due: srs[id].due }))
+    .filter((x) => x.p <= 2 || x.due <= now)
+    .sort((a, b) => a.p - b.p || a.due - b.due)
+    .map((x) => x.id);
 }
 
 export const mastered = (r) => !!r && r.streak >= MASTER_STREAK;
