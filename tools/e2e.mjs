@@ -74,6 +74,8 @@ try {
   ok('간단 진단 완료 → 결과', (await p.evaluate(() => location.hash)) === '#result');
   const rt = await appText(p);
   ok('결과: RC 추정 점수 범위 또는 학습 수준', /RC 추정 점수 범위|학습 수준/.test(rt));
+  const xpGain = Number(((await p.textContent('.reward .xp-big')) || '').replace(/\D/g, ''));
+  ok('결과: 획득 XP와 첫 배지', xpGain > 0 && (await p.textContent('.reward')).includes('첫 걸음'), `+${xpGain} XP`);
   await checkCopy(p, '진단 결과');
   await shot(p, '03-diag-result', true);
 
@@ -258,6 +260,43 @@ try {
   await p.click('.sheet [data-act="closeSheet"]');
   const cnt = await p.evaluate(async () => new Promise((res) => { const r = indexedDB.open('toeic-trainer'); r.onsuccess = () => { const q = r.result.transaction('attempts').objectStore('attempts').count(); q.onsuccess = () => res(q.result); }; }));
   ok('잘못된 파일은 거부, 기존 기록 유지', sheetText.includes('가져올 수 없는') && cnt === nA, `${cnt}/${nA}`);
+
+  // 11-b. 학습 동기: 연속 기록·XP·레벨·실력 지도·배지·하루 목표
+  await p.goto(BASE + '#home');
+  await p.waitForSelector('.streak');
+  const hs = await p.evaluate(() => ({ days: document.querySelectorAll('.week .wd').length, today: !!document.querySelector('.wd.today'), ring: document.querySelector('.streak .ring').textContent, lv: document.querySelector('.streak .lv').textContent }));
+  ok('홈: 연속 기록 카드(요일 7칸, 오늘 표시, XP 고리, 레벨)', hs.days === 7 && hs.today && /XP/.test(hs.ring) && /Lv\.\d/.test(hs.lv), JSON.stringify(hs));
+  const g0 = await p.evaluate(() => new Promise((res) => { const r = indexedDB.open('toeic-trainer'); r.onsuccess = () => { const q = r.result.transaction('kv').objectStore('kv').get('game'); q.onsuccess = () => res(q.result); }; }));
+  ok('XP 저장, 하루 목표 달성 → 연속 1일', g0.total > 100 && Object.keys(g0.done).length === 1 && (await p.textContent('.streak-n')).includes('1일 연속'), `총 ${g0.total} XP`);
+  await shot(p, '14b-home-streak');
+  await p.goto(BASE + '#stats');
+  await p.waitForSelector('.badges');
+  const mrows = await p.$$('.mrow');
+  ok('기록: 실력 지도 34유형, 배지, 최근 7일 XP', mrows.length === 34 && (await p.$$('.badge.on')).length >= 2 && (await p.$$('.xpchart .col')).length === 7, `${mrows.length}유형`);
+  await p.click('details summary');
+  await mrows[0].click();
+  await p.waitForSelector('.sess');
+  ok('실력 지도에서 유형 탭 → 그 유형 연습', (await p.textContent('.prog .xs')).includes('집중'));
+  await p.click('.choice[data-act="choose"]');
+  await p.goto(BASE + '#stats');
+  await p.waitForSelector('.badges');
+  await p.click('details summary');
+  await (await p.$$('.mrow'))[1].click();
+  ok('풀던 세션이 있으면 덮어쓰기 전에 확인', ((await p.textContent('.sheet').catch(() => '')) || '').includes('풀던 세션이 있습니다'));
+  await p.click('[data-act="discardAndStartPending"]');
+  await p.waitForSelector('.sess');
+  await p.click('[data-act="exitAsk"]');
+  await p.click('[data-act="exitFinish"]');
+  await p.goto(BASE + '#prefs');
+  await p.click('[data-act="daily"][data-n="150"]');
+  await p.goto(BASE + '#home');
+  ok('하루 목표 변경 → 홈 고리 반영', (await p.textContent('.streak .ring')).includes('/150'));
+  // 2.0 기록(경험치 없음)으로 업데이트한 사용자: 풀이 기록으로 XP를 다시 계산
+  await p.evaluate(() => new Promise((res) => { const r = indexedDB.open('toeic-trainer'); r.onsuccess = () => { const t = r.result.transaction('kv', 'readwrite'); t.objectStore('kv').delete('game'); t.oncomplete = res; }; }));
+  await p.reload();
+  await p.waitForSelector('.streak');
+  const g1 = await p.evaluate(() => new Promise((res) => { const r = indexedDB.open('toeic-trainer'); r.onsuccess = () => { const q = r.result.transaction('kv').objectStore('kv').get('game'); q.onsuccess = () => res(q.result); }; }));
+  ok('이전 버전 기록에서 XP·목표 달성일 복원', g1 && g1.total > 0 && Object.keys(g1.done).length === 1, g1 ? `${g1.total} XP` : '없음');
 
   // 12. 독해·어휘 훈련, 설정, 다크 모드, 가로 스크롤
   for (const r of ['train-para', 'train-vocab', 'prefs', 'about']) {

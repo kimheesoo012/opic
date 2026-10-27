@@ -11,6 +11,7 @@ const { estimate, pCorrect, diffToB, goalGap } = await import(`../${APP}/js/scor
 const { recommend } = await import(`../${APP}/js/recommend.js`);
 const { newSession, reviewAdvance, makeAttempt, applyAttempt, reviewStepResult } = await import(`../${APP}/js/sessions.js`);
 const { CAUSES } = await import(`../${APP}/js/stats.js`);
+const G = await import(`../${APP}/js/game.js`);
 
 const dir = path.resolve(path.dirname(new URL(import.meta.url).pathname), `../${APP}/data`);
 const concepts = JSON.parse(fs.readFileSync(path.join(dir, 'concepts.json'))).concepts;
@@ -29,6 +30,7 @@ const kindCount = {};
 
 function runSession(s, env, learner, rng) {
   let guard = 0;
+  let answered = 0;
   while (s.cur < s.items.length && guard++ < 500) {
     const it = s.items[s.cur];
     if (it.type === 'concept') {
@@ -49,6 +51,8 @@ function runSession(s, env, learner, rng) {
         if (!a.correct && rng() < 0.7) a.cause = rng.pick(CAUSES).id;
         env.state.attempts.push(a);
         applyAttempt(a, env);
+        G.addXp(env.state.game, G.attemptXp(a), a.t);
+        answered++;
         answers++;
         check(a.correct === (choice === q.answer), '정답 판정 오류');
       }
@@ -58,6 +62,7 @@ function runSession(s, env, learner, rng) {
     if (s.kind === 'review' && s.cur >= s.items.length) reviewAdvance(s, env);
   }
   check(guard < 500, `세션 무한 루프 의심 (${s.kind})`);
+  if (answered >= 3) G.addXp(env.state.game, G.XP.session, env.now);
   sessionsRun++;
   kindCount[s.kind] = (kindCount[s.kind] || 0) + 1;
 }
@@ -98,6 +103,15 @@ for (let run = 0; run < RUNS; run++) {
         now += 20 * 60 * 1000;
         env.now = now;
       }
+      // 경험치·연속 기록 불변 조건
+      const g = state.game;
+      const si = G.streakInfo(g, now);
+      check(g.total === Object.values(g.xp).reduce((x, y) => x + y, 0), 'XP 합계 불일치');
+      check(si.days <= Object.keys(g.done).length + Object.keys(g.frozen).length && si.days >= (si.doneToday ? 1 : 0), `연속 일수 이상 ${si.days}`);
+      check(g.freezes >= 0 && g.freezes <= G.FREEZE_MAX, '휴식권 범위 밖');
+      const mm = G.masteryMap(state.attempts);
+      check(Object.values(mm).every((m) => m.lv >= 1 && m.lv <= 5), '숙련도 범위 밖');
+      G.checkBadges(g, { attempts: state.attempts, sessions: [], mastery: mm });
       for (const card of Object.values(state.reviews)) {
         check(card.stage >= 1 && card.stage <= 8, `복습 단계 범위 밖 ${card.stage}`);
         check(Number.isFinite(card.due), '복습 due 오류');
@@ -143,6 +157,23 @@ for (let run = 0; run < RUNS; run++) {
     if (a.repeat) check(firstSeen.has(a.qid) && firstSeen.get(a.qid) !== a.sessionId || firstSeen.has(a.qid), 'repeat 표시 오류');
     if (!firstSeen.has(a.qid)) firstSeen.set(a.qid, a.sessionId);
   }
+}
+
+// 연속 기록·휴식권 시나리오: 하루씩 건너뛰는 학습자
+for (let run = 0; run < RUNS; run++) {
+  const r = makeRng(50000 + run);
+  const g = G.newGame();
+  g.daily = r.pick(G.DAILY_GOALS);
+  let t = Date.UTC(2026, 0, 1, 3);
+  for (let day = 0; day < 120; day++, t += DAY) {
+    const skip = r() < 0.15 + 0.2 * (run % 3);
+    if (!skip) G.addXp(g, r() < 0.8 ? g.daily + r.int(30) : r.int(g.daily), t);
+    G.settle(g, t + DAY);
+    const si = G.streakInfo(g, t);
+    check(si.days <= day + 1 && g.freezes >= 0 && g.freezes <= G.FREEZE_MAX, `휴식권 시나리오 범위 ${si.days} ${g.freezes}`);
+    for (const d of Object.keys(g.frozen)) check(!g.done[d] && (g.done[G.shiftDay(d, -1)] || g.frozen[G.shiftDay(d, -1)]), `휴식권 사용 위치 오류 ${d}`);
+  }
+  check(g.best >= G.streakInfo(g, t).days, '최고 연속 기록 갱신 누락');
 }
 
 // 순위 상관 (Spearman)

@@ -1,13 +1,14 @@
 // 학습 기록 저장소. IndexedDB 우선, 안 되면 localStorage, 테스트에서는 메모리.
+import { newGame } from './game.js';
 export const SCHEMA_VERSION = 1;
 export const APP_ID = 'toeic-trainer-ja';
 
-const KV_KEYS = ['profile', 'settings', 'reviews', 'wrongNote', 'vocab', 'scoreHistory', 'sessions', 'studyLog', 'active'];
+const KV_KEYS = ['profile', 'settings', 'reviews', 'wrongNote', 'vocab', 'scoreHistory', 'sessions', 'studyLog', 'game', 'active'];
 
 export function defaultState() {
   return {
     profile: { goal: 730, rcScore: 300, lcBase: 350, onboarded: false, createdAt: Date.now() },
-    settings: { theme: 'auto', course: 20 },
+    settings: { theme: 'auto', course: 20, sound: true },
     attempts: [],
     reviews: {},
     wrongNote: {},
@@ -15,6 +16,7 @@ export function defaultState() {
     scoreHistory: [],
     sessions: [],
     studyLog: {},
+    game: newGame(),
     active: null,
   };
 }
@@ -154,6 +156,7 @@ export async function openStore(adapter) {
       for (const k of KV_KEYS) if (k !== 'active' && obj.data[k] !== undefined) next[k] = obj.data[k];
       next.profile = { ...defaultState().profile, ...obj.data.profile };
       next.settings = { ...defaultState().settings, ...obj.data.settings };
+      next.game = { ...newGame(), ...(isObj(obj.data.game) ? obj.data.game : {}) };
       next.attempts = obj.data.attempts.map((a, i) => (a.id ? a : { ...a, id: `imp-${i}-${a.t}` }));
       next.active = null;
       await adapter.replaceAll(next);
@@ -184,7 +187,7 @@ export function validateImport(obj) {
     const bad = d.attempts.findIndex((a) => !isObj(a) || typeof a.qid !== 'string' || typeof a.correct !== 'boolean' || !Number.isFinite(a.t) || !Number.isInteger(a.part));
     if (bad >= 0) errs.push(`attempts[${bad}] 形式エラー`);
   }
-  for (const k of ['profile', 'settings', 'reviews', 'wrongNote', 'vocab', 'studyLog']) {
+  for (const k of ['profile', 'settings', 'reviews', 'wrongNote', 'vocab', 'studyLog', 'game']) {
     if (d[k] !== undefined && !isObj(d[k])) errs.push(`${k} 形式エラー`);
   }
   for (const k of ['scoreHistory', 'sessions']) {
