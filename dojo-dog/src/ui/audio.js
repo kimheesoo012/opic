@@ -1,13 +1,10 @@
 // 소리는 전부 Web Audio로 그 자리에서 합성한다 (녹음 파일 없음). 기본은 꺼짐.
-// 계절 BGM: 봄=5음계 뜯는 소리, 여름=축제 북+피리, 가을=미야코부시 음계, 겨울=종소리. 지속음 노이즈는 쓰지 않는다.
-const SCALES = {
-  spring: [0, 2, 4, 7, 9], // 장조 5음
-  summer: [0, 2, 5, 7, 9], // 요 음계 계열
-  autumn: [0, 1, 5, 7, 8], // 미야코부시 (인 음계)
-  winter: [0, 3, 5, 7, 10],
-};
-const ROOT = { spring: 62, summer: 64, autumn: 57, winter: 60 };
-const TEMPO = { spring: 84, summer: 104, autumn: 68, winter: 56 };
+// BGM: 사계절 모두 타이틀(봄)과 같은 가볍고 밝은 장조 5음 뜯는 소리. 계절은 높이·빠르기와 작은 장식음으로만 구분한다.
+//  여름=가끔 높은 피리, 가을=조금 느긋하게, 겨울=가끔 높은 종. 무거운 북·저음 지속음·단조 음계는 쓰지 않는다.
+const MAJOR5 = [0, 2, 4, 7, 9];
+const SCALES = { spring: MAJOR5, summer: MAJOR5, autumn: MAJOR5, winter: MAJOR5 };
+const ROOT = { spring: 62, summer: 64, autumn: 60, winter: 65 };
+const TEMPO = { spring: 84, summer: 92, autumn: 80, winter: 78 };
 
 const midi = (n) => 440 * Math.pow(2, (n - 69) / 12);
 
@@ -95,20 +92,12 @@ export class Sound {
     const root = ROOT[s];
     const bar = i % 16;
     const pick = (oct = 0) => root + sc[Math.floor(this.rnd() * sc.length)] + 12 * oct;
-    if (s === 'spring') {
-      if (bar % 2 === 0) this.pluck(t, midi(pick(this.rnd() < 0.3 ? 1 : 0)), 0.16);
-      if (bar === 0 || bar === 8) this.pluck(t, midi(root - 12), 0.14, 1.6);
-    } else if (s === 'summer') {
-      if (bar % 4 === 0) this.taiko(t, bar === 0 ? 0.5 : 0.32);
-      if (bar % 4 === 2 && this.rnd() < 0.6) this.taiko(t, 0.18, true);
-      if (bar % 2 === 1 && this.rnd() < 0.55) this.flute(t, midi(pick(1)), 0.07, 0.42);
-    } else if (s === 'autumn') {
-      if (bar % 3 === 0 && this.rnd() < 0.75) this.pluck(t, midi(pick()), 0.15, 1.4);
-      if (bar === 0) this.pad(t, midi(root - 12), 0.05, 3.4);
-    } else {
-      if (bar % 4 === 0 && this.rnd() < 0.8) this.bell(t, midi(pick(1)), 0.1);
-      if (bar === 0) this.pad(t, midi(root - 12), 0.04, 4);
-    }
+    // 기본: 타이틀 음악과 같은 뜯는 소리 선율 + 마디 머리의 가벼운 베이스
+    if (bar % 2 === 0) this.pluck(t, midi(pick(this.rnd() < 0.3 ? 1 : 0)), 0.16);
+    if (bar === 0 || bar === 8) this.pluck(t, midi(root - 12), 0.14, 1.6);
+    // 계절 장식 (작게, 가끔)
+    if (s === 'summer' && bar % 4 === 3 && this.rnd() < 0.35) this.flute(t, midi(pick(1)), 0.05, 0.35);
+    if (s === 'winter' && (bar === 4 || bar === 12) && this.rnd() < 0.6) this.bell(t, midi(pick(1)), 0.05);
   }
   env(g, t, a, peak, d) {
     g.gain.setValueAtTime(0.0001, t);
@@ -156,34 +145,8 @@ export class Sound {
     o.stop(t + d + 0.05);
     lfo.stop(t + d + 0.05);
   }
-  taiko(t, v, rim = false) {
-    const c = this.ctx;
-    const o = c.createOscillator();
-    const g = c.createGain();
-    o.type = 'sine';
-    o.frequency.setValueAtTime(rim ? 220 : 110, t);
-    o.frequency.exponentialRampToValueAtTime(rim ? 140 : 46, t + 0.25);
-    o.connect(g).connect(this.bgmBus);
-    this.env(g, t, 0.004, v, rim ? 0.12 : 0.5);
-    o.start(t);
-    o.stop(t + 0.6);
-  }
-  pad(t, f, v, d) {
-    const c = this.ctx;
-    const g = c.createGain();
-    g.connect(this.bgmBus);
-    g.gain.setValueAtTime(0.0001, t);
-    g.gain.linearRampToValueAtTime(v, t + d * 0.4);
-    g.gain.linearRampToValueAtTime(0.0001, t + d);
-    for (const m of [1, 1.5, 2.005]) {
-      const o = c.createOscillator();
-      o.type = 'sine';
-      o.frequency.value = f * m;
-      o.connect(g);
-      o.start(t);
-      o.stop(t + d + 0.05);
-    }
-  }
+
+
   bell(t, f, v) {
     const c = this.ctx;
     for (const [m, a] of [[1, 1], [2.76, 0.4], [5.4, 0.15]]) {
