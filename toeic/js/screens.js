@@ -130,7 +130,7 @@ on('importFile', async (el) => {
   const errs = validateImport(obj);
   if (errs.length) { sheet(`<h3>가져올 수 없는 파일</h3><p class="small">기존 기록은 바뀌지 않았습니다.</p><ul class="small">${errs.slice(0, 6).map((e) => `<li>${h(e)}</li>`).join('')}</ul><button class="btn block" data-act="closeSheet">닫기</button>`); return; }
   C.pendingImport = obj;
-  sheet(`<h3>기록을 바꿀까요?</h3><p class="small">파일의 기록 ${obj.data.attempts.length}문항(내보낸 날 ${h(String(obj.exportedAt || '').slice(0, 10))})으로 현재 기록 ${C.state.attempts.length}문항을 대체합니다. 현재 기록은 먼저 자동으로 내려받아 둡니다.</p>
+  sheet(`<h3>기록을 바꿀까요?</h3><p class="small">파일의 기록 ${obj.data.attempts.length}문항(내보낸 날 ${h(String(obj.exportedAt || '').slice(0, 10))})으로 현재 기록 ${C.state.attempts.length}문항을 대체합니다. ${C.embedded ? '이 미리보기에서는 자동 백업 파일을 저장할 수 없으니, 필요하면 먼저 "내보내기"로 현재 기록을 복사해 두세요.' : '현재 기록은 먼저 자동으로 내려받아 둡니다.'}</p>
     <div class="stack"><button class="btn primary block" data-act="importConfirm">바꾸기</button><button class="btn block ghost" data-act="closeSheet">취소</button></div>`);
 });
 on('importConfirm', async () => {
@@ -138,7 +138,7 @@ on('importConfirm', async () => {
   C.pendingImport = null;
   closeSheet();
   if (!obj) return;
-  download(`toeic-trainer-backup-before-import-${Date.now()}.json`, JSON.stringify(C.store.exportData(C.version)));
+  if (!C.embedded) download(`toeic-trainer-backup-before-import-${Date.now()}.json`, JSON.stringify(C.store.exportData(C.version)));
   const r = await C.store.importData(obj);
   if (!r.ok) { toast('가져오기 실패 — 기존 기록은 그대로입니다.'); return; }
   C.applyTheme();
