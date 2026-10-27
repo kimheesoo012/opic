@@ -1,6 +1,6 @@
 # 토익 RC 트레이너 (TOEIC Part 5·6·7 고득점 훈련 PWA)
 
-> 이 저장소의 다른 프로젝트: 루트 `index.html`은 OPIc 시뮬레이터(`/opic/`), `opic-app/`은 OPIc 연습 앱(`/opic/opic-app/`)입니다. 토익 앱은 **`toeic/` 폴더**(`/opic/toeic/`)에 따로 있고, 일본어판은 **`toeic-ja/` 폴더**(`/opic/toeic-ja/`)입니다.
+> 이 저장소의 다른 프로젝트: 루트 `index.html`은 OPIc 시뮬레이터(`/opic/`), `opic-app/`은 OPIc 연습 앱(`/opic/opic-app/`), `talk-notes/`는 회화 수업 교정 노트 연습 앱(`/opic/talk-notes/`, [설명](talk-notes/README.md))입니다. 토익 앱은 **`toeic/` 폴더**(`/opic/toeic/`)에 따로 있고, 일본어판은 **`toeic-ja/` 폴더**(`/opic/toeic-ja/`)입니다.
 
 ## 일본어판 (`toeic-ja/`)
 
