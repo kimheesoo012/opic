@@ -8,6 +8,8 @@ import { store } from './store.js';
 import { firstScene, levelLabel, wordPopup, grammarPopup } from './vocabui.js';
 
 const today = () => new Date().toISOString().slice(0, 10);
+// DOM append는 null을 「null」 글자로 넣으므로 빈 칸을 걸러서 붙인다
+const appendAll = (el, ...kids) => el.append(...kids.flat(Infinity).filter((x) => x != null && x !== false));
 const isJa = (app) => (app.settings.lang || 'ja') === 'ja';
 
 export function progressBox(srs, ids, ja = true) {
@@ -161,7 +163,7 @@ export function quizScreen(app, ids, label, opts = {}) {
       fb.scrollIntoView({ block: 'nearest' });
     } }, o));
     const koPrompt = ['word', 'gform', 'gdiff', 'gblank', 'gcontext'].includes(q.kind);
-    body.append(
+    appendAll(body, 
       h('div', { class: 'kicker' }, `${label} · ${round > 1 ? `やり直し ${round - 1} · ` : ''}${i + 1} / ${qs.length}`),
       h('div', { class: 'q-kind' }, kindName(q, ja)),
       q.kind === 'context' || q.kind === 'gcontext' || q.kind === 'gblank' ? h('div', { class: 'q-context' }, firstScene(app, q.id, app.settings.furigana, { noKo: true, blank: q.kind === 'gblank' })) : null,
@@ -182,12 +184,12 @@ export function quizScreen(app, ids, label, opts = {}) {
     };
     const text = [`道場犬 ${label} ${today()}`, `${first.filter((x) => x.ok).length} / ${first.length}`, ...first.map(line), round > 1 ? `やり直し ${round - 1}回 · 残り ${new Set(wrong).size}` : ''].filter(Boolean).join('\n');
     const pre = h('textarea', { class: 'word-input', rows: '6', readonly: true, id: 'quiz-result', 'aria-label': ja ? '結果' : '결과' }, text);
-    body.append(
+    appendAll(body, 
       h('h2', { class: 'h' }, round === 1 ? '結果' : `やり直し ${round - 1}`),
       h('p', { class: 'big-score' }, `${okN} / ${thisRound.length}`),
       wrong.length ? h('div', { class: 'list' }, [...new Set(wrong)].map((id) => h('div', { class: 'card' }, line({ q: { id }, ok: false })))) : null,
       pre);
-    foot.append(
+    appendAll(foot, 
       wrong.length ? h('button', { class: 'btn primary', type: 'button', onclick: () => { round++; qs = set([...new Set(wrong)], label + round + Date.now()); wrong = []; i = 0; show(); } }, '間違いだけ もう一度') : null,
       h('div', { class: 'row' },
         h('button', { class: 'btn center', type: 'button', onclick: async () => {
