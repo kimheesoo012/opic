@@ -349,13 +349,16 @@
       const b = e.target.closest('button'); if (!b) return;
       const i = +seg.dataset.i;
       const t = rec.targets.slice(); const val = b.dataset.v === '1';
+      const wasUsed = t[i].used === true;
       t[i] = Object.assign({}, t[i], { used: t[i].used === val ? null : val });
       await store.updateRecording(rec.id, { targets: t });
       ui.$$('button', seg).forEach(x => x.classList.toggle('on', t[i].used !== null && (x.dataset.v === '1') === t[i].used));
       /* 노트 표현을 썼으면 노트 통계에 반영 */
       if (t[i].source && t[i].source.startsWith('note:')) {
         const n = store.S.notes.find(x => x.id === t[i].source.slice(5));
-        if (n) { n.used = Math.max(0, (n.used || 0) + (t[i].used === true ? 1 : 0)); store.saveNote(n); }
+        /* '썼다'로 바뀔 때만 +1, '썼다'를 취소하면 -1 (여러 번 눌러도 부풀지 않게) */
+        const delta = (t[i].used === true ? 1 : 0) - (wasUsed ? 1 : 0);
+        if (n && delta) { n.used = Math.max(0, (n.used || 0) + delta); store.saveNote(n); }
       }
       o.onChange && o.onChange(rec);
     });

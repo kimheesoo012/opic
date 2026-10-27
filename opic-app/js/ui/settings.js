@@ -1,7 +1,7 @@
 /* 설정(음성·속도·받아쓰기·목표 등급·화면) + 시험 구성·등급 체크리스트 안내 */
 (function (root) {
   'use strict';
-  const { util, bank, drills, recorder, tts, stt, store, ui } = root.OPIC;
+  const { util, bank, drills, recorder, tts, stt, store, ui, xp } = root.OPIC;
   const esc = util.escapeHtml;
 
   root.OPIC.screens.settings = {
@@ -13,8 +13,17 @@
       const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
       el.innerHTML = `
       <section class="card"><h2>목표</h2>
+        <label class="lbl">목표 등급</label>
         <div class="seg wide" id="tgt">${['IH', 'AL'].map(l => `<button class="${S.targetLevel === l ? 'on' : ''}" data-v="${l}">${l}</button>`).join('')}</div>
-        <p class="muted small">AI 첨삭용 복사 글의 목표 등급으로 들어갑니다.</p></section>
+        <p class="muted small">AI 첨삭용 복사 글의 목표 등급으로 들어갑니다.</p>
+        <label class="lbl">하루 목표 XP</label>
+        <div class="seg wide" id="goal">${xp.GOALS.map(g => `<button class="${(S.dailyGoal || 40) === g.xp ? 'on' : ''}" data-v="${g.xp}">${g.label}<br><small>${g.xp} XP</small></button>`).join('')}</div>
+        <p class="muted small">답변 하나에 보통 10~18 XP예요. 「보통」은 하루 2~3문제 정도입니다.</p></section>
+
+      <section class="card"><h2>매일 알림</h2>
+        <p class="small">이 앱은 서버가 없어 직접 알림을 보낼 수 없어요. 대신 휴대폰 캘린더에 <b>매일 반복 알림</b>을 넣어 두세요.</p>
+        <div class="row"><input type="time" id="remT" value="${esc(S.remindTime || '20:00')}"><button class="btn primary" id="remBtn">캘린더에 매일 알림 추가</button></div>
+        <p class="muted small">내려받은 .ics 파일을 열면 아이폰 캘린더·삼성 캘린더·구글 캘린더에 추가할 수 있어요.</p></section>
 
       <section class="card"><h2>질문 음성</h2>
         <label class="lbl">음성</label><select id="voice" class="full"></select>
@@ -48,6 +57,21 @@
 
       const seg = (id, fn) => ui.$$(`#${id} button`, el).forEach(b => b.onclick = async () => { ui.$$(`#${id} button`, el).forEach(x => x.classList.toggle('on', x === b)); await fn(b.dataset.v); });
       seg('tgt', v => store.setSettings({ targetLevel: v }));
+      seg('goal', v => store.setSettings({ dailyGoal: +v }));
+      ui.$('#remBtn', el).onclick = async () => {
+        const t = ui.$('#remT', el).value || '20:00';
+        await store.setSettings({ remindTime: t });
+        const [h, mi] = t.split(':');
+        const d = new Date(); d.setHours(+h, +mi, 0, 0); if (d < new Date()) d.setDate(d.getDate() + 1);
+        const loc = n => String(n).padStart(2, '0');
+        const dt = `${d.getFullYear()}${loc(d.getMonth() + 1)}${loc(d.getDate())}T${loc(d.getHours())}${loc(d.getMinutes())}00`;
+        const url = location.href.split('#')[0];
+        const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//opic-app//KO', 'BEGIN:VEVENT', `UID:opic-daily-${Date.now()}@opic-app`,
+          `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}`, `DTSTART:${dt}`, 'DURATION:PT10M', 'RRULE:FREQ=DAILY',
+          'SUMMARY:🔥 OPIc 말하기 연습 (오늘 목표)', `DESCRIPTION:오늘의 3문제로 연속 학습 이어 가기\\n${url}`, `URL:${url}`,
+          'BEGIN:VALARM', 'TRIGGER:PT0M', 'ACTION:DISPLAY', 'DESCRIPTION:OPIc 말하기 연습', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+        ui.download(new Blob([ics], { type: 'text/calendar' }), 'opic-daily-reminder.ics');
+      };
       seg('rate', v => store.setSettings({ rate: +v }));
       seg('theme', async v => { await store.setSettings({ theme: v }); root.OPIC.applyTheme(); });
       ui.$('#auto', el).onchange = e => store.setSettings({ autoRecord: e.target.checked });

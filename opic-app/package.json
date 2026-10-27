@@ -1,0 +1,10 @@
+{
+  "name": "opic-app",
+  "private": true,
+  "description": "OPIc 말하기 연습 앱 (빌드 없음). 저장소 루트 package.json의 type:module이 이 폴더 테스트에 적용되지 않도록 CommonJS로 고정",
+  "type": "commonjs",
+  "scripts": {
+    "test": "node --test tests/unit.test.js",
+    "e2e": "node tests/e2e.js"
+  }
+}
