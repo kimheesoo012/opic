@@ -114,7 +114,7 @@ export class GameView {
   renderFold() {
     const fold = this.isFolded();
     this.el.classList.toggle('lcd-fold', fold);
-    this.foldBtn.textContent = fold ? '▼ 펼치기' : '▲ 접기';
+    this.foldBtn.textContent = this.ja ? (fold ? '▼ ひらく' : '▲ たたむ') : fold ? '▼ 펼치기' : '▲ 접기';
     this.foldBtn.setAttribute('aria-expanded', String(!fold));
     this.foldBtn.setAttribute('aria-label', fold ? '도트 창 펼치기' : '도트 창 접기');
   }
@@ -466,12 +466,12 @@ export class GameView {
       ctx.onWord = (key) => this.app.openWord(key, scene());
       ctx.onGrammar = (key) => this.app.openGrammar(key, scene());
       // 학습 집중 모드: 대사마다 번역 버튼
-      const lineTool = focus && this.ja ? h('button', { class: 'mini-btn line-ko', type: 'button', onclick: (e) => { koEl.hidden = !koEl.hidden; e.currentTarget.textContent = koEl.hidden ? '번역' : '닫기'; if (!koEl.hidden) this.app.noteTranslate(ja); } }, '번역') : null;
+      const lineTool = focus && this.ja ? h('button', { class: 'mini-btn line-ko', type: 'button', onclick: (e) => { koEl.hidden = !koEl.hidden; e.currentTarget.textContent = koEl.hidden ? '訳' : '閉じる'; if (!koEl.hidden) this.app.noteTranslate(ja); } }, '訳') : null;
       box.append(h('div', { class: 'line' }, h('div', { class: 'sp' }, renderSpeaker(sp, this.s, this.set.furigana, ctx), lineTool), h('div', { class: 'ja' }, renderJa(ja, ctx)), koEl));
     }
     if (kos.length && !focus && this.ja) {
       let on = false;
-      const btn = h('button', { class: 'mini-btn', type: 'button', onclick: () => { on = !on; kos.forEach((k) => (k.hidden = !on)); btn.textContent = on ? '번역 닫기' : '번역'; if (on) lines.forEach((l) => this.app.noteTranslate(l[1])); } }, '번역');
+      const btn = h('button', { class: 'mini-btn', type: 'button', onclick: () => { on = !on; kos.forEach((k) => (k.hidden = !on)); btn.textContent = on ? '訳を閉じる' : '訳'; if (on) lines.forEach((l) => this.app.noteTranslate(l[1])); } }, '訳');
       box.append(h('div', { class: 'tools' }, btn));
     }
     // 학습 집중 모드: 이 장면의 학습 대상 목록 (탭하면 해설)
@@ -725,12 +725,14 @@ export class GameView {
   showWord() {
     const w = this.s.pendingWord;
     this.wait = 0;
+    const jp = this.ja && w.qJa;
     const q = resolveKo(w.q, { s: this.s });
-    const input = h('input', { class: 'word-input', id: 'word-input', maxlength: '30', placeholder: '직접 쓰기', 'aria-label': '한마디' });
-    this.panel.replaceChildren(h('div', { class: 'ev-cat' }, '節目'), h('h3', { class: 'ev-title' }, q));
+    const input = h('input', { class: 'word-input', id: 'word-input', maxlength: '30', placeholder: jp ? '自分で書く' : '직접 쓰기', 'aria-label': '한마디' });
+    this.panel.replaceChildren(h('div', { class: 'ev-cat' }, '節目'), jp ? this.titleEl(w.qJa, q) : h('h3', { class: 'ev-title' }, q));
+    const presets = jp && w.presetsJa ? w.presetsJa : w.presets;
     this.foot.replaceChildren(
-      ...w.presets.map((p) => h('button', { class: 'btn', type: 'button', onclick: () => this.doWord(p) }, p)),
-      h('div', { class: 'row' }, input, h('button', { class: 'mini-btn', type: 'button', style: 'min-width:72px', onclick: () => input.value.trim() && this.doWord(input.value) }, '남기기')));
+      ...presets.map((p, i) => h('button', { class: 'btn', type: 'button', lang: jp ? 'ja' : null, title: jp ? w.presets[i] : null, onclick: () => this.doWord(p) }, p)),
+      h('div', { class: 'row' }, input, h('button', { class: 'mini-btn', type: 'button', style: 'min-width:72px', onclick: () => input.value.trim() && this.doWord(input.value) }, jp ? '残す' : '남기기')));
   }
 
   doWord(text, auto) {
@@ -749,7 +751,7 @@ export class GameView {
     const period = 620;
     const ring = h('div', { class: 'ring' });
     const drum = h('div', { class: 'drum', role: 'button', tabindex: '0', 'aria-label': '탬버린' }, ring, h('span', null, '♪'));
-    const score = h('div', { class: 'score' }, '탭: 시작');
+    const score = h('div', { class: 'score' }, this.ja ? 'タップでスタート' : '탭: 시작');
     const box = h('div', { class: 'mini' }, drum, score);
     let t0 = 0;
     let raf = 0;
@@ -796,7 +798,7 @@ export class GameView {
       hit();
     });
     drum.addEventListener('keydown', (e) => (e.key === ' ' || e.key === 'Enter') && hit());
-    return h('div', null, h('p', { class: 'note', style: 'text-align:center' }, '고리가 닿을 때 탭'), box);
+    return h('div', null, h('p', { class: 'note', style: 'text-align:center' }, this.ja ? '輪が重なったらタップ' : '고리가 닿을 때 탭'), box);
   }
 
   // ───── 근황·메뉴 ─────
@@ -806,12 +808,12 @@ export class GameView {
     const ach = s.ach[role];
     const back = h('div', { class: 'modal-back', onclick: (e) => e.target === back && back.remove() },
       h('div', { class: 'modal' },
-        h('div', { class: 'ev-cat' }, ROLE_KO[role]),
-        h('h3', { class: 'ev-title' }, p.ko, h('small', { class: 'note', lang: 'ja', style: 'margin-left:8px' }, p.s ? (/^[ァ-ヶー]+$/.test(p.s) ? `${p.s}・${p.g}` : `${p.s} ${p.g}`) : p.g)),
-        h('p', null, s.news[role]),
-        h('p', { class: 'note' }, `유대 ${s.bond[role]}`),
-        ach.length ? h('ul', null, ach.map((a) => h('li', null, `${Math.floor(a.t / 4)}살 — ${a.text}`))) : null,
-        h('button', { class: 'btn primary', type: 'button', onclick: () => back.remove() }, '닫기')));
+        h('div', { class: 'ev-cat' }, this.ja ? ROLE_JA[role] : ROLE_KO[role]),
+        h('h3', { class: 'ev-title' }, this.ja ? p.call : p.ko, h('small', { class: 'note', lang: 'ja', style: 'margin-left:8px' }, p.s ? (/^[ァ-ヶー]+$/.test(p.s) ? `${p.s}・${p.g}` : `${p.s} ${p.g}`) : p.g)),
+        this.ja && s.newsJa && s.newsJa[role] ? h('p', { lang: 'ja', title: s.news[role] }, plainJa(s.newsJa[role], { s })) : h('p', null, s.news[role]),
+        h('p', { class: 'note' }, this.ja ? `絆 ${s.bond[role]}` : `유대 ${s.bond[role]}`),
+        ach.length ? h('ul', this.ja ? { lang: 'ja' } : null, ach.map((a) => h('li', null, this.ja ? `${Math.floor(a.t / 4)}歳 — ${a.textJa ? plainJa(a.textJa, { s }) : a.text}` : `${Math.floor(a.t / 4)}살 — ${a.text}`))) : null,
+        h('button', { class: 'btn primary', type: 'button', onclick: () => back.remove() }, this.ja ? '閉じる' : '닫기')));
     this.app.root.append(back);
   }
 
@@ -828,7 +830,7 @@ export class GameView {
           h('button', { class: 'btn center', type: 'button', onclick: () => { close(); this.save(); this.app.go('wordbook'); } }, '単語帳'),
           h('button', { class: 'btn center', type: 'button', onclick: () => { close(); this.save(); this.app.go('review'); } }, '復習')),
         h('button', { class: 'btn center', type: 'button', onclick: () => { close(); this.save(); this.app.go('title'); } }, 'タイトル'),
-        h('button', { class: 'btn primary', type: 'button', onclick: close }, '닫기'))));
+        h('button', { class: 'btn primary', type: 'button', onclick: close }, this.ja ? '閉じる' : '닫기'))));
     this.app.root.append(back);
   }
 }

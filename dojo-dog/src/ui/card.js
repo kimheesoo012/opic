@@ -6,6 +6,7 @@ import { personFrame, faceBuf } from './pixel/people.js';
 import { lookFor } from './pixel/director.js';
 import { paint } from './pixel/lcd.js';
 import { ROLES } from '../engine/world.js';
+import { plainJa } from '../engine/text.js';
 
 const W = 1080;
 const H = 1920;
@@ -129,10 +130,12 @@ export async function drawCard(canvas, s, study) {
     blitScaled(ctx, faceBuf(lk.look, lk.size === 'kid' ? 'kid' : 'adult'), 90, y - 44, 4);
     ctx.fillStyle = C.ink;
     ctx.font = `30px ${BODY}`;
-    ctx.fillText(c.ko, 160, y - 14);
+    ctx.fillText(c.call || c.ko, 160, y - 14);
     ctx.fillStyle = C.mute;
     ctx.font = `26px ${BODY}`;
-    wrap(ctx, c.ach.length ? c.ach[c.ach.length - 1] : c.epilogue, 160, y + 20, W - 260, 32, 1);
+    const achJa = c.achJa || c.ach;
+    const line = c.ach.length ? achJa[achJa.length - 1] : c.epilogueJa || c.epilogue;
+    wrap(ctx, plainJa(line, { s }), 160, y + 20, W - 260, 32, 1);
     y += 84;
   }
 
@@ -146,11 +149,11 @@ export async function drawCard(canvas, s, study) {
   ctx.fillText(`単語 ${study.words}（${study.wordsMastered}）　文法 ${study.grammar}（${study.grammarMastered}）`, 160, y);
   ctx.fillStyle = C.mute;
   ctx.font = `24px ${BODY}`;
-  ctx.fillText('만난 수(익힘)', 160, y + 36);
+  ctx.fillText('出会った数（定着）', 160, y + 36);
   y += 100;
 
   // 마지막 한마디
-  const word = sum.lastWord || (sum.words.length ? sum.words[sum.words.length - 1].text : '');
+  const word = sum.lastWord || (sum.words.length ? (sum.words[sum.words.length - 1].textJa || sum.words[sum.words.length - 1].text) : '');
   if (word) {
     ctx.fillStyle = C.ink;
     ctx.font = `40px ${BODY}`;

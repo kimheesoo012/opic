@@ -1,4 +1,5 @@
 // 세계 설정: 성격, 털, 지역, 도장, 인물. 모두 오리지널 설정.
+import { PEOPLE_JA, PERSONALITY_JA, REGION_JA, DOJO_JA, DOJO_LABEL_JA } from '../data/ja/misc.js';
 
 export const SEASONS = ['spring', 'summer', 'autumn', 'winter'];
 export const SEASON_KO = { spring: '봄', summer: '여름', autumn: '가을', winter: '겨울' };
@@ -45,6 +46,8 @@ export const HAIRS = [
   { id: 'wire', ja: 'ワイヤー', ko: '와이어(강모)' },
 ];
 
+for (const p of PERSONALITIES) p.descJa = PERSONALITY_JA[p.id];
+
 export const DOG_NAMES = [
   ['コテツ', '코테츠'], ['ムサシ', '무사시'], ['あずき', '아즈키'], ['きなこ', '키나코'], ['ちくわ', '치쿠와'],
   ['モナカ', '모나카'], ['ダイズ', '다이즈'], ['こむぎ', '코무기'], ['ゴンタ', '곤타'], ['おもち', '오모치'],
@@ -64,6 +67,9 @@ export const DOJOS = [
   { id: 'kids', ko: '아이들로 북적이는 동네 도장', name: 'こども剣友会', nameKo: '어린이 검우회', desc: '저녁 6시가 되면 아이들 목소리로 지붕이 들썩인다.', st: { soc: 6 }, bg: '元・小学校の先生', bgKo: '전직 초등학교 교사' },
   { id: 'pro', ko: '경찰·실업팀 출신 사범의 도장', name: '坂上剣道場', nameKo: '사카가미 검도장', desc: '현경 특련(特練) 출신 사범이 연 도장. 연습은 짧고 굵다.', st: { hea: 6 }, bg: '元・県警の特練員', bgKo: '전직 현경 특별훈련원' },
 ];
+
+for (const r of REGIONS) r.descJa = REGION_JA[r.id];
+for (const d of DOJOS) Object.assign(d, { descJa: DOJO_JA[d.id], labelJa: DOJO_LABEL_JA[d.id] });
 
 // 인물. 역할(role)에 사람이 배정되고, 세대가 바뀌면 다른 사람이 같은 역할을 맡는다.
 // call: 일본어 기본 호칭 / g: 이름 / s: 성 / c: 친근한 호칭 / ko: 한국어 해설용 이름 / I: 1인칭
@@ -87,6 +93,8 @@ export const PEOPLE = {
   haneul: { s: 'チェ', g: 'ハヌル', call: 'ハヌルさん', c: 'ハヌルさん', ko: '하늘', I: '私', age: 28, dan: '無級', desc: '한국에서 온 요리사. 일본에서 검도를 시작했다.' },
   yuki: { s: '朝倉', g: 'ユキ', call: 'ユキさん', c: 'ユキさん', ko: '유키 씨', I: '私', age: 38, dan: '二段', desc: '도장 사무 담당. 개 담당.' },
 };
+
+for (const [id, d] of Object.entries(PEOPLE_JA)) PEOPLE[id].descJa = d;
 
 // 다음 세대에서 역할을 이어받을 때의 호칭
 export const PROMOTE = {

@@ -1,4 +1,6 @@
 // 마지막 인사와 식구들의 후일담
+import { EPILOGUE } from './ja/misc.js';
+
 const has = (s, f) => s.flags[f] !== undefined;
 
 // 마지막 인사 대사 전체 (루비 생성 도구가 이 목록을 읽는다)
@@ -53,40 +55,46 @@ export function farewellLines(s) {
   return L;
 }
 
-export function castEpilogue(s, role) {
+// 후일담 키: 깃발에 따라 고른다. 문장은 ja/misc.js의 EPILOGUE에 [한국어, 일본어]로 있다.
+function epilogueKey(s, role) {
   switch (role) {
     case 'roshi':
-      if (has(s, 'roshi_gone')) return has(s, 'roshi_last_partner') ? '마지막 겨울을 {N|과} 함께 보내고, 조용히 세상을 떠났다.' : '도장을 제자에게 맡기고 조용히 세상을 떠났다.';
-      if (has(s, 'roshi_retired')) return '은퇴한 뒤에도 가끔 도장 구석에 앉아 연습을 지켜본다.';
-      return '오늘도 도장 맨 안쪽에 앉아 있다.';
+      if (has(s, 'roshi_gone')) return has(s, 'roshi_last_partner') ? 'roshi_gone_partner' : 'roshi_gone';
+      if (has(s, 'roshi_retired')) return 'roshi_retired';
+      return 'roshi';
     case 'shihan':
-      if (has(s, 'shihan_8dan')) return '여러 번의 도전 끝에 8단에 합격했다.';
-      if (has(s, 'shihan_8dan_try')) return '8단 심사는 아직 통과하지 못했다. 「다음에 또」라고 웃는다.';
-      return '도장을 지키며 아이들을 가르치고 있다.';
+      if (has(s, 'shihan_8dan')) return 'shihan_8dan';
+      if (has(s, 'shihan_8dan_try')) return 'shihan_8dan_try';
+      return 'shihan';
     case 'okami':
-      if (has(s, 'dojo_saved')) return '상점가의 도움으로 낡은 도장을 고쳐 지켜 냈다.';
-      if (has(s, 'dojo_moved')) return '도장을 옮겨 새 간판을 걸었다. 이름은 그대로다.';
-      if (has(s, 'dojo_kominkan')) return '도장 건물은 사라졌지만, 공민관에서 연습은 계속된다.';
-      return '도장 살림을 꾸려 가고 있다.';
+      if (has(s, 'dojo_saved')) return 'dojo_saved';
+      if (has(s, 'dojo_moved')) return 'dojo_moved';
+      if (has(s, 'dojo_kominkan')) return 'dojo_kominkan';
+      return 'okami';
     case 'kid':
-      if (has(s, 'kid_cycle') || has(s, 'kid_coach')) return '주말마다 아이들을 가르친다. 언젠가 이 도장의 사범이 될 것이다.';
-      if (has(s, 'kid_continue')) return '대학에서 검도를 계속하고 있다.';
-      return '어른이 되었다. 가끔 도장에 얼굴을 비춘다.';
+      if (has(s, 'kid_cycle') || has(s, 'kid_coach')) return 'kid_coach';
+      if (has(s, 'kid_continue')) return 'kid_continue';
+      return 'kid';
     case 'worker':
-      if (has(s, 'w_5dan')) return '5단. 이제는 아이와 함께 연습에 온다.';
-      if (has(s, 'w_4dan')) return '4단. 일과 가족과 검도 사이에서 균형을 잡고 있다.';
-      return '오늘도 넥타이를 풀며 연습에 뛰어온다.';
+      if (has(s, 'w_5dan')) return 'w_5dan';
+      if (has(s, 'w_4dan')) return 'w_4dan';
+      return 'worker';
     case 'elder':
-      if (has(s, 'e_3dan')) return '75세에 3단에 합격했다. 도장 최고의 노력가.';
-      if (has(s, 'e_2dan')) return '2단. 연습 뒤에는 늘 단어장을 펼친 누군가에게 일본어를 가르친다.';
-      if (has(s, 'e_shodan')) return '초단. 「인생은 지금부터」가 입버릇이다.';
-      return '오늘도 足さばき부터 차근차근.';
+      if (has(s, 'e_3dan')) return 'e_3dan';
+      if (has(s, 'e_2dan')) return 'e_2dan';
+      if (has(s, 'e_shodan')) return 'e_shodan';
+      return 'elder';
     case 'kor':
-      if (has(s, 'kor_left')) return '한국으로 돌아가 그곳의 도장에서 검도를 계속한다. 해마다 연하장이 온다.';
-      if (has(s, 'kor_4dan')) return '일본에 남아 4단이 되었다. 이제는 새로 온 외국인 수련생을 돌본다.';
-      if (has(s, 'kor_3dan')) return '일본에 남아 3단이 되었다. 일본어 필기 답안은 도장에서 제일 잘 쓴다.';
-      return '일본에서 검도를 계속하고 있다.';
+      if (has(s, 'kor_left')) return 'kor_left';
+      if (has(s, 'kor_4dan')) return 'kor_4dan';
+      if (has(s, 'kor_3dan')) return 'kor_3dan';
+      return 'kor';
     default:
-      return '';
+      return null;
   }
+}
+
+export function castEpilogue(s, role, ja = false) {
+  const k = epilogueKey(s, role);
+  return k ? EPILOGUE[k][ja ? 1 : 0] : '';
 }

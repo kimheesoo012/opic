@@ -8,6 +8,7 @@ import { resolveKo } from './text.js';
 import { ALL_EVENTS } from '../data/index.js';
 import { TITLES } from '../data/titles.js';
 import { farewellLines, castEpilogue } from '../data/farewell.js';
+import { CONTINUED_JA } from '../data/ja/misc.js';
 
 export const EV = new Map();
 for (const e of ALL_EVENTS) {
@@ -110,8 +111,8 @@ function initialNews(s, ja = false) {
     n[r] = ja ? p.descJa || null : p.desc;
   }
   if (s.world.continued) {
-    n.roshi = ja ? '前の師範。今は後ろから道場を見守っている。' : '전 사범. 이제는 뒤에서 도장을 지켜본다.';
-    n.shihan = ja ? '昔この道場で泣いていた子。今は師範。' : '예전에 이 도장에서 울던 아이. 지금은 사범.';
+    n.roshi = ja ? CONTINUED_JA.roshi : '전 사범. 이제는 뒤에서 도장을 지켜본다.';
+    n.shihan = ja ? CONTINUED_JA.shihan : '예전에 이 도장에서 울던 아이. 지금은 사범.';
   }
   return n;
 }
@@ -392,7 +393,7 @@ export function ack(s) {
   s.res = null;
   if (r && r.word) {
     s.phase = 'word';
-    s.pendingWord = { id: r.id, q: r.word.q, presets: r.word.presets };
+    s.pendingWord = { id: r.id, q: r.word.q, presets: r.word.presets, qJa: r.word.qJa || null, presetsJa: r.word.presetsJa || null };
     return s;
   }
   s.phase = 'season';
@@ -402,7 +403,15 @@ export function ack(s) {
 export function setWord(s, text, auto = false) {
   const w = s.pendingWord;
   const clean = String(text || '').trim().slice(0, 40);
-  s.words.push({ t: s.t, age: Math.floor(ageY(s)), id: w.id, q: w.q, text: clean || w.presets[0], auto });
+  const text0 = clean || w.presets[0];
+  // 고른 말이 준비된 한마디면 짝이 되는 일본어/한국어도 남긴다
+  const pj = w.presetsJa || [];
+  let i = w.presets.indexOf(text0);
+  if (i < 0) i = pj.indexOf(text0);
+  const entry = { t: s.t, age: Math.floor(ageY(s)), id: w.id, q: w.q, text: i >= 0 ? w.presets[i] : text0, auto };
+  if (i >= 0 && pj[i]) entry.textJa = pj[i];
+  else if (!/[가-힣]/.test(text0)) entry.textJa = text0;
+  s.words.push(entry);
   s.pendingWord = null;
   s.phase = 'season';
   return s;
@@ -587,7 +596,12 @@ export function summarize(s) {
   const cast = {};
   for (const r of ROLES) {
     const p = personFor(s.cast, r);
-    cast[r] = { id: p.id, name: p.s ? p.s + ' ' + p.g : p.g, ko: p.ko, ach: s.ach[r].map((x) => x.text), status: s.news[r], epilogue: resolveKo(castEpilogue(s, r), { s }), bond: s.bond[r] };
+    cast[r] = {
+      id: p.id, name: p.s ? p.s + ' ' + p.g : p.g, ko: p.ko, call: p.call, bond: s.bond[r],
+      ach: s.ach[r].map((x) => x.text), achJa: s.ach[r].map((x) => x.textJa || x.text),
+      status: s.news[r], statusJa: (s.newsJa || {})[r] || null,
+      epilogue: resolveKo(castEpilogue(s, r), { s }), epilogueJa: castEpilogue(s, r, true),
+    };
   }
   return {
     dog: { ...s.dog },

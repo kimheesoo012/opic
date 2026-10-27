@@ -298,7 +298,7 @@ class App {
         h('div', { class: 'device title-device' }, h('div', { class: 'lcd' }, cv)),
         h('button', { class: 'study-strip', type: 'button', onclick: () => this.go('review') }, h('span', { class: 'due' }, h('b', null, '今日の復習'), h('span', null, String(due))), progressBox(srs)),
         h('div', { class: 'btns' },
-          has ? h('button', { class: 'btn primary', type: 'button', onclick: () => this.resume(save) }, `つづきから · ${save.state.dog.name} ${Math.floor(save.state.t / 4)}살`) : null,
+          has ? h('button', { class: 'btn primary', type: 'button', onclick: () => this.resume(save) }, `つづきから · ${save.state.dog.name} ${Math.floor(save.state.t / 4)}歳`) : null,
           h('button', { class: has ? 'btn center' : 'btn primary', type: 'button', onclick: () => this.go('birth') }, 'はじめから'),
           h('div', { class: 'row' },
             h('button', { class: 'btn center', type: 'button', onclick: () => this.go('review') }, '復習'),
@@ -326,7 +326,8 @@ class App {
     const cv = h('canvas', { class: 'lcd-canvas', 'aria-hidden': 'true' });
     const info = h('dl', { class: 'kv' });
     const nameIn = h('input', { class: 'word-input', id: 'dog-name', maxlength: '8', 'aria-label': '名前' });
-    const gloss = (ja, ko) => h('button', { class: 'gloss', type: 'button', lang: 'ja', onclick: () => this.toast(`${ja} — ${ko}`) }, ja);
+    const jp = (this.settings.lang || 'ja') === 'ja';
+    const gloss = (ja, ko, jaNote) => h('button', { class: 'gloss', type: 'button', lang: 'ja', onclick: () => this.toast(jp && jaNote ? `${ja} — ${jaNote}（${ko}）` : `${ja} — ${ko}`) }, ja);
     const make = () => {
       s = G.newLife({ seed: String(Date.now()) + Math.random().toString(36).slice(2, 7), world, legacy });
       s.born = new Date().getFullYear();
@@ -338,10 +339,10 @@ class App {
       info.replaceChildren(
         h('dt', null, '毛色'), h('dd', null, gloss(coat.ja, coat.ko)),
         h('dt', null, '毛'), h('dd', null, gloss(hair.ja, hair.ko)),
-        h('dt', null, '性格'), h('dd', null, gloss(per.ja, per.desc)),
-        h('dt', null, '町'), h('dd', null, w.region.ko),
-        h('dt', null, '道場'), h('dd', null, gloss(w.dojoName, w.dojo.ko)),
-        ...(w.continued ? [h('dt', null, '代'), h('dd', null, `${w.gen}대째 · 선대 ${s.prevDog.name}`)] : []));
+        h('dt', null, '性格'), h('dd', null, gloss(per.ja, per.desc, per.descJa)),
+        h('dt', null, '町'), h('dd', null, jp ? gloss(w.region.ja, w.region.desc, w.region.descJa) : w.region.ko),
+        h('dt', null, '道場'), h('dd', null, gloss(w.dojoName, w.dojo.ko, w.dojo.labelJa)),
+        ...(w.continued ? [h('dt', null, '代'), h('dd', null, jp ? `${w.gen}代目 · 先代 ${s.prevDog.name}` : `${w.gen}대째 · 선대 ${s.prevDog.name}`)] : []));
       if (lcd) {
         lcd.dog = s.dog;
         lcd.draw();
@@ -396,10 +397,10 @@ class App {
         hist.length
           ? h('div', { class: 'list' }, hist.map((x) => h('div', { class: 'card' },
               h('div', { class: 'row', style: 'justify-content:space-between' }, h('b', { lang: 'ja', style: 'font-size:20px' }, x.name), h('span', { class: 'note' }, new Date(x.at).toLocaleDateString())),
-              h('div', { class: 'note' }, `${x.dojoName} · ${x.gen}대째 · ${x.years}년`),
+              h('div', { class: 'note', lang: 'ja' }, `${x.dojoName} · ${x.gen}代目 · ${x.years}年`),
               h('div', null, x.titles.map((t) => h('span', { class: 'title-badge' }, t.ja))),
               x.lastWord ? h('div', null, `“${x.lastWord}”`) : null)))
-          : h('p', { class: 'note' }, '기록 없음')),
+          : h('p', { class: 'note' }, 'まだ記録がない（기록 없음）')),
       h('div', { class: 'sheet-foot', style: 'position:static' }, h('button', { class: 'btn center', type: 'button', onclick: () => this.go('title') }, '戻る')));
   }
 
