@@ -2,7 +2,7 @@
 import * as G from '../engine/core.js';
 import { COATS, HAIRS, PERSONALITIES } from '../engine/world.js';
 import { meet as srsMeet, dueIds } from '../engine/study.js';
-import { h } from './render.js';
+import { h, LINES } from './render.js';
 import { store } from './store.js';
 import { Sound } from './audio.js';
 import { GameView } from './game.js';
@@ -122,6 +122,20 @@ class App {
       s.met = s.met || [];
       for (const id of ids) if (!s.met.includes(id)) s.met.push(id);
     }
+  }
+  // 번역을 열었다: 그 문장의 학습 대상에 「번역 확인」을 센다 (오답으로 치지 않는다. 복습 순서에만 쓴다)
+  noteTranslate(tpl) {
+    const segs = (LINES.lines[tpl] || []).filter((x) => x && (x.v || x.g));
+    if (!segs.length) return;
+    const srs = store.srs();
+    let changed = false;
+    for (const sg of segs) {
+      const id = sg.g ? 'g:' + sg.g : 'v:' + sg.v;
+      if (!srs[id]) continue;
+      srs[id].tr = (srs[id].tr || 0) + 1;
+      changed = true;
+    }
+    if (changed) store.saveSrs(srs);
   }
   // 대사 자리표시자를 채우기 위한 기준 상태 (게임 밖 화면에서 예문을 보여 줄 때)
   refState() {
@@ -247,6 +261,9 @@ class App {
       h('p', { class: 'note small' }, '보통: 4~5장면마다 한 문제, 가끔 복습 카드. 틀린 말은 몇 문제 뒤 다른 형태로 다시 나온다.'));
     freq.hidden = set.playMode === 'watch';
     return h('div', { class: 'study-box' },
+      h('div', { class: 'field-label' }, '표시 언어'),
+      grid('lang', [['ja', '日本語（몰입）'], ['ko', '한국어']]),
+      h('p', { class: 'note small' }, '日本語: 서술·선택지·결과가 일본어. 문장을 탭하면 그 문장의 한국어, 선택지는 「訳」. 한국어: 예전처럼 한국어 서술 + 일본어 대사.'),
       h('div', { class: 'field-label' }, '모드'),
       grid('playMode', [['study', '학습 모드'], ['watch', '감상 모드']], () => (freq.hidden = set.playMode === 'watch')),
       h('p', { class: 'note small' }, '감상 모드: 퀴즈와 복습 카드가 저절로 나오지 않는다. 학습 모드: 장면 사이 확인 문제와 복습 카드가 나온다. 復習 메뉴는 두 모드 모두 쓸 수 있다.'),

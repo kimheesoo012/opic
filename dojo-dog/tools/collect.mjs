@@ -1,6 +1,22 @@
 // 콘텐츠 안의 모든 일본어 대사 템플릿과 한국어 해설을 모은다 (생성 도구와 테스트가 같이 쓴다).
 import { ALL_EVENTS } from '../src/data/index.js';
 import { FW } from '../src/data/farewell.js';
+import { JA } from '../src/data/ja/all.js';
+import { JA_MISC } from '../src/data/ja/misc.js';
+import { splitSentJa } from '../src/engine/text.js';
+
+// 일본어 서술·선택지·결과 등의 모든 문장 (문장 하나가 템플릿 하나)
+export function jaStrings() {
+  const out = [];
+  const walk = (v, where) => {
+    if (typeof v === 'string') out.push([v, where]);
+    else if (Array.isArray(v)) v.forEach((x) => walk(x, where));
+    else if (v && typeof v === 'object') for (const x of Object.values(v)) walk(x, where);
+  };
+  for (const [id, v] of Object.entries(JA)) walk(v, id);
+  walk(JA_MISC, 'misc');
+  return out;
+}
 
 export function collect() {
   const ja = new Map(); // 템플릿 → 첫 등장 위치
@@ -55,5 +71,10 @@ export function collect() {
     }
   }
   for (const [k, l] of Object.entries(FW)) addLine(l, 'farewell.' + k);
+  // 일본어 서술 문장 (역할 이름 같은 키는 빼고 문장만)
+  for (const [str, where] of jaStrings()) {
+    if (/^[a-z_]+$/.test(str)) continue;
+    for (const sent of splitSentJa(str)) if (!ja.has(sent)) ja.set(sent, where + ':ja');
+  }
   return { ja, speakers, ko };
 }

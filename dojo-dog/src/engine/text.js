@@ -90,6 +90,44 @@ export function plainJa(tpl, ctx) {
   return parseJa(tpl, ctx).map((x) => x.v).join('').replace(/〔([^:〕]+):[^〕]+〕/g, '$1');
 }
 
+// 문장 나누기: 번역을 문장 단위로 보이기 위해 일본어와 한국어를 같은 규칙으로 나눈다.
+// 일본어: 괄호(「」『』（）) 밖의 。！？ 뒤, 「…。」처럼 문장 끝 부호로 닫힌 괄호 뒤, 줄바꿈에서 나눈다.
+export function splitSentJa(text) {
+  const out = [];
+  let buf = '';
+  let depth = 0;
+  const t = String(text || '');
+  for (let i = 0; i < t.length; i++) {
+    const c = t[i];
+    if (c === '\n') {
+      if (buf.trim()) out.push(buf.trim());
+      buf = '';
+      continue;
+    }
+    buf += c;
+    if ('「『（'.includes(c)) depth++;
+    else if ('」』）'.includes(c)) {
+      depth = Math.max(0, depth - 1);
+      if (depth === 0 && '。！？'.includes(t[i - 1]) && !'。、」とっ'.includes(t[i + 1] || '')) {
+        out.push(buf.trim());
+        buf = '';
+      }
+    } else if (depth === 0 && (c === '。' ? !'！？。」』）…'.includes(t[i + 1] || '') : '！？'.includes(c) && /^(　|「|$)/.test(t[i + 1] || ''))) {
+      out.push(buf.trim());
+      buf = '';
+    }
+  }
+  if (buf.trim()) out.push(buf.trim());
+  return out.map((x) => x.replace(/^　+/, ''));
+}
+// 한국어: 문장 끝 부호(.!?…) 뒤의 빈칸, 「…」로 닫힌 문장 뒤의 빈칸, 줄바꿈에서 나눈다.
+export function splitSentKo(text) {
+  return String(text || '')
+    .split(/\n|(?<=[.!?…]」?)\s+/)
+    .map((x) => x.trim())
+    .filter(Boolean);
+}
+
 // 한국어 해설 속 《용어》 조각
 export function splitKo(text) {
   const out = [];

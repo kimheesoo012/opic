@@ -387,3 +387,17 @@ html, body { overflow: hidden; overscroll-behavior: none; }
 .life-study .chip { border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; font-family: var(--f-ja); background: var(--surface2); }
 .life-study .weak { margin: 0; padding-left: 18px; }
 .life-study .weak b { font-family: var(--f-ja); font-weight: 600; }
+/* ───── 8판: 일본어 몰입 ───── */
+.ev-text.jp { font-family: var(--f-ja); font-size: 17px; line-height: 2.1; margin: 0 0 4px; color: var(--ink); }
+.ev-text.jp .sent { cursor: pointer; border-radius: 4px; }
+.ev-text.jp .sent.on { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.sent-ko { font-size: 16px; color: var(--ink2); border-left: 3px solid var(--accent); padding: 4px 10px; margin: 2px 0 10px; background: var(--surface); border-radius: 0 8px 8px 0; }
+.ev-title.jp { font-family: var(--f-ja); cursor: pointer; }
+.title-ko { display: block; font-size: 15px; font-weight: 400; color: var(--ink2); margin-top: 2px; }
+.choice-row { display: flex; gap: 6px; align-items: stretch; }
+.choice-row[hidden] { display: none; }
+.choice-row > .btn { flex: 1; min-width: 0; }
+.choice-row .btn[lang='ja'] { font-family: var(--f-ja); line-height: 1.9; }
+.tr-btn { flex: 0 0 48px; min-height: 48px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface2); color: var(--ink2); font-family: var(--f-ja); font-size: 16px; cursor: pointer; }
+.tr-btn[aria-pressed='true'] { border-color: var(--accent); color: var(--accent); }
+.choice-ko { display: block; font-family: var(--f-body); font-size: 15px; color: var(--ink2); margin-top: 2px; line-height: 1.5; }

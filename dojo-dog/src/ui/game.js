@@ -1,9 +1,9 @@
 // 게임 화면: 위 조작 줄 → LCD 창 → 이야기 칸 → 선택 버튼. 시간 흐름, 오토, 배속.
 import * as G from '../engine/core.js';
 import { SEASON_MS, SPEEDS, FIRST_EVENT_MS, AUTO_WORD_MS, eventShowMs, resultShowMs } from '../engine/pace.js';
-import { SEASON_JA, SEASON_KO, STAT_KO, STAGES, ROLE_KO, ROLES, personFor } from '../engine/world.js';
+import { SEASON_JA, SEASON_KO, STAT_KO, STAT_JA, STAGES, ROLE_KO, ROLE_JA, ROLES, personFor } from '../engine/world.js';
 import { SUB_TITLES } from '../data/index.js';
-import { resolveKo, plainKo } from '../engine/text.js';
+import { resolveKo, plainKo, plainJa, splitSentJa, splitSentKo } from '../engine/text.js';
 import { h, renderJa, renderKo, renderSpeaker, plainSegs, sceneTargets, LINES } from './render.js';
 import { itemOf } from '../engine/study.js';
 import { LCD } from './pixel/lcd.js';
@@ -35,6 +35,10 @@ export class GameView {
 
   get set() {
     return this.app.settings;
+  }
+  // 일본어 몰입 모드(기본): 서술·제목·선택지·결과를 일본어로, 한국어는 문장을 탭했을 때만
+  get ja() {
+    return (this.set.lang || 'ja') === 'ja';
   }
 
   mount() {
@@ -211,7 +215,7 @@ export class GameView {
     }
     const sea = G.season(s);
     this.big(`${SEASON_JA[sea]}　${G.yearNo(s)}年目`, false);
-    this.log(`${SEASON_KO[sea]}. ${this.ageText()}.`);
+    this.log(`${SEASON_KO[sea]}. ${this.ageText()}.`, `${SEASON_JA[sea]}。${this.ageTextJa()}。`);
     this.renderHud();
     this.setIdle();
     this.renderIdle();
@@ -291,6 +295,11 @@ export class GameView {
     this.app.saveGame(this.s);
   }
 
+  ageTextJa() {
+    const t = this.s.t;
+    if (t < 4) return `生後${3 + t * 3}か月`;
+    return `${Math.floor(t / 4)}歳`;
+  }
   ageText() {
     const t = this.s.t;
     if (t < 4) return `생후 ${3 + t * 3}개월`;
@@ -328,9 +337,10 @@ export class GameView {
     this.whenEl.textContent = `${SEASON_JA[sea]} ${G.yearNo(s)}年目`;
     const st = STAGES.find((x) => x.id === G.stage(s));
     this.stageBtn.textContent = st.ja;
-    this.ageEl.textContent = `${s.dog.name} · ${this.ageText()}`;
-    this.statsEl.replaceChildren(...STAT_ORDER.map((k) => h('span', { class: 'stat', title: STAT_KO[k] }, icon(k, 16), h('span', { class: 'bar' }, h('i', { style: `width:${s.st[k]}%` })))));
-    this.statsDetail.replaceChildren(...STAT_ORDER.map((k) => h('span', null, icon(k, 16), `${STAT_KO[k]} ${Math.round(s.st[k])}`)));
+    const STAT = this.ja ? STAT_JA : STAT_KO;
+    this.ageEl.textContent = `${s.dog.name} · ${this.ja ? this.ageTextJa() : this.ageText()}`;
+    this.statsEl.replaceChildren(...STAT_ORDER.map((k) => h('span', { class: 'stat', title: STAT[k] }, icon(k, 16), h('span', { class: 'bar' }, h('i', { style: `width:${s.st[k]}%` })))));
+    this.statsDetail.replaceChildren(...STAT_ORDER.map((k) => h('span', null, icon(k, 16), `${STAT[k]} ${Math.round(s.st[k])}`)));
     if (first) this.fitLcd();
   }
 
@@ -340,18 +350,19 @@ export class GameView {
     this.ticker.replaceChildren(...ROLES.map((r) => {
       const p = personFor(s.cast, r);
       return h('button', { class: 'who' + (this.lastNews && prev[r] !== s.news[r] ? ' flash' : ''), type: 'button', onclick: () => this.castSheet(r) },
-        h('b', null, p.ko), h('span', null, s.news[r] || ''));
+        h('b', { lang: this.ja ? 'ja' : null }, this.ja ? p.call : p.ko),
+        h('span', { lang: this.ja && s.newsJa && s.newsJa[r] ? 'ja' : null }, this.ja && s.newsJa && s.newsJa[r] ? plainJa(s.newsJa[r], { s }) : s.news[r] || ''));
     }));
     this.lastNews = { ...s.news };
   }
 
-  log(text) {
+  log(text, textJa = null) {
     this.pendingLog = this.pendingLog || [];
-    this.pendingLog.push(text);
+    this.pendingLog.push(this.ja && textJa ? textJa : text);
   }
   flushLog() {
     const s = this.s;
-    for (const l of s.log.splice(0)) this.log(l.text);
+    for (const l of s.log.splice(0)) this.log(l.text, l.textJa ? plainJa(l.textJa, { s }) : null);
     for (const t of this.pendingLog || []) this.logEl.prepend(h('p', null, t));
     this.pendingLog = [];
     while (this.logEl.children.length > 4) this.logEl.lastChild.remove();
@@ -386,39 +397,81 @@ export class GameView {
     };
   }
 
-  renderLines(lines, title) {
+  // 장면의 학습 대상: 대사(+ 일본어 모드에서는 서술 문장)에서 고른다. 만난 것으로 기록하고, 장면 뒤 확인 문제에 쓴다.
+  sceneIds(tpls) {
+    const targetIds = sceneTargets(tpls, this.set);
+    this.app.meet(targetIds, this.s);
+    if (this.bag) {
+      this.bag.lines += tpls.length;
+      for (const id of targetIds) {
+        this.bag.ids.add(id);
+        const hit = tpls.find((t) => lineHas(t, id));
+        if (hit) this.bag.where[id] = hit;
+      }
+    }
+    return targetIds;
+  }
+
+  // 일본어 서술: 문장마다 탭하면 그 문장의 한국어가 아래에 나온다 (낱말 밑줄을 탭하면 해설 창)
+  narrBlock(ja, ko, title, targets, cls = 'ev-text jp') {
+    const jaS = splitSentJa(ja);
+    const koS = splitSentKo(resolveKo(ko || '', { s: this.s }));
+    const aligned = jaS.length === koS.length;
+    const p = h('p', { class: cls, lang: 'ja' });
+    const koBox = h('div', { class: 'sent-ko', hidden: true, lang: 'ko' });
+    let open = -1;
+    const spans = jaS.map((sent, i) => {
+      const ctx = this.ctxFor(null);
+      ctx.targets = targets;
+      const scene = () => ({ tpl: sent, role: null, ja: plainJa(sent, { s: this.s }), ko: aligned ? koS[i] : koS.join(' '), sp: '', title, when: this.ageText() });
+      ctx.onWord = (key) => this.app.openWord(key, scene());
+      ctx.onGrammar = (key) => this.app.openGrammar(key, scene());
+      const span = h('span', { class: 'sent', role: 'button', tabindex: '0', 'aria-label': '이 문장 번역' }, renderJa(sent, ctx));
+      const toggle = () => {
+        spans.forEach((x) => x.classList.remove('on'));
+        if (open === i) {
+          koBox.hidden = true;
+          open = -1;
+          return;
+        }
+        open = i;
+        span.classList.add('on');
+        koBox.textContent = aligned ? koS[i] : koS.join(' ');
+        koBox.hidden = false;
+        this.app.noteTranslate(sent);
+      };
+      span.addEventListener('click', toggle);
+      span.addEventListener('keydown', (e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), toggle()));
+      return span;
+    });
+    spans.forEach((x, i) => p.append(x, i < spans.length - 1 ? '' : ''));
+    return h('div', { class: 'narr' }, p, koBox);
+  }
+
+  renderLines(lines, title, ids = null) {
     const box = h('div', { class: 'lines' });
     const kos = [];
     const focus = !!this.set.focus;
-    const targetIds = sceneTargets(lines.map((l) => l[1]), this.set);
+    const targetIds = ids || this.sceneIds(lines.map((l) => l[1]));
     const targets = new Set(targetIds);
-    this.app.meet(targetIds, this.s);
-    if (this.bag) {
-      this.bag.lines += lines.length;
-      for (const id of targetIds) {
-        this.bag.ids.add(id);
-        const hit = lines.find((l) => lineHas(l[1], id));
-        if (hit) this.bag.where[id] = hit[1];
-      }
-    }
     const scenes = {};
     for (const [sp, ja, ko] of lines) {
       const ctx = this.ctxFor(sp);
       ctx.targets = targets;
       const koText = resolveKo(ko, { s: this.s });
-      const koEl = h('div', { class: 'ko', hidden: true }, koText);
+      const koEl = h('div', { class: 'ko', hidden: this.ja }, koText);
       kos.push(koEl);
       const scene = () => ({ tpl: ja, role: sp, ja: plainSegs(ja, { s: this.s, speaker: sp }), ko: koText, sp: spLabelText(sp, this.s), title, when: `${this.ageText()} ${SEASON_KO[G.season(this.s)]}` });
       for (const id of targetIds) if (!scenes[id] && lineHas(ja, id)) scenes[id] = scene;
       ctx.onWord = (key) => this.app.openWord(key, scene());
       ctx.onGrammar = (key) => this.app.openGrammar(key, scene());
       // 학습 집중 모드: 대사마다 번역 버튼
-      const lineTool = focus ? h('button', { class: 'mini-btn line-ko', type: 'button', onclick: (e) => { koEl.hidden = !koEl.hidden; e.currentTarget.textContent = koEl.hidden ? '번역' : '닫기'; } }, '번역') : null;
+      const lineTool = focus && this.ja ? h('button', { class: 'mini-btn line-ko', type: 'button', onclick: (e) => { koEl.hidden = !koEl.hidden; e.currentTarget.textContent = koEl.hidden ? '번역' : '닫기'; if (!koEl.hidden) this.app.noteTranslate(ja); } }, '번역') : null;
       box.append(h('div', { class: 'line' }, h('div', { class: 'sp' }, renderSpeaker(sp, this.s, this.set.furigana, ctx), lineTool), h('div', { class: 'ja' }, renderJa(ja, ctx)), koEl));
     }
-    if (kos.length && !focus) {
+    if (kos.length && !focus && this.ja) {
       let on = false;
-      const btn = h('button', { class: 'mini-btn', type: 'button', onclick: () => { on = !on; kos.forEach((k) => (k.hidden = !on)); btn.textContent = on ? '번역 닫기' : '번역'; } }, '번역');
+      const btn = h('button', { class: 'mini-btn', type: 'button', onclick: () => { on = !on; kos.forEach((k) => (k.hidden = !on)); btn.textContent = on ? '번역 닫기' : '번역'; if (on) lines.forEach((l) => this.app.noteTranslate(l[1])); } }, '번역');
       box.append(h('div', { class: 'tools' }, btn));
     }
     // 학습 집중 모드: 이 장면의 학습 대상 목록 (탭하면 해설)
@@ -430,6 +483,13 @@ export class GameView {
       })));
     }
     return box;
+  }
+
+  // 일본어 제목: 탭하면 한국어 제목
+  titleEl(ja, ko) {
+    const koEl = h('span', { class: 'title-ko', hidden: true, lang: 'ko' }, ko);
+    const el = h('h3', { class: 'ev-title jp', lang: 'ja', role: 'button', tabindex: '0', onclick: () => (koEl.hidden = !koEl.hidden) }, renderJa(ja, { ...this.ctxFor(null), targets: new Set() }), koEl);
+    return el;
   }
 
   // 한국어 해설은 상황만 짧게: 앞 문장(40자 안팎)만 보이고 나머지는 「더보기」. 일본어 대사가 주인공이다.
@@ -509,8 +569,16 @@ export class GameView {
         this.app.sound.sfx('big');
       } else if (ev.cat === 'kendo' || ev.kendo) this.app.sound.sfx('shinai');
     }
-    const head = h('div', { class: 'ev-cat' }, (v.sub ? 'サブストーリー' : CAT[v.cat] || '') + (v.who ? ` · ${ROLE_KO[v.who]}` : ''));
-    this.panel.replaceChildren(head, h('h3', { class: 'ev-title' }, v.title), v.text ? this.koBlock(v.text, v.title) : '', v.lines.length ? this.renderLines(v.lines, v.title) : '');
+    const head = h('div', { class: 'ev-cat' }, (v.sub ? 'サブストーリー' : CAT[v.cat] || '') + (v.who ? ` · ${(this.ja ? ROLE_JA : ROLE_KO)[v.who]}` : ''));
+    if (this.ja && v.textJa) {
+      // 일본어 몰입: 제목·서술 일본어, 서술 문장도 학습 대상에 넣는다
+      const narr = splitSentJa(v.textJa);
+      const ids = this.sceneIds([...narr, ...v.lines.map((l) => l[1])]);
+      const targets = new Set(ids);
+      this.panel.replaceChildren(head, this.titleEl(v.titleJa, v.title), this.narrBlock(v.textJa, v.text, v.title, targets), v.lines.length ? this.renderLines(v.lines, v.title, ids) : '');
+    } else {
+      this.panel.replaceChildren(head, h('h3', { class: 'ev-title' }, v.title), v.text ? this.koBlock(v.text, v.title) : '', v.lines.length ? this.renderLines(v.lines, v.title) : '');
+    }
     this.choiceBtns = [];
     this.manualOnce = false;
     const btns = [];
@@ -521,22 +589,34 @@ export class GameView {
     const askFirst = !calm && !dogActs && !v.mini && v.choices.length > 1;
     if (calm) {
       this.autoLine = h('span', { class: 'auto-line-text' }, 'オート');
-      btns.push(h('div', { class: 'auto-line' }, this.autoLine, h('button', { class: 'mini-btn', type: 'button', onclick: () => this.takeOver() }, '직접 고르기')));
+      btns.push(h('div', { class: 'auto-line' }, this.autoLine, h('button', { class: 'mini-btn', type: 'button', onclick: () => this.takeOver() }, this.ja ? '自分で選ぶ' : '직접 고르기')));
     }
     if (dogActs) {
       btns.push(h('div', { class: 'dog-acts' },
         h('button', { class: 'btn primary', type: 'button', onclick: () => this.doChoose(this.autoIdx, true) }, 'つぎへ'),
-        h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { e.currentTarget.parentNode.remove(); for (const [, b] of this.choiceBtns) b.hidden = false; } }, '직접 고르기')));
+        h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { e.currentTarget.parentNode.remove(); for (const [, b] of this.choiceBtns) b.hidden = false; } }, this.ja ? '自分で選ぶ' : '직접 고르기')));
     }
     if (askFirst) {
-      btns.push(h('button', { class: 'btn primary open-choices', type: 'button', onclick: (e) => { e.currentTarget.remove(); for (const [, b] of this.choiceBtns) b.hidden = false; } }, '행동 고르기'));
+      btns.push(h('button', { class: 'btn primary open-choices', type: 'button', onclick: (e) => { e.currentTarget.remove(); for (const [, b] of this.choiceBtns) b.hidden = false; } }, this.ja ? 'どうする？' : '행동 고르기'));
     }
     if (v.mini && !this.autoActive()) btns.push(this.tambourine(v));
     else if (v.choices.length) {
       for (const c of v.choices) {
-        const b = h('button', { class: 'btn' + (c.ok ? '' : ' off'), type: 'button', disabled: !c.ok, hidden: calm || dogActs || askFirst, onclick: () => this.doChoose(c.i, false) }, h('span', null, c.t, !c.ok && c.why ? h('div', { class: 'why' }, c.why) : null));
-        this.choiceBtns.push([c.i, b]);
-        btns.push(b);
+        const jp = this.ja && c.tJa;
+        const why = !c.ok && (jp && c.whyJa ? c.whyJa : c.why);
+        const ko = jp ? h('span', { class: 'choice-ko', hidden: true, lang: 'ko' }, c.t) : null;
+        const label = jp ? renderJa(c.tJa, { ...this.ctxFor(null), targets: new Set() }) : c.t;
+        const b = h('button', { class: 'btn' + (c.ok ? '' : ' off'), type: 'button', disabled: !c.ok, lang: jp ? 'ja' : null, onclick: () => this.doChoose(c.i, false) }, h('span', null, label, ko, why ? h('div', { class: 'why' }, jp && c.whyJa ? plainJa(c.whyJa, { s: this.s }) : why) : null));
+        // 번역은 선택과 따로: 「訳」을 눌러도 고르지 않는다
+        const tr = jp ? h('button', { class: 'tr-btn', type: 'button', 'aria-label': '이 선택지 번역', 'aria-pressed': 'false', onclick: (e) => {
+          e.stopPropagation();
+          ko.hidden = !ko.hidden;
+          tr.setAttribute('aria-pressed', String(!ko.hidden));
+          if (!ko.hidden) this.app.noteTranslate(c.tJa);
+        } }, '訳') : null;
+        const row = h('div', { class: 'choice-row', hidden: calm || dogActs || askFirst }, b, tr);
+        this.choiceBtns.push([c.i, row, b, jp ? plainJa(c.tJa, { s: this.s }) : c.t]);
+        btns.push(row);
       }
     } else btns.push(h('button', { class: 'btn primary', type: 'button', onclick: () => this.doChoose(-1, false) }, 'つぎへ'));
     this.foot.replaceChildren(...btns);
@@ -553,10 +633,10 @@ export class GameView {
   showAutoPick() {
     this.autoShown = true;
     const pair = this.choiceBtns.find(([i]) => i === this.autoIdx);
-    if (this.autoLine && pair && !this.manualOnce) this.autoLine.textContent = `オート · ${pair[1].textContent}`;
+    if (this.autoLine && pair && !this.manualOnce) this.autoLine.textContent = `オート · ${pair[3]}`;
     if (pair) {
-      pair[1].classList.add('auto-pick');
-      pair[1].append(h('span', { class: 'auto-badge' }, 'オート'));
+      pair[2].classList.add('auto-pick');
+      pair[2].append(h('span', { class: 'auto-badge' }, 'オート'));
     }
   }
 
@@ -588,19 +668,29 @@ export class GameView {
       }
       this.lcd.setPlan({ ...this.lcd.plan, bubble: ok ? 'heart' : r.notes.includes('실패') ? 'sweat' : null }, this.s);
     }
-    const body = [h('div', { class: 'ev-cat' }, CAT[ev.cat] || ''), h('h3', { class: 'ev-title' }, title)];
-    if (r.choice) body.push(h('div', { class: 'res-choice' }, (r.auto ? `${this.s.dog.name} · ` : '') + r.choice));
-    if (r.res) body.push(this.koBlock(r.res, title));
-    if (r.lines.length) body.push(this.renderLines(r.lines, title));
+    const jp = this.ja && (r.resJa || ev.titleJa);
+    const body = [h('div', { class: 'ev-cat' }, CAT[ev.cat] || ''), jp && ev.titleJa ? this.titleEl(ev.titleJa, title) : h('h3', { class: 'ev-title' }, title)];
+    if (r.choice) body.push(h('div', { class: 'res-choice', lang: jp && r.choiceJa ? 'ja' : null }, (r.auto ? `${this.s.dog.name} · ` : '') + (jp && r.choiceJa ? plainJa(r.choiceJa, { s: this.s }) : r.choice)));
+    if (jp && r.resJa) {
+      const narr = splitSentJa(r.resJa);
+      const ids = this.sceneIds([...narr, ...r.lines.map((l) => l[1])]);
+      body.push(this.narrBlock(r.resJa, r.res, title, new Set(ids)));
+      if (r.lines.length) body.push(this.renderLines(r.lines, title, ids));
+    } else {
+      if (r.res) body.push(this.koBlock(r.res, title));
+      if (r.lines.length) body.push(this.renderLines(r.lines, title));
+    }
     if (r.delta.length) {
       body.push(h('div', { class: 'deltas' }, r.delta.map((d) => {
-        const name = d.k.startsWith('b_') ? `${d.k === 'b_iincho' ? '위원장' : personFor(this.s.cast, d.k.slice(2)).ko} 유대` : STAT_KO[d.k];
+        const p = d.k.startsWith('b_') && d.k !== 'b_iincho' ? personFor(this.s.cast, d.k.slice(2)) : null;
+        const name = d.k.startsWith('b_') ? (this.ja ? `${d.k === 'b_iincho' ? '委員長' : p.call}との絆` : `${d.k === 'b_iincho' ? '위원장' : p.ko} 유대`) : (this.ja ? STAT_JA : STAT_KO)[d.k];
         return h('span', { class: 'delta ' + (d.v > 0 ? 'up' : 'down') }, `${name} ${d.v > 0 ? '+' : ''}${d.v}`);
       })));
     }
-    for (const n of r.notes.filter((x) => x !== '성공' && x !== '실패')) body.push(h('p', { class: 'note' }, n));
+    const notes = this.ja && r.notesJa ? r.notesJa.filter((x) => x !== '成功' && x !== '失敗') : r.notes.filter((x) => x !== '성공' && x !== '실패');
+    for (const n of notes) body.push(h('p', { class: 'note' }, n));
     if (r.foil) {
-      body.push(h('div', { class: 'stamp' }, '作戦阻止', h('small', null, `통산 ${this.s.foiled}회`)));
+      body.push(h('div', { class: 'stamp' }, '作戦阻止', h('small', null, this.ja ? `通算${this.s.foiled}回` : `통산 ${this.s.foiled}회`)));
       if (!again) this.big('作戦阻止');
     }
     if (r.clear) {
@@ -646,7 +736,7 @@ export class GameView {
   doWord(text, auto) {
     if (this.s.phase !== 'word') return;
     G.setWord(this.s, text, auto);
-    if (auto) this.log(`オート: 「${text}」`);
+    if (auto) this.log(`オート: 「${text}」`, `オート：「${text}」`);
     this.save();
     this.renderPhase();
   }

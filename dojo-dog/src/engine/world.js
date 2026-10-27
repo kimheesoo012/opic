@@ -18,6 +18,7 @@ export function stageOf(ageYears) {
 
 export const STAT_KEYS = ['hap', 'hea', 'back', 'soc', 'brave', 'mis'];
 export const STAT_KO = { hap: '행복', hea: '건강', back: '허리 건강', soc: '사회성', brave: '용감함', mis: '장난기' };
+export const STAT_JA = { hap: '幸せ', hea: '健康', back: '腰の調子', soc: '社交性', brave: '勇気', mis: 'いたずら心' };
 
 // 자동 선택 성향: 선택지 태그별 가중치
 export const PERSONALITIES = [
@@ -97,6 +98,7 @@ export const PROMOTE = {
 
 export const ROLES = ['roshi', 'shihan', 'okami', 'kid', 'worker', 'elder', 'kor'];
 export const ROLE_KO = { roshi: '노사범', shihan: '사범', okami: '도장 살림', kid: '초등부', worker: '사회인 수련생', elder: '늦깎이 어르신', kor: '한국인 수련생', iincho: '이웃' };
+export const ROLE_JA = { roshi: '老師範', shihan: '師範', okami: '道場の切り盛り', kid: '少年部', worker: '社会人の門下生', elder: '遅咲きの門下生', kor: '韓国から来た門下生', iincho: '隣人' };
 
 export const GEN1 = { roshi: 'washio', shihan: 'makoto', okami: 'chiharu', kid: 'hinata', worker: 'miura', elder: 'fumi', kor: 'sojin' };
 const POOLS = { kid: ['youta', 'minori', 'hinata'], worker: ['takumi', 'kouhei', 'miura'], elder: ['setsuko', 'kiyo', 'fumi'], kor: ['dabin', 'haneul', 'sojin'], okami: ['yuki', 'chiharu'] };

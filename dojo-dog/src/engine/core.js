@@ -99,18 +99,19 @@ export function newLife(opts = {}) {
   }
   s.ach.iincho = [];
   s.news = initialNews(s);
+  s.newsJa = initialNews(s, true);
   return s;
 }
 
-function initialNews(s) {
+function initialNews(s, ja = false) {
   const n = {};
   for (const r of ROLES) {
     const p = personFor(s.cast, r);
-    n[r] = p.desc;
+    n[r] = ja ? p.descJa || null : p.desc;
   }
   if (s.world.continued) {
-    n.roshi = '전 사범. 이제는 뒤에서 도장을 지켜본다.';
-    n.shihan = '예전에 이 도장에서 울던 아이. 지금은 사범.';
+    n.roshi = ja ? '前の師範。今は後ろから道場を見守っている。' : '전 사범. 이제는 뒤에서 도장을 지켜본다.';
+    n.shihan = ja ? '昔この道場で泣いていた子。今は師範。' : '예전에 이 도장에서 울던 아이. 지금은 사범.';
   }
   return n;
 }
@@ -248,8 +249,8 @@ function applyBrief(s, ch) {
   const b = ch.brief || {};
   const out = applyOutcome(s, { ...b, fx: b.fx }, ch, true);
   s.seen[ch.id] = s.t;
-  s.log.push({ t: s.t, kind: 'news', who: ch.who, text: out.res || resolveKo(b.news ? Object.values(b.news)[0] : '', { s }) });
-  s.hist.push({ t: s.t, id: ch.id, title: ch.title, brief: true });
+  s.log.push({ t: s.t, kind: 'news', who: ch.who, text: out.res || resolveKo(b.news ? Object.values(b.news)[0] : '', { s }), textJa: out.resJa || (b.newsJa ? Object.values(b.newsJa)[0] : null) });
+  s.hist.push({ t: s.t, id: ch.id, title: ch.title, titleJa: ch.titleJa || null, brief: true });
 }
 
 // ───────── 이벤트 진행 ─────────
@@ -288,6 +289,9 @@ function flatLines(s, lines) {
   return out;
 }
 
+// 한글이 없는 글(「{kid}」처럼 이름만 있는 선택지 등)은 일본어로도 그대로 쓸 수 있다
+const jaOnly = (t) => (t && !/[가-힣]/.test(t) ? t : null);
+
 function flatText(s, t) {
   if (!t) return '';
   if (typeof t === 'function') return t(s) || '';
@@ -303,13 +307,16 @@ export function view(s) {
   if (!s.cur) return null;
   const e = EV.get(s.cur.id);
   const ctx = { s };
-  const choices = (e.choices || []).map((c, i) => ({ i, t: resolveKo(flatText(s, c.t), ctx), tag: c.tag, mini: c.mini, ok: choiceAvailable(s, c), why: c.why || '' }));
+  const choices = (e.choices || []).map((c, i) => ({ i, t: resolveKo(flatText(s, c.t), ctx), tJa: flatText(s, c.tJa) || jaOnly(flatText(s, c.t)), tag: c.tag, mini: c.mini, ok: choiceAvailable(s, c), why: c.why || '', whyJa: c.whyJa || null }));
   return {
     id: e.id,
     cat: e.cat,
     who: e.who,
     title: resolveKo(e.title, ctx),
+    // 일본어는 템플릿 그대로 (자리표시자·후리가나는 화면이 처리한다)
+    titleJa: e.titleJa || null,
     text: resolveKo(flatText(s, e.text), ctx),
+    textJa: flatText(s, e.textJa) || null,
     lines: flatLines(s, e.lines),
     choices: choices.filter((c) => c.ok || c.why),
     major: !!(e.major || e.cat === 'milestone'),
@@ -362,8 +369,11 @@ export function choose(s, i, auto = false) {
   s.res = {
     id: e.id,
     choice: c ? resolveKo(flatText(s, c.t), { s }) : null,
+    choiceJa: c ? flatText(s, c.tJa) || jaOnly(flatText(s, c.t)) : null,
     auto,
     res: out.res,
+    resJa: out.resJa || null,
+    notesJa: out.notesJa,
     lines: out.lines,
     delta: diff(before, after),
     notes: out.notes,
@@ -371,7 +381,7 @@ export function choose(s, i, auto = false) {
     foil: out.foil,
     word: e.word || null,
   };
-  s.hist.push({ t: s.t, id: e.id, title: resolveKo(e.title, { s }), choice: s.res.choice, auto });
+  s.hist.push({ t: s.t, id: e.id, title: resolveKo(e.title, { s }), titleJa: e.titleJa || null, choice: s.res.choice, choiceJa: s.res.choiceJa, auto });
   s.phase = 'result';
   return s.res;
 }
@@ -445,7 +455,10 @@ function passive(s) {
 
 // ───────── 효과 적용 ─────────
 function applyOutcome(s, o, e, silent) {
-  const out = { res: '', lines: [], notes: [], clear: null, foil: false };
+  const out = { res: '', resJa: '', lines: [], notes: [], notesJa: [], clear: null, foil: false };
+  const addJa = (t) => {
+    if (t) out.resJa += (out.resJa ? '\n' : '') + t;
+  };
   if (!o) return out;
   let node = o;
   const ctx = { s };
@@ -468,9 +481,14 @@ function applyOutcome(s, o, e, silent) {
     for (const c of [].concat(n.cnt || [])) s.cnt[c] = (s.cnt[c] || 0) + 1;
     if (n.ach) {
       const list = Array.isArray(n.ach[0]) ? n.ach : [n.ach];
-      for (const [role, text] of list) s.ach[role].push({ t: s.t, text: resolveKo(text, ctx) });
+      const listJa = n.achJa ? (Array.isArray(n.achJa[0]) ? n.achJa : [n.achJa]) : [];
+      list.forEach(([role, text], i) => s.ach[role].push({ t: s.t, text: resolveKo(text, ctx), textJa: listJa[i] ? listJa[i][1] : null }));
     }
-    if (n.news) for (const [role, text] of Object.entries(n.news)) s.news[role] = resolveKo(text, ctx);
+    if (n.news) for (const [role, text] of Object.entries(n.news)) {
+      s.news[role] = resolveKo(text, ctx);
+      s.newsJa = s.newsJa || {};
+      s.newsJa[role] = n.newsJa ? n.newsJa[role] || null : null;
+    }
     if (n.foil) {
       s.foiled++;
       out.foil = true;
@@ -485,10 +503,12 @@ function applyOutcome(s, o, e, silent) {
         s.sched.push({ id: 'x_back_vet', t: s.t + 1 });
         s.st.back = clamp(s.st.back - 6);
         out.notes.push('허리가 조금 이상한 것 같다…');
+        out.notesJa.push('腰が少しおかしい気がする……。');
       } else if (chance(s, p) && s.seen.x_back_vet !== undefined && !s.sched.some((x) => x.id === 'x_back_vet2') && s.seen.x_back_vet2 === undefined && ageY(s) >= 5) {
         s.sched.push({ id: 'x_back_vet2', t: s.t + 1 });
         s.st.back = clamp(s.st.back - 6);
         out.notes.push('또 허리가 뻐근하다. 계단을 조심하자.');
+        out.notesJa.push('また腰が重い。階段に気をつけよう。');
       }
     }
     if (n.next) s.queue.unshift(...[].concat(n.next).filter((id) => EV.has(id)));
@@ -500,9 +520,15 @@ function applyOutcome(s, o, e, silent) {
       const cands = ALL_EVENTS.filter((x) => x.pool === n.pool && eligible(s, x, true));
       const pickE = weighted(s, cands, (x) => x.w ?? 1);
       if (pickE) s.queue.unshift(pickE.id);
-      else if (n.poolEmpty) out.res += (out.res ? '\n' : '') + resolveKo(n.poolEmpty, ctx);
+      else if (n.poolEmpty) {
+        out.res += (out.res ? '\n' : '') + resolveKo(n.poolEmpty, ctx);
+        addJa(n.poolEmptyJa);
+      }
     }
-    if (n.res) out.res += (out.res ? '\n' : '') + resolveKo(flatText(s, n.res), ctx);
+    if (n.res) {
+      out.res += (out.res ? '\n' : '') + resolveKo(flatText(s, n.res), ctx);
+      addJa(flatText(s, n.resJa));
+    }
     if (n.lines) out.lines.push(...flatLines(s, n.lines));
   };
   merge(node);
@@ -514,7 +540,10 @@ function applyOutcome(s, o, e, silent) {
     const ok = rand(s) < p;
     const branch = ok ? ck.ok : ck.ng;
     if (branch) merge(branch);
-    if (!silent) out.notes.push(ok ? '성공' : '실패');
+    if (!silent) {
+      out.notes.push(ok ? '성공' : '실패');
+      out.notesJa.push(ok ? '成功' : '失敗');
+    }
   }
   return out;
 }

@@ -38,6 +38,7 @@ export const DEFAULT_SETTINGS = {
   customLevels: ['3', '2', 'K'],
   hideEasy: true, // 쉬운 단어 학습 표시 끄기
   focus: false, // 학습 집중 모드
+  lang: 'ja', // 'ja' 일본어 몰입(번역은 탭할 때만) / 'ko' 한국어 서술
   playMode: 'study', // 'study' 학습 모드(확인 문제·복습 카드) / 'watch' 감상 모드(학습 문제가 저절로 나오지 않는다)
   quizFreq: 'mid', // 'off' / 'low' 8~10장면 / 'mid' 4~5장면 / 'high' 2~3장면마다 한 문제
   choiceMode: 'major', // 'major' 중요한 장면만 직접 고른다(나머지는 개가 성격대로 움직인다) / 'all' 모든 장면
@@ -61,6 +62,7 @@ export function migrateSettings(raw) {
   if (!['n5', 'n3', 'n2', 'n1', 'custom'].includes(s.studyLevel)) s.studyLevel = 'n2';
   if (!Array.isArray(s.customLevels)) s.customLevels = [...DEFAULT_SETTINGS.customLevels];
   if (!['study', 'watch'].includes(s.playMode)) s.playMode = 'study';
+  if (!['ja', 'ko'].includes(s.lang)) s.lang = 'ja';
   if (!['off', 'low', 'mid', 'high'].includes(s.quizFreq)) s.quizFreq = 'mid';
   if (!['major', 'all'].includes(s.choiceMode)) s.choiceMode = 'major';
   s.v = SETTINGS_VERSION;
