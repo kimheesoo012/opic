@@ -187,7 +187,7 @@ async function run() {
   if (cont) {
     await cont.click();
     const info = await p.textContent('.card');
-    ok('이어지는 세계 설정', /선대/.test(info), info.match(/선대.*/)?.[0] || '');
+    ok('이어지는 세계 설정', /선대|先代/.test(info), info.match(/(선대|先代).*/)?.[0] || '');
   }
   await p.click('text=この子と生きる');
   await p.waitForSelector('text=今日の一問');
