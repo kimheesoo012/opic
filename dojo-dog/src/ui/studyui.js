@@ -149,11 +149,12 @@ export function quizScreen(app, ids, label, opts = {}) {
       e.currentTarget.classList.add(ok ? 'right' : 'wrong');
       opt[q.answer].classList.add('right');
       const scene = q.kind === 'context' || q.kind === 'gcontext' ? null : firstScene(app, q.id, app.settings.furigana);
-      // 한국어 해설: 일본어 모드에서는 「解説」을 눌렀을 때만
-      const explain = h('div', { class: 'q-ko', hidden: ja }, explainView(q, oi));
+      // 한국어 해설: 일본어 모드에서 맞혔을 때는 「解説」을 눌렀을 때만 (틀리면 바로 펼친다)
+      const shut = ja && ok;
+      const explain = h('div', { class: 'q-ko', hidden: shut }, explainView(q, oi));
       fb.replaceChildren(...[
         h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
-        ja ? h('button', { class: 'mini-btn', type: 'button', onclick: (ev) => { explain.hidden = !explain.hidden; ev.currentTarget.textContent = explain.hidden ? '解説' : '閉じる'; } }, '解説') : null,
+        ja ? h('button', { class: 'mini-btn', type: 'button', onclick: (ev) => { explain.hidden = !explain.hidden; ev.currentTarget.textContent = explain.hidden ? '解説' : '閉じる'; } }, shut ? '解説' : '閉じる') : null,
         explain,
         scene ? h('div', { class: 'v-sec' }, h('h4', null, 'ゲームの場面'), scene) : null,
       ].filter(Boolean));
