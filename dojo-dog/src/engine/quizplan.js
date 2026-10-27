@@ -140,8 +140,16 @@ export function buildQuestion(id, log, srs, ctx) {
     const r = srs[id];
     const again = !!runState(log, id) || (r && r.ok + r.ng > 0);
     const h = { rng: hashSeed(seed + 'bank') };
+    // 이번 견생에서 바로 전에 문제은행으로 물었으면, 다시 물을 때는 다른 유형으로 (못 만들면 문제은행)
+    const run = runState(log, id);
+    const lastBank = run && run.last.kind === 'bank';
+    const pick = () => bankQuestion(id, items[Math.floor(rand(h) * items.length)]);
     // 일본어 몰입 모드에서는 문제은행(일본어 문제)을 먼저 쓴다
-    if (ctx.jaOnly || again || rand(h) < 1 / 3) return bankQuestion(id, items[Math.floor(rand(h) * items.length)]);
+    if (!lastBank && (ctx.jaOnly || again || rand(h) < 1 / 3)) return pick();
+    if (lastBank) {
+      const kind = chooseKind(id, log, srs, ctx);
+      return kind ? makeQuestion(id, seed, srs[id], { ...ctx, kind }) : pick();
+    }
   }
   const kind = chooseKind(id, log, srs, ctx);
   if (!kind) return null;

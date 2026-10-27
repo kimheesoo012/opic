@@ -5,7 +5,7 @@ const c = (s, k) => s.cnt[k] || 0;
 export const TITLES = [
   { id: 'interhigh', p: 90, ja: 'インターハイを見届けた犬', ko: '인터하이를 지켜본 개', cond: (s) => has(s, 'saw_interhigh') },
   { id: 'roshi_last', p: 88, ja: '老師範の最後の相棒', ko: '노사범의 마지막 짝꿍', cond: (s) => has(s, 'roshi_last_partner') },
-  { id: 'fish', p: 86, ja: '商店街の魚泥棒', ko: '상점가의 생선 도둑', cond: (s) => has(s, 'fish_thief') },
+  { id: 'fish', p: 86, ja: '魚泥棒事件', ko: '생선 도둑 사건', cond: (s) => has(s, 'fish_thief') },
   { id: 'eight', p: 85, ja: '八段を見届けた犬', ko: '8단 합격을 지켜본 개', cond: (s) => has(s, 'shihan_8dan') },
   { id: 'saved', p: 84, ja: '道場を救った胴長', ko: '도장을 구한 롱다리……가 아니라 롱허리', cond: (s) => has(s, 'dojo_saved') && s.subs.length >= 4 },
   { id: 'rival', p: 80, ja: '委員長の宿敵', ko: '위원장의 숙적', cond: (s) => s.foiled >= 5 },
