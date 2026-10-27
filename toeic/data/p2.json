@@ -8,11 +8,11 @@
    "difficulty": 2,
    "question": "When is the new marketing manager starting?",
    "choices": [
-    "Next Monday, I believe.",
     "In the conference room.",
+    "Next Monday, I believe.",
     "She manages the sales team."
    ],
-   "answer": 0,
+   "answer": 1,
    "speakers": {
     "Q": {
      "g": "f",
@@ -26,8 +26,8 @@
    "explanation": {
     "why": "When(언제)에 대해 '다음 주 월요일'이라는 시점으로 답했다.",
     "traps": [
-     null,
      "When 질문에 장소(Where의 답)로 응답한 함정이다.",
+     null,
      "manager와 비슷한 manages를 반복한 유사 발음·반복 함정이다."
     ]
    },
@@ -48,10 +48,10 @@
    "question": "Where can I find extra printer paper?",
    "choices": [
     "About two hundred pages.",
-    "In the supply cabinet by the copier.",
-    "Yes, I printed it already."
+    "Yes, I printed it already.",
+    "In the supply cabinet by the copier."
    ],
-   "answer": 1,
+   "answer": 2,
    "speakers": {
     "Q": {
      "g": "m",
@@ -66,8 +66,8 @@
     "why": "Where(어디)에 대해 '복사기 옆 비품 캐비닛'이라는 장소로 답했다.",
     "traps": [
      "paper에서 연상되는 pages로 수량을 말했을 뿐 장소가 아니다.",
-     null,
-     "의문사 의문문에는 Yes/No로 답할 수 없고, printer와 printed는 반복 함정이다."
+     "의문사 의문문에는 Yes/No로 답할 수 없고, printer와 printed는 반복 함정이다.",
+     null
     ]
    },
    "vocab": [
@@ -86,11 +86,11 @@
    "difficulty": 2,
    "question": "Who's in charge of ordering lunch for the workshop?",
    "choices": [
+    "Mr. Hayashi said he'd handle it.",
     "The workshop starts at nine.",
-    "No, I already had lunch.",
-    "Mr. Hayashi said he'd handle it."
+    "No, I already had lunch."
    ],
-   "answer": 2,
+   "answer": 0,
    "speakers": {
     "Q": {
      "g": "f",
@@ -104,9 +104,9 @@
    "explanation": {
     "why": "Who(누가)에 대해 사람 이름(Mr. Hayashi)으로 답했다. handle it = 점심 주문을 맡겠다.",
     "traps": [
+     null,
      "workshop을 반복했지만 시간 정보라 누가 담당인지에 답하지 못한다.",
-     "의문사 의문문에 No로 답할 수 없고 lunch만 반복했다.",
-     null
+     "의문사 의문문에 No로 답할 수 없고 lunch만 반복했다."
     ]
    },
    "vocab": [
@@ -270,11 +270,11 @@
    "difficulty": 2,
    "question": "Which hotel did you book for the conference?",
    "choices": [
+    "The one across from the convention center.",
     "I read that book, too.",
-    "Three nights, starting Sunday.",
-    "The one across from the convention center."
+    "Three nights, starting Sunday."
    ],
-   "answer": 2,
+   "answer": 0,
    "speakers": {
     "Q": {
      "g": "m",
@@ -288,9 +288,9 @@
    "explanation": {
     "why": "Which hotel(어느 호텔)에 대해 'the one(그 호텔) across from …'으로 특정 호텔을 지목했다.",
     "traps": [
+     null,
      "book(예약하다)을 명사 book(책)으로 바꾼 동음이의어 함정이다.",
-     "숙박 기간이라 '어느 호텔'에 대한 답이 아니다.",
-     null
+     "숙박 기간이라 '어느 호텔'에 대한 답이 아니다."
     ]
    },
    "vocab": [
@@ -657,11 +657,11 @@
    "difficulty": 3,
    "question": "Didn't Mr. Lopez transfer to the Seoul office?",
    "choices": [
-    "You can transfer at the next station.",
     "Yes, he moved there in March.",
+    "You can transfer at the next station.",
     "The office opens at eight."
    ],
-   "answer": 1,
+   "answer": 0,
    "speakers": {
     "Q": {
      "g": "m",
@@ -675,8 +675,8 @@
    "explanation": {
     "why": "not을 빼고 '서울 사무소로 전근 갔나?'로 생각한다. Yes + 3월에 옮겼다는 답이 일치한다.",
     "traps": [
-     "transfer(전근 가다)를 transfer(환승하다)로 바꾼 다의어 함정이다.",
      null,
+     "transfer(전근 가다)를 transfer(환승하다)로 바꾼 다의어 함정이다.",
      "office를 반복했지만 개점 시간이라 질문과 무관하다."
     ]
    },
@@ -853,11 +853,11 @@
    "difficulty": 4,
    "question": "Why is the parking lot closed today?",
    "choices": [
-    "Close to the main entrance.",
     "Didn't you read the notice?",
+    "Close to the main entrance.",
     "Yes, it's a large parking lot."
    ],
-   "answer": 1,
+   "answer": 0,
    "speakers": {
     "Q": {
      "g": "f",
@@ -871,8 +871,8 @@
    "explanation": {
     "why": "이유를 직접 말하지 않고 '공지 못 봤어요?'라고 되묻는다. 공지에 이유가 나와 있다는 반문형 정답이다.",
     "traps": [
-     "closed와 철자가 비슷한 close(가까운)를 이용한 함정이다.",
      null,
+     "closed와 철자가 비슷한 close(가까운)를 이용한 함정이다.",
      "의문사 의문문에 Yes로 답할 수 없고 parking lot만 반복했다."
     ]
    },
@@ -1024,10 +1024,10 @@
    "question": "Where did you get that ergonomic chair?",
    "choices": [
     "It's very important to sit.",
-    "I'll get it for you.",
-    "It came with the office."
+    "It came with the office.",
+    "I'll get it for you."
    ],
-   "answer": 2,
+   "answer": 1,
    "speakers": {
     "Q": {
      "g": "f",
@@ -1042,8 +1042,8 @@
     "why": "어디서 샀냐는 질문에 '사무실에 원래 있던 거예요'라고 답했다. 산 곳이 없다는 사실을 알려 주는 간접 응답이다.",
     "traps": [
      "chair에서 연상되는 sit을 썼지만 장소에 답하지 않는다.",
-     "get을 반복했지만 '가져다주겠다'는 엉뚱한 답이다.",
-     null
+     null,
+     "get을 반복했지만 '가져다주겠다'는 엉뚱한 답이다."
     ]
    },
    "vocab": [
@@ -1164,11 +1164,11 @@
    "difficulty": 3,
    "question": "Can I borrow your stapler for a minute?",
    "choices": [
-    "A box of staples.",
     "Sorry, I lent it to Jake.",
+    "A box of staples.",
     "For about a minute."
    ],
-   "answer": 1,
+   "answer": 0,
    "speakers": {
     "Q": {
      "g": "f",
@@ -1182,8 +1182,8 @@
    "explanation": {
     "why": "빌려 달라는 요청에 '미안, 제이크에게 빌려줬어'라며 거절하고 이유를 댔다. 거절도 자연스러운 정답이 된다.",
     "traps": [
-     "stapler와 비슷한 staples(스테이플 심)를 쓴 함정이다.",
      null,
+     "stapler와 비슷한 staples(스테이플 심)를 쓴 함정이다.",
      "for a minute을 그대로 반복했을 뿐 빌려줄지에 답하지 않는다."
     ]
    },
@@ -1203,11 +1203,11 @@
    "difficulty": 3,
    "question": "Would you mind closing the window?",
    "choices": [
-    "Not at all.",
     "The store closes at nine.",
-    "It's a nice window seat."
+    "It's a nice window seat.",
+    "Not at all."
    ],
-   "answer": 0,
+   "answer": 2,
    "speakers": {
     "Q": {
      "g": "m",
@@ -1221,9 +1221,9 @@
    "explanation": {
     "why": "Would you mind ~?는 '~해도 괜찮을까요?'라는 요청이다. 'Not at all(전혀 상관없어요)'은 수락의 뜻이다.",
     "traps": [
-     null,
      "closing과 같은 동사 close를 써서 가게 마감 시간을 말한 함정이다.",
-     "window를 반복한 함정이다."
+     "window를 반복한 함정이다.",
+     null
     ]
    },
    "tags": [
@@ -1277,11 +1277,11 @@
    "difficulty": 2,
    "question": "Would you prefer a window seat or an aisle seat?",
    "choices": [
+    "Whichever is available.",
     "Yes, I'd prefer that.",
-    "I saw it through the window.",
-    "Whichever is available."
+    "I saw it through the window."
    ],
-   "answer": 2,
+   "answer": 0,
    "speakers": {
     "Q": {
      "g": "m",
@@ -1295,9 +1295,9 @@
    "explanation": {
     "why": "선택 의문문에 '아무거나 가능한 걸로'라고 답했다. 둘 다 괜찮다는 정답 유형이다.",
     "traps": [
+     null,
      "선택 의문문에는 Yes/No로 답하지 않는다.",
-     "window를 반복한 함정이다.",
-     null
+     "window를 반복한 함정이다."
     ]
    },
    "vocab": [
@@ -1316,11 +1316,11 @@
    "difficulty": 4,
    "question": "Should we meet in your office or in the conference room?",
    "choices": [
-    "Mine is a bit small.",
     "Yes, we should.",
-    "The conference was in May."
+    "The conference was in May.",
+    "Mine is a bit small."
    ],
-   "answer": 0,
+   "answer": 2,
    "speakers": {
     "Q": {
      "g": "f",
@@ -1334,9 +1334,9 @@
    "explanation": {
     "why": "'제 방은 좀 좁아요'라고 답해 회의실에서 만나자는 뜻을 간접적으로 전했다.",
     "traps": [
-     null,
      "선택 의문문에 Yes로 답할 수 없다.",
-     "conference를 반복했지만 지난 학회 이야기다."
+     "conference를 반복했지만 지난 학회 이야기다.",
+     null
     ]
    },
    "tags": [
@@ -1458,10 +1458,10 @@
    "question": "I can't find the file for the Henderson account.",
    "choices": [
     "A file cabinet.",
-    "Did you check the shared drive?",
-    "I found it very interesting."
+    "I found it very interesting.",
+    "Did you check the shared drive?"
    ],
-   "answer": 1,
+   "answer": 2,
    "speakers": {
     "Q": {
      "g": "f",
@@ -1476,8 +1476,8 @@
     "why": "파일을 못 찾겠다는 말에 '공유 드라이브는 확인해 봤어요?'라고 되물으며 해결책을 제시했다.",
     "traps": [
      "file을 반복한 함정이다.",
-     null,
-     "find와 같은 동사 found를 썼지만 '흥미롭다고 생각했다'는 엉뚱한 뜻이다."
+     "find와 같은 동사 found를 썼지만 '흥미롭다고 생각했다'는 엉뚱한 뜻이다.",
+     null
     ]
    },
    "vocab": [
@@ -1496,11 +1496,11 @@
    "difficulty": 2,
    "question": "Our flight has been delayed by two hours.",
    "choices": [
-    "Then let's get something to eat.",
     "It's a two-hour drive.",
-    "He flew to Tokyo."
+    "He flew to Tokyo.",
+    "Then let's get something to eat."
    ],
-   "answer": 0,
+   "answer": 2,
    "speakers": {
     "Q": {
      "g": "m",
@@ -1514,9 +1514,9 @@
    "explanation": {
     "why": "비행기가 두 시간 지연됐다는 말에 '그럼 뭐 좀 먹자'고 상황에 맞게 반응했다.",
     "traps": [
-     null,
      "two hours를 반복했지만 운전 시간 이야기다.",
-     "flight와 관련된 flew를 썼지만 다른 사람 이야기다."
+     "flight와 관련된 flew를 썼지만 다른 사람 이야기다.",
+     null
     ]
    }
   },
@@ -1528,11 +1528,11 @@
    "difficulty": 3,
    "question": "The new hires will start next week.",
    "choices": [
+    "Then we need to prepare their desks.",
     "Higher than last year.",
-    "It started raining.",
-    "Then we need to prepare their desks."
+    "It started raining."
    ],
-   "answer": 2,
+   "answer": 0,
    "speakers": {
     "Q": {
      "g": "f",
@@ -1546,9 +1546,9 @@
    "explanation": {
     "why": "신입 사원이 다음 주에 온다는 말에 '그럼 책상을 준비해야겠네'라고 이어 갔다.",
     "traps": [
+     null,
      "hires와 발음이 비슷한 higher를 쓴 유사 발음 함정이다.",
-     "start를 반복했지만 날씨 이야기다.",
-     null
+     "start를 반복했지만 날씨 이야기다."
     ]
    },
    "vocab": [

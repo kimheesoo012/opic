@@ -9,17 +9,17 @@
    "question": "The company plans ------- a second distribution center in the southern region next year.",
    "choices": [
     "open",
-    "opening",
     "to open",
+    "opening",
     "opened"
    ],
-   "answer": 2,
+   "answer": 1,
    "explanation": {
     "why": "plan은 to부정사를 목적어로 취하는 동사다(plan to do). 따라서 to open이 정답이다.",
     "traps": [
      "open은 동사원형이라 plans 뒤에 바로 올 수 없다(동사 두 개 연속).",
-     "opening은 동명사다. plan은 동명사를 목적어로 취하지 않는다.",
      null,
+     "opening은 동명사다. plan은 동명사를 목적어로 취하지 않는다.",
      "opened는 과거형·과거분사로 plans 뒤 목적어 자리에 맞지 않는다."
     ]
    },
@@ -39,18 +39,18 @@
    "difficulty": 3,
    "question": "Ms. Hwang recommended ------- the client meeting until the final figures were available.",
    "choices": [
+    "postponing",
     "postpone",
     "to postpone",
-    "postponing",
     "postponed"
    ],
-   "answer": 2,
+   "answer": 0,
    "explanation": {
     "why": "recommend는 동명사를 목적어로 취한다(recommend doing). '최종 수치가 나올 때까지 미팅을 미루자고 권했다'는 뜻으로 postponing이 정답이다.",
     "traps": [
+     null,
      "postpone은 동사원형이라 recommended 바로 뒤에 올 수 없다.",
      "to postpone은 recommend 뒤에 바로 쓰지 않는다. recommend 사람 to do 형태와 혼동시키는 함정.",
-     null,
      "postponed는 과거형이라 동사가 겹친다."
     ]
    },
@@ -79,18 +79,18 @@
    "question": "Everyone at Dalton Engineering looks forward to ------- with the new research partners in Osaka.",
    "choices": [
     "collaborate",
-    "collaborating",
     "be collaborated",
-    "have collaborated"
+    "have collaborated",
+    "collaborating"
    ],
-   "answer": 1,
+   "answer": 3,
    "explanation": {
     "why": "look forward to에서 to는 전치사라 뒤에 명사나 동명사가 온다. collaborating(협력하는 것)이 정답이다.",
     "traps": [
-     "to를 to부정사로 착각해 동사원형을 고르게 만드는 대표 함정이다. look forward to의 to는 전치사.",
-     null,
+     "collaborate(동사원형)는 to를 to부정사로 착각하게 만드는 대표 함정이다. look forward to의 to는 전치사라 동사원형이 올 수 없다.",
      "be collaborated는 동사원형 형태이고, collaborate는 자동사라 수동태도 어색하다.",
-     "have collaborated도 동사원형으로 시작하는 형태라 전치사 to 뒤에 올 수 없다."
+     "have collaborated도 동사원형으로 시작하는 형태라 전치사 to 뒤에 올 수 없다.",
+     null
     ]
    },
    "vocab": [
@@ -110,17 +110,17 @@
    "question": "------- customer wait times, the bank has added two more tellers during lunch hours.",
    "choices": [
     "Reduce",
-    "To reduce",
     "Reduced",
+    "To reduce",
     "Reduction"
    ],
-   "answer": 1,
+   "answer": 2,
    "explanation": {
     "why": "콤마 뒤에 완전한 문장이 있으므로 앞부분은 수식어다. '대기 시간을 줄이기 위해'라는 목적을 나타내는 to부정사 To reduce가 정답이다.",
     "traps": [
      "Reduce로 시작하면 명령문이 되어 뒤의 절과 접속사 없이 연결될 수 없다.",
-     null,
      "Reduced는 과거분사로 '줄어든'이라는 수동 의미인데, 은행이 대기 시간을 줄이는 능동 관계라 맞지 않는다.",
+     null,
      "Reduction은 명사라 뒤에 목적어 customer wait times를 바로 취할 수 없다."
     ]
    },
@@ -152,7 +152,7 @@
    "explanation": {
     "why": "be committed to(~에 전념하다)의 to는 전치사다. 뒤에 목적어(the environmental impact)를 취하면서 전치사 뒤에 올 수 있는 동명사 minimizing이 정답이다.",
     "traps": [
-     "be committed to 뒤를 to부정사로 착각하면 동사원형을 고르게 된다. 이 to는 전치사.",
+     "minimize(동사원형)는 be committed to 뒤를 to부정사로 착각할 때 고르는 함정이다. 이 to는 전치사.",
      null,
      "be minimized는 수동형이라 뒤의 목적어와 맞지 않고, 전치사 뒤에 올 수도 없다.",
      "minimal(최소한의)은 형용사라 전치사의 목적어가 될 수 없고 뒤 명사구와도 연결되지 않는다."
@@ -181,17 +181,17 @@
    "choices": [
     "attach",
     "attaching",
-    "attached",
-    "attachment"
+    "attachment",
+    "attached"
    ],
-   "answer": 2,
+   "answer": 3,
    "explanation": {
     "why": "문서는 '첨부된' 대상이므로 수동 의미의 과거분사 attached가 명사 documents를 꾸민다.",
     "traps": [
      "attach는 동사원형이라 관사와 명사 사이 수식 자리에 올 수 없다.",
      "attaching은 '첨부하는'이라는 능동 의미라 문서가 스스로 첨부하는 꼴이 된다.",
-     null,
-     "attachment documents는 명사+명사로 쓰지 않는 표현이다."
+     "attachment documents는 명사+명사로 쓰지 않는 표현이다.",
+     null
     ]
    },
    "vocab": [
@@ -210,18 +210,18 @@
    "difficulty": 3,
    "question": "The results of the customer survey were ------- to the product development team.",
    "choices": [
+    "encouraging",
     "encourage",
     "encouraged",
-    "encouraging",
     "encouragement"
    ],
-   "answer": 2,
+   "answer": 0,
    "explanation": {
     "why": "주어는 사물인 results(결과)이고, 결과가 팀을 '고무시키는' 쪽이다. 감정을 일으키는 사물에는 -ing 형태 encouraging을 쓴다.",
     "traps": [
+     null,
      "encourage는 동사원형이라 were 뒤에 올 수 없다.",
      "encouraged는 '사람이 고무된' 상태를 나타낸다. 주어가 사물(results)이므로 맞지 않는 감정 분사 함정.",
-     null,
      "encouragement는 명사라 '결과=격려'가 되어 to the team과 어색하게 연결된다."
     ]
    },
@@ -241,18 +241,18 @@
    "difficulty": 3,
    "question": "Participants ------- in the workshop should register at the information booth by noon.",
    "choices": [
-    "interested",
     "interesting",
     "interest",
+    "interested",
     "interests"
    ],
-   "answer": 0,
+   "answer": 2,
    "explanation": {
     "why": "Participants를 뒤에서 꾸미는 분사 자리다. 참가자(사람)가 '관심을 느끼는' 것이므로 interested (in)가 정답이다.",
     "traps": [
-     null,
      "interesting은 '흥미를 일으키는'이라는 뜻으로 사람이 주어일 때는 '흥미로운 참가자'가 되어 의미가 달라진다.",
      "interest는 명사·동사원형이라 이 위치에서 Participants를 수식할 수 없다.",
+     null,
      "interests는 동사로 보면 본동사가 should register와 겹치고, 수도 맞지 않는다."
     ]
    },
@@ -276,18 +276,18 @@
    "question": "------- by the strong demand, the manufacturer increased production of its electric scooters.",
    "choices": [
     "Encouraging",
-    "Encouraged",
     "Encourage",
-    "To encourage"
+    "To encourage",
+    "Encouraged"
    ],
-   "answer": 1,
+   "answer": 3,
    "explanation": {
     "why": "분사구문의 의미상 주어는 주절 주어 the manufacturer다. 제조업체가 높은 수요에 '고무된' 것이고 뒤에 by가 있으므로 과거분사 Encouraged가 정답이다.",
     "traps": [
      "Encouraging은 능동이라 '제조업체가 수요를 고무시키며'가 되고, 뒤의 by와도 맞지 않는다.",
-     null,
      "Encourage로 시작하면 명령문이 되어 주절과 연결이 안 된다.",
-     "To encourage는 '고무시키기 위해'라는 목적이라 뒤의 by the strong demand와 어울리지 않는다."
+     "To encourage는 '고무시키기 위해'라는 목적이라 뒤의 by the strong demand와 어울리지 않는다.",
+     null
     ]
    },
    "vocab": [
@@ -315,17 +315,17 @@
    "question": "Anyone ------- a parking permit for the new garage must apply through the facilities office.",
    "choices": [
     "requested",
-    "requests",
     "requesting",
+    "requests",
     "request"
    ],
-   "answer": 2,
+   "answer": 1,
    "explanation": {
     "why": "Anyone을 뒤에서 꾸미는 분사가 필요하고, 뒤에 목적어 a parking permit이 있으므로 능동의 현재분사 requesting(~을 요청하는)이 정답이다. 본동사는 must apply.",
     "traps": [
      "requested는 수동이라 뒤에 목적어를 취할 수 없고 '요청받은 사람'이 되어 뜻이 바뀐다.",
-     "requests는 동사로 보면 must apply와 본동사가 두 개가 된다.",
      null,
+     "requests는 동사로 보면 must apply와 본동사가 두 개가 된다.",
      "request는 동사원형·명사라 Anyone을 수식하는 자리에 올 수 없다."
     ]
    },
@@ -350,18 +350,18 @@
    "difficulty": 1,
    "question": "Mr. Castillo asked his assistant to forward the invoice to ------- by the end of the day.",
    "choices": [
+    "him",
     "he",
     "his",
-    "him",
     "himself"
    ],
-   "answer": 2,
+   "answer": 0,
    "explanation": {
     "why": "전치사 to 뒤는 목적격 자리이므로 him이 정답이다. forward의 주어는 assistant라서 재귀대명사가 아니라 목적격을 쓴다.",
     "traps": [
+     null,
      "he는 주격이라 전치사 뒤에 올 수 없다.",
      "his는 소유격이라 뒤에 명사가 필요하다.",
-     null,
      "himself는 동작의 주체와 대상이 같을 때 쓴다. forward의 주체는 assistant, 받는 사람은 Mr. Castillo라 재귀대명사가 아니다."
     ]
    },
@@ -419,17 +419,17 @@
    "choices": [
     "her",
     "hers",
-    "herself",
-    "she"
+    "she",
+    "herself"
    ],
-   "answer": 2,
+   "answer": 3,
    "explanation": {
     "why": "문장이 이미 완전하고, 빈칸은 '직접, 몸소'라는 강조 용법의 재귀대명사 자리다. 주어 Ms. Patel에 맞춘 herself가 정답이다.",
     "traps": [
      "her는 목적어·소유격 역할인데 answered의 목적어 the phones가 이미 있다.",
      "hers(그녀의 것)는 '그녀의 것 전화를 받았다'로 오해할 수 있지만 the phones 뒤에 붙는 자리가 아니다.",
-     null,
-     "she는 주격이라 문장 끝에 올 수 없다."
+     "she는 주격이라 문장 끝에 올 수 없다.",
+     null
     ]
    },
    "vocab": [
@@ -452,17 +452,17 @@
    "question": "Our proposal was shorter than the other firms', but the client found ------- more detailed.",
    "choices": [
     "our",
-    "ours",
     "ourselves",
+    "ours",
     "we"
    ],
-   "answer": 1,
+   "answer": 2,
    "explanation": {
     "why": "found + 목적어 + 보어(more detailed) 구조에서 목적어가 필요하다. 앞 문장과 비교 대상이 '제안서'이므로 '우리의 제안서'를 가리키는 소유대명사 ours가 정답이다.",
     "traps": [
      "our는 소유격이라 뒤에 명사가 있어야 한다.",
-     null,
      "ourselves는 주어가 we일 때만 목적어로 쓸 수 있는데 주어는 the client다.",
+     null,
      "we는 주격이라 found의 목적어 자리에 올 수 없다."
     ]
    },
@@ -483,17 +483,17 @@
    "question": "New employees are encouraged to familiarize ------- with the safety procedures before their first shift.",
    "choices": [
     "they",
-    "their",
     "themselves",
+    "their",
     "theirs"
    ],
-   "answer": 2,
+   "answer": 1,
    "explanation": {
     "why": "familiarize oneself with(~에 익숙해지다)는 목적어가 주어 자신이어야 하는 표현이다. 주어 New employees에 맞춘 재귀대명사 themselves가 정답이다.",
     "traps": [
      "they는 주격이라 동사 familiarize의 목적어가 될 수 없다.",
-     "their는 소유격이라 뒤에 명사가 필요하다.",
      null,
+     "their는 소유격이라 뒤에 명사가 필요하다.",
      "theirs는 '그들의 것'이라 자신을 익숙하게 한다는 의미가 되지 않는다."
     ]
    },
@@ -549,17 +549,17 @@
    "difficulty": 3,
    "question": "Applicants ------- résumés arrive after the deadline will not be considered.",
    "choices": [
-    "who",
     "whose",
+    "who",
     "which",
     "whom"
    ],
-   "answer": 1,
+   "answer": 0,
    "explanation": {
     "why": "빈칸 뒤에 명사 résumés가 바로 오고 '지원자들의 이력서'라는 소유 관계다. 소유격 관계대명사 whose가 정답이다.",
     "traps": [
-     "who 뒤에는 동사가 와야 한다(who arrive). 여기서는 명사가 바로 이어진다.",
      null,
+     "who 뒤에는 동사가 와야 한다(who arrive). 여기서는 명사가 바로 이어진다.",
      "which는 사물 선행사에 쓰고, 뒤에 명사가 바로 오는 구조에도 맞지 않는다.",
      "whom은 목적격이라 뒤에 '주어+동사'가 와야 하고 소유 관계를 나타내지 못한다."
     ]
@@ -581,18 +581,18 @@
    "question": "The hotel ------- the annual sales conference will be held is located near the convention center.",
    "choices": [
     "which",
-    "where",
     "what",
-    "whose"
+    "whose",
+    "where"
    ],
-   "answer": 1,
+   "answer": 3,
    "explanation": {
     "why": "관계절 the annual sales conference will be held는 주어와 수동태 동사를 갖춘 완전한 문장이다. 장소 선행사(The hotel) 뒤 완전한 절을 이끄는 관계부사 where가 정답이다.",
     "traps": [
      "which 뒤에는 주어나 목적어가 빠진 불완전한 절이 와야 한다. 'in which'였다면 가능.",
-     null,
      "what은 선행사를 포함하므로 The hotel 뒤에 올 수 없다.",
-     "whose 뒤에는 무관사 명사가 와야 하고, 소유 관계도 성립하지 않는다."
+     "whose 뒤에는 무관사 명사가 와야 하고, 소유 관계도 성립하지 않는다.",
+     null
     ]
    },
    "vocab": [
@@ -689,17 +689,17 @@
    "difficulty": 2,
    "question": "------- the train was delayed by forty minutes, most passengers arrived in time for the opening speech.",
    "choices": [
-    "Although",
     "Despite",
+    "Although",
     "However",
     "Because of"
    ],
-   "answer": 0,
+   "answer": 1,
    "explanation": {
     "why": "빈칸 뒤에 주어(the train)와 동사(was delayed)가 있는 절이 오므로 접속사가 필요하다. '지연됐지만 제시간에 도착했다'는 양보 관계라 Although가 정답이다.",
     "traps": [
-     null,
      "Despite는 전치사라 뒤에 명사(구)만 올 수 있다. 의미는 맞지만 품사가 틀린 대표 함정.",
+     null,
      "However는 접속부사라 두 절을 하나의 문장으로 연결하지 못한다.",
      "Because of는 전치사이고 의미도 '때문에'라 대조 관계와 맞지 않는다."
     ]
@@ -721,17 +721,17 @@
    "question": "The store will remain open until 9 P.M. ------- the holiday shopping season.",
    "choices": [
     "while",
-    "during",
     "when",
+    "during",
     "as long as"
    ],
-   "answer": 1,
+   "answer": 2,
    "explanation": {
     "why": "빈칸 뒤가 명사구(the holiday shopping season)뿐이므로 전치사가 필요하다. '~ 동안'이라는 의미의 전치사 during이 정답이다.",
     "traps": [
      "while은 '~하는 동안'이라는 뜻은 같지만 접속사라 뒤에 절이 와야 한다.",
-     null,
      "when은 접속사로 뒤에 주어+동사가 필요하다.",
+     null,
      "as long as(~하는 한)는 조건 접속사라 명사구만 받을 수 없다."
     ]
    },
@@ -791,18 +791,18 @@
    "question": "------- its higher price, the premium model has outsold the standard version in every region.",
    "choices": [
     "Even though",
-    "Notwithstanding",
     "Whereas",
-    "Nevertheless"
+    "Nevertheless",
+    "Notwithstanding"
    ],
-   "answer": 1,
+   "answer": 3,
    "explanation": {
     "why": "빈칸 뒤가 명사구(its higher price)뿐이라 전치사가 필요하다. Notwithstanding은 '~에도 불구하고'라는 뜻의 전치사로 쓸 수 있어 정답이다.",
     "traps": [
      "Even though는 뜻은 맞지만 접속사라 뒤에 절이 와야 한다.",
-     null,
      "Whereas(반면에)는 접속사라 명사구를 받을 수 없고 의미도 대조 비교다.",
-     "Nevertheless는 접속부사로 명사구 앞에서 전치사 역할을 하지 못한다."
+     "Nevertheless는 접속부사로 명사구 앞에서 전치사 역할을 하지 못한다.",
+     null
     ]
    },
    "vocab": [
@@ -829,18 +829,18 @@
    ],
    "question": "Ms. Reyes will approve the travel request ------- the total cost stays within the department's budget.",
    "choices": [
-    "provided that",
     "in spite of",
     "in addition to",
+    "provided that",
     "regardless"
    ],
-   "answer": 0,
+   "answer": 2,
    "explanation": {
     "why": "뒤에 절(the total cost stays …)이 이어지고, '예산 안이라면 승인하겠다'는 조건 관계다. 조건 접속사 provided that(~라면)이 정답이다.",
     "traps": [
-     null,
      "in spite of는 전치사라 절을 받을 수 없고, 의미도 양보라 조건 관계와 맞지 않는다.",
      "in addition to는 전치사구(~에 더하여)라 절이 올 수 없다.",
+     null,
      "regardless는 부사로, regardless of(~와 상관없이) 형태로 써도 명사만 받는다."
     ]
    },
@@ -860,19 +860,19 @@
    "difficulty": 2,
    "question": "Completed expense forms must be submitted ------- Friday, March 14.",
    "choices": [
-    "by",
     "until",
     "since",
-    "within"
+    "within",
+    "by"
    ],
-   "answer": 0,
+   "answer": 3,
    "explanation": {
     "why": "제출은 한 번에 끝나는 동작이고 '3월 14일 금요일까지 (완료)'라는 마감 기한이므로 by가 정답이다.",
     "traps": [
-     null,
      "until은 '~까지 계속'이라 동작이 그때까지 이어질 때 쓴다(stay until). 제출 마감에는 by.",
      "since는 '~ 이후로'라 마감 기한을 나타내지 않는다.",
-     "within은 '~ 이내에'로 기간(within three days)과 쓰며 날짜 앞에는 쓰지 않는다."
+     "within은 '~ 이내에'로 기간(within three days)과 쓰며 날짜 앞에는 쓰지 않는다.",
+     null
     ]
    },
    "vocab": [
@@ -891,17 +891,17 @@
    "difficulty": 3,
    "question": "Mr. Nkemelu will speak at the trade fair ------- the entire sales department.",
    "choices": [
-    "on behalf of",
     "in spite of",
+    "on behalf of",
     "in front",
     "instead"
    ],
-   "answer": 0,
+   "answer": 1,
    "explanation": {
     "why": "on behalf of는 '~을 대표하여'라는 뜻으로, 영업부 전체를 대표해 연설한다는 문맥에 맞는다.",
     "traps": [
-     null,
      "in spite of(~에도 불구하고)는 '영업부 전체에도 불구하고 연설한다'가 되어 의미가 통하지 않는다.",
+     null,
      "in front는 뒤에 of가 있어야 명사를 받을 수 있다(in front of).",
      "instead는 부사라 뒤에 바로 명사가 올 수 없다(instead of 필요)."
     ]
@@ -956,18 +956,18 @@
    ],
    "question": "All renovations to the lobby must be carried out ------- accordance with the city's building codes.",
    "choices": [
+    "in",
     "at",
     "on",
-    "in",
     "by"
    ],
-   "answer": 2,
+   "answer": 0,
    "explanation": {
     "why": "in accordance with(~에 따라)는 고정된 전치사 표현이다. 시 건축 규정에 따라 공사해야 한다는 뜻.",
     "traps": [
+     null,
      "at accordance with는 쓰지 않는 표현이다.",
      "on accordance with도 쓰지 않는다. on behalf of 등과 혼동하게 하는 함정.",
-     null,
      "by accordance with는 없는 표현이다. by는 '수단, 기한'에 쓴다."
     ]
    },
@@ -992,17 +992,17 @@
    "difficulty": 3,
    "question": "The factory has operated at full capacity ------- the beginning of the year.",
    "choices": [
-    "since",
     "for",
+    "since",
     "ago",
     "until"
    ],
-   "answer": 0,
+   "answer": 1,
    "explanation": {
     "why": "현재완료(has operated)와 함께 '연초 이후로 지금까지'라는 시작 시점을 나타내야 하므로 since가 정답이다. the beginning of the year는 기간이 아니라 시점이다.",
     "traps": [
-     null,
      "for 뒤에는 기간(for three months)이 와야 한다. the beginning은 시점이라 맞지 않는다.",
+     null,
      "ago는 'three months ago'처럼 기간 뒤에 붙는 부사라 명사 앞에 쓸 수 없고 현재완료와도 함께 쓰지 않는다.",
      "until은 '~까지 계속'이라 끝나는 시점을 나타낸다. 연초까지만 가동했다는 뜻이 되어 현재완료(지금까지 계속)와 맞지 않는다."
     ]

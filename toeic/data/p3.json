@@ -68,17 +68,17 @@
      "difficulty": 2,
      "question": "According to the woman, why do the monitors need approval?",
      "choices": [
-      "They cost over a certain amount.",
       "They are currently out of stock.",
+      "They cost over a certain amount.",
       "They must be ordered from overseas.",
       "They are for the finance department."
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "여자는 모니터가 개당 200달러가 넘기 때문에(since they cost more than two hundred dollars each) 재무팀 승인이 필요하다고 했다.",
       "traps": [
-       null,
        "품절(out of stock)이라는 말은 없다. 'almost out of'는 카트리지 이야기다.",
+       null,
        "해외 주문 이야기는 없다.",
        "재무팀은 승인을 하는 부서이지 모니터를 쓰는 부서가 아니다."
       ]
@@ -97,18 +97,18 @@
      "difficulty": 2,
      "question": "What will the man do this afternoon?",
      "choices": [
-      "Submit a request",
       "Install some monitors",
       "Buy printer cartridges",
+      "Submit a request",
       "Meet with the woman"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "남자는 오늘 오후에 필요한 모니터 수를 적어 재무팀에 요청을 보내겠다(I'll send a request to finance this afternoon)고 했다.",
       "traps": [
-       null,
        "모니터는 아직 승인도 받지 않았다.",
        "카트리지는 여자가 주문서에 넣어 처리한다.",
+       null,
        "여자와 만나겠다는 말은 없다."
       ]
      },
@@ -164,19 +164,19 @@
      "difficulty": 1,
      "question": "Where most likely are the speakers?",
      "choices": [
-      "At a hotel",
       "At an airport",
       "At a restaurant",
-      "At a conference center"
+      "At a conference center",
+      "At a hotel"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "예약자 이름 확인, 3박 투숙, 시티뷰 객실, 모닝콜 요청 등으로 보아 호텔 프런트 대화다.",
       "traps": [
-       null,
        "공항 관련 표현(탑승, 수하물)은 없다.",
        "식당 예약이 아니라 객실 이야기다.",
-       "meeting이 언급되지만 회의 장소에서 나누는 대화가 아니다."
+       "meeting이 언급되지만 회의 장소에서 나누는 대화가 아니다.",
+       null
       ]
      },
      "id": "p3-s02-1",
@@ -194,18 +194,18 @@
      "difficulty": 4,
      "question": "Why does the man say, “I've got a really early meeting tomorrow”?",
      "choices": [
-      "He does not want to change rooms in the morning.",
       "He wants to check out early.",
       "He needs directions to a meeting.",
+      "He does not want to change rooms in the morning.",
       "He wants to cancel his reservation."
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "원하는 방이 내일에야 준비된다는 말에 '내일 아침 일찍 회의가 있다'고 답한다. 아침에 방을 옮기기 곤란하다는 뜻이고, 여자도 '내일 옮기지 않아도 된다'고 응답한다.",
       "traps": [
-       null,
        "3박 예약이고 일찍 체크아웃하겠다는 말은 없다.",
        "회의 장소를 묻는 것이 아니다.",
+       null,
        "예약 취소 의도는 없다. 대안을 받아들인다."
       ]
      },
@@ -220,19 +220,19 @@
      "difficulty": 2,
      "question": "What does the man request?",
      "choices": [
-      "A wake-up call",
       "A late checkout",
       "A city map",
-      "A ride to the airport"
+      "A ride to the airport",
+      "A wake-up call"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "마지막에 5시 30분 모닝콜을 요청했다.",
       "traps": [
-       null,
        "늦은 체크아웃 요청은 없다.",
        "city는 객실 전망(city view)에서 나온 단어일 뿐이다.",
-       "공항 교통편 요청은 없다."
+       "공항 교통편 요청은 없다.",
+       null
       ]
      },
      "id": "p3-s02-3"
@@ -439,18 +439,18 @@
      "difficulty": 1,
      "question": "What are the speakers discussing?",
      "choices": [
-      "Filling a job opening",
       "Planning a client visit",
       "Renovating a meeting room",
+      "Filling a job opening",
       "Reviewing sales figures"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "첫 문장에서 영업 코디네이터 자리를 이달 말까지 채워야 한다고 하고, 지원서·면접 일정 이야기가 이어진다.",
       "traps": [
-       null,
        "고객사 방문은 여자가 목요일에 바쁜 이유로만 나온다.",
        "회의실은 면접 장소로 예약할 뿐이다.",
+       null,
        "sales는 직책 이름(sales coordinator)에 들어간 단어일 뿐이다."
       ]
      },
@@ -469,19 +469,19 @@
      "difficulty": 2,
      "question": "Why is the woman unavailable on Thursday?",
      "choices": [
-      "She will be visiting a client.",
       "She will be on vacation.",
       "She has a training session.",
-      "She is moving to a new office."
+      "She is moving to a new office.",
+      "She will be visiting a client."
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "여자는 목요일 하루 종일 고객사 현장에 있을 것(I'll be at a client's site all day Thursday)이라고 했다.",
       "traps": [
-       null,
        "휴가 이야기는 없다.",
        "교육 일정은 언급되지 않았다.",
-       "사무실 이전 이야기는 없다."
+       "사무실 이전 이야기는 없다.",
+       null
       ]
      },
      "para": [
@@ -498,17 +498,17 @@
      "difficulty": 2,
      "question": "What does Tom say he will do?",
      "choices": [
-      "Reserve a room",
       "Post a job advertisement",
+      "Reserve a room",
       "Call a client",
       "Review more applications"
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "Tom(첫 번째 남자)은 작은 회의실을 예약하고 후보자들에게 초대장을 보내겠다고 했다.",
       "traps": [
-       null,
        "이미 지원서 40여 건을 받았으므로 채용 공고를 올릴 필요가 없다.",
+       null,
        "고객에게 연락하는 것은 여자의 일정과 관련된 내용이 아니다.",
        "이미 6명으로 좁혔다."
       ]
@@ -555,19 +555,19 @@
      "difficulty": 1,
      "question": "What problem does the man report?",
      "choices": [
-      "An air-conditioning system is not working.",
       "A meeting room is double-booked.",
       "Some clients are late.",
-      "A floor needs cleaning."
+      "A floor needs cleaning.",
+      "An air-conditioning system is not working."
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "남자는 자기 층의 에어컨이 또 작동을 멈췄다고 보고했다.",
       "traps": [
-       null,
        "회의실 이중 예약 이야기는 없다.",
        "고객은 2시에 올 예정이라고 했을 뿐 늦는다는 말은 없다.",
-       "floor(층)라는 단어를 이용한 함정이다."
+       "floor(층)라는 단어를 이용한 함정이다.",
+       null
       ]
      },
      "id": "p3-s05-1",
@@ -608,17 +608,17 @@
      "difficulty": 2,
      "question": "What does the woman suggest the man do?",
      "choices": [
-      "Use a different room",
       "Reschedule a client meeting",
+      "Use a different room",
       "Call the repair company",
       "Open the windows"
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "그동안 다른 냉방 시스템을 쓰는 4층 회의실을 이용하라고 제안했다.",
       "traps": [
-       null,
        "고객 미팅 일정을 바꾸라는 말은 없다.",
+       null,
        "수리 업체에는 여자가 직접 전화하겠다고 했다. 주어를 바꾼 함정.",
        "창문 이야기는 없다."
       ]
@@ -671,18 +671,18 @@
      "difficulty": 1,
      "question": "Where most likely does the man work?",
      "choices": [
-      "At a car rental agency",
       "At a repair shop",
       "At a travel agency",
+      "At a car rental agency",
       "At a parking garage"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "소형차 예약·픽업, 중형차 업그레이드, 운전면허증 확인으로 보아 렌터카 업체 직원이다.",
       "traps": [
-       null,
        "차를 고치는 이야기는 없다.",
        "여행사는 차량을 직접 내주지 않는다.",
+       null,
        "주차장 이야기는 없다."
       ]
      },
@@ -730,18 +730,18 @@
      "difficulty": 2,
      "question": "What will the man do after checking the woman's documents?",
      "choices": [
-      "Explain how to use a device",
       "Give directions to a client's office",
       "Wash the car",
+      "Explain how to use a device",
       "Print a map"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "면허증과 카드를 확인한 뒤 내비게이션 사용법을 알려 주겠다고 했다. 내비게이션 = 기기(device).",
       "traps": [
-       null,
        "고객사로 가는 길을 직접 알려 주겠다는 말은 없다.",
        "세차 이야기는 없다.",
+       null,
        "지도를 출력한다는 말은 없다."
       ]
      },
@@ -823,19 +823,19 @@
      "difficulty": 2,
      "question": "What does the woman tell the man?",
      "choices": [
-      "His train will leave from a different platform.",
       "His train has been canceled.",
       "His ticket is not valid.",
-      "He needs to change trains."
+      "He needs to change trains.",
+      "His train will leave from a different platform."
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "기차가 지연되었고 오늘은 5번 승강장에서 출발한다고 했다. 원래 보던 2번이 아닌 다른 승강장이다.",
       "traps": [
-       null,
        "취소가 아니라 지연(delayed)이다.",
        "표에 문제가 있다는 말은 없다.",
-       "환승 이야기는 없다."
+       "환승 이야기는 없다.",
+       null
       ]
      },
      "para": [
@@ -954,19 +954,19 @@
      "difficulty": 1,
      "question": "What event are the speakers discussing?",
      "choices": [
-      "A product launch",
       "A budget meeting",
       "A training workshop",
-      "A trade show"
+      "A trade show",
+      "A product launch"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "첫 문장에서 다음 달 싱가포르 제품 출시 행사(product launch)에 가는지 묻는다.",
       "traps": [
-       null,
        "예산은 출장 경비 승인 이야기일 뿐 회의가 아니다.",
        "교육 워크숍 이야기는 없다.",
-       "무역 박람회는 언급되지 않았다."
+       "무역 박람회는 언급되지 않았다.",
+       null
       ]
      },
      "id": "p3-s08-1",
@@ -989,18 +989,18 @@
      "difficulty": 4,
      "question": "What does the man imply when he says, “I wouldn't count on it”?",
      "choices": [
-      "He doubts the approval will come on time.",
       "He does not know how much the trip will cost.",
       "He disagrees with the budget.",
+      "He doubts the approval will come on time.",
       "He thinks the event will be canceled."
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "금요일까지 승인해 준다고 하지 않았냐는 말에 '그렇긴 한데 기대하지 않는다, 그녀가 일주일 내내 출장 중'이라고 답한다. 제때 승인이 나지 않을 것 같다는 뜻이다.",
       "traps": [
-       null,
        "비용 이야기가 아니다.",
        "예산 자체에 반대하는 것이 아니다.",
+       null,
        "행사가 취소된다는 말이 아니라 온라인 중계도 있다."
       ]
      },
@@ -1015,17 +1015,17 @@
      "difficulty": 2,
      "question": "What does the man say he will do?",
      "choices": [
-      "Sign up for an online event",
       "Book a flight to Singapore",
+      "Sign up for an online event",
       "Contact Ms. Romero",
       "Prepare a presentation"
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "만약을 대비해 온라인 버전에 등록하겠다(register for the online version)고 했다.",
       "traps": [
-       null,
        "아직 출장 승인을 받지 못했다.",
+       null,
        "Ms. Romero에게 연락하겠다는 말은 없다.",
        "발표 준비 이야기는 없다."
       ]
@@ -1142,18 +1142,18 @@
      "difficulty": 2,
      "question": "What does the man request?",
      "choices": [
-      "Special meals for some guests",
       "A private room",
       "A discount",
+      "Special meals for some guests",
       "A parking space"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "손님 두 명을 위한 채식 메뉴를 준비해 달라고 했다.",
       "traps": [
-       null,
        "개별 룸은 8시 30분에만 가능해 선택하지 않았다.",
        "할인 요청은 없다.",
+       null,
        "주차 이야기는 없다."
       ]
      },
@@ -1213,19 +1213,19 @@
      "difficulty": 2,
      "question": "What problem does the man have?",
      "choices": [
-      "He doesn't know how to use a software feature.",
       "His computer is not working.",
       "He missed an important meeting.",
-      "He cannot access the intranet."
+      "He cannot access the intranet.",
+      "He doesn't know how to use a software feature."
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "새 일정 관리 프로그램에서 반복 회의를 추가하는 방법을 모르겠다고 했다.",
       "traps": [
-       null,
        "컴퓨터 고장 이야기는 없다.",
        "meetings는 프로그램 기능 이름(recurring meetings)에 나올 뿐이다.",
-       "인트라넷 접속 문제는 언급되지 않았다."
+       "인트라넷 접속 문제는 언급되지 않았다.",
+       null
       ]
      },
      "para": [
@@ -1249,17 +1249,17 @@
      "difficulty": 3,
      "question": "Why does the man say, “I've got a full afternoon of calls”?",
      "choices": [
-      "To indicate he has no time to watch a video",
       "To ask the woman to cancel his calls",
+      "To indicate he has no time to watch a video",
       "To request a new phone",
       "To ask for help with a call"
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "10분짜리 교육 영상이 있다는 말에 '오후 내내 통화가 잡혀 있다'고 답한다. 영상 볼 시간이 없다는 뜻이고, 여자가 직접 보여 주겠다고 제안한다.",
       "traps": [
-       null,
        "통화를 취소해 달라는 것이 아니다.",
+       null,
        "새 전화기 이야기가 아니다.",
        "통화에 도움을 청하는 것이 아니다."
       ]
@@ -1275,18 +1275,18 @@
      "difficulty": 2,
      "question": "What will the woman most likely do next?",
      "choices": [
-      "Demonstrate a process",
       "Send a link to a video",
       "Schedule a meeting",
+      "Demonstrate a process",
       "Call technical support"
      ],
-     "answer": 0,
+     "answer": 2,
      "explanation": {
       "why": "'제가 그냥 보여 줄게요(why don't I just show you?)'라고 하고 남자가 수락한다. 사용 방법을 직접 시연할 것이다.",
       "traps": [
-       null,
        "영상 대신 직접 보여 주기로 했다.",
        "회의 일정을 잡는 것이 아니다.",
+       null,
        "기술 지원팀에 전화하지 않는다."
       ]
      },
@@ -1342,17 +1342,17 @@
      "difficulty": 1,
      "question": "Who most likely is the woman?",
      "choices": [
-      "A new employee",
       "A client",
+      "A new employee",
       "A security guard",
       "An accountant"
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "'Welcome to the team'과 자리를 안내해 주는 내용으로 보아 새로 입사한 직원이다.",
       "traps": [
-       null,
        "팀에 합류하고 사무실을 배정받으므로 고객이 아니다.",
+       null,
        "보안실은 주차 허가증을 받는 곳으로 나올 뿐이다.",
        "부엌 옆 사무실을 쓰는 사람들이 회계 담당자다."
       ]
@@ -1403,19 +1403,19 @@
      "difficulty": 1,
      "question": "What does the man suggest the woman do?",
      "choices": [
-      "Visit the security office",
       "Meet the design team",
       "Park on the street",
-      "Fill out a form online"
+      "Fill out a form online",
+      "Visit the security office"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "주차 허가증은 1층 보안실에 들르면(stop by the security office) 몇 분 안에 발급해 준다고 했다.",
       "traps": [
-       null,
        "디자인팀 Yuna는 사무실을 같이 쓸 사람으로 소개되었을 뿐이다.",
        "길가에 주차하라는 말은 없다.",
-       "온라인 양식 이야기는 없다."
+       "온라인 양식 이야기는 없다.",
+       null
       ]
      },
      "para": [
@@ -1531,17 +1531,17 @@
      "difficulty": 2,
      "question": "What caused the problem?",
      "choices": [
-      "A machine stopped working.",
       "A shipment was lost.",
+      "A machine stopped working.",
       "Materials became more expensive.",
       "An employee was absent."
      ],
-     "answer": 0,
+     "answer": 1,
      "explanation": {
       "why": "기계 한 대가 고장 났다(one of our machines broke down)고 했다.",
       "traps": [
-       null,
        "배송품 분실 이야기는 없다.",
+       null,
        "재료비 인상 이야기는 없다.",
        "직원 결근 이야기는 없다."
       ]
@@ -1560,19 +1560,19 @@
      "difficulty": 3,
      "question": "What does the man offer to do?",
      "choices": [
-      "Pay for faster delivery",
       "Give a discount on the next order",
       "Provide a full refund",
-      "Send a technician"
+      "Send a technician",
+      "Pay for faster delivery"
      ],
-     "answer": 0,
+     "answer": 3,
      "explanation": {
       "why": "지연이 자기 회사 탓이니 특급 배송비를 부담하겠다(We'll cover the cost of express shipping)고 했다.",
       "traps": [
-       null,
        "다음 주문 할인은 언급되지 않았다.",
        "환불 이야기는 없다.",
-       "기술자 파견 이야기는 없다. 고장 난 것은 공급업체의 기계다."
+       "기술자 파견 이야기는 없다. 고장 난 것은 공급업체의 기계다.",
+       null
       ]
      },
      "para": [

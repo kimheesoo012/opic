@@ -1,103 +1,514 @@
-{"units": [
-{"id":"p7-t01","part":7,"passages":[
-  {"kind":"email","title":"E-mail 1","text":"To: orders@supplyhub.example\nFrom: Jin Park, Corvus Design\nDate: October 2\nSubject: New order\n\nHello,\n\nPlease process the attached order for our new office on Bay Street. As a returning customer, we would like to use the loyalty discount mentioned in your September newsletter. We need all items delivered by October 10, which is when our staff will move in.\n\nThank you,\nJin Park, Office Manager"},
-  {"kind":"invoice","title":"Invoice","text":"Supply Hub — Invoice #7781\nDate: October 3\nCustomer: Corvus Design\n\nSubtotal: $3,160.00\nLoyalty discount (5%): −$158.00\nTotal: $3,002.00\nScheduled delivery: October 9",
-   "table":{"header":["Item","Quantity","Unit price","Amount"],"rows":[["Ergonomic chair","8","$150","$1,200"],["Standing desk","4","$420","$1,680"],["Desk lamp","8","$35","$280"]]}},
-  {"kind":"email","title":"E-mail 2","text":"To: orders@supplyhub.example\nFrom: Jin Park, Corvus Design\nDate: October 9\nSubject: Invoice #7781\n\nHello,\n\nThe delivery arrived this morning. Thank you for the quick service. However, we received eight standing desks rather than the four we ordered and paid for. Could you arrange for the extra desks to be picked up?\n\nAlso, one of the lamps has a cracked base. If possible, please send a replacement before our staff arrive tomorrow.\n\nJin Park"}],
- "questions":[
-  {"id":"p7-t01-1","type":"purpose","concept":"p7.purpose","difficulty":2,
-   "question":"Why did Ms. Park send the first e-mail?",
-   "choices":["To place an order for office furniture","To complain about a delivery","To ask about a newsletter","To request a product catalog"],"answer":0,
-   "explanation":{"why":"첫 이메일은 새 사무실을 위한 주문서를 처리해 달라는(Please process the attached order) 내용이다. 송장을 보면 의자·책상·조명 등 사무용 가구다.",
-    "traps":[null,"배송 불만은 두 번째 이메일의 내용이다.","소식지는 할인 정보의 출처로 언급되었을 뿐이다.","카탈로그 요청은 없다."]}},
-  {"id":"p7-t01-2","type":"link","concept":"p7.link","difficulty":3,
-   "question":"What is suggested about Corvus Design?",
-   "choices":["It has purchased from Supply Hub before.","It is moving to a smaller office.","It publishes a monthly newsletter.","It received a 10 percent discount."],"answer":0,
-   "explanation":{"why":"첫 이메일에서 'As a returning customer'(재구매 고객으로서)라고 했고, 송장에 로열티 할인이 적용되었다. 이전에 Supply Hub에서 구매한 적이 있다.",
-    "traps":[null,"사무실 크기 비교는 없다.","소식지는 Supply Hub가 발행한 것이다.","송장의 할인율은 5퍼센트다."]},
-   "para":[{"p":"As a returning customer","a":"has purchased from Supply Hub before"}]},
-  {"id":"p7-t01-3","type":"link","concept":"p7.link","difficulty":3,
-   "question":"Which item was delivered in the wrong quantity?",
-   "choices":["The item priced at $150 each","The item priced at $420 each","The item priced at $35 each","All of the items"],"answer":1,
-   "explanation":{"why":"두 번째 이메일에서 스탠딩 데스크가 4개가 아니라 8개 왔다고 했다. 송장에서 스탠딩 데스크의 단가는 420달러다.",
-    "traps":["150달러는 의자 단가다. 의자는 원래 8개를 주문해 8이라는 숫자가 겹치는 함정.",null,"35달러는 조명 단가이며, 조명은 수량이 아니라 파손 문제다.","문제가 된 것은 스탠딩 데스크의 수량뿐이다."]}},
-  {"id":"p7-t01-4","type":"link","concept":"p7.link","difficulty":3,
-   "question":"When will Corvus Design's employees begin working at the new office?",
-   "choices":["October 2","October 3","October 9","October 10"],"answer":3,
-   "explanation":{"why":"첫 이메일에서 직원들이 10월 10일에 입주한다고 했고, 두 번째 이메일(10월 9일)에서도 '내일 직원들이 도착하기 전'이라고 했다.",
-    "traps":["10월 2일은 첫 이메일을 보낸 날이다.","10월 3일은 송장 발행일이다.","10월 9일은 배송일이다. 날짜가 여러 개 나오는 연계 문제의 대표 함정.",null]}},
-  {"id":"p7-t01-5","type":"detail","concept":"p7.detail","difficulty":2,
-   "question":"What does Ms. Park request in the second e-mail?",
-   "choices":["A replacement for a damaged item","A refund for the chairs","An additional discount","A later delivery date"],"answer":0,
-   "explanation":{"why":"조명 하나의 받침이 깨져 있어 교체품을 보내 달라고 요청했다(also 남는 책상 회수 요청).",
-    "traps":[null,"의자에 대한 문제 제기는 없다.","추가 할인 요청은 없다.","오히려 내일 전에 보내 달라고 했다."]},
-   "para":[{"p":"one of the lamps has a cracked base … send a replacement","a":"A replacement for a damaged item"}]}
- ]},
-{"id":"p7-t02","part":7,"passages":[
-  {"kind":"article","title":"Article","text":"Danfield Film Festival Returns\n\nThe Danfield Film Festival will hold its tenth annual event from June 5 to 8. This year's festival will feature 45 films from 12 countries, including several documentaries about environmental issues.\n\nTickets for individual screenings cost $12, while a festival pass, which allows entry to all screenings, costs $80. Passes are available only until May 31. For the first time, the festival will also offer outdoor screenings in Riverside Park, which will be free to the public."},
-  {"kind":"schedule","title":"Schedule","text":"Danfield Film Festival — Saturday, June 7",
-   "table":{"header":["Time","Film","Venue"],"rows":[["1:00 P.M.","Ocean Voices (documentary)","Regal Theater"],["4:00 P.M.","The Last Orchard","Regal Theater"],["7:00 P.M.","Northern Lights (documentary)","Riverside Park"],["9:30 P.M.","City of Glass","Arcadia Cinema"]]}},
-  {"kind":"email","title":"E-mail","text":"To: Dana Kim\nFrom: Sam Whitfield\nDate: June 2\nSubject: Festival plans\n\nHi Dana,\n\nI just tried to buy festival passes for both of us, but they're no longer being sold. I'll buy tickets for individual screenings instead.\n\nOn Saturday, I'd really like to see the two documentaries, since they're both about the environment. The later one is free, so I'll only need to buy tickets for the first one. Do you want to get dinner between the two films?\n\nSam"}],
- "questions":[
-  {"id":"p7-t02-1","type":"detail","concept":"p7.detail","difficulty":2,
-   "question":"What is mentioned about this year's festival?",
-   "choices":["It includes free screenings for the first time.","It is being held for the first time.","It lasts for two weeks.","It shows only documentaries."],"answer":0,
-   "explanation":{"why":"기사에서 'For the first time'(처음으로) 리버사이드 공원에서 무료 야외 상영을 한다고 했다.",
-    "traps":[null,"올해가 10회째(tenth annual event)다. for the first time을 축제 자체에 잘못 연결한 함정.","6월 5일부터 8일까지 4일간이다.","45편 중 '여러 편'이 다큐멘터리일 뿐이다."]},
-   "para":[{"p":"For the first time … outdoor screenings … free to the public","a":"free screenings for the first time"}]},
-  {"id":"p7-t02-2","type":"link","concept":"p7.link","difficulty":3,
-   "question":"Why was Mr. Whitfield unable to buy festival passes?",
-   "choices":["The sales deadline had passed.","They had sold out.","The Web site was not working.","They were too expensive."],"answer":0,
-   "explanation":{"why":"기사에서 패스는 5월 31일까지만 판매된다고 했고, Mr. Whitfield는 6월 2일에 이메일을 보냈다. 판매 기한이 지난 것이다.",
-    "traps":[null,"매진되었다는 정보는 없다. 판매 기한이 지났을 뿐이다.","웹사이트 문제는 언급되지 않았다.","가격 때문이라는 말은 없다."]}},
-  {"id":"p7-t02-3","type":"link","concept":"p7.link","difficulty":4,"tags":["trap"],
-   "question":"How much will Mr. Whitfield most likely spend on Saturday's tickets for himself and Ms. Kim?",
-   "choices":["$12","$24","$80","$160"],"answer":1,
-   "explanation":{"why":"토요일 다큐멘터리는 1시 Ocean Voices(Regal Theater)와 7시 Northern Lights(Riverside Park, 무료)다. 첫 번째 영화만 표를 사면 되므로 2명 × 12달러 = 24달러다.",
-    "traps":["12달러는 한 사람 표값이다. '두 사람 모두'라는 조건을 놓친 함정.",null,"80달러는 패스 가격인데 패스는 더 이상 팔지 않는다.","160달러는 패스 두 장 가격이다."]}},
-  {"id":"p7-t02-4","type":"link","concept":"p7.link","difficulty":3,
-   "question":"Where will Mr. Whitfield most likely be at 7:00 P.M. on Saturday?",
-   "choices":["At the Regal Theater","In Riverside Park","At the Arcadia Cinema","At a restaurant"],"answer":1,
-   "explanation":{"why":"그가 보려는 두 번째 다큐멘터리 Northern Lights가 7시에 리버사이드 공원에서 상영된다.",
-    "traps":["Regal Theater는 1시 영화 장소다.",null,"Arcadia Cinema는 9시 30분 City of Glass 장소이고, 그는 다큐멘터리 두 편을 보려 한다.","저녁 식사는 두 영화 '사이'에 하자고 했으므로 7시에는 영화를 보고 있다."]}},
-  {"id":"p7-t02-5","type":"detail","concept":"p7.detail","difficulty":1,
-   "question":"What does Mr. Whitfield suggest to Ms. Kim?",
-   "choices":["Having a meal together","Buying passes online","Watching City of Glass","Meeting at the Arcadia Cinema"],"answer":0,
-   "explanation":{"why":"두 영화 사이에 저녁을 먹자고(get dinner between the two films) 제안했다.",
-    "traps":[null,"패스는 더 이상 팔지 않는다.","그는 다큐멘터리 두 편을 보려 한다.","Arcadia Cinema에서 만나자는 말은 없다."]},
-   "para":[{"p":"get dinner","a":"Having a meal together"}]}
- ]},
-{"id":"p7-t03","part":7,"passages":[
-  {"kind":"memo","title":"Memo","text":"To: All Halvorsen Engineering staff\nFrom: Human Resources\nDate: January 10\nSubject: Mentorship program\n\nHalvorsen Engineering is launching a mentorship program that pairs junior engineers with senior staff. Participation is voluntary. Mentors and mentees will meet for one hour every two weeks for six months.\n\nSenior staff with at least eight years at the company are eligible to serve as mentors. Interested employees should complete the registration form on the HR portal by January 24. Pairs will be announced on February 3."},
-  {"kind":"form","title":"Registration Form","text":"Mentorship Program Registration\n\nName: Diego Navarro\nDepartment: Structural Design\nYears with Halvorsen: 9\nRole requested: Mentor\nAreas of expertise: bridge design, project scheduling\nPreferred meeting day: Wednesday\nSubmitted: January 21"},
-  {"kind":"email","title":"E-mail","text":"To: Diego Navarro\nFrom: Ama Mensah, HR Coordinator\nDate: February 3\nSubject: Your mentee\n\nDear Mr. Navarro,\n\nThank you for volunteering. You have been paired with Hannah Ito, who joined the Structural Design department last fall. Ms. Ito has mentioned that she is especially interested in learning about project scheduling.\n\nBecause she attends a training course on Wednesdays until March, your first few meetings will need to take place on Thursdays. Please contact her to arrange your first session.\n\nAma Mensah"}],
- "questions":[
-  {"id":"p7-t03-1","type":"purpose","concept":"p7.purpose","difficulty":1,
-   "question":"What is the purpose of the memo?",
-   "choices":["To introduce a new program","To announce a promotion","To explain a change in working hours","To recruit new engineers"],"answer":0,
-   "explanation":{"why":"주니어 엔지니어와 선임 직원을 연결하는 멘토링 프로그램을 새로 시작한다(is launching)고 알리는 메모다.",
-    "traps":[null,"승진 발표 내용은 없다.","근무 시간 변경 이야기는 없다.","신규 엔지니어 채용이 아니라 사내 직원 대상 프로그램이다."]},
-   "para":[{"p":"is launching a mentorship program","a":"introduce a new program"}]},
-  {"id":"p7-t03-2","type":"link","concept":"p7.link","difficulty":3,
-   "question":"What is indicated about Mr. Navarro?",
-   "choices":["He meets the requirement to serve as a mentor.","He joined the company last fall.","He submitted his form after the deadline.","He works in the human resources department."],"answer":0,
-   "explanation":{"why":"메모에서 멘토 자격은 근속 8년 이상이고, 신청서에 Mr. Navarro의 근속 연수는 9년이다. 자격을 충족한다.",
-    "traps":[null,"지난가을 입사한 사람은 멘티 Hannah Ito다.","마감은 1월 24일이고 그는 1월 21일에 제출했다.","그의 부서는 Structural Design이다."]}},
-  {"id":"p7-t03-3","type":"link","concept":"p7.link","difficulty":3,
-   "question":"Why was Ms. Ito most likely paired with Mr. Navarro?",
-   "choices":["He has expertise in a subject she wants to learn.","They work on the same floor.","She requested him by name.","He is her current supervisor."],"answer":0,
-   "explanation":{"why":"Ms. Ito는 프로젝트 일정 관리를 특히 배우고 싶어 하고, 신청서에 Mr. Navarro의 전문 분야로 project scheduling이 적혀 있다.",
-    "traps":[null,"근무 층에 대한 정보는 없다.","이름으로 지명했다는 내용은 없다. 관심 분야를 말했을 뿐이다.","현재 상사라는 정보는 없다."]}},
-  {"id":"p7-t03-4","type":"link","concept":"p7.link","difficulty":3,
-   "question":"Why will Mr. Navarro's preferred meeting day not be used at first?",
-   "choices":["Ms. Ito has a class on that day.","Mr. Navarro will be traveling.","The meeting rooms are already booked.","The program does not begin until March."],"answer":0,
-   "explanation":{"why":"신청서의 희망 요일은 수요일인데, 이메일에서 Ms. Ito가 3월까지 수요일마다 교육 과정을 듣는다고 했다.",
-    "traps":[null,"출장 이야기는 없다.","회의실 예약 문제는 언급되지 않았다.","March는 Ms. Ito의 교육이 끝나는 시점이지 프로그램 시작 시점이 아니다."]},
-   "para":[{"p":"she attends a training course on Wednesdays","a":"Ms. Ito has a class on that day."}]},
-  {"id":"p7-t03-5","type":"detail","concept":"p7.detail","difficulty":2,
-   "question":"How often will Mr. Navarro and Ms. Ito meet?",
-   "choices":["Every week","Every two weeks","Once a month","Only once"],"answer":1,
-   "explanation":{"why":"메모에서 멘토와 멘티는 6개월 동안 2주마다 1시간씩(one hour every two weeks) 만난다고 했다.",
-    "traps":["매주가 아니라 2주마다다.",null,"한 달에 한 번이라는 말은 없다.","6개월 동안 정기적으로 만난다."]}}
- ]}
-]}
+{
+ "units": [
+  {
+   "id": "p7-t01",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail 1",
+     "text": "To: orders@supplyhub.example\nFrom: Jin Park, Corvus Design\nDate: October 2\nSubject: New order\n\nHello,\n\nPlease process the attached order for our new office on Bay Street. As a returning customer, we would like to use the loyalty discount mentioned in your September newsletter. We need all items delivered by October 10, which is when our staff will move in.\n\nThank you,\nJin Park, Office Manager"
+    },
+    {
+     "kind": "invoice",
+     "title": "Invoice",
+     "text": "Supply Hub — Invoice #7781\nDate: October 3\nCustomer: Corvus Design\n\nSubtotal: $3,160.00\nLoyalty discount (5%): −$158.00\nTotal: $3,002.00\nScheduled delivery: October 9",
+     "table": {
+      "header": [
+       "Item",
+       "Quantity",
+       "Unit price",
+       "Amount"
+      ],
+      "rows": [
+       [
+        "Ergonomic chair",
+        "8",
+        "$150",
+        "$1,200"
+       ],
+       [
+        "Standing desk",
+        "4",
+        "$420",
+        "$1,680"
+       ],
+       [
+        "Desk lamp",
+        "8",
+        "$35",
+        "$280"
+       ]
+      ]
+     }
+    },
+    {
+     "kind": "email",
+     "title": "E-mail 2",
+     "text": "To: orders@supplyhub.example\nFrom: Jin Park, Corvus Design\nDate: October 9\nSubject: Invoice #7781\n\nHello,\n\nThe delivery arrived this morning. Thank you for the quick service. However, we received eight standing desks rather than the four we ordered and paid for. Could you arrange for the extra desks to be picked up?\n\nAlso, one of the lamps has a cracked base. If possible, please send a replacement before our staff arrive tomorrow.\n\nJin Park"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-t01-1",
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 2,
+     "question": "Why did Ms. Park send the first e-mail?",
+     "choices": [
+      "To place an order for office furniture",
+      "To complain about a delivery",
+      "To ask about a newsletter",
+      "To request a product catalog"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "첫 이메일은 새 사무실을 위한 주문서를 처리해 달라는(Please process the attached order) 내용이다. 송장을 보면 의자·책상·조명 등 사무용 가구다.",
+      "traps": [
+       null,
+       "배송 불만은 두 번째 이메일의 내용이다.",
+       "소식지는 할인 정보의 출처로 언급되었을 뿐이다.",
+       "카탈로그 요청은 없다."
+      ]
+     }
+    },
+    {
+     "id": "p7-t01-2",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "question": "What is suggested about Corvus Design?",
+     "choices": [
+      "It is moving to a smaller office.",
+      "It has purchased from Supply Hub before.",
+      "It publishes a monthly newsletter.",
+      "It received a 10 percent discount."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "첫 이메일에서 'As a returning customer'(재구매 고객으로서)라고 했고, 송장에 로열티 할인이 적용되었다. 이전에 Supply Hub에서 구매한 적이 있다.",
+      "traps": [
+       "사무실 크기 비교는 없다.",
+       null,
+       "소식지는 Supply Hub가 발행한 것이다.",
+       "송장의 할인율은 5퍼센트다."
+      ]
+     },
+     "para": [
+      {
+       "p": "As a returning customer",
+       "a": "has purchased from Supply Hub before"
+      }
+     ]
+    },
+    {
+     "id": "p7-t01-3",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "question": "Which item was delivered in the wrong quantity?",
+     "choices": [
+      "The item priced at $150 each",
+      "The item priced at $35 each",
+      "All of the items",
+      "The item priced at $420 each"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "두 번째 이메일에서 스탠딩 데스크가 4개가 아니라 8개 왔다고 했다. 송장에서 스탠딩 데스크의 단가는 420달러다.",
+      "traps": [
+       "150달러는 의자 단가다. 의자는 원래 8개를 주문해 8이라는 숫자가 겹치는 함정.",
+       "35달러는 조명 단가이며, 조명은 수량이 아니라 파손 문제다.",
+       "문제가 된 것은 스탠딩 데스크의 수량뿐이다.",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p7-t01-4",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "question": "When will Corvus Design's employees begin working at the new office?",
+     "choices": [
+      "October 2",
+      "October 3",
+      "October 9",
+      "October 10"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "첫 이메일에서 직원들이 10월 10일에 입주한다고 했고, 두 번째 이메일(10월 9일)에서도 '내일 직원들이 도착하기 전'이라고 했다.",
+      "traps": [
+       "10월 2일은 첫 이메일을 보낸 날이다.",
+       "10월 3일은 송장 발행일이다.",
+       "10월 9일은 배송일이다. 날짜가 여러 개 나오는 연계 문제의 대표 함정.",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p7-t01-5",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "question": "What does Ms. Park request in the second e-mail?",
+     "choices": [
+      "A replacement for a damaged item",
+      "A refund for the chairs",
+      "An additional discount",
+      "A later delivery date"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "조명 하나의 받침이 깨져 있어 교체품을 보내 달라고 요청했다(also 남는 책상 회수 요청).",
+      "traps": [
+       null,
+       "의자에 대한 문제 제기는 없다.",
+       "추가 할인 요청은 없다.",
+       "오히려 내일 전에 보내 달라고 했다."
+      ]
+     },
+     "para": [
+      {
+       "p": "one of the lamps has a cracked base … send a replacement",
+       "a": "A replacement for a damaged item"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-t02",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "article",
+     "title": "Article",
+     "text": "Danfield Film Festival Returns\n\nThe Danfield Film Festival will hold its tenth annual event from June 5 to 8. This year's festival will feature 45 films from 12 countries, including several documentaries about environmental issues.\n\nTickets for individual screenings cost $12, while a festival pass, which allows entry to all screenings, costs $80. Passes are available only until May 31. For the first time, the festival will also offer outdoor screenings in Riverside Park, which will be free to the public."
+    },
+    {
+     "kind": "schedule",
+     "title": "Schedule",
+     "text": "Danfield Film Festival — Saturday, June 7",
+     "table": {
+      "header": [
+       "Time",
+       "Film",
+       "Venue"
+      ],
+      "rows": [
+       [
+        "1:00 P.M.",
+        "Ocean Voices (documentary)",
+        "Regal Theater"
+       ],
+       [
+        "4:00 P.M.",
+        "The Last Orchard",
+        "Regal Theater"
+       ],
+       [
+        "7:00 P.M.",
+        "Northern Lights (documentary)",
+        "Riverside Park"
+       ],
+       [
+        "9:30 P.M.",
+        "City of Glass",
+        "Arcadia Cinema"
+       ]
+      ]
+     }
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Dana Kim\nFrom: Sam Whitfield\nDate: June 2\nSubject: Festival plans\n\nHi Dana,\n\nI just tried to buy festival passes for both of us, but they're no longer being sold. I'll buy tickets for individual screenings instead.\n\nOn Saturday, I'd really like to see the two documentaries, since they're both about the environment. The later one is free, so I'll only need to buy tickets for the first one. Do you want to get dinner between the two films?\n\nSam"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-t02-1",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "question": "What is mentioned about this year's festival?",
+     "choices": [
+      "It is being held for the first time.",
+      "It lasts for two weeks.",
+      "It includes free screenings for the first time.",
+      "It shows only documentaries."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "기사에서 'For the first time'(처음으로) 리버사이드 공원에서 무료 야외 상영을 한다고 했다.",
+      "traps": [
+       "올해가 10회째(tenth annual event)다. for the first time을 축제 자체에 잘못 연결한 함정.",
+       "6월 5일부터 8일까지 4일간이다.",
+       null,
+       "45편 중 '여러 편'이 다큐멘터리일 뿐이다."
+      ]
+     },
+     "para": [
+      {
+       "p": "For the first time … outdoor screenings … free to the public",
+       "a": "free screenings for the first time"
+      }
+     ]
+    },
+    {
+     "id": "p7-t02-2",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "question": "Why was Mr. Whitfield unable to buy festival passes?",
+     "choices": [
+      "They had sold out.",
+      "The sales deadline had passed.",
+      "The Web site was not working.",
+      "They were too expensive."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "기사에서 패스는 5월 31일까지만 판매된다고 했고, Mr. Whitfield는 6월 2일에 이메일을 보냈다. 판매 기한이 지난 것이다.",
+      "traps": [
+       "매진되었다는 정보는 없다. 판매 기한이 지났을 뿐이다.",
+       null,
+       "웹사이트 문제는 언급되지 않았다.",
+       "가격 때문이라는 말은 없다."
+      ]
+     }
+    },
+    {
+     "id": "p7-t02-3",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 4,
+     "tags": [
+      "trap"
+     ],
+     "question": "How much will Mr. Whitfield most likely spend on Saturday's tickets for himself and Ms. Kim?",
+     "choices": [
+      "$12",
+      "$24",
+      "$80",
+      "$160"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "토요일 다큐멘터리는 1시 Ocean Voices(Regal Theater)와 7시 Northern Lights(Riverside Park, 무료)다. 첫 번째 영화만 표를 사면 되므로 2명 × 12달러 = 24달러다.",
+      "traps": [
+       "12달러는 한 사람 표값이다. '두 사람 모두'라는 조건을 놓친 함정.",
+       null,
+       "80달러는 패스 가격인데 패스는 더 이상 팔지 않는다.",
+       "160달러는 패스 두 장 가격이다."
+      ]
+     }
+    },
+    {
+     "id": "p7-t02-4",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "question": "Where will Mr. Whitfield most likely be at 7:00 P.M. on Saturday?",
+     "choices": [
+      "In Riverside Park",
+      "At the Regal Theater",
+      "At the Arcadia Cinema",
+      "At a restaurant"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "그가 보려는 두 번째 다큐멘터리 Northern Lights가 7시에 리버사이드 공원에서 상영된다.",
+      "traps": [
+       null,
+       "Regal Theater는 1시 영화 장소다.",
+       "Arcadia Cinema는 9시 30분 City of Glass 장소이고, 그는 다큐멘터리 두 편을 보려 한다.",
+       "저녁 식사는 두 영화 '사이'에 하자고 했으므로 7시에는 영화를 보고 있다."
+      ]
+     }
+    },
+    {
+     "id": "p7-t02-5",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What does Mr. Whitfield suggest to Ms. Kim?",
+     "choices": [
+      "Buying passes online",
+      "Watching City of Glass",
+      "Having a meal together",
+      "Meeting at the Arcadia Cinema"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "두 영화 사이에 저녁을 먹자고(get dinner between the two films) 제안했다.",
+      "traps": [
+       "패스는 더 이상 팔지 않는다.",
+       "그는 다큐멘터리 두 편을 보려 한다.",
+       null,
+       "Arcadia Cinema에서 만나자는 말은 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "get dinner",
+       "a": "Having a meal together"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-t03",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "memo",
+     "title": "Memo",
+     "text": "To: All Halvorsen Engineering staff\nFrom: Human Resources\nDate: January 10\nSubject: Mentorship program\n\nHalvorsen Engineering is launching a mentorship program that pairs junior engineers with senior staff. Participation is voluntary. Mentors and mentees will meet for one hour every two weeks for six months.\n\nSenior staff with at least eight years at the company are eligible to serve as mentors. Interested employees should complete the registration form on the HR portal by January 24. Pairs will be announced on February 3."
+    },
+    {
+     "kind": "form",
+     "title": "Registration Form",
+     "text": "Mentorship Program Registration\n\nName: Diego Navarro\nDepartment: Structural Design\nYears with Halvorsen: 9\nRole requested: Mentor\nAreas of expertise: bridge design, project scheduling\nPreferred meeting day: Wednesday\nSubmitted: January 21"
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Diego Navarro\nFrom: Ama Mensah, HR Coordinator\nDate: February 3\nSubject: Your mentee\n\nDear Mr. Navarro,\n\nThank you for volunteering. You have been paired with Hannah Ito, who joined the Structural Design department last fall. Ms. Ito has mentioned that she is especially interested in learning about project scheduling.\n\nBecause she attends a training course on Wednesdays until March, your first few meetings will need to take place on Thursdays. Please contact her to arrange your first session.\n\nAma Mensah"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-t03-1",
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "question": "What is the purpose of the memo?",
+     "choices": [
+      "To announce a promotion",
+      "To explain a change in working hours",
+      "To recruit new engineers",
+      "To introduce a new program"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "주니어 엔지니어와 선임 직원을 연결하는 멘토링 프로그램을 새로 시작한다(is launching)고 알리는 메모다.",
+      "traps": [
+       "승진 발표 내용은 없다.",
+       "근무 시간 변경 이야기는 없다.",
+       "신규 엔지니어 채용이 아니라 사내 직원 대상 프로그램이다.",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "is launching a mentorship program",
+       "a": "introduce a new program"
+      }
+     ]
+    },
+    {
+     "id": "p7-t03-2",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "question": "What is indicated about Mr. Navarro?",
+     "choices": [
+      "He meets the requirement to serve as a mentor.",
+      "He joined the company last fall.",
+      "He submitted his form after the deadline.",
+      "He works in the human resources department."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "메모에서 멘토 자격은 근속 8년 이상이고, 신청서에 Mr. Navarro의 근속 연수는 9년이다. 자격을 충족한다.",
+      "traps": [
+       null,
+       "지난가을 입사한 사람은 멘티 Hannah Ito다.",
+       "마감은 1월 24일이고 그는 1월 21일에 제출했다.",
+       "그의 부서는 Structural Design이다."
+      ]
+     }
+    },
+    {
+     "id": "p7-t03-3",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "question": "Why was Ms. Ito most likely paired with Mr. Navarro?",
+     "choices": [
+      "They work on the same floor.",
+      "She requested him by name.",
+      "He has expertise in a subject she wants to learn.",
+      "He is her current supervisor."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "Ms. Ito는 프로젝트 일정 관리를 특히 배우고 싶어 하고, 신청서에 Mr. Navarro의 전문 분야로 project scheduling이 적혀 있다.",
+      "traps": [
+       "근무 층에 대한 정보는 없다.",
+       "이름으로 지명했다는 내용은 없다. 관심 분야를 말했을 뿐이다.",
+       null,
+       "현재 상사라는 정보는 없다."
+      ]
+     }
+    },
+    {
+     "id": "p7-t03-4",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "question": "Why will Mr. Navarro's preferred meeting day not be used at first?",
+     "choices": [
+      "Mr. Navarro will be traveling.",
+      "Ms. Ito has a class on that day.",
+      "The meeting rooms are already booked.",
+      "The program does not begin until March."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "신청서의 희망 요일은 수요일인데, 이메일에서 Ms. Ito가 3월까지 수요일마다 교육 과정을 듣는다고 했다.",
+      "traps": [
+       "출장 이야기는 없다.",
+       null,
+       "회의실 예약 문제는 언급되지 않았다.",
+       "March는 Ms. Ito의 교육이 끝나는 시점이지 프로그램 시작 시점이 아니다."
+      ]
+     },
+     "para": [
+      {
+       "p": "she attends a training course on Wednesdays",
+       "a": "Ms. Ito has a class on that day."
+      }
+     ]
+    },
+    {
+     "id": "p7-t03-5",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "question": "How often will Mr. Navarro and Ms. Ito meet?",
+     "choices": [
+      "Every week",
+      "Every two weeks",
+      "Once a month",
+      "Only once"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "메모에서 멘토와 멘티는 6개월 동안 2주마다 1시간씩(one hour every two weeks) 만난다고 했다.",
+      "traps": [
+       "매주가 아니라 2주마다다.",
+       null,
+       "한 달에 한 번이라는 말은 없다.",
+       "6개월 동안 정기적으로 만난다."
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}
