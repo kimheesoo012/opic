@@ -11,7 +11,10 @@ const r = (...p) => path.join(ROOT, ...p);
 
 const js = (await esbuild.build({ entryPoints: [r('src/ui/main.js')], bundle: true, minify: process.env.NOMIN ? false : true, format: 'iife', target: ['es2020', 'safari14'], write: false, loader: { '.json': 'json' }, legalComments: 'none' })).outputFiles[0].text;
 const css = (await esbuild.build({ entryPoints: [r('src/ui/styles.css')], bundle: true, minify: true, write: false })).outputFiles[0].text;
-const ver = crypto.createHash('sha1').update(js + css).digest('hex').slice(0, 10);
+// 판 번호: 코드·스타일에 더해 HTML 틀·매니페스트·아이콘이 바뀌어도 새 판으로 (서비스 워커가 새로 받게)
+const verHash = crypto.createHash('sha1').update(js + css).update(fs.readFileSync(r('src/index.html'))).update(fs.readFileSync(r('src/manifest.webmanifest')));
+for (const f of fs.readdirSync(r('public/icons')).sort()) verHash.update(fs.readFileSync(r('public/icons', f)));
+const ver = verHash.digest('hex').slice(0, 10);
 const safeJs = js.replace(/<\/script/gi, '<\\/script');
 
 // PWA

@@ -1,8 +1,8 @@
 {
-  "name": "道場犬 — 검도장 닥스훈트의 견생",
+  "name": "道場犬 — 剣道場のダックスフント",
   "short_name": "道場犬",
-  "description": "일본 동네 검도장에 사는 닥스훈트의 견생 시뮬레이션",
-  "lang": "ko",
+  "description": "日本の町の剣道場で暮らすダックスフントの一生。遊びながらJLPT N2の日本語も身につく。",
+  "lang": "ja",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
