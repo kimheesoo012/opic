@@ -81,7 +81,13 @@ async function run() {
   // 진행 + 중간 이어하기
   const t0 = Date.now();
   await p.waitForTimeout(15000);
-  const before = await p.evaluate(() => window.__dojoinu.state.t);
+  // 멈춘 뒤 읽는다 (16배속에서는 읽은 직후 계절이 넘어갈 수 있다)
+  const before = await p.evaluate(() => {
+    const a = window.__dojoinu;
+    if (!a.view.paused) a.view.togglePause();
+    a.view.save();
+    return a.state.t;
+  });
   await p.screenshot({ path: OUT + '/mid-game.png' });
   await p.reload();
   await p.waitForSelector('text=つづきから');

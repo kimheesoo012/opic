@@ -24,41 +24,47 @@ export function h(tag, attrs, ...kids) {
   return el;
 }
 
+// 표시 규칙은 셋으로 나눠 서로 섞지 않는다.
+//  1) 후리가나: 후리가나 설정 × 그 말의 수준 코드로만 정한다 (밑줄 여부와 무관). → rubyNode
+//  2) 학습 밑줄: 장면의 학습 대상(sceneTargets)인 단어·문법에만. 단어는 실선, 문법은 물결선. → renderJa
+//  3) 고유명사: 점선, 처음 나올 때만 읽기를 달고 그 뒤로는 후리가나 설정을 따른다. 탭하면 읽기. → nameNode
 // it: [표기, 읽기, 수준 코드, N3 밖 한자 여부]. 옛 조각(수준 없음)은 한자 난이도로 판단한다.
-function rubyNode(it, mode) {
+function rubyNode(it, ctx) {
+  const mode = typeof ctx === 'string' ? ctx : ctx && ctx.mode;
   const [base, reading, code, hk] = it;
+  if (code === 'P' && reading) return nameNode(base, reading, typeof ctx === 'object' ? ctx : mode);
   const show = code ? showRuby(mode, code, { hardKanji: !!hk }) : showRuby(mode, isHardKanji(base) ? '2' : '4', { hardKanji: isHardKanji(base) });
   if (!show || !reading) return document.createTextNode(base);
   return h('ruby', null, base, h('rt', null, reading));
 }
 
-function items(list, mode) {
+function items(list, ctx) {
   const out = [];
   for (const it of list) {
     if (typeof it === 'string') out.push(document.createTextNode(it));
-    else if (Array.isArray(it)) out.push(rubyNode(it, mode));
+    else if (Array.isArray(it)) out.push(rubyNode(it, ctx));
   }
   return out;
 }
 
-// 인명·지명: 처음 나올 때는 읽기를 보이고, 그 뒤로는 설정을 따른다. 탭하면 읽기를 확인할 수 있다.
-export function nameNodes(str, ctx) {
+function nameNode(base, reading, ctx) {
   const mode = typeof ctx === 'string' ? ctx : ctx.mode;
   const seen = typeof ctx === 'object' ? ctx.seenNames : null;
-  return rubyName(str).map((x) => {
-    if (typeof x === 'string') return document.createTextNode(x);
-    const [base, reading] = x;
-    const first = !!seen && !seen.has(base);
-    if (seen) seen.add(base);
-    const ruby = showRuby(mode, 'P', { first });
-    const el = h('span', { class: 'pn', role: 'button', tabindex: '0', 'data-r': reading }, ruby ? h('ruby', null, base, h('rt', null, reading)) : base);
-    el.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const t = typeof ctx === 'object' && ctx.onName;
-      if (t) t(base, reading);
-    });
-    return el;
+  const first = !!seen && !seen.has(base);
+  if (seen) seen.add(base);
+  const ruby = showRuby(mode, 'P', { first });
+  const el = h('span', { class: 'pn', role: 'button', tabindex: '0', 'data-r': reading }, ruby ? h('ruby', null, base, h('rt', null, reading)) : base);
+  el.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const t = typeof ctx === 'object' && ctx.onName;
+    if (t) t(base, reading);
   });
+  return el;
+}
+
+// 인명·지명: 처음 나올 때는 읽기를 보이고, 그 뒤로는 설정을 따른다. 탭하면 읽기를 확인할 수 있다.
+export function nameNodes(str, ctx) {
+  return rubyName(str).map((x) => (typeof x === 'string' ? document.createTextNode(x) : nameNode(x[0], x[1], ctx)));
 }
 
 // 생성된 조각이 없을 때를 위한 대체 (자리표시자·단어 표시만 처리)
@@ -79,23 +85,23 @@ export function renderJa(tpl, ctx) {
   const span = h('span', { class: 'ja-text', lang: 'ja' });
   const isTarget = (id) => !ctx.targets || ctx.targets.has(id);
   for (const sg of segs) {
-    if (typeof sg === 'string' || Array.isArray(sg)) span.append(...items([sg], ctx.mode));
+    if (typeof sg === 'string' || Array.isArray(sg)) span.append(...items([sg], ctx));
     else if (sg.p) span.append(...nameNodes(lookup(sg.p, sg.q || undefined, ctx, 'ja'), ctx));
     else if (sg.g) {
       if (!isTarget('g:' + sg.g)) {
-        span.append(...items(sg.s, ctx.mode));
+        span.append(...items(sg.s, ctx));
         continue;
       }
-      const b = h('button', { class: 'gm', type: 'button', 'data-g': sg.g }, items(sg.s, ctx.mode));
+      const b = h('button', { class: 'gm', type: 'button', 'data-g': sg.g }, items(sg.s, ctx));
       b.addEventListener('click', (e) => {
         e.stopPropagation();
         ctx.onGrammar && ctx.onGrammar(sg.g);
       });
       span.append(b);
     } else if (sg.v && !isTarget('v:' + sg.v)) {
-      span.append(...items(sg.s, ctx.mode));
+      span.append(...items(sg.s, ctx));
     } else if (sg.v) {
-      const b = h('button', { class: 'w' + (ctx.saved && ctx.saved.has(sg.v) ? ' saved' : ''), type: 'button', 'data-k': sg.v }, items(sg.s, ctx.mode));
+      const b = h('button', { class: 'w' + (ctx.saved && ctx.saved.has(sg.v) ? ' saved' : ''), type: 'button', 'data-k': sg.v }, items(sg.s, ctx));
       b.addEventListener('click', (e) => {
         e.stopPropagation();
         ctx.onWord && ctx.onWord(sg.v);
@@ -114,7 +120,7 @@ export function renderExample(word, mode) {
 export function renderSpeaker(sp, s, mode, ctx = null) {
   if (sp.startsWith('@')) {
     const segs = LINES.speakers[sp.slice(1)];
-    return segs ? h('span', { lang: 'ja' }, items(segs, mode)) : sp.slice(1);
+    return segs ? h('span', { lang: 'ja' }, items(segs, ctx ? { ...ctx, mode } : mode)) : sp.slice(1);
   }
   if (sp === 'dog') return s.dog.name;
   return h('span', { lang: 'ja' }, nameNodes(lookup(sp, undefined, { s }, 'ja'), ctx ? { ...ctx, mode } : mode));

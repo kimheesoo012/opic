@@ -37,6 +37,7 @@ npm run build    # dist/pwa (PWA 정적 파일), dist/artifact/dojo-dog.html (�
 python3 -m http.server 8765 --directory dist/pwa &
 npm run e2e -- http://localhost:8765/
 node tools/sheet.mjs dog|people|bg|scene   # 도트 시트 PNG → tools/out/
+node tools/read-flow.mjs http://localhost:8765/ 375 548 s0,k3   # 읽기 흐름 화면 확인 → tools/out/flow/
 ```
 
 ## 대사 속 학습 표시
@@ -56,6 +57,9 @@ node tools/sheet.mjs dog|people|bg|scene   # 도트 시트 PNG → tools/out/
 
 - 후리가나와 학습 수준은 따로 움직인다. 게임 도중 바꾸면 지금 장면이 바로 다시 그려진다.
 - 사람 이름 등 고유명사는 처음 나올 때 읽기를 달고, 그 뒤로는 후리가나 설정을 따른다. 이름을 탭하면 읽기가 보인다.
+- 후리가나·학습 밑줄·고유명사 표시는 서로 다른 규칙으로 정한다: 후리가나는 「설정 × 낱말 수준」만, 밑줄은 장면의 학습 대상만(단어 실선·문법 물결선), 고유명사는 점선이고 처음 나올 때만 읽기를 단다.
+- 사전에 없는 낱말의 수준은 `src/data/word_levels.js`(일상어 목록) → 한자 추정 순서로 정한다. 생성기를 돌리면 `tools/out/levels.txt`(낱말별 수준), `tools/out/conn.txt`(문법이 붙은 말), `tools/out/ruby-review.txt`(읽기 전부)로 검토할 수 있다.
+- 문법 창의 「이 문장의 접속」은 생성기가 형태소로 만들고, 틀리기 쉬운 곳은 `tools/gen-lines.mjs`의 `CONN_FIX`에 직접 적었다.
 - 예전 설정(`furigana: 'hard'` 등)은 처음 불러올 때 새 설정으로 옮긴다(`migrateSettings`). 단어장·복습 기록·세계 기록은 그대로 읽는다.
 
 ## 바로 열기

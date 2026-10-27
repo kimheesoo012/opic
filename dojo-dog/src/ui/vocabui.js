@@ -45,6 +45,14 @@ function koToggle(koEl) {
   return h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { on = !on; koEl.hidden = !on; e.currentTarget.textContent = on ? '번역 닫기' : '번역'; } }, '번역');
 }
 
+// 이 문장에서 문법이 붙은 말: 생성기가 만든 접속(例: 勝て（勝つ의 가능형 勝てる의 ます형）)＋문법 표면
+export function connText(tpl, key) {
+  const sg = (LINES.lines[tpl] || []).find((x) => x && x.g === key);
+  if (!sg || !sg.c) return null;
+  const surf = sg.s.map((it) => (typeof it === 'string' ? it : it[0])).join('');
+  return `${sg.c} ＋ ${surf}`;
+}
+
 // 게임 속 문장 · 해석 · 상황
 function sceneBlock(app, scene, id, mode) {
   const s = app.state || app.refState();
@@ -56,6 +64,7 @@ function sceneBlock(app, scene, id, mode) {
     h('div', { class: 'line' },
       h('div', { class: 'ja' }, renderJa(info.tpl, { s, speaker: info.role, mode, targets: new Set([id]) })),
       h('div', { class: 'ko' }, info.ko)),
+    id[0] === 'g' && connText(info.tpl, id.slice(2)) ? h('div', { class: 'v-conn' }, h('b', null, '이 문장의 접속 '), h('span', { lang: 'ja' }, connText(info.tpl, id.slice(2)))) : null,
     situ ? h('div', { class: 'note' }, situ) : null);
 }
 
@@ -85,7 +94,9 @@ function modal(app, label, ...kids) {
   const back = h('div', { class: 'modal-back', onclick: (e) => e.target === back && close() },
     h('div', { class: 'modal', role: 'dialog', 'aria-label': label }, ...kids, h('button', { class: 'btn primary close-btn', type: 'button', onclick: close }, '閉じる')));
   app.root.append(back);
-  back.querySelector('.close-btn').focus();
+  // 닫기 단추에 초점을 두되, 창은 맨 위(표현·뜻)부터 보이게 한다
+  back.querySelector('.close-btn').focus({ preventScroll: true });
+  back.querySelector('.modal').scrollTop = 0;
 }
 
 // 단어를 탭하면 보이는 창. 저장은 「단어장 저장」을 눌렀을 때만.

@@ -55,11 +55,13 @@ export class GameView {
     this.canvas = h('canvas', { class: 'lcd-canvas', 'aria-hidden': 'true' });
     this.bigEl = h('div', { class: 'lcd-big', 'aria-live': 'polite' });
     this.lcdBox = h('div', { class: 'lcd', onclick: () => this.skip() }, this.canvas, this.bigEl, h('span', { class: 'lcd-skip', 'aria-hidden': 'true' }, icon('skip', 14)));
+    // 도트 창 접기: 작은 화면에서 대사를 읽을 자리를 넓힌다 (설정에 기억)
+    this.foldBtn = h('button', { class: 'fold-btn', type: 'button', onclick: () => this.toggleFold() });
     this.statsEl = h('button', { class: 'stats', type: 'button', 'aria-expanded': 'false', 'aria-label': '능력치', onclick: () => this.toggleStats() });
     this.statsDetail = h('div', { class: 'stats-detail', hidden: true });
     this.prog = h('i');
     this.device = h('div', { class: 'device' },
-      h('div', { class: 'lcd-info' }, this.whenEl, this.stageBtn, this.ageEl),
+      h('div', { class: 'lcd-info' }, this.whenEl, this.stageBtn, this.ageEl, this.foldBtn),
       this.lcdBox,
       h('div', { class: 'progress' }, this.prog),
       this.statsEl,
@@ -93,17 +95,40 @@ export class GameView {
     this.lcd && this.lcd.stop();
   }
 
+  // 접힘 여부: 직접 고른 값이 있으면 그 값, 없으면 아주 낮은 화면(600px 미만)에서 이야기가 펼쳐질 때만 접는다
+  isFolded() {
+    if (typeof this.set.lcdFold === 'boolean') return this.set.lcdFold;
+    return this.s.phase !== 'season' && window.innerHeight < 600;
+  }
+  toggleFold() {
+    this.set.lcdFold = !this.isFolded();
+    this.app.saveSettings();
+    this.fitLcd();
+  }
+  renderFold() {
+    const fold = this.isFolded();
+    this.el.classList.toggle('lcd-fold', fold);
+    this.foldBtn.textContent = fold ? '▼ 펼치기' : '▲ 접기';
+    this.foldBtn.setAttribute('aria-expanded', String(!fold));
+    this.foldBtn.setAttribute('aria-label', fold ? '도트 창 펼치기' : '도트 창 접기');
+  }
+
   // LCD는 기기 픽셀 기준 정수 배율로만 키운다 (도트가 고르게 보이도록)
   fitLcd() {
     const dpr = window.devicePixelRatio || 1;
     const avail = Math.max(160, this.device.clientWidth - 16);
-    // 이야기가 펼쳐질 때는 도트 창을 줄여 대사와 선택지에 자리를 내준다
+    // 이야기가 펼쳐질 때는 도트 창을 줄여 대사와 선택지에 자리를 내준다.
+    // 높이 기준: iPhone SE Safari(주소창 포함) ≈ 548px, iPhone 13/14 Safari ≈ 664px, 홈 화면 앱 667 / 844px
+    const vh = window.innerHeight;
     const busy = this.s.phase !== 'season';
-    const short = window.innerHeight < 760;
-    const tiny = window.innerHeight < 700;
-    const target = busy ? Math.min(avail, tiny ? 175 : short ? 230 : 290) : Math.min(avail, short ? 300 : 420);
+    const short = vh < 760;
+    const tiny = vh < 700;
+    const mini = vh < 600;
+    const target = busy ? Math.min(avail, mini ? 160 : tiny ? 175 : short ? 230 : 290) : Math.min(avail, mini ? 240 : short ? 300 : 420);
     this.el.classList.toggle('tiny', busy && tiny);
     this.el.classList.toggle('compact', busy && short);
+    this.el.classList.toggle('xs', busy && mini);
+    this.renderFold();
     const k = Math.max(1, Math.floor((target * dpr) / 160));
     const w = (k * 160) / dpr;
     this.canvas.style.width = w + 'px';
@@ -415,7 +440,20 @@ export class GameView {
     else if (s.phase === 'word') this.showWord();
     else if (s.phase === 'farewell') return this.app.toFarewell(s);
     this.fitLcd();
-    this.panel.scrollTop = 0;
+    this.resetScroll();
+  }
+
+  // 장면이 바뀌면 새 글의 처음부터 보이게 한다.
+  // iOS Safari는 관성 스크롤 중에 scrollTop 지정을 무시하므로, 잠깐 overflow를 막고 맞춘다. 배치가 끝난 뒤 한 번 더.
+  resetScroll() {
+    const p = this.panel;
+    p.style.overflowY = 'hidden';
+    p.scrollTop = 0;
+    if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
+    requestAnimationFrame(() => {
+      p.scrollTop = 0;
+      p.style.overflowY = '';
+    });
   }
 
   showEvent(again = false) {

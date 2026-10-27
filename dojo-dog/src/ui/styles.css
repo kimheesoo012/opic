@@ -332,3 +332,35 @@ ruby rt { line-height: 1; }
 .game.tiny .ev-text.clamp { -webkit-line-clamp: 3; }
 .game.tiny .ev-title { font-size: 18px; margin-bottom: 4px; }
 .game.tiny .foot { max-height: 42vh; }
+.v-conn { margin-top: 6px; font-size: 16px; }
+.v-conn b { font-weight: 600; color: var(--ink2); }
+
+/* ───── 4판: 실제 iPhone 화면 가독성 ───── */
+/* 보이는 높이(주소창·툴바를 뺀 높이)에 맞춘다. 100vh는 iOS Safari에서 화면보다 길어 아래 선택지가 밀려난다 */
+@supports (height: 100dvh) { html { height: 100dvh; } }
+html, body { overflow: hidden; overscroll-behavior: none; }
+.panel { padding-bottom: 20px; scroll-padding-top: 8px; min-height: 120px; }
+@supports (height: 100dvh) { .foot { max-height: 42dvh; } }
+/* 도트 창 접기 단추와 접힌 상태 (계절·성장 단계·나이만 한 줄로) */
+.fold-btn { flex: 0 0 auto; min-height: 36px; min-width: 44px; padding: 0 10px; margin-left: 4px; border-radius: 8px; border: 1px solid #5a6380; background: transparent; color: #e9e6dc; font-family: var(--f-body); font-size: 14px; cursor: pointer; white-space: nowrap; }
+.lcd-info .age { margin-left: auto; }
+.game.lcd-fold .lcd, .game.lcd-fold .progress, .game.lcd-fold .stats, .game.lcd-fold .stats-detail { display: none; }
+.game.lcd-fold .device { padding: 4px 8px; }
+.game.lcd-fold .lcd-info { padding: 0 2px; min-height: 36px; }
+/* 이야기 중 짧은 화면: 오토 안내 줄을 숨기고(オート 단추 색으로 상태가 보인다) 조작 줄을 낮춘다 */
+.game.compact .auto-cap { display: none; }
+.game.compact .topbar { padding-top: 4px; padding-bottom: 4px; }
+.game.compact .line .ja { line-height: 2.05; }
+.game.compact .lines { gap: 8px; }
+.game.compact .foot .btn { padding-top: 8px; padding-bottom: 8px; }
+.game.compact .foot { gap: 6px; padding-top: 6px; }
+.game.xs .ctl, .game.xs .seg button { min-height: 44px; }
+.game.xs .lcd-info { font-size: 14px; min-height: 0; padding-bottom: 2px; }
+.game.xs .lcd-info .age { display: none; }
+.game.xs .fold-btn, .game.lcd-fold .fold-btn { margin-left: auto; }
+.game.xs .stage-chip { min-height: 24px; font-size: 14px; }
+.game.xs .device { padding: 6px; }
+.game.xs .progress { margin-top: 4px; }
+.game.xs .ev-title { font-size: 18px; margin: 0 0 4px; }
+.game.xs .ev-cat { font-size: 14px; }
+.scroll { padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }

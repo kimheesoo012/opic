@@ -9,6 +9,7 @@ import { collect } from './collect.mjs';
 import { VOCAB, ALIAS } from '../src/data/vocab.js';
 import { GRAMMAR } from '../src/data/grammar.js';
 import { kanjiLevel } from '../src/engine/text.js';
+import { WORD_LV } from '../src/data/word_levels.js';
 import { lvCode } from '../src/engine/learn.js';
 
 const require = createRequire(import.meta.url);
@@ -56,6 +57,8 @@ const OVR = {
   失くし: 'なくし', 三匹: 'さんびき', 止め: 'やめ', ポルトガル語: 'ポルトガルご', 夜中: 'よなか', 短足: 'たんそく', 九時: 'くじ', 十個: 'じゅっこ',
   百本: 'ひゃっぽん', 剣の道: 'けんのみち', 日本語: 'にほんご', 四日: 'よっか', 一日中: 'いちにちじゅう', 一晩中: 'ひとばんじゅう', 雪道: 'ゆきみち',
   三日間: 'みっかかん', 大掃除: 'おおそうじ', 来させる: 'こさせる', 丼: 'どん', カツ丼: 'かつどん', 臭い: 'くさい',
+  // 전수 검토에서 찾은 오독
+  守り: 'まもり', 洗濯物: 'せんたくもの', 仕太刀: 'したち', 打太刀: 'うちだち', 一年生: 'いちねんせい', 一位: 'いちい', 降りそう: 'ふりそう', 目下: 'めした',
 };
 const OVR_KEYS = Object.keys(OVR).sort((a, b) => b.length - a.length);
 
@@ -98,9 +101,12 @@ const tokenizer = await new Promise((res, rej) =>
 const review = new Map(); // "표기\t읽기" → {n, sample}
 const lemmaUse = new Map(); // 정규화된 키 → {n, surfaces, sample}
 const unlinked = new Map();
+const levelUse = new Map(); // 낱말별 추정 수준 검토용
+const connUse = []; // 문법 접속 검토용
 
-function tokenizePlain(plain, fixed) {
+function tokenizePlain(plain, fixed, cuts = []) {
   // fixed: [{s,e,r}] 강제 읽기 구간. 나머지 구간을 형태소 분석한다.
+  // cuts: 문법 표시의 경계. 형태소가 이 경계를 넘으면(例: 勝てっこない → 勝|てっ|こ) 경계에서 나눠 다시 분석한다.
   const toks = [];
   let pos = 0;
   const runs = [];
@@ -116,12 +122,27 @@ function tokenizePlain(plain, fixed) {
       toks.push({ s: r.s, e: r.e, surface: sf, reading: r.fixed.r, basic: r.fixed.basic || sf, fixed: true });
       continue;
     }
-    let off = r.s;
-    for (const t of tokenizer.tokenize(plain.slice(r.s, r.e))) {
-      const sf = t.surface_form;
-      toks.push({ s: off, e: off + sf.length, surface: sf, reading: t.reading ? kata2hira(t.reading) : null, basic: t.basic_form === '*' ? sf : t.basic_form, pos: t.pos, posd: t.pos_detail_1 });
-      off += sf.length;
+    const analyze = (s, e) => {
+      const out = [];
+      let off = s;
+      for (const t of tokenizer.tokenize(plain.slice(s, e))) {
+        const sf = t.surface_form;
+        out.push({ s: off, e: off + sf.length, surface: sf, reading: t.reading ? kata2hira(t.reading) : null, basic: t.basic_form === '*' ? sf : t.basic_form, pos: t.pos, posd: t.pos_detail_1, form: t.conjugated_form });
+        off += sf.length;
+      }
+      return out;
+    };
+    let part = analyze(r.s, r.e);
+    const inner = cuts.filter((c) => c > r.s && c < r.e);
+    if (part.some((t) => inner.some((c) => t.s < c && t.e > c))) {
+      part = [];
+      let a = r.s;
+      for (const c of [...inner, r.e]) {
+        part.push(...analyze(a, c));
+        a = c;
+      }
     }
+    toks.push(...part);
   }
   return toks;
 }
@@ -130,10 +151,14 @@ function tokenizePlain(plain, fixed) {
 const EASYK = new Set(Object.entries(VOCAB).filter(([, v]) => ['N5', 'N4', 'N3'].includes(v.lv)).flatMap(([k]) => [...k].filter((c) => /[一-鿿]/.test(c))));
 const est = (w) => kanjiLevel(w, EASYK);
 // 낱말의 추정 수준: 사전에 있으면 사전 수준, 고유명사는 P, 없으면 한자로 추정
+// 형태소 분석기가 고유명사로 잘못 보는 일반 낱말 (夏·毎日은 인명·신문 이름으로도 쓰이지만 대사에서는 일반 낱말)
+const NOT_PROPER = new Set(['夏', '毎日', '山の上']);
 function tokLevel(t) {
-  if (t.pos === '名詞' && t.posd === '固有名詞') return 'P';
+  if (t.pos === '名詞' && t.posd === '固有名詞' && !NOT_PROPER.has(t.surface)) return 'P';
   const key = VOCAB[t.basic] ? t.basic : ALIAS[t.basic];
   if (key && VOCAB[key]) return lvCode(VOCAB[key].lv) || String(est(t.surface));
+  const wl = WORD_LV[t.basic] || WORD_LV[t.surface];
+  if (wl) return lvCode(wl);
   return String(est(t.surface));
 }
 
@@ -152,6 +177,10 @@ function rubyItems(toks, s, e, plain) {
       review.set(key, r);
     }
     const code = tokLevel(t);
+    if (hasKanji(t.surface)) {
+      const k = [t.surface, t.basic, t.reading, code, t.pos || '', t.posd || ''].join('\t');
+      levelUse.set(k, (levelUse.get(k) || 0) + 1);
+    }
     for (const it of align(t.surface, t.reading)) items.push(Array.isArray(it) ? [it[0], it[1], code, est(it[0]) === 2 ? 1 : 0] : it);
   }
   // 이웃한 문자열 합치기
@@ -161,6 +190,81 @@ function rubyItems(toks, s, e, plain) {
     else out.push(it);
   }
   return out;
+}
+
+// 문법 표시 앞에서 그 문법이 붙은 말(접속)을 찾아 「이 문장의 접속」으로 보인다. 例: 勝て＋っこない
+// 자동 판정이 틀리거나 설명이 더 필요한 곳은 CONN_FIX(문법키|붙은 말)로 직접 적는다. 전부 tools/out/conn.txt에서 검토했다.
+const CONN_FIX = {
+  'っこない|勝て': '勝て（勝つ의 가능형 勝てる의 ます형）',
+  'っこない|続けられ': '続けられ（続ける의 가능형 続けられる의 ます형）',
+  'っこない|でき': 'でき（できる의 ます형）',
+  'かねない|させ': 'させ（する의 사역형 させる의 ます형）',
+  'ようがない|調べ': '調べ（調べる의 ます형）',
+  '抜く|耐え': '耐え（耐える의 ます형）',
+  '抜く|守り': '守り（守る의 ます형）',
+  'てたまらない|好き': '好き（な형용사 好きだ → 好きで）',
+  'に決まっている|じゃない': '猫じゃない（명사의 부정 보통형）',
+  'ないことには|いてもらわ': 'いてもらわ（いてもらう의 ない형）',
+  'ものだ|しごかれた': 'しごかれた（しごく의 수동형 しごかれる의 た형）',
+  'ものだ|叱られた': '叱られた（叱る의 수동형 叱られる의 た형）',
+  'からには|励まされた': '励まされた（励ます의 수동형 励まされる의 た형）',
+  'をもとに|ちゃん': '이름＋ちゃん（명사）',
+  'をきっかけに|来たの': '来たの（동사 た형＋の）',
+  'をきっかけに|亡くなったの': '亡くなったの（동사 た형＋の）',
+  'かのように|なかった': 'なかった（ない의 た형）',
+};
+const FORM_KO = { 連用形: 'ます형', 連用タ接続: 'ます형', 連用テ接続: 'て형', 未然形: 'ない형', 未然レル接続: 'ない형', 未然ウ接続: 'ない형', 基本形: '사전형', 体言接続: '사전형', 仮定形: '가정형' };
+function connOf(toks, gs, key, gsurf) {
+  const before = toks.filter((t) => t.e <= gs);
+  if (!before.length || before[before.length - 1].e !== gs) return null;
+  // 인용구(「…」)에 붙은 경우: 「お願いします」さえ覚えれば
+  const lastTok = before[before.length - 1];
+  if (lastTok.surface === '」') {
+    const open = before.map((t) => t.surface).lastIndexOf('「');
+    if (open >= 0) return `${before.slice(open).map((t) => t.surface).join('')}（인용구, 명사처럼 쓴다）`;
+  }
+  const chain = [];
+  for (let i = before.length - 1; i >= 0; i--) {
+    const t = before[i];
+    if (t.fixed) {
+      // 강제 읽기 낱말(대부분 명사). 동사 연용형 등은 CONN_FIX에 적는다.
+      if (!chain.length) chain.unshift(t);
+      break;
+    }
+    if (!t.pos || t.pos === '記号') break;
+    chain.unshift(t);
+    const dep = t.pos === '助動詞' || (t.pos === '動詞' && (t.posd === '接尾' || t.posd === '非自立')) || (t.pos === '助詞' && (t.posd === '接続助詞' || t.posd === '連体化')) || (t.pos === '名詞' && t.posd === '非自立' && t.surface === 'の');
+    if (!dep) break;
+  }
+  // 「心配する」「悪化し」처럼 する 동사는 앞 명사까지
+  const prev = before[before.length - chain.length - 1];
+  if (chain[0] && chain[0].basic === 'する' && prev && prev.pos === '名詞' && prev.posd === 'サ変接続') chain.unshift(prev);
+  if (!chain.length) return null;
+  const stem = chain.map((t) => t.surface).join('');
+  const fix = CONN_FIX[key + '|' + stem];
+  if (fix) return fix;
+  const head = chain[0];
+  const last = chain[chain.length - 1];
+  const has = (b, pos = '助動詞') => chain.some((t, i) => t.pos === pos && (t.basic === b || (b === 'た' && t.basic === 'だ' && chain[i - 1] && chain[i - 1].form === '連用タ接続')));
+  const verb = [...chain].reverse().find((t) => t.pos === '動詞' && t.posd !== '接尾') || head;
+  const vb = verb.basic === 'する' && head.posd === 'サ変接続' ? head.surface + 'する' : verb.basic;
+  let desc;
+  if (last.surface === 'の' && (last.posd === '連体化' || last.pos === '助詞')) desc = '명사＋の';
+  else if ((head.pos === '名詞' || head.fixed) && chain.length === 1) desc = '명사';
+  else if (head.pos === '名詞' && has('だ') && last.basic === 'だ' && last.form === '基本形') desc = '명사＋だ';
+  else if (head.pos === '名詞' && chain.some((t) => t.surface === 'で') && last.basic === 'ある') desc = '명사＋である';
+  else if (head.posd === '形容動詞語幹' && last.surface === 'な') desc = 'な형용사＋な';
+  else if (head.posd === '形容動詞語幹' && has('た')) desc = `な형용사 ${head.surface}의 た형`;
+  else if (has('た')) desc = `${verb.pos === '形容詞' ? verb.basic : vb}의 た형`;
+  else if (last.basic === 'ない' && last.pos === '助動詞') desc = `${vb}의 ない형`;
+  else if (head.pos === '形容詞' && chain.length === 1) desc = last.form === '基本形' ? 'い형용사' : `い형용사 ${head.basic}의 ${FORM_KO[last.form] || last.form}`;
+  else if (head.pos === '動詞' || verb.pos === '動詞') {
+    let f = FORM_KO[last.form] || last.form;
+    if (/^[てで]/.test(gsurf)) f = 'て형';
+    else if (/^[ただ]/.test(gsurf)) f = 'た형';
+    desc = vb === stem && f === '사전형' ? '사전형' : `${vb}의 ${f}`;
+  } else desc = null;
+  return desc ? `${stem}（${desc}）` : stem;
 }
 
 export function processTemplate(tpl, sample) {
@@ -192,7 +296,8 @@ export function processTemplate(tpl, sample) {
       i += k.length;
     } else i++;
   }
-  const toks = tokenizePlain(plain, fixed);
+  const cuts = spans.filter((x) => x.k === 'g').flatMap((x) => [x.s, x.e]);
+  const toks = tokenizePlain(plain, fixed, cuts);
   // 학습 단어 구간을 형태소 경계에 맞춰 넓히고, 사전형 키를 정한다
   const vocab = [];
   for (const sp of spans.filter((x) => x.k === 'v')) {
@@ -262,7 +367,11 @@ export function processTemplate(tpl, sample) {
   };
   for (const v of vv) {
     pushText(i, v.s);
-    segs.push(v.g ? { g: v.key, s: rubyItems(toks, v.s, v.e, plain) } : { v: v.key, s: rubyItems(toks, v.s, v.e, plain) });
+    if (v.g) {
+      const c = connOf(toks, v.s, v.key, plain.slice(v.s, v.e));
+      if (c) connUse.push([v.key, c, plain.slice(Math.max(0, v.s - 10), v.e)]);
+      segs.push(c ? { g: v.key, s: rubyItems(toks, v.s, v.e, plain), c } : { g: v.key, s: rubyItems(toks, v.s, v.e, plain) });
+    } else segs.push({ v: v.key, s: rubyItems(toks, v.s, v.e, plain) });
     i = v.e;
   }
   pushText(i, plain.length);
@@ -294,6 +403,8 @@ if (process.argv[1] && process.argv[1].endsWith('gen-lines.mjs')) {
   fs.writeFileSync(path.join(ROOT, 'tools/out/ruby-review.txt'), rv.join('\n'));
   const lm = [...lemmaUse.entries()].sort((a, b) => b[1].n - a[1].n).map(([k, v]) => [k, v.n, [...v.surf].join('/'), VOCAB[k] ? 'OK' : '--', v.sample].join('\t'));
   fs.writeFileSync(path.join(ROOT, 'tools/out/lemmas.txt'), lm.join('\n'));
+  fs.writeFileSync(path.join(ROOT, 'tools/out/conn.txt'), connUse.map((x) => x.join('\t')).join('\n'));
+  fs.writeFileSync(path.join(ROOT, 'tools/out/levels.txt'), [...levelUse].sort((a, b) => a[0].split('\t')[3].localeCompare(b[0].split('\t')[3]) || b[1] - a[1]).map(([k, n]) => k + '\t' + n).join('\n'));
   console.log('grammar used', Object.keys(gidx).length, '/', Object.keys(GRAMMAR).length, 'missing', Object.keys(GRAMMAR).filter((k) => !gidx[k]).join(' ') || '-');
   console.log('templates', ja.size, 'speakers', speakers.size, 'ruby pairs', review.size, 'lemmas', lemmaUse.size, 'linked', [...lemmaUse.keys()].filter((k) => VOCAB[k]).length, 'unlinked', unlinked.size);
 }

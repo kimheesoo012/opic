@@ -38,6 +38,7 @@ export const DEFAULT_SETTINGS = {
   customLevels: ['3', '2', 'K'],
   hideEasy: true, // 쉬운 단어 학습 표시 끄기
   focus: false, // 학습 집중 모드
+  lcdFold: null, // 도트 창 접기: null=자동(아주 낮은 화면에서 이야기 중에만 접음), true/false=직접 고른 값
   sound: false,
   bgm: 0.5,
   sfx: 0.45,

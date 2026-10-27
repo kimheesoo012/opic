@@ -140,7 +140,9 @@ export function quizScreen(app, ids, label, opts = {}) {
         scene ? h('div', { class: 'v-sec' }, h('h4', null, 'ゲームの場面'), scene) : null);
       fb.hidden = false;
       next.hidden = false;
-      next.focus();
+      // 해설이 먼저 보이게: 초점만 「다음」에 두고 화면은 해설 시작으로
+      next.focus({ preventScroll: true });
+      fb.scrollIntoView({ block: 'nearest' });
     } }, o));
     const koPrompt = q.kind === 'word' || q.kind === 'gform';
     body.append(
