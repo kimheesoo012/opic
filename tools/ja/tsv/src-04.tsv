@@ -1,0 +1,110 @@
+p5-058|why	선택 대상이 셋(three alternatives)이므로 셋 이상 사이를 나타내는 among이 정답이다.
+p5-058|t1	between은 보통 둘 사이에 쓴다. three를 놓치면 고르기 쉽다.
+p5-058|t2	along은 '~을 따라'라는 뜻으로 선택 대상과 어울리지 않는다.
+p5-058|t3	beside는 '~ 옆에'라는 위치 표현이다.
+p5-059|why	in accordance with(~에 따라)는 고정된 전치사 표현이다. 시 건축 규정에 따라 공사해야 한다는 뜻.
+p5-059|t1	at accordance with는 쓰지 않는 표현이다.
+p5-059|t2	on accordance with도 쓰지 않는다. on behalf of 등과 혼동하게 하는 함정.
+p5-059|t3	by accordance with는 없는 표현이다. by는 '수단, 기한'에 쓴다.
+p5-060|why	현재완료(has operated)와 함께 '연초 이후로 지금까지'라는 시작 시점을 나타내야 하므로 since가 정답이다. the beginning of the year는 기간이 아니라 시점이다.
+p5-060|t0	for 뒤에는 기간(for three months)이 와야 한다. the beginning은 시점이라 맞지 않는다.
+p5-060|t2	ago는 'three months ago'처럼 기간 뒤에 붙는 부사라 명사 앞에 쓸 수 없고 현재완료와도 함께 쓰지 않는다.
+p5-060|t3	until은 '~까지 계속'이라 끝나는 시점을 나타낸다. 연초까지만 가동했다는 뜻이 되어 현재완료(지금까지 계속)와 맞지 않는다.
+p5-061|why	주절이 would have been able to(과거에 ~할 수 있었을 텐데)이므로 과거 사실의 반대를 가정하는 가정법 과거완료다. if절에는 had p.p.인 had arrived가 와야 한다.
+p5-061|t0	arrived는 가정법 과거(현재 사실 반대)로, 주절이 would + 동사원형일 때 짝을 이룬다.
+p5-061|t1	have arrived는 현재완료로 가정법 구조를 만들지 못한다.
+p5-061|t3	if절에는 would를 쓰지 않는다. would는 주절에 온다.
+p5-062|why	주절이 would be able to + 동사원형으로 현재 사실의 반대를 가정한다. 가정법 과거이므로 if절 동사는 과거형 hired다.
+p5-062|t0	hires는 현재 시제로 실제 조건문(will be able to)과 짝을 이룬다.
+p5-062|t1	had hired는 가정법 과거완료라 주절이 would have been able to여야 한다.
+p5-062|t2	if절에는 미래 will을 쓰지 않는다.
+p5-063|why	If you should have any questions에서 If를 생략하면 Should가 문장 앞으로 나와 Should you have …가 된다. 뒤의 동사원형 have와 맞는 것은 Should뿐이다.
+p5-063|t1	Were 도치는 Were you to have …처럼 to부정사가 따라와야 한다.
+p5-063|t2	Unless(~하지 않으면)를 넣으면 '질문이 없으면 연락하라'가 되어 의미가 통하지 않는다.
+p5-063|t3	Had 도치는 뒤에 과거분사가 와야 한다(Had you had …).
+p5-064|why	If the board had approved …에서 If를 생략한 도치 구문이다. Had 뒤에 주어와 과거분사 approved가 이어져 Had the board approved가 된다. 과거 조건 + 현재 결과(would now be)의 혼합 가정법.
+p5-064|t0	Should 뒤에는 동사원형이 와야 한다(Should the board approve).
+p5-064|t1	Were 도치는 Were the board to approve처럼 to부정사가 필요하다.
+p5-064|t3	Did를 쓰면 의문문이 되고 뒤의 approved(과거형)와도 맞지 않는다.
+p5-065|why	essential, necessary, important 같은 필수·요구 형용사 뒤 that절에는 (should) + 동사원형을 쓴다. 주어가 단수(every participant)여도 동사원형 attend가 정답이다.
+p5-065|t0	attends는 every participant에 수를 맞춘 함정이다. 이 구문에서는 수일치를 하지 않고 원형을 쓴다.
+p5-065|t1	attended는 과거형이라 앞으로 지켜야 할 사항과 맞지 않는다.
+p5-065|t2	will attend는 '참석할 것이다'라는 예측이 되어 필수 사항을 나타내는 구문과 맞지 않는다.
+p5-066|why	부정어 Rarely가 문장 앞에 오면 조동사가 주어 앞으로 나온다. 뒤에 과거분사 missed가 있고 in his twelve years(기간)가 있으므로 현재완료 조동사 has가 정답이다.
+p5-066|t0	does 뒤에는 동사원형이 와야 한다(does … miss).
+p5-066|t2	did 뒤에도 동사원형이 와야 한다(did … miss). missed와 맞지 않는다.
+p5-066|t3	is + 과거분사는 수동태가 되어 '이토 씨가 마감을 놓쳐졌다'라는 뜻이 된다.
+p5-067|why	Not only가 문장 앞에 오면 도치가 일어난다. 원래 문장은 The new label printer is faster이므로 be동사 is가 주어 앞으로 나온 Not only is …가 정답이다.
+p5-067|t1	does는 일반동사 문장의 도치에 쓴다. faster는 형용사 보어라 be동사가 필요하다.
+p5-067|t2	has 뒤에는 과거분사가 와야 한다.
+p5-067|t3	it을 넣으면 Not only it the new label printer가 되어 동사가 없다.
+p5-068|why	Only + 부사절이 문장 앞에 오면 주절이 도치된다. 원래 문장 The workers were allowed to return(복귀가 허용되었다)의 be동사 were가 주어 앞으로 나온다.
+p5-068|t0	did 뒤에는 동사원형이 와야 하는데 allowed는 과거분사다.
+p5-068|t1	have는 과거 시제(was completed) 맥락과 맞지 않고, have allowed라면 목적어가 필요하다.
+p5-068|t3	had the workers allowed to return은 능동이라 allow 뒤 목적어가 빠진 불완전한 문장이 된다.
+p5-069|why	원래 문장 A user manual, … are included in this package에서 보어 included in this package가 앞으로 나간 도치 구문이다. 따라서 과거분사 Included가 정답이며 동사 are는 뒤의 복수 주어에 맞춘 것이다.
+p5-069|t0	Include로 시작하면 명령문이 되어 뒤의 are와 연결되지 않는다.
+p5-069|t1	Including은 전치사·현재분사로, Including in this package are …는 문장 구조가 성립하지 않는다.
+p5-069|t2	Inclusion은 단수 명사라 주어로 보면 동사 are와 수가 맞지 않고 의미도 어색하다.
+p5-070|why	Hardly had + 주어 + p.p. … when + 과거는 '~하자마자 …했다'라는 구문이다. 과거(went off)보다 먼저 일어난 일이라 과거완료 had가 정답이다.
+p5-070|t0	has는 현재완료라 과거 시점(went off)의 이야기와 맞지 않는다.
+p5-070|t2	did 뒤에는 동사원형 begin이 와야 한다.
+p5-070|t3	was begun은 수동태라 '회의가 시작되어졌다'는 어색한 형태이고 이 구문의 짝이 아니다.
+p5-071|why	뒤에 than이 있으므로 비교급이 필요하다. 1음절 형용사 small의 비교급은 smaller다.
+p5-071|t0	small은 원급이라 than과 함께 쓸 수 없다.
+p5-071|t1	smallest는 최상급이라 than과 짝을 이루지 않는다.
+p5-071|t3	more smaller는 비교급을 이중으로 쓴 틀린 형태다.
+p5-072|why	the + ___ + in the event's history(행사 역사상)는 범위 안에서 '가장 ~한'을 뜻하는 최상급 구조다. largest가 정답이다.
+p5-072|t0	large는 원급이라 '역사상' 범위 표현과 어울리지 않는다.
+p5-072|t2	larger는 비교급이라 than이나 비교 대상이 필요하다.
+p5-072|t3	large의 최상급은 largest이며 most large라고 쓰지 않는다.
+p5-073|why	as ~ as 사이에는 원급이 온다. twice as fast as는 '~보다 두 배 빠르게'. fast는 형용사와 부사 형태가 같아 동사 loads를 꾸밀 수 있다.
+p5-073|t1	faster는 비교급이라 as ~ as 사이에 올 수 없다. 'twice'의 '두 배'라는 뜻에 끌리기 쉽다.
+p5-073|t2	fastest는 최상급이다.
+p5-073|t3	fastly는 존재하지 않는 단어다. fast 자체가 부사로 쓰인다.
+p5-074|why	비교급 faster를 강조하는 부사가 필요하다. 비교급 강조에는 much, even, far, still, a lot을 쓰므로 much가 정답이다.
+p5-074|t0	very는 원급을 강조한다(very fast). 비교급 앞에는 쓸 수 없는 대표 함정.
+p5-074|t1	more faster는 비교급 중복이다.
+p5-074|t2	most faster는 최상급과 비교급을 섞은 틀린 형태다.
+p5-075|why	the 비교급 …, the 비교급 …(~할수록 더 …하다) 구문이다. 뒤 절의 the sooner와 짝을 이루도록 비교급 earlier가 와야 한다.
+p5-075|t0	early는 원급이라 the ~, the 비교급 구문을 완성하지 못한다.
+p5-075|t1	earliest는 최상급이라 the earliest an order is placed는 구문이 성립하지 않는다.
+p5-075|t2	early의 비교급은 earlier이며 more early는 쓰지 않는다.
+p5-076|why	빈칸 뒤 employee가 단수 명사이고 동사도 단수 is다. 단수 가산 명사를 받는 Every가 정답이다.
+p5-076|t0	All은 복수 명사(All employees are)나 불가산 명사와 쓴다.
+p5-076|t2	Most 뒤에는 복수 명사나 불가산 명사가 온다.
+p5-076|t3	Many는 복수 가산 명사와 쓴다.
+p5-077|why	여기서 room은 '공간, 여지'라는 뜻의 불가산 명사이고 동사도 단수 is다. 불가산 명사를 받는 a little(약간의)이 정답이다.
+p5-077|t1	a few는 복수 가산 명사와 쓴다. room을 '방'(가산)으로 착각하게 만드는 함정.
+p5-077|t2	many는 복수 가산 명사와 쓰며 동사 is와도 맞지 않는다.
+p5-077|t3	several은 복수 가산 명사와 쓴다.
+p5-078|why	tips는 복수 가산 명사이므로 복수 명사를 받는 several(몇몇의)이 정답이다.
+p5-078|t0	much는 불가산 명사와 쓴다.
+p5-078|t1	a great deal of도 불가산 명사 전용이다(a great deal of time).
+p5-078|t3	every는 단수 명사와 쓴다(every tip).
+p5-079|why	Most of the + 명사는 명사에 수를 맞춘다. equipment는 불가산 명사라 단수 취급하며, last year이므로 과거 단수 was가 정답이다.
+p5-079|t0	were는 'Most'를 복수로 착각한 함정이다. equipment는 불가산이라 단수.
+p5-079|t1	have been은 복수 동사이고 last year와 현재완료가 충돌한다.
+p5-079|t2	are는 복수 현재라 수와 시제 모두 맞지 않는다.
+p5-080|why	of the + 복수 명사 앞에 올 수 있는 수량 대명사가 필요하다. all of the offices(사무소 모두)가 except(~을 제외하고)와도 자연스럽다.
+p5-080|t1	every는 형용사로만 쓰여 every of 형태가 불가능하다(every one of는 가능).
+p5-080|t2	whole은 the whole office처럼 단수 명사 앞에 쓰고 whole of the + 복수 명사로 쓰지 않는다.
+p5-080|t3	much는 불가산 명사에 쓴다. offices는 복수 가산.
+p5-081|why	뒤의 or와 짝을 이루어 'A 또는 B 중 하나'를 나타내는 either A or B 구문이다.
+p5-081|t0	both는 and와 짝을 이룬다(both A and B).
+p5-081|t2	neither는 nor와 짝을 이루며 '둘 다 아니다'라는 부정 의미다.
+p5-081|t3	whether A or B는 '~인지 아닌지'라는 명사절·부사절을 이끌어 이 자리에 맞지 않는다.
+p5-082|why	뒤의 but also와 짝을 이루는 not only A but also B(A뿐만 아니라 B도) 구문이다.
+p5-082|t0	both는 and와 짝을 이룬다.
+p5-082|t1	either는 or와 짝을 이룬다.
+p5-082|t3	as는 as ~ as 비교 구문에 쓰여 but also와 연결되지 않는다.
+p5-083|why	뒤의 nor와 짝을 이루는 neither A nor B(A도 B도 아닌) 구문이다.
+p5-083|t0	Either는 or와 짝을 이룬다.
+p5-083|t2	Both는 and와 짝을 이루고 동사도 복수(were)가 되어야 한다.
+p5-083|t3	Not 단독으로는 nor와 짝을 이루지 못한다.
+p5-084|why	뒤에 and가 있으므로 both A and B(A와 B 둘 다) 구문이다.
+p5-084|t0	either는 or와 짝을 이룬다.
+p5-084|t1	between A and B는 '~ 사이에'라는 전치사 표현으로, '전략과 유지 사이를 다룬다'가 되어 의미가 맞지 않는다.
+p5-084|t2	neither는 nor와 짝을 이룬다.
+p5-085|why	indicate의 목적어로 '~인지'를 나타내는 명사절이 필요하고, 뒤에 or가 있다. whether A or B가 명사절을 이끌어 정답이다.
+p5-085|t0	either A or B는 명사절을 이끌 수 없다. or만 보고 고르게 만드는 함정.

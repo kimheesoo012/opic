@@ -1,0 +1,110 @@
+c|p5.pos.noun|name	품사: 명사 자리
+c|p5.pos.noun|summary	관사(a/the)·소유격·형용사 뒤, 전치사 뒤, 동사의 주어·목적어 자리는 명사다. 같은 어근의 명사가 둘이면(사람 명사 vs 사물·행위 명사) 가산/불가산과 의미로 고른다.
+c|p5.pos.noun|tip	관사·소유격·형용사 뒤, 전치사 뒤는 명사. 가산 단수 명사는 관사 없이 쓰지 못한다.
+c|p5.pos.adj|name	품사: 형용사 자리
+c|p5.pos.adj|summary	명사 앞 수식 자리와 be/become/remain/seem 뒤 보어 자리는 형용사다. make/keep/find + 목적어 + 형용사(목적격 보어)도 자주 나온다.
+c|p5.pos.adj|tip	명사 앞, be·become·remain·seem 뒤 보어, make·keep·find + 목적어 뒤는 형용사.
+c|p5.pos.adv|name	품사: 부사 자리
+c|p5.pos.adv|summary	완전한 문장에 덧붙는 자리, 동사·형용사·다른 부사 앞을 꾸미는 자리, be + ___ + p.p. 사이는 부사다. 빈칸을 빼도 문장이 완전하면 부사를 먼저 의심한다.
+c|p5.pos.adv|tip	빈칸을 빼도 문장이 완전하면 부사. be와 p.p. 사이, have와 p.p. 사이도 부사.
+c|p5.verb.tense|name	동사 시제
+c|p5.verb.tense|summary	시간 표현이 시제를 결정한다. since/for + 기간 → 현재완료, by the time + 과거 → 과거완료, next/by + 미래 → 미래(완료). 시간·조건 부사절(when, if, once, as soon as)에서는 미래 대신 현재 시제를 쓴다.
+c|p5.verb.tense|tip	since·for + 기간은 현재완료, by the time + 과거는 과거완료. 시간·조건 부사절은 미래 대신 현재.
+c|p5.verb.voice|name	능동태·수동태
+c|p5.verb.voice|summary	빈칸 뒤에 목적어가 있으면 능동, 없으면(by + 행위자 또는 부사만 있으면) 수동을 먼저 의심한다. 단, 자동사(arrive, occur, rise)는 수동태가 없다.
+c|p5.verb.voice|tip	빈칸 뒤 목적어가 있으면 능동, 없으면 수동. 자동사(occur, arrive, rise)는 수동태가 없다.
+c|p5.verb.agree|name	주어·동사 수일치
+c|p5.verb.agree|summary	주어와 동사 사이에 전치사구·관계절이 끼면 진짜 주어를 찾는다. each/every + 단수, the number of + 단수, a number of + 복수. 명령문·조동사 뒤에는 동사원형.
+c|p5.verb.agree|tip	수식어를 걷어내고 진짜 주어를 찾는다. each·every·the number of는 단수, a number of는 복수.
+c|p5.verb.form|name	준동사: to부정사·동명사
+c|p5.verb.form|summary	동사마다 뒤에 오는 형태가 정해져 있다. plan/decide/aim + to do, consider/avoid/recommend + -ing, look forward to/be committed to + -ing(to는 전치사). 목적(~하기 위해)은 to do 또는 in order to do.
+c|p5.verb.form|tip	plan·decide + to do, consider·avoid·recommend + -ing. look forward to·be committed to의 to는 전치사.
+c|p5.participle|name	분사: -ing·-ed
+c|p5.participle|summary	수식받는 명사가 행동을 하면 -ing(능동), 행동을 받으면 -ed(수동). 감정 동사는 사람이 느끼면 -ed(interested), 사물이 감정을 일으키면 -ing(interesting). 분사구문도 주어와의 관계로 판단.
+c|p5.participle|tip	꾸밈받는 명사가 동작을 하면 -ing, 받으면 -ed. 사람이 느끼는 감정은 -ed.
+c|p5.pronoun|name	대명사: 격·재귀
+c|p5.pronoun|summary	명사 앞은 소유격, 동사·전치사 뒤는 목적격, 주어 자리는 주격. 주어와 목적어가 같은 대상이면 재귀대명사, by oneself는 '혼자서', on one's own도 같은 뜻. 소유대명사(mine, theirs)는 '소유격+명사' 대신.
+c|p5.pronoun|tip	명사 앞은 소유격, 동사·전치사 뒤는 목적격. 주어와 목적어가 같으면 재귀대명사.
+c|p5.rel|name	관계사
+c|p5.rel|summary	선행사가 사람이면 who/whom, 사물이면 which, 뒤에 명사가 바로 오면 whose. 뒤 문장이 완전하면 관계부사(where, when) 또는 전치사+which, 불완전하면 관계대명사. 선행사가 없으면 what(= the thing which).
+c|p5.rel|tip	사람 who, 사물 which, 뒤에 명사가 바로 오면 whose. 뒤 절이 완전하면 관계부사, 선행사가 없으면 what.
+c|p5.conj|name	접속사·전치사 구분
+c|p5.conj|summary	빈칸 뒤에 주어+동사가 오면 접속사(although, because, while, unless), 명사(구)만 오면 전치사(despite, because of, during). 두 절의 의미 관계(양보, 이유, 조건)까지 확인한다.
+c|p5.conj|tip	뒤에 주어+동사가 오면 접속사, 명사(구)만 오면 전치사. 그다음 의미 관계를 확인한다.
+c|p5.prep|name	전치사
+c|p5.prep|summary	시점 by(~까지 완료) vs until(~까지 계속), 기간 for(숫자 기간) vs during(사건), 위치 among(셋 이상 사이) vs between(둘 사이). 관용 표현(in charge of, on behalf of, in accordance with)은 덩어리로 익힌다.
+c|p5.prep|tip	by는 마감, until은 계속. for + 숫자 기간, during + 사건. among은 셋 이상, between은 둘.
+c|p5.subj|name	가정법
+c|p5.subj|summary	If + 과거 → would + 동사원형(현재 반대), If + had p.p. → would have p.p.(과거 반대). should가 if절에 오면 미래의 불확실한 가정이며, If를 생략하면 Should/Had/Were가 문장 맨 앞으로 나온다(도치).
+c|p5.subj|tip	If + 과거 → would + 원형, If + had p.p. → would have p.p. If 생략 시 Should·Had·Were가 앞으로.
+c|p5.inversion|name	도치
+c|p5.inversion|summary	부정어(Never, Rarely, Not only, Only + 부사구)가 문장 맨 앞에 오면 조동사/be동사가 주어 앞으로 나온다. Enclosed/Attached is… 처럼 보어가 앞으로 나오는 도치도 출제된다.
+c|p5.inversion|tip	부정어(Never, Rarely, Hardly, Not only, Only + 부사구)가 문두에 오면 조동사·be동사가 주어 앞으로.
+c|p5.compare|name	비교 구문
+c|p5.compare|summary	than이 있으면 비교급, the + ___ + of/in/ever 는 최상급, as ___ as 사이는 원급. 비교급 강조는 much/even/far(very는 불가). the 비교급, the 비교급 구문도 자주 나온다.
+c|p5.compare|tip	than이 있으면 비교급, the + 최상급 + in/of, as ~ as 사이는 원급. 비교급 강조는 much·even·far.
+c|p5.quant|name	수량 표현·한정사
+c|p5.quant|summary	each/every/another + 단수 명사, many/few/several/a number of + 복수 명사, much/little/a great deal of + 불가산 명사. all/most/some of the + 명사는 명사에 수를 맞춘다.
+c|p5.quant|tip	each·every + 단수, many·few·several + 복수, much·little + 불가산. most of the + 명사는 명사에 수일치.
+c|p5.correl|name	상관접속사
+c|p5.correl|summary	짝을 기억한다: both A and B, either A or B, neither A nor B, not only A but (also) B, whether A or B. 짝이 맞지 않는 선택지(both … or)는 오답.
+c|p5.correl|tip	both A and B, either A or B, neither A nor B, not only A but also B, whether A or B.
+c|p5.voc.verb|name	어휘: 동사
+c|p5.voc.verb|summary	의미만으로 고르지 말고 뒤에 오는 구조를 확인한다. 예: remind A of B, inform A of/that, notify A of, address(문제를 다루다), accommodate(수용하다).
+c|p5.voc.verb|tip	뜻과 함께 뒤 구조를 본다. inform·notify + 사람 + of/that, address + 목적어, refrain from.
+c|p5.voc.noun|name	어휘: 명사
+c|p5.voc.noun|summary	빈칸 앞뒤 단어와의 조합으로 판단한다. 예: meet the deadline, under warranty, a range of options, in compliance with regulations.
+c|p5.voc.noun|tip	빈칸 앞뒤 단어와의 결합으로 고른다. under warranty, a range of, in compliance with.
+c|p5.voc.adjadv|name	어휘: 형용사·부사
+c|p5.voc.adjadv|summary	형용사는 수식하는 명사와 어울리는지, 부사는 동사·시제와 어울리는지 본다. 예: currently(현재 진행) vs previously(과거), nearly(거의, 숫자 앞) vs hardly(거의 ~않다).
+c|p5.voc.adjadv|tip	시제·문맥과 맞는지 본다. currently는 현재, previously는 과거, nearly는 숫자 앞.
+c|p5.voc.colloc|name	어휘: 콜로케이션
+c|p5.voc.colloc|summary	토익에 자주 나오는 단어 짝을 덩어리로 익힌다: place an order, conduct a survey, raise concerns, take effect, highly recommended, strictly prohibited, reach an agreement.
+c|p5.voc.colloc|tip	짝으로 외운다. place an order, conduct a survey, raise concerns, take effect, reach an agreement.
+c|p5.voc.confuse|name	어휘: 혼동 어휘
+c|p5.voc.confuse|summary	뜻이 비슷하거나 모양이 비슷한 단어를 구분한다: rise(자동사) vs raise(타동사), lie vs lay, affect(동사) vs effect(명사), considerable(상당한) vs considerate(사려 깊은), economic(경제의) vs economical(절약하는).
+c|p5.voc.confuse|tip	rise·raise, lie·lay, affect·effect, considerable·considerate, economic·economical.
+c|p6.grammar|name	Part 6 문법
+c|p6.grammar|summary	Part 6 문법 문제는 빈칸 문장만으로는 답이 둘 이상 가능한 경우가 많다. 앞뒤 문장의 시점(이미 끝난 일인지, 앞으로 할 일인지)과 지칭 대상을 확인한다.
+c|p6.grammar|tip	빈칸 문장만 보면 답이 여럿일 수 있다. 앞뒤 문장의 시점과 지칭 대상으로 고른다.
+c|p6.vocab|name	Part 6 문맥 어휘
+c|p6.vocab|summary	빈칸 문장만 보면 여러 단어가 가능하다. 지문 전체의 상황(사과, 안내, 홍보)과 앞 문장에서 이미 언급된 내용을 가리키는 단어를 고른다.
+c|p6.vocab|tip	지문 전체 상황과 앞 문장 내용에 맞는 단어를 고른다.
+c|p6.connector|name	Part 6 접속부사
+c|p6.connector|summary	앞 문장과 빈칸 문장의 관계를 먼저 정한다: 대조(However, Nevertheless), 추가(In addition, Moreover), 결과(Therefore, As a result), 예시(For example), 대안(Otherwise, Instead).
+c|p6.connector|tip	앞 문장과의 관계를 먼저 정한다. 대조 However, 추가 In addition, 결과 As a result, 예시 For example.
+c|p6.insert|name	Part 6 문장 삽입
+c|p6.insert|summary	빈칸 앞 문장과 뒤 문장을 모두 읽고, 대명사(this, they)·지시어(such, these)가 가리키는 대상이 있는지 확인한다. 내용은 맞아도 흐름(시간 순서, 주제)이 끊기면 오답이다.
+c|p6.insert|tip	앞뒤 문장을 모두 읽고 지시어·대명사가 가리킬 대상이 있는지 확인한다.
+c|p7.purpose|name	Part 7 주제·목적
+c|p7.purpose|summary	글의 목적은 보통 첫 문단(I am writing to…, This is to inform…)에 있다. 지문 일부 내용만 다룬 선택지는 너무 좁아서 오답이 된다.
+c|p7.purpose|tip	목적은 대개 첫 문단에 있다. 일부 내용만 다룬 선택지는 너무 좁다.
+c|p7.detail|name	Part 7 세부 사항
+c|p7.detail|summary	문제의 키워드를 지문에서 찾아 그 문장 주변을 정확히 읽는다. 정답은 지문 표현을 바꿔 말한(패러프레이즈) 경우가 대부분이다.
+c|p7.detail|tip	키워드 주변을 정확히 읽는다. 정답은 지문 표현을 바꿔 말한 것이 많다.
+c|p7.not|name	Part 7 NOT·사실 확인
+c|p7.not|summary	NOT 문제는 선택지 네 개를 지문과 하나씩 대조해 '언급된 것' 셋을 지운다. 일부만 맞는 선택지(숫자·대상이 다름)를 조심한다.
+c|p7.not|tip	선택지 넷을 지문과 하나씩 대조해 언급된 셋을 지운다.
+c|p7.inference|name	Part 7 추론
+c|p7.inference|summary	suggested/implied/most likely 문제는 지문에 직접 쓰이지 않았지만 근거 문장에서 확실히 이끌어 낼 수 있는 내용을 고른다. 상식적으로 그럴듯하지만 근거가 없는 선택지는 오답.
+c|p7.inference|tip	지문에 직접 없지만 근거 문장에서 확실히 이끌어 낼 수 있는 것만 고른다.
+c|p7.synonym|name	Part 7 동의어
+c|p7.synonym|summary	사전적 대표 뜻이 아니라 그 문장에서의 뜻을 고른다. 선택지를 원래 단어 자리에 넣어 읽어 보고 의미가 유지되는지 확인한다.
+c|p7.synonym|tip	사전 대표 뜻이 아니라 그 문장 속 뜻. 선택지를 넣어 읽어 본다.
+c|p7.intent|name	Part 7 의도 파악
+c|p7.intent|summary	문자 대화에서 'Sure thing.', 'That's a relief.' 같은 짧은 말의 의도는 바로 앞 메시지에 대한 반응이다. 앞 메시지가 무엇을 제안·질문했는지 먼저 확인한다.
+c|p7.intent|tip	인용된 말은 바로 앞 메시지에 대한 반응이다. 앞 메시지가 무엇을 묻거나 제안했는지 본다.
+c|p7.insert|name	Part 7 문장 위치
+c|p7.insert|summary	주어진 문장의 연결어(also, however, as a result)와 지시어(this, these, such)를 단서로, 앞에 와야 할 내용을 지문에서 찾는다.
+c|p7.insert|tip	주어진 문장의 연결어와 지시어를 단서로 앞에 와야 할 내용을 찾는다.
+c|p7.link|name	Part 7 연계
+c|p7.link|summary	한 지문의 정보(예: 주문 번호, 날짜, 할인 조건)를 다른 지문의 표·일정과 연결해야 답이 나온다. 문제에서 묻는 대상이 어느 지문에 있는지, 연결 고리가 무엇인지 먼저 정한다.
+c|p7.link|tip	한 지문의 조건과 다른 지문의 표·일정을 연결해야 답이 나온다. 연결 고리를 먼저 정한다.
+p5-001|why	빈칸은 소유격 Ms. Okafor's 바로 뒤이면서 동사 helped의 주어 자리다. 소유격 뒤에서 'of the quarterly budget'의 수식을 받는 명사 analysis(분석)가 와야 문장이 완성된다.
+p5-001|t0	analyze는 동사원형이라 소유격 뒤 주어 자리에 올 수 없다.
+p5-001|t2	analytical(분석적인)은 형용사다. 소유격 뒤에 형용사만 있고 명사가 없으면 주어가 성립하지 않는다.
+p5-001|t3	analyzed는 과거형·과거분사다. 이미 문장의 동사는 helped이고, 소유격 뒤에는 명사가 필요하다.
+p5-002|why	전치사 of 뒤는 명사 자리이고, 'proof of employment'는 '재직 증명'이라는 뜻의 자연스러운 표현이다. employment는 불가산 명사라 관사 없이 쓸 수 있다.
+p5-002|t1	employ는 동사라 전치사 of의 목적어가 될 수 없다.
+p5-002|t2	employer(고용주)도 명사지만 가산 명사여서 관사 없이 단수로 쓸 수 없고, '고용주의 증명'은 의미도 어색하다. 사람 명사 vs 행위 명사 함정.
+p5-002|t3	employed는 형용사·과거분사로, 전치사 뒤 명사 자리에 홀로 올 수 없다.

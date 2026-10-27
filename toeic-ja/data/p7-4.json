@@ -1,0 +1,514 @@
+{
+ "units": [
+  {
+   "id": "p7-t01",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail 1",
+     "text": "To: orders@supplyhub.example\nFrom: Jin Park, Corvus Design\nDate: October 2\nSubject: New order\n\nHello,\n\nPlease process the attached order for our new office on Bay Street. As a returning customer, we would like to use the loyalty discount mentioned in your September newsletter. We need all items delivered by October 10, which is when our staff will move in.\n\nThank you,\nJin Park, Office Manager"
+    },
+    {
+     "kind": "invoice",
+     "title": "Invoice",
+     "text": "Supply Hub — Invoice #7781\nDate: October 3\nCustomer: Corvus Design\n\nSubtotal: $3,160.00\nLoyalty discount (5%): −$158.00\nTotal: $3,002.00\nScheduled delivery: October 9",
+     "table": {
+      "header": [
+       "Item",
+       "Quantity",
+       "Unit price",
+       "Amount"
+      ],
+      "rows": [
+       [
+        "Ergonomic chair",
+        "8",
+        "$150",
+        "$1,200"
+       ],
+       [
+        "Standing desk",
+        "4",
+        "$420",
+        "$1,680"
+       ],
+       [
+        "Desk lamp",
+        "8",
+        "$35",
+        "$280"
+       ]
+      ]
+     }
+    },
+    {
+     "kind": "email",
+     "title": "E-mail 2",
+     "text": "To: orders@supplyhub.example\nFrom: Jin Park, Corvus Design\nDate: October 9\nSubject: Invoice #7781\n\nHello,\n\nThe delivery arrived this morning. Thank you for the quick service. However, we received eight standing desks rather than the four we ordered and paid for. Could you arrange for the extra desks to be picked up?\n\nAlso, one of the lamps has a cracked base. If possible, please send a replacement before our staff arrive tomorrow.\n\nJin Park"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-t01-1",
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "question": "Why did Ms. Park send the first e-mail?",
+     "choices": [
+      "To place an order for office furniture",
+      "To complain about a delivery",
+      "To ask about a newsletter",
+      "To request a product catalog"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "最初のメールは、新しいオフィスのための注文書を処理してほしい（Please process the attached order）という内容。請求書を見ると、いす・机・照明などの事務用家具。",
+      "traps": [
+       null,
+       "配送への苦情は2通目のメールの内容。",
+       "ニュースレターは割引情報の出どころとして触れられただけ。",
+       "カタログの依頼はない。"
+      ]
+     }
+    },
+    {
+     "id": "p7-t01-2",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "What is suggested about Corvus Design?",
+     "choices": [
+      "It is moving to a smaller office.",
+      "It has purchased from Supply Hub before.",
+      "It publishes a monthly newsletter.",
+      "It received a 10 percent discount."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "最初のメールで 'As a returning customer'（リピーターとして）と言っていて、請求書にはロイヤルティ割引が適用されている。以前にSupply Hubで買ったことがある。",
+      "traps": [
+       "オフィスの広さの比較はない。",
+       null,
+       "ニュースレターはSupply Hubが発行したもの。",
+       "請求書の割引率は5パーセント。"
+      ]
+     },
+     "para": [
+      {
+       "p": "As a returning customer",
+       "a": "has purchased from Supply Hub before"
+      }
+     ]
+    },
+    {
+     "id": "p7-t01-3",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "Which item was delivered in the wrong quantity?",
+     "choices": [
+      "The item priced at $150 each",
+      "The item priced at $35 each",
+      "All of the items",
+      "The item priced at $420 each"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "2通目のメールで、スタンディングデスクが4台ではなく8台届いたと言っている。請求書でスタンディングデスクの単価は420ドル。",
+      "traps": [
+       "150ドルはいすの単価。いすはもともと8脚注文していて、8という数字が重なるひっかけ。",
+       "35ドルは照明の単価で、照明は数量ではなく破損の問題。",
+       "問題になっているのはスタンディングデスクの数量だけ。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p7-t01-4",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "When will Corvus Design's employees begin working at the new office?",
+     "choices": [
+      "October 2",
+      "October 3",
+      "October 9",
+      "October 10"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "最初のメールで社員が10月10日に入居すると言っていて、2通目のメール（10月9日）でも「明日社員が来る前に」と言っている。",
+      "traps": [
+       "10月2日は最初のメールを送った日。",
+       "10月3日は請求書の発行日。",
+       "10月9日は配送日。日付がいくつも出てくるクロスリファレンス問題の代表的なひっかけ。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p7-t01-5",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What does Ms. Park request in the second e-mail?",
+     "choices": [
+      "A replacement for a damaged item",
+      "A refund for the chairs",
+      "An additional discount",
+      "A later delivery date"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "照明の1つの台座が割れていたので、交換品を送ってほしいと頼んでいる（余った机の回収もalsoで依頼）。",
+      "traps": [
+       null,
+       "いすについての問題の指摘はない。",
+       "追加の割引の依頼はない。",
+       "むしろ明日までに送ってほしいと言っている。"
+      ]
+     },
+     "para": [
+      {
+       "p": "one of the lamps has a cracked base … send a replacement",
+       "a": "A replacement for a damaged item"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-t02",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "article",
+     "title": "Article",
+     "text": "Danfield Film Festival Returns\n\nThe Danfield Film Festival will hold its tenth annual event from June 5 to 8. This year's festival will feature 45 films from 12 countries, including several documentaries about environmental issues.\n\nTickets for individual screenings cost $12, while a festival pass, which allows entry to all screenings, costs $80. Passes are available only until May 31. For the first time, the festival will also offer outdoor screenings in Riverside Park, which will be free to the public."
+    },
+    {
+     "kind": "schedule",
+     "title": "Schedule",
+     "text": "Danfield Film Festival — Saturday, June 7",
+     "table": {
+      "header": [
+       "Time",
+       "Film",
+       "Venue"
+      ],
+      "rows": [
+       [
+        "1:00 P.M.",
+        "Ocean Voices (documentary)",
+        "Regal Theater"
+       ],
+       [
+        "4:00 P.M.",
+        "The Last Orchard",
+        "Regal Theater"
+       ],
+       [
+        "7:00 P.M.",
+        "Northern Lights (documentary)",
+        "Riverside Park"
+       ],
+       [
+        "9:30 P.M.",
+        "City of Glass",
+        "Arcadia Cinema"
+       ]
+      ]
+     }
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Dana Kim\nFrom: Sam Whitfield\nDate: June 2\nSubject: Festival plans\n\nHi Dana,\n\nI just tried to buy festival passes for both of us, but they're no longer being sold. I'll buy tickets for individual screenings instead.\n\nOn Saturday, I'd really like to see the two documentaries, since they're both about the environment. The later one is free, so I'll only need to buy tickets for the first one. Do you want to get dinner between the two films?\n\nSam"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-t02-1",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What is mentioned about this year's festival?",
+     "choices": [
+      "It is being held for the first time.",
+      "It lasts for two weeks.",
+      "It includes free screenings for the first time.",
+      "It shows only documentaries."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "記事で 'For the first time'（初めて）リバーサイド公園で無料の野外上映を行うと言っている。",
+      "traps": [
+       "今年が10回目（tenth annual event）。for the first timeを映画祭そのものに結びつけるひっかけ。",
+       "6月5日から8日までの4日間。",
+       null,
+       "45本のうち「何本か」がドキュメンタリーなだけ。"
+      ]
+     },
+     "para": [
+      {
+       "p": "For the first time … outdoor screenings … free to the public",
+       "a": "free screenings for the first time"
+      }
+     ]
+    },
+    {
+     "id": "p7-t02-2",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "Why was Mr. Whitfield unable to buy festival passes?",
+     "choices": [
+      "They had sold out.",
+      "The sales deadline had passed.",
+      "The Web site was not working.",
+      "They were too expensive."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "記事でパスは5月31日までしか販売されないと言っていて、Mr. Whitfieldは6月2日にメールを送っている。販売期限が過ぎている。",
+      "traps": [
+       "売り切れたという情報はない。販売期限が過ぎただけ。",
+       null,
+       "ウェブサイトの問題は書かれていない。",
+       "値段のせいだとは言っていない。"
+      ]
+     }
+    },
+    {
+     "id": "p7-t02-3",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "tags": [
+      "trap"
+     ],
+     "question": "How much will Mr. Whitfield most likely spend on Saturday's tickets for himself and Ms. Kim?",
+     "choices": [
+      "$12",
+      "$24",
+      "$80",
+      "$160"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "土曜日のドキュメンタリーは1時のOcean Voices（Regal Theater）と7時のNorthern Lights（Riverside Park、無料）。最初の映画だけチケットを買えばよいので、2人 × 12ドル = 24ドル。",
+      "traps": [
+       "12ドルは1人分のチケット代。「2人とも」という条件を見落とすひっかけ。",
+       null,
+       "80ドルはパスの値段だが、パスはもう販売していない。",
+       "160ドルはパス2枚の値段。"
+      ]
+     }
+    },
+    {
+     "id": "p7-t02-4",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "Where will Mr. Whitfield most likely be at 7:00 P.M. on Saturday?",
+     "choices": [
+      "In Riverside Park",
+      "At the Regal Theater",
+      "At the Arcadia Cinema",
+      "At a restaurant"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "彼が見ようとしている2本目のドキュメンタリーNorthern Lightsが、7時にリバーサイド公園で上映される。",
+      "traps": [
+       null,
+       "Regal Theaterは1時の映画の会場。",
+       "Arcadia Cinemaは9時30分のCity of Glassの会場で、彼はドキュメンタリーを2本見ようとしている。",
+       "夕食は2本の映画の「間」にしようと言っているので、7時には映画を見ている。"
+      ]
+     }
+    },
+    {
+     "id": "p7-t02-5",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "What does Mr. Whitfield suggest to Ms. Kim?",
+     "choices": [
+      "Buying passes online",
+      "Watching City of Glass",
+      "Having a meal together",
+      "Meeting at the Arcadia Cinema"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "2本の映画の間に夕食をとろうと（get dinner between the two films）提案している。",
+      "traps": [
+       "パスはもう販売していない。",
+       "彼はドキュメンタリーを2本見ようとしている。",
+       null,
+       "Arcadia Cinemaで会おうという話はない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "get dinner",
+       "a": "Having a meal together"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p7-t03",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "memo",
+     "title": "Memo",
+     "text": "To: All Halvorsen Engineering staff\nFrom: Human Resources\nDate: January 10\nSubject: Mentorship program\n\nHalvorsen Engineering is launching a mentorship program that pairs junior engineers with senior staff. Participation is voluntary. Mentors and mentees will meet for one hour every two weeks for six months.\n\nSenior staff with at least eight years at the company are eligible to serve as mentors. Interested employees should complete the registration form on the HR portal by January 24. Pairs will be announced on February 3."
+    },
+    {
+     "kind": "form",
+     "title": "Registration Form",
+     "text": "Mentorship Program Registration\n\nName: Diego Navarro\nDepartment: Structural Design\nYears with Halvorsen: 9\nRole requested: Mentor\nAreas of expertise: bridge design, project scheduling\nPreferred meeting day: Wednesday\nSubmitted: January 21"
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Diego Navarro\nFrom: Ama Mensah, HR Coordinator\nDate: February 3\nSubject: Your mentee\n\nDear Mr. Navarro,\n\nThank you for volunteering. You have been paired with Hannah Ito, who joined the Structural Design department last fall. Ms. Ito has mentioned that she is especially interested in learning about project scheduling.\n\nBecause she attends a training course on Wednesdays until March, your first few meetings will need to take place on Thursdays. Please contact her to arrange your first session.\n\nAma Mensah"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p7-t03-1",
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "question": "What is the purpose of the memo?",
+     "choices": [
+      "To announce a promotion",
+      "To explain a change in working hours",
+      "To recruit new engineers",
+      "To introduce a new program"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "若手エンジニアとベテラン社員を結ぶメンタリングプログラムを新しく始める（is launching）と知らせるメモ。",
+      "traps": [
+       "昇進の発表はない。",
+       "勤務時間の変更の話はない。",
+       "新しいエンジニアの採用ではなく、社内の社員向けのプログラム。",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "is launching a mentorship program",
+       "a": "introduce a new program"
+      }
+     ]
+    },
+    {
+     "id": "p7-t03-2",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "What is indicated about Mr. Navarro?",
+     "choices": [
+      "He meets the requirement to serve as a mentor.",
+      "He joined the company last fall.",
+      "He submitted his form after the deadline.",
+      "He works in the human resources department."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "メモではメンターの資格は勤続8年以上で、申込書ではMr. Navarroの勤続年数は9年。資格を満たしている。",
+      "traps": [
+       null,
+       "昨年秋に入社したのはメンティーのHannah Ito。",
+       "締め切りは1月24日で、彼は1月21日に提出した。",
+       "彼の部署はStructural Design。"
+      ]
+     }
+    },
+    {
+     "id": "p7-t03-3",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "Why was Ms. Ito most likely paired with Mr. Navarro?",
+     "choices": [
+      "They work on the same floor.",
+      "She requested him by name.",
+      "He has expertise in a subject she wants to learn.",
+      "He is her current supervisor."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "Ms. Itoは特にプロジェクトのスケジュール管理を学びたいと思っていて、申込書にはMr. Navarroの専門分野としてproject schedulingが書かれている。",
+      "traps": [
+       "働いている階についての情報はない。",
+       "名前で指名したという内容はない。関心のある分野を言っただけ。",
+       null,
+       "今の上司だという情報はない。"
+      ]
+     }
+    },
+    {
+     "id": "p7-t03-4",
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "question": "Why will Mr. Navarro's preferred meeting day not be used at first?",
+     "choices": [
+      "Mr. Navarro will be traveling.",
+      "Ms. Ito has a class on that day.",
+      "The meeting rooms are already booked.",
+      "The program does not begin until March."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "申込書の希望曜日は水曜日だが、メールでMs. Itoが3月まで毎週水曜日に研修コースを受けると言っている。",
+      "traps": [
+       "出張の話はない。",
+       null,
+       "会議室の予約の問題は書かれていない。",
+       "MarchはMs. Itoの研修が終わる時期で、プログラムが始まる時期ではない。"
+      ]
+     },
+     "para": [
+      {
+       "p": "she attends a training course on Wednesdays",
+       "a": "Ms. Ito has a class on that day."
+      }
+     ]
+    },
+    {
+     "id": "p7-t03-5",
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "question": "How often will Mr. Navarro and Ms. Ito meet?",
+     "choices": [
+      "Every week",
+      "Every two weeks",
+      "Once a month",
+      "Only once"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "メモで、メンターとメンティーは6か月間、2週間ごとに1時間（one hour every two weeks）会うと言っている。",
+      "traps": [
+       "毎週ではなく2週間ごと。",
+       null,
+       "月に1回とは言っていない。",
+       "6か月間定期的に会う。"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

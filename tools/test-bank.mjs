@@ -4,7 +4,7 @@ import path from 'node:path';
 import { validateBank, normText } from '../toeic/js/schema.js';
 import { buildBank, questionsOf, unitTarget } from '../toeic/js/bank.js';
 
-const dir = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../toeic/data');
+const dir = path.resolve(path.dirname(new URL(import.meta.url).pathname), `../${process.env.TT_APP || 'toeic'}/data`);
 const concepts = JSON.parse(fs.readFileSync(path.join(dir, 'concepts.json'))).concepts;
 const idx = JSON.parse(fs.readFileSync(path.join(dir, 'index.json')));
 const listed = new Set(idx.files);

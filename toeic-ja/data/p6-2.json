@@ -1,0 +1,1841 @@
+{
+ "units": [
+  {
+   "id": "p6-s09",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "letter",
+     "title": "Letter",
+     "text": "Dear Valued Customer,\n\nWe are writing to let you know that the prices of our printing paper products will increase by 5 percent starting May 1. This change is {{1}} by rising costs for raw materials and transportation. {{2}}\n\nOrders placed before April 30 will still be charged at current prices. {{3}}, customers who sign a one-year supply agreement this month will be able to {{4}} their current prices until next April.\n\nThank you for your understanding.\nArden Paper Supply"
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "caused",
+      "causing",
+      "causes",
+      "cause"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "This change is ___ by rising costsでは、価格の変更はコスト上昇に「よって引き起こされた」もので、後ろにbyがある。受動態is caused by。",
+      "traps": [
+       null,
+       "causingを使うとis causing byとなり、進行形の後ろに目的語なしでbyが来る誤った形になる。",
+       "causesは動詞なのでisの後ろには入らない。",
+       "causeは動詞の原形・名詞なので、isの後ろで受動態を作れない。"
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s09-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "Your order was shipped this morning.",
+      "We have tried to keep this increase as small as possible.",
+      "The new prices will be lower than before.",
+      "Please visit our booth at the trade fair."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "前の文は値上げの理由（原材料・運送費の上昇）。this increaseが直前の5%の値上げを指し、値上げ幅を最小限にしようとしたという説明が自然につながる。",
+      "traps": [
+       "配送の案内は値上げのお知らせの流れと関係ない。",
+       null,
+       "5%の値上げと言っているので、価格が下がるという話は矛盾する。",
+       "展示会ブースの案内はこの手紙のテーマと関係ない。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s09-2"
+    },
+    {
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 2,
+     "choices": [
+      "However",
+      "Therefore",
+      "In addition",
+      "Otherwise"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "前の文（4月30日より前の注文は現在の価格）と空所の文（1年契約なら現在の価格を維持）は、どちらも顧客への特典。特典をもう1つ付け加えるIn addition。",
+      "traps": [
+       "Howeverは対比に使う。2つの文は同じ方向の特典。",
+       "Thereforeは結果を言う。1年契約の特典は前の文の結果ではない。",
+       null,
+       "Otherwise（そうでなければ）は前の条件が満たされない場合を言う。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s09-3"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "raise",
+      "reduce",
+      "compare",
+      "keep"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "1年契約を結んだ顧客は、来年4月まで現在の価格を「維持できる」という特典。keep。",
+      "traps": [
+       "raise（上げる）だと顧客が価格を上げるという意味になり合わない。",
+       "reduce（下げる）は顧客ができることではなく、特典の内容とも違う。",
+       "compare（比べる）は契約の特典の内容にならない。",
+       null
+      ]
+     },
+     "blank": 4,
+     "vocab": [
+      {
+       "w": "raw material",
+       "pos": "n",
+       "m": "原材料"
+      }
+     ],
+     "id": "p6-s09-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s10",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "notice",
+     "title": "Notice",
+     "text": "Attention, Tenants\n\nThe north parking garage will be closed for resurfacing from June 10 through June 14. During this time, tenants may park in the south garage, which {{1}} an additional 200 spaces for the week. Because the south garage is expected to fill up quickly, we encourage employees to carpool or use public transportation whenever {{2}}. {{3}} A shuttle bus will run between the south garage and the main entrance every 15 minutes.\n\nWe apologize for any {{4}} this may cause.\n\nBuilding Management"
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "offered",
+      "will offer",
+      "had offered",
+      "offering"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "南側の駐車場が工事期間（6月10〜14日）に追加のスペースを「提供する」という、これからのこと。未来のwill offer。",
+      "traps": [
+       "offeredは過去なので、これからの工事の週と合わない。",
+       null,
+       "had offeredは過去より前のことなので時点が合わない。",
+       "offeringは分詞なので、関係詞whichの後ろに動詞がなくなる。"
+      ]
+     },
+     "blank": 1,
+     "vocab": [
+      {
+       "w": "resurfacing",
+       "pos": "n",
+       "m": "路面の再舗装"
+      }
+     ],
+     "id": "p6-s10-1"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "possible",
+      "possibly",
+      "possibility",
+      "possibilities"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "whenever possibleは「可能なときはいつでも」という決まった表現で、whenever (it is) possibleから形容詞だけが残った形。",
+      "traps": [
+       null,
+       "possiblyは副詞なので、省略されたbe動詞の補語の位置には入らない。",
+       "possibilityは名詞なので、wheneverの後ろに単独では使わない。",
+       "possibilitiesも名詞なので、決まった表現を作れない。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s10-2"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "The north garage reopened last week.",
+      "Parking fees will double in July.",
+      "Bicycle racks are also available near the east entrance.",
+      "Tenants should arrive at the north garage early."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "前の文は相乗り・公共交通機関を勧め、後ろの文はシャトルバスの案内。自転車置き場もある（also）という代わりの交通手段の案内がその間に自然に入る。",
+      "traps": [
+       "北側駐車場は6月10日から工事で閉まる。先週再開したという話は矛盾する。",
+       "7月の料金値上げは、工事期間中の駐車案内と関係ない。",
+       null,
+       "北側駐車場は閉まっているので、そこに早く来るようにという話は矛盾する。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s10-3"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "convenience",
+      "opportunity",
+      "inconvenience",
+      "appreciation"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "apologize for any inconvenienceはお知らせの決まった表現。駐車場の閉鎖で生じる「不便」についておわびする。",
+      "traps": [
+       "convenience（便利さ）についておわびするのは意味が逆。",
+       "opportunity（機会）はおわびする対象ではない。",
+       null,
+       "appreciation（感謝）もおわびの対象にならない。"
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s10-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s11",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "article",
+     "title": "Article",
+     "text": "BRIDGEPORT (September 3) — Calder Coffee, a chain of twelve cafés, will stop using plastic straws at all of its locations {{1}} October 1. The company will instead offer paper straws upon request. {{2}}\n\n“Our customers have asked us to reduce waste for years,” said founder Mia Calder. “This is one step, but it will not be our {{3}}.” The company also plans to give a 10 percent discount to customers who bring {{4}} own cups."
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "until",
+      "during",
+      "among",
+      "as of"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "as of October 1は「10月1日から」という始まりの時点を表す。その日からプラスチックのストローの使用をやめるという意味。",
+      "traps": [
+       "until（〜までずっと）を使うと「10月1日まで使用をやめる」となり、これからの方針の発表と合わない。",
+       "duringは期間中を言い、1日の日付と一緒に始まりの時点を表せない。",
+       "amongは3つ以上の対象の間を言う。",
+       null
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s11-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "The change is expected to eliminate about 300,000 plastic straws each year.",
+      "The cafés will close for renovations in October.",
+      "Plastic straws will still be available at the counter.",
+      "Ms. Calder opened her first café in Tokyo."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "前の文はストローの方針変更の内容。The change（この変更）がその方針を指し、期待される効果を付け加える文が自然。",
+      "traps": [
+       null,
+       "10月に閉店するという内容は方針の実施と合わず、本文のどこにも根拠がない。",
+       "プラスチックのストローの使用をやめると言っているので矛盾する。",
+       "創業の話は、ストローの方針 → 代表のインタビューという流れを切ってしまう。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s11-2"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 2,
+     "choices": [
+      "least",
+      "last",
+      "latest",
+      "lasting"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "「これは一歩だが、最後の一歩ではないだろう」という意味。our last (step)。",
+      "traps": [
+       "least（最も少ない）は意味が通じない。",
+       null,
+       "latest（最新の）だと「最新の措置ではないだろう」となり意味が合わない。lastと混同しやすいひっかけ。",
+       "lasting（長続きする）は形容詞なので、後ろに名詞がないままourの後ろには来ない。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s11-3"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "their",
+      "them",
+      "theirs",
+      "themselves"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "名詞own cupsの前なので所有格theirが必要。one's own + 名詞の形。",
+      "traps": [
+       null,
+       "themは目的格なので名詞を修飾できない。",
+       "theirsは所有代名詞なので後ろに名詞は来ない。",
+       "themselvesは名詞の前には使わない。"
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s11-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s12",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "letter",
+     "title": "Letter",
+     "text": "Dear Mr. Haddad,\n\nOn behalf of Norland Engineering, I am pleased to offer you the position of project coordinator. Your start date will be Monday, August 4. {{1}} your first week, you will attend orientation sessions with other new employees. {{2}}\n\nPlease sign and return the enclosed contract by July 25. If you have any questions about the terms, do not {{3}} to contact me. We look forward to {{4}} you to our team.\n\nSincerely,\nLaura Kim\nHuman Resources"
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "While",
+      "During",
+      "Since",
+      "Until"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "後ろが名詞句（your first week）で、「最初の週の間」という意味。前置詞During。",
+      "traps": [
+       "Whileは接続詞なので、後ろに節が必要。",
+       null,
+       "Sinceは過去から続くことに使い、未来のwill attendと合わない。",
+       "Untilは「〜までずっと」なので、最初の週になるまで研修を受けるという的外れな意味になる。"
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s12-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "Thank you for applying for the position of accountant.",
+      "Unfortunately, the position has already been filled.",
+      "These sessions will introduce you to our safety procedures and company systems.",
+      "Your interview has been scheduled for next week."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "These sessionsが直前の文のorientation sessionsを指し、研修の内容を説明している。",
+      "traps": [
+       "提示した職はproject coordinator。会計士への応募のお礼は合わない。",
+       "採用通知の手紙で、ポジションが埋まったという話は矛盾する。",
+       null,
+       "すでに採用の提示を受けた段階なので、面接日程の案内は合わない。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s12-2"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "delay",
+      "refuse",
+      "decide",
+      "hesitate"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "do not hesitate to contact me（遠慮なくご連絡ください）は手紙の決まった表現。",
+      "traps": [
+       "delayはto不定詞ではなく動名詞を目的語にとる（delay contacting）。",
+       "refuse to contactだと「連絡を断らないでください」となり不自然。",
+       "decide to contactだと「連絡することを決めないでください」となり意味が逆。",
+       null
+      ]
+     },
+     "blank": 3,
+     "vocab": [
+      {
+       "w": "hesitate",
+       "pos": "v",
+       "m": "ためらう"
+      }
+     ],
+     "id": "p6-s12-3"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "welcome",
+      "welcomed",
+      "be welcomed",
+      "welcoming"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "look forward toのtoは前置詞なので後ろに動名詞が来る。welcoming you to our team。",
+      "traps": [
+       "welcomeは動詞の原形なので前置詞toの後ろには入らない。to不定詞と勘違いさせるひっかけ。",
+       "welcomedは過去分詞なので前置詞の目的語になれない。",
+       "be welcomedは受動なので、後ろの目的語youと合わない。",
+       null
+      ]
+     },
+     "blank": 4,
+     "tags": [
+      "trap"
+     ],
+     "id": "p6-s12-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s13",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "memo",
+     "title": "Memo",
+     "text": "To: All staff\nFrom: IT Department\nSubject: Help desk hours\n\nBeginning next Monday, the IT help desk will be open from 7:30 A.M. to 7:00 P.M., Monday through Friday. The {{1}} hours will make it easier for employees in our overseas offices to reach us during their working day. {{2}}, requests submitted outside these hours will be answered the following morning.\n\nFor urgent problems, such as a complete network failure, please call the emergency line at extension 999. {{3}}\n\nThank you for helping us {{4}} you better."
+    }
+   ],
+   "questions": [
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "reduced",
+      "extended",
+      "limited",
+      "shortened"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "海外事務所の社員が連絡「しやすくなる」という理由が続くので、対応時間が「延びた」。extended。",
+      "traps": [
+       "reduced（減った）時間なら連絡しやすくはならない。",
+       null,
+       "limited（制限された）も連絡しやすくなるという内容と逆。",
+       "shortened（短縮された）も同じ理由で合わない。"
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s13-1"
+    },
+    {
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 2,
+     "choices": [
+      "However",
+      "As a result",
+      "For example",
+      "Likewise"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "前の文は対応時間が延びて便利になったという内容、空所の文はその時間外の依頼は翌日の処理になるという制限。対比のHowever。",
+      "traps": [
+       null,
+       "As a resultは結果を言うが、翌日の処理は時間延長の結果ではない。",
+       "For exampleは例示だが、空所の文は前の文の例ではない。",
+       "Likewise（同様に）は同じ内容を続けるときに使う。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s13-2"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "The help desk will be closed permanently.",
+      "Please submit vacation requests to your manager.",
+      "This line is staffed 24 hours a day.",
+      "Our overseas offices will move next year."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "前の文が緊急回線（extension 999）の案内。This lineがその回線を指し、24時間対応しているという情報が続く。",
+      "traps": [
+       "対応時間を延ばすと言っているので、完全閉鎖は矛盾する。",
+       "休暇申請はITサポートの案内と関係ない。",
+       null,
+       "海外事務所の移転はこのメモのテーマと関係ない。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s13-3"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "served",
+      "serving",
+      "serve",
+      "service"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "help + 目的語 +（to）動詞の原形の形。help us serve you better。",
+      "traps": [
+       "servedは過去形・過去分詞なので、helpの目的格補語になれない。",
+       "servingはhelpの目的格補語の形ではない。",
+       null,
+       "serviceを動詞として使うと「（機械を）点検・整備する」という意味なので、youと合わない。"
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s13-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s14",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "advertisement",
+     "title": "Advertisement",
+     "text": "Need a quiet place to work?\n\nWorkNest offers private desks and meeting rooms in the heart of downtown. Members have {{1}} access to high-speed Internet, printers, and free coffee. {{2}}\n\nMonthly memberships start at just $150, and there is no long-term contract. {{3}}, members who refer a friend receive one month free.\n\nVisit our Web site to book a free tour or to {{4}} a day pass."
+    }
+   ],
+   "questions": [
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "unlikely",
+      "unable",
+      "unknown",
+      "unlimited"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "会員特典としてインターネット・プリンター・コーヒーを「無制限に」利用できるという意味。unlimited access。",
+      "traps": [
+       "unlikely（〜しそうにない）はaccessを修飾すると意味が通じない。",
+       "unableは人についてbe unable to doの形で使う。",
+       "unknown access（知られていない利用）は広告の特典にならない。",
+       null
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s14-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "Membership requires a three-year contract.",
+      "Meeting rooms can be reserved by the hour through our app.",
+      "The building is currently under construction.",
+      "Thank you for renewing your membership."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "最初の段落は施設の紹介（専用デスク、会議室、インターネット）。会議室を1時間単位で予約できるという説明が施設紹介に続く。",
+      "traps": [
+       "次の段落で長期契約はないと言っているので、3年契約は矛盾する。",
+       null,
+       "工事中の建物なら、会員を募集する広告と合わない。",
+       "新規会員を集める広告で、更新へのお礼は合わない。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s14-2"
+    },
+    {
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 1,
+     "choices": [
+      "In addition",
+      "Nevertheless",
+      "Instead",
+      "As a result"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "前の文（手頃な月額料金、長期契約なし）に続けて、友人紹介の特典を付け加えている。In addition。",
+      "traps": [
+       null,
+       "Neverthelessは前の内容と反対の結果に使う。",
+       "Insteadは前の内容の代わりになるときに使う。",
+       "As a resultは結果を言うが、紹介特典は前の文の結果ではない。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s14-3"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 2,
+     "choices": [
+      "spend",
+      "purchase",
+      "charge",
+      "cost"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "ウェブサイトで1日利用券を「購入する」という意味。purchase a day pass。",
+      "traps": [
+       "spendはお金・時間を目的語にとる。spend a day passとは言わない。",
+       null,
+       "chargeは料金を「請求する」という売る側の動詞。",
+       "costは「費用がかかる」なので、人が主語になって利用券を目的語にとることはできない。"
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s14-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s15",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Karin Lindgren\nFrom: Owen Price\nSubject: Program change\n\nDear Ms. Lindgren,\n\nThank you for agreeing to speak at the Northern Logistics Forum. I am writing about a change to the program. Because one of our keynote speakers has had to cancel, your session {{1}} from 2:00 P.M. to 11:00 A.M. on March 8. {{2}}\n\nYour presentation will now take place in the main hall, which seats 400 people. {{3}}, we will be able to accommodate the large number of attendees who have registered for your talk. Please let me know {{4}} this new time works for you.\n\nBest regards,\nOwen Price, Program Coordinator"
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "has rescheduled",
+      "rescheduling",
+      "has been rescheduled",
+      "will reschedule"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "セッションは日程が「変更される」側で、後ろに目的語がない。すでに決まった変更を知らせるので、現在完了の受動態has been rescheduled。",
+      "traps": [
+       "has rescheduledは能動態なので、セッションが何かの日程を組み直す主体になり、目的語もない。",
+       "reschedulingは分詞なので、述語動詞がなくなる。",
+       null,
+       "will rescheduleも能動態なので目的語が必要。"
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s15-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "Unfortunately, the forum has been canceled.",
+      "Your hotel reservation has been confirmed for March 20.",
+      "Please send us your registration fee by Friday.",
+      "We apologize for any inconvenience this change may cause you."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "前の文で発表時間を変えたと知らせているので、この変更（this change）による不便をおわびする文が続く。",
+      "traps": [
+       "イベントが中止になったなら、続く新しい会場の案内と矛盾する。",
+       "イベントは3月8日なので、3月20日のホテル予約は合わない。",
+       "発表者に参加費を求める内容は流れと合わない。",
+       null
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s15-2"
+    },
+    {
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 2,
+     "choices": [
+      "As a result",
+      "However",
+      "In contrast",
+      "Otherwise"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "400席のメインホールに移った結果、多くの登録者を受け入れられるようになった。原因と結果のAs a result。",
+      "traps": [
+       null,
+       "Howeverは対比だが、2つの文は原因と結果。",
+       "In contrastは異なるものを比べるときに使う。",
+       "Otherwise（そうでなければ）は反対の状況を仮定するときに使う。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s15-3"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "unless",
+      "whether",
+      "what",
+      "which"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "let me knowの目的語として「〜かどうか」を表す名詞節が必要。whether。",
+      "traps": [
+       "unlessは副詞節を導く接続詞なので、knowの目的語になれない。",
+       null,
+       "whatの後ろには不完全な節が来るが、this new time works for youは完全な節。",
+       "whichも後ろに不完全な節が来る必要がある。"
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s15-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s16",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "web page",
+     "title": "Web Page",
+     "text": "Returns and Exchanges\n\nItems purchased at Hollow Tree Outdoor Gear may be returned within 30 days of {{1}}. To receive a full refund, items must be unused and in their original packaging. {{2}}\n\nItems returned after 30 days are eligible for store credit only. Please note that sale items cannot be returned. {{3}}, they may be exchanged for a different size or color within 14 days. Refunds are issued to the original form of payment and usually appear on your statement within five {{4}} days."
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "purchaser",
+      "purchasable",
+      "purchased",
+      "purchase"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "前置詞ofの後ろの名詞の位置。within 30 days of purchaseは「購入日から30日以内」。",
+      "traps": [
+       "purchaser（購入者）も名詞だが「購入者から30日」となり意味が通じず、冠詞もない。",
+       "purchasableは形容詞なので、前置詞の後ろに単独では入らない。",
+       "purchasedは過去分詞なので名詞の位置に合わない。",
+       null
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s16-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "A receipt or order number is also required.",
+      "All of our products are made by hand.",
+      "Returns are not accepted under any circumstances.",
+      "Our store is closed for remodeling."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "前の文が全額返金の条件（未使用、元の包装）を述べているので、領収書「も」必要だという条件が続く。",
+      "traps": [
+       null,
+       "手作り品だという情報は、返品の条件の説明とつながらない。",
+       "30日以内なら返品できると言っているので矛盾する。",
+       "店舗の工事の案内は返品規定と関係ない。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s16-2"
+    },
+    {
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 2,
+     "choices": [
+      "Therefore",
+      "Similarly",
+      "However",
+      "In other words"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "セール品は返品できないという制限の後に、交換はできるという反対方向の内容が来る。However。",
+      "traps": [
+       "Thereforeを使うと、返品できない結果として交換できるというおかしな論理になる。",
+       "Similarlyは同じ内容を続けるときに使う。",
+       null,
+       "In other wordsは前の文を言い換えるときに使うが、交換可能は返品不可とは別の内容。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s16-3"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "busy",
+      "businesslike",
+      "business",
+      "businesses"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "business days（営業日）は名詞が名詞を修飾する決まった表現。",
+      "traps": [
+       "busy daysは「忙しい日」なので、返金の期間を表せない。",
+       "businesslike（事務的な）はdaysと合わない。",
+       null,
+       "businessesは複数名詞なので、daysの前の修飾語には使わない。"
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s16-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s17",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "press release",
+     "title": "Press Release",
+     "text": "FOR IMMEDIATE RELEASE\n\nVela Motors and the battery maker PowerCell announced today that they have formed a partnership to develop batteries for Vela's next line of compact electric cars. Under the agreement, PowerCell will {{1}} the batteries at its new plant in Ulsan, and Vela will handle design and testing. {{2}}\n\n“Working with PowerCell will allow us to bring affordable electric cars to market {{3}} than we could on our own,” said Vela CEO Jonas Berg. The first vehicles {{4}} through the partnership are expected to go on sale in 2028."
+    }
+   ],
+   "questions": [
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "manufacture",
+      "consume",
+      "recall",
+      "repair"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "バッテリーメーカーが新工場でバッテリーを「製造する」という役割分担。manufacture。",
+      "traps": [
+       null,
+       "consume（消費する）はバッテリーメーカーの役割ではない。",
+       "recall（回収する）は、まだ開発前のバッテリーと合わない。",
+       "repair（修理する）も、工場で行う開発・生産の役割と合わない。"
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s17-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "The partnership ended last year.",
+      "PowerCell does not produce batteries.",
+      "Vela will stop making cars next month.",
+      "Financial terms of the agreement were not disclosed."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "前の文で提携の内容を説明した後、契約金額は公表されていないという、プレスリリースによくある締めくくりの情報が入る。",
+      "traps": [
+       "今日提携を発表したので、昨年終わったという話は矛盾する。",
+       "PowerCellはバッテリーメーカーだと紹介されている。",
+       "次の車種を一緒に開発するという内容と矛盾する。",
+       null
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s17-2"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "fastest",
+      "faster",
+      "fast",
+      "more fastly"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "後ろにthanがあるので比較級faster。",
+      "traps": [
+       "fastestは最上級なのでthanと一緒に使わない。",
+       null,
+       "fastは原級なのでthanと一緒に使わない。",
+       "fastlyという語はなく、fastの比較級はfaster。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s17-3"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "developing",
+      "develop",
+      "developed",
+      "development"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "The first vehiclesを後ろから修飾する分詞の位置。車両は「開発される」側なので過去分詞developed。述語動詞はare expected。",
+      "traps": [
+       "developingだと、車両が何かを開発するという能動の意味になる。",
+       "developは動詞の原形なので、述語動詞が重なる。",
+       null,
+       "developmentは名詞なので、vehiclesを修飾する位置に合わない。"
+      ]
+     },
+     "blank": 4,
+     "tags": [
+      "trap"
+     ],
+     "id": "p6-s17-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s18",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "instructions",
+     "title": "Instructions",
+     "text": "Cleaning Your BrewMaster 300\n\nTo keep your coffee maker working {{1}}, clean it at least once a month. First, fill the water tank with a mixture of equal parts water and white vinegar. Then, place an empty mug under the spout and press the Clean button. {{2}}\n\nWhen the cycle is complete, empty the mug and run two more cycles with fresh water only. {{3}}, any vinegar taste will be removed from the machine. Never {{4}} the machine in water, as this can damage the electrical parts."
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "properly",
+      "proper",
+      "property",
+      "propriety"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "keep + 目的語 + workingの後ろで、working（作動する）を修飾する副詞が必要。properly。",
+      "traps": [
+       null,
+       "properは形容詞なので動詞workingを修飾できない。",
+       "property（財産）は名詞なので、意味も品詞も合わない。",
+       "propriety（礼儀正しさ）は名詞。"
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s18-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "Coffee beans should be stored in the freezer.",
+      "Your warranty has now expired.",
+      "Add sugar to the water tank for a better taste.",
+      "The cleaning cycle takes about 15 minutes."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "前の文でCleanボタンを押して洗浄サイクルを始め、次の段落がWhen the cycle is completeで始まる。その間に洗浄サイクルにかかる時間の案内が入る。",
+      "traps": [
+       "コーヒー豆の保存方法は洗浄の手順と関係ない。",
+       "保証の期限切れは洗浄の案内の流れと関係ない。",
+       "水タンクに砂糖を入れるようにというのは洗浄の案内と矛盾する。",
+       null
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s18-2"
+    },
+    {
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 2,
+     "choices": [
+      "Even so",
+      "This way",
+      "Instead",
+      "For instance"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "きれいな水でさらに2回動かす方法を使えば、酢の味が取れるという結果。This way（こうすれば）。",
+      "traps": [
+       "Even soは前の内容にもかかわらず反対の結果になるときに使う。",
+       null,
+       "Insteadは前の方法の代わりにするときに使う。",
+       "For instanceは例を挙げるときに使う。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s18-3"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 3,
+     "choices": [
+      "wipe",
+      "plug",
+      "unplug",
+      "immerse"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "電気部品が傷む可能性があるので、本体を水に「浸さない」ようにという警告。immerse A in water。",
+      "traps": [
+       "wipe（拭く）はin waterと一緒にしても損傷の警告にならない。",
+       "plugはplug inの形で電源をつなぐときに使う。",
+       "unplug（電源を抜く）はin waterと結びつかず、損傷の理由にもならない。",
+       null
+      ]
+     },
+     "blank": 4,
+     "vocab": [
+      {
+       "w": "immerse",
+       "pos": "v",
+       "m": "（液体に）浸す"
+      }
+     ],
+     "tags": [
+      "trap"
+     ],
+     "id": "p6-s18-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s19",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Customer Service Team\nFrom: Rachel Moon\nSubject: Database training\n\nHi team,\n\nAs many of you know, our new customer database will go live on November 1. To make sure everyone is ready, the IT department {{1}} three training sessions next week. Each session will last two hours and will cover the same material, so you only need to attend one. {{2}}\n\nSeats are limited to 15 people per session, so please register as soon as possible. Employees who cannot attend {{3}} session should contact me directly. I will arrange an online session for {{4}}.\n\nThanks,\nRachel"
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "held",
+      "has held",
+      "will hold",
+      "holding"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "next weekにあることなので、未来のwill hold。",
+      "traps": [
+       "heldは過去なのでnext weekと合わない。",
+       "has heldは現在完了なので、未来の時点と一緒に使わない。",
+       null,
+       "holdingは分詞なので、述語動詞がなくなる。"
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s19-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "You can sign up through the training page on the intranet.",
+      "The old database will remain in use for another year.",
+      "Last month's holiday party was a great success.",
+      "Please bring your laptop to the client meeting."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "次の段落が「席に限りがあるので早めに登録を」なので、その前に登録方法の案内が来るのが自然。",
+      "traps": [
+       null,
+       "新しいデータベースは11月1日に稼働すると言っているので矛盾する。",
+       "忘年会の話は研修の案内と関係ない。",
+       "顧客との打ち合わせの持ち物は、研修の案内の流れと関係ない。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s19-2"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "some",
+      "any",
+      "every",
+      "all"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "否定文cannot attendの後ろで、「どのセッションにも」という意味のany sessionが必要。",
+      "traps": [
+       "someは否定文ではこの意味で使わず、some sessionは「ある特定のセッション」のように読める。",
+       null,
+       "cannot attend every sessionは「すべてのセッションには出られない」なので、1回受ければよいという前の内容と合わない。",
+       "allの後ろには複数名詞が来る（all sessions）。"
+      ]
+     },
+     "blank": 3,
+     "tags": [
+      "trap"
+     ],
+     "id": "p6-s19-3"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "they",
+      "their",
+      "theirs",
+      "them"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "前置詞forの後ろの目的格の位置。themは前のEmployees who cannot attendを指す。",
+      "traps": [
+       "theyは主格なので前置詞の後ろには入らない。",
+       "theirは所有格なので後ろに名詞が必要。",
+       "theirsは「彼らのもの」なので意味が合わない。",
+       null
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s19-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s20",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "notice",
+     "title": "Notice",
+     "text": "Fall Workshop Series for Small Businesses\n\nThe Westfield Chamber of Commerce is pleased to announce its fall workshop series for small-business owners. The workshops will take place on Thursday evenings from 6:00 to 8:00 P.M. at the Chamber's office on Pine Street. Topics include online marketing, hiring, and {{1}} cash flow. {{2}}\n\nEach workshop costs $20 for Chamber members and $35 for nonmembers. {{3}}, participants who register for all four workshops will receive a 25 percent discount. Space is limited, so early registration is {{4}} recommended."
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "manage",
+      "managing",
+      "managed",
+      "manager"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "online marketing, hiring, and ___ cash flowは、Topics includeの目的語として並列になった名詞相当語句。目的語cash flowをとりつつ名詞の働きをする動名詞managing。",
+      "traps": [
+       "manageは動詞の原形なので、並列された名詞の位置には入らない。",
+       null,
+       "managed cash flowは「管理された資金繰り」となり、テーマ一覧のほかの項目（-ingの活動）と並列が合わない。",
+       "manager cash flowは「名詞 + 名詞」として成り立たない。"
+      ]
+     },
+     "blank": 1,
+     "tags": [
+      "trap"
+     ],
+     "id": "p6-s20-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "The office on Pine Street closed in 2019.",
+      "Workshops are held every Monday morning.",
+      "All sessions will be led by experienced local business owners.",
+      "Refreshments will not be served at the annual gala."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "前の文がワークショップのテーマの紹介。講師の紹介が続くと、プログラム案内の流れとして自然。",
+      "traps": [
+       "ワークショップの会場はPine Streetの事務所だと言っているので矛盾する。",
+       "木曜日の夜に開かれると言っているので矛盾する。",
+       null,
+       "年次夕食会の話はワークショップの案内と関係ない。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s20-2"
+    },
+    {
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 1,
+     "choices": [
+      "In addition",
+      "Nevertheless",
+      "Otherwise",
+      "In other words"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "会員・非会員の料金案内の後に、4回すべてに申し込むと割引になるという情報を付け加えている。In addition。",
+      "traps": [
+       null,
+       "Neverthelessは反対の結果に使う。",
+       "Otherwiseは「そうでなければ」なので意味が合わない。",
+       "In other wordsは同じ内容を言い換えるときに使う。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s20-3"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "hardly",
+      "nearly",
+      "barely",
+      "strongly"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "席に限りがあるので、早めの登録を「強く」勧める。strongly recommended。",
+      "traps": [
+       "hardly（ほとんど〜ない）は否定の意味なので、前の内容と逆。",
+       "nearly recommendedは「ほぼ勧められる」となり不自然。",
+       "barely（かろうじて）も否定に近い意味。",
+       null
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s20-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s21",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "letter",
+     "title": "Letter",
+     "text": "Dear Ms. Benson,\n\nThank you for your letter regarding the delay in the delivery of your sofa. I am very sorry that it arrived nine days later than {{1}}. After looking into the matter, we found that the delay was caused by an error in our scheduling system. {{2}}\n\nTo make up for the inconvenience, we have {{3}} $50 to your credit card. We have also included a coupon for 15 percent off your next purchase. We value your business and hope you will {{4}} to shop with us.\n\nSincerely,\nPaul Adeyemi\nCustomer Service Manager, Linden Home"
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "promising",
+      "promised",
+      "promise",
+      "promises"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "later than promisedはlater than (it was) promisedの省略。配達日は「約束された」ものなので過去分詞。",
+      "traps": [
+       "promising（有望な）は意味が合わない。",
+       null,
+       "promiseは動詞の原形・名詞なので、thanの後ろでこの省略の形を作れない。",
+       "promisesも同じ理由で合わない。"
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s21-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "Your sofa will be delivered next month.",
+      "We do not sell sofas.",
+      "This problem has now been corrected.",
+      "Please return the coupon to our store."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "前の文が遅れの原因（スケジュールシステムのエラー）。This problemがそのエラーを指し、解決したという文が続く。",
+      "traps": [
+       "ソファはすでに届いた（arrived）と言っているので矛盾する。",
+       "ソファの配達の遅れについての手紙なので矛盾する。",
+       null,
+       "クーポンは次回の買い物用に「同封した」ものなので、返却を求めるのは合わない。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s21-2"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 3,
+     "choices": [
+      "credited",
+      "charged",
+      "borrowed",
+      "owed"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "ご不便の埋め合わせとして（To make up for）50ドルをカードに「返金した」。credit A to（〜に入金する）。",
+      "traps": [
+       null,
+       "chargedは「請求した」なので、埋め合わせではなく逆の意味。同じカードの文脈なので選びやすいひっかけ。",
+       "borrowed（借りた）は意味が合わない。",
+       "owed（借りがあった）はto your credit cardと結びついて埋め合わせを表せない。"
+      ]
+     },
+     "blank": 3,
+     "tags": [
+      "trap"
+     ],
+     "id": "p6-s21-3"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "continue",
+      "stop",
+      "avoid",
+      "finish"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "「今後もご利用いただければ幸いです」という意味。continue to shop。",
+      "traps": [
+       null,
+       "stop to shopは「買い物をするために立ち止まる」なので意味が合わない。",
+       "avoidはto不定詞をとらず、意味も逆。",
+       "finishもto不定詞をとらない。"
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s21-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s22",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "article",
+     "title": "Article",
+     "text": "LAKESIDE (April 2) — The 180-room Mariner Hotel, which has been under construction for two years, will open to guests on May 15. The hotel, {{1}} on the waterfront, features a rooftop restaurant and a conference center that can hold up to 500 people. {{2}}\n\nSo far, the hotel {{3}} more than 120 local residents, and it plans to hire another 40 before opening day, according to general manager Sofia Ruiz. Reservations can be made through the hotel's Web site, and guests who book before May 1 will receive free breakfast {{4}} their stay."
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "locating",
+      "locate",
+      "located",
+      "location"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "The hotelを説明する挿入の分詞句。ホテルは海辺に「位置している」ので過去分詞located。",
+      "traps": [
+       "locatingは「位置を突き止める」という能動の意味。",
+       "locateは動詞の原形なので挿入句を作れない。",
+       null,
+       "locationは名詞なので、カンマの間でホテルを説明する形にならない。"
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s22-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "The hotel closed in 2019 after fifty years in business.",
+      "Several companies have already booked the center for events this summer.",
+      "Ms. Ruiz is a well-known chef from Lakeside.",
+      "Construction will begin next year."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "前の文がコンファレンスセンターの紹介。the centerがそれを指し、すでにイベントの予約が入っているという内容が続く。",
+      "traps": [
+       "5月に初めて開業すると言っているので、50年営業した後の閉業は矛盾する。",
+       null,
+       "Ms. Ruizは総支配人として紹介されている。",
+       "2年間工事中だと言っているので、来年着工するという話は矛盾する。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s22-2"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "will hire",
+      "hires",
+      "had hired",
+      "has hired"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "So far（これまでに）と一緒に今までに完了したことを言うので、現在完了has hired。",
+      "traps": [
+       "will hireは未来なのでSo farと合わない。これから採用する40人と区別する必要がある。",
+       "hiresは現在の習慣を表すのでSo farと合わない。",
+       "had hiredには過去の基準時点が必要だが、この文にはない。",
+       null
+      ]
+     },
+     "blank": 3,
+     "tags": [
+      "trap"
+     ],
+     "id": "p6-s22-3"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "while",
+      "among",
+      "between",
+      "during"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "名詞句their stayの前なので前置詞during（〜の間）。",
+      "traps": [
+       "whileは接続詞なので節を受ける必要がある。",
+       "amongは3つ以上の対象の間を言う。",
+       "betweenは2つの対象の間を言う。",
+       null
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s22-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s23",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "memo",
+     "title": "Memo",
+     "text": "To: All employees\nFrom: Daniel Moreau, Operations Director\nRe: Remote work policy\n\nStarting in September, employees may work from home up to two days per week with their manager's approval. {{1}}, all staff must be in the office on Tuesdays, when team meetings are held. Employees who work remotely are expected to be {{2}} by phone and e-mail during regular business hours. {{3}}\n\nRequests should be submitted through the HR portal at least one week in {{4}}."
+    }
+   ],
+   "questions": [
+    {
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 2,
+     "choices": [
+      "However",
+      "Therefore",
+      "For example",
+      "Similarly"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "週2日の在宅勤務を認めるという前の文と、火曜日は必ず出社するという制限が対比になっている。However。",
+      "traps": [
+       null,
+       "Thereforeは結果を表すが、火曜日の出社は在宅勤務を認めた結果ではない。",
+       "For exampleは例示だが、空所の文は前の文の例ではない。",
+       "Similarlyは似た内容を続けるときに使う。"
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s23-1"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "availability",
+      "avail",
+      "available",
+      "availably"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "be動詞の補語の位置なので形容詞available（連絡がとれる）。",
+      "traps": [
+       "availabilityは名詞なので「社員 = 都合のよさ」となり不自然。",
+       "availは動詞・名詞で、beの後ろの補語にならない。",
+       null,
+       "availablyという形は使わず、副詞は補語になれない。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s23-2"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "The office will be closed permanently in September.",
+      "Managers will review each request based on the needs of their team.",
+      "Team meetings have been moved to Fridays.",
+      "Employees may not use e-mail at home."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "在宅勤務の条件の説明の後、次の文が申請方法（Requests should be submitted）。上司が申請を確認するという文がその間に入ると自然。",
+      "traps": [
+       "火曜日に出社する決まりがあるので、事務所の完全閉鎖は矛盾する。",
+       null,
+       "チーム会議は火曜日に開かれると言っている。",
+       "在宅勤務者はメールで連絡がとれなければならないと言っているので矛盾する。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s23-3"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "progress",
+      "advance",
+      "front",
+      "ahead"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "in advance（前もって）は決まった表現。少なくとも1週間前に申請するようにという意味。",
+      "traps": [
+       "in progressは「進行中の」なので意味が合わない。",
+       null,
+       "in frontは位置を言う。",
+       "aheadはinなしで使う副詞（ahead of time）。"
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s23-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s24",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Viktor Petrov\nFrom: Ana Silva, Bright Bag Co.\nSubject: Your order #5520\n\nDear Mr. Petrov,\n\nThank you for your order of 200 custom-printed tote bags. Our design team {{1}} your logo file and found that its resolution is too low for printing. {{2}} Could you please send us a higher-quality version of the file, preferably in PDF format?\n\nOnce we receive it, we will send you a digital proof for your {{3}}. Please note that production will begin only after you approve the proof. {{4}}, your order may not arrive by the June 20 date you requested.\n\nKind regards,\nAna Silva"
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "will review",
+      "is reviewed",
+      "reviewing",
+      "has reviewed"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "すでにファイルを確認し（found）、問題があることを知らせる内容。今までに完了したことを表すhas reviewed。",
+      "traps": [
+       "will reviewは未来なので、「解像度が低いと分かった（found）」という内容と合わない。",
+       "is reviewedは受動なので、デザインチームが確認される側になり、目的語もとれない。",
+       "reviewingは分詞なので、述語動詞がなくなる。",
+       null
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s24-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "The bags have already been shipped to you.",
+      "We no longer offer custom printing.",
+      "As a result, the printed logo would appear blurry.",
+      "Thank you for approving the proof."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "前の文が「解像度が低すぎる」。その結果、印刷されたロゴがぼやけるという説明が続く。",
+      "traps": [
+       "印刷前のファイルの問題を知らせている最中なので、すでに発送したという話は矛盾する。",
+       "オリジナル印刷の注文を処理している最中なので矛盾する。",
+       null,
+       "デザイン案はまだ送ってもいないので、承認へのお礼は合わない。"
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s24-2"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "approval",
+      "approve",
+      "approved",
+      "approving"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "所有格yourの後ろの名詞の位置。for your approval（ご承認のために）。",
+      "traps": [
+       null,
+       "approveは動詞なので所有格の後ろには入らない。",
+       "approvedは過去分詞なので名詞の位置に合わない。",
+       "approvingは動名詞として使えるが、for your approvingという表現は使わない。"
+      ]
+     },
+     "blank": 3,
+     "id": "p6-s24-3"
+    },
+    {
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 2,
+     "choices": [
+      "In contrast",
+      "As a result",
+      "For example",
+      "Instead"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "高画質のファイルを受け取り、デザイン案の承認を得た後でないと生産が始まらないので、その結果、希望の日付までに届かない可能性がある。As a result。",
+      "traps": [
+       "In contrastは異なるものを対比するときに使う。",
+       null,
+       "For exampleは例を挙げるときに使う。",
+       "Insteadは前の内容の代わりになるときに使う。"
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s24-4"
+    }
+   ]
+  },
+  {
+   "id": "p6-s25",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "notice",
+     "title": "Notice",
+     "text": "Riverside Job Fair\n\nMore than 60 employers will take part in the Riverside Job Fair on Saturday, October 18, at the Civic Center. The event is free and open to the public. Job seekers should bring several copies of their résumé and be {{1}} to speak with recruiters on the spot. {{2}} Free workshops on interview skills will also be offered throughout the day.\n\n{{3}} attendance is expected to be high, we recommend arriving early. Parking is available in the Civic Center garage, but space is {{4}}."
+    }
+   ],
+   "questions": [
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "prepared",
+      "preparation",
+      "prepare",
+      "preparatory"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "be prepared to doは「〜する準備ができている」という表現。be動詞の後ろの補語として、過去分詞の形容詞prepared。",
+      "traps": [
+       null,
+       "preparationは名詞なので、be preparation to speakは成り立たない。",
+       "prepareは動詞の原形なので、beの後ろには入らない。",
+       "preparatory（準備の）は名詞の前に使い、be preparatory to speakとは使わない。"
+      ]
+     },
+     "blank": 1,
+     "id": "p6-s25-1"
+    },
+    {
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "Tickets cost $10 at the door.",
+      "The fair has been postponed until next year.",
+      "Résumés will not be accepted at the event.",
+      "Some employers will even conduct interviews at their booths."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "前の文が「会場で採用担当者と話す準備をしておくように」。一部の企業はブースで面接まで行うという文がその理由を補強する。",
+      "traps": [
+       "イベントは無料だと言っている。",
+       "10月18日に開かれると案内している最中なので矛盾する。",
+       "履歴書を何部か持ってくるように言っているので矛盾する。",
+       null
+      ]
+     },
+     "blank": 2,
+     "id": "p6-s25-2"
+    },
+    {
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "Despite",
+      "Due to",
+      "Because",
+      "Unless"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "後ろに節（attendance is expected to be high）が来て、早めに来るようにという勧めの理由。接続詞Because。",
+      "traps": [
+       "Despiteは前置詞で、譲歩の意味。",
+       "Due toは理由を表すが前置詞なので節を受けられない。",
+       null,
+       "Unlessは条件の接続詞なので「多くなければ早く来て」となり意味が合わない。"
+      ]
+     },
+     "blank": 3,
+     "tags": [
+      "trap"
+     ],
+     "id": "p6-s25-3"
+    },
+    {
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "limiting",
+      "limit",
+      "limited",
+      "limitless"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "butの後ろで、駐車スペースが「限られている」という制約を言っている。be limited。",
+      "traps": [
+       "limitingは「制限する」という能動の意味なので、スペースに合わない。",
+       "limitは名詞・動詞なので補語の位置に合わない。",
+       null,
+       "limitless（無制限の）は、butに続く制約の内容と逆。"
+      ]
+     },
+     "blank": 4,
+     "id": "p6-s25-4"
+    }
+   ]
+  }
+ ]
+}

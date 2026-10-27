@@ -1,0 +1,110 @@
+p5-140|t2	movingは動名詞で、decideは動名詞を目的語にとらない。
+p5-140|t3	movedだと動詞が重なる。
+p5-141|why	enjoyは動名詞を目的語にとるので（enjoy doing）、workingが正解。
+p5-141|t0	workは動詞の原形なので、enjoysの後ろには入らない。
+p5-141|t1	to work: enjoyはto不定詞を目的語にとらない。
+p5-141|t2	workedだと動詞が重なる。
+p5-142|why	remember to doは「（これから）〜することを覚えておく」、remember -ingは「（過去に）〜したことを覚えている」。今夜することなのでto turn off。
+p5-142|t1	remember turning offは「電気を消した覚えがある」という過去の意味なので文脈と合わない。
+p5-142|t2	turn offは動詞の原形なので、rememberの直後には入らない。
+p5-142|t3	turned offだと動詞が重なる。
+p5-143|why	enable + 目的語 + to do（〜が…できるようにする）の形なので、to recordが正解。
+p5-143|t0	recordは動詞の原形なので、enableの目的格補語になれない（使役動詞let・makeではない）。
+p5-143|t1	recordingはenableの目的格補語の形ではない。
+p5-143|t3	recordedは「記録された」という受動の意味で、従業員が記録する能動の関係と合わない。
+p5-144|why	価格は「提示された（見積もられた）」側なので、受動の意味の過去分詞quotedがpriceを修飾する。
+p5-144|t0	quoteは動詞・名詞なので、冠詞と名詞の間の修飾の位置に合わない。
+p5-144|t2	quotingは「見積もりを出す」という能動なので、価格が見積もりを出すことになる。
+p5-144|t3	quotesは名詞の複数形・動詞なので形容詞の位置には入らない。
+p5-145|why	主語Employees（人）が知らせによって「わくわくした」。人が感じる感情は-ed形のexcited。
+p5-145|t0	exciteは動詞の原形なのでwereの後ろには入らない。
+p5-145|t1	excitingは「わくわくさせる」なので従業員が他人をわくわくさせることになり、後ろのbyとも合わない。
+p5-145|t3	excitementは名詞なので「従業員 = 興奮」となり不自然。
+p5-146|why	Ordersを後ろから修飾する分詞の位置。注文は「受け付けられる」側なので過去分詞received。述語動詞はwill be shipped。
+p5-146|t0	receivingは能動なので、注文が何かを受け取るという意味になる。
+p5-146|t2	receiveは動詞の原形なので、述語動詞が重なる。
+p5-146|t3	receivesも動詞なので、will be shippedと述語動詞が2つになる。
+p5-147|why	分詞構文の主語は主節のMr. Itoで、彼が説明書に「従った」能動の関係。後ろに目的語the instructionsもあるので、現在分詞Following。
+p5-147|t1	Followedは受動なので、Mr. Itoが説明書に従われたという意味になり、目的語もとれない。
+p5-147|t2	Followsは動詞なので、接続詞なしで2つの節がつながってしまう。
+p5-147|t3	Followerは名詞なので文の形が成り立たない。
+p5-148|why	空所の後ろの名詞lawyerを修飾する所有格herが必要。
+p5-148|t0	sheは主格なので名詞の前には入らない。
+p5-148|t1	hersは所有代名詞なので後ろに名詞は来ない。
+p5-148|t2	herselfは再帰代名詞なので名詞を修飾できない。
+p5-149|why	soの後ろの節の主語の位置なので、主格theyが正解。
+p5-149|t0	themは目的格なので主語になれない。
+p5-149|t1	theirは所有格なので後ろに名詞が必要。
+p5-149|t2	themselvesは主語の位置には使わない。
+p5-150|why	by oneselfは「自分たちだけで、自力で」という意味。主語The staff membersと同じものなのでthemselves。
+p5-150|t0	theyは主格なので前置詞の後ろには入らない。
+p5-150|t2	by themは「彼ら（ほかの人たち）によって」という意味になり、主語とは別の人を指す。
+p5-150|t3	theirは所有格なので後ろに名詞が必要。
+p5-151|why	比べる対象は「昨年の同じ期間の販売数値」。前の複数名詞figuresの代わりになる代名詞はthose。
+p5-151|t0	thatは単数名詞の代わりになる。figuresは複数なので合わない。
+p5-151|t1	themは目的格なので、thanの後ろで修飾語for 〜を伴って名詞の代わりにはなれない。
+p5-151|t3	itは単数で、修飾語に修飾される代名詞としては使わない。
+p5-152|why	先行詞が人で、関係詞節の主語が抜けている（___ won）。主格の関係代名詞who。
+p5-152|t1	whichは先行詞が物のときに使う。
+p5-152|t2	whoseの後ろには名詞が来る必要がある。
+p5-152|t3	whomは目的格なので主語の位置には使えない。
+p5-153|why	先行詞が物（printer）で、関係詞節we bought ___ では目的語が抜けている。whichが正解。
+p5-153|t0	whoは先行詞が人のときに使う。
+p5-153|t1	whoseの後ろにはすぐ名詞が来る必要がある。
+p5-153|t3	whatは先行詞を含むので、The printerの後ろには使えない。
+p5-154|why	関係詞節our kitchen appliances are assembledは完全な受動態の文。場所の先行詞の後ろで完全な節には関係副詞where。
+p5-154|t0	whichの後ろには不完全な節が来る。in whichなら可能。
+p5-154|t1	whatは先行詞がないときに使う。
+p5-154|t2	whoは先行詞が人のときに使う。
+p5-155|why	前置詞toの目的語になる名詞節が必要で、節の中ではisの主語が抜けている。先行詞なしで「〜する人は誰でも」を表す主格whoever。
+p5-155|t1	whomeverは目的格なので、isの主語の位置を埋められない。前置詞toの後ろなので目的格を選びやすいひっかけ。
+p5-155|t2	whoは先行詞が必要な関係代名詞か疑問詞として使われる。この位置には先行詞がない。
+p5-155|t3	whomも目的格なので主語の位置に合わない。
+p5-156|why	空所の後ろは名詞句（a power outage）で、「停電のために」という理由。前置詞because of。
+p5-156|t0	becauseは接続詞なので、後ろに節が必要。
+p5-156|t2	althoughは接続詞で、意味も譲歩。
+p5-156|t3	despiteは前置詞だが「〜にもかかわらず」なので、理由の関係と合わない。
+p5-157|why	後ろに節（your name is called）が来て、「名前が呼ばれるまで」待つという意味。接続詞until。
+p5-157|t0	duringは前置詞なので節を受けられない。
+p5-157|t1	byは接続詞として使われない（by the timeは可能）。
+p5-157|t2	withinは「〜以内に」という前置詞なので節を受けられない。
+p5-158|why	後ろに節が来て、「天気が悪かったが予定どおり開かれた」という譲歩の関係。Even though。
+p5-158|t1	In spite ofは前置詞なので節を受けられない。
+p5-158|t2	Becauseは理由なので「天気が悪かったから予定どおり開かれた」となり不自然。
+p5-158|t3	Unless（〜しない限り）は条件なので意味が合わない。
+p5-159|why	後ろに主語（the speaker's flight）と動詞（had been canceled）のある節が来て、延期の理由を表す。接続詞because。
+p5-159|t0	due toは意味は合うが前置詞なので節を受けられない。
+p5-159|t2	owingはowing toの形でなければならず、その場合も名詞しか受けない。
+p5-159|t3	althoughは譲歩なので理由の関係と合わない。
+p5-160|why	from A to Bは「〜から…まで」という範囲の表現。
+p5-160|t0	atは1つの時点（at 9 A.M.）に使い、toとは組にならない。
+p5-160|t1	inは時刻の前には使わない。
+p5-160|t3	onは曜日・日付の前に使う。
+p5-161|why	曜日の入った時（Friday afternoon）の前にはonを使う。
+p5-161|t1	inはthe afternoonのように曜日のない1日の時間帯や、月・年の前に使う。
+p5-161|t2	atは時刻（at 3 P.M.）の前に使う。
+p5-161|t3	toは方向を表し、時は表さない。
+p5-162|why	more than ten yearsは数字で表した期間。期間の前にはforを使う。
+p5-162|t0	sinceの後ろには始まりの時点（since 2015）が来る。
+p5-162|t1	duringの後ろには出来事・特定の期間（during the meeting）が来る。
+p5-162|t2	whileは接続詞なので名詞句を受けられない。
+p5-163|why	in the absence of（〜がない状況で、〜の不在時に）は決まった前置詞の表現。
+p5-163|t0	on the absence ofという表現は使わない。
+p5-163|t1	at the absence ofという表現はない。
+p5-163|t3	by the absence ofは「不在によって」と手段のように読めて文脈と合わず、慣用表現でもない。
+p5-164|why	主節がwould + 動詞の原形なので、現在の事実の反対を仮定する仮定法過去。be動詞は主語に関係なくwere。
+p5-164|t0	amはふつうの条件文の形なので、主節のwouldと合わない。
+p5-164|t2	if節にはwillを使わない。
+p5-164|t3	hadは後ろに過去分詞が必要で、in your positionとは組み合わない。
+p5-165|why	if節がhad left（仮定法過去完了）なので、主節はwould have + p.p.になる。
+p5-165|t0	would catchは仮定法過去の主節の形。
+p5-165|t1	will catchはふつうの未来の条件文の形。
+p5-165|t2	caughtは単純過去なので、仮定の結果を表せない。
+p5-166|why	If it had not been for（〜がなかったら）のIfを省略するとHad it not been forになる。主節もwould have closed。
+p5-166|t0	Were it not forは可能だが、後ろにbeenは来ない。
+p5-166|t1	Shouldの後ろには動詞の原形が来る必要がある。
+p5-166|t3	Ifを使うならIf it had not beenとなり、If it not beenは誤った形。
+p5-167|why	request, require, recommendの後ろのthat節には（should +）動詞の原形を使う。予算は提出「される」側なのでbe submitted。
+p5-167|t1	is submittedは数を一致させた現在形。要求の動詞の後ろのthat節では原形を使う。
+p5-167|t2	was submittedは過去なので、これからすることと合わない。
+p5-167|t3	submitsは能動態なので、予算が提出する主体になる。

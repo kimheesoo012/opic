@@ -1,0 +1,1438 @@
+{
+ "units": [
+  {
+   "id": "p7-s16",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "text message chain",
+     "title": "Text-message chain",
+     "text": "Nadia Ruiz [8:47 A.M.]\nI'm stuck in traffic on the bridge. Could you set up the projector for the 9:30 client meeting?\n\nBen Park [8:49 A.M.]\nSure. Which room are you in?\n\nNadia Ruiz [8:50 A.M.]\nRoom 6B. The slides are on the shared drive in the \"Harlow\" folder.\n\nBen Park [8:52 A.M.]\nGot it. Should I order coffee for the clients too?\n\nNadia Ruiz [8:53 A.M.]\nThat's taken care of. Ms. Liu ordered it yesterday."
+    }
+   ],
+   "questions": [
+    {
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "choices": [
+      "To reschedule a client meeting",
+      "To ask for help preparing for a meeting",
+      "To ask for directions to a client's office",
+      "To report a broken projector"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "渋滞で遅れているMs. Ruizが、9時30分の会議用にプロジェクターの設置を頼むところから会話が始まる。",
+      "traps": [
+       "会議の時間を変えようという話はない。",
+       null,
+       "顧客の会社の場所は尋ねていない。会議室は6Bにすでに決まっている。",
+       "プロジェクターが壊れたのではなく、設置を頼んでいる。"
+      ]
+     },
+     "question": "Why did Ms. Ruiz send the first message?",
+     "para": [
+      {
+       "p": "Could you set up the projector for the 9:30 client meeting?",
+       "a": "ask for help preparing for a meeting"
+      }
+     ],
+     "id": "p7-s16-1"
+    },
+    {
+     "type": "intent",
+     "concept": "p7.intent",
+     "difficulty": 2,
+     "choices": [
+      "She wants Mr. Park to order coffee.",
+      "The meeting has been canceled.",
+      "Ms. Liu will set up the projector.",
+      "Coffee has already been arranged."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "コーヒーを注文するかと聞かれ、「それは済んでいる、Ms. Liuが昨日注文した」と答えている。すでに用意してあるという意味。",
+      "traps": [
+       "注文する必要がないという意味なので逆。",
+       "会議の中止の話はない。",
+       "Ms. Liuはコーヒーを注文した人。プロジェクターはMr. Parkが設置する。",
+       null
+      ]
+     },
+     "question": "At 8:53 A.M., what does Ms. Ruiz mean when she writes, “That's taken care of”?",
+     "id": "p7-s16-2"
+    }
+   ]
+  },
+  {
+   "id": "p7-s17",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Marco Bianchi <mbianchi@bianchipack.example>\nFrom: Grace Owusu <gowusu@tellismfg.example>\nDate: March 2\nSubject: Supplier registration\n\nDear Mr. Bianchi,\n\nThank you for agreeing to supply packaging materials to Tellis Manufacturing. Before we can process your first invoice, we need you to complete our supplier registration. Please send us the following by March 14: a completed supplier information form (attached), a copy of your business registration certificate, and your bank account details for direct deposit.\n\nPlease note that every invoice must include a Tellis purchase order number. Invoices without this number will be returned to the sender. Payments are made within 30 days of receiving a valid invoice.\n\nIf you have any questions, you can reach me at extension 4417.\n\nGrace Owusu\nAccounts Payable, Tellis Manufacturing"
+    }
+   ],
+   "questions": [
+    {
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 2,
+     "choices": [
+      "To explain what a new supplier must do",
+      "To place an order for packaging materials",
+      "To request payment of an overdue invoice",
+      "To announce a change in payment terms"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "最初の支払い処理の前に取引先登録を済ませる必要があるとして、提出書類と請求書のルールを案内している。",
+      "traps": [
+       null,
+       "Mr. Bianchiはすでに納入することになっていて、このメールは注文書ではない。",
+       "むしろTellisが代金を支払う側で、支払いの遅れの話はない。",
+       "支払い条件（30日以内）を案内しているだけで、変更したとは言っていない。"
+      ]
+     },
+     "question": "What is the purpose of the e-mail?",
+     "id": "p7-s17-1"
+    },
+    {
+     "type": "not",
+     "concept": "p7.not",
+     "difficulty": 2,
+     "choices": [
+      "A completed form",
+      "A business certificate",
+      "A product catalog",
+      "Banking information"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "求めているのは取引先情報の用紙、事業者登録証の写し、銀行口座の情報の3つ。製品カタログはない。",
+      "traps": [
+       "'a completed supplier information form' を求めている。",
+       "'a copy of your business registration certificate' を求めている。",
+       null,
+       "'your bank account details for direct deposit' を求めている。"
+      ]
+     },
+     "question": "What is Mr. Bianchi NOT asked to send?",
+     "id": "p7-s17-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "choices": [
+      "It will be paid late.",
+      "It will be sent back.",
+      "It will be paid in cash.",
+      "It will be forwarded to a manager."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "'Invoices without this number will be returned to the sender' と言っている。returned = sent back。",
+      "traps": [
+       "支払いが遅れるのではなく、そもそも返送される。",
+       null,
+       "現金払いの話はない。",
+       "管理者に回されるとは言っていない。"
+      ]
+     },
+     "question": "According to the e-mail, what will happen to an invoice that lacks a purchase order number?",
+     "para": [
+      {
+       "p": "will be returned to the sender",
+       "a": "will be sent back"
+      }
+     ],
+     "id": "p7-s17-3"
+    }
+   ]
+  },
+  {
+   "id": "p7-s18",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "notice",
+     "title": "Notice",
+     "text": "FIRE DRILL NOTICE — Corden Tower\n\nA building-wide fire drill will take place on Wednesday, May 7, at 10:00 A.M. — [1] — When the alarm sounds, all occupants must leave the building using the nearest stairway. Elevators must not be used. — [2] —\n\nOnce outside, please go to your floor's assigned meeting point in Corden Plaza and report to your floor warden. — [3] — The drill should take about 20 minutes, after which an announcement will let everyone know it is safe to return.\n\nVisitors in the building at the time of the drill must also take part. — [4] — Questions may be sent to facilities@cordentower.example."
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "Return to their desks",
+      "Call the facilities office",
+      "Wait near the elevators",
+      "Report to a designated person"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "外に出た後、階ごとの集合場所に行ってfloor warden（階の安全担当者）に報告するよう言っている。",
+      "traps": [
+       "安全だという放送があってから戻れる。",
+       "facilitiesのメールは問い合わせ先にすぎない。",
+       "エレベーターは使わないように言っていて、集合場所は建物の外の広場。",
+       null
+      ]
+     },
+     "question": "What should people do once they are outside the building?",
+     "para": [
+      {
+       "p": "report to your floor warden",
+       "a": "Report to a designated person"
+      }
+     ],
+     "id": "p7-s18-1"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "choices": [
+      "They are required to leave the building during the drill.",
+      "They may use the elevators.",
+      "They must register in advance.",
+      "They will receive a separate notice."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'Visitors in the building at the time of the drill must also take part' と言っている。訓練に参加するということは、ほかの人と同じように建物から出る必要があるという意味。",
+      "traps": [
+       null,
+       "エレベーターは誰も使えない。",
+       "事前登録の話はない。",
+       "来訪者に別のお知らせを送るとは言っていない。"
+      ]
+     },
+     "question": "What is indicated about visitors?",
+     "para": [
+      {
+       "p": "must also take part",
+       "a": "are required to leave the building during the drill"
+      }
+     ],
+     "id": "p7-s18-2"
+    },
+    {
+     "type": "insert",
+     "concept": "p7.insert",
+     "difficulty": 3,
+     "choices": [
+      "[1]",
+      "[2]",
+      "[3]",
+      "[4]"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "与えられた文のEach meeting pointは、直前の文のassigned meeting pointを受けている。集合場所の案内の直後の[3]が適切。",
+      "traps": [
+       "[1]の前には訓練の日時しかなく、集合場所はまだ出てきていない。",
+       "[2]の前は階段の利用・エレベーター禁止の内容なので、集合場所の標識とつながらない。",
+       null,
+       "[4]の前は来訪者の参加の内容なので、流れが合わない。"
+      ]
+     },
+     "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
+     "sentence": "Each meeting point is marked by a sign showing the floor number.",
+     "id": "p7-s18-3"
+    }
+   ]
+  },
+  {
+   "id": "p7-s19",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "article",
+     "title": "Article",
+     "text": "Kiro Robotics to Open Research Center in Daejeon\n\nDAEJEON (June 12) — Kiro Robotics, a maker of warehouse robots, announced yesterday that it will open a research center in Daejeon next spring. The center will employ about 80 engineers and will focus on developing robots that can safely work alongside people.\n\nKiro chose Daejeon because of its strong universities and many research institutes, said chief executive Min-jae Oh. “We want to be close to the talent,” he said. The company has already signed agreements with two local universities that will allow graduate students to complete internships at the center.\n\nKiro currently employs 350 people at its headquarters in Seoul, where its robots are designed and assembled. Sales of the company's robots have tripled over the past three years, driven largely by demand from online retailers.\n\nThe new center will occupy two floors of the Daejeon Innovation Tower, which is still under construction. Hiring is expected to begin in the fall."
+    }
+   ],
+   "questions": [
+    {
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "choices": [
+      "To review a new type of robot",
+      "To announce a merger of two universities",
+      "To describe the history of online retail",
+      "To report a company's plans for a new facility"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "記事は、Kiro RoboticsがDaejeonに研究センターを開く計画と、その理由・規模・日程を扱っている。",
+      "traps": [
+       "ロボット製品の評価ではない。",
+       "2つの大学と協定を結んだだけで、合併の話はない。",
+       "オンライン小売は売上増加の理由として触れられているだけ。",
+       null
+      ]
+     },
+     "question": "What is the article mainly about?",
+     "id": "p7-s19-1"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "choices": [
+      "Lower office rents",
+      "Access to well-educated workers",
+      "Its location near major customers",
+      "Tax benefits from the city"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "大学と研究所が多いのでDaejeonを選び、'We want to be close to the talent' と言っている。人材の確保が理由。",
+      "traps": [
+       "家賃の話はない。",
+       null,
+       "主な顧客はオンライン小売業者と言っているだけで、場所の話はない。",
+       "税制上の優遇は書かれていない。"
+      ]
+     },
+     "question": "Why did Kiro Robotics choose Daejeon?",
+     "para": [
+      {
+       "p": "strong universities ... close to the talent",
+       "a": "Access to well-educated workers"
+      }
+     ],
+     "id": "p7-s19-2"
+    },
+    {
+     "type": "synonym",
+     "concept": "p7.synonym",
+     "difficulty": 2,
+     "choices": [
+      "caused",
+      "operated",
+      "steered",
+      "delivered"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "「売上が3倍になったが、主にオンライン小売業者の需要によるもの」という意味。driven by = caused by。",
+      "traps": [
+       null,
+       "operated（運転された）はdriveの「機械を動かす」という意味からくるひっかけ。",
+       "steered（操縦された）はdriveの「運転する」という意味。",
+       "delivered（配達された）は文脈と合わない。"
+      ]
+     },
+     "question": "The word “driven” in paragraph 3 is closest in meaning to",
+     "id": "p7-s19-3"
+    },
+    {
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 3,
+     "choices": [
+      "It will not open until its building is completed.",
+      "Its engineers will assemble robots there.",
+      "It will be located in Seoul.",
+      "It has already hired 80 engineers."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "センターはまだ工事中のDaejeon Innovation Towerの2フロアを使う予定で、来年春に開設する。建物が完成しないとオープンできない。",
+      "traps": [
+       null,
+       "組み立てはソウルの本社で行う。センターは研究開発用。",
+       "センターはDaejeonにできる。",
+       "採用は秋に始まる予定。"
+      ]
+     },
+     "question": "What is suggested about the research center?",
+     "tags": [
+      "trap"
+     ],
+     "id": "p7-s19-4"
+    }
+   ]
+  },
+  {
+   "id": "p7-s20",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "online chat discussion",
+     "title": "Online chat discussion",
+     "text": "Sarah Kim [3:02 P.M.]\nThe caterer just told me they can't deliver before 11:30 on Friday.\n\nLuis Ortega [3:03 P.M.]\nThe workshop lunch starts at 11:45, right?\n\nSarah Kim [3:04 P.M.]\nRight. So it should be fine, but it'll be tight.\n\nDana Wells [3:06 P.M.]\nI can come in early and set up the tables and plates beforehand. That way they'll just need to bring the food in.\n\nSarah Kim [3:07 P.M.]\nThat would help a lot.\n\nLuis Ortega [3:09 P.M.]\nI'll ask the speaker to finish her morning session a few minutes early, just in case.\n\nDana Wells [3:10 P.M.]\nGood idea. I'll also put up signs pointing to the dining room."
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "The caterer canceled the order.",
+      "A delivery cannot be made early.",
+      "The workshop has been moved to another day.",
+      "The dining room is too small."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "ケータリング業者が金曜日の11時30分より前には配達できないと言っている。",
+      "traps": [
+       "注文の取り消しではなく、配達時間の制約。",
+       null,
+       "ワークショップの日付の変更の話はない。",
+       "食堂の広さの話はない。"
+      ]
+     },
+     "question": "What problem does Ms. Kim mention?",
+     "para": [
+      {
+       "p": "can't deliver before 11:30",
+       "a": "A delivery cannot be made early"
+      }
+     ],
+     "id": "p7-s20-1"
+    },
+    {
+     "type": "intent",
+     "concept": "p7.intent",
+     "difficulty": 2,
+     "choices": [
+      "The dining room will be crowded.",
+      "The budget is limited.",
+      "The schedule needs to be changed.",
+      "There will be little extra time."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "配達が11時30分、昼食が11時45分なので、「大丈夫だろうがぎりぎりだ」という意味。時間の余裕がほとんどないということ。",
+      "traps": [
+       "tightを「スペースが狭い」と誤解させるひっかけ。",
+       "予算の話はない。",
+       "'should be fine' と言っているので、日程を変える必要はない。",
+       null
+      ]
+     },
+     "question": "At 3:04 P.M., what does Ms. Kim mean when she writes, “it'll be tight”?",
+     "tags": [
+      "trap"
+     ],
+     "id": "p7-s20-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "Pick up the food herself",
+      "Lead the morning session",
+      "Prepare the room before the food arrives",
+      "Call the caterer"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "早めに来てテーブルと皿を前もって並べておくと言っている。",
+      "traps": [
+       "料理を自分で持ってくるとは言っていない。",
+       "午前のセッションの進行役は講演者。",
+       null,
+       "ケータリング業者に連絡するとは言っていない。"
+      ]
+     },
+     "question": "What does Ms. Wells offer to do?",
+     "para": [
+      {
+       "p": "set up the tables and plates beforehand",
+       "a": "Prepare the room before the food arrives"
+      }
+     ],
+     "id": "p7-s20-3"
+    },
+    {
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "choices": [
+      "Contact a presenter",
+      "Order more food",
+      "Reserve a different room",
+      "Put up signs"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "Mr. Ortegaは講演者に午前のセッションを数分早く終えてもらうよう頼むと言っている。",
+      "traps": [
+       null,
+       "料理の追加注文の話はない。",
+       "別の会場を予約するとは言っていない。",
+       "案内表示はMs. Wellsが貼ると言っている。"
+      ]
+     },
+     "question": "What will Mr. Ortega most likely do next?",
+     "para": [
+      {
+       "p": "ask the speaker to finish her morning session",
+       "a": "Contact a presenter"
+      }
+     ],
+     "id": "p7-s20-4"
+    }
+   ]
+  },
+  {
+   "id": "p7-s21",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "advertisement",
+     "title": "Advertisement",
+     "text": "Ledgerly Small Business Accounting\n\nSpend less time on bookkeeping and more time growing your business. Ledgerly automatically sorts your expenses, sends invoices to your customers, and prepares reports for tax season. You can connect your bank account in minutes, and our mobile app lets you photograph receipts wherever you are.\n\nPlans start at $12 per month for a single user. Our Team plan, at $30 per month, includes up to five users and priority phone support.\n\nTry Ledgerly free for 30 days. No credit card is required to start your trial. Sign up at www.ledgerly.example."
+    }
+   ],
+   "questions": [
+    {
+     "type": "not",
+     "concept": "p7.not",
+     "difficulty": 2,
+     "choices": [
+      "Sorting expenses",
+      "Sending invoices",
+      "Preparing tax reports",
+      "Processing employee payroll"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "経費の分類、請求書の送付、税務報告書の作成は書かれているが、給与処理はない。",
+      "traps": [
+       "'automatically sorts your expenses' に出てくる。",
+       "'sends invoices to your customers' に出てくる。",
+       "'prepares reports for tax season' に出てくる。",
+       null
+      ]
+     },
+     "question": "What is NOT mentioned as a feature of Ledgerly?",
+     "id": "p7-s21-1"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "choices": [
+      "An unlimited number of users",
+      "Faster access to phone support",
+      "A free mobile device",
+      "In-person training"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "Teamプランには、最大5人までの利用とpriority phone support（優先電話サポート）が含まれる。",
+      "traps": [
+       "利用者は最大5人。",
+       null,
+       "モバイル端末の提供の話はない。アプリがあるだけ。",
+       "対面のトレーニングは書かれていない。"
+      ]
+     },
+     "question": "What is included in the Team plan?",
+     "para": [
+      {
+       "p": "priority phone support",
+       "a": "Faster access to phone support"
+      }
+     ],
+     "id": "p7-s21-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "It lasts for twelve months.",
+      "It is available only for the Team plan.",
+      "Users do not need to enter payment information to begin.",
+      "It must be started at a store."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "'No credit card is required to start your trial' と言っている。",
+      "traps": [
+       "お試し期間は30日。",
+       "プランの制限の話はない。",
+       null,
+       "ウェブサイトで申し込む。"
+      ]
+     },
+     "question": "What is indicated about the free trial?",
+     "para": [
+      {
+       "p": "No credit card is required",
+       "a": "do not need to enter payment information"
+      }
+     ],
+     "id": "p7-s21-3"
+    }
+   ]
+  },
+  {
+   "id": "p7-s22",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "form",
+     "title": "Registration Confirmation",
+     "text": "Coastline Marketing Conference — Registration Confirmation\nAttendee: Hye-jin Cho, Tidewater Hotels\nConfirmation number: CMC-2291\n\nNote: Badges can be picked up at the registration desk starting at 8:00 A.M. on October 13. Please bring photo identification. Cancellations made before September 30 will receive a full refund minus a $25 processing fee.",
+     "table": {
+      "header": [
+       "Item",
+       "Date",
+       "Price"
+      ],
+      "rows": [
+       [
+        "Full conference pass",
+        "Oct. 14–15",
+        "$480.00"
+       ],
+       [
+        "Workshop: Social Media Analytics",
+        "Oct. 13",
+        "$95.00"
+       ],
+       [
+        "Networking dinner",
+        "Oct. 14",
+        "$60.00"
+       ],
+       [
+        "Early registration discount (10%)",
+        "",
+        "−$63.50"
+       ],
+       [
+        "Total paid",
+        "",
+        "$571.50"
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "choices": [
+      "On the first day of the main conference",
+      "On the evening of October 14",
+      "The day before the main conference begins",
+      "After the conference ends"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "ワークショップは10月13日で、本イベントのパスは10月14〜15日。本イベントの前日に開かれる。",
+      "traps": [
+       "本イベントの初日は10月14日。",
+       "10月14日の夜には交流ディナーがある。",
+       null,
+       "ワークショップはイベントの後ではなく前。"
+      ]
+     },
+     "question": "When will the workshop take place?",
+     "id": "p7-s22-1"
+    },
+    {
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "choices": [
+      "She will speak at the conference.",
+      "She registered early.",
+      "She works for a marketing firm.",
+      "She canceled her registration."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "支払い明細に早期登録割引10%が適用されている。早めに登録したことが分かる。",
+      "traps": [
+       "講演者だという情報はない。",
+       null,
+       "所属はTidewater Hotels。",
+       "支払い完了の確認書で、キャンセルの形跡はない。"
+      ]
+     },
+     "question": "What is suggested about Ms. Cho?",
+     "id": "p7-s22-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "A printed receipt",
+      "A business card",
+      "Her conference pass number",
+      "Photo identification"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "'Please bring photo identification' と言っている。",
+      "traps": [
+       "領収書を持ってくるようにとは言っていない。",
+       "名刺は書かれていない。",
+       "確認番号を持ってくるようにとは言っていない。",
+       null
+      ]
+     },
+     "question": "What must attendees bring to pick up their badges?",
+     "id": "p7-s22-3"
+    }
+   ]
+  },
+  {
+   "id": "p7-s23",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: sales@pinpointprint.example\nFrom: Tomas Varga\nDate: February 3\nSubject: Quote request\n\nHello,\n\nI manage the gift shop at the Harmon History Museum. — [1] — We are planning to sell a set of six postcards featuring photographs from our new exhibit, which opens on April 10. — [2] —\n\nWe would like 2,000 sets printed on heavy, glossy card stock. Could you send me a price quote, along with samples of the paper you would recommend? — [3] — Our board must approve all purchases over $1,000, and it next meets on February 24, so I would need your quote before then.\n\n— [4] — Thank you,\nTomas Varga"
+    }
+   ],
+   "questions": [
+    {
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "choices": [
+      "To ask for pricing information",
+      "To complain about a printing error",
+      "To promote a museum exhibit",
+      "To apply for a job"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "はがきの印刷の見積もりと紙のサンプルを求めるメール。",
+      "traps": [
+       null,
+       "印刷ミスへの苦情ではない。",
+       "展示ははがきの写真の出どころとして触れられているだけで、宣伝が目的ではない。",
+       "求職のメールではない。"
+      ]
+     },
+     "question": "Why did Mr. Varga write the e-mail?",
+     "para": [
+      {
+       "p": "Could you send me a price quote",
+       "a": "To ask for pricing information"
+      }
+     ],
+     "id": "p7-s23-1"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "choices": [
+      "A group must approve the expense.",
+      "The exhibit opens on that date.",
+      "The gift shop will close for repairs.",
+      "He will be away on vacation."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "1,000ドルを超える購入には理事会の承認が必要で、理事会は2月24日に開かれる。",
+      "traps": [
+       null,
+       "展示は4月10日に開かれる。",
+       "ギフトショップの工事の話はない。",
+       "休暇の話はない。"
+      ]
+     },
+     "question": "Why does Mr. Varga need a quote before February 24?",
+     "para": [
+      {
+       "p": "Our board must approve all purchases over $1,000",
+       "a": "A group must approve the expense"
+      }
+     ],
+     "id": "p7-s23-2"
+    },
+    {
+     "type": "insert",
+     "concept": "p7.insert",
+     "difficulty": 3,
+     "choices": [
+      "[1]",
+      "[2]",
+      "[3]",
+      "[4]"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "The imagesは直前の文のphotographs from our new exhibitを指す。はがきの写真の紹介の直後の[2]が適切。",
+      "traps": [
+       "[1]の前にはギフトショップを運営しているという紹介しかなく、The imagesが指すものがない。",
+       null,
+       "[3]の前は見積もりと紙のサンプルの依頼なので、写真の説明が入る場所ではない。",
+       "[4]は結びのあいさつの直前なので、流れが合わない。"
+      ]
+     },
+     "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
+     "sentence": "The images were taken by local photographers in the 1920s.",
+     "id": "p7-s23-3"
+    }
+   ]
+  },
+  {
+   "id": "p7-s24",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "notice",
+     "title": "Notice",
+     "text": "Notice to Customers\n\nMartel Hardware will be closed on Sunday, January 12, so that our staff can complete our annual inventory count. We will reopen at our regular time, 8:00 A.M., on Monday, January 13.\n\nOnline orders can still be placed during this time, but they will not be processed until Monday. Customers who need to pick up special orders that weekend are asked to do so by 6:00 P.M. on Saturday, January 11.\n\nWe thank you for your patience."
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "To renovate the store",
+      "To celebrate a holiday",
+      "To count the items in stock",
+      "To train new employees"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "'so that our staff can complete our annual inventory count' と言っている。棚卸し = 在庫数の確認。",
+      "traps": [
+       "工事の話はない。",
+       "祝日の話はない。",
+       null,
+       "社員研修の話はない。"
+      ]
+     },
+     "question": "Why will Martel Hardware be closed on January 12?",
+     "para": [
+      {
+       "p": "annual inventory count",
+       "a": "count the items in stock"
+      }
+     ],
+     "id": "p7-s24-1"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "choices": [
+      "Pick them up on Monday afternoon",
+      "Reorder them online",
+      "Call the store on Sunday",
+      "Collect them before the store closes"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "その週末に特別注文品を受け取る必要がある客は、土曜日の午後6時までに受け取るよう言っている。休業の前に受け取るようにという意味。",
+      "traps": [
+       "月曜日は営業再開日だが、週末に必要な客への案内ではない。",
+       "オンラインでの再注文は勧めていない。",
+       "日曜日は閉まっている。",
+       null
+      ]
+     },
+     "question": "What are customers with special orders asked to do?",
+     "para": [
+      {
+       "p": "pick up ... by 6:00 P.M. on Saturday",
+       "a": "Collect them before the store closes"
+      }
+     ],
+     "id": "p7-s24-2"
+    }
+   ]
+  },
+  {
+   "id": "p7-s25",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "text message chain",
+     "title": "Text-message chain",
+     "text": "Paolo Greco [1:15 P.M.]\nHi Amina, the delivery van broke down on Route 9. I won't make it to the Linwood store by 2.\n\nAmina Osei [1:17 P.M.]\nOh no. Is the truck from the north depot free?\n\nPaolo Greco [1:18 P.M.]\nIt's out until 4.\n\nAmina Osei [1:19 P.M.]\nThen I'll call Linwood and move the delivery to tomorrow morning. Can you get the van towed?\n\nPaolo Greco [1:20 P.M.]\nAlready on it. The tow company says 30 minutes."
+    }
+   ],
+   "questions": [
+    {
+     "type": "intent",
+     "concept": "p7.intent",
+     "difficulty": 2,
+     "choices": [
+      "The store closes at 4 o'clock.",
+      "Another vehicle is not available.",
+      "He will arrive at the store at 4.",
+      "The van will be repaired by 4."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "北倉庫のトラックを使えるか聞かれ、「4時まで出ている」と答えている。代わりの車両は使えないという意味で、そのため配送を明日に延ばす。",
+      "traps": [
+       "店の営業時間の話ではない。",
+       null,
+       "Mr. Grecoが4時に着くという意味ではない。",
+       "バンの修理時間の話ではない。レッカー車は30分後に来る。"
+      ]
+     },
+     "question": "At 1:18 P.M., what does Mr. Greco imply when he writes, “It's out until 4”?",
+     "id": "p7-s25-1"
+    },
+    {
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 1,
+     "choices": [
+      "Contact a store to change a delivery time",
+      "Drive the north depot truck",
+      "Call a tow company",
+      "Repair the van"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "Ms. OseiはLinwood店に電話して、配送を明日の朝に移すと言っている。",
+      "traps": [
+       null,
+       "トラックは4時まで使えない。",
+       "レッカー業者にはMr. Grecoがすでに連絡した。",
+       "修理の話はない。"
+      ]
+     },
+     "question": "What will Ms. Osei most likely do next?",
+     "para": [
+      {
+       "p": "call Linwood and move the delivery to tomorrow morning",
+       "a": "Contact a store to change a delivery time"
+      }
+     ],
+     "id": "p7-s25-2"
+    }
+   ]
+  },
+  {
+   "id": "p7-s26",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "article",
+     "title": "Article",
+     "text": "Local Bakery Wins Regional Award\n\nGLENWOOD (May 20) — Rosewood Bakery has been named Small Business of the Year by the Glenwood Regional Business Council. The award recognizes companies that have shown strong growth, community involvement, and excellent customer service.\n\nFounded six years ago by Elena Park, Rosewood started as a stand at the weekend farmers market. It now operates two shops and supplies bread to more than 20 restaurants. Last year, the bakery launched a training program that teaches baking skills to young adults looking for work. Eight graduates have since been hired by local businesses, including three by Rosewood itself.\n\nMs. Park will accept the award at the council's annual dinner on June 3. “This award belongs to my whole team,” she said."
+    }
+   ],
+   "questions": [
+    {
+     "type": "not",
+     "concept": "p7.not",
+     "difficulty": 2,
+     "choices": [
+      "It supplies bread to restaurants.",
+      "It began at a market.",
+      "It runs a training program.",
+      "It plans to open a third shop."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "レストランへの納品、朝市の屋台から始めたこと、研修プログラムはすべて出てくるが、3店舗目の計画はない。",
+      "traps": [
+       "'supplies bread to more than 20 restaurants' に出てくる。",
+       "'started as a stand at the weekend farmers market' に出てくる。",
+       "'launched a training program' に出てくる。",
+       null
+      ]
+     },
+     "question": "What is NOT mentioned about Rosewood Bakery?",
+     "id": "p7-s26-1"
+    },
+    {
+     "type": "synonym",
+     "concept": "p7.synonym",
+     "difficulty": 3,
+     "choices": [
+      "identifies",
+      "admits",
+      "honors",
+      "remembers"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "賞は「成長・地域への貢献・顧客サービスを示した企業をたたえる」という意味。recognize = honor。",
+      "traps": [
+       "identifies（見分ける）はrecognizeの代表的な意味だが、表彰の文脈では合わない。辞書で1番目に載っている意味のひっかけ。",
+       "admits（認める、入場させる）は文脈と合わない。",
+       null,
+       "remembers（覚えている）も表彰の文脈と合わない。"
+      ]
+     },
+     "question": "The word “recognizes” in paragraph 1 is closest in meaning to",
+     "tags": [
+      "trap"
+     ],
+     "id": "p7-s26-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "choices": [
+      "It is offered only to restaurant owners.",
+      "Some of its graduates now work at Rosewood.",
+      "It began six years ago.",
+      "It is funded by the business council."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "修了生8人が地元の企業に採用され、そのうち3人はRosewoodが直接採用した。",
+      "traps": [
+       "仕事を探している若者が対象。",
+       null,
+       "昨年始めた。6年前はパン屋の創業時期。",
+       "資金の話はない。"
+      ]
+     },
+     "question": "What is indicated about the training program?",
+     "para": [
+      {
+       "p": "three by Rosewood itself",
+       "a": "Some of its graduates now work at Rosewood"
+      }
+     ],
+     "id": "p7-s26-3"
+    }
+   ]
+  },
+  {
+   "id": "p7-s27",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "web page",
+     "title": "Web Page",
+     "text": "Frequently Asked Questions — CityWheels Car Sharing\n\nHow do I reserve a car?\nUse the CityWheels app to see available cars near you. You can reserve a car up to 14 days in advance or start a trip right away.\n\nWhat if I return a car late?\nLate returns are charged at $1 per minute, up to a maximum of $50, because another member may be waiting for the car. If you know you will be late, you can extend your trip in the app as long as the car has not been reserved by someone else.\n\nIs fuel included?\nYes. Each car contains a fuel card that members can use at any major gas station. Please refill the tank if it is less than one-quarter full at the end of your trip."
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "Up to one month",
+      "Only on the same day",
+      "Up to two weeks",
+      "Up to 48 hours"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "'up to 14 days in advance' と言っている。14日 = 2週間。",
+      "traps": [
+       "1か月とは言っていない。",
+       "当日すぐに使うこともできるが、最大14日前まで予約できる。",
+       null,
+       "48時間は書かれていない。"
+      ]
+     },
+     "question": "How far in advance can members reserve a car?",
+     "para": [
+      {
+       "p": "up to 14 days in advance",
+       "a": "Up to two weeks"
+      }
+     ],
+     "id": "p7-s27-1"
+    },
+    {
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "choices": [
+      "It is free of charge.",
+      "It requires a phone call.",
+      "It is limited to 50 minutes.",
+      "It is not always possible."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "ほかの会員がその車を予約していないときに限り（as long as）延長できる。いつでも延長できるわけではない。",
+      "traps": [
+       "延長料金の話はない。",
+       "アプリで延長する。",
+       "50ドルは延滞料の上限で、延長時間の制限ではない。",
+       null
+      ]
+     },
+     "question": "What is suggested about extending a trip?",
+     "id": "p7-s27-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "Add fuel when the tank is low",
+      "Return the fuel card to the office",
+      "Pay for fuel in cash",
+      "Use one specific gas station"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "返却時に燃料が4分の1未満なら給油するよう言っている。",
+      "traps": [
+       null,
+       "給油カードを返すようにとは言っていない。車の中にある。",
+       "給油カードを使うので、現金の話はない。",
+       "主要なガソリンスタンドならどこでも使える。"
+      ]
+     },
+     "question": "What are members asked to do at the end of a trip?",
+     "para": [
+      {
+       "p": "refill the tank if it is less than one-quarter full",
+       "a": "Add fuel when the tank is low"
+      }
+     ],
+     "id": "p7-s27-3"
+    }
+   ]
+  },
+  {
+   "id": "p7-s28",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "letter",
+     "title": "Letter",
+     "text": "Dear Ms. Alvarez,\n\nI am writing to invite Seaview Logistics to take part in the Westbrook University Spring Career Fair, which will be held on March 18 in the Student Center. Last year, more than 1,500 students attended, and 85 employers participated.\n\nBooths are available to employers free of charge. Each booth comes with a table, two chairs, and access to electricity. If you would like to offer on-site interviews, we can also reserve a private room near the main hall for $50.\n\nStudents attending the fair will come mainly from our business, engineering, and computer science programs. Many of them are looking for summer internships as well as full-time positions after graduation.\n\nTo reserve a booth, please complete the online form at careers.westbrook.example by February 20. Booth locations are assigned in the order in which registrations are received.\n\nSincerely,\nMichael Osei\nDirector of Career Services"
+    }
+   ],
+   "questions": [
+    {
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "choices": [
+      "To request a donation",
+      "To announce a new degree program",
+      "To offer Ms. Alvarez a job",
+      "To invite a company to an event"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "Seaview Logisticsを春の就職フェアに招待する手紙。",
+      "traps": [
+       "ブースは無料で、寄付の依頼はない。",
+       "学科は参加する学生の専攻として触れられているだけ。",
+       "採用の申し出の手紙ではない。",
+       null
+      ]
+     },
+     "question": "What is the purpose of the letter?",
+     "id": "p7-s28-1"
+    },
+    {
+     "type": "not",
+     "concept": "p7.not",
+     "difficulty": 2,
+     "choices": [
+      "A table",
+      "A display screen",
+      "Chairs",
+      "Electricity"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "ブースにはテーブル、いす2脚、電源が用意される。スクリーンは書かれていない。",
+      "traps": [
+       "'a table' が用意される。",
+       null,
+       "'two chairs' が用意される。",
+       "'access to electricity' が用意される。"
+      ]
+     },
+     "question": "What is NOT provided with each booth?",
+     "id": "p7-s28-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "A private space for interviews",
+      "A booth near the entrance",
+      "Extra chairs",
+      "A list of student résumés"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "その場で面接するための別室を50ドルで予約できると言っている。",
+      "traps": [
+       null,
+       "入口側のブースの料金の話はない。",
+       "いすの追加料金はない。",
+       "履歴書リストの販売の話はない。"
+      ]
+     },
+     "question": "What is available for an additional fee?",
+     "para": [
+      {
+       "p": "a private room ... for $50",
+       "a": "A private space for interviews"
+      }
+     ],
+     "id": "p7-s28-3"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 2,
+     "choices": [
+      "They are chosen by students.",
+      "They are assigned by industry.",
+      "They depend on when a company registers.",
+      "They cost more near the main hall."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "'Booth locations are assigned in the order in which registrations are received' と言っている。登録順に割り当てられる。",
+      "traps": [
+       "学生が選ぶとは言っていない。",
+       "業種別の割り当ての話はない。",
+       null,
+       "ブースは無料で、場所による料金の違いはない。"
+      ]
+     },
+     "question": "What is indicated about booth locations?",
+     "para": [
+      {
+       "p": "assigned in the order in which registrations are received",
+       "a": "depend on when a company registers"
+      }
+     ],
+     "id": "p7-s28-4"
+    }
+   ]
+  },
+  {
+   "id": "p7-s29",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "memo",
+     "title": "Memo",
+     "text": "MEMO\nTo: All Finance Department staff\nFrom: Helen Wu, Finance Director\nDate: August 18\nSubject: Move to the fifth floor\n\nAs you know, the Finance Department will move from the second floor to the fifth floor over the weekend of August 30. — [1] — Movers will transport all furniture and files, but you are responsible for packing the items in your own desk. — [2] —\n\nBoxes and labels will be delivered to the department on August 26. Please label each box with your name and new desk number, which you will find on the seating chart posted in the break room. — [3] —\n\nOur phone numbers and e-mail addresses will stay the same. — [4] — Thank you for your cooperation."
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "Moving the department's files",
+      "Packing their own desk items",
+      "Delivering boxes",
+      "Assigning new desks"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "引っ越し業者が家具と書類を運ぶが、各自の机の中の物は自分で詰める必要がある。",
+      "traps": [
+       "書類は引っ越し業者が運ぶ。",
+       null,
+       "箱は8月26日に届く。",
+       "席はすでに座席表で決まっている。"
+      ]
+     },
+     "question": "What are employees responsible for?",
+     "para": [
+      {
+       "p": "packing the items in your own desk",
+       "a": "Packing their own desk items"
+      }
+     ],
+     "id": "p7-s29-1"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "On a chart in the break room",
+      "On the boxes",
+      "In an e-mail from Ms. Wu",
+      "At the fifth-floor reception desk"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "新しい席番号は休憩室に貼られた座席表で確認するよう言っている。",
+      "traps": [
+       null,
+       "箱には社員が席番号を書く。",
+       "メールの話はない。",
+       "5階の受付は書かれていない。"
+      ]
+     },
+     "question": "Where can employees find their new desk numbers?",
+     "id": "p7-s29-2"
+    },
+    {
+     "type": "insert",
+     "concept": "p7.insert",
+     "difficulty": 3,
+     "choices": [
+      "[1]",
+      "[2]",
+      "[3]",
+      "[4]"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "前の文が「箱ごとに名前と新しい席番号を書くように」という指示。ラベルがないと正しい場所に届かないかもしれないという警告が、その直後の[3]に入る。",
+      "traps": [
+       "[1]の前では、箱・ラベルがまだ出てきていない。",
+       "[2]の前でも、ラベルの案内が出る前。",
+       null,
+       "[4]の前は電話番号・メールアドレスはそのままという内容なので、つながらない。"
+      ]
+     },
+     "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
+     "sentence": "Boxes without labels may not reach the correct location.",
+     "id": "p7-s29-3"
+    }
+   ]
+  },
+  {
+   "id": "p7-s30",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: billing@harborviewhotel.example\nFrom: Kenji Watanabe\nDate: November 4\nSubject: Charges for stay, October 28–30\n\nDear Billing Department,\n\nI stayed at the Harborview Hotel from October 28 to 30 while attending a conference. When I reviewed my credit card statement, I noticed two charges that I believe were made in error.\n\nFirst, I was charged $35 for parking each night. However, when I booked my room, I was told that parking was included in the conference rate, and this is stated in my booking confirmation, which I have attached. Second, there is a $22 charge for the minibar, but I did not use anything from it during my stay.\n\nI would appreciate it if you could look into these charges and refund the correct amount. I can be reached at this e-mail address or at 555-0193.\n\nSincerely,\nKenji Watanabe"
+    }
+   ],
+   "questions": [
+    {
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "choices": [
+      "To book a room for a conference",
+      "To praise the hotel staff",
+      "To change a reservation",
+      "To question charges on a bill"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "誤って請求されたと思われる2つの項目について、確認と返金を求めている。",
+      "traps": [
+       "宿泊はすでに終わっている。",
+       "ほめる内容はない。",
+       "予約の変更の依頼ではない。",
+       null
+      ]
+     },
+     "question": "Why did Mr. Watanabe write the e-mail?",
+     "para": [
+      {
+       "p": "two charges that I believe were made in error",
+       "a": "question charges on a bill"
+      }
+     ],
+     "id": "p7-s30-1"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "A credit card statement",
+      "A minibar receipt",
+      "A booking confirmation",
+      "A conference program"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "駐車場込みの条件が書かれた予約確認書を添付したと言っている。",
+      "traps": [
+       "カードの明細書は確認したと言っているだけで、添付していない。",
+       "ミニバーのレシートは書かれていない。",
+       null,
+       "会議の日程表は添付していない。"
+      ]
+     },
+     "question": "What did Mr. Watanabe include with the e-mail?",
+     "id": "p7-s30-2"
+    },
+    {
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 3,
+     "choices": [
+      "$35",
+      "$57",
+      "$92",
+      "$127"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "10月28日から30日までは2泊。駐車場代35ドル × 2泊 = 70ドルにミニバーの22ドルを足すと92ドル。",
+      "traps": [
+       "35ドルは駐車場代の1泊分だけ。",
+       "57ドルは駐車場代1泊分とミニバーを足しただけの金額。",
+       null,
+       "127ドルは3泊として誤って計算した金額。28・29・30日の3つの日付を泊数として数えると引っかかる。"
+      ]
+     },
+     "question": "How much does Mr. Watanabe most likely expect to be refunded?",
+     "tags": [
+      "trap"
+     ],
+     "id": "p7-s30-3"
+    },
+    {
+     "type": "synonym",
+     "concept": "p7.synonym",
+     "difficulty": 2,
+     "choices": [
+      "enter",
+      "watch",
+      "expect",
+      "investigate"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "「この請求内容を調べてほしい」という意味。look into = investigate。",
+      "traps": [
+       "enter（入る）はlook intoの字面につられたひっかけ。",
+       "watch（見守る）は文脈と合わない。",
+       "expect（予想する）は意味が違う。",
+       null
+      ]
+     },
+     "question": "The phrase “look into” in paragraph 3 is closest in meaning to",
+     "id": "p7-s30-4"
+    }
+   ]
+  }
+ ]
+}

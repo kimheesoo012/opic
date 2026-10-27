@@ -1,0 +1,110 @@
+p5-058|why	選ぶ対象が3つ（three alternatives）なので、3つ以上の間を表すamongが正解。
+p5-058|t1	betweenはふつう2つの間に使う。threeを見落とすと選びやすい。
+p5-058|t2	alongは「〜に沿って」という意味で、選ぶ対象とは合わない。
+p5-058|t3	besideは「〜のそばに」という位置の表現。
+p5-059|why	in accordance with（〜に従って）は決まった前置詞の表現。市の建築基準に従って工事しなければならないという意味。
+p5-059|t1	at accordance withという表現はない。
+p5-059|t2	on accordance withもない。on behalf ofなどと混同させるひっかけ。
+p5-059|t3	by accordance withという表現はない。byは「手段、期限」に使う。
+p5-060|why	現在完了（has operated）と一緒に「年初から今まで」という始まりの時点を表すので、sinceが正解。the beginning of the yearは期間ではなく時点。
+p5-060|t0	forの後ろには期間（for three months）が来る。the beginningは時点なので合わない。
+p5-060|t2	agoは 'three months ago' のように期間の後ろに付く副詞なので名詞の前には置けず、現在完了とも一緒に使わない。
+p5-060|t3	untilは「〜までずっと」で終わりの時点を表す。年初までしか稼働しなかったという意味になり、現在完了（今までずっと）と合わない。
+p5-061|why	主節がwould have been able to（過去に〜できただろうに）なので、過去の事実の反対を仮定する仮定法過去完了。if節にはhad p.p.のhad arrivedが入る。
+p5-061|t0	arrivedは仮定法過去（現在の事実の反対）で、主節がwould + 動詞の原形のときに組み合わせる。
+p5-061|t1	have arrivedは現在完了で、仮定法の形を作れない。
+p5-061|t3	if節にはwouldを使わない。wouldは主節に来る。
+p5-062|why	主節がwould be able to + 動詞の原形で、現在の事実の反対を仮定している。仮定法過去なので、if節の動詞は過去形hired。
+p5-062|t0	hiresは現在時制で、ふつうの条件文（will be able to）と組み合わせる。
+p5-062|t1	had hiredは仮定法過去完了なので、主節はwould have been able toでなければならない。
+p5-062|t2	if節には未来のwillを使わない。
+p5-063|why	If you should have any questionsでIfを省略するとShouldが文頭に出て、Should you have …となる。後ろの動詞の原形haveと合うのはShouldだけ。
+p5-063|t1	Wereの倒置はWere you to have …のようにto不定詞が続く必要がある。
+p5-063|t2	Unless（〜しない限り）を入れると「質問がなければ連絡を」となり意味が通じない。
+p5-063|t3	Hadの倒置は後ろに過去分詞が必要（Had you had …）。
+p5-064|why	If the board had approved …のIfを省略した倒置の形。Hadの後ろに主語と過去分詞approvedが続いてHad the board approvedとなる。過去の条件 + 現在の結果（would now be）の混合仮定法。
+p5-064|t0	Shouldの後ろには動詞の原形が来る（Should the board approve）。
+p5-064|t1	Wereの倒置はWere the board to approveのようにto不定詞が必要。
+p5-064|t3	Didを使うと疑問文になり、後ろのapproved（過去形）とも合わない。
+p5-065|why	essential, necessary, importantのような必要・要求を表す形容詞の後ろのthat節では（should +）動詞の原形を使う。主語が単数（every participant）でも動詞の原形attendが正解。
+p5-065|t0	attendsはevery participantに数を合わせたひっかけ。この構文では数を一致させず原形を使う。
+p5-065|t1	attendedは過去形なので、これから守るべき事項と合わない。
+p5-065|t2	will attendは「出席するだろう」という予測になり、必要事項を表す構文と合わない。
+p5-066|why	否定語Rarelyが文頭に来ると助動詞が主語の前に出る。後ろに過去分詞missedがあり、in his twelve years（期間）があるので、現在完了の助動詞hasが正解。
+p5-066|t0	doesの後ろには動詞の原形が来る（does … miss）。
+p5-066|t2	didの後ろにも動詞の原形が来る（did … miss）。missedと合わない。
+p5-066|t3	is + 過去分詞は受動態になり、「伊藤さんが締め切りを逃された」という意味になる。
+p5-067|why	Not onlyが文頭に来ると倒置が起こる。元の文はThe new label printer is fasterなので、be動詞isが主語の前に出たNot only is …が正解。
+p5-067|t1	doesは一般動詞の文の倒置に使う。fasterは形容詞の補語なのでbe動詞が必要。
+p5-067|t2	hasの後ろには過去分詞が来る必要がある。
+p5-067|t3	itを入れるとNot only it the new label printerとなり動詞がない。
+p5-068|why	Only + 副詞節が文頭に来ると主節が倒置される。元の文The workers were allowed to return（復帰が許可された）のbe動詞wereが主語の前に出る。
+p5-068|t0	didの後ろには動詞の原形が来るが、allowedは過去分詞。
+p5-068|t1	haveは過去時制（was completed）の文脈と合わず、have allowedなら目的語が必要。
+p5-068|t3	had the workers allowed to returnは能動態なので、allowの後ろの目的語が抜けた不完全な文になる。
+p5-069|why	元の文A user manual, … are included in this packageで、補語included in this packageが前に出た倒置の形。したがって過去分詞Includedが正解で、動詞areは後ろの複数の主語に合わせたもの。
+p5-069|t0	Includeで始めると命令文になり、後ろのareとつながらない。
+p5-069|t1	Includingは前置詞・現在分詞で、Including in this package are …では文の形が成り立たない。
+p5-069|t2	Inclusionは単数名詞なので、主語と見ると動詞areと数が合わず、意味も不自然。
+p5-070|why	Hardly had + 主語 + p.p. … when + 過去は「〜するとすぐに…した」という構文。過去（went off）より前に起きたことなので過去完了のhadが正解。
+p5-070|t0	hasは現在完了なので、過去の時点（went off）の話と合わない。
+p5-070|t2	didの後ろには動詞の原形beginが来る必要がある。
+p5-070|t3	was begunは受動態で「会議が始められた」という不自然な形になり、この構文の組み合わせでもない。
+p5-071|why	後ろにthanがあるので比較級が必要。1音節の形容詞smallの比較級はsmaller。
+p5-071|t0	smallは原級なのでthanと一緒に使えない。
+p5-071|t1	smallestは最上級なのでthanと組み合わない。
+p5-071|t3	more smallerは比較級を二重にした誤った形。
+p5-072|why	the + ___ + in the event's history（イベント史上）は、範囲の中で「最も〜な」を表す最上級の形。largestが正解。
+p5-072|t0	largeは原級なので「史上」という範囲の表現と合わない。
+p5-072|t2	largerは比較級なので、thanや比較の対象が必要。
+p5-072|t3	largeの最上級はlargestで、most largeとは書かない。
+p5-073|why	as 〜 asの間には原級が来る。twice as fast asは「〜の2倍速く」。fastは形容詞と副詞が同じ形なので、動詞loadsを修飾できる。
+p5-073|t1	fasterは比較級なのでas 〜 asの間には入らない。「twice」の「2倍」という意味につられやすい。
+p5-073|t2	fastestは最上級。
+p5-073|t3	fastlyという語は存在しない。fastそのものが副詞として使われる。
+p5-074|why	比較級fasterを強調する副詞が必要。比較級の強調にはmuch, even, far, still, a lotを使うのでmuchが正解。
+p5-074|t0	veryは原級を強調する（very fast）。比較級の前には使えない代表的なひっかけ。
+p5-074|t1	more fasterは比較級の重複。
+p5-074|t2	most fasterは最上級と比較級を混ぜた誤った形。
+p5-075|why	the 比較級 …, the 比較級 …（〜すればするほど…）の構文。後ろの節のthe soonerと組み合わさるよう、比較級earlierが入る。
+p5-075|t0	earlyは原級なので、the 〜, the 比較級の構文を完成できない。
+p5-075|t1	earliestは最上級なので、the earliest an order is placedでは構文が成り立たない。
+p5-075|t2	earlyの比較級はearlierで、more earlyとは書かない。
+p5-076|why	空所の後ろのemployeeが単数名詞で、動詞も単数のis。可算名詞の単数形を受けるEveryが正解。
+p5-076|t0	Allは複数名詞（All employees are）や不可算名詞と使う。
+p5-076|t2	Mostの後ろには複数名詞か不可算名詞が来る。
+p5-076|t3	Manyは可算名詞の複数形と使う。
+p5-077|why	ここでのroomは「空間、余地」という意味の不可算名詞で、動詞も単数のis。不可算名詞を受けるa little（少しの）が正解。
+p5-077|t1	a fewは可算名詞の複数形と使う。roomを「部屋」（可算）と勘違いさせるひっかけ。
+p5-077|t2	manyは可算名詞の複数形と使い、動詞isとも合わない。
+p5-077|t3	severalは可算名詞の複数形と使う。
+p5-078|why	tipsは可算名詞の複数形なので、複数名詞を受けるseveral（いくつかの）が正解。
+p5-078|t0	muchは不可算名詞と使う。
+p5-078|t1	a great deal ofも不可算名詞専用（a great deal of time）。
+p5-078|t3	everyは単数名詞と使う（every tip）。
+p5-079|why	Most of the + 名詞は名詞に数を合わせる。equipmentは不可算名詞なので単数扱いで、last yearなので過去の単数wasが正解。
+p5-079|t0	wereは「Most」を複数と勘違いさせるひっかけ。equipmentは不可算なので単数。
+p5-079|t1	have beenは複数の動詞で、last yearと現在完了も矛盾する。
+p5-079|t2	areは複数の現在形なので、数も時制も合わない。
+p5-080|why	of the + 複数名詞の前に置ける数量の代名詞が必要。all of the offices（すべての事務所）がexcept（〜を除いて）とも自然につながる。
+p5-080|t1	everyは形容詞としてしか使えないので、every ofの形は不可能（every one ofは可能）。
+p5-080|t2	wholeはthe whole officeのように単数名詞の前に使い、whole of the + 複数名詞とは使わない。
+p5-080|t3	muchは不可算名詞に使う。officesは可算名詞の複数形。
+p5-081|why	後ろのorと組になって「AかBのどちらか」を表すeither A or Bの構文。
+p5-081|t0	bothはandと組になる（both A and B）。
+p5-081|t2	neitherはnorと組になり、「どちらも〜ない」という否定の意味。
+p5-081|t3	whether A or Bは「〜かどうか」という名詞節・副詞節を導くので、この位置に合わない。
+p5-082|why	後ろのbut alsoと組になるnot only A but also B（AだけでなくBも）の構文。
+p5-082|t0	bothはandと組になる。
+p5-082|t1	eitherはorと組になる。
+p5-082|t3	asはas 〜 asの比較構文で使い、but alsoとはつながらない。
+p5-083|why	後ろのnorと組になるneither A nor B（AでもBでもない）の構文。
+p5-083|t0	Eitherはorと組になる。
+p5-083|t2	Bothはandと組になり、動詞も複数（were）になる必要がある。
+p5-083|t3	Not単独ではnorと組にならない。
+p5-084|why	後ろにandがあるので、both A and B（AとBの両方）の構文。
+p5-084|t0	eitherはorと組になる。
+p5-084|t1	between A and Bは「〜の間に」という前置詞の表現で、「戦略と定着の間を扱う」となり意味が合わない。
+p5-084|t2	neitherはnorと組になる。
+p5-085|why	indicateの目的語として「〜かどうか」を表す名詞節が必要で、後ろにorがある。whether A or Bが名詞節を導くので正解。
+p5-085|t0	either A or Bは名詞節を導けない。orだけを見て選ばせるひっかけ。

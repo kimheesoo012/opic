@@ -1,0 +1,1150 @@
+{
+ "units": [
+  {
+   "id": "p5-161",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 1,
+   "question": "The quarterly sales meeting will be held ------- Friday afternoon.",
+   "choices": [
+    "on",
+    "in",
+    "at",
+    "to"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "曜日の入った時（Friday afternoon）の前にはonを使う。",
+    "traps": [
+     null,
+     "inはthe afternoonのように曜日のない1日の時間帯や、月・年の前に使う。",
+     "atは時刻（at 3 P.M.）の前に使う。",
+     "toは方向を表し、時は表さない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-162",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 2,
+   "question": "Mr. Wu has worked as a management consultant ------- more than ten years.",
+   "choices": [
+    "since",
+    "during",
+    "while",
+    "for"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "more than ten yearsは数字で表した期間。期間の前にはforを使う。",
+    "traps": [
+     "sinceの後ろには始まりの時点（since 2015）が来る。",
+     "duringの後ろには出来事・特定の期間（during the meeting）が来る。",
+     "whileは接続詞なので名詞句を受けられない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-163",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 3,
+   "question": "------- the absence of the director, Ms. Kim chaired the weekly meeting.",
+   "choices": [
+    "On",
+    "At",
+    "In",
+    "By"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "in the absence of（〜がない状況で、〜の不在時に）は決まった前置詞の表現。",
+    "traps": [
+     "on the absence ofという表現は使わない。",
+     "at the absence ofという表現はない。",
+     null,
+     "by the absence ofは「不在によって」と手段のように読めて文脈と合わず、慣用表現でもない。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "chair",
+     "pos": "v",
+     "m": "（会議の）議長を務める"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-164",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.subj",
+   "difficulty": 2,
+   "question": "If I ------- in your position, I would accept the job offer from Lumen Tech.",
+   "choices": [
+    "am",
+    "were",
+    "will be",
+    "had"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "主節がwould + 動詞の原形なので、現在の事実の反対を仮定する仮定法過去。be動詞は主語に関係なくwere。",
+    "traps": [
+     "amはふつうの条件文の形なので、主節のwouldと合わない。",
+     null,
+     "if節にはwillを使わない。",
+     "hadは後ろに過去分詞が必要で、in your positionとは組み合わない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-165",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.subj",
+   "difficulty": 2,
+   "question": "If we had left the office earlier, we ------- the last train.",
+   "choices": [
+    "would catch",
+    "will catch",
+    "caught",
+    "would have caught"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "if節がhad left（仮定法過去完了）なので、主節はwould have + p.p.になる。",
+    "traps": [
+     "would catchは仮定法過去の主節の形。",
+     "will catchはふつうの未来の条件文の形。",
+     "caughtは単純過去なので、仮定の結果を表せない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-166",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.subj",
+   "difficulty": 3,
+   "question": "------- it not been for the generous donation, the library would have closed last year.",
+   "choices": [
+    "Were",
+    "Should",
+    "Had",
+    "If"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "If it had not been for（〜がなかったら）のIfを省略するとHad it not been forになる。主節もwould have closed。",
+    "traps": [
+     "Were it not forは可能だが、後ろにbeenは来ない。",
+     "Shouldの後ろには動詞の原形が来る必要がある。",
+     null,
+     "Ifを使うならIf it had not beenとなり、If it not beenは誤った形。"
+    ]
+   },
+   "vocab": [
+    {
+     "w": "donation",
+     "pos": "n",
+     "m": "寄付金"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-167",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.subj",
+   "difficulty": 3,
+   "question": "The director requested that the revised budget ------- by noon on Thursday.",
+   "choices": [
+    "be submitted",
+    "is submitted",
+    "was submitted",
+    "submits"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "request, require, recommendの後ろのthat節には（should +）動詞の原形を使う。予算は提出「される」側なのでbe submitted。",
+    "traps": [
+     null,
+     "is submittedは数を一致させた現在形。要求の動詞の後ろのthat節では原形を使う。",
+     "was submittedは過去なので、これからすることと合わない。",
+     "submitsは能動態なので、予算が提出する主体になる。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-168",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.inversion",
+   "difficulty": 2,
+   "question": "Only recently ------- the company begin selling its products online.",
+   "choices": [
+    "has",
+    "did",
+    "does",
+    "was"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "Only + 副詞が文頭に来ると助動詞が主語の前に出る。後ろが動詞の原形beginで、recentlyは過去のことなのでdid。",
+    "traps": [
+     "hasの後ろには過去分詞（begun）が来る必要がある。",
+     null,
+     "doesは現在の習慣を表すので、recentlyと合わない。",
+     "wasの後ろにはbeginは来ない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-169",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.inversion",
+   "difficulty": 2,
+   "question": "Not until the contract was signed ------- the team start production.",
+   "choices": [
+    "had",
+    "was",
+    "has",
+    "did"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "Not until 〜が前に来ると主節が倒置される。後ろの動詞の原形startと組み合わさる過去の助動詞did。",
+    "traps": [
+     "hadの後ろには過去分詞が来る必要がある。",
+     "wasの後ろにはstartは来ない。",
+     "hasの後ろにも過去分詞が来る必要がある。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-170",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.inversion",
+   "difficulty": 3,
+   "question": "Seldom ------- such a large order been received in a single day.",
+   "choices": [
+    "have",
+    "has",
+    "did",
+    "does"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "否定語Seldomの後ろで倒置。後ろにbeen receivedがあるので完了の助動詞が必要で、主語such a large orderは単数なのでhas。",
+    "traps": [
+     "haveは複数の主語に使う。orderは単数。",
+     null,
+     "didの後ろには動詞の原形が来る必要がある。",
+     "doesの後ろにも動詞の原形が来る必要がある。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-171",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.inversion",
+   "difficulty": 3,
+   "question": "So popular ------- the new model that it sold out within a week.",
+   "choices": [
+    "was",
+    "were",
+    "did",
+    "had"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "So + 形容詞が文頭に出て、be動詞と主語が倒置されている。元の文はThe new model was so popular that 〜。主語が単数で過去なのでwas。",
+    "traps": [
+     null,
+     "wereは複数の主語に使う。",
+     "didは一般動詞の倒置に使い、形容詞の補語とは組み合わない。",
+     "hadの後ろには過去分詞が来る必要がある。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-172",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.compare",
+   "difficulty": 1,
+   "question": "The new laptop is ------- than the previous model.",
+   "choices": [
+    "light",
+    "lightest",
+    "lighter",
+    "more light"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "thanの前なので比較級lighter。",
+    "traps": [
+     "lightは原級なのでthanと一緒に使わない。",
+     "lightestは最上級。",
+     null,
+     "lightの比較級はlighterで、more lightとは書かない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-173",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.compare",
+   "difficulty": 1,
+   "question": "Saturday is usually the ------- day of the week at the store.",
+   "choices": [
+    "busy",
+    "busier",
+    "busiest",
+    "most busy"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "the + ___ + of the weekは範囲の中で「最も〜な」を表す最上級の形なので、busiestが正解。",
+    "traps": [
+     "busyは原級。",
+     "busierは比較級なので、比較の対象thanが必要。",
+     null,
+     "busyの最上級はbusiest。"
+    ]
+   }
+  },
+  {
+   "id": "p5-174",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.compare",
+   "difficulty": 2,
+   "question": "The new office is not as ------- as the old one, but it is much closer to the station.",
+   "choices": [
+    "more spacious",
+    "most spacious",
+    "spaciously",
+    "spacious"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "as 〜 asの間には原級の形容詞が来る。be動詞の補語なので形容詞spacious。",
+    "traps": [
+     "more spaciousは比較級なので、as 〜 asの間には使わない。",
+     "most spaciousは最上級。",
+     "spaciouslyは副詞なのでbe動詞の補語になれない。",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "spacious",
+     "pos": "adj",
+     "m": "広々とした"
+    }
+   ]
+  },
+  {
+   "id": "p5-175",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.compare",
+   "difficulty": 3,
+   "question": "Of the three finalists, Ms. Harper is the ------- qualified for the position.",
+   "choices": [
+    "most",
+    "more",
+    "much",
+    "very"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "Of the three（3人の中で）という範囲があるので、最上級the most qualified。",
+    "traps": [
+     null,
+     "the moreは2つの間の比較に使う。3つ以上なら最上級。",
+     "muchは比較級を強調する語で、the much qualifiedという形はない。",
+     "veryの前にtheを付けたthe very qualifiedという形にはしない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-176",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.quant",
+   "difficulty": 1,
+   "question": "We received ------- applications for the summer internship this year.",
+   "choices": [
+    "much",
+    "many",
+    "a little",
+    "every"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "applicationsは可算名詞の複数形なので、manyが正解。",
+    "traps": [
+     "muchは不可算名詞に使う。",
+     null,
+     "a littleも不可算名詞に使う。",
+     "everyは単数名詞と使う。"
+    ]
+   }
+  },
+  {
+   "id": "p5-177",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.quant",
+   "difficulty": 2,
+   "question": "There is ------- information about the job fair on our Web site.",
+   "choices": [
+    "many",
+    "a few",
+    "a lot of",
+    "several"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "informationは不可算名詞で、動詞も単数のis。不可算名詞と使えるa lot ofが正解。",
+    "traps": [
+     "manyは可算名詞の複数形に使う。",
+     "a fewも可算名詞の複数形に使う。",
+     null,
+     "severalも可算名詞の複数形に使う。"
+    ]
+   }
+  },
+  {
+   "id": "p5-178",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.quant",
+   "difficulty": 3,
+   "question": "------- employees signed up for the weekend workshop, so it was canceled.",
+   "choices": [
+    "A few",
+    "Few",
+    "Many",
+    "Several"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "so it was canceled（だから中止された）という結果になるには、申込者が「ほとんどいない」必要がある。否定の意味のFew。",
+    "traps": [
+     "A fewは「何人かいる」という肯定の意味なので、中止の理由にならない。aの有無で意味が変わる代表的なひっかけ。",
+     null,
+     "Manyは中止と反対の意味。",
+     "Severalも「何人かいる」という肯定の意味。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-179",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.quant",
+   "difficulty": 2,
+   "question": "------- other company in the region offers same-day delivery.",
+   "choices": [
+    "None",
+    "Nothing",
+    "Not",
+    "No"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "名詞companyの前で限定詞の働きをするNoが必要。No other companyは「ほかのどの会社も〜ない」。",
+    "traps": [
+     "Noneは代名詞なので名詞の前には入らない（None of the companiesは可能）。",
+     "Nothingは代名詞なので名詞を修飾できない。",
+     "Notは副詞なので、名詞の前の限定詞の位置には入らない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-180",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.correl",
+   "difficulty": 1,
+   "question": "Customers can contact us ------- by phone or by e-mail.",
+   "choices": [
+    "either",
+    "neither",
+    "both",
+    "not only"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "後ろのorと組になるeither A or B。",
+    "traps": [
+     null,
+     "neitherはnorと組になる。",
+     "bothはandと組になる。",
+     "not onlyはbut alsoと組になる。"
+    ]
+   }
+  },
+  {
+   "id": "p5-181",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.correl",
+   "difficulty": 2,
+   "question": "The new model is ------- lighter and cheaper than the old one.",
+   "choices": [
+    "both",
+    "either",
+    "neither",
+    "whether"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "後ろにandがあるのでboth A and B。",
+    "traps": [
+     null,
+     "eitherはorと組になる。",
+     "neitherはnorと組になる。",
+     "whetherはorと組になり、名詞節・副詞節を導く。"
+    ]
+   }
+  },
+  {
+   "id": "p5-182",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.correl",
+   "difficulty": 2,
+   "question": "Neither Mr. Han ------- Ms. Lopez was able to attend the conference.",
+   "choices": [
+    "or",
+    "and",
+    "nor",
+    "but"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "Neitherと組になるのはnor。",
+    "traps": [
+     "orはeitherと組になる。",
+     "andはbothと組になる。",
+     null,
+     "butはnot only 〜 but alsoで使う。"
+    ]
+   }
+  },
+  {
+   "id": "p5-183",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.correl",
+   "difficulty": 3,
+   "question": "The workshop is designed not only for managers ------- for new employees.",
+   "choices": [
+    "and also",
+    "but also",
+    "or",
+    "as well"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "not only A but also Bの構文。AとBの位置にfor + 名詞が並列になっている。",
+    "traps": [
+     "and alsoはnot onlyと組にならない。",
+     null,
+     "orはeitherと組になる。",
+     "as wellはB as well as Aの形で使い、not onlyとは組にならない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-184",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 1,
+   "question": "Passengers should ------- their seat belts while the plane is moving.",
+   "choices": [
+    "close",
+    "tie",
+    "lock",
+    "fasten"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "シートベルトはfasten（締める）と組み合わせる。",
+    "traps": [
+     "closeはドア・窓を閉めるときに使う。",
+     "tieはひも・リボンを結ぶときに使う。",
+     "lockは鍵をかけるときに使う。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-185",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 2,
+   "question": "Kestrel Foods plans to ------- 50 new workers for its second factory.",
+   "choices": [
+    "apply",
+    "hire",
+    "attend",
+    "retire"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "会社が労働者を「雇う」はhire。",
+    "traps": [
+     "applyはapply for（応募する）のように応募者側が使う動詞。",
+     null,
+     "attendはイベントに出席するときに使う。",
+     "retire（退職する）は自動詞。"
+    ]
+   }
+  },
+  {
+   "id": "p5-186",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 2,
+   "question": "Could you ------- me of the meeting time tomorrow morning?",
+   "choices": [
+    "remember",
+    "mention",
+    "notice",
+    "remind"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "remind A of B（AにBを思い出させる）が空所の後ろのme ofと合う。",
+    "traps": [
+     "rememberは人 + ofの形をとらない。",
+     "mentionはmention B to Aの形。",
+     "notice（気づく）はofと結びつかない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-187",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 3,
+   "question": "The manager asked the support team to ------- the login problem as soon as possible.",
+   "choices": [
+    "resolve",
+    "respond",
+    "react",
+    "result"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "空所の後ろの目的語the login problemを直接とる他動詞が必要。resolve（解決する）。",
+    "traps": [
+     null,
+     "respondはrespond toのように前置詞が必要。",
+     "reactもreact toのように使う自動詞。",
+     "resultはresult in/fromのように使う自動詞で、意味も合わない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-188",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 1,
+   "question": "Please keep your ------- as proof of purchase.",
+   "choices": [
+    "recipe",
+    "reception",
+    "receipt",
+    "recipient"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "購入の証明として保管するのは領収書（receipt）。",
+    "traps": [
+     "recipeは料理のレシピ。",
+     "receptionは受付・歓迎会。",
+     null,
+     "recipientは受取人。"
+    ]
+   }
+  },
+  {
+   "id": "p5-189",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 2,
+   "question": "The hotel was fully booked, so we had to find other -------.",
+   "choices": [
+    "accommodations",
+    "accommodate",
+    "accountants",
+    "accounts"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "ホテルが満室なので別の「宿泊先」を探す必要があったという意味。accommodations（宿泊施設）。",
+    "traps": [
+     null,
+     "accommodateは動詞なので、otherの後ろの名詞の位置には入らない。",
+     "accountants（会計士）は文脈と関係ない。",
+     "accounts（口座、取引先）も文脈と関係ない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-190",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 2,
+   "question": "The company's annual ------- will be held in the ballroom of the Grand Hotel.",
+   "choices": [
+    "bouquet",
+    "budget",
+    "bonus",
+    "banquet"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "ホテルの宴会場で「開かれる」のは晩さん会（banquet）。",
+    "traps": [
+     "bouquetは花束なので開催されない。",
+     "budget（予算）は開かれるイベントではない。",
+     "bonus（賞与）も開催されるものではない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-191",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 3,
+   "question": "Staff members must obtain ------- from a supervisor before using a company vehicle.",
+   "choices": [
+    "admission",
+    "submission",
+    "permission",
+    "commission"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "社用車を使う前に上司から得る必要があるのは許可（permission）。obtain permission fromは自然な組み合わせ。",
+    "traps": [
+     "admissionは入場（許可）で、施設に入るときに使う。",
+     "submissionは提出（物）なので、上司から受け取るものではない。",
+     null,
+     "commissionは手数料・委員会なので文脈と合わない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-192",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 1,
+   "question": "The new printer is very ------- and rarely breaks down.",
+   "choices": [
+    "responsible",
+    "reliable",
+    "respective",
+    "reversible"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "「めったに故障しない」とつながるのは、「信頼できる」を意味するreliable。",
+    "traps": [
+     "responsible（責任のある）は人に使う。",
+     null,
+     "respective（それぞれの）は名詞の前でだけ使い、補語には使わない。",
+     "reversible（裏返せる）はプリンターの性能を説明できない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-193",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 2,
+   "question": "The concert tickets sold out ------- after they went on sale.",
+   "choices": [
+    "lately",
+    "nearly",
+    "hardly",
+    "shortly"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "shortly afterは「〜の直後に」という意味。",
+    "traps": [
+     "lately（最近）は主に現在完了と使い、afterとは結びつかない。",
+     "nearly（ほぼ）はnearly sold outのように使えるが、afterの前では「直後」という意味にならない。",
+     "hardly（ほとんど〜ない）は否定の意味なので文脈と合わない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-194",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 2,
+   "question": "Please return the signed form ------- so that we can process your order quickly.",
+   "choices": [
+    "promptly",
+    "mostly",
+    "closely",
+    "likely"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "「早く処理できるよう」書類を「すぐに」返送してほしいという意味。promptly。",
+    "traps": [
+     null,
+     "mostly（ほとんど）は意味が合わない。",
+     "closely（綿密に）はreturnと合わない。",
+     "likelyは「たぶん」という意味なので、依頼の文と合わない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-195",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 3,
+   "question": "Sales have increased by ------- 20 percent since the new campaign began.",
+   "choices": [
+    "extremely",
+    "approximately",
+    "highly",
+    "completely"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "数字の前で「約」を意味するapproximatelyが正解。",
+    "traps": [
+     "extremelyは形容詞を強調し、数字の前には使わない。",
+     null,
+     "highlyも形容詞・分詞を強調し、数字は修飾しない。",
+     "completelyは数字の前には使わない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-196",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 1,
+   "question": "Our company ------- close attention to customer feedback.",
+   "choices": [
+    "holds",
+    "takes",
+    "pays",
+    "makes"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "pay attention to（〜に注意を払う）が決まった組み合わせなので、paysが正解。",
+    "traps": [
+     "hold attentionは「注意を引きつけておく」という意味で、toと結びついて「〜に注意を払う」にはならない。",
+     "take attentionという表現は使わない。",
+     null,
+     "make attentionという表現もない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-197",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 2,
+   "question": "The new data protection law will ------- into effect next January.",
+   "choices": [
+    "take",
+    "make",
+    "come",
+    "put"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "come into effect（施行される）が決まった組み合わせ。intoと一緒に使うのはcome。",
+    "traps": [
+     "takeはtake effectの形で使い、intoは付かない。",
+     "make into effectという表現はない。",
+     null,
+     "put into effectは「施行する」という他動詞の表現なので目的語が必要。法律が主語だと合わない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-198",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 2,
+   "question": "Ms. Nakamura will ------- a presentation on the spring marketing campaign.",
+   "choices": [
+    "take",
+    "give",
+    "raise",
+    "place"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "give a presentation（発表をする）が決まった組み合わせ。",
+    "traps": [
+     "take a presentationという表現は使わない。",
+     null,
+     "raiseはraise a questionのように使う。",
+     "placeはplace an orderのように使う。"
+    ]
+   }
+  },
+  {
+   "id": "p5-199",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 3,
+   "question": "Ms. Ito was ------- recommended by her former employer.",
+   "choices": [
+    "highly",
+    "largely",
+    "heavily",
+    "deeply"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "highly recommended（強く勧められた）が決まった組み合わせ。",
+    "traps": [
+     null,
+     "largely（主に）は程度ではなく割合を言う。",
+     "heavilyはheavily relyのように量・重さに使う。",
+     "deeplyはdeeply movedのように感情に使い、recommendedとは結びつかない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-200",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 1,
+   "question": "The price of the tour ------- breakfast and dinner.",
+   "choices": [
+    "concludes",
+    "encloses",
+    "intrudes",
+    "includes"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "ツアー料金に朝食と夕食が「含まれる」という意味。includes。",
+    "traps": [
+     "concludes（締めくくる）はつづりが似た紛らわしい語。",
+     "encloses（同封する）は手紙・封筒に使う。",
+     "intrudes（侵入する）は自動詞なので目的語をとらない。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-201",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 2,
+   "question": "Ms. Okoro will ------- the sales department starting next week.",
+   "choices": [
+    "lead",
+    "lend",
+    "load",
+    "loan"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "部署やチームを「率いる、統率する」という意味の動詞はlead。",
+    "traps": [
+     null,
+     "lend（貸す）はつづりが似た紛らわしい語。",
+     "load（積む）は荷物に使う。",
+     "loan（貸し付ける）はお金に使う。"
+    ]
+   }
+  },
+  {
+   "id": "p5-202",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 2,
+   "question": "The hotel has an ------- staff who speak five languages.",
+   "choices": [
+    "experiential",
+    "experiment",
+    "experimental",
+    "experienced"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "従業員を修飾する「熟練した」はexperienced。",
+    "traps": [
+     "experiential（経験に基づく）は学習方法などに使い、人は修飾しない。",
+     "experimentは名詞・動詞なので形容詞の位置に合わない。",
+     "experimental（実験的な）は従業員を説明する語として不自然。",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-203",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 3,
+   "question": "Mr. Kwon is ------- for training all new staff members.",
+   "choices": [
+    "responsive",
+    "responsible",
+    "respective",
+    "respectful"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "be responsible for（〜に責任を持つ、〜を担当する）が決まった表現。",
+    "traps": [
+     "responsive（反応が早い）はtoと使い、forとは結びつかない。",
+     null,
+     "respective（それぞれの）は名詞の前でだけ使う。",
+     "respectful（礼儀正しい）はof・toと使い、意味も合わない。"
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-204",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 2,
+   "question": "The ------- requires at least three years of sales experience.",
+   "choices": [
+    "situation",
+    "condition",
+    "position",
+    "location"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "「営業経験3年以上を求める」のは職（position）。",
+    "traps": [
+     "situation（状況）は経験を求めない。",
+     "condition（条件）はrequiresの主語として不自然で、the condition requiresでは意味が通じない。",
+     null,
+     "location（場所）は文脈と関係ない。"
+    ]
+   }
+  },
+  {
+   "id": "p5-205",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 3,
+   "question": "The software update will ------- the speed of the system significantly.",
+   "choices": [
+    "approve",
+    "prove",
+    "remove",
+    "improve"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "アップデートがシステムの速度を大きく「向上させる」はimprove。",
+    "traps": [
+     "approve（承認する）はつづりが似た紛らわしい語。",
+     "prove（証明する）は、速度を目的語にすると意味が通じない。",
+     "remove（取り除く）は速度に使うと意味が成り立たない。",
+     null
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  }
+ ]
+}

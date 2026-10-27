@@ -1,0 +1,936 @@
+{
+ "units": [
+  {
+   "id": "p6-s01",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: All staff\nFrom: Facilities Team\nSubject: Office move\n\nAs you know, our Seoul office will move to Jongno Tower on June 3. To ensure a smooth transition, all employees are asked to pack their personal belongings by May 30. Boxes and labels {{1}} at the reception desk starting next Monday. {{2}} Please mark each box with your name and new desk number.\n\nThe moving company will {{3}} all furniture and equipment starting on the morning of Friday, May 31. {{4}}, the office will be closed that day, and staff are encouraged to work from home."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p6-s01-1",
+     "blank": 1,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "will be distributed",
+      "were distributed",
+      "have distributed",
+      "distributing"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "starting next Monday（来週月曜日から）は未来の時点で、箱とラベルは「配られる」側。未来の受動態will be distributedが正解。",
+      "traps": [
+       null,
+       "were distributedは過去なので、starting next Mondayと時点が矛盾する。空所の文だけを見ると時制を見落としやすい。",
+       "have distributedは能動態なので「箱が配った」となり、目的語もない。",
+       "distributingは分詞なので、述語動詞のない文になる。"
+      ]
+     },
+     "vocab": [
+      {
+       "w": "transition",
+       "pos": "n",
+       "m": "移行、切り替え"
+      },
+      {
+       "w": "belongings",
+       "pos": "n",
+       "m": "所持品"
+      }
+     ]
+    },
+    {
+     "id": "p6-s01-2",
+     "blank": 2,
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "The new building has a cafeteria on the ground floor.",
+      "Thank you for attending last week's training session.",
+      "The moving company has already completed the transfer.",
+      "Each employee may take up to five boxes."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "前の文は箱とラベルを配るという内容、後ろの文は「各箱に」名前を書くようにという内容。その間に、箱をいくつまで持っていけるかを案内する文が入ると自然につながる。",
+      "traps": [
+       "新しい建物の社員食堂の情報は、荷造りの案内の流れ（箱の配布 → 箱への記入）を切ってしまう。",
+       "先週の研修参加へのお礼は、事務所移転の案内と関係ない。",
+       "引っ越しは5月31日に始まる予定なので、「すでに完了した」という内容は本文と矛盾する。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p6-s01-3",
+     "blank": 3,
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "commute",
+      "transport",
+      "travel",
+      "depart"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "空所の後ろのall furniture and equipmentが目的語なので、「運ぶ」という他動詞transportが必要。",
+      "traps": [
+       "commute（通勤する）は自動詞で、家具を目的語にとれない。",
+       null,
+       "travel（移動する）は主に自動詞で、引っ越しの荷物を運ぶという意味にならない。",
+       "depart（出発する）は自動詞なので目的語をとれない。"
+      ]
+     }
+    },
+    {
+     "id": "p6-s01-4",
+     "blank": 4,
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 2,
+     "choices": [
+      "However",
+      "For example",
+      "For this reason",
+      "Otherwise"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "前の文は金曜日の朝から荷物を運ぶという内容で、空所の後ろはその日事務所が閉まるという結果。原因と結果の関係なので、For this reason（このため）が正解。",
+      "traps": [
+       "Howeverは対比を表すが、引っ越しのために休みになるのは対比ではない。",
+       "For exampleは前の内容の例を挙げるときに使う。休みは引っ越しの例ではない。",
+       null,
+       "Otherwise（そうでなければ）は前の内容が起こらない場合を言うときに使う。"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p6-s02",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "letter",
+     "title": "Letter",
+     "text": "Dear Mr. Lindqvist,\n\nThank you for your recent order of twelve ergonomic office chairs. Unfortunately, our supplier has informed us that the fabric you selected is temporarily {{1}}. We expect new stock to arrive within two weeks. {{2}}\n\nIn the meantime, we would be happy to send you chairs in a similar gray fabric at no extra charge. If you {{3}} to wait for the original fabric, no action is needed on your part. {{4}} for any inconvenience this may cause.\n\nSincerely,\nHana Seo\nCustomer Care, Brightline Furniture"
+    }
+   ],
+   "questions": [
+    {
+     "id": "p6-s02-1",
+     "blank": 1,
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "inaccurate",
+      "unavailable",
+      "unaffordable",
+      "invalid"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "Unfortunatelyで始まり、次の文で2週間以内に新しい在庫が入ると言っている。選んだ生地が一時的に「手に入らない（在庫がない）」という意味のunavailableが流れに合う。",
+      "traps": [
+       "inaccurate（不正確な）は生地の在庫の問題と関係ない。",
+       null,
+       "unaffordable（値段が高くて買えない）は、「在庫が入れば解決する」という次の文と合わない。",
+       "invalid（無効な）はクーポン・契約などに使い、生地には合わない。"
+      ]
+     },
+     "vocab": [
+      {
+       "w": "ergonomic",
+       "pos": "adj",
+       "m": "人間工学に基づいた"
+      },
+      {
+       "w": "temporarily",
+       "pos": "adv",
+       "m": "一時的に"
+      }
+     ]
+    },
+    {
+     "id": "p6-s02-2",
+     "blank": 2,
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "We will notify you as soon as it arrives.",
+      "Your chairs were delivered yesterday afternoon.",
+      "Our showroom is open seven days a week.",
+      "The fabric is also available in leather."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "直前の文が「新しい在庫が2週間以内に届く予定」なので、それ（it = new stock）が届いたら知らせるという文が続くのが自然。",
+      "traps": [
+       null,
+       "いすがすでに発送されたという内容は、在庫不足で配送が遅れるという手紙の内容と矛盾する。",
+       "ショールームの営業時間は、在庫の遅れの案内の流れと関係ない。",
+       "「生地が革でも出る」という話は論理的に成り立たず、流れとも合わない。"
+      ]
+     }
+    },
+    {
+     "id": "p6-s02-3",
+     "blank": 3,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "preferred",
+      "will prefer",
+      "preferring",
+      "prefer"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "主節が現在時制（no action is needed）のふつうの条件文なので、if節にも現在時制preferが入る。",
+      "traps": [
+       "preferredは仮定法過去の形なので、主節がwould + 動詞の原形である必要がある。",
+       "条件の副詞節には未来のwillを使わない。",
+       "preferringは分詞なので、if節の動詞になれない。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p6-s02-4",
+     "blank": 4,
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "We appreciate",
+      "We regret",
+      "We apologize",
+      "We excuse"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "for any inconvenience（ご不便について）と結びついて謝罪を表す表現はWe apologize for。手紙は在庫の問題による不便をおわびする流れ。",
+      "traps": [
+       "appreciateは「感謝する」なので、不便に感謝するという意味になり合わない。",
+       "regretはforなしで直接目的語をとる（We regret any inconvenience）。forとは使わない。",
+       null,
+       "excuseは「許す、言い訳する」で、We excuse forという表現は使わない。"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p6-s03",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "article",
+     "title": "Article",
+     "text": "GREENFIELD (May 12) — Harlow Foods announced on Monday that it will open a second processing plant in Greenfield next spring. The facility is expected to create about 150 jobs, {{1}} of which will be in packaging and quality control.\n\nHarlow Foods, which {{2}} frozen vegetables to supermarkets across the region since 1998, has seen demand rise steadily over the past five years. {{3}}, the company's current plant is operating at full capacity. {{4}} Construction will begin in August, pending final approval from the city council."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p6-s03-1",
+     "blank": 1,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 3,
+     "choices": [
+      "much",
+      "most",
+      "almost",
+      "mostly"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "「数量の代名詞 + of which」で前の150 jobsを受ける。jobsは可算名詞の複数形なので、most of which（そのうちの大部分）が正解。",
+      "traps": [
+       "much of whichは不可算名詞を受けるときに使う。jobsは可算の複数。",
+       null,
+       "almostは副詞なので、of whichの前で代名詞の働きはできない（almost all of whichは可能）。",
+       "mostlyも副詞なので代名詞の位置には入らない。"
+      ]
+     },
+     "vocab": [
+      {
+       "w": "processing plant",
+       "pos": "n",
+       "m": "加工工場"
+      }
+     ]
+    },
+    {
+     "id": "p6-s03-2",
+     "blank": 2,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "has supplied",
+      "supplies",
+      "will supply",
+      "is supplying"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "since 1998（1998年から今まで）があるので、現在完了has suppliedが正解。",
+      "traps": [
+       null,
+       "suppliesは単純現在なので、sinceと一緒に継続を表せない。",
+       "will supplyは未来なので、過去の時点からの継続と合わない。",
+       "is supplyingは現在進行形なので、sinceの構文と一緒に使わない。"
+      ]
+     }
+    },
+    {
+     "id": "p6-s03-3",
+     "blank": 3,
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 2,
+     "choices": [
+      "In contrast",
+      "Even so",
+      "Instead",
+      "As a result"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "前の文は需要が着実に増えたという原因、空所の文は現在工場がフル稼働しているという結果。As a result（その結果）が正解。",
+      "traps": [
+       "In contrastは対比だが、需要の増加とフル稼働は同じ方向の内容。",
+       "Even so（それでも）は予想と反対の内容の前に使う。",
+       "Instead（その代わりに）は前の内容を置き換えるときに使う。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p6-s03-4",
+     "blank": 4,
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 3,
+     "choices": [
+      "Harlow Foods was founded by two brothers in a small garage.",
+      "The city council rejected the proposal last week.",
+      "The new plant will allow Harlow to increase its output by 40 percent.",
+      "Frozen vegetables are less expensive than fresh ones."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "前の文は現在工場がフル稼働しているという問題、後ろの文は新工場の着工予定。その間に、新工場が生産量の問題を解決するという文が入ると流れがつながる。",
+      "traps": [
+       "創業の話は、生産能力の問題 → 新工場の着工という流れを切ってしまう。",
+       "市議会がすでに断っていたなら、後ろの文の「最終承認待ち（pending final approval）」と矛盾する。",
+       null,
+       "冷凍野菜の価格比較は工場の増設の記事と関係ない。"
+      ]
+     },
+     "vocab": [
+      {
+       "w": "pending",
+       "pos": "prep",
+       "m": "〜を待つ間、〜が決まるまで"
+      },
+      {
+       "w": "output",
+       "pos": "n",
+       "m": "生産量"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p6-s04",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "memo",
+     "title": "Memo",
+     "text": "To: All Department Heads\nFrom: Priya Nair, Finance\nRe: New expense reporting system\n\nStarting October 1, all expense reports must be submitted through ExpensePoint, our new online system. The old paper forms will no longer be {{1}}. ExpensePoint allows employees to upload photos of receipts directly from their phones, which should {{2}} the time it takes to process reimbursements. {{3}}, managers will be able to approve requests from any device.\n\nTraining sessions will be held in Conference Room B on September 24 and 25. {{4}} Please make sure that everyone in your department attends one of them."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p6-s04-1",
+     "blank": 1,
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "admitted",
+      "accepted",
+      "achieved",
+      "agreed"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "すべての経費報告書を新しいオンラインシステムで提出しなければならないので、これまでの紙の用紙はもう「受け付けられ」ない。acceptedが正解。",
+      "traps": [
+       "admitは「入場を許可する、認める」で、書類の受け付けには使わない。",
+       null,
+       "achieve（達成する）は目標に使い、用紙とは合わない。",
+       "agreeは自動詞なので、受動態（be agreed）で書類を主語にするのは難しい。"
+      ]
+     },
+     "vocab": [
+      {
+       "w": "reimbursement",
+       "pos": "n",
+       "m": "（費用の）払い戻し"
+      }
+     ]
+    },
+    {
+     "id": "p6-s04-2",
+     "blank": 2,
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "shorten",
+      "extend",
+      "delay",
+      "expand"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "スマートフォンで領収書の写真をすぐにアップロードできるという利点を説明する文なので、処理時間を「短くする」というshortenが合う。",
+      "traps": [
+       null,
+       "extend（延ばす）は処理時間が長くなるという意味なので、利点の説明と逆。",
+       "delay（遅らせる）も否定的な結果なので文脈と合わない。",
+       "expand（拡大する）は時間に使うと「増やす」になり、利点にならない。"
+      ]
+     }
+    },
+    {
+     "id": "p6-s04-3",
+     "blank": 3,
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 2,
+     "choices": [
+      "However",
+      "Nevertheless",
+      "Otherwise",
+      "In addition"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "前の文（従業員がスマートフォンで領収書をアップロードする）に続けて、管理者がどの端末からでも承認できるというもう1つの利点を付け加えている。追加を表すIn additionが正解。",
+      "traps": [
+       "Howeverは対比の関係に使う。2つの利点は対比ではない。",
+       "Nevertheless（それにもかかわらず）は前の内容と反対の結果に使う。",
+       "Otherwise（そうでなければ）は条件の反対の状況を言うときに使う。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p6-s04-4",
+     "blank": 4,
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "Paper forms can still be used until December.",
+      "The finance department recently moved to the third floor.",
+      "Most employees have already completed the training.",
+      "Each session will last approximately ninety minutes."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "前の文が研修の日程を、後ろの文が「そのうちの1つ（one of them）に参加させるように」と案内している。研修の長さを知らせる文が研修案内の流れに自然に入る。",
+      "traps": [
+       "10月1日から紙の用紙は受け付けないと言っているので、12月まで使えるという話は矛盾する。",
+       "財務チームの階の移動は研修案内と関係ない。",
+       "研修は9月24〜25日に開かれる予定で、全員を参加させるようにと続くので、「すでにほとんど終えた」は流れと合わない。",
+       null
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p6-s05",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "notice",
+     "title": "Notice",
+     "text": "Notice to Guests\n\nThe Seaview Hotel's indoor pool will be closed from November 4 to November 18 while new tiles {{1}}. During this period, guests may use the pool at our sister property, the Bayside Inn, {{2}} is located just two blocks away. Simply show your room key at the Bayside Inn's front desk. {{3}}\n\nWe apologize for the inconvenience and look forward to welcoming you to our {{4}} pool later this month."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p6-s05-1",
+     "blank": 1,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "install",
+      "installing",
+      "are being installed",
+      "have installed"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "while節に主語new tilesと動詞が必要。タイルは「設置される」側で、休業期間中に進む作業なので、進行形の受動態are being installedが正解。",
+      "traps": [
+       "installは能動態なので「タイルが設置する」となり、目的語もない。",
+       "installingは分詞なので、while節に動詞がなくなる。",
+       null,
+       "have installedは能動の完了なので、タイルが設置の主体になってしまう。"
+      ]
+     },
+     "vocab": [
+      {
+       "w": "sister property",
+       "pos": "n",
+       "m": "系列ホテル"
+      }
+     ]
+    },
+    {
+     "id": "p6-s05-2",
+     "blank": 2,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "which",
+      "where",
+      "who",
+      "what"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "カンマの後ろの関係詞節___ is located …では主語が抜けていて、先行詞は物（ホテルthe Bayside Inn）。主格の関係代名詞whichが正解。",
+      "traps": [
+       null,
+       "whereの後ろには完全な節が来るが、この節には主語がない。",
+       "whoは先行詞が人のときに使う。",
+       "whatは先行詞を含むので、前にthe Bayside Innがあると使えない。"
+      ]
+     }
+    },
+    {
+     "id": "p6-s05-3",
+     "blank": 3,
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "The pool is open twenty-four hours a day during the renovation.",
+      "Towels will be provided there free of charge.",
+      "Our restaurant has received several awards.",
+      "Please check out by 11 A.M. on your departure date."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "前の文がベイサイド・インのプールの利用方法を案内しているので、そこ（there）でタオルを無料で提供するという文が続くのが自然。",
+      "traps": [
+       "プールは工事期間中閉鎖されるので、24時間営業するという話は矛盾する。",
+       null,
+       "レストランの受賞歴は、代わりのプール利用の案内と関係ない。",
+       "チェックアウト時刻の案内は、このお知らせのテーマ（プールの休業）と関係ない。"
+      ]
+     }
+    },
+    {
+     "id": "p6-s05-4",
+     "blank": 4,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "renovating",
+      "renovation",
+      "renovated",
+      "renovates"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "所有格ourと名詞poolの間は形容詞の位置で、プールは「改装された」側。受動の意味の過去分詞renovatedが正解。",
+      "traps": [
+       "renovatingは「改装する」という能動の意味なので、プールが自分で工事することになる。",
+       "renovation poolは「名詞 + 名詞」としては使わない組み合わせ。",
+       null,
+       "renovatesは動詞なので、名詞の前の修飾の位置には入らない。"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p6-s06",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "advertisement",
+     "title": "Job Advertisement",
+     "text": "Pinecrest Logistics is seeking an experienced warehouse supervisor for its distribution center in Incheon. The successful candidate will oversee a team of fifteen employees and {{1}} that all shipments are processed accurately and on time.\n\nApplicants should have at least three years of supervisory experience in a warehouse setting. {{2}} with inventory management software is also required. {{3}}\n\nWe offer a competitive salary, health insurance, and opportunities for advancement. To apply, please send your résumé and a cover letter to hr@pinecrest.example by March 15. Only candidates selected for an interview {{4}}."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p6-s06-1",
+     "blank": 1,
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 2,
+     "choices": [
+      "attend",
+      "remind",
+      "prevent",
+      "ensure"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "空所の後ろにすぐthat節が来る。「〜を確実にする」という意味でthat節を目的語にとるensureが、監督者の業務の説明に合う。",
+      "traps": [
+       "attendはthat節を目的語にとらない。",
+       "remindは人の目的語が先に来る必要がある（remind someone that）。",
+       "preventはthat節をとらず（prevent A from -ing）、意味も反対。",
+       null
+      ]
+     },
+     "vocab": [
+      {
+       "w": "oversee",
+       "pos": "v",
+       "m": "監督する"
+      }
+     ]
+    },
+    {
+     "id": "p6-s06-2",
+     "blank": 2,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "Familiarity",
+      "Familiar",
+      "Familiarize",
+      "Familiarly"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "空所は動詞is requiredの主語の位置なので名詞が必要。familiarity with（〜に精通していること）が正解。",
+      "traps": [
+       null,
+       "Familiarは形容詞なので主語になれない。",
+       "Familiarizeは動詞の原形なので主語の位置には入らない。",
+       "Familiarlyは副詞。"
+      ]
+     }
+    },
+    {
+     "id": "p6-s06-3",
+     "blank": 3,
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 3,
+     "choices": [
+      "The position has already been filled.",
+      "Experience with forklift operation is preferred but not required.",
+      "Applicants must submit their forms in person.",
+      "Thank you for your recent purchase."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "この段落は応募資格（経験、ソフトウェアの知識）を並べている。フォークリフトの運転経験が「歓迎」という文が、応募資格の段落の最後に自然につながる。",
+      "traps": [
+       "すでに採用が終わったなら、応募方法を案内する広告全体と矛盾する。",
+       null,
+       "応募はメールでと案内しているので、直接持参は矛盾する。",
+       "購入へのお礼は採用広告と関係ない。"
+      ]
+     },
+     "vocab": [
+      {
+       "w": "forklift",
+       "pos": "n",
+       "m": "フォークリフト"
+      }
+     ]
+    },
+    {
+     "id": "p6-s06-4",
+     "blank": 4,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "contacted",
+      "have contacted",
+      "will contact",
+      "will be contacted"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "面接の対象者は会社から「連絡を受ける」側で、これからのこと。未来の受動態will be contactedが正解。",
+      "traps": [
+       "contactedだけだと過去の能動の動詞になって目的語がなく、前のselectedとも形が合わない。",
+       "have contactedは能動態なので、応募者が連絡する主体になり、目的語もない。",
+       "will contactは能動態なので「応募者が連絡するだろう」となり意味が合わない。",
+       null
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p6-s07",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "letter",
+     "title": "Letter",
+     "text": "Dear Ms. Moreau,\n\nYour membership at the Eastside Public Library will {{1}} on April 30. To continue borrowing books and using our online databases, please renew your membership before that date.\n\nRenewal is free for residents of Eastside County. {{2}}, non-residents are charged an annual fee of $25. You can renew online, by phone, or in person at any branch. {{3}} If you renew online, your new card will be mailed to you within five business days.\n\nThank you for being a valued member of our library. We hope you will continue to {{4}} our services."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p6-s07-1",
+     "blank": 1,
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 1,
+     "choices": [
+      "exceed",
+      "expire",
+      "extend",
+      "expand"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "その日付の前に更新するよう案内しているので、会員資格が4月30日に「期限が切れる」というexpireが合う。",
+      "traps": [
+       "exceed（超える）は目的語が必要な他動詞で、意味も合わない。",
+       null,
+       "extend（延長される）なら更新をお願いする理由がない。",
+       "expand（拡大する）は会員資格の期限切れの案内と関係ない。"
+      ]
+     },
+     "vocab": [
+      {
+       "w": "expire",
+       "pos": "v",
+       "m": "期限が切れる"
+      }
+     ]
+    },
+    {
+     "id": "p6-s07-2",
+     "blank": 2,
+     "type": "connector",
+     "concept": "p6.connector",
+     "difficulty": 1,
+     "choices": [
+      "Therefore",
+      "Similarly",
+      "However",
+      "As a result"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "前の文は住民は無料、空所の文は住民以外は25ドルという対比の内容。Howeverが正解。",
+      "traps": [
+       "Therefore（したがって）は結果を表すが、住民以外の料金は住民無料の結果ではない。",
+       "Similarly（同様に）は同じ内容を続けるときに使う。無料と有料は反対の内容。",
+       null,
+       "As a resultも因果関係なので、対比に合わない。"
+      ]
+     }
+    },
+    {
+     "id": "p6-s07-3",
+     "blank": 3,
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "In-person renewals require a photo ID and proof of address.",
+      "The library will be closed permanently next month.",
+      "Your overdue fines have been waived.",
+      "Membership cards cannot be replaced if lost."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "前の文でオンライン・電話・来館による更新方法を紹介し、後ろの文でオンライン更新の詳細を述べている。その間に来館による更新の持ち物を案内する文が入ると、方法ごとの詳しい案内として流れがつながる。",
+      "traps": [
+       null,
+       "図書館が来月閉館するなら、更新を勧める手紙の内容と矛盾する。",
+       "延滞料の免除は、会員更新の方法の案内の流れと関係ない。",
+       "紛失カードの再発行不可の案内は、更新方法の説明の間に入る理由がない。"
+      ]
+     },
+     "vocab": [
+      {
+       "w": "proof of address",
+       "pos": "n",
+       "m": "住所証明書類"
+      }
+     ]
+    },
+    {
+     "id": "p6-s07-4",
+     "blank": 4,
+     "type": "vocab",
+     "concept": "p6.vocab",
+     "difficulty": 2,
+     "choices": [
+      "take advantage of",
+      "take part",
+      "look into",
+      "put off"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "「引き続き当館のサービスをご利用ください」という意味なので、take advantage of（〜を利用する）が正解。",
+      "traps": [
+       null,
+       "take partはinがないと目的語をとれない（take part in）。",
+       "look intoは「調べる」なので、サービスを引き続き利用するという意味にならない。",
+       "put offは「延期する」で、文脈と逆。"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "p6-s08",
+   "part": 6,
+   "passages": [
+    {
+     "kind": "web page",
+     "title": "Web Page",
+     "text": "Thank you for purchasing the Nordic Breeze air purifier. To activate your two-year warranty, please register your product within 30 days of purchase. Registration takes only a few minutes and can be completed on our Web site. You will need the serial number, which is printed on a label {{1}} the bottom of the unit. {{2}}\n\nOnce your product is registered, you will receive an e-mail confirming your warranty period. Please keep this e-mail {{3}} you need to request a repair in the future. Note that the warranty does not cover damage {{4}} by improper use."
+    }
+   ],
+   "questions": [
+    {
+     "id": "p6-s08-1",
+     "blank": 1,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 1,
+     "choices": [
+      "among",
+      "on",
+      "into",
+      "between"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "ラベルが製品の底面に「貼ってある」という意味なので、表面への接触を表すonが正解。",
+      "traps": [
+       "amongは3つ以上の間を表す。",
+       null,
+       "intoは「〜の中へ」という移動の方向。",
+       "betweenは2つの間を表し、対象が2つ必要。"
+      ]
+     },
+     "vocab": [
+      {
+       "w": "serial number",
+       "pos": "n",
+       "m": "シリアル番号"
+      }
+     ]
+    },
+    {
+     "id": "p6-s08-2",
+     "blank": 2,
+     "type": "insert",
+     "concept": "p6.insert",
+     "difficulty": 2,
+     "choices": [
+      "Registration must be completed in person at the store.",
+      "Your warranty has now expired.",
+      "You will also be asked for the date and place of purchase.",
+      "Thank you for registering your product."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "前の文は、登録にシリアル番号が必要だという内容。「また（also）」購入日と購入場所も入力する必要があるという文が、登録に必要なものの案内として自然につながる。",
+      "traps": [
+       "登録はウェブサイトでできると言っているので、店舗への来店が必須というのは矛盾する。",
+       "保証を有効にするために登録する段階で、保証が切れたという話は流れに合わない。",
+       null,
+       "まだ登録方法を説明している途中で、次の文が「登録が終わったら」なので、登録へのお礼が入るには早い。"
+      ]
+     }
+    },
+    {
+     "id": "p6-s08-3",
+     "blank": 3,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "so that",
+      "as if",
+      "even though",
+      "in case"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "「後で修理を依頼する必要がある場合に備えて」メールを保管するようにという意味なので、in case（〜する場合に備えて）が正解。",
+      "traps": [
+       "so that（〜するように）を使うと「修理を依頼する必要があるように保管せよ」となり、目的が逆になる。",
+       "as if（まるで〜のように）は意味が合わない。",
+       "even though（〜だけれども）は譲歩の関係なので合わない。",
+       null
+      ]
+     }
+    },
+    {
+     "id": "p6-s08-4",
+     "blank": 4,
+     "type": "grammar",
+     "concept": "p6.grammar",
+     "difficulty": 2,
+     "choices": [
+      "causing",
+      "caused",
+      "causes",
+      "cause"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "damageを後ろから修飾する分詞の位置で、損傷は不適切な使用に「よって引き起こされた」もの。後ろにbyがあるので過去分詞causedが正解。",
+      "traps": [
+       "causingは能動の意味なので「損傷が何かを引き起こす」となり、byとも合わない。",
+       null,
+       "causesは動詞なので、does not coverと述語動詞が重なる。",
+       "causeは動詞の原形・名詞なので、この位置でdamageを修飾できない。"
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}
