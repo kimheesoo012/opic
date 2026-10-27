@@ -68,12 +68,13 @@ export function resolveKo(tpl, ctx) {
 // 반환: [{k:'t', v}, {k:'p', key, prop}, {k:'v', v, key}]
 export function splitJa(tpl) {
   const out = [];
-  const re = /\{([A-Za-z]+)(?:\.([a-z]))?\}|\[([^\]|]+)(?:\|([^\]]+))?\]/g;
+  const re = /\{([A-Za-z]+)(?:\.([a-z]))?\}|\[([^\]|]+)(?:\|([^\]]+))?\]|〘([^|〙]+)\|([^〙]+)〙/g;
   let last = 0;
   let m;
   while ((m = re.exec(tpl))) {
     if (m.index > last) out.push({ k: 't', v: tpl.slice(last, m.index) });
     if (m[1]) out.push({ k: 'p', key: m[1], prop: m[2] });
+    else if (m[5]) out.push({ k: 'g', v: m[5], key: m[6] });
     else out.push({ k: 'v', v: m[3], key: m[4] || m[3] });
     last = re.lastIndex;
   }

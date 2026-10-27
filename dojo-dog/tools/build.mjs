@@ -31,7 +31,7 @@ const art = [
   '<title>道場犬</title>',
   '<meta name="claude:viewport-fit-sides" content="cover">',
   `<link rel="icon" href="${icon}">`,
-  '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&display=swap">',
+  '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">',
   `<style>${css}</style>`,
   '<style>html,body{height:100%}</style>',
   '<div id="app"></div>',

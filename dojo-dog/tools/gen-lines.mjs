@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
 import { collect } from './collect.mjs';
 import { VOCAB, ALIAS } from '../src/data/vocab.js';
+import { GRAMMAR } from '../src/data/grammar.js';
 
 const require = createRequire(import.meta.url);
 const kuromoji = require('kuromoji');
@@ -71,15 +72,16 @@ export function align(surface, reading) {
 }
 
 function parseTemplate(tpl) {
-  // 조각: {k:'t', v} {k:'p', key, prop} {k:'v', v, key, explicit} {k:'o', v, r}
+  // 조각: {k:'t', v} {k:'p', key, prop} {k:'v', v, key, explicit} {k:'o', v, r} {k:'g', v, key}
   const out = [];
-  const re = /\{([A-Za-z]+)(?:\.([a-z]))?\}|\[([^\]|]+)(?:\|([^\]]+))?\]|〔([^:〕]+):([^〕]+)〕/g;
+  const re = /\{([A-Za-z]+)(?:\.([a-z]))?\}|\[([^\]|]+)(?:\|([^\]]+))?\]|〔([^:〕]+):([^〕]+)〕|〘([^|〙]+)\|([^〙]+)〙/g;
   let last = 0;
   let m;
   while ((m = re.exec(tpl))) {
     if (m.index > last) out.push({ k: 't', v: tpl.slice(last, m.index) });
     if (m[1]) out.push({ k: 'p', key: m[1], prop: m[2] });
     else if (m[3]) out.push({ k: 'v', v: m[3], key: m[4] || null });
+    else if (m[7]) out.push({ k: 'g', v: m[7], key: m[8] });
     else out.push({ k: 'o', v: m[5], r: m[6] });
     last = re.lastIndex;
   }
@@ -207,10 +209,25 @@ export function processTemplate(tpl, sample) {
     l.surf.add(plain.slice(s, e));
     lemmaUse.set(key, l);
   }
-  // 겹치는 단어 구간 제거
-  vocab.sort((a, b) => a.s - b.s);
+  // 표시하지 않은 N2 어휘도 자동으로 잇는다 (학습 대상이 N2이므로)
+  const marked = (t) => spans.some((sp) => sp.k !== 't' && sp.k !== 'o' && t.s < sp.e && t.e > sp.s);
+  for (const t of toks) {
+    if (!hasKanji(t.surface) || marked(t)) continue;
+    const key = VOCAB[t.basic] ? t.basic : ALIAS[t.basic];
+    if (key && VOCAB[key] && VOCAB[key].lv === 'N2' && !VOCAB[key].k) vocab.push({ s: t.s, e: t.e, key, auto: true });
+  }
+  // 문법 구간은 표시한 그대로 쓰고, 겹치는 단어 구간은 뺀다
+  for (const sp of spans.filter((x) => x.k === 'g')) {
+    if (!GRAMMAR[sp.key]) throw new Error(`문법 DB에 없는 키: ${sp.key} (${sample})`);
+    vocab.push({ s: sp.s, e: sp.e, key: sp.key, g: true });
+  }
+  vocab.sort((a, b) => a.s - b.s || (b.g ? 1 : 0) - (a.g ? 1 : 0));
   const vv = [];
-  for (const v of vocab) if (!vv.length || v.s >= vv[vv.length - 1].e) vv.push(v);
+  for (const v of vocab) {
+    const last = vv[vv.length - 1];
+    if (!last || v.s >= last.e) vv.push(v);
+    else if (v.g && !last.g) vv[vv.length - 1] = v;
+  }
   // 조각 만들기
   const segs = [];
   const phAt = new Map(spans.filter((x) => x.k === 'p').map((x) => [x.s, x]));
@@ -231,7 +248,7 @@ export function processTemplate(tpl, sample) {
   };
   for (const v of vv) {
     pushText(i, v.s);
-    segs.push({ v: v.key, s: rubyItems(toks, v.s, v.e, plain) });
+    segs.push(v.g ? { g: v.key, s: rubyItems(toks, v.s, v.e, plain) } : { v: v.key, s: rubyItems(toks, v.s, v.e, plain) });
     i = v.e;
   }
   pushText(i, plain.length);
@@ -246,12 +263,23 @@ if (process.argv[1] && process.argv[1].endsWith('gen-lines.mjs')) {
   for (const sp of speakers) spk[sp] = processTemplate(sp, 'speaker');
   const ex = {};
   for (const [w, v] of Object.entries(VOCAB)) ex[w] = processTemplate(v.ex, 'vocab:' + w);
+  // 문법·단어가 처음 나오는 대사 (복습 해설과 단어 팝업의 「게임 속 장면」)
+  const gidx = {};
+  const vidx = {};
+  for (const [tpl, where] of ja) {
+    for (const sg of lines[tpl]) {
+      if (sg && sg.g && !gidx[sg.g]) gidx[sg.g] = { tpl, where };
+      if (sg && sg.v && !vidx[sg.v]) vidx[sg.v] = { tpl, where };
+    }
+  }
+  for (const [k, v] of Object.entries(GRAMMAR)) ex['g:' + k] = processTemplate(v.q[0].replace('＿＿', '（　）'), 'grammar:' + k);
   fs.mkdirSync(path.join(ROOT, 'src/gen'), { recursive: true });
-  fs.writeFileSync(path.join(ROOT, 'src/gen/lines.json'), JSON.stringify({ lines, speakers: spk, ex }));
+  fs.writeFileSync(path.join(ROOT, 'src/gen/lines.json'), JSON.stringify({ lines, speakers: spk, ex, gidx, vidx }));
   fs.mkdirSync(path.join(ROOT, 'tools/out'), { recursive: true });
   const rv = [...review.entries()].sort((a, b) => a[0].localeCompare(b[0], 'ja')).map(([k, v]) => k + '\t' + v.n);
   fs.writeFileSync(path.join(ROOT, 'tools/out/ruby-review.txt'), rv.join('\n'));
   const lm = [...lemmaUse.entries()].sort((a, b) => b[1].n - a[1].n).map(([k, v]) => [k, v.n, [...v.surf].join('/'), VOCAB[k] ? 'OK' : '--', v.sample].join('\t'));
   fs.writeFileSync(path.join(ROOT, 'tools/out/lemmas.txt'), lm.join('\n'));
+  console.log('grammar used', Object.keys(gidx).length, '/', Object.keys(GRAMMAR).length, 'missing', Object.keys(GRAMMAR).filter((k) => !gidx[k]).join(' ') || '-');
   console.log('templates', ja.size, 'speakers', speakers.size, 'ruby pairs', review.size, 'lemmas', lemmaUse.size, 'linked', [...lemmaUse.keys()].filter((k) => VOCAB[k]).length, 'unlinked', unlinked.size);
 }

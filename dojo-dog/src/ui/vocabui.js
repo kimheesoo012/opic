@@ -1,22 +1,23 @@
-// 단어 팝업과 단어장
+// 단어·문법 팝업. DB(vocab_*.js, grammar.js)에 있는 내용만 보여 준다.
 import { VOCAB } from '../data/vocab.js';
-import { h, renderExample, renderJa } from './render.js';
+import { GRAMMAR } from '../data/grammar.js';
+import { h, renderExample, renderJa, renderSpeaker, LINES } from './render.js';
 import { store } from './store.js';
 
 const POS = { n: '명사', v: '동사', a: 'い형용사', na: 'な형용사', adv: '부사', exp: '표현' };
 
 export function levelLabel(lv) {
-  return lv === '범위 밖' ? 'JLPT 범위 밖(전문어)' : `JLPT ${lv} (추정)`;
+  return lv === '범위 밖' ? '검도 용어' : `${lv} 추정`;
 }
 
-// 단어를 장면과 함께 단어장에 저장
+// 단어장: { 'key' | 'g:key': { key, at, n, last, scenes: [{ja, ko, sp, title, when}] } }
 export function saveWord(key, scene) {
   const wb = store.wordbook();
   const e = wb[key] || { key, at: Date.now(), n: 0, scenes: [] };
   e.n++;
   e.last = Date.now();
-  if (scene && !e.scenes.some((x) => x.ja === scene.ja)) {
-    e.scenes.unshift(scene);
+  if (scene && scene.ja && !e.scenes.some((x) => x.ja === scene.ja)) {
+    e.scenes.unshift({ ja: scene.ja, ko: scene.ko, sp: scene.sp, title: scene.title, when: scene.when });
     e.scenes = e.scenes.slice(0, 3);
   }
   wb[key] = e;
@@ -24,76 +25,70 @@ export function saveWord(key, scene) {
   return e;
 }
 
+// 게임 속 첫 장면 (DB 예문과 별개로, 이 말이 처음 나온 대사)
+export function firstScene(app, id, mode) {
+  const ref = id.startsWith('g:') ? LINES.gidx[id.slice(2)] : LINES.vidx[id.slice(2)];
+  if (!ref) return null;
+  const s = app.refState();
+  return h('div', { class: 'line' }, h('div', { class: 'ja' }, renderJa(ref.tpl, { s, mode, targets: new Set([id]) })));
+}
+
+function koToggle(koEl) {
+  let on = false;
+  return h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { on = !on; koEl.hidden = !on; e.currentTarget.textContent = on ? '번역 닫기' : '번역'; } }, '번역');
+}
+
+function sceneBlock(app, scene, mode) {
+  if (!scene || !scene.tpl) return null;
+  const ko = h('div', { class: 'ko', hidden: true }, scene.ko);
+  return h('div', { class: 'v-sec' },
+    h('h4', null, 'この場面'),
+    h('div', { class: 'line' },
+      scene.sp ? h('div', { class: 'sp' }, scene.sp) : null,
+      h('div', { class: 'ja' }, renderJa(scene.tpl, { s: app.state || app.refState(), speaker: scene.role, mode })),
+      ko),
+    h('div', { class: 'tools' }, koToggle(ko)));
+}
+
+function modal(app, label, ...kids) {
+  const close = () => back.remove();
+  const back = h('div', { class: 'modal-back', onclick: (e) => e.target === back && close() },
+    h('div', { class: 'modal', role: 'dialog', 'aria-label': label }, ...kids, h('button', { class: 'btn primary', type: 'button', onclick: close }, '閉じる')));
+  app.root.append(back);
+  back.querySelector('.btn.primary').focus();
+}
+
 export function wordPopup(app, key, scene, mode) {
   const v = VOCAB[key];
   if (!v) return;
   saveWord(key, scene);
   app.onWordSaved && app.onWordSaved(key);
-  let showKo = false;
   const exKo = h('div', { class: 'ko', hidden: true }, v.exk);
-  const close = () => back.remove();
-  const sceneBox = scene
-    ? h('div', { class: 'v-sec' },
-        h('h4', null, '이 장면'),
-        h('div', { class: 'line' },
-          scene.sp ? h('div', { class: 'sp' }, scene.sp) : null,
-          scene.tpl ? h('div', { class: 'ja' }, renderJa(scene.tpl, { s: app.state, speaker: scene.role, mode })) : h('div', { class: 'ja', lang: 'ja' }, scene.ja),
-          h('div', { class: 'ko' }, scene.ko)),
-        h('div', { class: 'note' }, scene.title ? `「${scene.title}」 · ${scene.when || ''}` : ''))
-    : null;
-  const back = h('div', { class: 'modal-back', onclick: (e) => e.target === back && close() },
-    h('div', { class: 'modal', role: 'dialog', 'aria-label': key },
-      h('div', { class: 'v-word', lang: 'ja' }, key),
-      h('div', { class: 'v-read', lang: 'ja' }, v.r),
-      h('div', { class: 'v-mean' }, v.m),
-      h('div', { class: 'v-meta' }, h('span', { class: 'chip' }, levelLabel(v.lv)), h('span', { class: 'chip' }, POS[v.pos] || ''), v.k ? h('span', { class: 'chip' }, '검도 용어') : null),
-      v.note ? h('div', { class: 'v-sec' }, h('h4', null, '설명'), h('div', { class: 'v-note' }, v.note)) : null,
-      h('div', { class: 'v-sec' }, h('h4', null, '예문'),
-        h('div', { class: 'line' }, h('div', { class: 'ja' }, renderExample(key, mode)), exKo),
-        h('div', { class: 'tools' }, h('button', { class: 'icon-btn', type: 'button', onclick: (e) => { showKo = !showKo; exKo.hidden = !showKo; e.currentTarget.textContent = showKo ? '번역 숨기기' : '번역 보기'; } }, '번역 보기'))),
-      sceneBox,
-      h('p', { class: 'note' }, '단어장에 장면과 함께 저장했어요.'),
-      h('button', { class: 'btn primary', type: 'button', onclick: close }, '닫기')));
-  app.root.append(back);
-  back.querySelector('.btn.primary').focus();
+  modal(app, key,
+    h('div', { class: 'v-word', lang: 'ja' }, key),
+    h('div', { class: 'v-read', lang: 'ja' }, v.r),
+    h('div', { class: 'v-mean' }, v.m),
+    h('div', { class: 'v-meta' }, h('span', { class: 'chip' }, levelLabel(v.lv)), POS[v.pos] ? h('span', { class: 'chip' }, POS[v.pos]) : null),
+    v.note ? h('div', { class: 'v-sec' }, h('div', { class: 'v-note' }, v.note)) : null,
+    h('div', { class: 'v-sec' }, h('h4', null, '例文'), h('div', { class: 'line' }, h('div', { class: 'ja' }, renderExample(key, mode)), exKo), h('div', { class: 'tools' }, koToggle(exKo))),
+    sceneBlock(app, scene, mode));
 }
 
-export function wordbookScreen(app) {
-  const wb = store.wordbook();
-  const study = store.study();
-  const keys = Object.keys(wb).filter((k) => VOCAB[k]).sort((a, b) => (wb[b].last || 0) - (wb[a].last || 0));
-  let q = '';
-  const list = h('div', { class: 'list' });
-  const draw = () => {
-    list.innerHTML = '';
-    const ks = keys.filter((k) => !q || k.includes(q) || VOCAB[k].r.includes(q) || VOCAB[k].m.includes(q));
-    if (!ks.length) list.append(h('p', { class: 'note' }, keys.length ? '찾는 단어가 없어요.' : '아직 저장한 단어가 없어요. 대사 속 밑줄 단어를 탭하면 장면과 함께 저장돼요.'));
-    for (const k of ks) {
-      const v = VOCAB[k];
-      const e = wb[k];
-      const st = study[k];
-      const det = h('details', { class: 'card' },
-        h('summary', { style: 'cursor:pointer;list-style:none;min-height:40px' },
-          h('div', { class: 'row', style: 'justify-content:space-between' },
-            h('span', null, h('b', { lang: 'ja', style: 'font-size:20px' }, k), ' ', h('span', { lang: 'ja', class: 'note' }, v.r)),
-            h('span', { class: 'note' }, st ? `○${st.ok} ×${st.ng}` : '')),
-          h('div', null, v.m)),
-        h('div', { class: 'v-meta', style: 'margin-top:6px' }, h('span', { class: 'chip' }, levelLabel(v.lv))),
-        ...e.scenes.map((sc) => h('div', { class: 'line', style: 'margin-top:8px' }, sc.sp ? h('div', { class: 'sp' }, sc.sp) : null, h('div', { class: 'ja', lang: 'ja' }, sc.ja), h('div', { class: 'ko' }, sc.ko), h('div', { class: 'note' }, sc.title ? `「${sc.title}」 ${sc.when || ''}` : ''))),
-        h('div', { class: 'row', style: 'margin-top:8px' },
-          h('button', { class: 'btn center', type: 'button', onclick: () => wordPopup(app, k, null, app.settings.furigana) }, '자세히'),
-          h('button', { class: 'btn center danger', type: 'button', onclick: () => { const w = store.wordbook(); delete w[k]; store.saveWordbook(w); keys.splice(keys.indexOf(k), 1); draw(); } }, '삭제')));
-      list.append(det);
-    }
-  };
-  draw();
-  return h('div', { class: 'screen' },
-    h('div', { class: 'scroll' },
-      h('h2', { class: 'h' }, '単語帳', h('small', { class: 'note', style: 'margin-left:8px' }, `${keys.length}개`)),
-      h('input', { class: 'word-input', type: 'search', id: 'wb-search', placeholder: '단어·읽기·뜻으로 찾기', oninput: (e) => { q = e.target.value.trim(); draw(); } }),
-      h('div', { style: 'height:10px' }),
-      keys.length >= 4 ? h('button', { class: 'btn primary', type: 'button', onclick: () => app.startQuiz(keys, '단어장 복습') }, '단어장에서 복습 퀴즈') : null,
-      h('div', { style: 'height:10px' }),
-      list),
-    h('div', { class: 'sheet-foot', style: 'position:static' }, h('button', { class: 'btn center', type: 'button', onclick: () => app.go('title') }, '돌아가기')));
+export function grammarPopup(app, key, scene, mode) {
+  const g = GRAMMAR[key];
+  if (!g) return;
+  saveWord('g:' + key, scene);
+  const first = firstScene(app, 'g:' + key, mode);
+  modal(app, g.f,
+    h('div', { class: 'v-word', lang: 'ja' }, g.f),
+    h('div', { class: 'v-mean' }, g.m),
+    h('div', { class: 'v-meta' }, h('span', { class: 'chip' }, levelLabel(g.lv)), h('span', { class: 'chip' }, '文法')),
+    h('div', { class: 'v-sec' }, h('h4', null, '接続'), h('div', { class: 'v-note' }, g.c)),
+    h('div', { class: 'v-sec' }, h('h4', null, '違い'), h('div', { class: 'v-note' }, g.d)),
+    !scene && first ? h('div', { class: 'v-sec' }, h('h4', null, 'ゲームの例文'), first) : null,
+    sceneBlock(app, scene, mode));
+}
+
+export function speakerLabel(sp, s, mode) {
+  return renderSpeaker(sp, s, mode);
 }

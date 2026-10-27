@@ -1,5 +1,5 @@
 // 소리는 전부 Web Audio로 그 자리에서 합성한다 (녹음 파일 없음). 기본은 꺼짐.
-// 계절 BGM: 봄=요나누키 장음계 뜯는 소리, 여름=축제 북+피리, 가을=미야코부시 음계, 겨울=종소리.
+// 계절 BGM: 봄=5음계 뜯는 소리, 여름=축제 북+피리, 가을=미야코부시 음계, 겨울=종소리. 지속음 노이즈는 쓰지 않는다.
 const SCALES = {
   spring: [0, 2, 4, 7, 9], // 장조 5음
   summer: [0, 2, 5, 7, 9], // 요 음계 계열
@@ -16,7 +16,9 @@ export class Sound {
     this.ctx = null;
     this.on = false;
     this.bgmVol = 0.5;
-    this.sfxVol = 0.7;
+    this.sfxVol = 0.45;
+    this.sfxOn = true;
+    this.speed = 1;
     this.season = 'spring';
     this.step = 0;
     this.nextTime = 0;
@@ -35,13 +37,8 @@ export class Sound {
     this.bgmBus.gain.value = this.bgmVol * 0.5;
     this.bgmBus.connect(this.master);
     this.sfxBus = this.ctx.createGain();
-    this.sfxBus.gain.value = this.sfxVol;
+    this.sfxBus.gain.value = this.sfxVol * 0.6;
     this.sfxBus.connect(this.master);
-    // 노이즈 버퍼
-    const len = this.ctx.sampleRate;
-    this.noise = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
-    const d = this.noise.getChannelData(0);
-    for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
     return true;
   }
   setOn(v) {
@@ -54,12 +51,14 @@ export class Sound {
       this.stopBgm();
     }
   }
-  setVolumes(bgm, sfx) {
+  // 효과음은 BGM보다 작게 (버스 배율 0.6)
+  setVolumes(bgm, sfx, sfxOn = true) {
     this.bgmVol = bgm;
     this.sfxVol = sfx;
+    this.sfxOn = sfxOn;
     if (this.ctx) {
       this.bgmBus.gain.value = bgm * 0.5;
-      this.sfxBus.gain.value = sfx;
+      this.sfxBus.gain.value = sfx * 0.6;
     }
   }
   setSeason(s) {
@@ -118,22 +117,19 @@ export class Sound {
   }
   pluck(t, f, v, d = 0.9) {
     const c = this.ctx;
+    // 뜯는 소리: 삼각파 + 한 옥타브 위 사인을 살짝 (톱니파·노이즈 없음)
     const o = c.createOscillator();
     const o2 = c.createOscillator();
     const g = c.createGain();
-    const lp = c.createBiquadFilter();
-    o.type = 'triangle';
-    o2.type = 'sawtooth';
-    o.frequency.value = f;
-    o2.frequency.value = f * 1.003;
-    lp.type = 'lowpass';
-    lp.frequency.setValueAtTime(f * 6, t);
-    lp.frequency.exponentialRampToValueAtTime(f * 1.5, t + d);
     const g2 = c.createGain();
-    g2.gain.value = 0.25;
+    o.type = 'triangle';
+    o2.type = 'sine';
+    o.frequency.value = f;
+    o2.frequency.value = f * 2;
+    g2.gain.value = 0.18;
     o.connect(g);
     o2.connect(g2).connect(g);
-    g.connect(lp).connect(this.bgmBus);
+    g.connect(this.bgmBus);
     this.env(g, t, 0.005, v, d);
     o.start(t);
     o2.start(t);
@@ -202,83 +198,57 @@ export class Sound {
     }
   }
   // ───── 효과음 ─────
+  // 중요한 순간에만: 竹刀·旗·짖음·큰 사건·클리어. 버튼은 작은 「뿅」. 4배속 이상에서는 자동 효과음을 건너뛴다.
   sfx(kind) {
-    if (!this.on || !this.ensure()) return;
+    if (!this.on || !this.sfxOn || !this.ensure()) return;
+    if (this.speed >= 4 && kind !== 'tap') return;
     const c = this.ctx;
     const t = c.currentTime + 0.01;
+    const tone = (type, f0, f1, at, v, d) => {
+      const o = c.createOscillator();
+      const g = c.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(f0, at);
+      if (f1 !== f0) o.frequency.exponentialRampToValueAtTime(f1, at + d * 0.8);
+      o.connect(g).connect(this.sfxBus);
+      this.env(g, at, 0.004, v, d);
+      o.start(at);
+      o.stop(at + d + 0.05);
+    };
     if (kind === 'shinai') {
-      // 竹刀 부딪히는 소리: 짧은 고역 노이즈 두 번 + 딸깍
-      for (const [dt, v] of [[0, 0.9], [0.09, 0.55]]) {
-        const s = c.createBufferSource();
-        s.buffer = this.noise;
-        const bp = c.createBiquadFilter();
-        bp.type = 'bandpass';
-        bp.frequency.value = 2600;
-        bp.Q.value = 1.4;
-        const g = c.createGain();
-        s.connect(bp).connect(g).connect(this.sfxBus);
-        this.env(g, t + dt, 0.002, v * 0.6, 0.07);
-        s.start(t + dt, Math.random() * 0.5, 0.12);
-        const o = c.createOscillator();
-        const og = c.createGain();
-        o.type = 'square';
-        o.frequency.value = 1700;
-        o.connect(og).connect(this.sfxBus);
-        this.env(og, t + dt, 0.001, v * 0.08, 0.03);
-        o.start(t + dt);
-        o.stop(t + dt + 0.05);
+      // 竹刀가 맞닿는 「탁·탁」: 짧은 나무 소리 두 번 (노이즈 없이 사인 두 개)
+      for (const [dt, v] of [[0, 0.5], [0.12, 0.32]]) {
+        tone('sine', 1250, 700, t + dt, v, 0.05);
+        tone('triangle', 2300, 1500, t + dt, v * 0.25, 0.03);
       }
-    } else if (kind === 'step') {
-      for (let i = 0; i < 4; i++) {
-        const o = c.createOscillator();
-        const g = c.createGain();
-        o.type = 'sine';
-        o.frequency.setValueAtTime(150, t + i * 0.16);
-        o.frequency.exponentialRampToValueAtTime(70, t + i * 0.16 + 0.05);
-        o.connect(g).connect(this.sfxBus);
-        this.env(g, t + i * 0.16, 0.002, 0.25, 0.06);
-        o.start(t + i * 0.16);
-        o.stop(t + i * 0.16 + 0.1);
-      }
+    } else if (kind === 'flag') {
+      // 旗가 올라가는 순간: 짧게 올라가는 두 음
+      tone('triangle', midi(76), midi(76), t, 0.3, 0.12);
+      tone('triangle', midi(83), midi(83), t + 0.1, 0.3, 0.28);
     } else if (kind === 'bark') {
-      // 「왕」: 사각파 음높이 하강 + 포먼트 필터
-      for (const dt of [0, 0.22]) {
+      // 「왕」: 삼각파 음높이 하강 + 낮은 대역 필터
+      for (const dt of [0, 0.2]) {
         const o = c.createOscillator();
-        const bp = c.createBiquadFilter();
+        const lp = c.createBiquadFilter();
         const g = c.createGain();
-        o.type = 'sawtooth';
-        o.frequency.setValueAtTime(620, t + dt);
-        o.frequency.exponentialRampToValueAtTime(330, t + dt + 0.12);
-        bp.type = 'bandpass';
-        bp.frequency.setValueAtTime(1400, t + dt);
-        bp.frequency.exponentialRampToValueAtTime(800, t + dt + 0.12);
-        bp.Q.value = 3;
-        o.connect(bp).connect(g).connect(this.sfxBus);
-        this.env(g, t + dt, 0.01, 0.5, 0.13);
+        o.type = 'triangle';
+        o.frequency.setValueAtTime(560, t + dt);
+        o.frequency.exponentialRampToValueAtTime(300, t + dt + 0.12);
+        lp.type = 'lowpass';
+        lp.frequency.value = 1600;
+        o.connect(lp).connect(g).connect(this.sfxBus);
+        this.env(g, t + dt, 0.01, 0.45, 0.13);
         o.start(t + dt);
         o.stop(t + dt + 0.2);
       }
     } else if (kind === 'tap') {
-      const o = c.createOscillator();
-      const g = c.createGain();
-      o.type = 'sine';
-      o.frequency.value = 880;
-      o.connect(g).connect(this.sfxBus);
-      this.env(g, t, 0.002, 0.08, 0.05);
-      o.start(t);
-      o.stop(t + 0.08);
+      // 작은 「뿅」
+      tone('sine', 620, 980, t, 0.07, 0.07);
+    } else if (kind === 'big') {
+      // 큰 사건: 부드러운 종 화음
+      [0, 7, 12].forEach((n, i) => this.bellTo(this.sfxBus, t + i * 0.06, midi(67 + n), 0.12));
     } else if (kind === 'clear') {
-      [0, 4, 7, 12].forEach((n, i) => this.bellTo(this.sfxBus, t + i * 0.11, midi(72 + n), 0.18));
-    } else if (kind === 'tamb') {
-      const s = c.createBufferSource();
-      s.buffer = this.noise;
-      const hp = c.createBiquadFilter();
-      hp.type = 'highpass';
-      hp.frequency.value = 6000;
-      const g = c.createGain();
-      s.connect(hp).connect(g).connect(this.sfxBus);
-      this.env(g, t, 0.002, 0.5, 0.16);
-      s.start(t, 0, 0.2);
+      [0, 4, 7, 12].forEach((n, i) => this.bellTo(this.sfxBus, t + i * 0.11, midi(72 + n), 0.16));
     }
   }
   bellTo(bus, t, f, v) {

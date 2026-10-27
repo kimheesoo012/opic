@@ -1,5 +1,5 @@
 // 道場犬 서비스 워커: 앱 셸을 캐시해서 오프라인에서도 실행된다.
-const VERSION = '8b6bbbe4e9';
+const VERSION = 'd1841c4966';
 const CACHE = 'dojoinu-' + VERSION;
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-icon.png', './icons/favicon-64.png'];
 

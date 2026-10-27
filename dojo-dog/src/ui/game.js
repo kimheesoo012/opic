@@ -1,25 +1,29 @@
-// 게임 화면: 시간 흐름, 이벤트 시트, 오토, 배속.
+// 게임 화면: 위 조작 줄 → LCD 창 → 이야기 칸 → 선택 버튼. 시간 흐름, 오토, 배속.
 import * as G from '../engine/core.js';
 import { SEASON_MS, SPEEDS, FIRST_EVENT_MS, AUTO_WORD_MS, eventShowMs, resultShowMs } from '../engine/pace.js';
 import { SEASON_JA, SEASON_KO, STAT_KO, STAGES, ROLE_KO, ROLES, personFor } from '../engine/world.js';
 import { SUB_TITLES } from '../data/index.js';
 import { resolveKo, plainKo } from '../engine/text.js';
-import { h, renderJa, renderKo, renderSpeaker, plainSegs } from './render.js';
-import { Scene } from './scene.js';
-import { wordPopup } from './vocabui.js';
+import { h, renderJa, renderKo, renderSpeaker, plainSegs, sceneTargets } from './render.js';
+import { LCD } from './pixel/lcd.js';
+import { idlePlan, eventPlan, lookFor } from './pixel/director.js';
+import { icon } from './icons.js';
 import { store } from './store.js';
 
 const CAT = { daily: '日常', kendo: '稽古', sub: 'サブストーリー', iincho: '委員長', cast: '道場の人々', milestone: '節目', hub: '日常' };
 const STAT_ORDER = ['hap', 'hea', 'back', 'soc', 'brave', 'mis'];
+const AUTO_MODES = [
+  ['major', '大事な場面だけ止まる'],
+  ['all', '全部おまかせ'],
+  ['off', 'オートを切る'],
+];
 
 export class GameView {
   constructor(app, state) {
     this.app = app;
     this.s = state;
     this.elapsed = 0; // 이번 계절 안에서 흐른 시간(1배속 기준 ms)
-    this.wait = 0; // 이벤트 대기/표시 시간 누적
-    this.sheet = null;
-    this.mode = null;
+    this.wait = 0;
     this.timer = null;
     this.last = 0;
     this.seenWords = new Set(state.seenWords || []);
@@ -32,30 +36,50 @@ export class GameView {
 
   mount() {
     const s = this.s;
-    this.whenEl = h('div', { class: 'when' });
-    this.stageChip = h('span', { class: 'stage-chip' });
-    this.statsEl = h('div', { class: 'stats', 'aria-label': '능력치' });
-    this.speedBtns = SPEEDS.map((sp) => h('button', { type: 'button', 'aria-pressed': String(this.set.speed === sp), onclick: () => this.setSpeed(sp) }, sp + 'x'));
-    this.pauseBtn = h('button', { class: 'icon-btn', type: 'button', 'aria-label': '일시정지', onclick: () => this.togglePause() }, '⏸');
-    this.autoBtn = h('button', { class: 'icon-btn', type: 'button', 'aria-pressed': String(this.set.auto), onclick: () => this.toggleAuto() }, 'オート');
-    const menuBtn = h('button', { class: 'icon-btn', type: 'button', 'aria-label': '메뉴', onclick: () => this.menu() }, '≡');
-    this.hud = h('div', { class: 'hud pad' },
-      h('div', { class: 'hud-top' }, this.whenEl, this.stageChip),
-      h('div', { class: 'ctrl' }, h('div', { class: 'seg', role: 'group', 'aria-label': '배속' }, this.speedBtns), this.pauseBtn, this.autoBtn, menuBtn),
-      this.statsEl);
-    this.canvas = h('canvas', { 'aria-hidden': 'true' });
-    this.banner = h('div', { class: 'season-banner' });
-    this.hint = h('div', { class: 'stage-hint' }, '화면을 탭하면 다음 계절로');
-    this.stageEl = h('div', { class: 'stage', onclick: () => this.skip() }, this.canvas, this.banner, this.hint);
+    // ── 조작 줄
+    this.speedBtns = SPEEDS.map((sp) => h('button', { type: 'button', 'aria-pressed': String(this.set.speed === sp), 'aria-label': `${sp}배속`, onclick: () => this.setSpeed(sp) }, `${sp}x`));
+    this.pauseBtn = h('button', { class: 'ctl', type: 'button', 'aria-label': '일시정지', onclick: () => this.togglePause() }, icon('pause', 18));
+    this.autoBtn = h('button', { class: 'ctl auto', type: 'button', 'aria-expanded': 'false', onclick: () => this.toggleAutoPanel() }, 'オート');
+    this.modeCap = h('div', { class: 'auto-cap' });
+    const menuBtn = h('button', { class: 'ctl', type: 'button', 'aria-label': '메뉴', onclick: () => this.menu() }, icon('menu', 18));
+    this.autoPanel = h('div', { class: 'auto-panel', hidden: true }, AUTO_MODES.map(([m, label]) => h('button', { class: 'btn center', type: 'button', 'data-mode': m, onclick: () => this.setAuto(m) }, label)));
+    const top = h('div', { class: 'topbar pad' },
+      this.modeCap,
+      h('div', { class: 'ctrl' }, this.pauseBtn, h('div', { class: 'seg speeds', role: 'group', 'aria-label': '배속' }, this.speedBtns), this.autoBtn, menuBtn),
+      this.autoPanel);
+    // ── LCD
+    this.whenEl = h('span', { class: 'when' });
+    this.stageBtn = h('button', { class: 'stage-chip', type: 'button', onclick: () => this.glossStage() });
+    this.ageEl = h('span', { class: 'age' });
+    this.canvas = h('canvas', { class: 'lcd-canvas', 'aria-hidden': 'true' });
+    this.bigEl = h('div', { class: 'lcd-big', 'aria-live': 'polite' });
+    this.lcdBox = h('div', { class: 'lcd', onclick: () => this.skip() }, this.canvas, this.bigEl, h('span', { class: 'lcd-skip', 'aria-hidden': 'true' }, icon('skip', 14)));
+    this.statsEl = h('button', { class: 'stats', type: 'button', 'aria-expanded': 'false', 'aria-label': '능력치', onclick: () => this.toggleStats() });
+    this.statsDetail = h('div', { class: 'stats-detail', hidden: true });
     this.prog = h('i');
-    this.ticker = h('div', { class: 'ticker pad' });
-    this.logEl = h('div', { class: 'log pad', 'aria-live': 'polite' });
-    this.el = h('div', { class: 'screen game' }, this.hud, this.stageEl, h('div', { class: 'progress' }, this.prog), this.ticker, this.logEl);
+    this.device = h('div', { class: 'device' },
+      h('div', { class: 'lcd-info' }, this.whenEl, this.stageBtn, this.ageEl),
+      this.lcdBox,
+      h('div', { class: 'progress' }, this.prog),
+      this.statsEl,
+      this.statsDetail);
+    // ── 이야기 칸과 버튼
+    this.panel = h('div', { class: 'panel pad', 'aria-live': 'polite' });
+    this.foot = h('div', { class: 'foot pad' });
+    this.ticker = h('div', { class: 'ticker' });
+    this.logEl = h('div', { class: 'log' });
+    this.el = h('div', { class: 'screen game' }, top, h('div', { class: 'pad' }, this.device), this.panel, this.foot);
     this.app.mountScreen(this.el);
-    this.scene = new Scene(this.canvas);
-    this.scene.dog = s.dog;
-    this.scene.start();
+    this.lcd = new LCD(this.canvas);
+    this.lcd.lookFn = lookFor;
+    this.lcd.dog = s.dog;
+    this.lcd.speed = this.set.speed;
+    this.app.sound.speed = this.set.speed;
+    this.lcd.start();
+    this.onResize = () => this.fitLcd();
+    window.addEventListener('resize', this.onResize);
     this.paused = false;
+    this.renderMode();
     this.renderHud(true);
     this.last = performance.now();
     this.timer = setInterval(() => this.tick(), 50);
@@ -64,7 +88,22 @@ export class GameView {
 
   unmount() {
     clearInterval(this.timer);
-    this.scene && this.scene.stop();
+    window.removeEventListener('resize', this.onResize);
+    this.lcd && this.lcd.stop();
+  }
+
+  // LCD는 기기 픽셀 기준 정수 배율로만 키운다 (도트가 고르게 보이도록)
+  fitLcd() {
+    const dpr = window.devicePixelRatio || 1;
+    const avail = Math.max(160, this.device.clientWidth - 16);
+    const busy = this.s.phase !== 'season';
+    const short = window.innerHeight < 760;
+    const target = busy && short ? Math.min(avail, 240) : Math.min(avail, 420);
+    this.el.classList.toggle('compact', busy && short);
+    const k = Math.max(1, Math.floor((target * dpr) / 160));
+    const w = (k * 160) / dpr;
+    this.canvas.style.width = w + 'px';
+    this.canvas.style.height = (w * 96) / 160 + 'px';
   }
 
   // ───── 시간 ─────
@@ -85,7 +124,10 @@ export class GameView {
           return;
         }
         if (!G.hasEvent(s) && this.elapsed >= SEASON_MS) this.nextSeason();
-        this.prog.style.width = Math.min(100, (this.elapsed / SEASON_MS) * 100) + '%';
+        const frac = Math.min(1, this.elapsed / SEASON_MS);
+        this.prog.style.width = frac * 100 + '%';
+        const tod = frac < 0.55 ? 'day' : frac < 0.8 ? 'evening' : 'night';
+        if (this.idle && this.lcd.plan.tod !== tod) this.lcd.setPlan({ ...this.lcd.plan, tod }, s);
         break;
       }
       case 'event':
@@ -137,18 +179,16 @@ export class GameView {
       return;
     }
     const sea = G.season(s);
-    this.banner.textContent = `${SEASON_JA[sea]} · ${G.yearNo(s)}年目`;
-    this.banner.classList.remove('show');
-    void this.banner.offsetWidth;
-    this.banner.classList.add('show');
-    this.log(`${SEASON_KO[sea]}이 왔다. (${this.ageText()})`);
-    this.flushLog();
+    this.big(`${SEASON_JA[sea]}　${G.yearNo(s)}年目`, false);
+    this.log(`${SEASON_KO[sea]}. ${this.ageText()}.`);
     this.renderHud();
+    this.setIdle();
+    this.renderIdle();
     this.save();
   }
 
   skip() {
-    if (this.s.phase !== 'season' || this.sheet) return;
+    if (this.s.phase !== 'season') return;
     if (G.hasEvent(this.s)) {
       this.elapsed = FIRST_EVENT_MS;
       return;
@@ -160,20 +200,38 @@ export class GameView {
     this.set.speed = sp;
     this.app.saveSettings();
     this.speedBtns.forEach((b, i) => b.setAttribute('aria-pressed', String(SPEEDS[i] === sp)));
-    this.scene.speed = sp;
+    this.lcd.speed = sp;
+    this.app.sound.speed = sp;
   }
   togglePause() {
     this.paused = !this.paused;
-    this.pauseBtn.textContent = this.paused ? '▶' : '⏸';
+    this.lcd.paused = this.paused;
+    this.pauseBtn.replaceChildren(icon(this.paused ? 'play' : 'pause', 18));
     this.pauseBtn.setAttribute('aria-label', this.paused ? '재개' : '일시정지');
     this.pauseBtn.setAttribute('aria-pressed', String(this.paused));
   }
-  toggleAuto() {
-    this.set.auto = !this.set.auto;
+  toggleAutoPanel(force) {
+    const open = force ?? this.autoPanel.hidden;
+    this.autoPanel.hidden = !open;
+    this.autoBtn.setAttribute('aria-expanded', String(open));
+    if (open) this.renderMode();
+  }
+  setAuto(m) {
+    if (m === 'off') this.set.auto = false;
+    else {
+      this.set.auto = true;
+      this.set.autoMode = m;
+    }
     this.app.saveSettings();
-    this.autoBtn.setAttribute('aria-pressed', String(this.set.auto));
-    this.app.toast(this.set.auto ? `オート ON · ${this.set.autoMode === 'all' ? '全部おまかせ' : '大事な場面だけ止まる'}` : 'オート OFF · 모든 선택을 직접 고릅니다');
     this.wait = 0;
+    this.toggleAutoPanel(false);
+    this.renderMode();
+  }
+  renderMode() {
+    const cur = this.set.auto ? this.set.autoMode : 'off';
+    this.modeCap.textContent = this.set.auto ? (cur === 'all' ? '全部おまかせ' : '大事な場面だけ止まる') : 'オート切';
+    this.autoBtn.setAttribute('aria-pressed', String(this.set.auto));
+    for (const b of this.autoPanel.children) b.setAttribute('aria-pressed', String(b.dataset.mode === cur));
   }
 
   save() {
@@ -187,35 +245,51 @@ export class GameView {
     return `${Math.floor(t / 4)}살`;
   }
 
+  big(text, zoom = true) {
+    this.bigEl.textContent = text;
+    this.bigEl.classList.remove('show');
+    this.lcdBox.classList.remove('zoom');
+    void this.bigEl.offsetWidth;
+    this.bigEl.classList.add('show');
+    if (zoom) this.lcdBox.classList.add('zoom');
+  }
+
+  glossStage() {
+    const st = STAGES.find((x) => x.id === G.stage(this.s));
+    this.app.toast(`${st.ja} — ${st.ko}`);
+  }
+
+  toggleStats() {
+    const open = this.statsDetail.hidden;
+    this.statsDetail.hidden = !open;
+    this.statsEl.setAttribute('aria-expanded', String(open));
+  }
+
   renderHud(first) {
     const s = this.s;
     const sea = G.season(s);
     this.app.root.dataset.season = sea;
-    this.scene.season = sea;
-    this.scene.senior = G.stage(s) === 'senior';
+    this.lcd.season = sea;
+    this.lcd.stage = G.stage(s);
+    this.lcd.heavy = G.has(s, 'diet_fail') || (s.st.hea < 40 && G.stage(s) !== 'puppy');
     this.app.sound.setSeason(sea);
-    this.whenEl.innerHTML = '';
-    this.whenEl.append(`${SEASON_JA[sea]} · ${G.yearNo(s)}年目`, h('small', null, `${s.dog.nameKo} · ${this.ageText()}`));
+    this.whenEl.textContent = `${SEASON_JA[sea]} ${G.yearNo(s)}年目`;
     const st = STAGES.find((x) => x.id === G.stage(s));
-    this.stageChip.textContent = `${st.ja} · ${st.ko}`;
-    this.statsEl.innerHTML = '';
-    for (const k of STAT_ORDER) {
-      this.statsEl.append(h('span', { class: 'stat', title: STAT_KO[k] }, STAT_KO[k], h('span', { class: 'bar' }, h('i', { style: `width:${s.st[k]}%` }))));
-    }
-    this.renderTicker(first);
+    this.stageBtn.textContent = st.ja;
+    this.ageEl.textContent = `${s.dog.name} · ${this.ageText()}`;
+    this.statsEl.replaceChildren(...STAT_ORDER.map((k) => h('span', { class: 'stat', title: STAT_KO[k] }, icon(k, 16), h('span', { class: 'bar' }, h('i', { style: `width:${s.st[k]}%` })))));
+    this.statsDetail.replaceChildren(...STAT_ORDER.map((k) => h('span', null, icon(k, 16), `${STAT_KO[k]} ${Math.round(s.st[k])}`)));
+    if (first) this.fitLcd();
   }
 
-  renderTicker(first) {
+  renderTicker() {
     const s = this.s;
     const prev = this.lastNews || {};
-    this.ticker.innerHTML = '';
-    for (const r of ROLES) {
+    this.ticker.replaceChildren(...ROLES.map((r) => {
       const p = personFor(s.cast, r);
-      const gone = (r === 'roshi' && G.has(s, 'roshi_gone')) || (r === 'kor' && G.has(s, 'kor_left'));
-      const chip = h('button', { class: 'who' + (!first && prev[r] !== s.news[r] ? ' flash' : ''), type: 'button', onclick: () => this.castSheet(r) },
-        h('b', null, `${p.ko}${gone ? ' ·' : ''}`), h('span', null, s.news[r] || ''));
-      this.ticker.append(chip);
-    }
+      return h('button', { class: 'who' + (this.lastNews && prev[r] !== s.news[r] ? ' flash' : ''), type: 'button', onclick: () => this.castSheet(r) },
+        h('b', null, p.ko), h('span', null, s.news[r] || ''));
+    }));
     this.lastNews = { ...s.news };
   }
 
@@ -228,25 +302,21 @@ export class GameView {
     for (const l of s.log.splice(0)) this.log(l.text);
     for (const t of this.pendingLog || []) this.logEl.prepend(h('p', null, t));
     this.pendingLog = [];
-    while (this.logEl.children.length > 5) this.logEl.lastChild.remove();
+    while (this.logEl.children.length > 4) this.logEl.lastChild.remove();
   }
 
-  // ───── 시트 ─────
-  closeSheet() {
-    if (this.sheet) this.sheet.remove();
-    if (this.sheetBack) this.sheetBack.remove();
-    this.sheet = null;
-    this.sheetBack = null;
+  // ───── 장면 ─────
+  setIdle() {
+    this.idle = true;
+    this.lcd.setPlan(idlePlan(this.s, this.elapsed / SEASON_MS), this.s);
   }
-  openSheet(body, foot) {
-    this.closeSheet();
-    const hudH = this.hud.getBoundingClientRect().height;
-    this.sheetBack = h('div', { class: 'sheet-back' });
-    this.sheetBack.style.top = hudH + 'px';
-    this.sheet = h('div', { class: 'sheet', role: 'dialog' }, h('div', { class: 'sheet-body' }, body), foot ? h('div', { class: 'sheet-foot' }, foot) : null);
-    this.sheet.style.maxHeight = `calc(100% - ${Math.round(hudH)}px)`;
-    this.el.append(this.sheetBack, this.sheet);
-    return this.sheet;
+  renderIdle() {
+    this.flushLog();
+    this.renderTicker();
+    this.panel.replaceChildren(this.ticker, this.logEl);
+    this.foot.replaceChildren();
+    this.foot.hidden = true;
+    this.fitLcd();
   }
 
   ctxFor(lineSp) {
@@ -261,24 +331,26 @@ export class GameView {
     };
   }
 
-  renderLines(lines, title, wrap) {
+  renderLines(lines, title) {
     const box = h('div', { class: 'lines' });
     const kos = [];
+    const targets = new Set(sceneTargets(lines.map((l) => l[1])));
+    this.app.meet([...targets], this.s);
     for (const [sp, ja, ko] of lines) {
       const ctx = this.ctxFor(sp);
+      ctx.targets = targets;
       const koText = resolveKo(ko, { s: this.s });
       const koEl = h('div', { class: 'ko', hidden: true }, koText);
       kos.push(koEl);
-      ctx.onWord = (key) => {
-        const scene = { tpl: ja, role: sp, ja: plainSegs(ja, { s: this.s, speaker: sp }), ko: koText, sp: spLabelText(sp, this.s), title, when: `${this.ageText()} ${SEASON_KO[G.season(this.s)]}` };
-        this.app.openWord(key, scene);
-      };
+      const scene = () => ({ tpl: ja, role: sp, ja: plainSegs(ja, { s: this.s, speaker: sp }), ko: koText, sp: spLabelText(sp, this.s), title, when: `${this.ageText()} ${SEASON_KO[G.season(this.s)]}` });
+      ctx.onWord = (key) => this.app.openWord(key, scene());
+      ctx.onGrammar = (key) => this.app.openGrammar(key, scene());
       box.append(h('div', { class: 'line' }, h('div', { class: 'sp' }, renderSpeaker(sp, this.s, this.set.furigana)), h('div', { class: 'ja' }, renderJa(ja, ctx)), koEl));
     }
-    if (kos.length && wrap) {
+    if (kos.length) {
       let on = false;
-      const btn = h('button', { class: 'icon-btn', type: 'button', onclick: () => { on = !on; kos.forEach((k) => (k.hidden = !on)); btn.textContent = on ? '번역 숨기기' : '번역 보기'; } }, '번역 보기');
-      wrap.append(h('div', { class: 'tools' }, btn));
+      const btn = h('button', { class: 'mini-btn', type: 'button', onclick: () => { on = !on; kos.forEach((k) => (k.hidden = !on)); btn.textContent = on ? '번역 닫기' : '번역'; } }, '번역');
+      box.append(h('div', { class: 'tools' }, btn));
     }
     return box;
   }
@@ -295,14 +367,18 @@ export class GameView {
     const s = this.s;
     this.flushLog();
     if (s.phase === 'season') {
-      this.closeSheet();
-      this.scene.pose = G.stage(s) === 'senior' && Math.random() < 0.5 ? 'sleep' : 'walk';
+      this.setIdle();
+      this.renderIdle();
       return;
     }
-    if (s.phase === 'event') return this.showEvent();
-    if (s.phase === 'result') return this.showResult();
-    if (s.phase === 'word') return this.showWord();
-    if (s.phase === 'farewell') return this.app.toFarewell(s);
+    this.idle = false;
+    this.foot.hidden = false;
+    if (s.phase === 'event') this.showEvent();
+    else if (s.phase === 'result') this.showResult();
+    else if (s.phase === 'word') this.showWord();
+    else if (s.phase === 'farewell') return this.app.toFarewell(s);
+    this.fitLcd();
+    this.panel.scrollTop = 0;
   }
 
   showEvent() {
@@ -311,44 +387,35 @@ export class GameView {
     this.wait = 0;
     this.autoShown = false;
     this.autoIdx = G.autoChoice(this.s);
-    this.scene.pose = 'sit';
     const ev = G.EV.get(v.id);
-    if (ev.cat === 'kendo' || ev.kendo) this.app.sound.sfx('shinai');
-    else if (ev.cat === 'hub' && v.id === 'h_walk') this.app.sound.sfx('step');
-    const body = h('div');
-    body.append(h('div', { class: 'ev-cat' }, (v.sub ? 'サブストーリー' : CAT[v.cat] || '') + (v.who ? ` · ${ROLE_KO[v.who]}` : '')), h('h3', { class: 'ev-title' }, v.title));
-    if (v.text) body.append(this.koBlock(v.text, v.title));
-    if (v.lines.length) {
-      const tools = h('div');
-      body.append(this.renderLines(v.lines, v.title, tools), tools);
-    }
+    const plan = eventPlan(this.s, v, this.elapsed / SEASON_MS);
+    this.lcd.setPlan(plan, this.s);
+    if (plan.big) {
+      this.big(plan.big);
+      this.app.sound.sfx('big');
+    } else if (ev.cat === 'kendo' || ev.kendo) this.app.sound.sfx('shinai');
+    const head = h('div', { class: 'ev-cat' }, (v.sub ? 'サブストーリー' : CAT[v.cat] || '') + (v.who ? ` · ${ROLE_KO[v.who]}` : ''));
+    this.panel.replaceChildren(head, h('h3', { class: 'ev-title' }, v.title), v.text ? this.koBlock(v.text, v.title) : '', v.lines.length ? this.renderLines(v.lines, v.title) : '');
     this.choiceBtns = [];
-    const foot = h('div', { class: 'btns' });
-    this.autoTag = h('div', { class: 'auto-tag', hidden: true });
-    foot.append(this.autoTag);
-    if (v.mini && !this.autoActive()) {
-      foot.append(this.tambourine(v));
-    } else if (v.choices.length) {
+    const btns = [];
+    if (v.mini && !this.autoActive()) btns.push(this.tambourine(v));
+    else if (v.choices.length) {
       for (const c of v.choices) {
         const b = h('button', { class: 'btn' + (c.ok ? '' : ' off'), type: 'button', disabled: !c.ok, onclick: () => this.doChoose(c.i, false) }, h('span', null, c.t, !c.ok && c.why ? h('div', { class: 'why' }, c.why) : null));
         this.choiceBtns.push([c.i, b]);
-        foot.append(b);
+        btns.push(b);
       }
-    } else {
-      foot.append(h('button', { class: 'btn primary', type: 'button', onclick: () => this.doChoose(-1, false) }, 'つぎへ'));
-    }
-    this.openSheet(body, foot);
+    } else btns.push(h('button', { class: 'btn primary', type: 'button', onclick: () => this.doChoose(-1, false) }, 'つぎへ'));
+    this.foot.replaceChildren(...btns);
   }
 
   showAutoPick() {
     this.autoShown = true;
-    const v = G.view(this.s);
-    const c = v && v.choices.find((x) => x.i === this.autoIdx);
-    if (!c) return;
     const pair = this.choiceBtns.find(([i]) => i === this.autoIdx);
-    if (pair) pair[1].classList.add('auto-pick');
-    this.autoTag.hidden = false;
-    this.autoTag.textContent = `オート: ${c.t}`;
+    if (pair) {
+      pair[1].classList.add('auto-pick');
+      pair[1].append(h('span', { class: 'auto-badge' }, 'オート'));
+    }
   }
 
   doChoose(i, auto) {
@@ -358,8 +425,8 @@ export class GameView {
     const c = ev.choices && ev.choices[i];
     if (c && (c.tag === 'brave' || c.tag === 'guard')) {
       this.app.sound.sfx('bark');
-      this.scene.bark();
-    } else this.app.sound.sfx('tap');
+      this.lcd.bark();
+    } else if (!auto) this.app.sound.sfx('tap');
     G.choose(s, i, auto);
     this.save();
     this.renderPhase();
@@ -370,30 +437,37 @@ export class GameView {
     this.wait = 0;
     const ev = G.EV.get(r.id);
     const title = resolveKo(ev.title, { s: this.s });
-    const body = h('div');
-    body.append(h('div', { class: 'ev-cat' }, CAT[ev.cat] || ''), h('h3', { class: 'ev-title' }, title));
-    if (r.choice) body.append(h('div', { class: 'res-choice' }, (r.auto ? 'オート: ' : '선택: ') + r.choice));
-    if (r.res) body.append(this.koBlock(r.res, title));
-    if (r.lines.length) {
-      const tools = h('div');
-      body.append(this.renderLines(r.lines, title, tools), tools);
+    const ok = r.notes.includes('성공');
+    if (this.lcd.plan.match && ok) {
+      this.lcd.flags();
+      this.big('一本');
+      this.app.sound.sfx('flag');
     }
+    this.lcd.setPlan({ ...this.lcd.plan, bubble: ok ? 'heart' : r.notes.includes('실패') ? 'sweat' : null }, this.s);
+    const body = [h('div', { class: 'ev-cat' }, CAT[ev.cat] || ''), h('h3', { class: 'ev-title' }, title)];
+    if (r.choice) body.push(h('div', { class: 'res-choice' }, (r.auto ? 'オート · ' : '') + r.choice));
+    if (r.res) body.push(this.koBlock(r.res, title));
+    if (r.lines.length) body.push(this.renderLines(r.lines, title));
     if (r.delta.length) {
-      body.append(h('div', { class: 'deltas' }, r.delta.map((d) => {
+      body.push(h('div', { class: 'deltas' }, r.delta.map((d) => {
         const name = d.k.startsWith('b_') ? `${d.k === 'b_iincho' ? '위원장' : personFor(this.s.cast, d.k.slice(2)).ko} 유대` : STAT_KO[d.k];
         return h('span', { class: 'delta ' + (d.v > 0 ? 'up' : 'down') }, `${name} ${d.v > 0 ? '+' : ''}${d.v}`);
       })));
     }
-    for (const n of r.notes.filter((x) => x !== '성공' && x !== '실패')) body.append(h('p', { class: 'note' }, n));
-    if (r.foil) body.append(h('div', { class: 'stamp' }, '作戦阻止！', h('small', null, `委員長의 작전을 막았다 (통산 ${this.s.foiled}회)`)));
+    for (const n of r.notes.filter((x) => x !== '성공' && x !== '실패')) body.push(h('p', { class: 'note' }, n));
+    if (r.foil) {
+      body.push(h('div', { class: 'stamp' }, '作戦阻止', h('small', null, `통산 ${this.s.foiled}회`)));
+      this.big('作戦阻止');
+    }
     if (r.clear) {
       const st = SUB_TITLES[r.clear];
-      body.append(h('div', { class: 'stamp' }, 'サブストーリー クリア', h('small', null, `「${st.ja}」 ${st.ko}`)));
+      body.push(h('div', { class: 'stamp' }, 'サブストーリー クリア', h('small', { lang: 'ja' }, `「${st.ja}」`)));
+      this.big('クリア');
       this.app.sound.sfx('clear');
     }
     this.resultMs = resultShowMs(r);
-    const foot = h('div', { class: 'btns' }, h('button', { class: 'btn primary', type: 'button', onclick: () => this.doAck() }, 'つぎへ'));
-    this.openSheet(body, foot);
+    this.panel.replaceChildren(...body);
+    this.foot.replaceChildren(h('button', { class: 'btn primary', type: 'button', onclick: () => this.doAck() }, 'つぎへ'));
     if (this.s.phase === 'result') this.renderHud();
   }
 
@@ -410,18 +484,17 @@ export class GameView {
     const w = this.s.pendingWord;
     this.wait = 0;
     const q = resolveKo(w.q, { s: this.s });
-    const input = h('input', { class: 'word-input', id: 'word-input', maxlength: '30', placeholder: '짧게 직접 쓰기 (30자까지)' });
-    const body = h('div', null, h('div', { class: 'ev-cat' }, '節目 · 한마디 남기기'), h('h3', { class: 'ev-title' }, q), h('p', { class: 'note' }, '고른 말은 결과 카드에 남습니다.'));
-    const foot = h('div', { class: 'btns' },
+    const input = h('input', { class: 'word-input', id: 'word-input', maxlength: '30', placeholder: '직접 쓰기', 'aria-label': '한마디' });
+    this.panel.replaceChildren(h('div', { class: 'ev-cat' }, '節目'), h('h3', { class: 'ev-title' }, q));
+    this.foot.replaceChildren(
       ...w.presets.map((p) => h('button', { class: 'btn', type: 'button', onclick: () => this.doWord(p) }, p)),
-      h('div', { class: 'row' }, input, h('button', { class: 'icon-btn', type: 'button', style: 'min-width:84px', onclick: () => input.value.trim() && this.doWord(input.value) }, '남기기')));
-    this.openSheet(body, foot);
+      h('div', { class: 'row' }, input, h('button', { class: 'mini-btn', type: 'button', style: 'min-width:72px', onclick: () => input.value.trim() && this.doWord(input.value) }, '남기기')));
   }
 
   doWord(text, auto) {
     if (this.s.phase !== 'word') return;
     G.setWord(this.s, text, auto);
-    if (auto) this.log(`オート가 한마디를 골랐다: 「${text}」`);
+    if (auto) this.log(`オート: 「${text}」`);
     this.save();
     this.renderPhase();
   }
@@ -429,25 +502,21 @@ export class GameView {
   // ───── 탬버린 미니게임 ─────
   tambourine(v) {
     const total = 12;
-    let beat = 0;
     let hits = 0;
     let started = false;
     const period = 620;
     const ring = h('div', { class: 'ring' });
-    const drum = h('div', { class: 'drum', role: 'button', tabindex: '0', 'aria-label': '탬버린 치기' }, ring, h('span', null, '♪'));
-    const score = h('div', { class: 'score' }, '박자가 맞을 때 탭!');
+    const drum = h('div', { class: 'drum', role: 'button', tabindex: '0', 'aria-label': '탬버린' }, ring, h('span', null, '♪'));
+    const score = h('div', { class: 'score' }, '탭: 시작');
     const box = h('div', { class: 'mini' }, drum, score);
     let t0 = 0;
     let raf = 0;
     const loop = (now) => {
       if (!started) return;
       const ph = ((now - t0) % period) / period;
-      const sc = 1.9 - ph * 0.9;
-      ring.style.transform = `scale(${sc})`;
+      ring.style.transform = `scale(${1.9 - ph * 0.9})`;
       ring.style.opacity = String(1 - ph * 0.3);
-      const b = Math.floor((now - t0) / period);
-      if (b >= total) return finish();
-      if (b !== beat) beat = b;
+      if (Math.floor((now - t0) / period) >= total) return finish();
       raf = requestAnimationFrame(loop);
     };
     const finish = () => {
@@ -466,10 +535,10 @@ export class GameView {
         started = true;
         t0 = now;
         raf = requestAnimationFrame(loop);
-        score.textContent = '0 / 12';
+        score.textContent = `0 / ${total}`;
         return;
       }
-      this.app.sound.sfx('tamb');
+      this.app.sound.sfx('tap');
       drum.classList.add('hit');
       setTimeout(() => drum.classList.remove('hit'), 90);
       const ph = ((now - t0) % period) / period;
@@ -485,10 +554,10 @@ export class GameView {
       hit();
     });
     drum.addEventListener('keydown', (e) => (e.key === ' ' || e.key === 'Enter') && hit());
-    return h('div', null, h('p', { class: 'note', style: 'text-align:center' }, '북을 한 번 탭하면 시작. 바깥 고리가 북에 닿는 순간 탭!'), box);
+    return h('div', null, h('p', { class: 'note', style: 'text-align:center' }, '고리가 닿을 때 탭'), box);
   }
 
-  // ───── 메뉴·근황 ─────
+  // ───── 근황·메뉴 ─────
   castSheet(role) {
     const s = this.s;
     const p = personFor(s.cast, role);
@@ -496,28 +565,27 @@ export class GameView {
     const back = h('div', { class: 'modal-back', onclick: (e) => e.target === back && back.remove() },
       h('div', { class: 'modal' },
         h('div', { class: 'ev-cat' }, ROLE_KO[role]),
-        h('h3', { class: 'ev-title' }, `${p.ko}`, h('small', { class: 'note', lang: 'ja', style: 'margin-left:8px' }, p.s ? (/^[ァ-ヶー]+$/.test(p.s) ? `${p.s}・${p.g}` : `${p.s} ${p.g}`) : p.g)),
+        h('h3', { class: 'ev-title' }, p.ko, h('small', { class: 'note', lang: 'ja', style: 'margin-left:8px' }, p.s ? (/^[ァ-ヶー]+$/.test(p.s) ? `${p.s}・${p.g}` : `${p.s} ${p.g}`) : p.g)),
         h('p', null, s.news[role]),
-        h('p', { class: 'note' }, `유대 ${s.bond[role]} / 100 · 유대가 높을수록 이 사람의 이야기가 깊게 열립니다.`),
-        ach.length ? h('ul', null, ach.map((a) => h('li', null, `${Math.floor(a.t / 4)}살 무렵 — ${a.text}`))) : h('p', { class: 'note' }, '아직 기록이 없습니다.'),
+        h('p', { class: 'note' }, `유대 ${s.bond[role]}`),
+        ach.length ? h('ul', null, ach.map((a) => h('li', null, `${Math.floor(a.t / 4)}살 — ${a.text}`))) : null,
         h('button', { class: 'btn primary', type: 'button', onclick: () => back.remove() }, '닫기')));
     this.app.root.append(back);
   }
 
   menu() {
-    const set = this.set;
-    const segFor = (key, opts) => h('div', { class: 'seg' }, opts.map(([v, label]) => h('button', { type: 'button', 'aria-pressed': String(set[key] === v), onclick: (e) => { set[key] = v; this.app.saveSettings(); [...e.currentTarget.parentNode.children].forEach((b) => b.setAttribute('aria-pressed', 'false')); e.currentTarget.setAttribute('aria-pressed', 'true'); } }, label)));
     const back = h('div', { class: 'modal-back', onclick: (e) => e.target === back && close() });
     const close = () => back.remove();
     back.append(h('div', { class: 'modal' },
-      h('h3', { class: 'ev-title' }, '메뉴'),
-      h('div', { class: 'toggle-row' }, h('span', null, 'オート 방식'), segFor('autoMode', [['major', '大事な場面だけ止まる'], ['all', '全部おまかせ']])),
-      h('div', { class: 'toggle-row' }, h('span', null, '후리가나'), segFor('furigana', [['always', '항상'], ['hard', '어려운 한자만'], ['off', '끄기']])),
-      h('div', { class: 'toggle-row' }, h('span', null, '소리'), h('button', { class: 'icon-btn', type: 'button', 'aria-pressed': String(set.sound), onclick: (e) => { this.app.setSound(!set.sound); e.currentTarget.setAttribute('aria-pressed', String(set.sound)); e.currentTarget.textContent = set.sound ? '켜짐' : '꺼짐'; } }, set.sound ? '켜짐' : '꺼짐')),
+      h('h3', { class: 'ev-title' }, 'メニュー'),
+      this.app.soundControls(),
+      this.app.furiganaRow(),
       h('div', { class: 'btns', style: 'margin-top:10px' },
-        h('button', { class: 'btn', type: 'button', onclick: () => { close(); this.app.go('wordbook'); } }, '単語帳 보기 (게임은 저장됩니다)'),
-        h('button', { class: 'btn', type: 'button', onclick: () => { close(); this.save(); this.app.go('title'); } }, '저장하고 타이틀로'),
-        h('button', { class: 'btn primary', type: 'button', onclick: close }, '돌아가기'))));
+        h('div', { class: 'row' },
+          h('button', { class: 'btn center', type: 'button', onclick: () => { close(); this.save(); this.app.go('wordbook'); } }, '単語帳'),
+          h('button', { class: 'btn center', type: 'button', onclick: () => { close(); this.save(); this.app.go('review'); } }, '復習')),
+        h('button', { class: 'btn center', type: 'button', onclick: () => { close(); this.save(); this.app.go('title'); } }, 'タイトル'),
+        h('button', { class: 'btn primary', type: 'button', onclick: close }, '닫기'))));
     this.app.root.append(back);
   }
 }
@@ -525,6 +593,5 @@ export class GameView {
 function spLabelText(sp, s) {
   if (sp.startsWith('@')) return sp.slice(1);
   if (sp === 'dog') return s.dog.name;
-  const p = personFor(s.cast, sp);
-  return p.call;
+  return personFor(s.cast, sp).call;
 }

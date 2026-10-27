@@ -8,7 +8,6 @@ import { VOCAB } from '../src/data/vocab.js';
 import { SUB_TITLES } from '../src/data/subs.js';
 import { STAT_KEYS, ROLES, personFor } from '../src/engine/world.js';
 import { splitJa, splitKo, resolveKo, plainJa } from '../src/engine/text.js';
-import { makeQuiz } from '../src/engine/quiz.js';
 import { SEASON_MS, AUTO_WORD_MS, eventShowMs, resultShowMs } from '../src/engine/pace.js';
 import { collect } from '../tools/collect.mjs';
 
@@ -196,20 +195,6 @@ test('대사 조각(루비·학습 단어)이 모든 대사를 덮고, 사전에
   for (const [t] of ko) if (typeof t === 'string') for (const seg of splitKo(t)) if (seg.k === 'v') used.add(seg.key);
   console.log(`  학습 단어로 등장하는 어휘: ${used.size} / ${Object.keys(VOCAB).length}`);
   assert.ok(used.size >= 300, `게임 안에서 탭할 수 있는 단어 ${used.size}개`);
-});
-
-test('복습 퀴즈: 10문제, 4지선다, 정답 하나, 중복 선택지 없음', () => {
-  const keys = Object.keys(VOCAB).slice(0, 40);
-  for (let i = 0; i < 30; i++) {
-    const qs = makeQuiz(keys, VOCAB, 10, 'q' + i);
-    assert.equal(qs.length, 10);
-    for (const q of qs) {
-      assert.equal(q.options.length, 4);
-      assert.equal(new Set(q.options.map((o) => o.label)).size, 4);
-      assert.equal(q.options[q.answer].key, q.key);
-    }
-  }
-  assert.equal(makeQuiz(['焦る', '慣れる'], VOCAB, 10, 'x').length, 2);
 });
 
 test('분량과 소요 시간 보고', () => {

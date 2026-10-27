@@ -1,6 +1,7 @@
 // DOM 도우미와 일본어/한국어 텍스트 렌더링
 import LINES from '../gen/lines.json';
 import { VOCAB } from '../data/vocab.js';
+import { GRAMMAR } from '../data/grammar.js';
 import { lookup, rubyName, isHardKanji, splitJa, splitKo, resolveKo } from '../engine/text.js';
 
 export function h(tag, attrs, ...kids) {
@@ -43,17 +44,50 @@ function nameNodes(str, mode) {
 
 // 생성된 조각이 없을 때를 위한 대체 (자리표시자·단어 표시만 처리)
 function fallbackSegs(tpl) {
-  return splitJa(tpl).map((s) => (s.k === 't' ? s.v : s.k === 'p' ? { p: s.key, q: s.prop || '' } : VOCAB[s.key] ? { v: s.key, s: [s.v] } : s.v));
+  return splitJa(tpl).map((s) => (s.k === 't' ? s.v : s.k === 'p' ? { p: s.key, q: s.prop || '' } : s.k === 'g' ? { g: s.key, s: [s.v] } : VOCAB[s.key] ? { v: s.key, s: [s.v] } : s.v));
 }
 
-// ctx: { s, speaker, mode, onWord(key, surfaceText), saved:Set }
+export { LINES };
+
+// 한 장면의 학습 대상(1~3개): N2 문법 > N2 단어 > N3 문법 > N1 단어 > N3 단어
+const RANK = { gN2: 0, vN2: 1, gN3: 2, vN1: 3, vN3: 4 };
+export function sceneTargets(tpls, max = 3) {
+  const found = new Map();
+  tpls.forEach((tpl, li) => {
+    for (const sg of LINES.lines[tpl] || []) {
+      if (!sg || typeof sg !== 'object' || Array.isArray(sg)) continue;
+      const id = sg.g ? 'g:' + sg.g : sg.v ? 'v:' + sg.v : null;
+      if (!id || found.has(id)) continue;
+      const lv = sg.g ? GRAMMAR[sg.g]?.lv : VOCAB[sg.v]?.k ? null : VOCAB[sg.v]?.lv;
+      const r = RANK[(sg.g ? 'g' : 'v') + lv];
+      if (r !== undefined) found.set(id, r * 100 + li);
+    }
+  });
+  return [...found].sort((a, b) => a[1] - b[1]).slice(0, max).map(([id]) => id);
+}
+
+// ctx: { s, speaker, mode, onWord(key), onGrammar(key), saved:Set, targets:Set('v:…'|'g:…') }
 export function renderJa(tpl, ctx) {
   const segs = LINES.lines[tpl] || LINES.ex[tpl] || fallbackSegs(tpl);
   const span = h('span', { class: 'ja-text', lang: 'ja' });
+  const isTarget = (id) => !ctx.targets || ctx.targets.has(id);
   for (const sg of segs) {
     if (typeof sg === 'string' || Array.isArray(sg)) span.append(...items([sg], ctx.mode));
     else if (sg.p) span.append(...nameNodes(lookup(sg.p, sg.q || undefined, ctx, 'ja'), ctx.mode));
-    else if (sg.v) {
+    else if (sg.g) {
+      if (!isTarget('g:' + sg.g)) {
+        span.append(...items(sg.s, ctx.mode));
+        continue;
+      }
+      const b = h('button', { class: 'gm', type: 'button', 'data-g': sg.g }, items(sg.s, ctx.mode));
+      b.addEventListener('click', (e) => {
+        e.stopPropagation();
+        ctx.onGrammar && ctx.onGrammar(sg.g);
+      });
+      span.append(b);
+    } else if (sg.v && !isTarget('v:' + sg.v)) {
+      span.append(...items(sg.s, ctx.mode));
+    } else if (sg.v) {
       const b = h('button', { class: 'w' + (ctx.saved && ctx.saved.has(sg.v) ? ' saved' : ''), type: 'button', 'data-k': sg.v }, items(sg.s, ctx.mode));
       b.addEventListener('click', (e) => {
         e.stopPropagation();

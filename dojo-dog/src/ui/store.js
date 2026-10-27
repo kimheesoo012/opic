@@ -36,7 +36,8 @@ export const DEFAULT_SETTINGS = {
   furigana: 'hard', // 'always' / 'hard' / 'off'
   sound: false,
   bgm: 0.5,
-  sfx: 0.7,
+  sfx: 0.45,
+  sfxOn: true,
   theme: 'system',
 };
 
@@ -70,6 +71,20 @@ export const store = {
   saveStudy(st) {
     write('study', st);
   },
+  // 간격 반복 기록 { 'v:단어' | 'g:문법': { met, box, due, streak, ok, ng, last } } — 견생을 넘어 유지
+  srs() {
+    return read('srs', {});
+  },
+  saveSrs(x) {
+    write('srs', x);
+  },
+  // 오늘의 한 문제를 푼 날 (YYYY-MM-DD)
+  dailyDone() {
+    return read('daily', '');
+  },
+  saveDailyDone(d) {
+    write('daily', d);
+  },
   // 처음 본 검도 용어
   seenTerms() {
     return new Set(read('terms', []));
@@ -91,6 +106,6 @@ export const store = {
     write('legacy', l);
   },
   resetAll() {
-    for (const k of ['settings', 'save', 'wordbook', 'study', 'terms', 'history', 'legacy']) remove(k);
+    for (const k of ['settings', 'save', 'wordbook', 'study', 'terms', 'history', 'legacy', 'srs', 'daily']) remove(k);
   },
 };
