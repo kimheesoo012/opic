@@ -1,0 +1,45 @@
+# opic-app 폴더만 GitHub Pages로 배포한다 (저장소의 다른 파일·폴더는 올리지 않음)
+name: Deploy opic-app to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths: ['opic-app/**', '.github/workflows/opic-app-pages.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: opic-app-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Unit tests
+        run: node --test opic-app/tests/unit.test.js
+      - name: Build site folder (opic-app without tests)
+        run: |
+          mkdir -p _site
+          cp -R opic-app/. _site/
+          rm -rf _site/tests _site/README.md _site/.gitignore
+          # 배포마다 서비스 워커 캐시 이름을 바꿔 휴대폰에 새 버전이 적용되게
+          sed -i "s/const VERSION = '[^']*'/const VERSION = 'opic-app-${GITHUB_SHA::8}'/" _site/sw.js
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
