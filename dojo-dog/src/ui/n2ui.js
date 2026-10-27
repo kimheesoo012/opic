@@ -62,6 +62,8 @@ function koBlock(...kids) {
   const b = h('button', { class: 'mini-btn', type: 'button', onclick: () => { box.hidden = !box.hidden; b.textContent = box.hidden ? '解説' : '閉じる'; } }, '解説');
   return [b, box];
 }
+// DOM append는 null을 「null」 글자로 넣으므로 빈 칸을 걸러서 붙인다
+const appendAll = (el, ...kids) => el.append(...kids.flat(Infinity).filter((x) => x != null && x !== false));
 const toggleKo = (koEl, label = '訳') => {
   const b = h('button', { class: 'mini-btn', type: 'button', onclick: () => { koEl.hidden = !koEl.hidden; b.textContent = koEl.hidden ? label : '閉じる'; } }, label);
   return b;
@@ -333,7 +335,7 @@ export function runDrill(app, body, qs, label, onDone) {
   const show = () => {
     box.replaceChildren();
     if (i >= qs.length) {
-      box.append(h('h3', { class: 'h' }, '結果'), h('p', { class: 'big-score' }, `${okN} / ${qs.length}`),
+      appendAll(box, h('h3', { class: 'h' }, '結果'), h('p', { class: 'big-score' }, `${okN} / ${qs.length}`),
         wrong.length ? h('div', { class: 'list' }, wrong.map((q) => h('div', { class: 'card', lang: 'ja' }, ...richQ(q.q.replace(/\n/g, ' ')), h('div', { class: 'note' }, `正解: ${q.opts[q.a]}`)))) : null,
         wrong.length ? h('button', { class: 'btn primary', type: 'button', onclick: () => runDrill(app, body, [...wrong], label + '・やり直し', onDone) }, '間違いだけ もう一度') : null,
         h('button', { class: 'btn center', type: 'button', style: 'margin-top:8px', onclick: () => (onDone ? onDone() : app.go('n2', 'drill')) }, '戻る'));
@@ -353,7 +355,7 @@ export function runDrill(app, body, qs, label, onDone) {
       logAnswer(q.id, q.type, ok, q.ref || []);
       btns[q.a].classList.add('right');
       if (!ok) btns[oi].classList.add('wrong');
-      fb.replaceChildren(h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
+      fb.replaceChildren(); appendAll(fb, h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
         ...koBlock(h('ul', { class: 'why' }, q.opts.map((op, k) => h('li', { class: k === q.a ? 'ans' : null }, h('b', { lang: 'ja' }, `${k + 1}. ${op}`), ` — ${(q.why || [])[k] || ''}`)))),
         (q.ref || []).filter((id) => itemOf(id)).length ? h('div', { class: 'chips' }, q.ref.filter((id) => itemOf(id)).map((id) => h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => (id[0] === 'g' ? grammarDetail(app, id.slice(2)) : vocabDetail(app, id.slice(2))) }, id[0] === 'g' ? GRAMMAR[id.slice(2)].f : id.slice(2)))) : null);
       fb.hidden = false;
@@ -362,7 +364,7 @@ export function runDrill(app, body, qs, label, onDone) {
     } }, `${oi + 1}. ${o}`));
     const passage = q.pid && PASSAGES[q.pid];
     const pko = passage ? h('div', { class: 'ko', hidden: true }, passage.ko) : null;
-    box.append(
+    appendAll(box,
       h('div', { class: 'kicker' }, `${label} · ${i + 1} / ${qs.length}`),
       h('div', { class: 'q-kind', lang: 'ja' }, (BANK_TYPES[q.type] || [q.type])[0]),
       passage ? h('div', { class: 'card passage', lang: 'ja' }, passage.text.split('\n').map((p) => h('p', null, p)), pko, h('div', { class: 'tools' }, toggleKo(pko, '本文の訳'))) : null,
@@ -408,7 +410,7 @@ function read(app, body, id) {
     el.append(h('div', { class: 'tools' }, h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { const on = kos[0].hidden; kos.forEach((k) => (k.hidden = !on)); e.currentTarget.textContent = on ? '閉じる' : '訳'; } }, '訳')));
     return el;
   };
-  body.append(h('div', { class: 'kicker' }, uiJa() ? READ_KIND[p.kind][0] : `${READ_KIND[p.kind][0]} · ${p.titleKo}`), h('h3', { class: 'h', lang: 'ja' }, p.title),
+  appendAll(body, h('div', { class: 'kicker' }, uiJa() ? READ_KIND[p.kind][0] : `${READ_KIND[p.kind][0]} · ${p.titleKo}`), h('h3', { class: 'h', lang: 'ja' }, p.title),
     block(p.text, p.ko, p.textB ? 'A' : null), p.textB ? block(p.textB, p.koB, 'B') : null);
   const qbox = h('div');
   body.append(qbox);
@@ -462,7 +464,7 @@ function listen(app, body, id) {
   const showScript = h('button', { class: 'btn center', type: 'button', onclick: () => { script.hidden = !script.hidden; } }, 'スクリプト');
   const showKo = h('button', { class: 'btn center', type: 'button', onclick: () => { script.hidden = false; script.querySelectorAll('.ko').forEach((k) => (k.hidden = !k.hidden)); } }, '訳');
   const qbox = h('div');
-  body.append(h('div', { class: 'kicker' }, uiJa() ? LISTEN_KIND[item.kind][0] : `${LISTEN_KIND[item.kind][0]} · ${item.titleKo}`), h('h3', { class: 'h', lang: 'ja' }, item.title),
+  appendAll(body, h('div', { class: 'kicker' }, uiJa() ? LISTEN_KIND[item.kind][0] : `${LISTEN_KIND[item.kind][0]} · ${item.titleKo}`), h('h3', { class: 'h', lang: 'ja' }, item.title),
     item.lead ? h('p', { class: 'q-prompt long', lang: 'ja' }, item.lead) : null,
     h('div', { class: 'row' }, play, showScript, showKo), script, qbox);
   runDrill(app, qbox, [{ id: item.id, type: 'listen-' + item.kind, q: item.kind === 'quick' ? '最もよい返事を選んでください。' : item.q, opts: item.opts, a: item.a, why: item.why, ko: '', ref: [] }], LISTEN_KIND[item.kind][0], () => {
@@ -483,7 +485,7 @@ function weak(app, body) {
   const ids = priorityIds(srs).slice(0, 30);
   const groups = {};
   for (const id of ids) (groups[priorityOf(srs[id])] = groups[priorityOf(srs[id])] || []).push(id);
-  body.append(h('h3', { class: 'h' }, tt('우선 복습할 말', '優先して復習する語')),
+  appendAll(body, h('h3', { class: 'h' }, tt('우선 복습할 말', '優先して復習する語')),
     ids.length ? h('div', { class: 'list' }, Object.entries(groups).map(([p, list]) => h('div', { class: 'card' }, h('div', { class: 'kicker' }, (uiJa() ? PRIORITY_JA : PRIORITY_KO)[p] || tt('복습', '復習')), h('div', { class: 'chips' }, list.map((id) => {
       const it = itemOf(id);
       return h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => (id[0] === 'g' ? grammarDetail(app, it.key) : vocabDetail(app, it.key)) }, it.type === 'g' ? it.f : it.key);
