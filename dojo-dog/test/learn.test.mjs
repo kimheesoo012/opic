@@ -149,7 +149,7 @@ test('복습 문제: 새 유형(일본어 고르기·문맥·문법 구별)도 �
   }
   console.log(`  정답이 혼자 가장 긴 문제 ${((longest / total) * 100).toFixed(1)}%, 혼자 가장 짧은 문제 ${((shortest / total) * 100).toFixed(1)}%`);
   assert.ok(longest / total < 0.3 && shortest / total < 0.3);
-  for (const k of Object.keys(GRAMMAR)) {
+  for (const k of Object.keys(GRAMMAR).filter((x) => !GRAMMAR[x].x)) {
     const q = makeQuestion('g:' + k, 'z', null, { kind: 'gform' });
     assert.equal(new Set(q.options).size, 4, k);
     assert.equal(q.options[q.answer], GRAMMAR[k].f);

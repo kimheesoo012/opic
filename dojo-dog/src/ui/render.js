@@ -81,7 +81,7 @@ export function sceneTargets(tpls, set = {}) {
 
 // ctx: { s, speaker, mode, onWord(key), onGrammar(key), saved:Set, targets:Set('v:…'|'g:…') }
 export function renderJa(tpl, ctx) {
-  const segs = LINES.lines[tpl] || LINES.ex[tpl] || fallbackSegs(tpl);
+  const segs = ctx.segs || LINES.lines[tpl] || LINES.ex[tpl] || fallbackSegs(tpl);
   const span = h('span', { class: 'ja-text', lang: 'ja' });
   const isTarget = (id) => !ctx.targets || ctx.targets.has(id);
   for (const sg of segs) {
@@ -119,7 +119,8 @@ export function renderJa(tpl, ctx) {
 }
 
 export function renderExample(word, mode) {
-  return renderJa(VOCAB[word].ex, { s: null, mode });
+  // 예문 조각은 빌드 때 표제어를 키로 만들어 둔다 (src/gen/lines.json ex)
+  return renderJa(VOCAB[word].ex, { s: null, mode, segs: LINES.ex[word] || null });
 }
 
 export function renderSpeaker(sp, s, mode, ctx = null) {

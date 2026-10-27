@@ -98,7 +98,7 @@ if (!only.length || args.includes('--grammar')) {
   const CN = new Set(['noun', 'masu', 'nai', 'te', 'ta', 'dict', 'plain']);
   for (const [k, g] of Object.entries(NEWG)) {
     const at = `grammar ${k}`;
-    if (GRAMMAR[k]) err.push(`${at}: 기존 문법과 중복`);
+    if (GRAMMAR[k] && !GRAMMAR[k].x) err.push(`${at}: 기존 문법과 중복`);
     for (const f of ['f', 'm', 'c', 'd', 'use', 'style', 'err']) if (!g[f]) err.push(`${at}: ${f} 없음`);
     if (!Array.isArray(g.cn) || !g.cn.length || g.cn.some((c) => !CN.has(c))) err.push(`${at}: cn(접속 분류) 형식`);
     if (!Array.isArray(g.ex) || g.ex.length < 2 || g.ex.some((e) => !Array.isArray(e) || H.test(e[0]) || !H.test(e[1]))) err.push(`${at}: ex 예문 2개 이상 [일, 한]`);

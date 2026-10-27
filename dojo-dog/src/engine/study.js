@@ -188,6 +188,12 @@ export const GCONN = {
   をめぐって: ['noun'], くらいなら: ['dict'], に先立って: ['noun', 'dict'], に際して: ['noun', 'dict'], ながらも: ['masu', 'noun'], につれて: ['dict', 'noun'],
   ないことには: ['nai'], ことはない: ['dict'], 次第: ['noun', 'masu'], ものだ: ['ta', 'dict'],
 };
+// 보강 문법은 데이터의 cn(접속 분류)을 쓴다
+for (const [k, g] of Object.entries(GRAMMAR)) if (!GCONN[k] && g.cn) GCONN[k] = g.cn;
+// 자동으로 오답을 고르는 문제(뜻→형태, 비슷한 표현 구별, 문맥 속 뜻)는 오답 검토를 마친 기존 문법끼리만 낸다.
+// 보강 문법(x)은 직접 만든 빈칸 문제(q)와 문제은행 문항으로만 묻는다.
+const CORE = (k) => GRAMMAR[k] && !GRAMMAR[k].x;
+
 // 생성기가 만든 「이 문장의 접속」 설명(例: 「勝て（勝つ의 가능형 勝てる의 ます형）」)에서 접속 형태를 읽는다
 export function connClass(note = '') {
   if (/명사|인용구/.test(note)) return 'noun';
@@ -260,6 +266,7 @@ export function readingOptions(key, seed = 'r') {
 export function questionKinds(id, ctx = {}) {
   if (id[0] === 'g') {
     const key = id.slice(2);
+    if (!CORE(key)) return ['grammar'];
     const kinds = ['grammar', 'gform'];
     if (diffMates(key).length) kinds.push('gdiff');
     if (ctx.hasScene) kinds.push('gcontext');
@@ -300,8 +307,8 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
     // 오답은 같은 묶음에서 뜻이 분명히 다른 것을 먼저 (쉬운 오답을 피한다), 모자라면 같은 접속의 다른 문법
     const mates = shuffle(h, diffMates(it.key));
     const conn = GCONN[it.key] || [];
-    const rest = shuffle(h, Object.keys(GRAMMAR).filter((k) => !mates.includes(k) && !nearG(it.key, k) && !inSame(CONFUSABLE, it.key, k) && (GCONN[k] || []).some((c) => conn.includes(c))));
-    const others = shuffle(h, Object.keys(GRAMMAR).filter((k) => !mates.includes(k) && !rest.includes(k) && !nearG(it.key, k) && !inSame(CONFUSABLE, it.key, k)));
+    const rest = shuffle(h, Object.keys(GRAMMAR).filter(CORE).filter((k) => !mates.includes(k) && !nearG(it.key, k) && !inSame(CONFUSABLE, it.key, k) && (GCONN[k] || []).some((c) => conn.includes(c))));
+    const others = shuffle(h, Object.keys(GRAMMAR).filter(CORE).filter((k) => !mates.includes(k) && !rest.includes(k) && !nearG(it.key, k) && !inSame(CONFUSABLE, it.key, k)));
     const wrong = [];
     for (const k of [...mates, ...rest, ...others]) {
       if (wrong.length >= 3) break;
@@ -318,7 +325,7 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
   if (kind === 'gform') {
     // 문법 표현 구별: 뜻을 보고 형태를 고른다. 비슷한 묶음의 문법은 오답으로 쓰지 않는다.
     const avoid = new Set([it.key, ...groupOf(it.key)]);
-    const pool = shuffle(h, Object.entries(GRAMMAR).filter(([k, g]) => !avoid.has(k) && !meaningClash(g.m, it.m)));
+    const pool = shuffle(h, Object.entries(GRAMMAR).filter(([k, g]) => CORE(k) && !avoid.has(k) && !meaningClash(g.m, it.m)));
     const wrong = [];
     for (const [k, g] of pool) {
       if (wrong.length >= 3) break;

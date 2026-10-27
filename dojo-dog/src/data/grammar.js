@@ -352,3 +352,10 @@ const WARN = {
   ものだ: '「ものだ」는 회상·일반론 모두에 쓴다. 회화에서는 「もんだ」로 줄인다.',
 };
 for (const [k, w] of Object.entries(WARN)) if (GRAMMAR[k]) GRAMMAR[k].w = w;
+
+// N2 보강 문법(src/data/n2/grammar_more.js): 사용 조건·문체·자주 하는 실수·예문·선택지별 해설까지 갖춘 항목. x: 새 항목 표시
+import MORE from './n2/grammar_more.js';
+import EXTRA from './n2/grammar_extra.js';
+for (const [k, g] of Object.entries(MORE)) if (!GRAMMAR[k]) GRAMMAR[k] = { ...g, w: g.w || g.err, x: 1 };
+// 기존 문법 보강: 사용 조건·문체·자주 하는 실수·예문·오답별 해설·비슷한 문법
+for (const [k, x] of Object.entries(EXTRA)) if (GRAMMAR[k] && !GRAMMAR[k].x) Object.assign(GRAMMAR[k], x);

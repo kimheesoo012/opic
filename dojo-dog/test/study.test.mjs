@@ -23,7 +23,7 @@ test('문법 DB 형식: 표기·뜻·접속·차이·수준·빈칸 문제', () 
     assert.equal(wrong.length, 3, `${k}: 오답 3개`);
     assert.equal(new Set([ans, ...wrong]).size, 4, `${k}: 선택지 중복`);
     assert.ok(!wrong.includes(ans), `${k}: 오답에 정답`);
-    assert.ok(explain.length > 20 && /[가-힣]/.test(explain), `${k}: 해설`);
+    assert.ok((explain.length > 20 || (g.qx && g.qx.length === 3)) && /[가-힣]/.test(explain), `${k}: 해설`);
     // 정답이 이 문법의 형태다 (표기와 두 글자 이상 또는 한자가 겹친다)
     const overlap = [...ans].some((ch, n) => g.f.includes(ans.slice(n, n + 2)) && n < ans.length - 1) || [...ans].some((ch) => /[一-鿿]/.test(ch) && g.f.includes(ch));
     assert.ok(overlap, `${k}: 정답 「${ans}」이 「${g.f}」와 맞지 않음`);
@@ -31,7 +31,8 @@ test('문법 DB 형식: 표기·뜻·접속·차이·수준·빈칸 문제', () 
 });
 
 test('문법은 모두 게임 대사에 쓰이고, 대사 속 문법 표시는 DB를 가리킨다', () => {
-  for (const k of Object.keys(GRAMMAR)) assert.ok(LINES.gidx[k], `대사에 안 나오는 문법: ${k}`);
+  // 게임 대사용 문법(보강 문법 x 제외)은 모두 대사에 쓰인다. 보강 문법은 시험 대비용으로 문제·예문에서 다룬다.
+  for (const k of Object.keys(GRAMMAR)) if (!GRAMMAR[k].x) assert.ok(LINES.gidx[k], `대사에 안 나오는 문법: ${k}`);
   for (const [tpl, segs] of Object.entries(LINES.lines)) for (const s of segs) if (s && s.g) assert.ok(GRAMMAR[s.g], `${tpl}: ${s.g}`);
   // 표시한 표면 글자가 원문과 같다 (생성기가 구간을 넓히거나 줄이지 않는다)
   for (const [tpl, segs] of Object.entries(LINES.lines)) {
