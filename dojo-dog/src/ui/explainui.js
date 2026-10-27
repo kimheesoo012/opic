@@ -18,7 +18,13 @@ export function explainView(q, pick, { numbered = false, ko = true } = {}) {
   const box = (cls, tag, i, text) => h('div', { class: 'ex-box ' + cls }, h('div', { class: 'ex-head' }, h('span', { class: 'ex-tag' }, tag), label(i)), text ? h('p', null, text) : null);
   const out = [];
   if (pick != null && pick !== q.answer) out.push(box('ex-pick', '고른 답', pick, why[pick]));
-  out.push(box('ex-ans', '정답', q.answer, why[q.answer] || trimHead(q.explain, q.options[q.answer])));
+  // 정답 칸에서는 「다른 선택지는 맞지 않는다」 문장을 뺀다 (아래 목록이 선택지마다 따로 설명한다)
+  let ansText = why[q.answer] || trimHead(q.explain, q.options[q.answer]);
+  if (why.filter(Boolean).length >= 3) {
+    const kept = ansText.split(/(?<=[.。])\s+/).filter((x) => !/(맞지 않|어울리지 않|성립하지 않)/.test(x));
+    if (kept.length) ansText = kept.join(' ');
+  }
+  out.push(box('ex-ans', '정답', q.answer, ansText));
   const others = q.options.map((_, i) => i).filter((i) => i !== q.answer && i !== pick && why[i]);
   if (others.length) out.push(h('ul', { class: 'ex-others' }, others.map((i) => h('li', null, label(i), h('span', null, why[i])))));
   if (q.more && q.more.length) out.push(h('details', { class: 'ex-more' }, h('summary', null, '자세히'), q.more.map((m) => h('p', null, m))));
