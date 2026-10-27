@@ -1,6 +1,8 @@
 // 시작, 허리, 고비(1·3·7·10살·마지막 해), 허브(누구 옆에 / 산책 코스) 이벤트
 const alive = (s) => s.flags.roshi_gone === undefined;
 const korHere = (s) => s.flags.kor_left === undefined;
+// 계절 번호(0 봄 · 1 여름 · 2 가을 · 3 겨울): 허브 첫 문장을 계절마다 바꾼다
+const sea = (n) => (s) => (s.startSeason + s.t) % 4 === n;
 
 export default [
   {
@@ -140,9 +142,14 @@ export default [
 
   // ───────── 허브 ─────────
   {
-    id: 'h_beside_a', cat: 'hub', once: false, cd: 3, max: 9, w: 1.1,
+    id: 'h_beside_a', cat: 'hub', once: false, cd: 5, max: 5, w: 1.1,
     title: '오늘은 누구 옆에?',
-    text: '연습이 끝난 저녁. 다들 각자 할 일을 하고 있다. 누구 옆에 가 볼까.',
+    text: [
+      { if: sea(0), v: '연습이 끝난 저녁. 창문으로 벚꽃잎이 날아든다. 누구 옆에 가 볼까.' },
+      { if: sea(1), v: '연습이 끝난 저녁. 다들 선풍기 앞에 모여 있다. 누구 옆에 가 볼까.' },
+      { if: sea(2), v: '연습이 끝난 저녁. 해가 부쩍 짧아졌다. 누구 옆에 가 볼까.' },
+      { if: sea(3), v: '연습이 끝난 저녁. 다들 난로 근처에서 꾸물거린다. 누구 옆에 가 볼까.' },
+    ],
     choices: [
       { t: '{roshi} 옆', tag: 'calm', req: alive, fx: { b_roshi: 5 }, pool: 'beside_roshi', poolEmpty: '{roshi|은} 말없이 {N}의 등을 한 번 쓸었다.' },
       { t: '{shihan} 옆', tag: 'guard', fx: { b_shihan: 5 }, pool: 'beside_shihan', poolEmpty: '{shihan|은} 죽도를 손질하며 {N|을} 발로 살짝 밀어 자리를 내 주었다.' },
@@ -151,9 +158,14 @@ export default [
     ],
   },
   {
-    id: 'h_beside_b', cat: 'hub', once: false, cd: 3, max: 9, w: 1.1,
+    id: 'h_beside_b', cat: 'hub', once: false, cd: 5, max: 5, w: 1.1,
     title: '오늘은 누구 옆에?',
-    text: '연습 전, 탈의실 앞이 북적인다. 누구한테 가 볼까.',
+    text: [
+      { if: sea(0), v: '연습 전, 탈의실 앞이 북적인다. 새 학기라 처음 보는 얼굴도 있다. 누구한테 가 볼까.' },
+      { if: sea(1), v: '연습 전, 탈의실 앞. 다들 「덥다」는 말만 하고 있다. 누구한테 가 볼까.' },
+      { if: sea(2), v: '연습 전, 탈의실 앞이 북적인다. 대회가 가까워서인지 다들 말수가 적다. 누구한테 가 볼까.' },
+      { if: sea(3), v: '연습 전, 탈의실 앞. 다들 맨발로 마루에 올라서기를 망설이고 있다. 누구한테 가 볼까.' },
+    ],
     choices: [
       { t: '{worker} 옆', tag: 'sweet', fx: { b_worker: 5 }, pool: 'beside_worker', poolEmpty: '{worker|은} 넥타이를 풀며 "오늘도 수고했다" 하고 혼잣말을 했다. {N}에게 한 말인지도 모른다.' },
       { t: '{elder} 옆', tag: 'calm', fx: { b_elder: 5 }, pool: 'beside_elder', poolEmpty: '{elder|은} 고구마 말랭이를 반으로 쪼개 주었다.' },
@@ -162,9 +174,14 @@ export default [
     ],
   },
   {
-    id: 'h_walk', cat: 'hub', once: false, cd: 2, max: 14, w: 1.4,
+    id: 'h_walk', cat: 'hub', once: false, cd: 3, max: 8, w: 1.4,
     title: '산책 코스 고르기',
-    text: '목줄이 찰칵 소리를 냈다. 오늘은 어디로 갈까?',
+    text: [
+      { if: sea(0), v: '목줄이 찰칵 소리를 냈다. 바람이 따뜻하다. 오늘은 어디로 갈까?' },
+      { if: sea(1), v: '목줄이 찰칵 소리를 냈다. 아스팔트가 뜨거워지기 전에 나가야 한다. 오늘은 어디로 갈까?' },
+      { if: sea(2), v: '목줄이 찰칵 소리를 냈다. 낙엽 밟는 소리가 좋은 계절이다. 오늘은 어디로 갈까?' },
+      { if: sea(3), v: '목줄이 찰칵 소리를 냈다. 바깥 공기가 코끝에 시리다. 오늘은 어디로 갈까?' },
+    ],
     lines: [['okami', 'さあ、お[散歩]行こうか。今日はどっちにする？', '자, 산책 갈까. 오늘은 어느 쪽으로 할래?']],
     choices: [
       { t: '{S}', tag: 'social', fx: { soc: 2 }, pool: 'walk_street', poolEmpty: '상점가 사람들에게 인사를 한 바퀴 돌고 왔다.' },

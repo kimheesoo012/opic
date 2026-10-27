@@ -482,10 +482,11 @@ export class GameView {
   }
 
   // 한국어 해설은 상황만 짧게: 앞 문장(40자 안팎)만 보이고 나머지는 「더보기」. 일본어 대사가 주인공이다.
-  koBlock(text, title) {
+  // full: 결과 문장은 자르지 않는다 (마지막 문장이 웃음 포인트인 경우가 많다)
+  koBlock(text, title, full = false) {
     const ctx = this.ctxFor(null);
     ctx.onWord = (key) => this.app.openWord(key, { ja: '', ko: plainKo(text), sp: '', title, when: this.ageText() });
-    const { head, rest } = splitContext(text);
+    const { head, rest } = full ? { head: text, rest: '' } : splitContext(text);
     const p = h('p', { class: 'ev-text ctx' }, renderKo(head, ctx));
     if (ctx.newTerms.length) store.saveSeenTerms(this.seenTerms);
     if (!rest) return p;
@@ -647,6 +648,8 @@ export class GameView {
     const r = this.s.res;
     this.wait = 0;
     const ev = G.EV.get(r.id);
+    // 허브(누구 옆에·산책 코스)는 고르면 바로 그 장면으로: 할 말이 없는 결과 화면은 건너뛴다
+    if (ev.cat === 'hub' && !r.res && !(r.lines && r.lines.length)) return this.doAck();
     const title = resolveKo(ev.title, { s: this.s });
     const ok = r.notes.includes('성공');
     if (!again) {
@@ -673,7 +676,7 @@ export class GameView {
       body.push(this.narrBlock(r.resJa, r.res, title, new Set(ids)));
       if (r.lines.length) body.push(this.renderLines(r.lines, title, ids));
     } else {
-      if (r.res) body.push(this.koBlock(r.res, title));
+      if (r.res) body.push(this.koBlock(r.res, title, true));
       if (r.lines.length) body.push(this.renderLines(r.lines, title));
     }
     if (r.delta.length) {
@@ -850,10 +853,12 @@ export class GameView {
 
 // 한국어 해설을 앞부분(상황)과 나머지로 나눈다. 문장 단위로 40자 안팎까지 (첫 문장은 항상 통째로).
 export function splitContext(text) {
+  // 짧은 글(대부분의 장면)은 자르지 않는다. 긴 글만 앞부분 80자 안팎을 보이고 「더보기」
+  if (plainKo(text).length <= 120) return { head: String(text), rest: '' };
   const parts = String(text).split(/(?<=[.!?…」])\s+/);
   let head = parts[0];
   let i = 1;
-  while (i < parts.length && plainKo(head + ' ' + parts[i]).length <= 40) head += ' ' + parts[i++];
+  while (i < parts.length && plainKo(head + ' ' + parts[i]).length <= 80) head += ' ' + parts[i++];
   return { head, rest: parts.slice(i).join(' ') };
 }
 
