@@ -679,7 +679,10 @@ export class GameView {
     if (r.delta.length) {
       body.push(h('div', { class: 'deltas' }, r.delta.map((d) => {
         const p = d.k.startsWith('b_') && d.k !== 'b_iincho' ? personFor(this.s.cast, d.k.slice(2)) : null;
-        const nameKo = d.k.startsWith('b_') ? `${d.k === 'b_iincho' ? '위원장' : p.ko}와의 유대` : STAT_KO[d.k];
+        const who = d.k === 'b_iincho' ? '위원장' : p && p.ko;
+        // 받침이 있으면 「과」, 없으면 「와」
+        const wa = (w) => ((w.charCodeAt(w.length - 1) - 0xac00) % 28 ? '과' : '와');
+        const nameKo = d.k.startsWith('b_') ? `${who}${wa(who)}의 유대` : STAT_KO[d.k];
         const name = this.ja ? (d.k.startsWith('b_') ? `${d.k === 'b_iincho' ? '委員長' : p.call}との絆` : STAT_JA[d.k]) : nameKo;
         const v = `${d.v > 0 ? '+' : ''}${d.v}`;
         // 일본어 모드: 탭하면 한국어 뜻
