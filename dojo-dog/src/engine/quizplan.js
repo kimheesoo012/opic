@@ -70,14 +70,14 @@ function runState(log, id) {
 // 확인 문제: 이번 견생에서 틀린 말(간격을 둔 뒤) → 전에 틀린 적 있고 복습할 때가 된 말 → 방금 장면들에서 만난 말(아직 불확실) → 그 밖의 복습할 말
 // 복습 카드: 이번 견생에서 틀린 말 → 복습할 때가 된 틀린 말 → 불확실한 말 → 그 밖 (장면과 따로, 예전에 만난 말을 다시 불러온다)
 // 이번 견생에서 이미 맞힌 말, 익힌 말(두 번 연속 정답)이면서 복습 날짜가 안 된 말은 내지 않는다.
-export function pickItem(log, srs, now, src = 'scene') {
+export function pickItem(log, srs, now, src = 'scene', skip = null) {
   const prev = log.asked.length ? log.asked[log.asked.length - 1].id : null;
   const recent = log.recent.flat();
   const pool = new Set([...recent, ...log.asked.map((a) => a.id), ...Object.keys(srs).filter((id) => srs[id].due <= now)]);
   const h = { rng: hashSeed(log.seed + src + log.asked.length + ':' + log.scenes) };
   let best = null;
   for (const id of pool) {
-    if (!itemOf(id) || id === prev) continue;
+    if (!itemOf(id) || id === prev || (skip && skip.has(id))) continue;
     const r = srs[id];
     const run = runState(log, id);
     let score;
@@ -118,6 +118,7 @@ const FIRST = { v: ['context', 'meaning', 'reading', 'word'], g: ['gblank', 'gco
 const AGAIN = { v: ['word', 'meaning', 'reading', 'context'], g: ['gdiff', 'gcontext', 'grammar', 'gblank', 'gform'] };
 export function chooseKind(id, log, srs, ctx) {
   const avail = questionKinds(id, ctx);
+  if (!avail.length) return null;
   const run = runState(log, id);
   const r = srs[id];
   const used = new Set([...(run ? run.kinds : []), ...(r && r.lk ? [r.lk] : [])]);
@@ -139,9 +140,19 @@ export function buildQuestion(id, log, srs, ctx) {
     const r = srs[id];
     const again = !!runState(log, id) || (r && r.ok + r.ng > 0);
     const h = { rng: hashSeed(seed + 'bank') };
-    if (again || rand(h) < 1 / 3) return bankQuestion(id, items[Math.floor(rand(h) * items.length)]);
+    // 이번 견생에서 바로 전에 문제은행으로 물었으면, 다시 물을 때는 다른 유형으로 (못 만들면 문제은행)
+    const run = runState(log, id);
+    const lastBank = run && run.last.kind === 'bank';
+    const pick = () => bankQuestion(id, items[Math.floor(rand(h) * items.length)]);
+    // 일본어 몰입 모드에서는 문제은행(일본어 문제)을 먼저 쓴다
+    if (!lastBank && (ctx.jaOnly || again || rand(h) < 1 / 3)) return pick();
+    if (lastBank) {
+      const kind = chooseKind(id, log, srs, ctx);
+      return kind ? makeQuestion(id, seed, srs[id], { ...ctx, kind }) : pick();
+    }
   }
   const kind = chooseKind(id, log, srs, ctx);
+  if (!kind) return null;
   return makeQuestion(id, seed, srs[id], { ...ctx, kind });
 }
 

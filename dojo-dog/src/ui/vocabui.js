@@ -5,10 +5,12 @@ import { GRAMMAR } from '../data/grammar.js';
 import { h, renderExample, renderJa, renderSpeaker, LINES } from './render.js';
 import { store } from './store.js';
 
-const POS = { n: '명사', v: '동사', a: 'い형용사', na: 'な형용사', adv: '부사', exp: '표현' };
+
+// 표시 언어 (설정을 직접 읽는다: 팝업은 어느 화면에서나 열린다)
+export const uiJa = () => (store.settings().lang || 'ja') === 'ja';
 
 export function levelLabel(lv) {
-  return lv === '범위 밖' ? '검도 용어' : lv;
+  return lv === '범위 밖' ? (uiJa() ? '剣道用語' : '검도 용어') : lv;
 }
 
 // 단어장: { 'key' | 'g:key': { key, at, n, last, scenes: [{ja, ko, sp, title, when}] } }
@@ -37,12 +39,12 @@ export function firstScene(app, id, mode, opts = {}) {
   const ko = h('div', { class: 'ko', hidden: true }, info.ko);
   return h('div', null,
     h('div', { class: 'line' }, h('div', { class: 'ja' }, renderJa(info.tpl, { s, speaker: info.role, mode, targets: new Set([id]), blankG: opts.blank ? id.slice(2) : null })), ko),
-    h('div', { class: 'row', style: 'justify-content:space-between' }, h('span', { class: 'note' }, info.situation || ''), opts.noKo ? null : koToggle(ko)));
+    opts.noKo ? null : h('div', { class: 'tools' }, koToggle(ko)));
 }
 
 function koToggle(koEl) {
   let on = false;
-  return h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { on = !on; koEl.hidden = !on; e.currentTarget.textContent = on ? '번역 닫기' : '번역'; } }, '번역');
+  return h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { on = !on; koEl.hidden = !on; e.currentTarget.textContent = on ? '閉じる' : '訳'; } }, '訳');
 }
 
 // 이 문장에서 문법이 붙은 말: 생성기가 만든 접속(例: 勝て（勝つ의 가능형 勝てる의 ます형）)＋문법 표면
@@ -53,19 +55,36 @@ export function connText(tpl, key) {
   return `${sg.c} ＋ ${surf}`;
 }
 
-// 게임 속 문장 · 해석 · 상황
+// 게임 속 문장 (번역은 탭해야 보인다)
 function sceneBlock(app, scene, id, mode) {
   const s = app.state || app.refState();
   const info = scene && scene.tpl ? { ...(sceneOf(scene.tpl, s) || {}), ...scene } : firstSceneOf(id, s);
   if (!info || !info.tpl) return null;
-  const situ = info.situation || (sceneOf(info.tpl, s) || {}).situation;
-  return h('div', { class: 'v-sec' },
-    h('h4', null, '게임 속 문장'),
-    h('div', { class: 'line' },
-      h('div', { class: 'ja' }, renderJa(info.tpl, { s, speaker: info.role, mode, targets: new Set([id]) })),
-      h('div', { class: 'ko' }, info.ko)),
-    id[0] === 'g' && connText(info.tpl, id.slice(2)) ? h('div', { class: 'v-conn' }, h('b', null, '이 문장의 접속 '), h('span', { lang: 'ja' }, connText(info.tpl, id.slice(2)))) : null,
-    situ ? h('div', { class: 'note' }, situ) : null);
+  const ko = h('div', { class: 'ko', hidden: true }, info.ko);
+  const line = h('div', { class: 'line tap', role: 'button', tabindex: '0', onclick: () => (ko.hidden = !ko.hidden) },
+    h('div', { class: 'ja' }, renderJa(info.tpl, { s, speaker: info.role, mode, targets: new Set([id]) })),
+    ko);
+  return h('div', { class: 'v-sec' }, h('h4', null, 'ゲームの場面'), line);
+}
+
+// 접속 설명에서 괄호 속 풀이를 뺀 짧은 꼴
+export const shortConn = (c = '') => c.replace(/\s*[（(][^）)]*[）)]/g, '').replace(/\s+\./g, '.').trim();
+// 일본어 모드의 접속: 한국어 문법 용어를 일본어로 바꾸고, 한국어 설명이 남은 갈래는 뺀다
+const CONN_JA = [['な형용사', 'な形容詞'], ['い형용사', 'い形容詞'], ['형용사', '形容詞'], ['명사', '名詞'], ['동사', '動詞'], ['보통형', '普通形'], ['사전형', '辞書形'], ['가정형', '仮定形'], ['가능형', '可能形'], ['의지형', '意志形'], ['정중형', '丁寧形'], ['의문사', '疑問詞'], ['어간', '語幹'], ['형', '形']];
+export function jaConn(c = '') {
+  let t = shortConn(c).split(/\.\s/)[0];
+  for (const [ko, ja] of CONN_JA) t = t.split(ko).join(ja);
+  t = t.replace(/·/g, '・').replace(/([一-龯])\s+(?=[ぁ-んァ-ン一-龯])/g, '$1');
+  const parts = t.split(' / ');
+  const keep = parts.filter((x) => !/[가-힣]/.test(x));
+  return (keep.length ? keep.join(' / ') : parts[0].replace(/\s*[가-힣][가-힣\s・]*/g, '')).trim();
+}
+
+// 길게 읽을 내용은 접어 둔다
+function more(...kids) {
+  const list = kids.filter(Boolean);
+  if (!list.length) return null;
+  return h('details', { class: 'v-more' }, h('summary', null, '詳しく'), ...list);
 }
 
 // 관련 표현: 사람이 고른 짝(반대말·짝말)만. 같은 한자라는 이유만으로 묶지 않는다.
@@ -76,6 +95,8 @@ function related(key) {
 function saveButton(key, scene) {
   const wb = store.wordbook();
   let saved = !!wb[key];
+  const ja = uiJa();
+  const label = () => (ja ? (saved ? '単語帳に保存済み' : '単語帳に保存') : saved ? '단어장에 저장됨' : '단어장 저장');
   const b = h('button', { class: 'btn center save-btn', type: 'button', 'aria-pressed': String(saved), onclick: () => {
     if (saved) {
       const w = store.wordbook();
@@ -84,8 +105,8 @@ function saveButton(key, scene) {
     } else saveWord(key, scene);
     saved = !saved;
     b.setAttribute('aria-pressed', String(saved));
-    b.textContent = saved ? '단어장에 저장됨' : '단어장 저장';
-  } }, saved ? '단어장에 저장됨' : '단어장 저장');
+    b.textContent = label();
+  } }, label());
   return b;
 }
 
@@ -107,15 +128,13 @@ export function wordPopup(app, key, scene, mode) {
   const exKo = h('div', { class: 'ko', hidden: true }, v.exk);
   const rel = related(key);
   modal(app, key,
-    h('div', { class: 'v-head' }, h('span', { class: 'v-word', lang: 'ja' }, key), h('span', { class: 'v-read', lang: 'ja' }, `（${v.r}）`)),
-    h('dl', { class: 'kv v-kv' },
-      h('dt', null, '뜻'), h('dd', null, v.m),
-      h('dt', null, '품사'), h('dd', null, POS[v.pos] || '—'),
-      h('dt', null, '수준'), h('dd', null, levelLabel(v.lv))),
-    v.note ? h('div', { class: 'v-sec' }, h('div', { class: 'v-note' }, v.note)) : null,
+    h('div', { class: 'v-head' }, h('span', { class: 'v-word', lang: 'ja' }, key), h('span', { class: 'v-read', lang: 'ja' }, v.r), h('span', { class: 'v-lv' }, levelLabel(v.lv))),
+    h('p', { class: 'v-mean' }, v.m),
     sceneBlock(app, scene, 'v:' + key, mode),
-    rel.length ? h('div', { class: 'v-sec' }, h('h4', null, '관련 표현'), h('ul', { class: 'rel' }, rel.map((w) => h('li', null, h('span', { lang: 'ja' }, `${w}（${VOCAB[w].r}）`), ` — ${VOCAB[w].m}`)))) : null,
-    h('div', { class: 'v-sec' }, h('h4', null, '例文'), h('div', { class: 'line' }, h('div', { class: 'ja' }, renderExample(key, mode)), exKo), h('div', { class: 'tools' }, koToggle(exKo))),
+    h('div', { class: 'v-sec' }, h('h4', null, '例文'), h('div', { class: 'line tap', role: 'button', tabindex: '0', onclick: () => (exKo.hidden = !exKo.hidden) }, h('div', { class: 'ja' }, renderExample(key, mode)), exKo)),
+    more(
+      v.note ? h('div', { class: 'v-note' }, v.note) : null,
+      rel.length ? h('ul', { class: 'rel' }, rel.map((w) => h('li', null, h('span', { lang: 'ja' }, `${w}（${VOCAB[w].r}）`), ` ${VOCAB[w].m}`))) : null),
     saveButton(key, scene));
 }
 
@@ -123,14 +142,13 @@ export function grammarPopup(app, key, scene, mode) {
   const g = GRAMMAR[key];
   if (!g) return;
   modal(app, g.f,
-    h('div', { class: 'v-head' }, h('span', { class: 'v-word', lang: 'ja' }, g.f)),
-    h('dl', { class: 'kv v-kv' },
-      h('dt', null, '뜻'), h('dd', null, g.m),
-      h('dt', null, '접속'), h('dd', null, g.c),
-      h('dt', null, '수준'), h('dd', null, levelLabel(g.lv))),
+    h('div', { class: 'v-head' }, h('span', { class: 'v-word', lang: 'ja' }, g.f), h('span', { class: 'v-lv' }, g.lv)),
+    h('p', { class: 'v-mean' }, g.m),
+    h('p', { class: 'v-conn' }, uiJa() ? jaConn(g.c) : shortConn(g.c)),
     sceneBlock(app, scene, 'g:' + key, mode),
-    h('div', { class: 'v-sec' }, h('h4', null, '비슷한 문법과의 차이'), h('div', { class: 'v-note' }, g.d)),
-    h('div', { class: 'v-sec' }, h('h4', null, '주의할 점'), h('div', { class: 'v-note' }, g.w)),
+    more(
+      g.d ? h('div', { class: 'v-note' }, g.d) : null,
+      g.w || g.err ? h('div', { class: 'v-note' }, g.err || g.w) : null),
     saveButton('g:' + key, scene));
 }
 

@@ -11,7 +11,7 @@ import { grade, meet, mastered, itemOf, priorityIds, priorityOf, PRIORITY_KO, DA
 import { hashSeed, shuffle } from '../engine/rng.js';
 import { h, LINES, renderExample, renderJa } from './render.js';
 import { store } from './store.js';
-import { modal, saveWord, wordPopup, grammarPopup } from './vocabui.js';
+import { modal, saveWord, wordPopup, grammarPopup, uiJa, jaConn } from './vocabui.js';
 
 const TABS = [
   ['home', 'ホーム'], ['vocab', '語彙'], ['grammar', '文法'], ['drill', '問題演習'], ['read', '読解'], ['listen', '聴解'], ['weak', '弱点克服'], ['review', '復習'],
@@ -46,6 +46,21 @@ export function richQ(text) {
   }
   out.push(text.slice(last));
   return out;
+}
+// 일본어 모드에서는 한국어 부제·뜻·해설을 숨기고, 해설은 「解説」로 연다
+const tt = (ko, ja) => (uiJa() ? ja : ko);
+const koSmall = (ko) => (uiJa() ? null : h('small', null, ko));
+const PRIORITY_JA = ['最近間違えた', '何度も間違えた', '訳をよく見た', 'しばらく復習していない', '新しく出会った'];
+const TAG_JA = { abstract: '抽象・思考', society: '社会・ニュース', work: '仕事・学校・手続き', life: '生活・関係・感情', verbs: '動詞・複合動詞', adverbs: '副詞・形容詞', kata: '外来語', confuse: 'まぎらわしい語' };
+const POS_JA = { v: '動詞', a: 'い形容詞', na: 'な形容詞', adv: '副詞', exp: '表現' };
+// 한국어 해설 덩어리: 한국어 모드에서는 그대로, 일본어 모드에서는 「解説」 단추 뒤에
+function koBlock(...kids) {
+  const list = kids.filter(Boolean);
+  if (!list.length) return [];
+  if (!uiJa()) return list;
+  const box = h('div', { class: 'q-ko', hidden: true }, ...list);
+  const b = h('button', { class: 'mini-btn', type: 'button', onclick: () => { box.hidden = !box.hidden; b.textContent = box.hidden ? '解説' : '閉じる'; } }, '解説');
+  return [b, box];
 }
 const toggleKo = (koEl, label = '訳') => {
   const b = h('button', { class: 'mini-btn', type: 'button', onclick: () => { koEl.hidden = !koEl.hidden; b.textContent = koEl.hidden ? label : '閉じる'; } }, label);
@@ -153,11 +168,10 @@ function home(app, body) {
     const n = BANK.filter((q) => q.type === t).length;
     const p = pct(st[t]);
     return h('button', { class: 'n2-type', type: 'button', disabled: !n, onclick: () => app.go('n2', 'drill', t) },
-      h('span', { lang: 'ja' }, ja), h('small', null, ko), h('b', null, `${n}問`), h('em', null, p == null ? '未挑戦' : `${p}%`));
+      h('span', { lang: 'ja' }, ja), koSmall(ko), h('b', null, `${n}問`), h('em', null, p == null ? '未挑戦' : `${p}%`));
   });
   body.append(
     n2SummaryBox(app),
-    h('p', { class: 'note' }, `어휘 ${s.words}개 · 문법 ${s.grammar}개 · 문제 ${BANK.length}개 · 독해 ${READING.length}편 · 청해 ${LISTENING.length}개. 수준은 공식 목록이 없어 모두 추정이며, 정답률은 이 앱 문제에서의 기록일 뿐 합격 가능성을 뜻하지 않습니다.`),
     h('h3', { class: 'h', lang: 'ja' }, '問題演習'),
     h('div', { class: 'n2-types' }, typeRows),
     h('div', { class: 'row' },
@@ -181,10 +195,10 @@ function vocab(app, body) {
   const filters = h('div', { class: 'n2-filters' });
   const draw = () => {
     filters.replaceChildren(
-      h('div', { class: 'chips' }, [['all', '전체'], ...Object.entries(N2X_TAG_KO), ['game', '게임 대사']].map(([k, l]) => chip(l, tag === k, () => { tag = k; limit = 60; draw(); }))),
+      h('div', { class: 'chips' }, [['all', tt('전체', 'すべて')], ...Object.entries(uiJa() ? TAG_JA : N2X_TAG_KO), ['game', tt('게임 대사', 'ゲームのせりふ')]].map(([k, l]) => chip(l, tag === k, () => { tag = k; limit = 60; draw(); }))),
       h('div', { class: 'chips' },
-        [['all', '전부'], ['game', 'ゲーム語彙'], ['exam', '試験語彙']].map(([k, l]) => chip(l, set === k, () => { set = k; limit = 60; draw(); })),
-        [['all', '상태 전부'], ['0', STATUS[0]], ['1', STATUS[1]], ['2', STATUS[2]]].map(([k, l]) => chip(l, st === k, () => { st = k; limit = 60; draw(); }))));
+        [['all', tt('전부', '全部')], ['game', 'ゲーム語彙'], ['exam', '試験語彙']].map(([k, l]) => chip(l, set === k, () => { set = k; limit = 60; draw(); })),
+        [['all', tt('상태 전부', '状態すべて')], ['0', STATUS[0]], ['1', STATUS[1]], ['2', STATUS[2]]].map(([k, l]) => chip(l, st === k, () => { st = k; limit = 60; draw(); }))));
     const hits = words.filter((k) => {
       const v = VOCAB[k];
       if (tag === 'game' ? !(!N2X[k] || inGame(k)) : tag !== 'all' && (!N2X[k] || N2X[k].tag !== tag)) return false;
@@ -199,11 +213,11 @@ function vocab(app, body) {
       const v = VOCAB[k];
       const r = srs['v:' + k];
       return h('button', { class: 'n2-row', type: 'button', onclick: () => vocabDetail(app, k) },
-        h('span', { class: 'n2-w', lang: 'ja' }, k), h('span', { class: 'n2-r', lang: 'ja' }, v.r), h('span', { class: 'n2-m' }, v.m),
+        h('span', { class: 'n2-w', lang: 'ja' }, k), h('span', { class: 'n2-r', lang: 'ja' }, v.r), uiJa() ? null : h('span', { class: 'n2-m' }, v.m),
         h('span', { class: 'n2-st s' + statusOf(r) }, STATUS[statusOf(r)] + (r ? ` · ${dateText(r.due)}` : '')));
     }), hits.length > limit ? h('button', { class: 'btn center', type: 'button', onclick: () => { limit += 100; draw(); } }, `もっと見る（残り ${hits.length - limit}）`) : '');
   };
-  const search = h('input', { class: 'word-input', type: 'search', placeholder: '検索（漢字・よみ・뜻）', 'aria-label': '검색', oninput: (e) => { q = e.target.value.trim(); limit = 60; draw(); } });
+  const search = h('input', { class: 'word-input', type: 'search', placeholder: tt('検索（漢字・よみ・뜻）', '検索（漢字・よみ）'), 'aria-label': '検索', oninput: (e) => { q = e.target.value.trim(); limit = 60; draw(); } });
   draw();
   body.append(search, filters, count, list);
 }
@@ -216,23 +230,23 @@ export function vocabDetail(app, key) {
   const r = srs['v:' + key];
   const exKo = h('div', { class: 'ko', hidden: true }, v.exk);
   const words = (arr) => (arr && arr.length ? h('span', { lang: 'ja' }, arr.map((w) => (VOCAB[w] ? `${w}（${VOCAB[w].r}）` : w)).join('、')) : '—');
-  const add = h('button', { class: 'btn center', type: 'button', disabled: !!r, onclick: () => { const s2 = store.srs(); meet(s2, 'v:' + key); store.saveSrs(s2); add.disabled = true; add.textContent = '복습 목록에 있음'; } }, r ? '복습 목록에 있음' : '복습 목록에 추가');
+  const add = h('button', { class: 'btn center', type: 'button', disabled: !!r, onclick: () => { const s2 = store.srs(); meet(s2, 'v:' + key); store.saveSrs(s2); add.disabled = true; add.textContent = tt('복습 목록에 있음', '復習リストにある'); } }, r ? tt('복습 목록에 있음', '復習リストにある') : tt('복습 목록에 추가', '復習リストに入れる'));
   modal(app, key,
     h('div', { class: 'v-head' }, h('span', { class: 'v-word', lang: 'ja' }, key), h('span', { class: 'v-read', lang: 'ja' }, `（${v.r}）`)),
     h('dl', { class: 'kv v-kv' },
-      h('dt', null, '뜻'), h('dd', null, v.m),
-      h('dt', null, '품사'), h('dd', null, ({ n: v.sn ? 'する명사' : '명사', v: '동사', a: 'い형용사', na: 'な형용사', adv: '부사', exp: '표현' })[v.pos] || '—'),
-      h('dt', null, '수준'), h('dd', null, 'N2 추정'),
-      h('dt', null, '구분'), h('dd', null, `${inGame(key) ? 'ゲーム語彙(대사에 나옴)' : '試験語彙'} · ${N2X_TAG_KO[v.tag] || ''}`),
-      h('dt', null, '유의어'), h('dd', null, words(v.syn)),
-      h('dt', null, '반의어'), h('dd', null, words(v.ant)),
-      h('dt', null, '헷갈리는 말'), h('dd', null, words(v.conf)),
-      v.gram && v.gram.length ? [h('dt', null, '관련 문법'), h('dd', null, v.gram.filter((g) => GRAMMAR[g]).map((g) => h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => grammarDetail(app, g) }, GRAMMAR[g].f)))] : null,
-      h('dt', null, '학습 상태'), h('dd', null, STATUS[statusOf(r)] + (r ? ` (○${r.ok} ×${r.ng})` : '')),
-      h('dt', null, '복습일'), h('dd', null, r ? dateText(r.due) : '—')),
-    v.note ? h('div', { class: 'v-sec' }, h('div', { class: 'v-note' }, v.note)) : null,
+      h('dt', null, tt('뜻', '意味')), h('dd', null, v.m),
+      h('dt', null, tt('품사', '品詞')), h('dd', null, uiJa() ? (v.pos === 'n' ? (v.sn ? 'する名詞' : '名詞') : POS_JA[v.pos] || '—') : ({ n: v.sn ? 'する명사' : '명사', v: '동사', a: 'い형용사', na: 'な형용사', adv: '부사', exp: '표현' })[v.pos] || '—'),
+      h('dt', null, tt('수준', 'レベル')), h('dd', null, tt('N2 추정', 'N2（推定）')),
+      h('dt', null, tt('구분', '区分')), h('dd', null, `${inGame(key) ? 'ゲーム語彙' : '試験語彙'} · ${(uiJa() ? TAG_JA : N2X_TAG_KO)[v.tag] || ''}`),
+      h('dt', null, tt('유의어', '類義語')), h('dd', null, words(v.syn)),
+      h('dt', null, tt('반의어', '対義語')), h('dd', null, words(v.ant)),
+      h('dt', null, tt('헷갈리는 말', 'まぎらわしい語')), h('dd', null, words(v.conf)),
+      v.gram && v.gram.length ? [h('dt', null, tt('관련 문법', '関連文法')), h('dd', null, v.gram.filter((g) => GRAMMAR[g]).map((g) => h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => grammarDetail(app, g) }, GRAMMAR[g].f)))] : null,
+      h('dt', null, tt('학습 상태', '学習状況')), h('dd', null, STATUS[statusOf(r)] + (r ? ` (○${r.ok} ×${r.ng})` : '')),
+      h('dt', null, tt('복습일', '復習日')), h('dd', null, r ? dateText(r.due) : '—')),
+    v.note ? h('div', { class: 'v-sec' }, ...koBlock(h('div', { class: 'v-note' }, v.note))) : null,
     h('div', { class: 'v-sec' }, h('h4', null, '例文'), h('div', { class: 'line' }, h('div', { class: 'ja', lang: 'ja' }, renderExample(key, app.settings.furigana)), exKo), h('div', { class: 'tools' }, toggleKo(exKo))),
-    h('div', { class: 'row' }, add, h('button', { class: 'btn center', type: 'button', onclick: () => { saveWord(key, null); app.toast('단어장에 저장'); } }, '単語帳')));
+    h('div', { class: 'row' }, add, h('button', { class: 'btn center', type: 'button', onclick: () => { saveWord(key, null); app.toast(tt('단어장에 저장', '単語帳に保存した')); } }, '単語帳')));
 }
 
 // ───── 문법 ─────
@@ -245,10 +259,10 @@ function grammar(app, body) {
     const g = GRAMMAR[k];
     const r = srs['g:' + k];
     return h('button', { class: 'n2-row', type: 'button', onclick: () => grammarDetail(app, k) },
-      h('span', { class: 'n2-w', lang: 'ja' }, g.f), h('span', { class: 'n2-m' }, g.m), h('span', { class: 'n2-st s' + statusOf(r) }, `${g.lv} · ${STATUS[statusOf(r)]}`));
+      h('span', { class: 'n2-w', lang: 'ja' }, g.f), uiJa() ? null : h('span', { class: 'n2-m' }, g.m), h('span', { class: 'n2-st s' + statusOf(r) }, `${g.lv} · ${STATUS[statusOf(r)]}`));
   }));
   draw();
-  body.append(h('input', { class: 'word-input', type: 'search', placeholder: '検索', 'aria-label': '검색', oninput: (e) => { q = e.target.value.trim(); draw(); } }), h('div', { class: 'note' }, `${keys.length}項目 (N2 ${n2Grammar().length})`), list);
+  body.append(h('input', { class: 'word-input', type: 'search', placeholder: '検索', 'aria-label': '検索', oninput: (e) => { q = e.target.value.trim(); draw(); } }), h('div', { class: 'note' }, `${keys.length}項目 (N2 ${n2Grammar().length})`), list);
 }
 
 export function grammarDetail(app, key) {
@@ -276,7 +290,7 @@ export function grammarDetail(app, key) {
       meet(s2, 'g:' + key);
       grade(s2, 'g:' + key, ok);
       store.saveSrs(s2);
-      fb.replaceChildren(h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'), h('p', null, explain), g.qx ? h('ul', { class: 'why' }, wrong.map((w, i) => h('li', null, h('b', { lang: 'ja' }, w), ` — ${g.qx[i] || ''}`))) : null);
+      fb.replaceChildren(h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'), ...koBlock(h('p', null, explain), g.qx ? h('ul', { class: 'why' }, wrong.map((w, i) => h('li', null, h('b', { lang: 'ja' }, w), ` — ${g.qx[i] || ''}`))) : null));
       fb.hidden = false;
     } }, o));
     practice.append(h('h4', null, '練習'), h('div', { class: 'q-prompt long', lang: 'ja' }, stem.replace('＿＿', '（　　）')), h('div', { class: 'btns' }, btns), fb);
@@ -284,14 +298,18 @@ export function grammarDetail(app, key) {
   modal(app, g.f,
     h('div', { class: 'v-head' }, h('span', { class: 'v-word', lang: 'ja' }, g.f)),
     h('dl', { class: 'kv v-kv' },
-      h('dt', null, '뜻'), h('dd', null, g.m),
-      h('dt', null, '접속'), h('dd', null, g.c),
-      h('dt', null, '사용 조건'), h('dd', null, g.use || '—'),
-      h('dt', null, '문체'), h('dd', null, g.style || '—'),
-      h('dt', null, '수준'), h('dd', null, `${g.lv} 추정`),
-      h('dt', null, '학습 상태'), h('dd', null, STATUS[statusOf(r)] + (r ? ` · 복습 ${dateText(r.due)}` : ''))),
-    h('div', { class: 'v-sec' }, h('h4', null, '비슷한 문법과의 차이'), h('div', { class: 'v-note' }, g.d)),
-    g.err || g.w ? h('div', { class: 'v-sec' }, h('h4', null, '자주 하는 실수'), h('div', { class: 'v-note' }, g.err || g.w)) : null,
+      h('dt', null, tt('뜻', '意味')), h('dd', null, g.m),
+      h('dt', null, tt('접속', '接続')), h('dd', null, uiJa() ? jaConn(g.c) : g.c),
+      uiJa() ? null : [h('dt', null, '사용 조건'), h('dd', null, g.use || '—'), h('dt', null, '문체'), h('dd', null, g.style || '—')],
+      h('dt', null, tt('수준', 'レベル')), h('dd', null, tt(`${g.lv} 추정`, `${g.lv}（推定）`)),
+      h('dt', null, tt('학습 상태', '学習状況')), h('dd', null, STATUS[statusOf(r)] + (r ? ` · ${tt('복습', '復習')} ${dateText(r.due)}` : ''))),
+    uiJa() ? h('div', { class: 'v-sec' }, ...koBlock(
+      g.use ? h('div', { class: 'v-note' }, `사용 조건: ${g.use}`) : null,
+      g.style ? h('div', { class: 'v-note' }, `문체: ${g.style}`) : null,
+      g.d ? h('div', { class: 'v-note' }, g.d) : null,
+      g.err || g.w ? h('div', { class: 'v-note' }, g.err || g.w) : null)) : null,
+    uiJa() ? null : h('div', { class: 'v-sec' }, h('h4', null, '비슷한 문법과의 차이'), h('div', { class: 'v-note' }, g.d)),
+    !uiJa() && (g.err || g.w) ? h('div', { class: 'v-sec' }, h('h4', null, '자주 하는 실수'), h('div', { class: 'v-note' }, g.err || g.w)) : null,
     exs.length ? h('div', { class: 'v-sec' }, h('h4', null, '例文'), exs) : null,
     practice);
 }
@@ -299,7 +317,7 @@ export function grammarDetail(app, key) {
 // ───── 문제 연습 ─────
 function drill(app, body, type) {
   if (!type) {
-    body.append(h('div', { class: 'n2-types' }, Object.entries(BANK_TYPES).map(([t, [ja, ko]]) => h('button', { class: 'n2-type', type: 'button', onclick: () => app.go('n2', 'drill', t) }, h('span', { lang: 'ja' }, ja), h('small', null, ko), h('b', null, `${BANK.filter((q) => q.type === t).length}問`)))));
+    body.append(h('div', { class: 'n2-types' }, Object.entries(BANK_TYPES).map(([t, [ja, ko]]) => h('button', { class: 'n2-type', type: 'button', onclick: () => app.go('n2', 'drill', t) }, h('span', { lang: 'ja' }, ja), koSmall(ko), h('b', null, `${BANK.filter((q) => q.type === t).length}問`)))));
     return;
   }
   runDrill(app, body, pickBank(type, 10), BANK_TYPES[type][0]);
@@ -336,7 +354,7 @@ export function runDrill(app, body, qs, label, onDone) {
       btns[q.a].classList.add('right');
       if (!ok) btns[oi].classList.add('wrong');
       fb.replaceChildren(h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
-        h('ul', { class: 'why' }, q.opts.map((op, k) => h('li', { class: k === q.a ? 'ans' : null }, h('b', { lang: 'ja' }, `${k + 1}. ${op}`), ` — ${(q.why || [])[k] || ''}`))),
+        ...koBlock(h('ul', { class: 'why' }, q.opts.map((op, k) => h('li', { class: k === q.a ? 'ans' : null }, h('b', { lang: 'ja' }, `${k + 1}. ${op}`), ` — ${(q.why || [])[k] || ''}`)))),
         (q.ref || []).filter((id) => itemOf(id)).length ? h('div', { class: 'chips' }, q.ref.filter((id) => itemOf(id)).map((id) => h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => (id[0] === 'g' ? grammarDetail(app, id.slice(2)) : vocabDetail(app, id.slice(2))) }, id[0] === 'g' ? GRAMMAR[id.slice(2)].f : id.slice(2)))) : null);
       fb.hidden = false;
       next.hidden = false;
@@ -363,10 +381,10 @@ function read(app, body, id) {
     for (const [k, [ja, ko]] of Object.entries(READ_KIND)) {
       const items = READING.filter((x) => x.kind === k);
       if (!items.length) continue;
-      body.append(h('h3', { class: 'h' }, `${ja} `, h('small', null, ko)),
+      body.append(h('h3', { class: 'h' }, `${ja} `, koSmall(ko)),
         h('div', { class: 'list n2-list' }, items.map((x) => {
           const done = x.qs.filter((_, i) => ql[`${x.id}#${i}`]).length;
-          return h('button', { class: 'n2-row', type: 'button', onclick: () => app.go('n2', 'read', x.id) }, h('span', { class: 'n2-w', lang: 'ja' }, x.title), h('span', { class: 'n2-m' }, x.titleKo), h('span', { class: 'n2-st' }, `${done}/${x.qs.length}`));
+          return h('button', { class: 'n2-row', type: 'button', onclick: () => app.go('n2', 'read', x.id) }, h('span', { class: 'n2-w', lang: 'ja' }, x.title), uiJa() ? null : h('span', { class: 'n2-m' }, x.titleKo), h('span', { class: 'n2-st' }, `${done}/${x.qs.length}`));
         })));
     }
     return;
@@ -390,7 +408,7 @@ function read(app, body, id) {
     el.append(h('div', { class: 'tools' }, h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { const on = kos[0].hidden; kos.forEach((k) => (k.hidden = !on)); e.currentTarget.textContent = on ? '閉じる' : '訳'; } }, '訳')));
     return el;
   };
-  body.append(h('div', { class: 'kicker' }, `${READ_KIND[p.kind][0]} · ${p.titleKo}`), h('h3', { class: 'h', lang: 'ja' }, p.title),
+  body.append(h('div', { class: 'kicker' }, uiJa() ? READ_KIND[p.kind][0] : `${READ_KIND[p.kind][0]} · ${p.titleKo}`), h('h3', { class: 'h', lang: 'ja' }, p.title),
     block(p.text, p.ko, p.textB ? 'A' : null), p.textB ? block(p.textB, p.koB, 'B') : null);
   const qbox = h('div');
   body.append(qbox);
@@ -427,24 +445,24 @@ function speakLines(lines, onEnd) {
 function listen(app, body, id) {
   const item = id && LISTENING.find((x) => x.id === id);
   if (!item) {
-    body.append(h('p', { class: 'note' }, '브라우저의 음성 합성(TTS)으로 읽어 줍니다. 실제 JLPT 음원과 속도·억양·음질이 다르므로 참고용입니다. 음성이 없으면 스크립트를 읽어 풀 수 있습니다.'));
+    body.append(h('p', { class: 'note' }, tt('음성은 브라우저 읽기 기능이라 실제 시험 음원과 다릅니다.', '音声はブラウザの読み上げなので、実際の試験の音声とは違います。')));
     const ql = store.qlog();
     for (const [k, [ja, ko]] of Object.entries(LISTEN_KIND)) {
       const items = LISTENING.filter((x) => x.kind === k);
       if (!items.length) continue;
-      body.append(h('h3', { class: 'h' }, `${ja} `, h('small', null, ko)),
-        h('div', { class: 'list n2-list' }, items.map((x) => h('button', { class: 'n2-row', type: 'button', onclick: () => app.go('n2', 'listen', x.id) }, h('span', { class: 'n2-w', lang: 'ja' }, x.title), h('span', { class: 'n2-m' }, x.titleKo), h('span', { class: 'n2-st' }, ql[x.id] ? (ql[x.id].lastOk ? '○' : '×') : '')))));
+      body.append(h('h3', { class: 'h' }, `${ja} `, koSmall(ko)),
+        h('div', { class: 'list n2-list' }, items.map((x) => h('button', { class: 'n2-row', type: 'button', onclick: () => app.go('n2', 'listen', x.id) }, h('span', { class: 'n2-w', lang: 'ja' }, x.title), uiJa() ? null : h('span', { class: 'n2-m' }, x.titleKo), h('span', { class: 'n2-st' }, ql[x.id] ? (ql[x.id].lastOk ? '○' : '×') : '')))));
     }
     return;
   }
   const canSpeak = !!window.speechSynthesis;
   const script = h('div', { class: 'card script', hidden: canSpeak, lang: 'ja' }, item.lines.map(([sp, t], i) => h('div', { class: 'line' }, h('div', { class: 'sp' }, sp), h('div', { class: 'ja' }, t), h('div', { class: 'ko', hidden: true }, (item.ko[i] || [])[1] || ''))));
   const all = [...(item.lead ? [['ナ', item.lead]] : []), ...item.lines, ...(item.kind === 'quick' ? [] : [['ナ', item.q]])];
-  const play = h('button', { class: 'btn primary', type: 'button', disabled: !canSpeak, onclick: () => { play.textContent = '再生中…'; speakLines(all, () => (play.textContent = 'もう一度聞く')); } }, canSpeak ? '▶ 聞く' : '음성 합성을 쓸 수 없음');
+  const play = h('button', { class: 'btn primary', type: 'button', disabled: !canSpeak, onclick: () => { play.textContent = '再生中…'; speakLines(all, () => (play.textContent = 'もう一度聞く')); } }, canSpeak ? '▶ 聞く' : tt('음성 합성을 쓸 수 없음', '音声合成が使えない'));
   const showScript = h('button', { class: 'btn center', type: 'button', onclick: () => { script.hidden = !script.hidden; } }, 'スクリプト');
   const showKo = h('button', { class: 'btn center', type: 'button', onclick: () => { script.hidden = false; script.querySelectorAll('.ko').forEach((k) => (k.hidden = !k.hidden)); } }, '訳');
   const qbox = h('div');
-  body.append(h('div', { class: 'kicker' }, `${LISTEN_KIND[item.kind][0]} · ${item.titleKo}`), h('h3', { class: 'h', lang: 'ja' }, item.title),
+  body.append(h('div', { class: 'kicker' }, uiJa() ? LISTEN_KIND[item.kind][0] : `${LISTEN_KIND[item.kind][0]} · ${item.titleKo}`), h('h3', { class: 'h', lang: 'ja' }, item.title),
     item.lead ? h('p', { class: 'q-prompt long', lang: 'ja' }, item.lead) : null,
     h('div', { class: 'row' }, play, showScript, showKo), script, qbox);
   runDrill(app, qbox, [{ id: item.id, type: 'listen-' + item.kind, q: item.kind === 'quick' ? '最もよい返事を選んでください。' : item.q, opts: item.opts, a: item.a, why: item.why, ko: '', ref: [] }], LISTEN_KIND[item.kind][0], () => {
@@ -459,17 +477,17 @@ function weak(app, body) {
   const srs = store.srs();
   const rows = Object.entries(st).filter(([, x]) => x.ok + x.ng >= 3).map(([t, x]) => ({ t, p: pct(x), n: x.ok + x.ng })).sort((a, b) => a.p - b.p);
   const name = (t) => (BANK_TYPES[t] ? BANK_TYPES[t][0] : t.startsWith('read-') ? '読解・' + (READ_KIND[t.slice(5)] || [''])[0] : t.startsWith('listen-') ? '聴解・' + (LISTEN_KIND[t.slice(7)] || [''])[0] : t);
-  body.append(h('h3', { class: 'h' }, '유형별 정답률'),
+  body.append(h('h3', { class: 'h' }, tt('유형별 정답률', '問題形式別の正答率')),
     rows.length ? h('div', { class: 'list' }, rows.map((r) => h('div', { class: 'card weak-row' }, h('span', { lang: 'ja' }, name(r.t)), h('b', null, `${r.p}%`), h('small', null, `${r.n}問`),
-      BANK_TYPES[r.t] ? h('button', { class: 'mini-btn', type: 'button', onclick: () => app.go('n2', 'drill', r.t) }, '練習') : null))) : h('p', { class: 'note' }, '유형마다 3문제 이상 풀면 여기에 정답률이 나옵니다.'));
+      BANK_TYPES[r.t] ? h('button', { class: 'mini-btn', type: 'button', onclick: () => app.go('n2', 'drill', r.t) }, '練習') : null))) : h('p', { class: 'note' }, tt('3문제 이상 풀면 표시됩니다.', '3問以上解くと表示される。')));
   const ids = priorityIds(srs).slice(0, 30);
   const groups = {};
   for (const id of ids) (groups[priorityOf(srs[id])] = groups[priorityOf(srs[id])] || []).push(id);
-  body.append(h('h3', { class: 'h' }, '우선 복습할 말'),
-    ids.length ? h('div', { class: 'list' }, Object.entries(groups).map(([p, list]) => h('div', { class: 'card' }, h('div', { class: 'kicker' }, PRIORITY_KO[p] || '복습'), h('div', { class: 'chips' }, list.map((id) => {
+  body.append(h('h3', { class: 'h' }, tt('우선 복습할 말', '優先して復習する語')),
+    ids.length ? h('div', { class: 'list' }, Object.entries(groups).map(([p, list]) => h('div', { class: 'card' }, h('div', { class: 'kicker' }, (uiJa() ? PRIORITY_JA : PRIORITY_KO)[p] || tt('복습', '復習')), h('div', { class: 'chips' }, list.map((id) => {
       const it = itemOf(id);
       return h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => (id[0] === 'g' ? grammarDetail(app, it.key) : vocabDetail(app, it.key)) }, it.type === 'g' ? it.f : it.key);
-    }))))) : h('p', { class: 'note' }, '아직 없습니다.'),
+    }))))) : h('p', { class: 'note' }, tt('아직 없습니다.', 'まだない。')),
     ids.length ? h('button', { class: 'btn primary', type: 'button', style: 'margin-top:10px', onclick: () => app.startQuiz(ids.slice(0, 15), '弱点') }, '弱点 15問') : null);
 }
 

@@ -135,7 +135,7 @@ export function resultScreen(app, s) {
     document.body.append(a);
     a.click();
     a.remove();
-    app.toast('안 되면 카드를 길게 눌러 저장');
+    app.toast(ja ? 'だめなときはカードを長押しして保存' : '안 되면 카드를 길게 눌러 저장');
   };
   const ja = isJa(app);
   const people = h('div', { class: 'pair' }, ROLES.map((r) => {
@@ -171,27 +171,30 @@ export function resultScreen(app, s) {
 // 이번 견생의 일본어: 만난 N2 어휘·문법, 퀴즈 정답률, 취약 표현, 다음 복습
 function lifeStudy(app, s, srs) {
   const L = lifeSummary(s, srs);
+  const ja = isJa(app);
+  const t = (ko, jt) => (ja ? jt : ko);
   const head = (id) => {
     const it = itemOf(id);
     return it.type === 'g' ? it.f : `${it.key}（${it.r}）`;
   };
   const when = (t) => {
     const d = Math.ceil((t - Date.now()) / DAY);
+    if (ja) return d <= 0 ? '今' : d === 1 ? '明日' : `${d}日後`;
     return d <= 0 ? '지금' : d === 1 ? '내일' : `${d}일 뒤`;
   };
-  const chips = (ids) => h('div', { class: 'chips' }, ids.map((id) => h('span', { class: 'chip', lang: 'ja', title: itemOf(id).m }, head(id))));
+  const chips = (ids) => h('div', { class: 'chips' }, ids.map((id) => h('span', { class: 'chip', lang: 'ja', title: ja ? null : itemOf(id).m }, head(id))));
   return h('div', { class: 'card life-study', style: 'margin-top:12px' },
     h('h3', { class: 'h', lang: 'ja' }, 'この一生の日本語'),
     h('dl', { class: 'kv' },
-      h('dt', null, '만난 N2 어휘'), h('dd', null, `${L.words.length}개`),
-      h('dt', null, '만난 N2 문법'), h('dd', null, `${L.grammar.length}개`),
-      h('dt', null, '퀴즈'), h('dd', null, L.asked ? `${L.ok} / ${L.asked} 정답 (${L.accuracy}%)` : '이번 견생에서는 풀지 않음'),
-      h('dt', null, '내일까지 복습'), h('dd', null, `${L.dueTomorrow}개`)),
-    L.grammar.length ? [h('h4', null, '만난 N2 문법'), chips(L.grammar)] : null,
-    L.weak.length ? [h('h4', null, '취약 표현'), h('ul', { class: 'weak' }, L.weak.map((id) => h('li', null, h('b', { lang: 'ja' }, head(id)), ` ${itemOf(id).m}`)))] : null,
-    L.next.length ? [h('h4', null, '다음 복습 예정'), h('ul', { class: 'weak' }, L.next.map((x) => h('li', null, h('b', { lang: 'ja' }, head(x.id)), ` · ${when(x.due)}`)))] : null,
-    L.weak.length ? h('button', { class: 'btn primary', type: 'button', style: 'margin-top:8px', onclick: () => app.startQuiz(L.weak, '약한 표현') }, '약한 표현 복습') : null,
-    L.next.length ? h('button', { class: 'btn center', type: 'button', style: 'margin-top:8px', onclick: () => app.startQuiz(L.next.map((x) => x.id), '다음 복습') }, '다음 복습 먼저') : null);
+      h('dt', null, t('만난 N2 어휘', '出会ったN2語彙')), h('dd', null, t(`${L.words.length}개`, `${L.words.length}語`)),
+      h('dt', null, t('만난 N2 문법', '出会ったN2文法')), h('dd', null, t(`${L.grammar.length}개`, `${L.grammar.length}項目`)),
+      h('dt', null, t('퀴즈', 'クイズ')), h('dd', null, L.asked ? t(`${L.ok} / ${L.asked} 정답 (${L.accuracy}%)`, `${L.ok} / ${L.asked} 正解（${L.accuracy}%）`) : t('이번 견생에서는 풀지 않음', 'この一生では解いていない')),
+      h('dt', null, t('내일까지 복습', '明日までの復習')), h('dd', null, t(`${L.dueTomorrow}개`, `${L.dueTomorrow}件`))),
+    L.grammar.length ? [h('h4', null, t('만난 N2 문법', '出会ったN2文法')), chips(L.grammar)] : null,
+    L.weak.length ? [h('h4', null, t('취약 표현', '苦手な表現')), h('ul', { class: 'weak' }, L.weak.map((id) => h('li', null, h('b', { lang: 'ja' }, head(id)), ja ? '' : ` ${itemOf(id).m}`)))] : null,
+    L.next.length ? [h('h4', null, t('다음 복습 예정', '次の復習')), h('ul', { class: 'weak' }, L.next.map((x) => h('li', null, h('b', { lang: 'ja' }, head(x.id)), ` · ${when(x.due)}`)))] : null,
+    L.weak.length ? h('button', { class: 'btn primary', type: 'button', style: 'margin-top:8px', onclick: () => app.startQuiz(L.weak, t('약한 표현', '苦手')) }, t('약한 표현 복습', '苦手な表現を復習')) : null,
+    L.next.length ? h('button', { class: 'btn center', type: 'button', style: 'margin-top:8px', onclick: () => app.startQuiz(L.next.map((x) => x.id), t('다음 복습', '次の復習')) }, t('다음 복습 먼저', '次の復習を先に')) : null);
 }
 
 export { personFor };

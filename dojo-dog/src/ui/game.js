@@ -75,7 +75,6 @@ export class GameView {
     // ── 이야기 칸과 버튼
     this.panel = h('div', { class: 'panel pad', 'aria-live': 'polite' });
     this.foot = h('div', { class: 'foot pad' });
-    this.ticker = h('div', { class: 'ticker' });
     this.logEl = h('div', { class: 'log' });
     this.el = h('div', { class: 'screen game' }, top, h('div', { class: 'pad' }, this.device), this.panel, this.foot);
     this.app.mountScreen(this.el);
@@ -126,7 +125,8 @@ export class GameView {
     // 이야기가 펼쳐질 때는 도트 창을 줄여 대사와 선택지에 자리를 내준다.
     // 높이 기준: iPhone SE Safari(주소창 포함) ≈ 548px, iPhone 13/14 Safari ≈ 664px, 홈 화면 앱 667 / 844px
     const vh = window.innerHeight;
-    const short = vh < 760;
+    // 760→860: Claude 앱 안의 화면처럼 위에 머리줄이 있어 세로가 짧은 경우까지 대사·선택지에 자리를 준다
+    const short = vh < 860;
     const tiny = vh < 700;
     const mini = vh < 600;
     // 장면이 바뀔 때 크기·간격이 오르내리면 화면 전체가 흔들려 어지럽다. 화면 높이로만 정하고 장면과 무관하게 고정한다.
@@ -215,7 +215,6 @@ export class GameView {
     }
     const sea = G.season(s);
     this.big(`${SEASON_JA[sea]}　${G.yearNo(s)}年目`, false);
-    this.log(`${SEASON_KO[sea]}. ${this.ageText()}.`, `${SEASON_JA[sea]}。${this.ageTextJa()}。`);
     this.renderHud();
     this.setIdle();
     this.renderIdle();
@@ -227,7 +226,7 @@ export class GameView {
   // 플레이 중 학습: src 'scene'(장면 뒤 확인 문제) | 'card'(복습 카드). 문제가 없으면 아무것도 하지 않는다.
   openQuiz(src) {
     const log = quizLog(this.s);
-    const plan = planQuiz(log, src);
+    const plan = planQuiz(log, src, Date.now(), this.ja);
     if (src === 'scene') reschedule(log, this.set);
     if (!plan) return false;
     if (src === 'card') log.lastCard = this.s.t;
@@ -344,17 +343,6 @@ export class GameView {
     if (first) this.fitLcd();
   }
 
-  renderTicker() {
-    const s = this.s;
-    const prev = this.lastNews || {};
-    this.ticker.replaceChildren(...ROLES.map((r) => {
-      const p = personFor(s.cast, r);
-      return h('button', { class: 'who' + (this.lastNews && prev[r] !== s.news[r] ? ' flash' : ''), type: 'button', onclick: () => this.castSheet(r) },
-        h('b', { lang: this.ja ? 'ja' : null }, this.ja ? p.call : p.ko),
-        h('span', { lang: this.ja && s.newsJa && s.newsJa[r] ? 'ja' : null }, this.ja && s.newsJa && s.newsJa[r] ? plainJa(s.newsJa[r], { s }) : s.news[r] || ''));
-    }));
-    this.lastNews = { ...s.news };
-  }
 
   log(text, textJa = null) {
     this.pendingLog = this.pendingLog || [];
@@ -365,7 +353,7 @@ export class GameView {
     for (const l of s.log.splice(0)) this.log(l.text, l.textJa ? plainJa(l.textJa, { s }) : null);
     for (const t of this.pendingLog || []) this.logEl.prepend(h('p', null, t));
     this.pendingLog = [];
-    while (this.logEl.children.length > 4) this.logEl.lastChild.remove();
+    while (this.logEl.children.length > 3) this.logEl.lastChild.remove();
   }
 
   // ───── 장면 ─────
@@ -375,8 +363,8 @@ export class GameView {
   }
   renderIdle() {
     this.flushLog();
-    this.renderTicker();
-    this.panel.replaceChildren(this.ticker, this.logEl);
+    // 기다리는 동안은 도트 창의 개만 본다. 사람들의 근황은 메뉴 → 「道場の人々」
+    this.panel.replaceChildren(this.logEl);
     this.foot.replaceChildren();
     this.foot.hidden = true;
     this.fitLcd();
@@ -671,7 +659,14 @@ export class GameView {
     }
     const jp = this.ja && (r.resJa || ev.titleJa);
     const body = [h('div', { class: 'ev-cat' }, CAT[ev.cat] || ''), jp && ev.titleJa ? this.titleEl(ev.titleJa, title) : h('h3', { class: 'ev-title' }, title)];
-    if (r.choice) body.push(h('div', { class: 'res-choice', lang: jp && r.choiceJa ? 'ja' : null }, (r.auto ? `${this.s.dog.name} · ` : '') + (jp && r.choiceJa ? plainJa(r.choiceJa, { s: this.s }) : r.choice)));
+    if (r.choice) {
+      const pre = r.auto ? `${this.s.dog.name} · ` : '';
+      if (jp && r.choiceJa) {
+        // 일본어 모드: 탭하면 한국어가 아래에
+        const ko = h('div', { class: 'ko', hidden: true }, r.choice);
+        body.push(h('div', { class: 'res-choice tap', lang: 'ja', role: 'button', tabindex: '0', onclick: () => (ko.hidden = !ko.hidden) }, pre + plainJa(r.choiceJa, { s: this.s }), ko));
+      } else body.push(h('div', { class: 'res-choice' }, pre + r.choice));
+    }
     if (jp && r.resJa) {
       const narr = splitSentJa(r.resJa);
       const ids = this.sceneIds([...narr, ...r.lines.map((l) => l[1])]);
@@ -684,12 +679,21 @@ export class GameView {
     if (r.delta.length) {
       body.push(h('div', { class: 'deltas' }, r.delta.map((d) => {
         const p = d.k.startsWith('b_') && d.k !== 'b_iincho' ? personFor(this.s.cast, d.k.slice(2)) : null;
-        const name = d.k.startsWith('b_') ? (this.ja ? `${d.k === 'b_iincho' ? '委員長' : p.call}との絆` : `${d.k === 'b_iincho' ? '위원장' : p.ko} 유대`) : (this.ja ? STAT_JA : STAT_KO)[d.k];
-        return h('span', { class: 'delta ' + (d.v > 0 ? 'up' : 'down') }, `${name} ${d.v > 0 ? '+' : ''}${d.v}`);
+        const who = d.k === 'b_iincho' ? '위원장' : p && p.ko;
+        // 받침이 있으면 「과」, 없으면 「와」
+        const wa = (w) => ((w.charCodeAt(w.length - 1) - 0xac00) % 28 ? '과' : '와');
+        const nameKo = d.k.startsWith('b_') ? `${who}${wa(who)}의 유대` : STAT_KO[d.k];
+        const name = this.ja ? (d.k.startsWith('b_') ? `${d.k === 'b_iincho' ? '委員長' : p.call}との絆` : STAT_JA[d.k]) : nameKo;
+        const v = `${d.v > 0 ? '+' : ''}${d.v}`;
+        // 일본어 모드: 탭하면 한국어 뜻
+        return this.ja
+          ? h('button', { class: 'delta ' + (d.v > 0 ? 'up' : 'down'), type: 'button', onclick: () => this.app.toast(`${nameKo} ${v}`) }, `${name} ${v}`)
+          : h('span', { class: 'delta ' + (d.v > 0 ? 'up' : 'down') }, `${name} ${v}`);
       })));
     }
     const notes = this.ja && r.notesJa ? r.notesJa.filter((x) => x !== '成功' && x !== '失敗') : r.notes.filter((x) => x !== '성공' && x !== '실패');
-    for (const n of notes) body.push(h('p', { class: 'note' }, n));
+    const notesKo = r.notes.filter((x) => x !== '성공' && x !== '실패');
+    notes.forEach((n, i) => body.push(this.ja && notesKo[i] && notesKo[i] !== n ? h('p', { class: 'note tap', role: 'button', tabindex: '0', onclick: () => this.app.toast(notesKo[i]) }, n) : h('p', { class: 'note' }, n)));
     if (r.foil) {
       body.push(h('div', { class: 'stamp' }, '作戦阻止', h('small', null, this.ja ? `通算${this.s.foiled}回` : `통산 ${this.s.foiled}회`)));
       if (!again) this.big('作戦阻止');
@@ -739,7 +743,10 @@ export class GameView {
   doWord(text, auto) {
     if (this.s.phase !== 'word') return;
     G.setWord(this.s, text, auto);
-    if (auto) this.log(`オート: 「${text}」`, `オート：「${text}」`);
+    if (auto) {
+      const w = this.s.words[this.s.words.length - 1];
+      this.log(`오토: 「${w.text}」`, `オート：「${w.textJa || w.text}」`);
+    }
     this.save();
     this.renderPhase();
   }
@@ -823,8 +830,13 @@ export class GameView {
     const close = () => back.remove();
     back.append(h('div', { class: 'modal' },
       h('h3', { class: 'ev-title' }, 'メニュー'),
-      this.app.studyControls(),
-      h('h3', { class: 'h' }, '소리'),
+      h('h3', { class: 'h' }, this.ja ? '道場の人々' : '도장 사람들'),
+      h('div', { class: 'people-grid' }, ROLES.map((r) => {
+        const p = personFor(this.s.cast, r);
+        return h('button', { class: 'btn center', type: 'button', lang: this.ja ? 'ja' : null, onclick: () => this.castSheet(r) }, this.ja ? p.call : p.ko);
+      })),
+      this.app.studyControls(() => { close(); this.menu(); }),
+      h('h3', { class: 'h' }, this.ja ? 'サウンド' : '소리'),
       this.app.soundControls(),
       h('div', { class: 'btns', style: 'margin-top:10px' },
         h('div', { class: 'row' },

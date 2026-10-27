@@ -33,7 +33,7 @@ export const DEFAULT_SETTINGS = {
   speed: 1,
   auto: true,
   autoMode: 'major', // 'all' 全部おまかせ / 'major' 大事な場面だけ止まる
-  furigana: 'n2', // 'always' 항상 / 'n2' N2 이상 어휘만 / 'hard' 어려운 한자·고유명사만 / 'off'
+  furigana: 'always', // 'always' 항상(처음 시작 기본값) / 'n2' N2 이상 어휘만 / 'hard' 어려운 한자·고유명사만 / 'off'
   studyLevel: 'n2', // 'n5'(N5~N4) / 'n3' / 'n2' / 'n1' / 'custom'
   customLevels: ['3', '2', 'K'],
   hideEasy: true, // 쉬운 단어 학습 표시 끄기
@@ -43,7 +43,7 @@ export const DEFAULT_SETTINGS = {
   quizFreq: 'mid', // 'off' / 'low' 8~10장면 / 'mid' 4~5장면 / 'high' 2~3장면마다 한 문제
   choiceMode: 'major', // 'major' 중요한 장면만 직접 고른다(나머지는 개가 성격대로 움직인다) / 'all' 모든 장면
   lcdFold: null, // 도트 창 접기: null=자동(600px 미만 화면에서는 접음), true/false=직접 고른 값
-  sound: false,
+  sound: true, // 처음부터 음악을 켠다(브라우저 정책상 첫 탭에 시작)
   bgm: 0.5,
   sfx: 0.45,
   sfxOn: true,

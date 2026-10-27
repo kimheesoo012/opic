@@ -263,7 +263,15 @@ export function readingOptions(key, seed = 'r') {
 }
 
 // ctx.hasScene: 게임 속 문장이 있는가 / ctx.blank: blankOf()의 결과 (문장 빈칸을 낼 수 있을 때)
+// 일본어만으로 풀 수 있는 유형 (일본어 몰입 모드: 한국어 뜻을 고르거나 한국어 문제문을 읽는 유형은 내지 않는다)
+export const JA_ONLY_KINDS = new Set(['reading', 'grammar', 'gblank']);
+
 export function questionKinds(id, ctx = {}) {
+  const all = questionKindsAll(id, ctx);
+  return ctx.jaOnly ? all.filter((k) => JA_ONLY_KINDS.has(k)) : all;
+}
+
+function questionKindsAll(id, ctx = {}) {
   if (id[0] === 'g') {
     const key = id.slice(2);
     if (!CORE(key)) return ['grammar'];
@@ -290,6 +298,7 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
   if (!it) return null;
   const h = { rng: hashSeed(seed + id) };
   const kinds = questionKinds(id, ctx);
+  if (!kinds.length) return null;
   const kind = ctx.kind && kinds.includes(ctx.kind) ? ctx.kind : kinds[((rec ? rec.ok + rec.ng : 0) + Math.floor(rand(h) * 2)) % kinds.length];
   if (kind === 'grammar') {
     const [stem, ans, wrong, explain] = it.q;
@@ -376,9 +385,12 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
 }
 
 // hasScene(id): 그 말이 게임 속 장면을 갖고 있는지 / blankFor(id): 문장 빈칸 정보 (없으면 null)
-export function makeSet(ids, n = 10, seed = 'set', srs = {}, hasScene = () => false, blankFor = () => null) {
+export function makeSet(ids, n = 10, seed = 'set', srs = {}, hasScene = () => false, blankFor = () => null, jaOnly = false) {
   const h = { rng: hashSeed(seed) };
-  return shuffle(h, [...new Set(ids)].filter((id) => itemOf(id))).slice(0, n).map((id, i) => makeQuestion(id, seed + i, srs[id], { hasScene: hasScene(id), blank: blankFor(id) }));
+  return shuffle(h, [...new Set(ids)].filter((id) => itemOf(id)))
+    .map((id, i) => makeQuestion(id, seed + i, srs[id], { hasScene: hasScene(id), blank: blankFor(id), jaOnly }))
+    .filter(Boolean)
+    .slice(0, n);
 }
 
 // 복습 화면 묶음: 오늘 단어, 오늘 문법, 최근 틀린 것, 어려운 것
