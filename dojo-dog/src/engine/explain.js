@@ -61,7 +61,15 @@ export const withReading = (k) => (VOCAB[k] && k2h(k) !== VOCAB[k].r && k !== VO
 export const vocabLine = (k) => (VOCAB[k] ? `${withReading(k)} = ${VOCAB[k].m}` : k);
 // 대사 표시 기호를 뺀 글자
 const plain = (t = '') => String(t).replace(/\[([^\]|]+)(\|[^\]]*)?\]/g, '$1').replace(/〘([^|〙]+)\|[^〙]*〙/g, '$1').replace(/〔([^:〕]+):[^〕]*〕/g, '$1');
-const shortC = (c = '') => c.replace(/\s*[（(][^）)]*[）)]/g, '').split(' / ')[0].trim();
+const shortC = (c = '') => c.replace(/\s*[（(][^）)]*[）)]/g, '').split(' / ')[0].split(/\.\s/)[0].trim();
+// 해설 한 줄용 짧은 꼴: 문법은 「뜻 · 접속」, 어휘는 「읽기 · 뜻」 (선택지 글자는 화면이 따로 보여 주므로 되풀이하지 않는다)
+export const shortConnOf = (g) => shortC(g.c || '');
+export const gShort = (g) => (g ? [g.m, shortC(g.c)].filter(Boolean).join(' · ') : '');
+export const vShort = (k) => {
+  const v = VOCAB[k];
+  if (!v) return '';
+  return k2h(k) === v.r || k === v.r ? v.m : `${v.r} · ${v.m}`;
+};
 // 「わけがない」 같은 형태로 문법 항목 찾기
 export function grammarByForm(form) {
   if (GRAMMAR[form]) return { key: form, ...GRAMMAR[form] };

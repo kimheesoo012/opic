@@ -475,15 +475,21 @@ ruby rt { font-size: 0.5em; }
 button.delta { background: none; font: inherit; font-size: 16px; cursor: pointer; }
 .res-choice.tap { cursor: pointer; }
 .res-choice .ko { color: var(--ink2); font-size: 15px; margin-top: 2px; }
-/* 퀴즈 해설: 고른 답 → 정답 → 나머지 */
-.ex-box { border-radius: 10px; padding: 8px 10px; margin: 6px 0; border: 1px solid var(--line); }
-.ex-box b { display: block; font-size: 17px; margin: 2px 0; }
-.ex-box p { margin: 2px 0 0; }
-.ex-pick { border-color: var(--bad); }
-.ex-ans { border-color: var(--good); }
-.ex-tag { font-size: 13px; font-weight: 600; }
-.ex-tag.ng { color: var(--bad); }
-.ex-tag.ok { color: var(--good); }
-.ex-others li b { display: inline; }
-.ex-more { margin-top: 6px; font-size: 15px; color: var(--ink2); }
-.ex-more p { margin: 3px 0; }
+/* 퀴즈 해설: 고른 답 → 정답 → 나머지(한 줄씩) → 자세히(접힘) */
+.ex-box { margin: 8px 0; padding: 8px 12px; border-radius: 8px; background: var(--surface); border-left: 4px solid var(--line); }
+.ex-pick { border-left-color: var(--bad); }
+.ex-ans { border-left-color: var(--good); }
+.ex-head { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; }
+.ex-tag { font-size: 12px; font-weight: 700; color: #fff; border-radius: 6px; padding: 1px 7px; background: var(--ink2); }
+.ex-pick .ex-tag { background: var(--bad); }
+.ex-ans .ex-tag { background: var(--good); }
+.ex-box b { font-size: 17px; }
+.ex-box p { margin: 4px 0 0; font-size: 15px; line-height: 1.6; }
+.ex-others { list-style: none; padding: 0; margin: 6px 0 0; }
+.ex-others li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; padding: 7px 2px; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.55; }
+.ex-others li b { font-weight: 600; }
+.ex-others li span { color: var(--ink2); }
+.ex-more { margin-top: 6px; }
+.ex-more summary { cursor: pointer; color: var(--accent); font-size: 15px; padding: 6px 0; }
+.ex-more p { margin: 4px 0; font-size: 14px; line-height: 1.6; color: var(--ink2); }
+.ex-ko { margin: 8px 0 0; font-size: 14px; color: var(--ink2); }
