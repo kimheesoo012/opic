@@ -1,5 +1,6 @@
 // 道場犬 서비스 워커: 앱 셸을 캐시해서 오프라인에서도 실행된다.
-const VERSION = '121a4196fe';
+// 범위는 이 파일이 있는 폴더(예: /opic/dojo-dog/)뿐이고, 캐시 이름은 「dojoinu-」로 시작하는 것만 만들고 지운다.
+const VERSION = 'a71022c960';
 const CACHE = 'dojoinu-' + VERSION;
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-icon.png', './icons/favicon-64.png'];
 
@@ -33,10 +34,11 @@ self.addEventListener('fetch', (e) => {
       const copy = r.clone();
       caches.open(CACHE).then((c) => c.put('./index.html', copy));
       return r;
-    }).catch(() => caches.match('./index.html')));
+    }).catch(() => caches.open(CACHE).then((c) => c.match('./index.html'))));
     return;
   }
-  e.respondWith(caches.match(req).then((hit) => hit || fetch(req).then((r) => {
+  // 같은 출처의 다른 사이트 캐시를 보지 않도록, 이 앱의 캐시에서만 찾는다
+  e.respondWith(caches.open(CACHE).then((c) => c.match(req)).then((hit) => hit || fetch(req).then((r) => {
     if (r.ok) {
       const copy = r.clone();
       caches.open(CACHE).then((c) => c.put(req, copy));

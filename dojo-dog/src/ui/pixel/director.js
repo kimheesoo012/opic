@@ -16,17 +16,25 @@ export const FLOOR = {
   festival: { py: 52, dy: 72 },
   vet: { py: 50, dy: 31 },
   room: { py: 52, dy: 70 },
+  park: { py: 50, dy: 70 },
+  beach: { py: 50, dy: 72 },
+  school: { py: 52, dy: 72 },
+  hospital: { py: 50, dy: 70 },
 };
 
 // 이벤트 글에서 장소를 고르는 낱말 (앞쪽이 우선)
 const LOC_WORDS = [
-  ['vet', ['동물병원', '병원', '獣医', '病院', '수의사', '진찰']],
+  ['vet', ['동물병원', '獣医', '수의사', '광견병', '진료']],
+  ['hospital', ['입원', '病院', '병원', '병실']],
+  ['beach', ['해변', '바닷가', '바다', '海', '모래사장']],
+  ['park', ['공원', '公園', '라디오 체조', '벤치']],
   ['court', ['대회', '시합', '試合', '大会', '審査', '심사', '杯', 'インターハイ', '승단', '決勝', '결승', '団体戦', '단체전']],
   ['bath', ['銭湯', '목욕탕', 'お風呂']],
   ['izakaya', ['居酒屋', '이자카야', '술자리', '飲み会', '회식', '打ち上げ', '뒤풀이', '忘年会', '송년회']],
   ['festival', ['祭り', '축제', '마쓰리', '花火', '불꽃', '盆踊り', '야타이', '屋台']],
   ['shrine', ['神社', '신사', '初詣', '참배', 'お参り', '鳥居']],
   ['river', ['河川敷', '강변', '강가', '둑', '土手', '川']],
+  ['school', ['학교', '学校', '운동장', '급식', '하교', '교문', '고등학교 체육관', '체육관']],
   ['street', ['商店街', '상점가', '가게', 'コロッケ', '정육점', '八百屋', '편의점', '카페', '노래방', 'カラオケ']],
 ];
 const NIGHT_WORDS = ['夜', '밤', '저녁 稽古', '夜稽古', '居酒屋', '이자카야', '술자리', '축제', '祭り', '花火', '불꽃'];
@@ -99,7 +107,9 @@ export function idlePlan(s, frac = 0) {
   const roles = ROLES.filter((r) => !gone(s, r));
   const seed = hashStr(`${s.seed}:${s.t}`);
   const senior = G.stage(s) === 'senior';
-  const loc = senior && seed < 0.35 ? 'room' : seed > 0.85 ? 'river' : 'dojo';
+  const sea = ['spring', 'summer', 'autumn', 'winter'][(s.startSeason + s.t) % 4];
+  const outing = { spring: 'park', summer: 'beach', autumn: 'shrine', winter: 'street' }[sea];
+  const loc = senior && seed < 0.35 ? 'room' : seed > 0.88 ? 'river' : seed > 0.74 ? outing : 'dojo';
   const plan = { loc, tod: todFor(null, frac), people: [], dog: { mode: 'wander' }, match: false };
   if (loc === 'dojo') {
     // 稽古하는 두 사람과, 있으면 노사범이 正座로 지켜본다
@@ -123,7 +133,7 @@ export function eventPlan(s, v, frac = 0) {
   const ev = G.EV.get(v.id);
   const loc = locFor(ev, s);
   const match = loc === 'court' && isMatch(ev);
-  const tod = loc === 'izakaya' || loc === 'festival' ? 'night' : loc === 'court' || loc === 'vet' || loc === 'bath' ? 'day' : todFor(ev, frac);
+  const tod = loc === 'izakaya' || loc === 'festival' ? 'night' : ['court', 'vet', 'bath', 'school', 'hospital'].includes(loc) ? 'day' : todFor(ev, frac);
   const plan = { loc, tod, people: [], dog: { mode: 'stay', pose: 'sit', x: 36 }, match, big: v.major ? bigText(ev) : null };
   let who = speakersOf(v.lines);
   if (v.who && !who.includes(v.who)) who.unshift(v.who);

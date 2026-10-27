@@ -4,7 +4,8 @@ import { SEASON_MS, SPEEDS, FIRST_EVENT_MS, AUTO_WORD_MS, eventShowMs, resultSho
 import { SEASON_JA, SEASON_KO, STAT_KO, STAGES, ROLE_KO, ROLES, personFor } from '../engine/world.js';
 import { SUB_TITLES } from '../data/index.js';
 import { resolveKo, plainKo } from '../engine/text.js';
-import { h, renderJa, renderKo, renderSpeaker, plainSegs, sceneTargets } from './render.js';
+import { h, renderJa, renderKo, renderSpeaker, plainSegs, sceneTargets, LINES } from './render.js';
+import { itemOf } from '../engine/study.js';
 import { LCD } from './pixel/lcd.js';
 import { idlePlan, eventPlan, lookFor } from './pixel/director.js';
 import { icon } from './icons.js';
@@ -96,9 +97,12 @@ export class GameView {
   fitLcd() {
     const dpr = window.devicePixelRatio || 1;
     const avail = Math.max(160, this.device.clientWidth - 16);
+    // 이야기가 펼쳐질 때는 도트 창을 줄여 대사와 선택지에 자리를 내준다
     const busy = this.s.phase !== 'season';
     const short = window.innerHeight < 760;
-    const target = busy && short ? Math.min(avail, 240) : Math.min(avail, 420);
+    const tiny = window.innerHeight < 700;
+    const target = busy ? Math.min(avail, tiny ? 175 : short ? 230 : 290) : Math.min(avail, short ? 300 : 420);
+    this.el.classList.toggle('tiny', busy && tiny);
     this.el.classList.toggle('compact', busy && short);
     const k = Math.max(1, Math.floor((target * dpr) / 160));
     const w = (k * 160) / dpr;
@@ -131,9 +135,9 @@ export class GameView {
         break;
       }
       case 'event':
-        if (this.autoActive()) {
+        if (this.autoActive() && !this.manualOnce) {
           this.wait += dt * sp;
-          const delay = eventShowMs(G.view(s));
+          const delay = eventShowMs(G.view(s)) * (this.set.focus ? 1.6 : 1);
           if (!this.autoShown && this.wait > delay * 0.4) this.showAutoPick();
           if (this.wait > delay) this.doChoose(this.autoIdx, true);
         }
@@ -141,7 +145,7 @@ export class GameView {
       case 'result':
         if (this.autoActive()) {
           this.wait += dt * sp;
-          if (this.wait > this.resultMs) this.doAck();
+          if (this.wait > this.resultMs * (this.set.focus ? 1.6 : 1)) this.doAck();
         }
         break;
       case 'word':
@@ -236,6 +240,7 @@ export class GameView {
 
   save() {
     this.s.seenWords = [...this.seenWords].slice(-800);
+    if (this.seenNames) this.s.seenNames = [...this.seenNames];
     this.app.saveGame(this.s);
   }
 
@@ -320,12 +325,15 @@ export class GameView {
   }
 
   ctxFor(lineSp) {
+    if (!this.seenNames) this.seenNames = new Set(this.s.seenNames || []);
     return {
       s: this.s,
       speaker: lineSp,
       mode: this.set.furigana,
       seenWords: this.seenWords,
       seenTerms: this.seenTerms,
+      seenNames: this.seenNames,
+      onName: (base, reading) => this.app.toast(`${base}（${reading}）`),
       newTerms: [],
       saved: new Set(Object.keys(store.wordbook())),
     };
@@ -334,8 +342,11 @@ export class GameView {
   renderLines(lines, title) {
     const box = h('div', { class: 'lines' });
     const kos = [];
-    const targets = new Set(sceneTargets(lines.map((l) => l[1])));
-    this.app.meet([...targets], this.s);
+    const focus = !!this.set.focus;
+    const targetIds = sceneTargets(lines.map((l) => l[1]), this.set);
+    const targets = new Set(targetIds);
+    this.app.meet(targetIds, this.s);
+    const scenes = {};
     for (const [sp, ja, ko] of lines) {
       const ctx = this.ctxFor(sp);
       ctx.targets = targets;
@@ -343,24 +354,50 @@ export class GameView {
       const koEl = h('div', { class: 'ko', hidden: true }, koText);
       kos.push(koEl);
       const scene = () => ({ tpl: ja, role: sp, ja: plainSegs(ja, { s: this.s, speaker: sp }), ko: koText, sp: spLabelText(sp, this.s), title, when: `${this.ageText()} ${SEASON_KO[G.season(this.s)]}` });
+      for (const id of targetIds) if (!scenes[id] && lineHas(ja, id)) scenes[id] = scene;
       ctx.onWord = (key) => this.app.openWord(key, scene());
       ctx.onGrammar = (key) => this.app.openGrammar(key, scene());
-      box.append(h('div', { class: 'line' }, h('div', { class: 'sp' }, renderSpeaker(sp, this.s, this.set.furigana)), h('div', { class: 'ja' }, renderJa(ja, ctx)), koEl));
+      // 학습 집중 모드: 대사마다 번역 버튼
+      const lineTool = focus ? h('button', { class: 'mini-btn line-ko', type: 'button', onclick: (e) => { koEl.hidden = !koEl.hidden; e.currentTarget.textContent = koEl.hidden ? '번역' : '닫기'; } }, '번역') : null;
+      box.append(h('div', { class: 'line' }, h('div', { class: 'sp' }, renderSpeaker(sp, this.s, this.set.furigana, ctx), lineTool), h('div', { class: 'ja' }, renderJa(ja, ctx)), koEl));
     }
-    if (kos.length) {
+    if (kos.length && !focus) {
       let on = false;
       const btn = h('button', { class: 'mini-btn', type: 'button', onclick: () => { on = !on; kos.forEach((k) => (k.hidden = !on)); btn.textContent = on ? '번역 닫기' : '번역'; } }, '번역');
       box.append(h('div', { class: 'tools' }, btn));
     }
+    // 학습 집중 모드: 이 장면의 학습 대상 목록 (탭하면 해설)
+    if (focus && targetIds.length) {
+      box.append(h('div', { class: 'targets' }, targetIds.map((id) => {
+        const it = itemOf(id);
+        const open = () => (id[0] === 'g' ? this.app.openGrammar(id.slice(2), scenes[id] && scenes[id]()) : this.app.openWord(id.slice(2), scenes[id] && scenes[id]()));
+        return h('button', { class: 'target-chip', type: 'button', onclick: open }, h('b', { lang: 'ja' }, id[0] === 'g' ? it.f : it.key), h('span', null, it.m));
+      })));
+    }
     return box;
   }
 
+  // 한국어 해설. 길면 네 줄까지만 보이고 「더보기」로 펼친다 (버튼은 아래 칸에 따로 있어 가려지지 않는다)
   koBlock(text, title) {
     const ctx = this.ctxFor(null);
     ctx.onWord = (key) => this.app.openWord(key, { ja: '', ko: plainKo(text), sp: '', title, when: this.ageText() });
-    const el = h('p', { class: 'ev-text' }, renderKo(text, ctx));
+    const p = h('p', { class: 'ev-text' }, renderKo(text, ctx));
     if (ctx.newTerms.length) store.saveSeenTerms(this.seenTerms);
-    return el;
+    if (plainKo(text).length < 90) return p;
+    p.classList.add('clamp');
+    const more = h('button', { class: 'more-btn', type: 'button', onclick: () => { const open = p.classList.toggle('clamp'); more.textContent = open ? '더보기' : '접기'; } }, '더보기');
+    requestAnimationFrame(() => { if (p.scrollHeight <= p.clientHeight + 2) more.remove(); });
+    return h('div', null, p, more);
+  }
+
+  refresh() {
+    const s = this.s;
+    const keep = this.wait;
+    const top = this.panel.scrollTop;
+    if (s.phase === 'event') this.showEvent(true);
+    else if (s.phase === 'result') this.showResult(true);
+    this.wait = keep;
+    this.panel.scrollTop = top;
   }
 
   renderPhase() {
@@ -381,27 +418,36 @@ export class GameView {
     this.panel.scrollTop = 0;
   }
 
-  showEvent() {
+  showEvent(again = false) {
     const v = G.view(this.s);
     if (!v) return;
     this.wait = 0;
     this.autoShown = false;
-    this.autoIdx = G.autoChoice(this.s);
+    // 오토 선택은 장면마다 한 번만 정한다 (설정을 바꿔 다시 그려도 그대로)
+    if (!again || this.autoIdx === undefined) this.autoIdx = G.autoChoice(this.s);
     const ev = G.EV.get(v.id);
-    const plan = eventPlan(this.s, v, this.elapsed / SEASON_MS);
-    this.lcd.setPlan(plan, this.s);
-    if (plan.big) {
-      this.big(plan.big);
-      this.app.sound.sfx('big');
-    } else if (ev.cat === 'kendo' || ev.kendo) this.app.sound.sfx('shinai');
+    if (!again) {
+      const plan = eventPlan(this.s, v, this.elapsed / SEASON_MS);
+      this.lcd.setPlan(plan, this.s);
+      if (plan.big) {
+        this.big(plan.big);
+        this.app.sound.sfx('big');
+      } else if (ev.cat === 'kendo' || ev.kendo) this.app.sound.sfx('shinai');
+    }
     const head = h('div', { class: 'ev-cat' }, (v.sub ? 'サブストーリー' : CAT[v.cat] || '') + (v.who ? ` · ${ROLE_KO[v.who]}` : ''));
     this.panel.replaceChildren(head, h('h3', { class: 'ev-title' }, v.title), v.text ? this.koBlock(v.text, v.title) : '', v.lines.length ? this.renderLines(v.lines, v.title) : '');
     this.choiceBtns = [];
+    this.manualOnce = false;
     const btns = [];
+    const calm = this.autoActive() && v.choices.length && !v.mini;
+    if (calm) {
+      this.autoLine = h('span', { class: 'auto-line-text' }, 'オート');
+      btns.push(h('div', { class: 'auto-line' }, this.autoLine, h('button', { class: 'mini-btn', type: 'button', onclick: () => this.takeOver() }, '직접 고르기')));
+    }
     if (v.mini && !this.autoActive()) btns.push(this.tambourine(v));
     else if (v.choices.length) {
       for (const c of v.choices) {
-        const b = h('button', { class: 'btn' + (c.ok ? '' : ' off'), type: 'button', disabled: !c.ok, onclick: () => this.doChoose(c.i, false) }, h('span', null, c.t, !c.ok && c.why ? h('div', { class: 'why' }, c.why) : null));
+        const b = h('button', { class: 'btn' + (c.ok ? '' : ' off'), type: 'button', disabled: !c.ok, hidden: calm, onclick: () => this.doChoose(c.i, false) }, h('span', null, c.t, !c.ok && c.why ? h('div', { class: 'why' }, c.why) : null));
         this.choiceBtns.push([c.i, b]);
         btns.push(b);
       }
@@ -409,9 +455,18 @@ export class GameView {
     this.foot.replaceChildren(...btns);
   }
 
+  // 오토 장면에서 「직접 고르기」: 이번 장면만 오토를 멈추고 선택지를 펼친다
+  takeOver() {
+    this.manualOnce = true;
+    for (const [, b] of this.choiceBtns) b.hidden = false;
+    const line = this.foot.querySelector('.auto-line');
+    if (line) line.remove();
+  }
+
   showAutoPick() {
     this.autoShown = true;
     const pair = this.choiceBtns.find(([i]) => i === this.autoIdx);
+    if (this.autoLine && pair && !this.manualOnce) this.autoLine.textContent = `オート · ${pair[1].textContent}`;
     if (pair) {
       pair[1].classList.add('auto-pick');
       pair[1].append(h('span', { class: 'auto-badge' }, 'オート'));
@@ -432,18 +487,20 @@ export class GameView {
     this.renderPhase();
   }
 
-  showResult() {
+  showResult(again = false) {
     const r = this.s.res;
     this.wait = 0;
     const ev = G.EV.get(r.id);
     const title = resolveKo(ev.title, { s: this.s });
     const ok = r.notes.includes('성공');
-    if (this.lcd.plan.match && ok) {
-      this.lcd.flags();
-      this.big('一本');
-      this.app.sound.sfx('flag');
+    if (!again) {
+      if (this.lcd.plan.match && ok) {
+        this.lcd.flags();
+        this.big('一本');
+        this.app.sound.sfx('flag');
+      }
+      this.lcd.setPlan({ ...this.lcd.plan, bubble: ok ? 'heart' : r.notes.includes('실패') ? 'sweat' : null }, this.s);
     }
-    this.lcd.setPlan({ ...this.lcd.plan, bubble: ok ? 'heart' : r.notes.includes('실패') ? 'sweat' : null }, this.s);
     const body = [h('div', { class: 'ev-cat' }, CAT[ev.cat] || ''), h('h3', { class: 'ev-title' }, title)];
     if (r.choice) body.push(h('div', { class: 'res-choice' }, (r.auto ? 'オート · ' : '') + r.choice));
     if (r.res) body.push(this.koBlock(r.res, title));
@@ -457,13 +514,15 @@ export class GameView {
     for (const n of r.notes.filter((x) => x !== '성공' && x !== '실패')) body.push(h('p', { class: 'note' }, n));
     if (r.foil) {
       body.push(h('div', { class: 'stamp' }, '作戦阻止', h('small', null, `통산 ${this.s.foiled}회`)));
-      this.big('作戦阻止');
+      if (!again) this.big('作戦阻止');
     }
     if (r.clear) {
       const st = SUB_TITLES[r.clear];
       body.push(h('div', { class: 'stamp' }, 'サブストーリー クリア', h('small', { lang: 'ja' }, `「${st.ja}」`)));
-      this.big('クリア');
-      this.app.sound.sfx('clear');
+      if (!again) {
+        this.big('クリア');
+        this.app.sound.sfx('clear');
+      }
     }
     this.resultMs = resultShowMs(r);
     this.panel.replaceChildren(...body);
@@ -578,8 +637,9 @@ export class GameView {
     const close = () => back.remove();
     back.append(h('div', { class: 'modal' },
       h('h3', { class: 'ev-title' }, 'メニュー'),
+      this.app.studyControls(),
+      h('h3', { class: 'h' }, '소리'),
       this.app.soundControls(),
-      this.app.furiganaRow(),
       h('div', { class: 'btns', style: 'margin-top:10px' },
         h('div', { class: 'row' },
           h('button', { class: 'btn center', type: 'button', onclick: () => { close(); this.save(); this.app.go('wordbook'); } }, '単語帳'),
@@ -588,6 +648,11 @@ export class GameView {
         h('button', { class: 'btn primary', type: 'button', onclick: close }, '닫기'))));
     this.app.root.append(back);
   }
+}
+
+function lineHas(tpl, id) {
+  const segs = LINES.lines[tpl] || [];
+  return segs.some((sg) => sg && (sg.g === id.slice(2) || sg.v === id.slice(2)));
 }
 
 function spLabelText(sp, s) {

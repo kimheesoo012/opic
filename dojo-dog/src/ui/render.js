@@ -3,6 +3,7 @@ import LINES from '../gen/lines.json';
 import { VOCAB } from '../data/vocab.js';
 import { GRAMMAR } from '../data/grammar.js';
 import { lookup, rubyName, isHardKanji, splitJa, splitKo, resolveKo } from '../engine/text.js';
+import { showRuby, lvCode, pickTargets } from '../engine/learn.js';
 
 export function h(tag, attrs, ...kids) {
   const el = document.createElement(tag);
@@ -23,8 +24,10 @@ export function h(tag, attrs, ...kids) {
   return el;
 }
 
-function rubyNode(base, reading, mode) {
-  const show = mode === 'always' || (mode === 'hard' && isHardKanji(base));
+// it: [표기, 읽기, 수준 코드, N3 밖 한자 여부]. 옛 조각(수준 없음)은 한자 난이도로 판단한다.
+function rubyNode(it, mode) {
+  const [base, reading, code, hk] = it;
+  const show = code ? showRuby(mode, code, { hardKanji: !!hk }) : showRuby(mode, isHardKanji(base) ? '2' : '4', { hardKanji: isHardKanji(base) });
   if (!show || !reading) return document.createTextNode(base);
   return h('ruby', null, base, h('rt', null, reading));
 }
@@ -33,13 +36,29 @@ function items(list, mode) {
   const out = [];
   for (const it of list) {
     if (typeof it === 'string') out.push(document.createTextNode(it));
-    else if (Array.isArray(it)) out.push(rubyNode(it[0], it[1], mode));
+    else if (Array.isArray(it)) out.push(rubyNode(it, mode));
   }
   return out;
 }
 
-function nameNodes(str, mode) {
-  return rubyName(str).map((x) => (typeof x === 'string' ? document.createTextNode(x) : rubyNode(x[0], x[1], mode)));
+// 인명·지명: 처음 나올 때는 읽기를 보이고, 그 뒤로는 설정을 따른다. 탭하면 읽기를 확인할 수 있다.
+export function nameNodes(str, ctx) {
+  const mode = typeof ctx === 'string' ? ctx : ctx.mode;
+  const seen = typeof ctx === 'object' ? ctx.seenNames : null;
+  return rubyName(str).map((x) => {
+    if (typeof x === 'string') return document.createTextNode(x);
+    const [base, reading] = x;
+    const first = !!seen && !seen.has(base);
+    if (seen) seen.add(base);
+    const ruby = showRuby(mode, 'P', { first });
+    const el = h('span', { class: 'pn', role: 'button', tabindex: '0', 'data-r': reading }, ruby ? h('ruby', null, base, h('rt', null, reading)) : base);
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const t = typeof ctx === 'object' && ctx.onName;
+      if (t) t(base, reading);
+    });
+    return el;
+  });
 }
 
 // 생성된 조각이 없을 때를 위한 대체 (자리표시자·단어 표시만 처리)
@@ -49,21 +68,9 @@ function fallbackSegs(tpl) {
 
 export { LINES };
 
-// 한 장면의 학습 대상(1~3개): N2 문법 > N2 단어 > N3 문법 > N1 단어 > N3 단어
-const RANK = { gN2: 0, vN2: 1, gN3: 2, vN1: 3, vN3: 4 };
-export function sceneTargets(tpls, max = 3) {
-  const found = new Map();
-  tpls.forEach((tpl, li) => {
-    for (const sg of LINES.lines[tpl] || []) {
-      if (!sg || typeof sg !== 'object' || Array.isArray(sg)) continue;
-      const id = sg.g ? 'g:' + sg.g : sg.v ? 'v:' + sg.v : null;
-      if (!id || found.has(id)) continue;
-      const lv = sg.g ? GRAMMAR[sg.g]?.lv : VOCAB[sg.v]?.k ? null : VOCAB[sg.v]?.lv;
-      const r = RANK[(sg.g ? 'g' : 'v') + lv];
-      if (r !== undefined) found.set(id, r * 100 + li);
-    }
-  });
-  return [...found].sort((a, b) => a[1] - b[1]).slice(0, max).map(([id]) => id);
+// 한 장면의 학습 대상(보통 1~3개, 학습 집중 모드 최대 6개). 고른 학습 수준에 가까운 것부터.
+export function sceneTargets(tpls, set = {}) {
+  return pickTargets(tpls.map((t) => LINES.lines[t] || []), set);
 }
 
 // ctx: { s, speaker, mode, onWord(key), onGrammar(key), saved:Set, targets:Set('v:…'|'g:…') }
@@ -73,7 +80,7 @@ export function renderJa(tpl, ctx) {
   const isTarget = (id) => !ctx.targets || ctx.targets.has(id);
   for (const sg of segs) {
     if (typeof sg === 'string' || Array.isArray(sg)) span.append(...items([sg], ctx.mode));
-    else if (sg.p) span.append(...nameNodes(lookup(sg.p, sg.q || undefined, ctx, 'ja'), ctx.mode));
+    else if (sg.p) span.append(...nameNodes(lookup(sg.p, sg.q || undefined, ctx, 'ja'), ctx));
     else if (sg.g) {
       if (!isTarget('g:' + sg.g)) {
         span.append(...items(sg.s, ctx.mode));
@@ -104,13 +111,13 @@ export function renderExample(word, mode) {
   return renderJa(VOCAB[word].ex, { s: null, mode });
 }
 
-export function renderSpeaker(sp, s, mode) {
+export function renderSpeaker(sp, s, mode, ctx = null) {
   if (sp.startsWith('@')) {
     const segs = LINES.speakers[sp.slice(1)];
     return segs ? h('span', { lang: 'ja' }, items(segs, mode)) : sp.slice(1);
   }
   if (sp === 'dog') return s.dog.name;
-  return h('span', { lang: 'ja' }, nameNodes(lookup(sp, undefined, { s }, 'ja'), mode));
+  return h('span', { lang: 'ja' }, nameNodes(lookup(sp, undefined, { s }, 'ja'), ctx ? { ...ctx, mode } : mode));
 }
 
 // 한국어 해설: 《용어》는 일본어로 표시하고, 처음 나올 때만 짧은 설명을 붙인다.
@@ -133,19 +140,17 @@ export function renderKo(text, ctx) {
     });
     frag.append(b);
     ctx.seenWords && ctx.seenWords.add(seg.key);
-    if (v.note && ctx.seenTerms && !ctx.seenTerms.has(seg.key)) {
+    if (ctx.seenTerms && !ctx.seenTerms.has(seg.key)) {
       ctx.seenTerms.add(seg.key);
       ctx.newTerms && ctx.newTerms.push(seg.key);
-      frag.append(h('span', { class: 'term-note' }, `(${v.note})`));
     }
   }
   return frag;
 }
 
 function rubyForWord(surface, reading, mode) {
-  const segs = LINES.ex[surface] ? null : null;
-  void segs;
-  const show = mode === 'always' || (mode === 'hard' && isHardKanji(surface));
+  const v = VOCAB[surface];
+  const show = showRuby(mode, lvCode(v && v.lv) || (isHardKanji(surface) ? '2' : '4'), { hardKanji: isHardKanji(surface) });
   if (!show || !/[一-鿿]/.test(surface)) return surface;
   return h('ruby', null, surface, h('rt', null, reading));
 }

@@ -291,3 +291,44 @@ h3.h { font-family: var(--f-display); font-weight: 400; font-size: 19px; margin:
 .line.memo { display: grid; grid-template-columns: 48px 1fr; gap: 10px; align-items: start; }
 .face { image-rendering: pixelated; width: 48px; height: 48px; background: var(--surface2); border-radius: 6px; }
 .game.compact .stats, .game.compact .stats-detail, .game.compact .lcd-info .age { display: none; }
+
+/* ───── 3판: 설정·학습·오토 ───── */
+.opt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 6px; }
+.opt-grid button { min-height: 48px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 16px; padding: 4px 8px; cursor: pointer; }
+.opt-grid button[aria-checked='true'] { background: var(--wood); border-color: var(--wood); color: #1a1209; font-weight: 700; }
+.opt-grid.checks { grid-template-columns: repeat(3, 1fr); }
+.study-box .toggle-row { border-top: 1px solid var(--line); }
+.line .sp { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.line .sp .line-ko { min-height: 36px; min-width: 56px; padding: 0 10px; }
+.line .ja { line-height: 2.2; }
+ruby { ruby-align: center; }
+ruby rt { line-height: 1; }
+.pn { cursor: pointer; text-decoration: underline dotted var(--mute); text-underline-offset: 6px; }
+.targets { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.target-chip { display: flex; flex-direction: column; align-items: flex-start; min-height: 48px; padding: 6px 10px; border-radius: 10px; border: 1px solid var(--accent); background: var(--surface); color: var(--ink); cursor: pointer; text-align: left; font-size: 16px; max-width: 100%; }
+.target-chip b { font-family: var(--f-ja); font-weight: 600; }
+.target-chip span { color: var(--ink2); }
+.auto-line { display: flex; align-items: center; gap: 8px; min-height: 48px; }
+.auto-line-text { flex: 1; min-width: 0; font-family: var(--f-display); color: var(--accent); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ev-text.clamp { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 4px; }
+.more-btn { background: none; border: 0; color: var(--accent); font-size: 16px; padding: 4px 0 8px; min-height: 36px; cursor: pointer; }
+.learn-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.learn-stats > div { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 6px 8px; display: grid; }
+.learn-stats b { font-weight: 400; color: var(--mute); font-size: 16px; }
+.learn-stats span { font-family: var(--f-display); font-size: 22px; }
+.review-rows { display: grid; gap: 6px; }
+.review-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 10px; min-height: 48px; padding: 0 4px 0 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.review-row b { font-family: var(--f-display); font-size: 20px; color: var(--accent); }
+.q-context { margin: 6px 0 4px; }
+.q-prompt.ko { font-family: var(--f-body); font-size: 22px; }
+.v-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; }
+.v-kv { margin-top: 8px; }
+.rel { margin: 0; padding-left: 18px; }
+.save-btn { margin-top: 12px; }
+.save-btn[aria-pressed='true'] { border-color: var(--accent); color: var(--accent); }
+.close-btn { margin-top: 8px; }
+.note.small { font-size: 16px; }
+.game.tiny .lcd-info { min-height: 0; padding-bottom: 2px; }
+.game.tiny .ev-text.clamp { -webkit-line-clamp: 3; }
+.game.tiny .ev-title { font-size: 18px; margin-bottom: 4px; }
+.game.tiny .foot { max-height: 42vh; }

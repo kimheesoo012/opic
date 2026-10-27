@@ -8,6 +8,8 @@ import { createRequire } from 'module';
 import { collect } from './collect.mjs';
 import { VOCAB, ALIAS } from '../src/data/vocab.js';
 import { GRAMMAR } from '../src/data/grammar.js';
+import { kanjiLevel } from '../src/engine/text.js';
+import { lvCode } from '../src/engine/learn.js';
 
 const require = createRequire(import.meta.url);
 const kuromoji = require('kuromoji');
@@ -117,11 +119,22 @@ function tokenizePlain(plain, fixed) {
     let off = r.s;
     for (const t of tokenizer.tokenize(plain.slice(r.s, r.e))) {
       const sf = t.surface_form;
-      toks.push({ s: off, e: off + sf.length, surface: sf, reading: t.reading ? kata2hira(t.reading) : null, basic: t.basic_form === '*' ? sf : t.basic_form, pos: t.pos });
+      toks.push({ s: off, e: off + sf.length, surface: sf, reading: t.reading ? kata2hira(t.reading) : null, basic: t.basic_form === '*' ? sf : t.basic_form, pos: t.pos, posd: t.pos_detail_1 });
       off += sf.length;
     }
   }
   return toks;
+}
+
+// 사전의 N3 이하 낱말에 쓰인 한자는 쉬운 한자로 본다
+const EASYK = new Set(Object.entries(VOCAB).filter(([, v]) => ['N5', 'N4', 'N3'].includes(v.lv)).flatMap(([k]) => [...k].filter((c) => /[一-鿿]/.test(c))));
+const est = (w) => kanjiLevel(w, EASYK);
+// 낱말의 추정 수준: 사전에 있으면 사전 수준, 고유명사는 P, 없으면 한자로 추정
+function tokLevel(t) {
+  if (t.pos === '名詞' && t.posd === '固有名詞') return 'P';
+  const key = VOCAB[t.basic] ? t.basic : ALIAS[t.basic];
+  if (key && VOCAB[key]) return lvCode(VOCAB[key].lv) || String(est(t.surface));
+  return String(est(t.surface));
 }
 
 function rubyItems(toks, s, e, plain) {
@@ -138,7 +151,8 @@ function rubyItems(toks, s, e, plain) {
       r.n++;
       review.set(key, r);
     }
-    for (const it of align(t.surface, t.reading)) items.push(it);
+    const code = tokLevel(t);
+    for (const it of align(t.surface, t.reading)) items.push(Array.isArray(it) ? [it[0], it[1], code, est(it[0]) === 2 ? 1 : 0] : it);
   }
   // 이웃한 문자열 합치기
   const out = [];

@@ -33,7 +33,11 @@ export const DEFAULT_SETTINGS = {
   speed: 1,
   auto: true,
   autoMode: 'major', // 'all' 全部おまかせ / 'major' 大事な場面だけ止まる
-  furigana: 'hard', // 'always' / 'hard' / 'off'
+  furigana: 'n2', // 'always' 항상 / 'n2' N2 이상 어휘만 / 'hard' 어려운 한자·고유명사만 / 'off'
+  studyLevel: 'n2', // 'n5'(N5~N4) / 'n3' / 'n2' / 'n1' / 'custom'
+  customLevels: ['3', '2', 'K'],
+  hideEasy: true, // 쉬운 단어 학습 표시 끄기
+  focus: false, // 학습 집중 모드
   sound: false,
   bgm: 0.5,
   sfx: 0.45,
@@ -41,9 +45,24 @@ export const DEFAULT_SETTINGS = {
   theme: 'system',
 };
 
+const SETTINGS_VERSION = 2;
+
+// 옛 설정을 새 형식으로: 1판의 'hard'(N4 밖 한자에 읽기)는 새 기본값 'n2'로 옮긴다
+export function migrateSettings(raw) {
+  const s = { ...DEFAULT_SETTINGS, ...(raw || {}) };
+  if ((raw && raw.v ? raw.v : 1) < 2) {
+    if (s.furigana === 'hard') s.furigana = 'n2';
+  }
+  if (!['always', 'n2', 'hard', 'off'].includes(s.furigana)) s.furigana = 'n2';
+  if (!['n5', 'n3', 'n2', 'n1', 'custom'].includes(s.studyLevel)) s.studyLevel = 'n2';
+  if (!Array.isArray(s.customLevels)) s.customLevels = [...DEFAULT_SETTINGS.customLevels];
+  s.v = SETTINGS_VERSION;
+  return s;
+}
+
 export const store = {
   settings() {
-    return { ...DEFAULT_SETTINGS, ...read('settings', {}) };
+    return migrateSettings(read('settings', null));
   },
   saveSettings(s) {
     write('settings', s);

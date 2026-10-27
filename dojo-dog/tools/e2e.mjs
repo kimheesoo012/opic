@@ -61,10 +61,22 @@ async function run() {
     await target.click();
     await p.waitForSelector('.modal');
     const txt = await p.textContent('.modal');
-    ok('학습 대상 탭 → 학습 창 (DB 내용)', /추정|검도 용어/.test(txt) && /例文|接続/.test(txt), txt.slice(0, 50).replace(/\s+/g, ' '));
+    ok('학습 대상 탭 → 학습 창 (DB 내용·게임 속 문장·저장 버튼)', /추정|검도 용어/.test(txt) && /例文|접속/.test(txt) && /게임 속 문장/.test(txt) && /단어장 저장/.test(txt), txt.slice(0, 50).replace(/\s+/g, ' '));
+    await p.click('.modal .save-btn');
+    ok('「단어장 저장」으로 저장', /저장됨/.test(await p.textContent('.modal .save-btn')));
     await p.screenshot({ path: OUT + '/word-popup.png' });
-    await p.click('.modal .btn.primary');
+    await p.click('.modal .close-btn');
   } else ok('학습 대상 탭 → 학습 창', false, '밑줄을 찾지 못함');
+  // 게임 도중 설정 변경: 후리가나 「항상」 → 읽기가 늘어난다
+  const rubyBefore = await p.$$eval('.panel rt', (x) => x.length);
+  await p.click('.ctl[aria-label="메뉴"]');
+  await p.click('.modal .opt-grid button:has-text("항상")');
+  await p.click('.modal .btn.primary');
+  const rubyAfter = await p.$$eval('.panel rt', (x) => x.length);
+  ok('게임 도중 후리가나 설정 변경이 바로 반영', rubyAfter > rubyBefore, `${rubyBefore} → ${rubyAfter}`);
+  await p.click('.ctl[aria-label="메뉴"]');
+  await p.click('.modal .opt-grid button:has-text("N2 이상 어휘만")');
+  await p.click('.modal .btn.primary');
   await p.evaluate(() => window.__dojoinu.view.togglePause());
   // 진행 + 중간 이어하기
   const t0 = Date.now();
@@ -196,8 +208,38 @@ async function offline() {
   await ctx.close();
 }
 
+// 1판 저장 데이터(옛 설정·옛 단어장 형식)를 그대로 불러온다
+async function legacyData() {
+  const ctx = await browser.newContext(phone);
+  await ctx.addInitScript(() => {
+    if (localStorage.getItem('dojoinu.legacy-test')) return;
+    localStorage.setItem('dojoinu.legacy-test', '1');
+    localStorage.setItem('dojoinu.settings', JSON.stringify({ speed: 2, auto: true, autoMode: 'major', furigana: 'hard', sound: false, bgm: 0.5, sfx: 0.7, theme: 'system' }));
+    localStorage.setItem('dojoinu.wordbook', JSON.stringify({ 稽古: { key: '稽古', at: 1, n: 2, last: 2, scenes: [{ ja: '犬か……。まあ、稽古の邪魔だけはするなよ。', ko: '개라……. 뭐, 연습 방해만 하지 마라.', sp: '坂上先生', title: '도장에 온 날', when: '생후 3개월 봄' }] } }));
+    localStorage.setItem('dojoinu.study', JSON.stringify({ 稽古: { ok: 1, ng: 0, last: 1 } }));
+  });
+  const p = await ctx.newPage();
+  const errs = [];
+  p.on('pageerror', (e) => errs.push(e.message));
+  await p.goto(BASE + 'index.html');
+  const set = await p.evaluate(() => window.__dojoinu.settings);
+  ok('옛 설정 이전 (furigana hard → n2, 배속 유지)', set.furigana === 'n2' && set.speed === 2 && set.studyLevel === 'n2', JSON.stringify({ f: set.furigana, sp: set.speed, lv: set.studyLevel }));
+  await p.click('text=復習');
+  await p.click('.tabs button:has-text("単語帳")');
+  const items = await p.$$('.book-item');
+  ok('옛 단어장 항목이 보인다', items.length === 1, `${items.length}개`);
+  if (items.length) {
+    await items[0].click();
+    await p.waitForSelector('.modal');
+    ok('옛 단어장 항목의 학습 창', /稽古/.test(await p.textContent('.modal')));
+  }
+  ok('옛 데이터로 오류 없음', errs.length === 0, errs.slice(0, 2).join(' | '));
+  await ctx.close();
+}
+
 try {
   await run();
+  await legacyData();
   await offline();
 } catch (e) {
   ok('예외 없이 완료', false, e.message);

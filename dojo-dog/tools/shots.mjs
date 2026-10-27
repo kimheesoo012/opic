@@ -54,6 +54,39 @@ for (let i = 0; i < 60; i++) {
 await page.waitForTimeout(300);
 await shot('05-event');
 await overflow('event');
+// 학습 팝업
+await page.evaluate(() => window.__dojoinu.view.togglePause());
+const tgt = await page.$('.panel .w, .panel .gm');
+if (tgt) {
+  await tgt.click();
+  await page.waitForTimeout(250);
+  await shot('05b-popup');
+  await overflow('popup');
+  await page.click('.modal .close-btn');
+}
+// 게임 도중 설정 (메뉴)
+await page.click('.ctl[aria-label="메뉴"]');
+await page.waitForTimeout(250);
+await shot('05c-menu');
+await page.click('.modal .btn.primary');
+await page.evaluate(() => window.__dojoinu.view.togglePause());
+// 학습 집중 모드
+await page.evaluate(() => { const a = window.__dojoinu; a.settings.focus = true; a.view.refresh(); });
+await page.waitForTimeout(250);
+await shot('05e-focus');
+await overflow('focus');
+await page.evaluate(() => { const a = window.__dojoinu; a.settings.focus = false; a.view.refresh(); });
+// 오토 감상 화면: 선택지를 접고 한 줄만
+await page.click('.ctl.auto');
+await page.click('.auto-panel [data-mode=all]');
+for (let i = 0; i < 80; i++) {
+  if (await page.$('.auto-line')) break;
+  await page.waitForTimeout(250);
+}
+await shot('05d-auto-calm');
+await overflow('auto-calm');
+await page.click('.ctl.auto');
+await page.click('.auto-panel [data-mode=off]');
 // 稽古 장면
 await page.evaluate(() => {
   const v = window.__dojoinu.view;

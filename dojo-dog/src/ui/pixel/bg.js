@@ -3,7 +3,7 @@ import { Buf, C } from './core.js';
 
 export const BW = 160;
 export const BH = 96;
-export const LOCS = ['dojo', 'street', 'river', 'shrine', 'court', 'bath', 'izakaya', 'festival', 'vet', 'room'];
+export const LOCS = ['dojo', 'street', 'river', 'shrine', 'court', 'bath', 'izakaya', 'festival', 'vet', 'room', 'park', 'beach', 'school', 'hospital'];
 
 // 밤: 모든 색을 한 단계 어둡게
 const DARK = { [C.K]: C.K, [C.D]: C.K, [C.B]: C.D, [C.R]: C.B, [C.T]: C.B, [C.C]: C.T, [C.W]: C.G, [C.G]: C.S, [C.S]: C.K, [C.N]: C.K, [C.L]: C.N, [C.A]: C.L, [C.V]: C.S, [C.Y]: C.T, [C.E]: C.B, [C.P]: C.R };
@@ -374,6 +374,99 @@ const DRAW = {
     for (let j = 62; j < BH; j += 8) for (let i = (j % 16) * 1; i < BW; i += 16) b.rect(i, j, 1, 8, C.G);
   },
 
+  park(b, { season, tod }) {
+    // 공원: 나무, 벤치, 그네, 모래밭
+    sky(b, 0, 0, BW, 46, tod, season);
+    for (let i = 0; i < BW; i += 11) b.rect(i, 40 - Math.floor(hash(i + 3) * 6), 10, 8, tod === 'night' ? C.K : C.G);
+    const grass = { spring: C.V, summer: C.V, autumn: C.T, winter: C.G }[season];
+    b.rect(0, 46, BW, 50, grass);
+    b.dither(0, 46, BW, 2, grass, C.S);
+    for (let i = 0; i < 50; i++) b.set(Math.floor(hash(i * 13) * BW), 50 + Math.floor(hash(i * 3 + 1) * 40), season === 'spring' ? C.P : season === 'autumn' ? C.R : C.S);
+    tree(b, 14, 44, season, 11);
+    tree(b, 148, 42, season, 10);
+    // 그네
+    b.rect(96, 26, 36, 2, C.E), b.line(98, 28, 94, 60, C.E), b.line(130, 28, 134, 60, C.E);
+    b.line(106, 28, 106, 48, C.G), b.line(114, 28, 114, 48, C.G), b.rect(104, 48, 12, 2, C.B);
+    b.line(118, 28, 118, 46, C.G), b.line(126, 28, 126, 46, C.G), b.rect(116, 46, 12, 2, C.B);
+    // 모래밭
+    b.rect(30, 74, 46, 12, C.C), b.dither(30, 74, 46, 12, C.C, C.T), b.rect(29, 73, 48, 1, C.B), b.rect(29, 86, 48, 1, C.B);
+    // 벤치
+    b.rect(46, 56, 30, 3, C.B), b.rect(46, 52, 30, 2, C.B), b.rect(48, 59, 2, 6, C.S), b.rect(72, 59, 2, 6, C.S);
+    // 가로등
+    b.rect(150, 46, 2, 30, C.S), b.rect(147, 44, 8, 3, tod === 'night' ? C.Y : C.G);
+    if (season === 'winter') b.dither(0, 46, BW, 50, C.W, grass);
+    if (tod === 'night') darken(b), b.rect(147, 44, 8, 3, C.Y);
+  },
+
+  beach(b, { season, tod, t = 0 }) {
+    // 바닷가: 하늘, 바다, 파도, 모래사장, 방파제
+    sky(b, 0, 0, BW, 40, tod, season);
+    if (tod !== 'night') b.rect(120, 10, 8, 8, tod === 'evening' ? C.E : C.Y), b.rect(118, 12, 12, 4, tod === 'evening' ? C.E : C.Y);
+    b.rect(0, 40, BW, 22, tod === 'night' ? C.N : C.L);
+    b.rect(0, 40, BW, 1, C.A);
+    const ph = Math.floor(t * 4) % 8;
+    for (let j = 43; j < 62; j += 4) for (let i = (j * 7 + ph * 3) % 20; i < BW; i += 20) b.rect(i, j, 5, 1, C.A);
+    // 파도
+    for (let i = 0; i < BW; i += 8) b.rect(i + (ph % 2) * 2, 62, 6, 2, C.W);
+    b.rect(0, 64, BW, 32, C.C);
+    b.dither(0, 64, BW, 32, C.C, C.T);
+    for (let i = 0; i < 30; i++) b.set(Math.floor(hash(i * 5) * BW), 66 + Math.floor(hash(i * 11) * 28), hash(i) > 0.5 ? C.W : C.B);
+    // 방파제
+    b.rect(0, 46, 26, 18, C.G), b.rect(0, 46, 26, 2, C.W);
+    for (let i = 2; i < 24; i += 6) b.rect(i, 50, 4, 3, C.S);
+    // 조개와 발자국
+    b.rect(110, 84, 3, 2, C.P), b.rect(70, 80, 2, 1, C.B), b.rect(76, 82, 2, 1, C.B), b.rect(82, 80, 2, 1, C.B);
+    if (season === 'winter') b.dither(0, 0, BW, 40, C.G, C.A);
+    if (tod === 'night') darken(b);
+  },
+
+  school(b, { season, tod }) {
+    // 학교: 교사(창문 줄), 시계, 운동장, 교문
+    sky(b, 0, 0, BW, 30, tod, season);
+    b.rect(14, 10, 132, 48, C.W);
+    b.rect(14, 10, 132, 2, C.G);
+    for (let j = 0; j < 3; j++) for (let i = 0; i < 10; i++) b.rect(20 + i * 12, 16 + j * 13, 8, 8, tod === 'night' ? C.S : C.A), b.rect(24 + i * 12, 16 + j * 13, 1, 8, C.G);
+    b.rect(74, 2, 12, 10, C.W), b.oval(80, 7, 4, 4, C.C), b.line(80, 7, 80, 4, C.K), b.line(80, 7, 82, 7, C.K);
+    b.rect(72, 46, 16, 12, C.S);
+    // 운동장
+    b.rect(0, 58, BW, 38, C.T);
+    b.dither(0, 58, BW, 2, C.T, C.B);
+    b.rect(10, 72, 140, 1, C.W), b.oval(80, 82, 30, 6, 0);
+    for (let i = 20; i < 140; i += 4) b.set(i, 86, C.W);
+    // 교문과 벚나무
+    b.rect(0, 52, 4, 20, C.G), b.rect(156, 52, 4, 20, C.G);
+    tree(b, 6, 50, season, 9);
+    tree(b, 152, 50, season, 9);
+    if (season === 'winter') b.dither(0, 58, BW, 38, C.W, C.T);
+    if (tod === 'night') {
+      darken(b);
+      for (let i = 0; i < 4; i++) b.rect(20 + i * 36, 42, 8, 8, C.Y);
+    }
+  },
+
+  hospital(b, { tod }) {
+    // 병실: 흰 벽, 창, 침대, 링거대, 꽃병
+    b.rect(0, 0, BW, 62, C.W);
+    b.rect(0, 0, BW, 3, C.G);
+    b.rect(0, 46, BW, 16, C.A);
+    b.rect(0, 46, BW, 1, C.L);
+    sky(b, 96, 8, 52, 30, tod, 'spring');
+    b.rect(95, 7, 54, 1, C.G), b.rect(95, 38, 54, 1, C.G), b.rect(95, 7, 1, 32, C.G), b.rect(148, 7, 1, 32, C.G), b.rect(121, 7, 1, 32, C.G);
+    b.rect(90, 6, 4, 36, C.P), b.rect(150, 6, 4, 36, C.P);
+    // 침대
+    b.rect(14, 48, 64, 8, C.W), b.rect(14, 46, 20, 4, C.W), b.rect(14, 56, 64, 2, C.G), b.rect(14, 40, 3, 22, C.G), b.rect(76, 46, 3, 16, C.G);
+    b.rect(34, 48, 44, 6, C.L);
+    // 링거대
+    b.rect(86, 18, 1, 44, C.G), b.rect(82, 18, 8, 1, C.G), b.rect(83, 19, 3, 6, C.A);
+    // 꽃병
+    b.rect(126, 52, 6, 8, C.A), b.rect(125, 48, 3, 3, C.E), b.rect(130, 47, 3, 3, C.Y), b.rect(128, 50, 1, 3, C.V);
+    b.rect(118, 60, 22, 2, C.B);
+    // 바닥
+    b.rect(0, 62, BW, 34, C.G);
+    for (let j = 62; j < BH; j += 6) b.rect(0, j, BW, 1, C.W);
+    if (tod === 'night') darken(b), b.rect(30, 1, 30, 2, C.W);
+  },
+
   room(b, { season, tod }) {
     // 노견의 방: 다다미, 장지문 창, 방석, 겨울엔 고타쓰
     b.rect(0, 0, BW, 58, C.C);
@@ -404,7 +497,7 @@ const DRAW = {
 const cache = new Map();
 export function bgBuf(loc, { season = 'spring', tod = 'day', t = 0 } = {}) {
   const fn = DRAW[loc] || DRAW.dojo;
-  const tick = loc === 'river' ? Math.floor(t * 4) % 8 : 0;
+  const tick = loc === 'river' || loc === 'beach' ? Math.floor(t * 4) % 8 : 0;
   const key = `${loc}|${season}|${tod}|${tick}`;
   if (cache.has(key)) return cache.get(key);
   const b = new Buf(BW, BH);

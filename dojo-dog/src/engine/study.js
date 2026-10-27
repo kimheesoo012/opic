@@ -101,46 +101,95 @@ function meaningClash(a, b) {
 }
 
 const KANJI = /[一-鿿々]/;
-export function questionKinds(id) {
-  if (id[0] === 'g') return ['grammar'];
+// 비슷해서 서로 오답이 될 수 없는 문법 묶음 (「문법 표현 구별」 문제에서 같은 묶음은 오답으로 쓰지 않는다)
+export const CONFUSABLE = [
+  ['ざるを得ない', 'ずにはいられない', 'ないことには', 'てからでないと'],
+  ['わけがない', 'っこない', 'わけではない', 'わけだ', 'に違いない', 'に決まっている'],
+  ['からには', '以上', 'からこそ', 'からといって'],
+  ['に限らず', 'ばかりか', 'に加えて', 'どころか'],
+  ['にもかかわらず', 'ものの', 'ながらも', 'にかかわらず'],
+  ['かねない', '恐れがある'],
+  ['に限る', 'に越したことはない', 'ほど～はない'],
+  ['につれて', 'つつある'],
+  ['に際して', 'に先立って'],
+  ['てたまらない', 'ずにはいられない'],
+];
+const groupOf = (k) => CONFUSABLE.filter((g) => g.includes(k)).flat();
+
+// 읽기 오답은 시험에 나오는 함정(장음·탁음·촉음·요음)만 쓴다. 세 개를 못 만들면 읽기 문제를 내지 않는다.
+export function readingOptions(key, seed = 'r') {
+  const it = VOCAB[key];
+  const h = { rng: hashSeed(seed + key) };
+  const real = new Set(Object.values(VOCAB).map((v) => v.r));
+  // 다른 낱말의 실제 읽기와 겹치는 함정은 뺀다 (그것도 정답처럼 보일 수 있으므로)
+  return shuffle(h, readingTraps(it.r).filter((x) => !real.has(x))).slice(0, 3);
+}
+
+export function questionKinds(id, ctx = {}) {
+  if (id[0] === 'g') return ['grammar', 'gform'];
   const key = id.slice(2);
-  return KANJI.test(key) && HIRA.test(VOCAB[key].r) ? ['reading', 'meaning'] : ['meaning'];
+  const kinds = ['meaning', 'word'];
+  if (KANJI.test(key) && HIRA.test(VOCAB[key].r) && readingOptions(key).length >= 3) kinds.unshift('reading');
+  if (ctx.hasScene) kinds.push('context');
+  return kinds;
 }
 
 // 한 항목의 문제. rec가 있으면 맞힌·틀린 횟수에 따라 유형을 번갈아 낸다.
-export function makeQuestion(id, seed = 'q', rec = null) {
+// 길이가 비슷한 것을 고른다 (정답만 유난히 길거나 짧지 않게)
+const lenClose = (a, b) => Math.abs(a.length - b.length) <= Math.max(2, Math.round(a.length * 0.4));
+
+// ctx.kind: 유형을 정해서 낼 때, ctx.hasScene: 게임 속 장면이 있는지
+export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
   const it = itemOf(id);
   if (!it) return null;
   const h = { rng: hashSeed(seed + id) };
-  const kinds = questionKinds(id);
-  const kind = kinds[((rec ? rec.ok + rec.ng : 0) + Math.floor(rand(h) * 2)) % kinds.length];
+  const kinds = questionKinds(id, ctx);
+  const kind = ctx.kind && kinds.includes(ctx.kind) ? ctx.kind : kinds[((rec ? rec.ok + rec.ng : 0) + Math.floor(rand(h) * 2)) % kinds.length];
   if (kind === 'grammar') {
     const [stem, ans, wrong, explain] = it.q;
     const options = shuffle(h, [ans, ...wrong]);
     return { id, kind, prompt: stem, options, answer: options.indexOf(ans), explain, label: it.f, sub: it.m };
   }
-  const key = it.key;
-  if (kind === 'reading') {
-    let traps = shuffle(h, readingTraps(it.r));
-    // 함정이 모자라면 길이가 비슷한 다른 단어의 읽기로 채운다
-    if (traps.length < 3) {
-      // 같은 한자를 쓰는 단어나 첫 글자가 같은 단어의 읽기 (헷갈리기 쉬운 순)
-      const shareKanji = (k) => [...k].some((ch) => KANJI.test(ch) && key.includes(ch));
-      const others = Object.entries(VOCAB)
-        .filter(([k, v]) => k !== key && HIRA.test(v.r) && v.r !== it.r && Math.abs(v.r.length - it.r.length) <= 2)
-        .map(([k, v]) => ({ r: v.r, s: (shareKanji(k) ? 10 : 0) + (v.r[0] === it.r[0] ? 5 : 0) - Math.abs(v.r.length - it.r.length) + rand(h) * 3 }))
-        .sort((a, b) => b.s - a.s)
-        .map((x) => x.r);
-      traps = [...traps, ...others];
+  if (kind === 'gform') {
+    // 문법 표현 구별: 뜻을 보고 형태를 고른다. 비슷한 묶음의 문법은 오답으로 쓰지 않는다.
+    const avoid = new Set([it.key, ...groupOf(it.key)]);
+    const pool = shuffle(h, Object.entries(GRAMMAR).filter(([k, g]) => !avoid.has(k) && !meaningClash(g.m, it.m)));
+    const wrong = [];
+    for (const [k, g] of pool) {
+      if (wrong.length >= 3) break;
+      if (wrong.some((w) => groupOf(w.k).includes(k) || meaningClash(w.g.m, g.m))) continue;
+      wrong.push({ k, g });
     }
-    const wrong = [...new Set(traps)].filter((x) => x !== it.r).slice(0, 3);
+    const options = shuffle(h, [it.f, ...wrong.map((w) => w.g.f)]);
+    return { id, kind, prompt: it.m, options, answer: options.indexOf(it.f), explain: `「${it.f}」 = ${it.m}. ${it.d}`, label: it.f, sub: it.m };
+  }
+  const key = it.key;
+  if (kind === 'word') {
+    // 한국어 뜻 → 일본어: 같은 품사, 비슷한 길이, 뜻이 겹치지 않는 말
+    const pool = Object.entries(VOCAB)
+      .filter(([k, v]) => k !== key && !v.k && v.pos === it.pos && lenClose(key, k) && v.r !== it.r && !meaningClash(v.m, it.m))
+      .map(([k, v]) => ({ k, m: v.m, s: rand(h) * 4 + (v.lv === it.lv ? 2 : 0) - Math.abs(k.length - key.length) }))
+      .sort((a, b) => b.s - a.s);
+    const wrong = [];
+    for (const c of pool) {
+      if (wrong.length >= 3) break;
+      if (wrong.some((w) => meaningClash(w.m, c.m))) continue;
+      wrong.push(c);
+    }
+    if (wrong.length < 3) return makeQuestion(id, seed, rec, { ...ctx, kind: 'meaning' });
+    const options = shuffle(h, [key, ...wrong.map((w) => w.k)]);
+    return { id, kind, prompt: it.m, options, answer: options.indexOf(key), explain: `${it.m} → 「${key}（${it.r}）」. 오답: ${wrong.map((w) => `${w.k}（${VOCAB[w.k].r}）= ${w.m}`).join(' · ')}.`, label: key, sub: it.r };
+  }
+  if (kind === 'reading') {
+    const wrong = readingOptions(key, seed);
+    if (wrong.length < 3) return makeQuestion(id, seed, rec, { ...ctx, kind: 'meaning' });
     const options = shuffle(h, [it.r, ...wrong]);
-    return { id, kind, prompt: key, options, answer: options.indexOf(it.r), explain: `「${key}」은 「${it.r}」. 뜻: ${it.m}. 장음(う)·탁음·촉음(っ)·요음(ゃゅょ)이 하나만 달라도 다른 말이 된다.`, label: key, sub: it.r };
+    return { id, kind, prompt: key, options, answer: options.indexOf(it.r), explain: `「${key}」의 읽기는 「${it.r}」(${it.m}). 장음(う)·탁음·촉음(っ)·요음(ゃゅょ)이 하나만 달라도 다른 말이 된다.`, label: key, sub: it.r };
   }
   // 같은 품사·비슷한 길이를 먼저 고른다 (품사가 드물면 다른 품사도)
   const pool = Object.entries(VOCAB)
     .filter(([k, v]) => k !== key && !v.k && v.m !== it.m && !meaningClash(v.m, it.m))
-    .map(([k, v]) => ({ k, m: v.m, s: -Math.abs(v.m.length - it.m.length) + rand(h) * 4 + (v.lv === it.lv ? 2 : 0) + (v.pos === it.pos ? 20 : 0) }))
+    .map(([k, v]) => ({ k, m: v.m, s: -Math.abs(v.m.length - it.m.length) * 1.5 + rand(h) * 4 + (v.lv === it.lv ? 2 : 0) + (v.pos === it.pos ? 20 : 0) + (lenClose(it.m, v.m) ? 6 : 0) }))
     .sort((a, b) => b.s - a.s);
   const wrong = [];
   for (const c of pool) {
@@ -150,10 +199,39 @@ export function makeQuestion(id, seed = 'q', rec = null) {
   }
   const options = shuffle(h, [it.m, ...wrong.map((w) => w.m)]);
   const wrongNote = wrong.map((w) => `${w.m} = ${w.k}`).join(' · ');
-  return { id, kind, prompt: key, options, answer: options.indexOf(it.m), explain: `「${key}（${it.r}）」 = ${it.m}. 오답: ${wrongNote}.`, label: key, sub: it.r };
+  // context: 게임 속 문장 안에서 이 말의 뜻 (문장은 화면이 보여 준다)
+  return { id, kind, prompt: key, options, answer: options.indexOf(it.m), explain: `「${key}（${it.r}）」 = ${it.m}. 오답: ${wrongNote}.`, label: key, sub: it.r, context: kind === 'context' };
 }
 
-export function makeSet(ids, n = 10, seed = 'set', srs = {}) {
+// hasScene(id): 그 말이 게임 속 장면을 갖고 있는지
+export function makeSet(ids, n = 10, seed = 'set', srs = {}, hasScene = () => false) {
   const h = { rng: hashSeed(seed) };
-  return shuffle(h, [...new Set(ids)].filter((id) => itemOf(id))).slice(0, n).map((id, i) => makeQuestion(id, seed + i, srs[id]));
+  return shuffle(h, [...new Set(ids)].filter((id) => itemOf(id))).slice(0, n).map((id, i) => makeQuestion(id, seed + i, srs[id], { hasScene: hasScene(id) }));
+}
+
+// 복습 화면 묶음: 오늘 단어, 오늘 문법, 최근 틀린 것, 어려운 것
+export function reviewGroups(srs, now = Date.now()) {
+  const due = dueIds(srs, now);
+  const all = Object.keys(srs).filter((id) => itemOf(id));
+  return {
+    words: due.filter((id) => id[0] === 'v'),
+    grammar: due.filter((id) => id[0] === 'g'),
+    recentWrong: all.filter((id) => srs[id].ng > 0 && srs[id].streak === 0 && now - srs[id].last < 7 * DAY).sort((a, b) => srs[b].last - srs[a].last),
+    hard: all.filter((id) => srs[id].ng >= 2 && srs[id].ng >= srs[id].ok).sort((a, b) => srs[b].ng - srs[a].ng),
+  };
+}
+
+// 일본어 학습 기록 (게임 능력치와 별개)
+export function learningStats(srs, wordbook = {}) {
+  const ids = Object.keys(srs).filter((id) => itemOf(id));
+  const ok = ids.reduce((a, id) => a + srs[id].ok, 0);
+  const ng = ids.reduce((a, id) => a + srs[id].ng, 0);
+  return {
+    metWords: ids.filter((id) => id[0] === 'v').length,
+    metGrammar: ids.filter((id) => id[0] === 'g').length,
+    saved: Object.keys(wordbook).length,
+    learnedGrammar: ids.filter((id) => id[0] === 'g' && mastered(srs[id])).length,
+    accuracy: ok + ng ? Math.round((ok / (ok + ng)) * 100) : null,
+    due: dueIds(srs).length,
+  };
 }

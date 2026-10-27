@@ -211,8 +211,48 @@ class App {
     const set = this.settings;
     return h('div', { class: 'toggle-row' }, h('span', null, label), h('div', { class: 'seg' }, opts.map(([v, l]) => h('button', { type: 'button', 'aria-pressed': String(set[key] === v), onclick: (e) => { set[key] = v; this.saveSettings(); after && after(); [...e.currentTarget.parentNode.children].forEach((b) => b.setAttribute('aria-pressed', 'false')); e.currentTarget.setAttribute('aria-pressed', 'true'); } }, l))));
   }
+  // 후리가나·학습 수준·쉬운 단어 숨기기·학습 집중 모드. 바꾸면 보고 있는 장면에 바로 반영한다.
+  studyControls() {
+    const set = this.settings;
+    const changed = () => {
+      this.saveSettings();
+      if (this.view && this.view.refresh) this.view.refresh();
+    };
+    const grid = (key, opts, after) => {
+      const box = h('div', { class: 'opt-grid', role: 'radiogroup' });
+      for (const [v, label] of opts) {
+        box.append(h('button', { type: 'button', role: 'radio', 'aria-checked': String(set[key] === v), onclick: (e) => {
+          set[key] = v;
+          [...box.children].forEach((b) => b.setAttribute('aria-checked', String(b === e.currentTarget)));
+          after && after();
+          changed();
+        } }, label));
+      }
+      return box;
+    };
+    const sw = (key, label) => {
+      const b = h('button', { class: 'switch', type: 'button', role: 'switch', 'aria-checked': String(!!set[key]), 'aria-label': label, onclick: () => { set[key] = !set[key]; b.setAttribute('aria-checked', String(!!set[key])); changed(); } }, h('i'));
+      return h('div', { class: 'toggle-row' }, h('span', null, label), b);
+    };
+    const custom = h('div', { class: 'opt-grid checks', hidden: set.studyLevel !== 'custom' },
+      [['5', 'N5'], ['4', 'N4'], ['3', 'N3'], ['2', 'N2'], ['1', 'N1'], ['K', '검도 용어']].map(([c, label]) => h('button', { type: 'button', role: 'checkbox', 'aria-checked': String(set.customLevels.includes(c)), onclick: (e) => {
+        const has = set.customLevels.includes(c);
+        set.customLevels = has ? set.customLevels.filter((x) => x !== c) : [...set.customLevels, c];
+        e.currentTarget.setAttribute('aria-checked', String(!has));
+        changed();
+      } }, label)));
+    return h('div', { class: 'study-box' },
+      h('div', { class: 'field-label' }, 'ふりがな'),
+      grid('furigana', [['always', '항상'], ['n2', 'N2 이상 어휘만'], ['hard', '어려운 한자·고유명사만'], ['off', '끄기']]),
+      h('div', { class: 'field-label' }, '학습 수준'),
+      grid('studyLevel', [['n5', 'N5~N4'], ['n3', 'N3'], ['n2', 'N2'], ['n1', 'N1'], ['custom', '직접 선택']], () => (custom.hidden = set.studyLevel !== 'custom')),
+      custom,
+      sw('hideEasy', '쉬운 단어 학습 표시 끄기'),
+      sw('focus', '학습 집중 모드'),
+      h('p', { class: 'note small' }, 'JLPT 등급은 공식 목록이 없어 추정 분류다.'));
+  }
   furiganaRow() {
-    return this.segRow('furigana', 'ふりがな', [['always', '항상'], ['hard', '어려운 것만'], ['off', '끄기']]);
+    return this.studyControls();
   }
 
   // ───── 화면들 ─────
@@ -345,7 +385,8 @@ class App {
       h('div', { class: 'scroll' },
         h('h2', { class: 'h' }, '設定'),
         this.segRow('theme', '화면', [['system', '자동'], ['dark', '다크'], ['light', '라이트']], () => this.applyTheme()),
-        this.furiganaRow(),
+        h('h3', { class: 'h' }, '일본어'),
+        this.studyControls(),
         h('h3', { class: 'h' }, '소리'),
         this.soundControls(),
         h('h3', { class: 'h' }, '기록'),
