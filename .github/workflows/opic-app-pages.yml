@@ -1,27 +1,23 @@
-# opic-app 폴더만 GitHub Pages로 배포한다 (저장소의 다른 파일·폴더는 올리지 않음)
-name: Deploy opic-app to GitHub Pages
+# opic-app 테스트 + (수동 실행 시에만) opic-app 폴더를 GitHub Pages로 배포
+# 이 저장소는 main 브랜치 방식 Pages로 기존 시뮬레이터(/opic/)와 opic-app(/opic/opic-app/)을 함께 배포한다.
+# 자동 배포 job이 루트 사이트를 opic-app으로 덮어쓰지 않도록, deploy job은 workflow_dispatch(수동)에서만 실행된다.
+# 수동 배포를 쓰려면 먼저 Settings → Pages → Source를 "GitHub Actions"로 바꿔야 하며, 그러면 루트(/opic/)가 opic-app으로 바뀐다.
+name: opic-app
 
 on:
   push:
     branches: [main]
     paths: ['opic-app/**', '.github/workflows/opic-app-pages.yml']
+  pull_request:
+    paths: ['opic-app/**', '.github/workflows/opic-app-pages.yml']
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: opic-app-pages
-  cancel-in-progress: true
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -29,6 +25,23 @@ jobs:
           node-version: 22
       - name: Unit tests
         run: node --test opic-app/tests/unit.test.js
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch'
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: opic-app-pages
+      cancel-in-progress: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
       - name: Build site folder (opic-app without tests)
         run: |
           mkdir -p _site

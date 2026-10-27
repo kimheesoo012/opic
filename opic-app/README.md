@@ -19,11 +19,14 @@ python3 -m http.server 8000
 
 ## GitHub Pages 배포 (opic-app 폴더만)
 
-`.github/workflows/opic-app-pages.yml`이 `opic-app/`만 골라 배포합니다(`tests/` 폴더는 제외, 서비스 워커 캐시 버전은 커밋 해시로 자동 교체).
+이 저장소는 이미 **main 브랜치 방식 Pages**(Settings → Pages → Source: Deploy from a branch, `main` / root)로 기존 시뮬레이터를 배포하고 있습니다. 그대로 두면 main에 들어온 `opic-app/`이 함께 배포됩니다.
 
-1. 이 브랜치를 `main`에 합칩니다 (워크플로는 `main`에 push될 때 실행되고, Actions 탭에서 직접 실행도 할 수 있습니다).
-2. GitHub 저장소 → **Settings → Pages → Build and deployment → Source: GitHub Actions** 를 고릅니다.
-3. **Actions** 탭에서 「Deploy opic-app to GitHub Pages」가 끝나면 `https://<사용자명>.github.io/<저장소명>/` 에서 열립니다.
+- 앱 주소: `https://kimheesoo012.github.io/opic/opic-app/`
+- 기존 시뮬레이터: `https://kimheesoo012.github.io/opic/` (변경 없음)
+- main에 push하면 GitHub가 자동으로 다시 배포합니다(Actions의 「pages build and deployment」).
+- 앱 파일을 고친 뒤에는 `sw.js`의 `VERSION`을 바꿔야 휴대폰에 새 버전이 적용됩니다.
+
+`.github/workflows/opic-app-pages.yml`은 push·PR마다 단위 테스트를 돌립니다. 이 워크플로의 배포 단계는 **수동 실행(workflow_dispatch)** 때만 동작하며, `opic-app/`만 골라 사이트 루트에 올립니다. 이 방식을 쓰려면 Settings → Pages → Source를 **GitHub Actions**로 바꿔야 하고, 그러면 루트 주소의 기존 시뮬레이터가 opic-app으로 바뀌므로 필요할 때만 쓰세요.
 
 다른 브랜치나 `dojo-dog/` 같은 다른 폴더는 배포 대상에 들어가지 않습니다.
 
