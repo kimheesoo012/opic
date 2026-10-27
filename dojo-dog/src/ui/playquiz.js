@@ -7,6 +7,7 @@ import { pickItem, buildQuestion, recordAnswer } from '../engine/quizplan.js';
 import { store } from './store.js';
 import { BANK_TYPES } from '../data/n2/bank.js';
 import { richQ } from './n2ui.js';
+import { explainView } from './explainui.js';
 
 export const KIND_LABEL = {
   reading: '読み — 읽기 고르기',
@@ -98,10 +99,7 @@ export function renderQuiz(app, view, { q, tpl }, src, log, done) {
     opts[q.answer].classList.add('right');
     opts.forEach((b) => b.setAttribute('aria-disabled', 'true'));
     // 해설(한국어)과 문장 번역: 한국어 모드에서는 바로, 일본어 모드에서는 「解説」을 눌렀을 때만
-    const explain = h('div', { class: 'q-ko', hidden: ja }, ...[
-      q.why ? h('ul', { class: 'why' }, q.options.map((op, k) => h('li', { class: k === q.answer ? 'ans' : null }, h('b', { lang: 'ja' }, op), ` — ${q.why[k] || ''}`))) : h('p', null, q.explain),
-      q.ko ? h('p', { class: 'note' }, q.ko) : null,
-    ].filter(Boolean));
+    const explain = h('div', { class: 'q-ko', hidden: ja }, explainView(q, i));
     if (scene && !ja) ko.hidden = false;
     fb.replaceChildren(...[
       h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),

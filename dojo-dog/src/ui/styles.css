@@ -475,3 +475,15 @@ ruby rt { font-size: 0.5em; }
 button.delta { background: none; font: inherit; font-size: 16px; cursor: pointer; }
 .res-choice.tap { cursor: pointer; }
 .res-choice .ko { color: var(--ink2); font-size: 15px; margin-top: 2px; }
+/* 퀴즈 해설: 고른 답 → 정답 → 나머지 */
+.ex-box { border-radius: 10px; padding: 8px 10px; margin: 6px 0; border: 1px solid var(--line); }
+.ex-box b { display: block; font-size: 17px; margin: 2px 0; }
+.ex-box p { margin: 2px 0 0; }
+.ex-pick { border-color: var(--bad); }
+.ex-ans { border-color: var(--good); }
+.ex-tag { font-size: 13px; font-weight: 600; }
+.ex-tag.ng { color: var(--bad); }
+.ex-tag.ok { color: var(--good); }
+.ex-others li b { display: inline; }
+.ex-more { margin-top: 6px; font-size: 15px; color: var(--ink2); }
+.ex-more p { margin: 3px 0; }
