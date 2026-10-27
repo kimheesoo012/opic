@@ -241,7 +241,16 @@ class App {
         e.currentTarget.setAttribute('aria-checked', String(!has));
         changed();
       } }, label)));
+    const freq = h('div', null,
+      h('div', { class: 'field-label' }, '플레이 중 퀴즈'),
+      grid('quizFreq', [['off', '끄기'], ['low', '적게'], ['mid', '보통'], ['high', '많이']]),
+      h('p', { class: 'note small' }, '보통: 4~5장면마다 한 문제, 가끔 복습 카드. 틀린 말은 몇 문제 뒤 다른 형태로 다시 나온다.'));
+    freq.hidden = set.playMode === 'watch';
     return h('div', { class: 'study-box' },
+      h('div', { class: 'field-label' }, '모드'),
+      grid('playMode', [['study', '학습 모드'], ['watch', '감상 모드']], () => (freq.hidden = set.playMode === 'watch')),
+      h('p', { class: 'note small' }, '감상 모드: 퀴즈와 복습 카드가 저절로 나오지 않는다. 학습 모드: 장면 사이 확인 문제와 복습 카드가 나온다. 復習 메뉴는 두 모드 모두 쓸 수 있다.'),
+      freq,
       h('div', { class: 'field-label' }, 'ふりがな'),
       grid('furigana', [['always', '항상'], ['n2', 'N2 이상 어휘만'], ['hard', '어려운 한자·고유명사만'], ['off', '끄기']]),
       h('div', { class: 'field-label' }, '학습 수준'),

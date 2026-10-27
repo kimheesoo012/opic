@@ -20,7 +20,7 @@ const phone = { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isM
 async function run() {
   const ctx = await browser.newContext(phone);
   await ctx.addInitScript(() => {
-    if (!localStorage.getItem('dojoinu.settings')) localStorage.setItem('dojoinu.settings', JSON.stringify({ speed: 16, auto: true, autoMode: 'major', furigana: 'hard', sound: false }));
+    if (!localStorage.getItem('dojoinu.settings')) localStorage.setItem('dojoinu.settings', JSON.stringify({ speed: 16, auto: true, autoMode: 'major', furigana: 'hard', sound: false, playMode: 'watch' }));
   });
   const p = await ctx.newPage();
   const errs = [];
@@ -122,6 +122,11 @@ async function run() {
   });
   fs.writeFileSync(OUT + '/result-card.png', Buffer.from(card.b64, 'base64'));
   ok('결과 카드 이미지 (1080×1920)', card.w === 1080 && card.h === 1920, `${card.w}×${card.h}`);
+  // 이번 견생의 일본어 정리 (만난 N2 어휘·문법, 퀴즈, 취약 표현, 다음 복습)
+  const life = await p.$eval('.life-study', (e) => e.textContent).catch(() => '');
+  await p.$eval('.life-study', (e) => e.scrollIntoView({ block: 'start' })).catch(() => {});
+  await p.screenshot({ path: OUT + '/life-study.png' });
+  ok('견생 정리: 이번 판의 일본어', /만난 N2 어휘/.test(life) && /만난 N2 문법/.test(life) && /퀴즈/.test(life), life.slice(0, 60).replace(/\s+/g, ' '));
   const [dl] = await Promise.all([p.waitForEvent('download', { timeout: 8000 }).catch(() => null), p.click('text=カードを保存')]);
   ok('カードを保存 → 내려받기', !!dl, dl ? dl.suggestedFilename() : '내려받기 이벤트 없음');
   await p.screenshot({ path: OUT + '/result.png', fullPage: true });

@@ -32,11 +32,11 @@ export function firstScene(app, id, mode, opts = {}) {
   const s = app.state || app.refState();
   const wb = store.wordbook()[id[0] === 'g' ? id : id.slice(2)];
   const saved = wb && wb.scenes && wb.scenes.find((x) => x.tpl);
-  const info = saved ? { ...(sceneOf(saved.tpl, s) || {}), ...saved } : firstSceneOf(id, s);
+  const info = saved && !opts.blank ? { ...(sceneOf(saved.tpl, s) || {}), ...saved } : firstSceneOf(id, s);
   if (!info || !info.tpl) return null;
   const ko = h('div', { class: 'ko', hidden: true }, info.ko);
   return h('div', null,
-    h('div', { class: 'line' }, h('div', { class: 'ja' }, renderJa(info.tpl, { s, speaker: info.role, mode, targets: new Set([id]) })), ko),
+    h('div', { class: 'line' }, h('div', { class: 'ja' }, renderJa(info.tpl, { s, speaker: info.role, mode, targets: new Set([id]), blankG: opts.blank ? id.slice(2) : null })), ko),
     h('div', { class: 'row', style: 'justify-content:space-between' }, h('span', { class: 'note' }, info.situation || ''), opts.noKo ? null : koToggle(ko)));
 }
 

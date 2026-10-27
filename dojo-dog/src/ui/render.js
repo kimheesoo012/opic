@@ -88,6 +88,11 @@ export function renderJa(tpl, ctx) {
     if (typeof sg === 'string' || Array.isArray(sg)) span.append(...items([sg], ctx));
     else if (sg.p) span.append(...nameNodes(lookup(sg.p, sg.q || undefined, ctx, 'ja'), ctx));
     else if (sg.g) {
+      // 문장 빈칸 문제: 이 문법 자리를 비운다
+      if (ctx.blankG === sg.g) {
+        span.append(h('span', { class: 'q-blank', 'aria-label': '빈칸' }, '（　　）'));
+        continue;
+      }
       if (!isTarget('g:' + sg.g)) {
         span.append(...items(sg.s, ctx));
         continue;

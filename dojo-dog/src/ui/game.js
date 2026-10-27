@@ -10,6 +10,8 @@ import { LCD } from './pixel/lcd.js';
 import { idlePlan, eventPlan, lookFor } from './pixel/director.js';
 import { icon } from './icons.js';
 import { store } from './store.js';
+import { quizLog, noteScene, sceneQuizDue, cardDue, reschedule } from '../engine/quizplan.js';
+import { planQuiz, renderQuiz } from './playquiz.js';
 
 const CAT = { daily: '日常', kendo: '稽古', sub: 'サブストーリー', iincho: '委員長', cast: '道場の人々', milestone: '節目', hub: '日常' };
 const STAT_ORDER = ['hap', 'hea', 'back', 'soc', 'brave', 'mis'];
@@ -140,7 +142,7 @@ export class GameView {
     const now = performance.now();
     const dt = Math.min(200, now - this.last);
     this.last = now;
-    if (this.paused || this.app.modalOpen()) return;
+    if (this.paused || this.app.modalOpen() || this.quiz) return;
     const sp = this.set.speed;
     const s = this.s;
     switch (s.phase) {
@@ -214,6 +216,26 @@ export class GameView {
     this.setIdle();
     this.renderIdle();
     this.save();
+    // 학습 모드: 계절이 바뀔 때 가끔 복습 카드 (이야기와 따로, 예전에 만난 말)
+    if (cardDue(quizLog(s), this.set, s.t)) this.openQuiz('card');
+  }
+
+  // 플레이 중 학습: src 'scene'(장면 뒤 확인 문제) | 'card'(복습 카드). 문제가 없으면 아무것도 하지 않는다.
+  openQuiz(src) {
+    const log = quizLog(this.s);
+    const plan = planQuiz(log, src);
+    if (src === 'scene') reschedule(log, this.set);
+    if (!plan) return false;
+    if (src === 'card') log.lastCard = this.s.t;
+    this.quiz = src;
+    this.wait = 0;
+    renderQuiz(this.app, this, plan, src, log, () => {
+      this.quiz = null;
+      this.save();
+      this.renderPhase();
+    });
+    this.resetScroll();
+    return true;
   }
 
   skip() {
@@ -371,6 +393,14 @@ export class GameView {
     const targetIds = sceneTargets(lines.map((l) => l[1]), this.set);
     const targets = new Set(targetIds);
     this.app.meet(targetIds, this.s);
+    if (this.bag) {
+      this.bag.lines += lines.length;
+      for (const id of targetIds) {
+        this.bag.ids.add(id);
+        const hit = lines.find((l) => lineHas(l[1], id));
+        if (hit) this.bag.where[id] = hit[1];
+      }
+    }
     const scenes = {};
     for (const [sp, ja, ko] of lines) {
       const ctx = this.ctxFor(sp);
@@ -421,6 +451,7 @@ export class GameView {
   }
 
   refresh() {
+    if (this.quiz) return;
     const s = this.s;
     const keep = this.wait;
     const top = this.panel.scrollTop;
@@ -469,6 +500,7 @@ export class GameView {
     // 오토 선택은 장면마다 한 번만 정한다 (설정을 바꿔 다시 그려도 그대로)
     if (!again || this.autoIdx === undefined) this.autoIdx = G.autoChoice(this.s);
     const ev = G.EV.get(v.id);
+    if (!again) this.bag = { ids: new Set(), where: {}, lines: 0 };
     if (!again) {
       const plan = eventPlan(this.s, v, this.elapsed / SEASON_MS);
       this.lcd.setPlan(plan, this.s);
@@ -589,8 +621,14 @@ export class GameView {
     if (this.s.phase !== 'result') return;
     G.ack(this.s);
     this.elapsed = Math.min(this.elapsed, SEASON_MS - 1500);
+    // 일본어 대사가 있던 장면이 끝났다: 학습 기록에 남기고, 차례가 되면 확인 문제 (사건 순서는 그대로)
+    const bag = this.bag;
+    this.bag = null;
+    const log = quizLog(this.s);
+    if (bag && bag.lines) noteScene(log, [...bag.ids], bag.where, this.set);
     this.save();
     this.renderHud();
+    if (bag && bag.lines && sceneQuizDue(log, this.set) && this.openQuiz('scene')) return;
     this.renderPhase();
   }
 

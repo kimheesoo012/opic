@@ -2,7 +2,8 @@
 import * as G from '../engine/core.js';
 import { ROLES, ROLE_KO, SEASON_KO, personFor } from '../engine/world.js';
 import { resolveKo } from '../engine/text.js';
-import { progress } from '../engine/study.js';
+import { progress, itemOf, DAY } from '../engine/study.js';
+import { lifeSummary } from '../engine/quizplan.js';
 import { h, renderJa, renderSpeaker } from './render.js';
 import { drawCard } from './card.js';
 import { store } from './store.js';
@@ -139,11 +140,38 @@ export function resultScreen(app, s) {
           h('dt', null, 'N2 単語'), h('dd', null, `${study.words} · 익힘 ${study.wordsMastered}`),
           h('dt', null, 'N2 文法'), h('dd', null, `${study.grammar} · 익힘 ${study.grammarMastered}`),
           h('dt', null, '한마디'), h('dd', null, sum.lastWord || '—'))),
+      lifeStudy(app, s, srs),
       lifeIds.length >= 4 ? h('button', { class: 'btn center', type: 'button', style: 'margin-top:10px', onclick: () => app.startQuiz(lifeIds, 'この一生の復習') }, 'この一生の復習 10問') : null,
       h('h3', { class: 'h', lang: 'ja' }, '家族のその後'),
       people),
     h('div', { class: 'sheet-foot', style: 'position:static' },
       h('button', { class: 'btn center', type: 'button', onclick: () => app.go('title') }, 'タイトルへ')));
+}
+
+// 이번 견생의 일본어: 만난 N2 어휘·문법, 퀴즈 정답률, 취약 표현, 다음 복습
+function lifeStudy(app, s, srs) {
+  const L = lifeSummary(s, srs);
+  const head = (id) => {
+    const it = itemOf(id);
+    return it.type === 'g' ? it.f : `${it.key}（${it.r}）`;
+  };
+  const when = (t) => {
+    const d = Math.ceil((t - Date.now()) / DAY);
+    return d <= 0 ? '지금' : d === 1 ? '내일' : `${d}일 뒤`;
+  };
+  const chips = (ids) => h('div', { class: 'chips' }, ids.map((id) => h('span', { class: 'chip', lang: 'ja', title: itemOf(id).m }, head(id))));
+  return h('div', { class: 'card life-study', style: 'margin-top:12px' },
+    h('h3', { class: 'h', lang: 'ja' }, 'この一生の日本語'),
+    h('dl', { class: 'kv' },
+      h('dt', null, '만난 N2 어휘'), h('dd', null, `${L.words.length}개`),
+      h('dt', null, '만난 N2 문법'), h('dd', null, `${L.grammar.length}개`),
+      h('dt', null, '퀴즈'), h('dd', null, L.asked ? `${L.ok} / ${L.asked} 정답 (${L.accuracy}%)` : '이번 견생에서는 풀지 않음'),
+      h('dt', null, '내일까지 복습'), h('dd', null, `${L.dueTomorrow}개`)),
+    L.grammar.length ? [h('h4', null, '만난 N2 문법'), chips(L.grammar)] : null,
+    L.weak.length ? [h('h4', null, '취약 표현'), h('ul', { class: 'weak' }, L.weak.map((id) => h('li', null, h('b', { lang: 'ja' }, head(id)), ` ${itemOf(id).m}`)))] : null,
+    L.next.length ? [h('h4', null, '다음 복습 예정'), h('ul', { class: 'weak' }, L.next.map((x) => h('li', null, h('b', { lang: 'ja' }, head(x.id)), ` · ${when(x.due)}`)))] : null,
+    L.weak.length ? h('button', { class: 'btn primary', type: 'button', style: 'margin-top:8px', onclick: () => app.startQuiz(L.weak, '약한 표현') }, '약한 표현 복습') : null,
+    L.next.length ? h('button', { class: 'btn center', type: 'button', style: 'margin-top:8px', onclick: () => app.startQuiz(L.next.map((x) => x.id), '다음 복습') }, '다음 복습 먼저') : null);
 }
 
 export { personFor };

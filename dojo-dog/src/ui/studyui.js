@@ -1,7 +1,8 @@
 // 「復習」 화면: 오늘의 복습(간격 반복), 단어장, 今日の一問, 4지선다 퀴즈.
 import { VOCAB } from '../data/vocab.js';
 import { GRAMMAR } from '../data/grammar.js';
-import { dueIds, grade, makeSet, mastered, progress, itemOf, reviewGroups, learningStats } from '../engine/study.js';
+import { dueIds, grade, makeSet, mastered, progress, itemOf, reviewGroups, learningStats, blankOf } from '../engine/study.js';
+import { KIND_LABEL } from './playquiz.js';
 import { h, LINES } from './render.js';
 import { store } from './store.js';
 import { firstScene, levelLabel, wordPopup, grammarPopup } from './vocabui.js';
@@ -20,6 +21,8 @@ function shell(app, title, body, foot) {
 }
 
 const hasScene = (id) => !!(id[0] === 'g' ? LINES.gidx[id.slice(2)] : LINES.vidx[id.slice(2)]);
+// 문장 빈칸: 처음 나오는 대사에서 낼 수 있을 때만
+const blankOfFirst = (id) => (id[0] === 'g' && LINES.gidx[id.slice(2)] ? blankOf(LINES.lines[LINES.gidx[id.slice(2)].tpl], id.slice(2)) : null);
 
 // 일본어 학습 기록 (게임 능력치와 섞지 않는다)
 export function statsBox(srs) {
@@ -102,14 +105,14 @@ export function quizScreen(app, ids, label, opts = {}) {
   const srs = store.srs();
   const n = opts.n || 10;
   let round = 1;
-  let qs = makeSet(ids, n, label + Date.now(), srs, hasScene);
+  let qs = makeSet(ids, n, label + Date.now(), srs, hasScene, blankOfFirst);
   let i = 0;
   let wrong = [];
   const log = [];
   const body = h('div', { class: 'scroll' });
   const foot = h('div', { class: 'sheet-foot', style: 'position:static' });
   const el = h('div', { class: 'screen quiz' }, body, foot);
-  const KIND = { reading: '読み — 읽기 고르기', meaning: '意味 — 뜻 고르기', word: '単語 — 일본어 고르기', context: '文脈 — 이 문장에서의 뜻', grammar: '文法 — 빈칸 채우기', gform: '文法 — 표현 구별' };
+  const KIND = KIND_LABEL;
   const leave = () => {
     if (opts.daily) store.saveDailyDone(today());
     return opts.onDone ? opts.onDone() : app.back();
@@ -122,7 +125,7 @@ export function quizScreen(app, ids, label, opts = {}) {
     let answered = false;
     const fb = h('div', { class: 'q-explain', hidden: true });
     const next = h('button', { class: 'btn primary', type: 'button', hidden: true, onclick: () => { i++; show(); } }, i + 1 < qs.length ? '次へ' : '結果');
-    const koOpts = q.kind === 'meaning' || q.kind === 'context';
+    const koOpts = q.kind === 'meaning' || q.kind === 'context' || q.kind === 'gcontext';
     const opt = q.options.map((o, oi) => h('button', { class: 'btn q-opt', type: 'button', lang: koOpts ? 'ko' : 'ja', onclick: (e) => {
       if (answered) return;
       answered = true;
@@ -133,22 +136,23 @@ export function quizScreen(app, ids, label, opts = {}) {
       if (!ok) wrong.push(q.id);
       e.currentTarget.classList.add(ok ? 'right' : 'wrong');
       opt[q.answer].classList.add('right');
-      const scene = q.kind === 'context' ? null : firstScene(app, q.id, app.settings.furigana);
-      fb.replaceChildren(
+      const scene = q.kind === 'context' || q.kind === 'gcontext' ? null : firstScene(app, q.id, app.settings.furigana);
+      fb.replaceChildren(...[
         h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
         h('p', null, q.explain),
-        scene ? h('div', { class: 'v-sec' }, h('h4', null, 'ゲームの場面'), scene) : null);
+        scene ? h('div', { class: 'v-sec' }, h('h4', null, 'ゲームの場面'), scene) : null,
+      ].filter(Boolean));
       fb.hidden = false;
       next.hidden = false;
       // 해설이 먼저 보이게: 초점만 「다음」에 두고 화면은 해설 시작으로
       next.focus({ preventScroll: true });
       fb.scrollIntoView({ block: 'nearest' });
     } }, o));
-    const koPrompt = q.kind === 'word' || q.kind === 'gform';
+    const koPrompt = ['word', 'gform', 'gdiff', 'gblank', 'gcontext'].includes(q.kind);
     body.append(
       h('div', { class: 'kicker' }, `${label} · ${round > 1 ? `やり直し ${round - 1} · ` : ''}${i + 1} / ${qs.length}`),
       h('div', { class: 'q-kind' }, KIND[q.kind]),
-      q.kind === 'context' ? h('div', { class: 'q-context' }, firstScene(app, q.id, app.settings.furigana, { noKo: true })) : null,
+      q.kind === 'context' || q.kind === 'gcontext' || q.kind === 'gblank' ? h('div', { class: 'q-context' }, firstScene(app, q.id, app.settings.furigana, { noKo: true, blank: q.kind === 'gblank' })) : null,
       h('div', { class: 'q-prompt' + (q.kind === 'grammar' ? ' long' : '') + (koPrompt ? ' ko' : ''), lang: koPrompt ? 'ko' : 'ja' }, q.prompt),
       h('div', { class: 'btns' }, opt),
       fb);
@@ -172,7 +176,7 @@ export function quizScreen(app, ids, label, opts = {}) {
       wrong.length ? h('div', { class: 'list' }, [...new Set(wrong)].map((id) => h('div', { class: 'card' }, line({ q: { id }, ok: false })))) : null,
       pre);
     foot.append(
-      wrong.length ? h('button', { class: 'btn primary', type: 'button', onclick: () => { round++; qs = makeSet([...new Set(wrong)], n, label + round + Date.now(), srs, hasScene); wrong = []; i = 0; show(); } }, '間違いだけ もう一度') : null,
+      wrong.length ? h('button', { class: 'btn primary', type: 'button', onclick: () => { round++; qs = makeSet([...new Set(wrong)], n, label + round + Date.now(), srs, hasScene, blankOfFirst); wrong = []; i = 0; show(); } }, '間違いだけ もう一度') : null,
       h('div', { class: 'row' },
         h('button', { class: 'btn center', type: 'button', onclick: async () => {
           try {

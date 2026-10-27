@@ -38,6 +38,8 @@ export const DEFAULT_SETTINGS = {
   customLevels: ['3', '2', 'K'],
   hideEasy: true, // 쉬운 단어 학습 표시 끄기
   focus: false, // 학습 집중 모드
+  playMode: 'study', // 'study' 학습 모드(확인 문제·복습 카드) / 'watch' 감상 모드(학습 문제가 저절로 나오지 않는다)
+  quizFreq: 'mid', // 'off' / 'low' 8~10장면 / 'mid' 4~5장면 / 'high' 2~3장면마다 한 문제
   choiceMode: 'major', // 'major' 중요한 장면만 직접 고른다(나머지는 개가 성격대로 움직인다) / 'all' 모든 장면
   lcdFold: null, // 도트 창 접기: null=자동(600px 미만 화면에서는 접음), true/false=직접 고른 값
   sound: false,
@@ -58,6 +60,9 @@ export function migrateSettings(raw) {
   if (!['always', 'n2', 'hard', 'off'].includes(s.furigana)) s.furigana = 'n2';
   if (!['n5', 'n3', 'n2', 'n1', 'custom'].includes(s.studyLevel)) s.studyLevel = 'n2';
   if (!Array.isArray(s.customLevels)) s.customLevels = [...DEFAULT_SETTINGS.customLevels];
+  if (!['study', 'watch'].includes(s.playMode)) s.playMode = 'study';
+  if (!['off', 'low', 'mid', 'high'].includes(s.quizFreq)) s.quizFreq = 'mid';
+  if (!['major', 'all'].includes(s.choiceMode)) s.choiceMode = 'major';
   s.v = SETTINGS_VERSION;
   return s;
 }

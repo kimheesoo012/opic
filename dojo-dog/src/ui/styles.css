@@ -377,3 +377,13 @@ html, body { overflow: hidden; overscroll-behavior: none; }
 .modal { animation: none; }
 .stamp { animation: none; }
 #app { transition: none; }
+/* ───── 7판: 플레이 중 학습 ───── */
+.q-line { margin: 6px 0 8px; }
+.q-blank { display: inline-block; min-width: 3.2em; text-align: center; border-bottom: 2px solid var(--accent); color: var(--accent); }
+.q-why { margin: 0 0 4px; }
+.q-opt[aria-disabled='true'] { cursor: default; }
+.life-study h4 { margin: 12px 0 4px; font-size: 16px; color: var(--accent); }
+.life-study .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.life-study .chip { border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; font-family: var(--f-ja); background: var(--surface2); }
+.life-study .weak { margin: 0; padding-left: 18px; }
+.life-study .weak b { font-family: var(--f-ja); font-weight: 600; }
