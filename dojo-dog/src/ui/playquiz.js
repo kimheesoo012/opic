@@ -28,19 +28,32 @@ export function sentenceFor(id, log) {
 export const blankFor = (id, tpl) => (id[0] === 'g' && tpl ? blankOf(LINES.lines[tpl], id.slice(2)) : null);
 
 // 문제를 하나 만든다 (없으면 null)
-export function planQuiz(log, src, now = Date.now()) {
+// jaOnly: 일본어 몰입 모드 — 일본어만으로 풀 수 있는 문제만 (못 만들면 다른 말을 몇 번 더 고른다)
+export function planQuiz(log, src, now = Date.now(), jaOnly = false) {
   const srs = store.srs();
-  const id = pickItem(log, srs, now, src);
-  if (!id) return null;
-  const tpl = sentenceFor(id, log);
-  const q = buildQuestion(id, log, srs, { hasScene: !!tpl, blank: blankFor(id, tpl) });
-  return q && q.answer >= 0 ? { q, tpl } : null;
+  const skip = new Set();
+  for (let i = 0; i < 6; i++) {
+    const id = pickItem(log, srs, now, src, skip);
+    if (!id) return null;
+    const tpl = sentenceFor(id, log);
+    const q = buildQuestion(id, log, srs, { hasScene: !!tpl, blank: blankFor(id, tpl), jaOnly });
+    if (q && q.answer >= 0) return { q, tpl };
+    skip.add(id);
+  }
+  return null;
 }
+
+// 일본어 모드의 유형 이름 (「読み — 읽기 고르기」의 앞부분만)
+export const kindName = (q, ja) => {
+  const full = q.kind === 'bank' ? `${BANK_TYPES[q.btype][0]} — ${BANK_TYPES[q.btype][1]}` : KIND_LABEL[q.kind] || '';
+  return ja ? full.split(' — ')[0] : full;
+};
 
 // panel·foot에 문제를 그린다. done(answered)는 「つづける」·「건너뛰기」에서 부른다.
 export function renderQuiz(app, view, { q, tpl }, src, log, done) {
   const s = view.s;
   const mode = app.settings.furigana;
+  const ja = (app.settings.lang || 'ja') === 'ja';
   const id = q.id;
   const key = id.slice(2);
   const scene = tpl ? sceneOf(tpl, s) : null;
@@ -60,9 +73,10 @@ export function renderQuiz(app, view, { q, tpl }, src, log, done) {
     const base = q.label.replace(/^～/, '');
     if (surface && surface !== base) q.prompt = `밑줄 친 「${surface}」(= ${base})의 뜻`;
   }
+  if (ja && q.kind === 'gblank') q.prompt = '（　）に入る言葉';
   let answered = false;
   const next = h('button', { class: 'btn primary', type: 'button', hidden: true, onclick: () => done(true) }, 'つづける');
-  const skip = h('button', { class: 'mini-btn', type: 'button', onclick: () => done(false) }, '건너뛰기');
+  const skip = h('button', { class: 'mini-btn', type: 'button', onclick: () => done(false) }, ja ? 'スキップ' : '건너뛰기');
   const opts = q.options.map((o, i) => h('button', { class: 'btn q-opt', type: 'button', lang: koOpts ? 'ko' : 'ja', onclick: (e) => {
     if (answered) return;
     answered = true;
@@ -83,11 +97,16 @@ export function renderQuiz(app, view, { q, tpl }, src, log, done) {
     e.currentTarget.classList.add(ok ? 'right' : 'wrong');
     opts[q.answer].classList.add('right');
     opts.forEach((b) => b.setAttribute('aria-disabled', 'true'));
-    if (scene) ko.hidden = false;
-    fb.replaceChildren(...[
-      h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
+    // 해설(한국어)과 문장 번역: 한국어 모드에서는 바로, 일본어 모드에서는 「解説」을 눌렀을 때만
+    const explain = h('div', { class: 'q-ko', hidden: ja }, ...[
       q.why ? h('ul', { class: 'why' }, q.options.map((op, k) => h('li', { class: k === q.answer ? 'ans' : null }, h('b', { lang: 'ja' }, op), ` — ${q.why[k] || ''}`))) : h('p', null, q.explain),
       q.ko ? h('p', { class: 'note' }, q.ko) : null,
+    ].filter(Boolean));
+    if (scene && !ja) ko.hidden = false;
+    fb.replaceChildren(...[
+      h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
+      ja ? h('button', { class: 'mini-btn', type: 'button', onclick: (ev) => { explain.hidden = !explain.hidden; if (scene) ko.hidden = explain.hidden; ev.currentTarget.textContent = explain.hidden ? '解説' : '閉じる'; } }, '解説') : null,
+      explain,
     ].filter(Boolean));
     fb.hidden = false;
     skip.remove();
@@ -98,7 +117,7 @@ export function renderQuiz(app, view, { q, tpl }, src, log, done) {
   // replaceChildren은 null을 「null」 글자로 넣으므로 빈 칸은 걸러 낸다
   view.panel.replaceChildren(...[
     h('div', { class: 'ev-cat' }, src === 'card' ? '復習カード' : 'ちょっと確認'),
-    h('div', { class: 'q-kind' }, q.kind === 'bank' ? `${BANK_TYPES[q.btype][0]} — ${BANK_TYPES[q.btype][1]}` : KIND_LABEL[q.kind] || ''),
+    h('div', { class: 'q-kind' }, kindName(q, ja)),
     line,
     q.prompt ? h('div', { class: 'q-prompt' + (koPrompt ? ' ko' : '') + (q.kind === 'grammar' || q.kind === 'bank' ? ' long' : ''), lang: koPrompt ? 'ko' : 'ja' }, q.kind === 'bank' ? richQ(q.prompt) : q.prompt) : null,
     h('div', { class: 'btns' }, opts),

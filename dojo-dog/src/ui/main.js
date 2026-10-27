@@ -211,26 +211,33 @@ class App {
     this.lcds.push(l);
     return l;
   }
+  // 표시 언어에 맞춘 라벨
+  tx(ko, ja) {
+    return (this.settings.lang || 'ja') === 'ja' ? ja : ko;
+  }
   soundControls() {
     const set = this.settings;
+    const t = (ko, ja) => this.tx(ko, ja);
     const sw = (key, onChange) => {
       const b = h('button', { class: 'switch', type: 'button', role: 'switch', 'aria-checked': String(!!set[key]), onclick: () => { set[key] = !set[key]; this.saveSettings(); b.setAttribute('aria-checked', String(!!set[key])); onChange && onChange(); } }, h('i'));
       return b;
     };
     const range = (key, label) => h('div', { class: 'toggle-row' }, h('label', { for: 'r-' + key }, label), h('input', { type: 'range', id: 'r-' + key, min: '0', max: '1', step: '0.05', value: String(set[key]), oninput: (e) => { set[key] = Number(e.target.value); this.saveSettings(); this.sound.setVolumes(set.bgm, set.sfx, set.sfxOn); } }));
     return h('div', { class: 'sound-box' },
-      h('div', { class: 'toggle-row' }, h('span', null, '소리'), sw('sound', () => this.sound.setOn(set.sound))),
-      range('bgm', 'BGM 음량'),
-      range('sfx', '효과음 음량'),
-      h('div', { class: 'toggle-row' }, h('span', null, '효과음'), sw('sfxOn', () => this.sound.setVolumes(set.bgm, set.sfx, set.sfxOn))));
+      h('div', { class: 'toggle-row' }, h('span', null, t('소리', 'サウンド')), sw('sound', () => this.sound.setOn(set.sound))),
+      range('bgm', t('BGM 음량', 'BGM音量')),
+      range('sfx', t('효과음 음량', '効果音の音量')),
+      h('div', { class: 'toggle-row' }, h('span', null, t('효과음', '効果音')), sw('sfxOn', () => this.sound.setVolumes(set.bgm, set.sfx, set.sfxOn))));
   }
   segRow(key, label, opts, after) {
     const set = this.settings;
     return h('div', { class: 'toggle-row' }, h('span', null, label), h('div', { class: 'seg' }, opts.map(([v, l]) => h('button', { type: 'button', 'aria-pressed': String(set[key] === v), onclick: (e) => { set[key] = v; this.saveSettings(); after && after(); [...e.currentTarget.parentNode.children].forEach((b) => b.setAttribute('aria-pressed', 'false')); e.currentTarget.setAttribute('aria-pressed', 'true'); } }, l))));
   }
   // 후리가나·학습 수준·쉬운 단어 숨기기·학습 집중 모드. 바꾸면 보고 있는 장면에 바로 반영한다.
-  studyControls() {
+  // onLang: 표시 언어를 바꾼 뒤 이 조각을 새 언어로 다시 그릴 때
+  studyControls(onLang) {
     const set = this.settings;
+    const t = (ko, ja) => this.tx(ko, ja);
     const changed = () => {
       this.saveSettings();
       if (this.view && this.view.refresh) this.view.refresh();
@@ -252,31 +259,31 @@ class App {
       return h('div', { class: 'toggle-row' }, h('span', null, label), b);
     };
     const custom = h('div', { class: 'opt-grid checks', hidden: set.studyLevel !== 'custom' },
-      [['5', 'N5'], ['4', 'N4'], ['3', 'N3'], ['2', 'N2'], ['1', 'N1'], ['K', '검도 용어']].map(([c, label]) => h('button', { type: 'button', role: 'checkbox', 'aria-checked': String(set.customLevels.includes(c)), onclick: (e) => {
+      [['5', 'N5'], ['4', 'N4'], ['3', 'N3'], ['2', 'N2'], ['1', 'N1'], ['K', t('검도 용어', '剣道用語')]].map(([c, label]) => h('button', { type: 'button', role: 'checkbox', 'aria-checked': String(set.customLevels.includes(c)), onclick: (e) => {
         const has = set.customLevels.includes(c);
         set.customLevels = has ? set.customLevels.filter((x) => x !== c) : [...set.customLevels, c];
         e.currentTarget.setAttribute('aria-checked', String(!has));
         changed();
       } }, label)));
     const freq = h('div', null,
-      h('div', { class: 'field-label' }, '플레이 중 퀴즈'),
-      grid('quizFreq', [['off', '끄기'], ['low', '적게'], ['mid', '보통'], ['high', '많이']]));
+      h('div', { class: 'field-label' }, t('플레이 중 퀴즈', 'プレイ中のクイズ')),
+      grid('quizFreq', [['off', t('끄기', 'なし')], ['low', t('적게', '少なめ')], ['mid', t('보통', 'ふつう')], ['high', t('많이', '多め')]]));
     freq.hidden = set.playMode === 'watch';
     return h('div', { class: 'study-box' },
-      h('div', { class: 'field-label' }, '표시 언어'),
-      grid('lang', [['ja', '日本語'], ['ko', '한국어']]),
-      h('div', { class: 'field-label' }, '모드'),
-      grid('playMode', [['study', '학습 모드'], ['watch', '감상 모드']], () => (freq.hidden = set.playMode === 'watch')),
+      h('div', { class: 'field-label' }, t('표시 언어', '表示言語')),
+      grid('lang', [['ja', '日本語'], ['ko', '한국어']], onLang),
+      h('div', { class: 'field-label' }, t('모드', 'モード')),
+      grid('playMode', [['study', t('학습 모드', '学習')], ['watch', t('감상 모드', '観賞')]], () => (freq.hidden = set.playMode === 'watch')),
       freq,
       h('div', { class: 'field-label' }, 'ふりがな'),
-      grid('furigana', [['always', '항상'], ['n2', 'N2 이상 어휘만'], ['hard', '어려운 한자·고유명사만'], ['off', '끄기']]),
-      h('div', { class: 'field-label' }, '학습 수준'),
-      grid('studyLevel', [['n5', 'N5~N4'], ['n3', 'N3'], ['n2', 'N2'], ['n1', 'N1'], ['custom', '직접 선택']], () => (custom.hidden = set.studyLevel !== 'custom')),
+      grid('furigana', [['always', t('항상', 'いつも')], ['n2', t('N2 이상 어휘만', 'N2以上の語だけ')], ['hard', t('어려운 한자·고유명사만', '難しい漢字・固有名詞だけ')], ['off', t('끄기', 'なし')]]),
+      h('div', { class: 'field-label' }, t('학습 수준', '学習レベル')),
+      grid('studyLevel', [['n5', 'N5~N4'], ['n3', 'N3'], ['n2', 'N2'], ['n1', 'N1'], ['custom', t('직접 선택', '自分で選ぶ')]], () => (custom.hidden = set.studyLevel !== 'custom')),
       custom,
-      sw('hideEasy', '쉬운 단어 학습 표시 끄기'),
-      sw('focus', '학습 집중 모드'),
-      h('div', { class: 'field-label' }, '선택지'),
-      grid('choiceMode', [['major', '중요한 장면만'], ['all', '모든 장면']]));
+      sw('hideEasy', t('쉬운 단어 학습 표시 끄기', 'やさしい語の印を消す')),
+      sw('focus', t('학습 집중 모드', '学習集中モード')),
+      h('div', { class: 'field-label' }, t('선택지', '選択肢')),
+      grid('choiceMode', [['major', t('중요한 장면만', '大事な場面だけ')], ['all', t('모든 장면', 'すべての場面')]]));
   }
   furiganaRow() {
     return this.studyControls();
@@ -290,12 +297,12 @@ class App {
     const cv = h('canvas', { class: 'lcd-canvas', 'aria-hidden': 'true' });
     const srs = store.srs();
     const due = dueIds(srs).length;
-    const soundBtn = h('button', { class: 'btn center', type: 'button', 'aria-pressed': String(this.settings.sound), onclick: () => { this.setSound(!this.settings.sound); soundBtn.replaceChildren(icon(this.settings.sound ? 'snd' : 'mute', 16), this.settings.sound ? '소리 끄기' : '소리 켜기'); soundBtn.setAttribute('aria-pressed', String(this.settings.sound)); } }, icon(this.settings.sound ? 'snd' : 'mute', 16), this.settings.sound ? '소리 끄기' : '소리 켜기');
+    const soundBtn = h('button', { class: 'btn center', type: 'button', 'aria-pressed': String(this.settings.sound), onclick: () => { this.setSound(!this.settings.sound); soundBtn.replaceChildren(icon(this.settings.sound ? 'snd' : 'mute', 16), this.settings.sound ? this.tx('소리 끄기', '音を消す') : this.tx('소리 켜기', '音を出す')); soundBtn.setAttribute('aria-pressed', String(this.settings.sound)); } }, icon(this.settings.sound ? 'snd' : 'mute', 16), this.settings.sound ? this.tx('소리 끄기', '音を消す') : this.tx('소리 켜기', '音を出す'));
     const el = h('div', { class: 'screen' },
       h('div', { class: 'scroll title-wrap' },
         h('div', null, h('h1', { class: 'logo', lang: 'ja' }, '道場犬'), h('p', { class: 'subtitle', lang: 'ja' }, 'ある道場の、ある犬の一生')),
         h('div', { class: 'device title-device' }, h('div', { class: 'lcd' }, cv)),
-        h('button', { class: 'study-strip', type: 'button', onclick: () => this.go('review') }, h('span', { class: 'due' }, h('b', null, '今日の復習'), h('span', null, String(due))), progressBox(srs)),
+        h('button', { class: 'study-strip', type: 'button', onclick: () => this.go('review') }, h('span', { class: 'due' }, h('b', null, '今日の復習'), h('span', null, String(due))), progressBox(srs, undefined, (this.settings.lang || 'ja') === 'ja')),
         n2SummaryBox(this),
         h('div', { class: 'btns' },
           has ? h('button', { class: 'btn primary', type: 'button', onclick: () => this.resume(save) }, `つづきから · ${save.state.dog.name} ${Math.floor(save.state.t / 4)}歳`) : null,
@@ -351,8 +358,8 @@ class App {
     };
     const worldSeg = legacy
       ? h('div', { class: 'seg', role: 'group', 'aria-label': '세계' },
-          h('button', { type: 'button', 'aria-pressed': 'true', onclick: (e) => { world = 'new'; setSeg(e); make(); } }, '새 세계'),
-          h('button', { type: 'button', 'aria-pressed': 'false', onclick: (e) => { world = 'continue'; setSeg(e); make(); } }, '이어지는 세계'))
+          h('button', { type: 'button', 'aria-pressed': 'true', onclick: (e) => { world = 'new'; setSeg(e); make(); } }, jp ? '新しい世界' : '새 세계'),
+          h('button', { type: 'button', 'aria-pressed': 'false', onclick: (e) => { world = 'continue'; setSeg(e); make(); } }, jp ? '続きの世界' : '이어지는 세계'))
       : null;
     function setSeg(e) {
       [...e.currentTarget.parentNode.children].forEach((b) => b.setAttribute('aria-pressed', 'false'));
@@ -406,21 +413,22 @@ class App {
   }
 
   settingsScreen() {
+    const t = (ko, ja) => this.tx(ko, ja);
     const confirmBox = h('div', { hidden: true, class: 'card' },
-      h('p', null, '단어장·복습 기록·역사·진행 중인 견생이 모두 지워진다.'),
+      h('p', null, t('단어장·복습 기록·역사·진행 중인 견생이 모두 지워진다.', '単語帳・復習の記録・歴史・プレイ中の一生がすべて消える。')),
       h('div', { class: 'row' },
-        h('button', { class: 'btn center danger', type: 'button', onclick: () => { store.resetAll(); this.settings = store.settings(); this.applyTheme(); this.toast('지움'); this.go('title'); } }, '지우기'),
-        h('button', { class: 'btn center', type: 'button', onclick: () => (confirmBox.hidden = true) }, '그만두기')));
+        h('button', { class: 'btn center danger', type: 'button', onclick: () => { store.resetAll(); this.settings = store.settings(); this.applyTheme(); this.toast(t('지움', '消した')); this.go('title'); } }, t('지우기', '消す')),
+        h('button', { class: 'btn center', type: 'button', onclick: () => (confirmBox.hidden = true) }, t('그만두기', 'やめる'))));
     return h('div', { class: 'screen' },
       h('div', { class: 'scroll' },
         h('h2', { class: 'h' }, '設定'),
-        this.segRow('theme', '화면', [['system', '자동'], ['dark', '다크'], ['light', '라이트']], () => this.applyTheme()),
-        h('h3', { class: 'h' }, '일본어'),
-        this.studyControls(),
-        h('h3', { class: 'h' }, '소리'),
+        this.segRow('theme', t('화면', '画面'), [['system', t('자동', '自動')], ['dark', t('다크', 'ダーク')], ['light', t('라이트', 'ライト')]], () => this.applyTheme()),
+        h('h3', { class: 'h' }, t('일본어', '日本語')),
+        this.studyControls(() => this.go('settings')),
+        h('h3', { class: 'h' }, t('소리', 'サウンド')),
         this.soundControls(),
-        h('h3', { class: 'h' }, '기록'),
-        h('button', { class: 'btn danger center', type: 'button', onclick: () => (confirmBox.hidden = false) }, '모든 기록 지우기'),
+        h('h3', { class: 'h' }, t('기록', '記録')),
+        h('button', { class: 'btn danger center', type: 'button', onclick: () => (confirmBox.hidden = false) }, t('모든 기록 지우기', 'すべての記録を消す')),
         confirmBox),
       h('div', { class: 'sheet-foot', style: 'position:static' }, h('button', { class: 'btn center', type: 'button', onclick: () => this.go('title') }, '戻る')));
   }

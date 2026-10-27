@@ -6,8 +6,11 @@ import { h, renderExample, renderJa, renderSpeaker, LINES } from './render.js';
 import { store } from './store.js';
 
 
+// 표시 언어 (설정을 직접 읽는다: 팝업은 어느 화면에서나 열린다)
+export const uiJa = () => (store.settings().lang || 'ja') === 'ja';
+
 export function levelLabel(lv) {
-  return lv === '범위 밖' ? '검도 용어' : lv;
+  return lv === '범위 밖' ? (uiJa() ? '剣道用語' : '검도 용어') : lv;
 }
 
 // 단어장: { 'key' | 'g:key': { key, at, n, last, scenes: [{ja, ko, sp, title, when}] } }
@@ -66,6 +69,16 @@ function sceneBlock(app, scene, id, mode) {
 
 // 접속 설명에서 괄호 속 풀이를 뺀 짧은 꼴
 export const shortConn = (c = '') => c.replace(/\s*[（(][^）)]*[）)]/g, '').replace(/\s+\./g, '.').trim();
+// 일본어 모드의 접속: 한국어 문법 용어를 일본어로 바꾸고, 한국어 설명이 남은 갈래는 뺀다
+const CONN_JA = [['な형용사', 'な形容詞'], ['い형용사', 'い形容詞'], ['형용사', '形容詞'], ['명사', '名詞'], ['동사', '動詞'], ['보통형', '普通形'], ['사전형', '辞書形'], ['가정형', '仮定形'], ['가능형', '可能形'], ['의지형', '意志形'], ['정중형', '丁寧形'], ['의문사', '疑問詞'], ['어간', '語幹'], ['형', '形']];
+export function jaConn(c = '') {
+  let t = shortConn(c).split(/\.\s/)[0];
+  for (const [ko, ja] of CONN_JA) t = t.split(ko).join(ja);
+  t = t.replace(/·/g, '・').replace(/([一-龯])\s+(?=[ぁ-んァ-ン一-龯])/g, '$1');
+  const parts = t.split(' / ');
+  const keep = parts.filter((x) => !/[가-힣]/.test(x));
+  return (keep.length ? keep.join(' / ') : parts[0].replace(/\s*[가-힣][가-힣\s・]*/g, '')).trim();
+}
 
 // 길게 읽을 내용은 접어 둔다
 function more(...kids) {
@@ -82,6 +95,8 @@ function related(key) {
 function saveButton(key, scene) {
   const wb = store.wordbook();
   let saved = !!wb[key];
+  const ja = uiJa();
+  const label = () => (ja ? (saved ? '単語帳に保存済み' : '単語帳に保存') : saved ? '단어장에 저장됨' : '단어장 저장');
   const b = h('button', { class: 'btn center save-btn', type: 'button', 'aria-pressed': String(saved), onclick: () => {
     if (saved) {
       const w = store.wordbook();
@@ -90,8 +105,8 @@ function saveButton(key, scene) {
     } else saveWord(key, scene);
     saved = !saved;
     b.setAttribute('aria-pressed', String(saved));
-    b.textContent = saved ? '단어장에 저장됨' : '단어장 저장';
-  } }, saved ? '단어장에 저장됨' : '단어장 저장');
+    b.textContent = label();
+  } }, label());
   return b;
 }
 
@@ -129,7 +144,7 @@ export function grammarPopup(app, key, scene, mode) {
   modal(app, g.f,
     h('div', { class: 'v-head' }, h('span', { class: 'v-word', lang: 'ja' }, g.f), h('span', { class: 'v-lv' }, g.lv)),
     h('p', { class: 'v-mean' }, g.m),
-    h('p', { class: 'v-conn' }, shortConn(g.c)),
+    h('p', { class: 'v-conn' }, uiJa() ? jaConn(g.c) : shortConn(g.c)),
     sceneBlock(app, scene, 'g:' + key, mode),
     more(
       g.d ? h('div', { class: 'v-note' }, g.d) : null,

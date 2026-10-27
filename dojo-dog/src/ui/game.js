@@ -228,7 +228,7 @@ export class GameView {
   // 플레이 중 학습: src 'scene'(장면 뒤 확인 문제) | 'card'(복습 카드). 문제가 없으면 아무것도 하지 않는다.
   openQuiz(src) {
     const log = quizLog(this.s);
-    const plan = planQuiz(log, src);
+    const plan = planQuiz(log, src, Date.now(), this.ja);
     if (src === 'scene') reschedule(log, this.set);
     if (!plan) return false;
     if (src === 'card') log.lastCard = this.s.t;
@@ -740,7 +740,10 @@ export class GameView {
   doWord(text, auto) {
     if (this.s.phase !== 'word') return;
     G.setWord(this.s, text, auto);
-    if (auto) this.log(`オート: 「${text}」`, `オート：「${text}」`);
+    if (auto) {
+      const w = this.s.words[this.s.words.length - 1];
+      this.log(`오토: 「${w.text}」`, `オート：「${w.textJa || w.text}」`);
+    }
     this.save();
     this.renderPhase();
   }
@@ -824,8 +827,8 @@ export class GameView {
     const close = () => back.remove();
     back.append(h('div', { class: 'modal' },
       h('h3', { class: 'ev-title' }, 'メニュー'),
-      this.app.studyControls(),
-      h('h3', { class: 'h' }, '소리'),
+      this.app.studyControls(() => { close(); this.menu(); }),
+      h('h3', { class: 'h' }, this.ja ? 'サウンド' : '소리'),
       this.app.soundControls(),
       h('div', { class: 'btns', style: 'margin-top:10px' },
         h('div', { class: 'row' },

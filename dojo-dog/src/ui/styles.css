@@ -461,3 +461,6 @@ ruby rt { font-size: 0.5em; }
 .v-more summary { cursor: pointer; color: var(--accent); min-height: 40px; display: flex; align-items: center; list-style: none; }
 .v-more summary::-webkit-details-marker { display: none; }
 .v-more .v-note + .v-note, .v-more .rel { margin-top: 6px; }
+
+/* 설정의 짧은 단추(画面: 自動/ダーク/ライト)는 한 줄로 */
+.toggle-row .seg button { white-space: nowrap; }

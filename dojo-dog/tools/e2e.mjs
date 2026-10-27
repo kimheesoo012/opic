@@ -61,21 +61,21 @@ async function run() {
     await target.click();
     await p.waitForSelector('.modal');
     const txt = await p.textContent('.modal');
-    ok('학습 대상 탭 → 학습 창 (DB 내용·게임 속 문장·저장 버튼)', /N[1-5]|검도 용어/.test(txt) && !/추정/.test(txt) && /例文|～/.test(txt) && /ゲームの場面/.test(txt) && /단어장 저장/.test(txt), txt.slice(0, 50).replace(/\s+/g, ' '));
+    ok('학습 대상 탭 → 학습 창 (DB 내용·게임 속 문장·저장 버튼)', /N[1-5]|검도 용어|剣道用語/.test(txt) && !/추정/.test(txt) && /例文|～/.test(txt) && /ゲームの場面/.test(txt) && /단어장 저장|単語帳に保存/.test(txt), txt.slice(0, 50).replace(/\s+/g, ' '));
     await p.click('.modal .save-btn');
-    ok('「단어장 저장」으로 저장', /저장됨/.test(await p.textContent('.modal .save-btn')));
+    ok('「단어장 저장」으로 저장', /저장됨|保存済み/.test(await p.textContent('.modal .save-btn')));
     await p.screenshot({ path: OUT + '/word-popup.png' });
     await p.click('.modal .close-btn');
   } else ok('학습 대상 탭 → 학습 창', false, '밑줄을 찾지 못함');
   // 게임 도중 설정 변경: 후리가나 「항상」 → 읽기가 늘어난다
   const rubyBefore = await p.$$eval('.panel rt', (x) => x.length);
   await p.click('.ctl[aria-label="메뉴"]');
-  await p.click('.modal .opt-grid button:has-text("항상")');
+  await p.click('.modal .opt-grid button:has-text("いつも")');
   await p.click('.modal .btn.primary');
   const rubyAfter = await p.$$eval('.panel rt', (x) => x.length);
   ok('게임 도중 후리가나 설정 변경이 바로 반영', rubyAfter > rubyBefore, `${rubyBefore} → ${rubyAfter}`);
   await p.click('.ctl[aria-label="메뉴"]');
-  await p.click('.modal .opt-grid button:has-text("N2 이상 어휘만")');
+  await p.click('.modal .opt-grid button:has-text("N2以上の語だけ")');
   await p.click('.modal .btn.primary');
   await p.evaluate(() => window.__dojoinu.view.togglePause());
   // 진행 + 중간 이어하기
@@ -126,7 +126,7 @@ async function run() {
   const life = await p.$eval('.life-study', (e) => e.textContent).catch(() => '');
   await p.$eval('.life-study', (e) => e.scrollIntoView({ block: 'start' })).catch(() => {});
   await p.screenshot({ path: OUT + '/life-study.png' });
-  ok('견생 정리: 이번 판의 일본어', /만난 N2 어휘/.test(life) && /만난 N2 문법/.test(life) && /퀴즈/.test(life), life.slice(0, 60).replace(/\s+/g, ' '));
+  ok('견생 정리: 이번 판의 일본어', /出会ったN2語彙/.test(life) && /出会ったN2文法/.test(life) && /クイズ/.test(life), life.slice(0, 60).replace(/\s+/g, ' '));
   const [dl] = await Promise.all([p.waitForEvent('download', { timeout: 8000 }).catch(() => null), p.click('text=カードを保存')]);
   ok('カードを保存 → 내려받기', !!dl, dl ? dl.suggestedFilename() : '내려받기 이벤트 없음');
   await p.screenshot({ path: OUT + '/result.png', fullPage: true });
@@ -182,8 +182,8 @@ async function run() {
   await p.click('text=戻る');
   // 今日の一問 → スキップ → 게임
   await p.click('text=はじめから');
-  const cont = await p.$('text=이어지는 세계');
-  ok('견생 계승: 「이어지는 세계」', !!cont);
+  const cont = await p.$('text=続きの世界');
+  ok('견생 계승: 「続きの世界」', !!cont);
   if (cont) {
     await cont.click();
     const info = await p.textContent('.card');
