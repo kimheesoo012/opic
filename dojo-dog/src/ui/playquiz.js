@@ -88,7 +88,6 @@ export function renderQuiz(app, view, { q, tpl }, src, log, done) {
       h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
       q.why ? h('ul', { class: 'why' }, q.options.map((op, k) => h('li', { class: k === q.answer ? 'ans' : null }, h('b', { lang: 'ja' }, op), ` — ${q.why[k] || ''}`))) : h('p', null, q.explain),
       q.ko ? h('p', { class: 'note' }, q.ko) : null,
-      ok ? null : h('p', { class: 'note' }, '복습 목록에 넣었어요. 몇 문제 뒤에 다른 형태로 한 번 더 나옵니다.'),
     ].filter(Boolean));
     fb.hidden = false;
     skip.remove();
@@ -100,7 +99,6 @@ export function renderQuiz(app, view, { q, tpl }, src, log, done) {
   view.panel.replaceChildren(...[
     h('div', { class: 'ev-cat' }, src === 'card' ? '復習カード' : 'ちょっと確認'),
     h('div', { class: 'q-kind' }, q.kind === 'bank' ? `${BANK_TYPES[q.btype][0]} — ${BANK_TYPES[q.btype][1]}` : KIND_LABEL[q.kind] || ''),
-    h('p', { class: 'note small q-why' }, src === 'card' ? '전에 만난 말을 다시 꺼내 봅니다. 게임 진행에는 영향이 없어요.' : '방금 장면에 나온 말이에요. 틀려도 게임에는 영향이 없어요.'),
     line,
     q.prompt ? h('div', { class: 'q-prompt' + (koPrompt ? ' ko' : '') + (q.kind === 'grammar' || q.kind === 'bank' ? ' long' : ''), lang: koPrompt ? 'ko' : 'ja' }, q.kind === 'bank' ? richQ(q.prompt) : q.prompt) : null,
     h('div', { class: 'btns' }, opts),

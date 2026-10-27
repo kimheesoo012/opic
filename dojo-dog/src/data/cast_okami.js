@@ -101,7 +101,7 @@ export default [
       { if: (s) => s.foiled >= 3, l: [['iincho', 'ふん。わたくしが[支配]する[町]に、道場の一つくらいあってもよかろう。', '흥. 내가 지배할 마을에 도장 하나쯤은 있어도 괜찮겠지.']] },
     ],
     choices: [
-      { t: '공사 현장 감독(?)을 맡는다', tag: 'guard', fx: { brave: 2, b_shihan: 3 }, set: ['dojo_saved', 'o_foreman'], ach: ['okami', '모금으로 도장을 지켜 냄'], news: { okami: '도장 수리 완료. 마루가 새것처럼 반짝인다.', shihan: '수리한 도장에서 연습을 이어 간다.' },
+      { t: '공사 현장 감시 담당이 된다', tag: 'guard', fx: { brave: 2, b_shihan: 3 }, set: ['dojo_saved', 'o_foreman'], ach: ['okami', '모금으로 도장을 지켜 냄'], news: { okami: '도장 수리 완료. 마루가 새것처럼 반짝인다.', shihan: '수리한 도장에서 연습을 이어 간다.' },
         res: '석 달 동안 {N|은} 공사장 입구에 앉아 목수들을 감시했다. 마지막 날 목수 반장이 새 마루 한구석에 작은 발자국 모양을 새겨 주었다.' },
       { t: '모금함 옆에서 인사 담당을 한다', tag: 'social', fx: { soc: 3, b_okami: 4 }, set: ['dojo_saved', 'o_greeter'], ach: ['okami', '모금으로 도장을 지켜 냄'], news: { okami: '도장 수리 완료.', shihan: '수리한 도장에서 연습을 이어 간다.' },
         res: '모금함 옆 방석이 {N}의 자리가 되었다. 공사가 끝난 뒤 그 방석은 새 도장 현관에 그대로 놓였다.' },
@@ -133,7 +133,7 @@ export default [
     choices: [
       { t: '체육실 입구 간판 아래에 자리를 잡는다', tag: 'guard', fx: { brave: 2, b_shihan: 4 }, set: ['dojo_kominkan', 'o_kominkan_guard'], ach: ['okami', '공민관에서 연습을 이어 감'], news: { okami: '공민관 체육실에서 연습을 이어 간다.', shihan: '공민관에서 지도한다.' },
         res: '공민관 관리인이 「개는 원래 안 되는데……」 하다가, 결국 {N} 전용 방석을 하나 갖다 놓았다.' },
-      { t: '탁구대 접는 걸 돕는다(는 마음으로 짖는다)', tag: 'play', fx: { mis: 3, b_okami: 4 }, set: ['dojo_kominkan', 'o_pingpong'], ach: ['okami', '공민관에서 연습을 이어 감'], news: { okami: '공민관 체육실에서 연습을 이어 간다.', shihan: '공민관에서 지도한다.' },
+      { t: '탁구대 접는 소리에 맞춰 짖는다', tag: 'play', fx: { mis: 3, b_okami: 4 }, set: ['dojo_kominkan', 'o_pingpong'], ach: ['okami', '공민관에서 연습을 이어 감'], news: { okami: '공민관 체육실에서 연습을 이어 간다.', shihan: '공민관에서 지도한다.' },
         res: '탁구대 접는 소리에 맞춰 짖는 게 {N}의 새 일이 됐다. 아이들은 그게 연습 시작 신호라고 믿게 되었다.' },
     ],
   },

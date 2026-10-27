@@ -157,7 +157,6 @@ function home(app, body) {
   });
   body.append(
     n2SummaryBox(app),
-    h('p', { class: 'note' }, `어휘 ${s.words}개 · 문법 ${s.grammar}개 · 문제 ${BANK.length}개 · 독해 ${READING.length}편 · 청해 ${LISTENING.length}개. 수준은 공식 목록이 없어 모두 추정이며, 정답률은 이 앱 문제에서의 기록일 뿐 합격 가능성을 뜻하지 않습니다.`),
     h('h3', { class: 'h', lang: 'ja' }, '問題演習'),
     h('div', { class: 'n2-types' }, typeRows),
     h('div', { class: 'row' },
@@ -223,7 +222,7 @@ export function vocabDetail(app, key) {
       h('dt', null, '뜻'), h('dd', null, v.m),
       h('dt', null, '품사'), h('dd', null, ({ n: v.sn ? 'する명사' : '명사', v: '동사', a: 'い형용사', na: 'な형용사', adv: '부사', exp: '표현' })[v.pos] || '—'),
       h('dt', null, '수준'), h('dd', null, 'N2 추정'),
-      h('dt', null, '구분'), h('dd', null, `${inGame(key) ? 'ゲーム語彙(대사에 나옴)' : '試験語彙'} · ${N2X_TAG_KO[v.tag] || ''}`),
+      h('dt', null, '구분'), h('dd', null, `${inGame(key) ? 'ゲーム語彙' : '試験語彙'} · ${N2X_TAG_KO[v.tag] || ''}`),
       h('dt', null, '유의어'), h('dd', null, words(v.syn)),
       h('dt', null, '반의어'), h('dd', null, words(v.ant)),
       h('dt', null, '헷갈리는 말'), h('dd', null, words(v.conf)),
@@ -427,7 +426,7 @@ function speakLines(lines, onEnd) {
 function listen(app, body, id) {
   const item = id && LISTENING.find((x) => x.id === id);
   if (!item) {
-    body.append(h('p', { class: 'note' }, '브라우저의 음성 합성(TTS)으로 읽어 줍니다. 실제 JLPT 음원과 속도·억양·음질이 다르므로 참고용입니다. 음성이 없으면 스크립트를 읽어 풀 수 있습니다.'));
+    body.append(h('p', { class: 'note' }, '음성은 브라우저 읽기 기능이라 실제 시험 음원과 다릅니다.'));
     const ql = store.qlog();
     for (const [k, [ja, ko]] of Object.entries(LISTEN_KIND)) {
       const items = LISTENING.filter((x) => x.kind === k);
@@ -461,7 +460,7 @@ function weak(app, body) {
   const name = (t) => (BANK_TYPES[t] ? BANK_TYPES[t][0] : t.startsWith('read-') ? '読解・' + (READ_KIND[t.slice(5)] || [''])[0] : t.startsWith('listen-') ? '聴解・' + (LISTEN_KIND[t.slice(7)] || [''])[0] : t);
   body.append(h('h3', { class: 'h' }, '유형별 정답률'),
     rows.length ? h('div', { class: 'list' }, rows.map((r) => h('div', { class: 'card weak-row' }, h('span', { lang: 'ja' }, name(r.t)), h('b', null, `${r.p}%`), h('small', null, `${r.n}問`),
-      BANK_TYPES[r.t] ? h('button', { class: 'mini-btn', type: 'button', onclick: () => app.go('n2', 'drill', r.t) }, '練習') : null))) : h('p', { class: 'note' }, '유형마다 3문제 이상 풀면 여기에 정답률이 나옵니다.'));
+      BANK_TYPES[r.t] ? h('button', { class: 'mini-btn', type: 'button', onclick: () => app.go('n2', 'drill', r.t) }, '練習') : null))) : h('p', { class: 'note' }, '3문제 이상 풀면 표시됩니다.'));
   const ids = priorityIds(srs).slice(0, 30);
   const groups = {};
   for (const id of ids) (groups[priorityOf(srs[id])] = groups[priorityOf(srs[id])] || []).push(id);

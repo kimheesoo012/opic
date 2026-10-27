@@ -126,7 +126,8 @@ export class GameView {
     // 이야기가 펼쳐질 때는 도트 창을 줄여 대사와 선택지에 자리를 내준다.
     // 높이 기준: iPhone SE Safari(주소창 포함) ≈ 548px, iPhone 13/14 Safari ≈ 664px, 홈 화면 앱 667 / 844px
     const vh = window.innerHeight;
-    const short = vh < 760;
+    // 760→860: Claude 앱 안의 화면처럼 위에 머리줄이 있어 세로가 짧은 경우까지 대사·선택지에 자리를 준다
+    const short = vh < 860;
     const tiny = vh < 700;
     const mini = vh < 600;
     // 장면이 바뀔 때 크기·간격이 오르내리면 화면 전체가 흔들려 어지럽다. 화면 높이로만 정하고 장면과 무관하게 고정한다.

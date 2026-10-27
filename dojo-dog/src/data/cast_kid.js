@@ -158,7 +158,7 @@ export default [
       ['kid', '……{N}に[会]えなくなる。', '……{N|을} 못 보게 돼.'],
     ],
     choices: [
-      { t: '일부러 등을 돌리고 앉는다 ("가도 돼")', tag: 'calm', fx: { b_kid: 4, brave: 2 }, set: 'kid_strong_school', news: { kid: '강호교에 진학. 기숙사 생활.' }, ach: ['kid', '검도 강호교 진학'],
+      { t: '일부러 등을 돌리고 앉는다', tag: 'calm', fx: { b_kid: 4, brave: 2 }, set: 'kid_strong_school', news: { kid: '강호교에 진학. 기숙사 생활.' }, ach: ['kid', '검도 강호교 진학'],
         res: '{N|이} 등을 돌리자 {kid|은} 한참 그 등을 보다가, "알았어"라고 말했다. 봄에 {kid|은} 큰 가방을 메고 떠났다.',
         lines: [['kid', '[夏休み]には[帰]ってくるから。[待]っててよ。', '여름방학엔 돌아올 테니까. 기다려.']] },
       { t: '{kid}의 가방 속으로 들어간다', tag: 'sweet', fx: { b_kid: 8 }, set: 'kid_local_school', news: { kid: '지역 공립고에 진학. 도장에도 계속 나온다.' }, ach: ['kid', '지역 공립고 진학'],

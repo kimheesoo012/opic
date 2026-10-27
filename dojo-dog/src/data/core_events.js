@@ -166,9 +166,9 @@ export default [
     text: '목줄이 찰칵 소리를 냈다. 오늘은 어디로 갈까?',
     lines: [['okami', 'さあ、お[散歩]行こうか。今日はどっちにする？', '자, 산책 갈까. 오늘은 어느 쪽으로 할래?']],
     choices: [
-      { t: '{S} (상점가)', tag: 'social', fx: { soc: 2 }, pool: 'walk_street', poolEmpty: '상점가 사람들에게 인사를 한 바퀴 돌고 왔다.' },
+      { t: '{S}', tag: 'social', fx: { soc: 2 }, pool: 'walk_street', poolEmpty: '상점가 사람들에게 인사를 한 바퀴 돌고 왔다.' },
       { t: '{RV} 강변', tag: 'brave', fx: { hea: 3 }, risk: 0.03, req: (s) => s.st.back >= 30 && s.st.hea >= 25, why: '긴 산책은 지금 몸에 무리다', pool: 'walk_river', poolEmpty: '강바람을 맞으며 풀 냄새를 실컷 맡았다.' },
-      { t: '{SH} (신사)', tag: 'calm', fx: { hap: 2 }, pool: 'walk_shrine', poolEmpty: '신사의 돌계단 아래에서 비둘기를 구경했다.' },
+      { t: '{SH}', tag: 'calm', fx: { hap: 2 }, pool: 'walk_shrine', poolEmpty: '신사의 돌계단 아래에서 비둘기를 구경했다.' },
       { t: '학교 앞', tag: 'play', fx: { b_kid: 2, soc: 1 }, pool: 'walk_school', poolEmpty: '하교하는 아이들에게 둘러싸여 실컷 쓰다듬어졌다.' },
     ],
   },

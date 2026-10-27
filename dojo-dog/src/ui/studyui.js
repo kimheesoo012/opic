@@ -59,7 +59,7 @@ export function studyScreen(app, tab = 'review') {
         row('최근 틀린 항목', g.recentWrong, '最近の間違い'),
         row('어려운 항목', g.hard, '苦手')),
       h('div', { class: 'btns', style: 'margin-top:10px' },
-        due.length ? h('button', { class: 'btn primary', type: 'button', onclick: () => app.startQuiz(due.slice(0, 20), '今日の復習') }, `전부 풀기（${Math.min(20, due.length)}問）`) : h('p', { class: 'note' }, '오늘 복습할 것 없음'),
+        due.length ? h('button', { class: 'btn primary', type: 'button', onclick: () => app.startQuiz(due.slice(0, 20), '今日の復習') }, `전부 풀기 · ${Math.min(20, due.length)}問`) : h('p', { class: 'note' }, '오늘 복습할 것 없음'),
         met.length >= 4 ? h('button', { class: 'btn center', type: 'button', onclick: () => app.startQuiz(met, '練習') }, '練習 10問') : null));
   } else body.append(bookList(app, srs));
   return shell(app, '復習', [tabs, h('div', { style: 'height:12px' }), body], h('button', { class: 'btn center', type: 'button', onclick: () => app.back() }, '戻る'));

@@ -96,7 +96,7 @@ export default [
       ['shihan', 'どうぞ。[道場]はいつでも〔開:あ〕いてます。', '그러세요. 도장은 언제나 열려 있습니다.'],
     ],
     choices: [
-      { t: '마루 끝에서 휘두르기를 센다(는 얼굴을 한다)', tag: 'calm', fx: { soc: 3, b_shihan: 3 }, clear: 'sb_izakaya', set: 'iz_return',
+      { t: '마루 끝에서 휘두르기를 세는 척한다', tag: 'calm', fx: { soc: 3, b_shihan: 3 }, clear: 'sb_izakaya', set: 'iz_return',
         res: '백 번. 무릎은 아파도, 죽도 끝은 30년 전 그대로였다. 대장은 다음 달부터 일요일 아침 연습에 나오기 시작했다. 대신 연습 뒤 맥주가 반값이 되었다.' },
       { t: '대장 옆에서 같이 앞뒤로 걷는다', tag: 'play', fx: { soc: 2, mis: 2, hap: 3 }, clear: 'sb_izakaya', set: 'iz_return',
         res: '대장이 웃음을 터뜨렸다. 「개랑 같이 휘두르기를 할 줄이야.」 그날 가게 벽에는 죽도 대신 사진이 걸렸다. 죽도를 든 대장과 닥스훈트.' },
@@ -118,7 +118,7 @@ export default [
     title: '본 무대: 탬버린',
     text: '공민관 무대. {worker|이} 마이크를 잡았다. 반주가 시작된다. 박자에 맞춰 탬버린을 흔들자!',
     choices: [
-      { t: '완벽한 박자 (명수)', tag: 'play', mini: 'great', fx: { soc: 5, hap: 4 }, set: 'tambourine_master', clear: 'sb_karaoke', res: '마지막 소절까지 한 박자도 놓치지 않았다. 앙코르가 세 번. 회장님이 「내년에도 부탁한다」며 {N}의 목에 메달을 걸어 주었다.' },
+      { t: '완벽한 박자로 흔든다', tag: 'play', mini: 'great', fx: { soc: 5, hap: 4 }, set: 'tambourine_master', clear: 'sb_karaoke', res: '마지막 소절까지 한 박자도 놓치지 않았다. 앙코르가 세 번. 회장님이 「내년에도 부탁한다」며 {N}의 목에 메달을 걸어 주었다.' },
       { t: '대체로 맞음', tag: 'social', mini: 'ok', fx: { soc: 3, hap: 3 }, clear: 'sb_karaoke', res: '반쯤은 맞았다. 반쯤은 {worker}의 음정과 같은 정도로 어긋났다. 둘이 같이 어긋나서 오히려 듀엣 같았다.' },
       { t: '박자는 잊고 무대를 뛰어다님', tag: 'lazy', mini: 'bad', fx: { mis: 4, hap: 2 }, clear: 'sb_karaoke', res: '탬버린을 흔들며 무대를 가로질러 객석으로 다이브. 노래보다 그쪽이 더 큰 박수를 받았다.' },
     ],
@@ -395,7 +395,7 @@ export default [
     lines: [['@ラーメン屋の店主', '[一本]取れる[味]を[目指]しました！', '한 판 딸 수 있는 맛을 목표로 했습니다!'], ['shihan', '……[突き]はないんですか。', '……찌름은 없나요?'], ['@ラーメン屋の店主', '[突き]は、[追加]の[煮卵]です。', '찌름은 추가 반숙 계란입니다.']],
     choices: [
       { t: '가게 앞에서 냄새 심사를 한다', tag: 'food', fx: { hap: 3 }, later: ['sb_ramen2', 1], res: '{N}의 코가 실룩거렸다. 국물 냄새는 합격. 그런데 개는 라멘을 먹을 수 없다. 주인이 그걸 너무 아쉬워했다.' },
-      { t: '「胴」(그릇)에 머리를 넣어 본다', tag: 'play', fx: { mis: 4 }, later: ['sb_ramen2', 1], res: '빈 그릇에 머리가 쏙 들어갔다. 「《胴》 있음!」 {worker|이} 외쳤다. 심판 깃발 대신 젓가락이 올라갔다.' },
+      { t: '빈 그릇에 머리를 넣어 본다', tag: 'play', fx: { mis: 4 }, later: ['sb_ramen2', 1], res: '빈 그릇에 머리가 쏙 들어갔다. 「《胴》 있음!」 {worker|이} 외쳤다. 심판 깃발 대신 젓가락이 올라갔다.' },
     ],
   },
   {
