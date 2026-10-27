@@ -5,7 +5,8 @@ import { dueCards, STAGES } from './review.js';
 import { partStats, weakConcepts, causeDist, retentionStats, CAUSES, todayAttempts, todayStudySec, overtimeQids } from './stats.js';
 import { newSession } from './sessions.js';
 import { pct, dayKey, fmtMin, PART_NAMES, DAY, LETTERS, RC_PARTS } from './util.js';
-import { h, on, toast, sheet, closeSheet, copyText, download } from './ui.js';
+import { XP, DAILY_GOALS, BADGES, MASTERY_LABELS, streakInfo, levelOf, setDaily, shiftDay } from './game.js';
+import { h, on, toast, sheet, closeSheet, copyText, download, icons } from './ui.js';
 import { startSession, stageDots } from './player.js';
 import { validateImport } from './store.js';
 
@@ -79,6 +80,8 @@ function summaryText() {
   lines.push(`파트별 정답률${today.length ? ' 오늘' : ' 전체'}: ${parts.join(', ') || '기록 없음'}`);
   const weak = weakConcepts(st.attempts, 3);
   lines.push(`약점 유형: ${weak.length ? weak.map((w) => `${conceptName(C.bank, w.concept)} ${pct(w.acc)}% ${w.n}문항`).join(', ') : '판단할 기록 부족'}`);
+  const si = streakInfo(st.game);
+  lines.push(`연속 ${si.days}일 · Lv.${levelOf(st.game.total).level} · 누적 ${st.game.total} XP · 오늘 ${si.todayXp}/${st.game.daily} XP`);
   lines.push(est.enough ? `RC 추정 점수 범위: ${est.rc.lo}–${est.rc.hi}, 공식 환산 아님 · 목표 ${st.profile.goal}` : `학습 수준: ${est.level}, 데이터 부족 · 목표 ${st.profile.goal}`);
   return lines.join('\n');
 }
@@ -94,6 +97,7 @@ export function renderStats() {
   let html = `<div class="page"><h1>기록</h1>`;
   // scoreCard는 app.js에 있으므로 간접 호출
   html += C.scoreCardHtml ? C.scoreCardHtml(est) : '';
+  html += growthCard() + masteryCard() + badgeCard();
   html += `<div class="card"><h3>파트별 정답률·풀이 시간</h3><table class="t"><thead><tr><th>파트</th><th class="num">문항</th><th class="num">정답률</th><th class="num">평균</th></tr></thead><tbody>
     ${RC_PARTS.map((p) => `<tr><td>P${p} ${PART_NAMES[p]}</td><td class="num">${ps[p].n}</td><td class="num">${ps[p].n ? pct(ps[p].acc) + '%' : '–'}</td><td class="num">${ps[p].avgSec != null ? `${Math.round(ps[p].avgSec)}초${p >= 5 && ps[p].target ? `<div class="xs muted">목표 ${ps[p].target}초</div>` : ''}` : '–'}</td></tr>`).join('')}</tbody></table></div>`;
   html += `<div class="card"><h3>자주 틀리는 유형 TOP 3</h3>${weak.length ? weak.map((w, i) => `<div class="list-item"><b>${i + 1}</b><div class="grow">${h(conceptName(C.bank, w.concept))}<div class="xs muted">정답률 ${pct(w.acc)}% · ${w.n}문항${w.avgSec != null ? ` · 평균 ${Math.round(w.avgSec)}초` : ''}</div></div><button class="btn sm" data-act="drillConcept" data-c="${w.concept}">연습</button></div>`).join('') : '<p class="small muted">유형당 4문항 이상 풀어야 약점으로 판단합니다.</p>'}</div>`;
@@ -106,6 +110,56 @@ export function renderStats() {
     <input type="file" accept="application/json,.json" class="hidden" id="importFile" data-change="importFile"></div></div>`;
   return html;
 }
+// 지난 7일과 그 전 7일 비교, 날짜별 XP 막대
+function growthCard() {
+  const g = C.state.game;
+  const now = Date.now();
+  const today = dayKey(now);
+  const days = Array.from({ length: 7 }, (_, i) => shiftDay(today, i - 6));
+  const prevDays = Array.from({ length: 7 }, (_, i) => shiftDay(today, i - 13));
+  const xpSum = (ds) => ds.reduce((a, d) => a + (g.xp[d] || 0), 0);
+  const inDays = (ds) => { const set = new Set(ds); return C.state.attempts.filter((a) => set.has(dayKey(a.t))); };
+  const cur = inDays(days);
+  const prev = inDays(prevDays);
+  const acc = (l) => (l.length ? pct(l.filter((a) => a.correct).length / l.length) : null);
+  const diff = (a, b, unit = '') => (a == null || b == null ? '' : `<span class="delta ${a > b ? 'up' : a < b ? 'down' : ''}">${a > b ? '+' : ''}${a - b}${unit}</span>`);
+  const max = Math.max(g.daily, ...days.map((d) => g.xp[d] || 0));
+  return `<div class="card"><h3>최근 7일</h3>
+    <div class="row between"><div><div class="xs muted">XP</div><div class="stat">${xpSum(days)} ${diff(xpSum(days), xpSum(prevDays))}</div></div>
+    <div><div class="xs muted">푼 문제</div><div class="stat">${cur.length} ${diff(cur.length, prev.length)}</div></div>
+    <div><div class="xs muted">정답률</div><div class="stat">${acc(cur) == null ? '–' : acc(cur) + '%'} ${diff(acc(cur), acc(prev), '%p')}</div></div></div>
+    <div class="xpchart" role="img" aria-label="날짜별 XP">${days.map((d) => `<div class="col ${g.done[d] ? 'done' : ''}"><div class="bw"><i style="height:${Math.round(((g.xp[d] || 0) / max) * 100)}%"></i></div><span>${weekdayOf(d)}</span></div>`).join('')}<b class="goal" style="bottom:${20 + Math.round((g.daily / max) * 80)}px"></b></div>
+    <p class="xs muted" style="margin:6px 0 0">숫자 옆은 그 전 7일과의 차이. 선은 하루 목표 ${g.daily} XP.</p></div>`;
+}
+const WD = ['일', '월', '화', '수', '목', '금', '토'];
+const weekdayOf = (d) => WD[new Date(`${d}T12:00`).getDay()];
+
+// 유형별 숙련도 0~5. 탭하면 그 유형 연습
+function masteryCard() {
+  const mm = C.mastery();
+  const lv = (c) => (mm[c.id] ? mm[c.id].lv : 0);
+  const all = C.bank.concepts;
+  const masters = all.filter((c) => lv(c) >= 5).length;
+  const adv = all.filter((c) => lv(c) >= 4).length;
+  const overall = pct(all.reduce((a, c) => a + lv(c), 0) / (all.length * 5));
+  const parts = RC_PARTS.map((p) => {
+    const list = all.filter((c) => c.part === p);
+    const avg = pct(list.reduce((a, c) => a + lv(c), 0) / (list.length * 5));
+    return `<details><summary><b>Part ${p}</b> ${PART_NAMES[p]} <span class="tag">${avg}%</span></summary>${list.map((c) => `<button class="mrow" data-act="drillConcept" data-c="${c.id}"><span class="grow">${h(c.name.replace(/^Part \d /, ''))}</span><span class="segs l${lv(c)}">${[1, 2, 3, 4, 5].map((i) => `<i class="${i <= lv(c) ? 'on' : ''}"></i>`).join('')}</span><span class="mlab">${MASTERY_LABELS[lv(c)]}</span></button>`).join('')}</details>`;
+  }).join('');
+  return `<div class="card"><h3>실력 지도</h3>
+    <div class="row between"><div><div class="xs muted">전체 숙련도</div><div class="stat">${overall}%</div></div><div><div class="xs muted">숙련 이상</div><div class="stat">${adv}/${all.length}</div></div><div><div class="xs muted">마스터</div><div class="stat">${masters}</div></div></div>
+    <div class="bar" style="margin:8px 0 4px"><i style="width:${overall}%"></i></div>
+    ${parts}
+    <p class="xs muted" style="margin:6px 0 0">단계: 입문 → 기초(2문항, 50%) → 익숙(4문항, 70%) → 숙련(6문항, 80%, 중급 정답) → 마스터(8문항, 85%, 고급 정답, 목표 시간 안). 정답률은 최근 10번 기준.</p></div>`;
+}
+
+function badgeCard() {
+  const got = C.state.game.badges;
+  const n = BADGES.filter((b) => got[b.id]).length;
+  return `<div class="card"><h3>배지 <span class="muted small">${n}/${BADGES.length}</span></h3><div class="badges">${BADGES.map((b) => `<div class="badge ${got[b.id] ? 'on' : ''}" title="${h(b.desc)}">${icons[b.icon]}<b>${h(b.label)}</b><span>${h(b.desc)}</span></div>`).join('')}</div></div>`;
+}
+
 on('drillConcept', (el) => startSession(newSession('drill', { concept: el.dataset.c, nQ: 6 }, env())));
 on('copySummary', async () => { toast((await copyText(summaryText())) ? '복사했습니다' : '복사하지 못했습니다. 텍스트를 길게 눌러 복사합니다.'); });
 on('exportData', async () => {
@@ -142,6 +196,8 @@ on('importConfirm', async () => {
   if (!C.embedded) download(`toeic-trainer-backup-before-import-${Date.now()}.json`, JSON.stringify(C.store.exportData(C.version)));
   const r = await C.store.importData(obj);
   if (!r.ok) { toast('가져오지 못했습니다. 기존 기록은 그대로입니다.'); return; }
+  C.ensureGame();
+  C.save(['game']);
   C.applyTheme();
   toast(`${r.count}문항 기록을 가져왔습니다`);
   C.render();
@@ -154,15 +210,24 @@ export function renderSettings() {
   const total = RC_PARTS.reduce((a, p) => a + C.bank.count(p), 0);
   return `<div class="page"><h1>설정</h1>
     <div class="card"><div class="row between"><div><h3>목표 점수</h3><div class="small muted">총점 ${st.profile.goal} · LC 기준 ${st.profile.lcBase}</div></div><a class="btn sm" href="#goal">바꾸기</a></div></div>
+    <div class="card"><h3>하루 목표</h3><div class="seg" style="display:flex">${DAILY_GOALS.map((n) => `<button style="flex:1" data-act="daily" data-n="${n}" aria-pressed="${st.game.daily === n}">${n}</button>`).join('')}</div>
+      <p class="xs muted" style="margin:6px 0 0">XP 기준. 정답 10, 오답 2, 같은 문제 다시 풀기는 절반. 50 XP는 약 5문항.</p></div>
+    <div class="card"><div class="row between"><h3 style="margin:0">효과음</h3><div class="seg">${[['1', '켜기'], ['0', '끄기']].map(([v, l]) => `<button data-act="setOpt" data-k="sound" data-v="${v}" aria-pressed="${(s.sound !== false) === (v === '1')}">${l}</button>`).join('')}</div></div></div>
     <div class="card"><h3>화면</h3><div class="seg" style="display:flex">${[['auto', '기기 설정'], ['light', '밝게'], ['dark', '어둡게']].map(([k, l]) => `<button style="flex:1" data-act="theme" data-t="${k}" aria-pressed="${(s.theme || 'auto') === k}">${l}</button>`).join('')}</div></div>
     <div class="card"><h3>데이터</h3><div class="stack"><button class="btn block" data-act="exportData">학습 기록 내보내기</button><button class="btn block" data-act="importPick">학습 기록 가져오기</button><button class="btn block ghost" data-act="resetAsk">모든 기록 지우기</button></div>
       <input type="file" accept="application/json,.json" class="hidden" id="importFile" data-change="importFile"></div>
     <div class="card small"><h3>앱 정보</h3>앱 ${h(C.version)} · 문제은행 ${h(C.dataVersion)}<br>${RC_PARTS.map((p) => `Part ${p} ${C.bank.count(p)}문항`).join(' · ')} · 합계 ${total}<br>Part 6 ${(C.bank.byPart[6] || []).length}세트 · Part 7 단일 ${(C.bank.byPart[7] || []).filter((u) => u.passages.length === 1).length}세트, 이중·삼중 ${(C.bank.byPart[7] || []).filter((u) => u.passages.length > 1).length}세트<br>저장 방식 ${h(C.store.adapter.kind)}<br><a href="#about">추정 점수 계산 방식과 한계</a>
       <p class="xs muted">RC 전용 앱입니다. 모든 문제는 이 앱을 위해 새로 작성했고 실제 시험·교재 문제가 아닙니다. TOEIC은 ETS의 등록 상표입니다.</p></div></div>`;
 }
+on('daily', (el) => {
+  const ev = setDaily(C.state.game, Number(el.dataset.n));
+  C.save(['game']);
+  if (ev.goalReached) toast('오늘 목표 달성');
+  C.render();
+});
 on('setOpt', (el) => { C.state.settings[el.dataset.k] = el.dataset.v === '1'; C.save(['settings']); C.render(); });
 on('theme', (el) => { C.state.settings.theme = el.dataset.t; C.save(['settings']); C.applyTheme(); C.render(); });
-on('resetAsk', () => sheet(`<h3>모든 기록을 지울까요?</h3><p class="small">풀이 기록, 복습 카드, 단어장, 설정이 모두 지워지고 되돌릴 수 없습니다.</p>
+on('resetAsk', () => sheet(`<h3>모든 기록을 지울까요?</h3><p class="small">풀이 기록, 복습 카드, 단어장, XP·연속 기록, 설정이 모두 지워지고 되돌릴 수 없습니다.</p>
   <div class="stack"><button class="btn block" data-act="exportData">먼저 내보내기</button><button class="btn primary block" data-act="resetConfirm">지우기</button><button class="btn ghost block" data-act="closeSheet">취소</button></div>`));
 on('resetConfirm', async () => { closeSheet(); await C.store.reset(); C.applyTheme(); toast('기록을 지웠습니다'); C.go('home'); });
 
@@ -258,7 +323,7 @@ on('ptChoose', (el) => {
   if (PT.chosen != null) return;
   PT.chosen = Number(el.dataset.i);
   PT.total++;
-  if (PT.chosen === PT.cur.answer) PT.right++;
+  if (PT.chosen === PT.cur.answer) { PT.right++; C.award(XP.drill); }
   const k = dayKey(Date.now());
   C.state.studyLog[k] = (C.state.studyLog[k] || 0) + 15;
   C.save(['studyLog']);
@@ -338,6 +403,7 @@ on('vtChoose', (el) => {
   VT.chosen = Number(el.dataset.i);
   const e = C.state.vocab[VT.cur.entry.w.toLowerCase()];
   const ok = VT.cur.opts[VT.chosen] === e.m;
+  if (ok) C.award(XP.drill);
   if (ok) { e.box = Math.min(6, (e.box || 0) + 1); e.right = (e.right || 0) + 1; e.due = Date.now() + BOX_DAYS[e.box] * DAY; } else { e.box = 0; e.wrong = (e.wrong || 0) + 1; e.due = Date.now() + 10 * 60 * 1000; }
   const k = dayKey(Date.now());
   C.state.studyLog[k] = (C.state.studyLog[k] || 0) + 8;

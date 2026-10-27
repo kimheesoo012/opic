@@ -69,6 +69,8 @@ try {
   await answerLoop(p);
   ok('진단 완료 → 결과', (await p.evaluate(() => location.hash)) === '#result');
   ok('결과: RC推定スコア範囲 또는 学習レベル', /RC推定スコア範囲|学習レベル/.test(await pageText(p)));
+  const rw = await p.textContent('.reward');
+  ok('결과: 획득 XP·첫 배지 일본어', /\+\d+ XP/.test(rw) && rw.includes('はじめの一歩') && rw.includes('今回の学習'), rw.replace(/\s+/g, ' ').slice(0, 60));
   await checkText(p, '結果');
   await shot(p, '03-result', true);
 
@@ -130,8 +132,22 @@ try {
     await p.waitForSelector('.nav');
     await checkText(p, r);
   }
+  // 7-a. 학습 동기 화면
+  await p.goto(`${BASE}#home`);
+  await p.waitForSelector('.streak');
+  const wk = await p.$$eval('.week .wd span', (xs) => xs.map((x) => x.textContent).join(''));
+  ok('홈: 연속 기록 카드 일본어(월~일, 日連続, XP 고리)', wk === '月火水木金土日' && (await p.textContent('.streak-n')).includes('日連続') && (await p.textContent('.streak .ring')).includes('XP'), wk);
+  await shot(p, '01b-home-streak');
   await p.goto(`${BASE}#stats`);
+  await p.waitForSelector('.badges');
+  ok('기록: 実力マップ 34유형·バッジ·直近7日', (await p.$$('.mrow')).length === 34 && (await pageText(p)).includes('実力マップ') && (await p.$$('.badge.on')).length >= 2 && (await pageText(p)).includes('直近7日'));
+  await p.click('details summary');
   await shot(p, '06-stats', true);
+  await p.goto(`${BASE}#prefs`);
+  await p.click('[data-act="daily"][data-n="20"]');
+  await p.goto(`${BASE}#home`);
+  ok('1日の目標 변경 반영', (await p.textContent('.streak .ring')).includes('/20'));
+  for (const r of ['home', 'stats', 'prefs']) { await p.goto(`${BASE}#${r}`); await p.waitForSelector('.nav'); await checkText(p, `${r} (2.1)`); }
 
   // 7. 저장소 분리: 일본어판 기록은 toeic-trainer-ja에만
   const dbs = await p.evaluate(async () => (indexedDB.databases ? (await indexedDB.databases()).map((d) => d.name) : []));

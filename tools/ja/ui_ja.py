@@ -1,8 +1,11 @@
-# toeic-ja/ 화면 문구 일본어화: (원문, 번역) 쌍을 파일별로 정확히 치환한다. 원문이 없으면 실패.
+# toeic-ja/ 코드 생성: toeic/의 코드·화면을 복사한 뒤 (원문, 번역) 쌍을 파일별로 정확히 치환한다.
+# 원문이 없거나 화면 문구에 한글이 남으면 실패. 문제 데이터는 merge.py가 만든다.
 import re
+import shutil
 import sys
 from pathlib import Path
 
+SRC = Path(__file__).resolve().parents[2] / 'toeic'
 ROOT = Path(__file__).resolve().parents[2] / 'toeic-ja'
 
 T = {}
@@ -167,14 +170,14 @@ T['js/player.js'] = [
     ("${isLast(s, qs) ? '결과 보기' : '다음'}", "${isLast(s, qs) ? '結果を見る' : '次へ'}"),
     ("${isLast(s, qs) ? '제출' : '다음'}", "${isLast(s, qs) ? '提出' : '次へ'}"),
     ('<div class="verdict bad">시간 초과 <span class="small muted">정답 ${LETTERS[q.answer]}</span></div>', '<div class="verdict bad">時間切れ <span class="small muted">正解 ${LETTERS[q.answer]}</span></div>'),
-    ("${ok ? '정답' : '오답'} <span class=\"small muted\">${ok ? LETTERS[q.answer] : `정답 ${LETTERS[q.answer]} · 내 답 ${LETTERS[ans.choice]}`} · ${Math.round(ans.sec)}초 · 목표 ${tgt}초</span>", "${ok ? '正解' : '不正解'} <span class=\"small muted\">${ok ? LETTERS[q.answer] : `正解 ${LETTERS[q.answer]}・自分の答え ${LETTERS[ans.choice]}`}・${Math.round(ans.sec)}秒・目標${tgt}秒</span>"),
+    ("${ok ? '정답' : '오답'}${ans.xp ? ` <span class=\"xp-pop\">+${ans.xp} XP</span>` : ''} <span class=\"small muted\">${ok ? LETTERS[q.answer] : `정답 ${LETTERS[q.answer]} · 내 답 ${LETTERS[ans.choice]}`} · ${Math.round(ans.sec)}초 · 목표 ${tgt}초</span>", "${ok ? '正解' : '不正解'}${ans.xp ? ` <span class=\"xp-pop\">+${ans.xp} XP</span>` : ''} <span class=\"small muted\">${ok ? LETTERS[q.answer] : `正解 ${LETTERS[q.answer]}・自分の答え ${LETTERS[ans.choice]}`}・${Math.round(ans.sec)}秒・目標${tgt}秒</span>"),
     ('<div class="verdict bad">미응답 <span class="small muted">정답 ${LETTERS[q.answer]}</span></div>', '<div class="verdict bad">未回答 <span class="small muted">正解 ${LETTERS[q.answer]}</span></div>'),
     ("${h(concept ? concept.name : q.concept)} · ${LEVELS[q.difficulty]}${q.tags && q.tags.includes('trap') ? ' · 함정' : ''}", "${h(concept ? concept.name : q.concept)}・${LEVELS[q.difficulty]}${q.tags && q.tags.includes('trap') ? '・ひっかけ' : ''}"),
     ('<p class="tip"><b>핵심</b> ${h(concept.tip)}</p>', '<p class="tip"><b>ポイント</b> ${h(concept.tip)}</p>'),
     ("'<span class=\"tag ok\">정답</span> '", "'<span class=\"tag ok\">正解</span> '"),
     ('<div class="para"><b>바꿔 말하기</b>${q.para.map((p) => `<div>지문: ${h(p.p)}<br>정답: ${h(p.a)}</div>`).join(\'\')}</div>', '<div class="para"><b>言い換え</b>${q.para.map((p) => `<div>本文: ${h(p.p)}<br>正解: ${h(p.a)}</div>`).join(\'\')}</div>'),
     ('<div class="small"><b>오답 원인</b></div>', '<div class="small"><b>ミスの原因</b></div>'),
-    ("toast(ok ? '통과. 다음 단계로.' : '다시. 이전 단계로.');", "toast(ok ? 'クリア。次のステップへ。' : 'もう一度。前のステップへ。');"),
+    ("toast(ok ? `통과 +${XP.reviewPass} XP. 다음 단계로.` : '다시. 이전 단계로.');", "toast(ok ? `クリア +${XP.reviewPass} XP。次のステップへ。` : 'もう一度。前のステップへ。');"),
     ('<h3>나갈까요?</h3><p class="muted small">푼 문제는 저장되어 있고 홈에서 이어서 풀 수 있습니다.</p>', '<h3>中断しますか？</h3><p class="muted small">解いた問題は保存されていて、ホームから続きを解けます。</p>'),
     ('data-act="exitKeep">나가기</button>', 'data-act="exitKeep">中断する</button>'),
     ('data-act="exitFinish">여기서 끝내고 결과 보기</button>', 'data-act="exitFinish">ここで終えて結果を見る</button>'),
@@ -342,7 +345,7 @@ T['js/screens.js'] = [
     ('<h3>데이터</h3><div class="stack"><button class="btn block" data-act="exportData">학습 기록 내보내기</button><button class="btn block" data-act="importPick">학습 기록 가져오기</button><button class="btn block ghost" data-act="resetAsk">모든 기록 지우기</button>', '<h3>データ</h3><div class="stack"><button class="btn block" data-act="exportData">学習記録を書き出す</button><button class="btn block" data-act="importPick">学習記録を読み込む</button><button class="btn block ghost" data-act="resetAsk">すべての記録を消去</button>'),
     ("<h3>앱 정보</h3>앱 ${h(C.version)} · 문제은행 ${h(C.dataVersion)}<br>${RC_PARTS.map((p) => `Part ${p} ${C.bank.count(p)}문항`).join(' · ')} · 합계 ${total}<br>Part 6 ${(C.bank.byPart[6] || []).length}세트 · Part 7 단일 ${(C.bank.byPart[7] || []).filter((u) => u.passages.length === 1).length}세트, 이중·삼중 ${(C.bank.byPart[7] || []).filter((u) => u.passages.length > 1).length}세트<br>저장 방식 ${h(C.store.adapter.kind)}<br><a href=\"#about\">추정 점수 계산 방식과 한계</a>", "<h3>アプリ情報</h3>アプリ ${h(C.version)}・問題データ ${h(C.dataVersion)}<br>${RC_PARTS.map((p) => `Part ${p} ${C.bank.count(p)}問`).join('・')}・合計${total}<br>Part 6 ${(C.bank.byPart[6] || []).length}セット・Part 7 シングル${(C.bank.byPart[7] || []).filter((u) => u.passages.length === 1).length}セット、ダブル・トリプル${(C.bank.byPart[7] || []).filter((u) => u.passages.length > 1).length}セット<br>保存方式 ${h(C.store.adapter.kind)}<br><a href=\"#about\">推定スコアの計算方法と限界</a>"),
     ('RC 전용 앱입니다. 모든 문제는 이 앱을 위해 새로 작성했고 실제 시험·교재 문제가 아닙니다. TOEIC은 ETS의 등록 상표입니다.', 'RC専用アプリです。すべての問題はこのアプリのために新しく作ったもので、実際の試験や教材の問題ではありません。TOEICはETSの登録商標です。'),
-    ('<h3>모든 기록을 지울까요?</h3><p class="small">풀이 기록, 복습 카드, 단어장, 설정이 모두 지워지고 되돌릴 수 없습니다.</p>', '<h3>すべての記録を消去しますか？</h3><p class="small">解答記録、復習カード、単語帳、設定がすべて消え、元に戻せません。</p>'),
+    ('<h3>모든 기록을 지울까요?</h3><p class="small">풀이 기록, 복습 카드, 단어장, XP·연속 기록, 설정이 모두 지워지고 되돌릴 수 없습니다.</p>', '<h3>すべての記録を消去しますか？</h3><p class="small">解答記録、復習カード、単語帳、XP・連続記録、設定がすべて消え、元に戻せません。</p>'),
     ('data-act="exportData">먼저 내보내기</button><button class="btn primary block" data-act="resetConfirm">지우기</button><button class="btn ghost block" data-act="closeSheet">취소</button>', 'data-act="exportData">先に書き出す</button><button class="btn primary block" data-act="resetConfirm">消去する</button><button class="btn ghost block" data-act="closeSheet">キャンセル</button>'),
     ("toast('기록을 지웠습니다');", "toast('記録を消去しました');"),
     ('<div class="xs muted">문제 속 문맥</div>', '<div class="xs muted">問題での使われ方</div>'),
@@ -378,6 +381,64 @@ T['js/screens.js'] = [
     ('href="#stats">기록으로</a>', 'href="#stats">記録へ</a>'),
 ]
 
+# ---- 학습 동기 (2.1) ----
+T['js/game.js'] = [
+    ("['미학습', '입문', '기초', '익숙', '숙련', '마스터']", "['未学習', '入門', '基礎', '習得中', '得意', 'マスター']"),
+    ("label: '첫 걸음', desc: '첫 세션 완료'", "label: 'はじめの一歩', desc: '最初のセッション完了'"),
+    ("label: '첫 목표', desc: '하루 목표 처음 달성'", "label: '初目標', desc: '1日の目標を初めて達成'"),
+    ("label: '3일 연속', desc: '3일 연속 목표 달성'", "label: '3日連続', desc: '3日連続で目標達成'"),
+    ("label: '7일 연속', desc: '7일 연속 목표 달성'", "label: '7日連続', desc: '7日連続で目標達成'"),
+    ("label: '30일 연속', desc: '30일 연속 목표 달성'", "label: '30日連続', desc: '30日連続で目標達成'"),
+    ("label: '100문항', desc: '누적 100문항 풀이'", "label: '100問', desc: '累計100問解答'"),
+    ("label: '500문항', desc: '누적 500문항 풀이'", "label: '500問', desc: '累計500問解答'"),
+    ("label: '만점', desc: '10문항 이상 세션 만점'", "label: '満点', desc: '10問以上のセッションで満点'"),
+    ("label: '첫 마스터', desc: '유형 하나 마스터'", "label: '初マスター', desc: 'タイプを1つマスター'"),
+    ("label: '마스터 10', desc: '10개 유형 마스터'", "label: 'マスター10', desc: '10タイプをマスター'"),
+    ("label: '복습 10단계', desc: '단계별 복습 10번 통과'", "label: '復習10ステップ', desc: 'ステップ復習を10回クリア'"),
+    ("label: '실전 완주', desc: 'RC 실전 모의고사 완주'", "label: '本番模試完走', desc: 'RC本番模試を完走'"),
+]
+T['js/app.js'] += [
+    ("toast(`오늘 목표 달성 · 연속 ${ev.streak}일`, 3000)", "toast(`今日の目標達成・${ev.streak}日連続`, 3000)"),
+    ("toast(`레벨 ${ev.levelUp} 달성`, 3000)", "toast(`レベル${ev.levelUp}に到達`, 3000)"),
+    ("const WD = ['일', '월', '화', '수', '목', '금', '토'];", "const WD = ['日', '月', '火', '水', '木', '金', '土'];"),
+    ('aria-label="오늘 ${xp}/${daily} XP"', 'aria-label="今日 ${xp}/${daily} XP"'),
+    ("`오늘 목표 달성. 내일도 채우면 ${si.days + 1}일 연속.`", "`今日の目標達成。明日も達成すれば${si.days + 1}日連続。`"),
+    ("`${left} XP 더 채우면 ${si.days + 1}일 연속. 약 ${Math.ceil(left / 10)}문항.`", "`あと${left} XPで${si.days + 1}日連続。約${Math.ceil(left / 10)}問。`"),
+    ("`오늘 ${left} XP를 채우면 연속 1일째. 약 ${Math.ceil(left / 10)}문항.`", "`今日${left} XPで連続1日目。約${Math.ceil(left / 10)}問。`"),
+    ('<div class="streak-n">${si.days}일 연속</div><div class="xs muted">최고 ${Math.max(g.best, si.days)}일${g.freezes ? ` · 휴식권 ${g.freezes}` : \'\'}</div>', '<div class="streak-n">${si.days}日連続</div><div class="xs muted">最高${Math.max(g.best, si.days)}日${g.freezes ? `・お休みパス ${g.freezes}` : \'\'}</div>'),
+    ('data-act="quick">빠른 5문항</button>', 'data-act="quick">サクッと5問</button>'),
+    ("title: '빠른 5문항' }));", "title: 'サクッと5問' }));"),
+    ("<b>오늘 목표 달성 · 연속 ${s.goalHit}일</b>", "<b>今日の目標達成・${s.goalHit}日連続</b>"),
+    ("${si.doneToday ? `오늘 목표 달성 · 연속 ${si.days}일` : `오늘 목표까지 ${Math.max(0, g.daily - si.todayXp)} XP`}", "${si.doneToday ? `今日の目標達成・${si.days}日連続` : `今日の目標まであと${Math.max(0, g.daily - si.todayXp)} XP`}"),
+    ("<span>휴식권 1개 획득. 하루 빠져도 연속 기록 유지.</span>", "<span>お休みパスを1枚獲得。1日休んでも連続記録が続きます。</span>"),
+    ("<b>레벨 ${s.levelUp} 달성</b>", "<b>レベル${s.levelUp}に到達</b>"),
+    ("<span>배지 <b>${h(b.label)}</b> · ${h(b.desc)}</span>", "<span>バッジ <b>${h(b.label)}</b>・${h(b.desc)}</span>"),
+    ('<div class="xs muted">이번 학습</div><div class="xp-big">', '<div class="xs muted">今回の学習</div><div class="xp-big">'),
+]
+T['js/player.js'] += [
+    ('sheet(`<h3>풀던 세션이 있습니다</h3><p class="small muted">${h(cur.title)}. 이어서 풀거나 버리고 새로 시작합니다.</p>', 'sheet(`<h3>途中のセッションがあります</h3><p class="small muted">${h(cur.title)}。続きから解くか、破棄して新しく始めます。</p>'),
+    ('data-act="resume">이어서 풀기</button><button class="btn block" data-act="discardAndStartPending">버리고 새로 시작</button>', 'data-act="resume">続きから解く</button><button class="btn block" data-act="discardAndStartPending">破棄して新しく始める</button>'),
+]
+T['js/screens.js'] += [
+    ("`연속 ${si.days}일 · Lv.${levelOf(st.game.total).level} · 누적 ${st.game.total} XP · 오늘 ${si.todayXp}/${st.game.daily} XP`", "`${si.days}日連続・Lv.${levelOf(st.game.total).level}・累計${st.game.total} XP・今日${si.todayXp}/${st.game.daily} XP`"),
+    ('<h3>최근 7일</h3>', '<h3>直近7日</h3>'),
+    ('<div class="xs muted">푼 문제</div><div class="stat">${cur.length}', '<div class="xs muted">解いた問題</div><div class="stat">${cur.length}'),
+    ('<div class="xs muted">정답률</div><div class="stat">${acc(cur)', '<div class="xs muted">正答率</div><div class="stat">${acc(cur)'),
+    ('aria-label="날짜별 XP"', 'aria-label="日別XP"'),
+    ('숫자 옆은 그 전 7일과의 차이. 선은 하루 목표 ${g.daily} XP.', '数字の横はその前の7日間との差。線は1日の目標${g.daily} XP。'),
+    ("const WD = ['일', '월', '화', '수', '목', '금', '토'];", "const WD = ['日', '月', '火', '水', '木', '金', '土'];"),
+    ('<h3>실력 지도</h3>', '<h3>実力マップ</h3>'),
+    ('<div class="xs muted">전체 숙련도</div>', '<div class="xs muted">全体の習熟度</div>'),
+    ('<div class="xs muted">숙련 이상</div>', '<div class="xs muted">得意以上</div>'),
+    ('<div class="xs muted">마스터</div>', '<div class="xs muted">マスター</div>'),
+    ('단계: 입문 → 기초(2문항, 50%) → 익숙(4문항, 70%) → 숙련(6문항, 80%, 중급 정답) → 마스터(8문항, 85%, 고급 정답, 목표 시간 안). 정답률은 최근 10번 기준.', '段階: 入門 → 基礎（2問、50%）→ 習得中（4問、70%）→ 得意（6問、80%、中級に正解）→ マスター（8問、85%、上級に正解、目標時間内）。正答率は直近10回で計算。'),
+    ('<h3>배지 <span class="muted small">', '<h3>バッジ <span class="muted small">'),
+    ('<h3>하루 목표</h3>', '<h3>1日の目標</h3>'),
+    ('XP 기준. 정답 10, 오답 2, 같은 문제 다시 풀기는 절반. 50 XP는 약 5문항.', 'XPで設定。正解10、不正解2、同じ問題の解き直しは半分。50 XPは約5問。'),
+    ("<h3 style=\"margin:0\">효과음</h3><div class=\"seg\">${[['1', '켜기'], ['0', '끄기']]", "<h3 style=\"margin:0\">効果音</h3><div class=\"seg\">${[['1', 'オン'], ['0', 'オフ']]"),
+    ("if (ev.goalReached) toast('오늘 목표 달성');", "if (ev.goalReached) toast('今日の目標達成');"),
+]
+
 HANGUL = re.compile(r'[가-힣]')
 
 
@@ -397,15 +458,22 @@ def strip_comments(src, ext):
     return src
 
 
+def copy_from_korean():
+    for name in ('index.html', 'manifest.webmanifest'):
+        shutil.copy2(SRC / name, ROOT / name)
+    for d in ('css', 'js', 'icons'):
+        shutil.rmtree(ROOT / d, ignore_errors=True)
+        shutil.copytree(SRC / d, ROOT / d)
+
+
 def main():
+    copy_from_korean()
     fail = False
     for rel, pairs in T.items():
         p = ROOT / rel
         src = p.read_text(encoding='utf-8')
         for old, new in pairs:
             if old not in src:
-                if new in src:
-                    continue  # 이미 적용됨
                 print(f'[없음] {rel}: {old[:70]}')
                 fail = True
                 continue

@@ -5,6 +5,8 @@ import { currentItem, makeAttempt, applyAttempt, reviewStepResult, reviewAdvance
 import { STAGES } from './review.js';
 import { CAUSES } from './stats.js';
 import { LETTERS, fmtSec, PART_NAMES } from './util.js';
+import { XP, attemptXp, masteryLevels, checkBadges } from './game.js';
+import { play } from './sound.js';
 
 let C;
 const P = { unitKey: null, qKey: null, phase: 'answer', chosen: null, startT: 0, tick: null, lastTick: 0, tab: 0, wide: false, scrollToExp: false };
@@ -16,6 +18,17 @@ const S = () => C.state.active;
 
 export function startSession(s) {
   if (!s) { toast('条件に合う問題が足りません。'); return; }
+  // 풀던 세션을 말없이 덮어쓰지 않는다
+  const cur = C.state.active;
+  if (cur && cur.id !== s.id && Object.keys(cur.answers).length) {
+    C.pendingSession = s;
+    sheet(`<h3>途中のセッションがあります</h3><p class="small muted">${h(cur.title)}。続きから解くか、破棄して新しく始めます。</p>
+      <div class="stack"><button class="btn primary block" data-act="resume">続きから解く</button><button class="btn block" data-act="discardAndStartPending">破棄して新しく始める</button></div>`);
+    return;
+  }
+  // 끝난 뒤 숙련도 변화를 보여 주려고 시작 시점 단계를 남긴다
+  if (!s.m0) s.m0 = masteryLevels(C.mastery());
+  s.xp ||= 0;
   C.state.active = s;
   C.save(['active']);
   P.unitKey = null;
@@ -250,7 +263,7 @@ export function explainHtml(q, unit, ans, { causeFor = null } = {}) {
   let out = `<div class="exp">`;
   if (ans && ans.choice === -1) out += `<div class="verdict bad">時間切れ <span class="small muted">正解 ${LETTERS[q.answer]}</span></div>`;
   else if (ans) {
-    out += `<div class="verdict ${ok ? 'ok' : 'bad'}">${ok ? '正解' : '不正解'} <span class="small muted">${ok ? LETTERS[q.answer] : `正解 ${LETTERS[q.answer]}・自分の答え ${LETTERS[ans.choice]}`}・${Math.round(ans.sec)}秒・目標${tgt}秒</span></div>`;
+    out += `<div class="verdict ${ok ? 'ok' : 'bad'}">${ok ? '正解' : '不正解'}${ans.xp ? ` <span class="xp-pop">+${ans.xp} XP</span>` : ''} <span class="small muted">${ok ? LETTERS[q.answer] : `正解 ${LETTERS[q.answer]}・自分の答え ${LETTERS[ans.choice]}`}・${Math.round(ans.sec)}秒・目標${tgt}秒</span></div>`;
   } else out += `<div class="verdict bad">未回答 <span class="small muted">正解 ${LETTERS[q.answer]}</span></div>`;
   out += `<div class="xs muted">${h(concept ? concept.name : q.concept)}・${LEVELS[q.difficulty]}${q.tags && q.tags.includes('trap') ? '・ひっかけ' : ''}</div>`;
   out += `<p class="why">${h(ex.why)}</p>`;
@@ -290,6 +303,10 @@ function record(choice, secOverride = null) {
   (s.attemptIds ||= {})[q.id] = a.id;
   C.store.putAttempt(a);
   applyAttempt(a, env());
+  const xp = attemptXp(a);
+  s.answers[q.id].xp = xp;
+  C.award(xp);
+  if (s.feedback === 'immediate' && choice !== -1) play(a.correct ? 'right' : 'wrong', C.state.settings.sound);
   C.save(['active', 'reviews', 'wrongNote', 'studyLog']);
   return a;
 }
@@ -320,7 +337,8 @@ function advance() {
   } else {
     if (s.kind === 'review' && it.focus) {
       const ok = reviewStepResult(s, it, env());
-      toast(ok ? 'クリア。次のステップへ。' : 'もう一度。前のステップへ。');
+      if (ok) { C.state.game.reviewPasses = (C.state.game.reviewPasses || 0) + 1; C.award(XP.reviewPass); }
+      toast(ok ? `クリア +${XP.reviewPass} XP。次のステップへ。` : 'もう一度。前のステップへ。');
       C.save(['reviews']);
     }
     s.cur++;
@@ -349,6 +367,7 @@ on('conceptOk', () => {
   const s = S();
   const it = currentItem(s);
   reviewStepResult(s, it, env());
+  C.award(XP.concept);
   s.cur++;
   s.qIdx = 0;
   if (s.cur >= s.items.length) reviewAdvance(s, env());
@@ -383,6 +402,13 @@ on('exitAsk', () => {
     <button class="btn block" data-act="exitFinish">ここで終えて結果を見る</button>
     <button class="btn ghost block" data-act="closeSheet">続ける</button></div>`);
 });
+on('discardAndStartPending', () => {
+  const s = C.pendingSession;
+  C.pendingSession = null;
+  C.state.active = null;
+  closeSheet();
+  startSession(s);
+});
 on('exitKeep', () => { closeSheet(); leavePlayer(); C.save(['active']); C.go('home'); });
 on('exitFinish', () => { closeSheet(); finish(); });
 
@@ -394,10 +420,18 @@ export function finish() {
   const sum = summarize(s, C.bank);
   C.state.sessions.push({ id: s.id, kind: s.kind, title: s.title, start: s.createdAt, end: Date.now(), n: sum.n, correct: sum.correct, sec: Math.round(sum.sec) });
   if (C.state.sessions.length > 300) C.state.sessions.splice(0, C.state.sessions.length - 300);
+  // 완료 보너스, 숙련도 상승, 새 배지
+  if (sum.n >= 3) C.award(XP.session);
+  if (sum.n >= 10 && sum.correct === sum.n) C.award(XP.perfect);
+  const mNow = C.mastery();
+  const ups = s.m0 ? Object.entries(mNow).filter(([c, m]) => m.lv >= 2 && m.lv > (s.m0[c] || 0)).map(([c, m]) => ({ c, from: s.m0[c] || 0, to: m.lv })).sort((a, b) => b.to - a.to).slice(0, 5) : [];
+  const badges = checkBadges(C.state.game, { attempts: C.state.attempts, sessions: C.state.sessions, mastery: mNow, last: { kind: s.kind, n: sum.n, correct: sum.correct } });
+  if (badges.length && !s.goalHit && !s.levelUp) play('level', C.state.settings.sound);
+  s.gain = { mastery: ups, badges };
   C.lastSession = s;
   C.state.active = null;
   try { sessionStorage.setItem('ttja-last', JSON.stringify(s)); } catch { /* 무시 */ }
   C.snapshotScore();
-  C.save(['active', 'sessions', 'scoreHistory', 'reviews', 'wrongNote', 'studyLog']);
+  C.save(['active', 'sessions', 'scoreHistory', 'reviews', 'wrongNote', 'studyLog', 'game']);
   C.go('result');
 }
