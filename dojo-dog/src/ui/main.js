@@ -27,12 +27,16 @@ class App {
     this.lcds = [];
     this.applyTheme();
     // 소리 설정은 기억하지만, 브라우저 정책상 첫 탭 이후에만 켠다
+    // 안드로이드(갤럭시·LINE 내장 브라우저)는 터치의 pointerdown으로는 소리를 열어 주지 않으므로 pointerup·touchend·click도 듣는다
     if (this.settings.sound) {
+      const EVS = ['pointerup', 'touchend', 'click', 'keydown'];
       const once = () => {
+        if (!this.settings.sound) return done();
         this.sound.setOn(true);
-        window.removeEventListener('pointerdown', once);
+        if (this.sound.ctx && this.sound.ctx.state === 'running') done();
       };
-      window.addEventListener('pointerdown', once);
+      const done = () => EVS.forEach((e) => window.removeEventListener(e, once, true));
+      EVS.forEach((e) => window.addEventListener(e, once, true));
     }
   }
   applyTheme() {
