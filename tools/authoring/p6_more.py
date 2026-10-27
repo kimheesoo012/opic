@@ -1,0 +1,266 @@
+# Part 6 추가 세트 s09~s25
+from rcgen import q, P, setunit, write
+N = None
+G, VO, CN, IN = 'p6.grammar', 'p6.vocab', 'p6.connector', 'p6.insert'
+U = []
+
+U.append(setunit('p6-s09', 6, [P('letter', 'Letter', "Dear Valued Customer,\n\nWe are writing to let you know that the prices of our printing paper products will increase by 5 percent starting May 1. This change is {{1}} by rising costs for raw materials and transportation. {{2}}\n\nOrders placed before April 30 will still be charged at current prices. {{3}}, customers who sign a one-year supply agreement this month will be able to {{4}} their current prices until next April.\n\nThank you for your understanding.\nArden Paper Supply")], [
+ q('grammar', G, 1, ["caused", "causing", "causes", "cause"], 0,
+   "This change is ___ by rising costs에서 가격 변동은 비용 상승에 의해 '야기된' 대상이고 뒤에 by가 있다. 수동태 is caused by.",
+   [N, "causing을 쓰면 is causing by가 되어 진행형 뒤에 목적어 없이 by가 오는 틀린 구조다.", "causes는 동사라 is 뒤에 올 수 없다.", "cause는 동사원형·명사라 is 뒤에서 수동태를 만들지 못한다."], blank=1),
+ q('insert', IN, 2, ["We have tried to keep this increase as small as possible.", "Your order was shipped this morning.", "The new prices will be lower than before.", "Please visit our booth at the trade fair."], 0,
+   "앞 문장은 인상 이유(원자재·운송비 상승)다. this increase가 바로 앞의 5% 인상을 가리키며, 인상 폭을 최소화하려 했다는 설명이 자연스럽게 이어진다.",
+   [N, "배송 안내는 가격 인상 공지의 흐름과 관계없다.", "5% 인상이라고 했으므로 가격이 내려간다는 말은 모순이다.", "박람회 부스 안내는 이 편지의 주제와 무관하다."], blank=2),
+ q('connector', CN, 2, ["In addition", "However", "Therefore", "Otherwise"], 0,
+   "앞 문장(4월 30일 전 주문은 현재 가격)과 빈칸 문장(1년 계약 시 현재 가격 유지)은 둘 다 고객 혜택이다. 혜택을 하나 더 덧붙이는 In addition.",
+   [N, "However는 대조에 쓴다. 두 문장은 같은 방향의 혜택이다.", "Therefore는 결과를 말한다. 1년 계약 혜택은 앞 문장의 결과가 아니다.", "Otherwise(그렇지 않으면)는 앞 조건이 충족되지 않을 때를 말한다."], blank=3),
+ q('vocab', VO, 1, ["keep", "raise", "reduce", "compare"], 0,
+   "1년 계약을 맺은 고객이 내년 4월까지 현재 가격을 '유지할' 수 있다는 혜택이다. keep.",
+   [N, "raise(올리다)는 고객이 가격을 올린다는 뜻이 되어 맞지 않는다.", "reduce(낮추다)는 고객이 할 수 있는 일이 아니고 혜택 내용과도 다르다.", "compare(비교하다)는 계약 혜택의 내용이 되지 않는다."], blank=4,
+   vocab=[("raw material", "n", "원자재")]),
+]))
+
+U.append(setunit('p6-s10', 6, [P('notice', 'Notice', "Attention, Tenants\n\nThe north parking garage will be closed for resurfacing from June 10 through June 14. During this time, tenants may park in the south garage, which {{1}} an additional 200 spaces for the week. Because the south garage is expected to fill up quickly, we encourage employees to carpool or use public transportation whenever {{2}}. {{3}} A shuttle bus will run between the south garage and the main entrance every 15 minutes.\n\nWe apologize for any {{4}} this may cause.\n\nBuilding Management")], [
+ q('grammar', G, 2, ["will offer", "offered", "had offered", "offering"], 0,
+   "남쪽 주차장이 공사 기간(6월 10~14일)에 추가 공간을 '제공할' 것이라는 앞으로의 일이다. 미래 will offer.",
+   [N, "offered는 과거라 앞으로 있을 공사 주간과 맞지 않는다.", "had offered는 과거보다 앞선 일이라 시점이 맞지 않는다.", "offering은 분사라 관계절 which 뒤에 동사가 없어진다."], blank=1,
+   vocab=[("resurfacing", "n", "노면 재포장")]),
+ q('grammar', G, 1, ["possible", "possibly", "possibility", "possibilities"], 0,
+   "whenever possible은 '가능할 때마다'라는 고정 표현으로, whenever (it is) possible에서 형용사만 남은 형태다.",
+   [N, "possibly는 부사라 생략된 be동사의 보어 자리에 올 수 없다.", "possibility는 명사라 whenever 뒤에 홀로 쓰지 않는다.", "possibilities도 명사라 고정 표현을 만들지 못한다."], blank=2),
+ q('insert', IN, 2, ["Bicycle racks are also available near the east entrance.", "The north garage reopened last week.", "Parking fees will double in July.", "Tenants should arrive at the north garage early."], 0,
+   "앞 문장은 카풀·대중교통을 권하고, 뒤 문장은 셔틀버스 안내다. 자전거 거치대도 있다(also)는 대안 교통수단 안내가 그 사이에 자연스럽게 들어간다.",
+   [N, "북쪽 주차장은 6월 10일부터 공사로 닫힌다. 지난주에 다시 열었다는 말은 모순이다.", "7월 요금 인상은 공사 기간 주차 안내와 관계없다.", "북쪽 주차장은 닫혀 있으므로 그곳에 일찍 오라는 말은 모순이다."], blank=3),
+ q('vocab', VO, 1, ["inconvenience", "convenience", "opportunity", "appreciation"], 0,
+   "apologize for any inconvenience는 공지문의 고정 표현이다. 주차장 폐쇄로 생길 '불편'에 대해 사과한다.",
+   [N, "convenience(편리)에 대해 사과하는 것은 뜻이 반대다.", "opportunity(기회)는 사과할 대상이 아니다.", "appreciation(감사)도 사과 대상이 될 수 없다."], blank=4),
+]))
+
+U.append(setunit('p6-s11', 6, [P('article', 'Article', "BRIDGEPORT (September 3) — Calder Coffee, a chain of twelve cafés, will stop using plastic straws at all of its locations {{1}} October 1. The company will instead offer paper straws upon request. {{2}}\n\n“Our customers have asked us to reduce waste for years,” said founder Mia Calder. “This is one step, but it will not be our {{3}}.” The company also plans to give a 10 percent discount to customers who bring {{4}} own cups.")], [
+ q('grammar', G, 2, ["as of", "until", "during", "among"], 0,
+   "as of October 1은 '10월 1일부터'라는 시작 시점을 나타낸다. 그날부터 플라스틱 빨대 사용을 중단한다는 뜻.",
+   [N, "until(~까지 계속)을 쓰면 '10월 1일까지 사용을 중단한다'가 되어 앞으로의 정책 발표와 맞지 않는다.", "during은 기간 동안을 말하며 하루 날짜와 함께 시작 시점을 나타내지 못한다.", "among은 셋 이상의 대상 사이를 말한다."], blank=1),
+ q('insert', IN, 2, ["The change is expected to eliminate about 300,000 plastic straws each year.", "The cafés will close for renovations in October.", "Plastic straws will still be available at the counter.", "Ms. Calder opened her first café in Tokyo."], 0,
+   "앞 문장들은 빨대 정책 변경 내용이다. The change(이 변화)가 그 정책을 가리키며 기대 효과를 덧붙이는 문장이 자연스럽다.",
+   [N, "10월에 문을 닫는다는 내용은 정책 시행과 맞지 않고 지문 어디에도 근거가 없다.", "플라스틱 빨대 사용을 중단한다고 했으므로 모순이다.", "창업 이야기는 빨대 정책 → 대표 인터뷰로 이어지는 흐름을 끊는다."], blank=2),
+ q('vocab', VO, 2, ["last", "least", "latest", "lasting"], 0,
+   "'이것은 한 걸음이지만 마지막 걸음은 아닐 것이다'라는 뜻이다. our last (step).",
+   [N, "least(가장 적은)는 의미가 통하지 않는다.", "latest(최신의)는 '최신 조치가 아닐 것'이 되어 뜻이 맞지 않는다. last와 혼동하기 쉬운 함정.", "lasting(오래가는)은 형용사라 뒤에 명사 없이 our 뒤에 오지 못한다."], blank=3),
+ q('grammar', G, 1, ["their", "them", "theirs", "themselves"], 0,
+   "명사 own cups 앞이므로 소유격 their가 필요하다. one's own + 명사 구조.",
+   [N, "them은 목적격이라 명사를 꾸밀 수 없다.", "theirs는 소유대명사라 뒤에 명사가 오지 않는다.", "themselves는 명사 앞에 쓰지 않는다."], blank=4),
+]))
+
+U.append(setunit('p6-s12', 6, [P('letter', 'Letter', "Dear Mr. Haddad,\n\nOn behalf of Norland Engineering, I am pleased to offer you the position of project coordinator. Your start date will be Monday, August 4. {{1}} your first week, you will attend orientation sessions with other new employees. {{2}}\n\nPlease sign and return the enclosed contract by July 25. If you have any questions about the terms, do not {{3}} to contact me. We look forward to {{4}} you to our team.\n\nSincerely,\nLaura Kim\nHuman Resources")], [
+ q('grammar', G, 1, ["During", "While", "Since", "Until"], 0,
+   "뒤가 명사구(your first week)이고 '첫 주 동안'이라는 뜻이다. 전치사 During.",
+   [N, "While은 접속사라 뒤에 절이 와야 한다.", "Since는 과거부터 이어지는 일에 쓰며 미래 will attend와 맞지 않는다.", "Until은 '~까지 계속'이라 첫 주가 될 때까지 교육을 받는다는 엉뚱한 뜻이 된다."], blank=1),
+ q('insert', IN, 2, ["These sessions will introduce you to our safety procedures and company systems.", "Thank you for applying for the position of accountant.", "Unfortunately, the position has already been filled.", "Your interview has been scheduled for next week."], 0,
+   "These sessions가 바로 앞 문장의 orientation sessions를 가리키고, 교육 내용을 설명한다.",
+   [N, "제안한 직책은 project coordinator다. 회계사 지원 감사는 맞지 않는다.", "합격 통보 편지에서 자리가 찼다는 말은 모순이다.", "이미 채용 제안을 받은 단계라 면접 일정 안내는 맞지 않는다."], blank=2),
+ q('vocab', VO, 1, ["hesitate", "delay", "refuse", "decide"], 0,
+   "do not hesitate to contact me(언제든 연락하라)는 편지의 고정 표현이다.",
+   [N, "delay는 to부정사가 아니라 동명사를 목적어로 쓴다(delay contacting).", "refuse to contact는 '연락을 거절하지 말라'가 되어 어색하다.", "decide to contact는 '연락하기로 결정하지 말라'가 되어 뜻이 반대다."], blank=3,
+   vocab=[("hesitate", "v", "망설이다")]),
+ q('grammar', G, 2, ["welcoming", "welcome", "welcomed", "be welcomed"], 0,
+   "look forward to의 to는 전치사라 뒤에 동명사가 온다. welcoming you to our team.",
+   [N, "welcome은 동사원형이라 전치사 to 뒤에 올 수 없다. to부정사로 착각하게 하는 함정.", "welcomed는 과거분사라 전치사의 목적어가 되지 못한다.", "be welcomed는 수동이라 뒤의 목적어 you와 맞지 않는다."], blank=4, trap=True),
+]))
+
+U.append(setunit('p6-s13', 6, [P('memo', 'Memo', "To: All staff\nFrom: IT Department\nSubject: Help desk hours\n\nBeginning next Monday, the IT help desk will be open from 7:30 A.M. to 7:00 P.M., Monday through Friday. The {{1}} hours will make it easier for employees in our overseas offices to reach us during their working day. {{2}}, requests submitted outside these hours will be answered the following morning.\n\nFor urgent problems, such as a complete network failure, please call the emergency line at extension 999. {{3}}\n\nThank you for helping us {{4}} you better.")], [
+ q('vocab', VO, 1, ["extended", "reduced", "limited", "shortened"], 0,
+   "해외 사무소 직원들이 연락하기 '더 쉬워진다'는 이유가 이어지므로 운영 시간이 '늘어난' 것이다. extended.",
+   [N, "reduced(줄어든) 시간이면 연락하기 더 쉬워질 수 없다.", "limited(제한된)도 연락이 쉬워진다는 내용과 반대다.", "shortened(단축된)도 같은 이유로 맞지 않는다."], blank=1),
+ q('connector', CN, 2, ["However", "As a result", "For example", "Likewise"], 0,
+   "앞 문장은 운영 시간이 늘어 편해졌다는 내용, 빈칸 문장은 그 시간 밖의 요청은 다음 날 처리된다는 제한이다. 대조의 However.",
+   [N, "As a result는 결과를 말하는데, 다음 날 처리는 시간 연장의 결과가 아니다.", "For example은 예시인데 빈칸 문장은 앞 문장의 예가 아니다.", "Likewise(마찬가지로)는 같은 내용을 이어 갈 때 쓴다."], blank=2),
+ q('insert', IN, 2, ["This line is staffed 24 hours a day.", "The help desk will be closed permanently.", "Please submit vacation requests to your manager.", "Our overseas offices will move next year."], 0,
+   "앞 문장이 긴급 회선(extension 999) 안내다. This line이 그 회선을 가리키며 24시간 운영된다는 정보가 이어진다.",
+   [N, "운영 시간을 늘린다고 했으므로 영구 폐쇄는 모순이다.", "휴가 신청은 IT 지원 안내와 관계없다.", "해외 사무소 이전은 이 메모의 주제와 관계없다."], blank=3),
+ q('grammar', G, 2, ["serve", "served", "serving", "service"], 0,
+   "help + 목적어 + (to) 동사원형 구조다. help us serve you better.",
+   [N, "served는 과거형·과거분사라 help의 목적격 보어가 될 수 없다.", "serving은 help의 목적격 보어 형태가 아니다.", "service를 동사로 쓰면 '(기계를) 정비하다'라는 뜻이라 you와 맞지 않는다."], blank=4),
+]))
+
+U.append(setunit('p6-s14', 6, [P('advertisement', 'Advertisement', "Need a quiet place to work?\n\nWorkNest offers private desks and meeting rooms in the heart of downtown. Members have {{1}} access to high-speed Internet, printers, and free coffee. {{2}}\n\nMonthly memberships start at just $150, and there is no long-term contract. {{3}}, members who refer a friend receive one month free.\n\nVisit our Web site to book a free tour or to {{4}} a day pass.")], [
+ q('vocab', VO, 1, ["unlimited", "unlikely", "unable", "unknown"], 0,
+   "회원 혜택으로 인터넷·프린터·커피를 '무제한' 이용할 수 있다는 뜻이다. unlimited access.",
+   [N, "unlikely(~할 것 같지 않은)는 access를 꾸미면 뜻이 통하지 않는다.", "unable은 사람에 대해 be unable to do 형태로 쓴다.", "unknown access(알려지지 않은 이용)는 광고 혜택이 될 수 없다."], blank=1),
+ q('insert', IN, 2, ["Meeting rooms can be reserved by the hour through our app.", "Membership requires a three-year contract.", "The building is currently under construction.", "Thank you for renewing your membership."], 0,
+   "첫 문단은 시설 소개(전용 책상, 회의실, 인터넷)다. 회의실을 시간 단위로 예약할 수 있다는 설명이 시설 소개에 이어진다.",
+   [N, "다음 문단에서 장기 계약이 없다고 했으므로 3년 계약은 모순이다.", "공사 중인 건물이라면 회원을 모집하는 광고와 맞지 않는다.", "신규 회원을 모으는 광고에서 갱신 감사 인사는 맞지 않는다."], blank=2),
+ q('connector', CN, 1, ["In addition", "Nevertheless", "Instead", "As a result"], 0,
+   "앞 문장(저렴한 월 요금, 장기 계약 없음)에 이어 친구 추천 혜택을 덧붙인다. In addition.",
+   [N, "Nevertheless는 앞 내용과 반대되는 결과에 쓴다.", "Instead는 앞 내용을 대신할 때 쓴다.", "As a result는 결과를 말하는데 추천 혜택은 앞 문장의 결과가 아니다."], blank=3),
+ q('vocab', VO, 2, ["purchase", "spend", "charge", "cost"], 0,
+   "웹사이트에서 일일 이용권을 '구매하다'라는 뜻이다. purchase a day pass.",
+   [N, "spend는 돈·시간을 목적어로 받는다. spend a day pass는 쓰지 않는다.", "charge는 요금을 '청구하다'라는 판매자 쪽 동사다.", "cost는 '비용이 들다'라 사람이 주어가 되어 이용권을 목적어로 받을 수 없다."], blank=4),
+]))
+
+U.append(setunit('p6-s15', 6, [P('email', 'E-mail', "To: Karin Lindgren\nFrom: Owen Price\nSubject: Program change\n\nDear Ms. Lindgren,\n\nThank you for agreeing to speak at the Northern Logistics Forum. I am writing about a change to the program. Because one of our keynote speakers has had to cancel, your session {{1}} from 2:00 P.M. to 11:00 A.M. on March 8. {{2}}\n\nYour presentation will now take place in the main hall, which seats 400 people. {{3}}, we will be able to accommodate the large number of attendees who have registered for your talk. Please let me know {{4}} this new time works for you.\n\nBest regards,\nOwen Price, Program Coordinator")], [
+ q('grammar', G, 2, ["has been rescheduled", "has rescheduled", "rescheduling", "will reschedule"], 0,
+   "세션은 일정이 '변경되는' 대상이고 뒤에 목적어가 없다. 이미 결정된 변경을 알리므로 현재완료 수동태 has been rescheduled.",
+   [N, "has rescheduled는 능동이라 세션이 무언가를 다시 잡는 주체가 되고 목적어도 없다.", "rescheduling은 분사라 본동사가 없어진다.", "will reschedule도 능동이라 목적어가 필요하다."], blank=1),
+ q('insert', IN, 2, ["We apologize for any inconvenience this change may cause you.", "Unfortunately, the forum has been canceled.", "Your hotel reservation has been confirmed for March 20.", "Please send us your registration fee by Friday."], 0,
+   "앞 문장에서 발표 시간을 바꿨다고 알렸으므로, 이 변경(this change)으로 생길 불편을 사과하는 문장이 이어진다.",
+   [N, "행사가 취소됐다면 이어지는 새 장소 안내와 모순이다.", "행사일은 3월 8일인데 3월 20일 호텔 예약은 맞지 않는다.", "발표자에게 등록비를 요구하는 내용은 흐름과 맞지 않는다."], blank=2),
+ q('connector', CN, 2, ["As a result", "However", "In contrast", "Otherwise"], 0,
+   "400석 규모의 메인 홀로 옮긴 결과 많은 등록자를 수용할 수 있게 되었다. 원인-결과의 As a result.",
+   [N, "However는 대조인데 두 문장은 원인과 결과다.", "In contrast는 서로 다른 대상을 비교할 때 쓴다.", "Otherwise(그렇지 않으면)는 반대 상황을 가정할 때 쓴다."], blank=3),
+ q('grammar', G, 1, ["whether", "unless", "what", "which"], 0,
+   "let me know의 목적어로 '~인지 아닌지'를 나타내는 명사절이 필요하다. whether.",
+   [N, "unless는 부사절 접속사라 know의 목적어가 될 수 없다.", "what 뒤에는 불완전한 절이 와야 하는데 this new time works for you는 완전하다.", "which도 뒤에 불완전한 절이 와야 한다."], blank=4),
+]))
+
+U.append(setunit('p6-s16', 6, [P('web page', 'Web Page', "Returns and Exchanges\n\nItems purchased at Hollow Tree Outdoor Gear may be returned within 30 days of {{1}}. To receive a full refund, items must be unused and in their original packaging. {{2}}\n\nItems returned after 30 days are eligible for store credit only. Please note that sale items cannot be returned. {{3}}, they may be exchanged for a different size or color within 14 days. Refunds are issued to the original form of payment and usually appear on your statement within five {{4}} days.")], [
+ q('grammar', G, 1, ["purchase", "purchaser", "purchasable", "purchased"], 0,
+   "전치사 of 뒤 명사 자리다. within 30 days of purchase는 '구매일로부터 30일 이내'.",
+   [N, "purchaser(구매자)도 명사지만 '구매자로부터 30일'이 되어 뜻이 통하지 않고 관사도 없다.", "purchasable은 형용사라 전치사 뒤에 홀로 올 수 없다.", "purchased는 과거분사라 명사 자리에 맞지 않는다."], blank=1),
+ q('insert', IN, 2, ["A receipt or order number is also required.", "All of our products are made by hand.", "Returns are not accepted under any circumstances.", "Our store is closed for remodeling."], 0,
+   "앞 문장이 전액 환불 조건(미사용, 원래 포장)을 말하고 있어, 영수증도 '또한' 필요하다는 조건이 이어진다.",
+   [N, "수제품이라는 정보는 반품 조건 설명과 연결되지 않는다.", "30일 안에 반품할 수 있다고 했으므로 모순이다.", "매장 공사 안내는 반품 정책과 관계없다."], blank=2),
+ q('connector', CN, 2, ["However", "Therefore", "Similarly", "In other words"], 0,
+   "할인 상품은 반품할 수 없다는 제한 뒤에, 교환은 가능하다는 반대 방향의 내용이 온다. However.",
+   [N, "Therefore를 쓰면 반품 불가의 결과로 교환이 가능하다는 이상한 논리가 된다.", "Similarly는 같은 내용을 이어 갈 때 쓴다.", "In other words는 앞 문장을 바꿔 말할 때 쓰는데 교환 가능은 반품 불가와 다른 내용이다."], blank=3),
+ q('vocab', VO, 1, ["business", "busy", "businesslike", "businesses"], 0,
+   "business days(영업일)는 명사가 명사를 꾸미는 고정 표현이다.",
+   [N, "busy days는 '바쁜 날'이라 환불 기간을 나타내지 못한다.", "businesslike(사무적인)는 days와 어울리지 않는다.", "businesses는 복수 명사라 days 앞 수식어로 쓰지 않는다."], blank=4),
+]))
+
+U.append(setunit('p6-s17', 6, [P('press release', 'Press Release', "FOR IMMEDIATE RELEASE\n\nVela Motors and the battery maker PowerCell announced today that they have formed a partnership to develop batteries for Vela's next line of compact electric cars. Under the agreement, PowerCell will {{1}} the batteries at its new plant in Ulsan, and Vela will handle design and testing. {{2}}\n\n“Working with PowerCell will allow us to bring affordable electric cars to market {{3}} than we could on our own,” said Vela CEO Jonas Berg. The first vehicles {{4}} through the partnership are expected to go on sale in 2028.")], [
+ q('vocab', VO, 1, ["manufacture", "consume", "recall", "repair"], 0,
+   "배터리 제조사가 새 공장에서 배터리를 '생산한다'는 역할 분담이다. manufacture.",
+   [N, "consume(소비하다)은 배터리 제조사의 역할이 아니다.", "recall(회수하다)은 아직 개발 전인 배터리와 맞지 않는다.", "repair(수리하다)도 공장에서 하는 개발·생산 역할과 맞지 않는다."], blank=1),
+ q('insert', IN, 2, ["Financial terms of the agreement were not disclosed.", "The partnership ended last year.", "PowerCell does not produce batteries.", "Vela will stop making cars next month."], 0,
+   "앞 문장들이 제휴 내용을 설명한 뒤, 계약 금액은 공개되지 않았다는 보도자료의 일반적인 마무리 정보가 들어간다.",
+   [N, "오늘 제휴를 발표했으므로 작년에 끝났다는 말은 모순이다.", "PowerCell은 배터리 제조사라고 소개됐다.", "다음 차종을 함께 개발한다는 내용과 모순이다."], blank=2),
+ q('grammar', G, 1, ["faster", "fastest", "fast", "more fastly"], 0,
+   "뒤에 than이 있으므로 비교급 faster.",
+   [N, "fastest는 최상급이라 than과 쓰지 않는다.", "fast는 원급이라 than과 쓰지 않는다.", "fastly는 없는 말이고 fast의 비교급은 faster다."], blank=3),
+ q('grammar', G, 2, ["developed", "developing", "develop", "development"], 0,
+   "The first vehicles를 뒤에서 꾸미는 분사 자리다. 차량은 '개발되는' 대상이므로 과거분사 developed. 본동사는 are expected.",
+   [N, "developing은 차량이 무언가를 개발한다는 능동 의미가 된다.", "develop은 동사원형이라 본동사가 겹친다.", "development는 명사라 vehicles를 꾸미는 자리에 맞지 않는다."], blank=4, trap=True),
+]))
+
+U.append(setunit('p6-s18', 6, [P('instructions', 'Instructions', "Cleaning Your BrewMaster 300\n\nTo keep your coffee maker working {{1}}, clean it at least once a month. First, fill the water tank with a mixture of equal parts water and white vinegar. Then, place an empty mug under the spout and press the Clean button. {{2}}\n\nWhen the cycle is complete, empty the mug and run two more cycles with fresh water only. {{3}}, any vinegar taste will be removed from the machine. Never {{4}} the machine in water, as this can damage the electrical parts.")], [
+ q('grammar', G, 1, ["properly", "proper", "property", "propriety"], 0,
+   "keep + 목적어 + working 뒤에서 working(작동하다)을 꾸미는 부사가 필요하다. properly.",
+   [N, "proper는 형용사라 동사 working을 꾸밀 수 없다.", "property(재산)는 명사라 의미와 품사 모두 맞지 않는다.", "propriety(예의)는 명사다."], blank=1),
+ q('insert', IN, 2, ["The cleaning cycle takes about 15 minutes.", "Coffee beans should be stored in the freezer.", "Your warranty has now expired.", "Add sugar to the water tank for a better taste."], 0,
+   "앞 문장에서 Clean 버튼을 눌러 세척 주기를 시작했고, 다음 문단이 When the cycle is complete로 시작한다. 그 사이에 세척 주기 소요 시간 안내가 들어간다.",
+   [N, "원두 보관법은 세척 절차와 관계없다.", "보증 만료는 세척 안내 흐름과 관계없다.", "물탱크에 설탕을 넣으라는 것은 세척 안내와 모순된다."], blank=2),
+ q('connector', CN, 2, ["This way", "Even so", "Instead", "For instance"], 0,
+   "깨끗한 물로 두 번 더 돌리는 방법을 쓰면 식초 맛이 제거된다는 결과다. This way(이렇게 하면).",
+   [N, "Even so는 앞 내용에도 불구하고 반대 결과가 날 때 쓴다.", "Instead는 앞 방법을 대신할 때 쓴다.", "For instance는 예시를 들 때 쓴다."], blank=3),
+ q('vocab', VO, 3, ["immerse", "wipe", "plug", "unplug"], 0,
+   "전기 부품이 손상될 수 있으니 기계를 물에 '담그지' 말라는 경고다. immerse A in water.",
+   [N, "wipe(닦다)는 in water와 함께 손상 경고가 되지 않는다.", "plug는 plug in 형태로 전원을 연결할 때 쓴다.", "unplug(전원을 뽑다)는 in water와 결합하지 않고 손상 이유도 되지 않는다."], blank=4, trap=True,
+   vocab=[("immerse", "v", "(액체에) 담그다")]),
+]))
+
+U.append(setunit('p6-s19', 6, [P('email', 'E-mail', "To: Customer Service Team\nFrom: Rachel Moon\nSubject: Database training\n\nHi team,\n\nAs many of you know, our new customer database will go live on November 1. To make sure everyone is ready, the IT department {{1}} three training sessions next week. Each session will last two hours and will cover the same material, so you only need to attend one. {{2}}\n\nSeats are limited to 15 people per session, so please register as soon as possible. Employees who cannot attend {{3}} session should contact me directly. I will arrange an online session for {{4}}.\n\nThanks,\nRachel")], [
+ q('grammar', G, 1, ["will hold", "held", "has held", "holding"], 0,
+   "next week에 있을 일이므로 미래 will hold.",
+   [N, "held는 과거라 next week와 맞지 않는다.", "has held는 현재완료라 미래 시점과 함께 쓰지 않는다.", "holding은 분사라 본동사가 없어진다."], blank=1),
+ q('insert', IN, 2, ["You can sign up through the training page on the intranet.", "The old database will remain in use for another year.", "Last month's holiday party was a great success.", "Please bring your laptop to the client meeting."], 0,
+   "다음 문단이 '좌석이 한정되어 있으니 빨리 등록하라'이므로, 그 앞에 등록 방법 안내가 오는 것이 자연스럽다.",
+   [N, "새 데이터베이스가 11월 1일에 가동된다고 했으므로 모순이다.", "송년회 이야기는 교육 안내와 관계없다.", "고객 미팅 준비물은 교육 안내 흐름과 관계없다."], blank=2),
+ q('grammar', G, 2, ["any", "some", "every", "all"], 0,
+   "부정문 cannot attend 뒤에서 '어느 세션에도'라는 뜻의 any session이 필요하다.",
+   [N, "some은 부정문에서 이 뜻으로 쓰지 않고, some session은 '어떤 특정 세션'처럼 읽힌다.", "cannot attend every session은 '모든 세션에 참석할 수는 없다'라 한 번만 들으면 된다는 앞 내용과 맞지 않는다.", "all 뒤에는 복수 명사가 와야 한다(all sessions)."], blank=3, trap=True),
+ q('grammar', G, 1, ["them", "they", "their", "theirs"], 0,
+   "전치사 for 뒤 목적격 자리다. them은 앞의 Employees who cannot attend를 가리킨다.",
+   [N, "they는 주격이라 전치사 뒤에 올 수 없다.", "their는 소유격이라 뒤에 명사가 필요하다.", "theirs는 '그들의 것'이라 의미가 맞지 않는다."], blank=4),
+]))
+
+U.append(setunit('p6-s20', 6, [P('notice', 'Notice', "Fall Workshop Series for Small Businesses\n\nThe Westfield Chamber of Commerce is pleased to announce its fall workshop series for small-business owners. The workshops will take place on Thursday evenings from 6:00 to 8:00 P.M. at the Chamber's office on Pine Street. Topics include online marketing, hiring, and {{1}} cash flow. {{2}}\n\nEach workshop costs $20 for Chamber members and $35 for nonmembers. {{3}}, participants who register for all four workshops will receive a 25 percent discount. Space is limited, so early registration is {{4}} recommended.")], [
+ q('grammar', G, 2, ["managing", "manage", "managed", "manager"], 0,
+   "online marketing, hiring, and ___ cash flow는 Topics include의 목적어로 병렬된 명사 상당어구다. 목적어 cash flow를 받으면서 명사 역할을 하는 동명사 managing.",
+   [N, "manage는 동사원형이라 병렬된 명사 자리에 올 수 없다.", "managed cash flow는 '관리된 현금 흐름'이 되어 주제 목록의 다른 항목(-ing 활동)과 병렬이 맞지 않는다.", "manager cash flow는 명사+명사로 성립하지 않는다."], blank=1, trap=True),
+ q('insert', IN, 2, ["All sessions will be led by experienced local business owners.", "The office on Pine Street closed in 2019.", "Workshops are held every Monday morning.", "Refreshments will not be served at the annual gala."], 0,
+   "앞 문장이 워크숍 주제 소개다. 강사 소개가 이어지면 프로그램 안내 흐름이 자연스럽다.",
+   [N, "워크숍 장소가 Pine Street 사무실이라고 했으므로 모순이다.", "목요일 저녁에 열린다고 했으므로 모순이다.", "연례 만찬 이야기는 워크숍 안내와 관계없다."], blank=2),
+ q('connector', CN, 1, ["In addition", "Nevertheless", "Otherwise", "In other words"], 0,
+   "회원·비회원 요금 안내 뒤에 네 개 모두 등록하면 할인된다는 정보를 덧붙인다. In addition.",
+   [N, "Nevertheless는 반대되는 결과에 쓴다.", "Otherwise는 '그렇지 않으면'이라 의미가 맞지 않는다.", "In other words는 같은 내용을 바꿔 말할 때 쓴다."], blank=3),
+ q('vocab', VO, 1, ["strongly", "hardly", "nearly", "barely"], 0,
+   "자리가 한정되어 있으니 조기 등록을 '강력히' 권한다. strongly recommended.",
+   [N, "hardly(거의 ~않다)는 부정 의미라 앞 내용과 반대다.", "nearly recommended는 '거의 권장된다'라 어색하다.", "barely(간신히)도 부정에 가까운 의미다."], blank=4),
+]))
+
+U.append(setunit('p6-s21', 6, [P('letter', 'Letter', "Dear Ms. Benson,\n\nThank you for your letter regarding the delay in the delivery of your sofa. I am very sorry that it arrived nine days later than {{1}}. After looking into the matter, we found that the delay was caused by an error in our scheduling system. {{2}}\n\nTo make up for the inconvenience, we have {{3}} $50 to your credit card. We have also included a coupon for 15 percent off your next purchase. We value your business and hope you will {{4}} to shop with us.\n\nSincerely,\nPaul Adeyemi\nCustomer Service Manager, Linden Home")], [
+ q('grammar', G, 2, ["promised", "promising", "promise", "promises"], 0,
+   "later than promised는 later than (it was) promised의 축약이다. 배송일은 '약속된' 것이라 과거분사.",
+   [N, "promising(유망한)은 의미가 맞지 않는다.", "promise는 동사원형·명사라 than 뒤에서 이 생략 구문을 만들지 못한다.", "promises도 같은 이유로 맞지 않는다."], blank=1),
+ q('insert', IN, 2, ["This problem has now been corrected.", "Your sofa will be delivered next month.", "We do not sell sofas.", "Please return the coupon to our store."], 0,
+   "앞 문장이 지연 원인(일정 시스템 오류)이다. This problem이 그 오류를 가리키며 해결됐다는 문장이 이어진다.",
+   [N, "소파는 이미 도착했다(arrived)고 했으므로 모순이다.", "소파 배송 지연에 대한 편지이므로 모순이다.", "쿠폰은 다음 구매용으로 '동봉한' 것이라 반납 요청은 맞지 않는다."], blank=2),
+ q('vocab', VO, 3, ["credited", "charged", "borrowed", "owed"], 0,
+   "불편을 보상하려고(To make up for) 50달러를 카드로 '돌려준' 것이다. credit A to(~에 입금하다).",
+   [N, "charged는 '청구했다'라 보상이 아니라 반대 의미다. 같은 카드 문맥이라 고르기 쉬운 함정.", "borrowed(빌렸다)는 의미가 맞지 않는다.", "owed(빚졌다)는 to your credit card와 결합해 보상을 나타내지 못한다."], blank=3, trap=True),
+ q('vocab', VO, 1, ["continue", "stop", "avoid", "finish"], 0,
+   "'앞으로도 계속 이용해 주시길 바란다'는 뜻이다. continue to shop.",
+   [N, "stop to shop은 '쇼핑하려고 멈추다'라 뜻이 맞지 않는다.", "avoid는 to부정사를 쓰지 않고 의미도 반대다.", "finish도 to부정사를 쓰지 않는다."], blank=4),
+]))
+
+U.append(setunit('p6-s22', 6, [P('article', 'Article', "LAKESIDE (April 2) — The 180-room Mariner Hotel, which has been under construction for two years, will open to guests on May 15. The hotel, {{1}} on the waterfront, features a rooftop restaurant and a conference center that can hold up to 500 people. {{2}}\n\nSo far, the hotel {{3}} more than 120 local residents, and it plans to hire another 40 before opening day, according to general manager Sofia Ruiz. Reservations can be made through the hotel's Web site, and guests who book before May 1 will receive free breakfast {{4}} their stay.")], [
+ q('grammar', G, 1, ["located", "locating", "locate", "location"], 0,
+   "The hotel을 꾸미는 삽입 분사구다. 호텔은 해변에 '위치한' 것이므로 과거분사 located.",
+   [N, "locating은 '위치를 찾아내는'이라는 능동 의미다.", "locate는 동사원형이라 삽입구를 만들지 못한다.", "location은 명사라 콤마 사이에서 호텔을 설명하는 구조가 되지 않는다."], blank=1),
+ q('insert', IN, 2, ["Several companies have already booked the center for events this summer.", "The hotel closed in 2019 after fifty years in business.", "Ms. Ruiz is a well-known chef from Lakeside.", "Construction will begin next year."], 0,
+   "앞 문장이 컨퍼런스 센터 소개다. the center가 그것을 가리키며 이미 행사 예약이 들어왔다는 내용이 이어진다.",
+   [N, "5월에 처음 문을 연다고 했으므로 50년 운영 후 폐업은 모순이다.", "Ms. Ruiz는 총지배인이라고 소개된다.", "2년째 공사 중이라고 했으므로 내년에 착공한다는 말은 모순이다."], blank=2),
+ q('grammar', G, 2, ["has hired", "will hire", "hires", "had hired"], 0,
+   "So far(지금까지)와 함께 현재까지 완료된 일을 말하므로 현재완료 has hired.",
+   [N, "will hire는 미래라 So far와 맞지 않는다. 앞으로 뽑을 40명과 구분해야 한다.", "hires는 현재 습관을 나타내 So far와 맞지 않는다.", "had hired는 과거 기준 시점이 있어야 하는데 이 문장에는 없다."], blank=3, trap=True),
+ q('grammar', G, 1, ["during", "while", "among", "between"], 0,
+   "명사구 their stay 앞이므로 전치사 during(~ 동안).",
+   [N, "while은 접속사라 절을 받아야 한다.", "among은 셋 이상의 대상 사이를 말한다.", "between은 두 대상 사이를 말한다."], blank=4),
+]))
+
+U.append(setunit('p6-s23', 6, [P('memo', 'Memo', "To: All employees\nFrom: Daniel Moreau, Operations Director\nRe: Remote work policy\n\nStarting in September, employees may work from home up to two days per week with their manager's approval. {{1}}, all staff must be in the office on Tuesdays, when team meetings are held. Employees who work remotely are expected to be {{2}} by phone and e-mail during regular business hours. {{3}}\n\nRequests should be submitted through the HR portal at least one week in {{4}}.")], [
+ q('connector', CN, 2, ["However", "Therefore", "For example", "Similarly"], 0,
+   "주 2일 재택을 허용한다는 앞 문장과, 화요일에는 반드시 출근해야 한다는 제한이 대조된다. However.",
+   [N, "Therefore는 결과를 나타내지만 화요일 출근은 재택 허용의 결과가 아니다.", "For example은 예시인데 빈칸 문장은 앞 문장의 예가 아니다.", "Similarly는 비슷한 내용을 이어 갈 때 쓴다."], blank=1),
+ q('grammar', G, 1, ["available", "availability", "avail", "availably"], 0,
+   "be동사의 보어 자리이므로 형용사 available(연락 가능한).",
+   [N, "availability는 명사라 '직원=가용성'이 되어 어색하다.", "avail은 동사·명사로 be 뒤 보어가 되지 않는다.", "availably는 쓰지 않는 형태이고 부사는 보어가 될 수 없다."], blank=2),
+ q('insert', IN, 2, ["Managers will review each request based on the needs of their team.", "The office will be closed permanently in September.", "Team meetings have been moved to Fridays.", "Employees may not use e-mail at home."], 0,
+   "재택 근무 조건 설명 뒤, 다음 문장이 신청 방법(Requests should be submitted)이다. 관리자가 신청을 검토한다는 문장이 그 사이에 자연스럽다.",
+   [N, "화요일 출근 규정이 있으므로 사무실 영구 폐쇄는 모순이다.", "팀 회의는 화요일에 열린다고 했다.", "재택 근무자는 이메일로 연락이 되어야 한다고 했으므로 모순이다."], blank=3),
+ q('vocab', VO, 1, ["advance", "progress", "front", "ahead"], 0,
+   "in advance(미리)는 고정 표현이다. 최소 일주일 전에 신청하라는 뜻.",
+   [N, "in progress는 '진행 중인'이라 뜻이 맞지 않는다.", "in front는 위치를 말한다.", "ahead는 in 없이 쓰는 부사다(ahead of time)."], blank=4),
+]))
+
+U.append(setunit('p6-s24', 6, [P('email', 'E-mail', "To: Viktor Petrov\nFrom: Ana Silva, Bright Bag Co.\nSubject: Your order #5520\n\nDear Mr. Petrov,\n\nThank you for your order of 200 custom-printed tote bags. Our design team {{1}} your logo file and found that its resolution is too low for printing. {{2}} Could you please send us a higher-quality version of the file, preferably in PDF format?\n\nOnce we receive it, we will send you a digital proof for your {{3}}. Please note that production will begin only after you approve the proof. {{4}}, your order may not arrive by the June 20 date you requested.\n\nKind regards,\nAna Silva")], [
+ q('grammar', G, 2, ["has reviewed", "will review", "is reviewed", "reviewing"], 0,
+   "이미 파일을 검토했고(found) 문제가 있음을 알리는 내용이다. 현재까지 완료된 일을 나타내는 has reviewed.",
+   [N, "will review는 미래라 '해상도가 낮음을 발견했다(found)'는 내용과 맞지 않는다.", "is reviewed는 수동이라 디자인팀이 검토되는 대상이 되고 목적어도 받을 수 없다.", "reviewing은 분사라 본동사가 없어진다."], blank=1),
+ q('insert', IN, 2, ["As a result, the printed logo would appear blurry.", "The bags have already been shipped to you.", "We no longer offer custom printing.", "Thank you for approving the proof."], 0,
+   "앞 문장이 '해상도가 너무 낮다'이다. 그 결과 인쇄된 로고가 흐리게 나올 것이라는 설명이 이어진다.",
+   [N, "인쇄 전 파일 문제를 알리는 중이므로 이미 배송했다는 말은 모순이다.", "맞춤 인쇄 주문을 처리하는 중이므로 모순이다.", "시안은 아직 보내지도 않았으므로 승인 감사는 맞지 않는다."], blank=2),
+ q('grammar', G, 1, ["approval", "approve", "approved", "approving"], 0,
+   "소유격 your 뒤 명사 자리다. for your approval(승인을 위해).",
+   [N, "approve는 동사라 소유격 뒤에 올 수 없다.", "approved는 과거분사라 명사 자리에 맞지 않는다.", "approving은 동명사로 쓸 수는 있지만 for your approving은 쓰지 않는 표현이다."], blank=3),
+ q('connector', CN, 2, ["As a result", "In contrast", "For example", "Instead"], 0,
+   "고화질 파일을 받고 시안 승인을 받은 뒤에야 생산이 시작되므로, 그 결과 요청 날짜까지 도착하지 못할 수 있다. As a result.",
+   [N, "In contrast는 서로 다른 대상을 대조할 때 쓴다.", "For example은 예시를 들 때 쓴다.", "Instead는 앞 내용을 대신할 때 쓴다."], blank=4),
+]))
+
+U.append(setunit('p6-s25', 6, [P('notice', 'Notice', "Riverside Job Fair\n\nMore than 60 employers will take part in the Riverside Job Fair on Saturday, October 18, at the Civic Center. The event is free and open to the public. Job seekers should bring several copies of their résumé and be {{1}} to speak with recruiters on the spot. {{2}} Free workshops on interview skills will also be offered throughout the day.\n\n{{3}} attendance is expected to be high, we recommend arriving early. Parking is available in the Civic Center garage, but space is {{4}}.")], [
+ q('grammar', G, 1, ["prepared", "preparation", "prepare", "preparatory"], 0,
+   "be prepared to do는 '~할 준비가 되어 있다'라는 표현이다. be동사 뒤 보어로 과거분사형 형용사 prepared.",
+   [N, "preparation은 명사라 be preparation to speak는 성립하지 않는다.", "prepare는 동사원형이라 be 뒤에 올 수 없다.", "preparatory(준비의)는 명사 앞에 쓰며 be preparatory to speak로 쓰지 않는다."], blank=1),
+ q('insert', IN, 2, ["Some employers will even conduct interviews at their booths.", "Tickets cost $10 at the door.", "The fair has been postponed until next year.", "Résumés will not be accepted at the event."], 0,
+   "앞 문장이 '현장에서 채용 담당자와 이야기할 준비를 하라'다. 일부 기업은 부스에서 면접까지 본다는 문장이 그 이유를 보강한다.",
+   [N, "행사는 무료라고 했다.", "10월 18일에 열린다고 안내하는 중이므로 모순이다.", "이력서를 여러 부 가져오라고 했으므로 모순이다."], blank=2),
+ q('grammar', G, 2, ["Because", "Despite", "Due to", "Unless"], 0,
+   "뒤에 절(attendance is expected to be high)이 오고, 일찍 오라는 권고의 이유다. 접속사 Because.",
+   [N, "Despite는 전치사이고 양보 의미다.", "Due to는 이유를 나타내지만 전치사라 절을 받을 수 없다.", "Unless는 조건 접속사라 '많지 않다면 일찍 오라'가 되어 뜻이 맞지 않는다."], blank=3, trap=True),
+ q('vocab', VO, 1, ["limited", "limiting", "limit", "limitless"], 0,
+   "but 뒤에서 주차 공간이 '제한적이다'라는 제약을 말한다. be limited.",
+   [N, "limiting은 '제한하는'이라는 능동 의미라 공간에 맞지 않는다.", "limit은 명사·동사라 보어 자리에 맞지 않는다.", "limitless(무제한의)는 but과 이어지는 제약 내용과 반대다."], blank=4),
+]))
+
+write('p6-2.json', U)
