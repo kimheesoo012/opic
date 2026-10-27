@@ -402,17 +402,22 @@ export class GameView {
     return box;
   }
 
-  // 한국어 해설. 길면 네 줄까지만 보이고 「더보기」로 펼친다 (버튼은 아래 칸에 따로 있어 가려지지 않는다)
+  // 한국어 해설은 상황만 짧게: 앞 문장(40자 안팎)만 보이고 나머지는 「더보기」. 일본어 대사가 주인공이다.
   koBlock(text, title) {
     const ctx = this.ctxFor(null);
     ctx.onWord = (key) => this.app.openWord(key, { ja: '', ko: plainKo(text), sp: '', title, when: this.ageText() });
-    const p = h('p', { class: 'ev-text' }, renderKo(text, ctx));
+    const { head, rest } = splitContext(text);
+    const p = h('p', { class: 'ev-text ctx' }, renderKo(head, ctx));
     if (ctx.newTerms.length) store.saveSeenTerms(this.seenTerms);
-    if (plainKo(text).length < 90) return p;
-    p.classList.add('clamp');
-    const more = h('button', { class: 'more-btn', type: 'button', onclick: () => { const open = p.classList.toggle('clamp'); more.textContent = open ? '더보기' : '접기'; } }, '더보기');
-    requestAnimationFrame(() => { if (p.scrollHeight <= p.clientHeight + 2) more.remove(); });
-    return h('div', null, p, more);
+    if (!rest) return p;
+    const more = h('button', { class: 'more-btn', type: 'button', 'aria-expanded': 'false', onclick: () => {
+      more.remove();
+      const c2 = this.ctxFor(null);
+      c2.onWord = ctx.onWord;
+      p.append(' ', renderKo(rest, c2));
+    } }, '더보기');
+    p.append(' ', more);
+    return p;
   }
 
   refresh() {
@@ -478,14 +483,26 @@ export class GameView {
     this.manualOnce = false;
     const btns = [];
     const calm = this.autoActive() && v.choices.length && !v.mini;
+    // 「선택지: 중요한 장면만」: 작은 장면은 개가 성격대로 움직인다. 대사를 읽고 つぎへ (원하면 직접 고르기)
+    const dogActs = !calm && this.set.choiceMode !== 'all' && !v.major && !v.mini && v.choices.length > 1 && this.autoIdx >= 0;
+    // 직접 고르는 장면도 선택지는 「행동 고르기」를 누른 뒤에 펼친다 (먼저 일본어 대사를 다 읽을 수 있게)
+    const askFirst = !calm && !dogActs && !v.mini && v.choices.length > 1;
     if (calm) {
       this.autoLine = h('span', { class: 'auto-line-text' }, 'オート');
       btns.push(h('div', { class: 'auto-line' }, this.autoLine, h('button', { class: 'mini-btn', type: 'button', onclick: () => this.takeOver() }, '직접 고르기')));
     }
+    if (dogActs) {
+      btns.push(h('div', { class: 'dog-acts' },
+        h('button', { class: 'btn primary', type: 'button', onclick: () => this.doChoose(this.autoIdx, true) }, 'つぎへ'),
+        h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { e.currentTarget.parentNode.remove(); for (const [, b] of this.choiceBtns) b.hidden = false; } }, '직접 고르기')));
+    }
+    if (askFirst) {
+      btns.push(h('button', { class: 'btn primary open-choices', type: 'button', onclick: (e) => { e.currentTarget.remove(); for (const [, b] of this.choiceBtns) b.hidden = false; } }, '행동 고르기'));
+    }
     if (v.mini && !this.autoActive()) btns.push(this.tambourine(v));
     else if (v.choices.length) {
       for (const c of v.choices) {
-        const b = h('button', { class: 'btn' + (c.ok ? '' : ' off'), type: 'button', disabled: !c.ok, hidden: calm, onclick: () => this.doChoose(c.i, false) }, h('span', null, c.t, !c.ok && c.why ? h('div', { class: 'why' }, c.why) : null));
+        const b = h('button', { class: 'btn' + (c.ok ? '' : ' off'), type: 'button', disabled: !c.ok, hidden: calm || dogActs || askFirst, onclick: () => this.doChoose(c.i, false) }, h('span', null, c.t, !c.ok && c.why ? h('div', { class: 'why' }, c.why) : null));
         this.choiceBtns.push([c.i, b]);
         btns.push(b);
       }
@@ -540,7 +557,7 @@ export class GameView {
       this.lcd.setPlan({ ...this.lcd.plan, bubble: ok ? 'heart' : r.notes.includes('실패') ? 'sweat' : null }, this.s);
     }
     const body = [h('div', { class: 'ev-cat' }, CAT[ev.cat] || ''), h('h3', { class: 'ev-title' }, title)];
-    if (r.choice) body.push(h('div', { class: 'res-choice' }, (r.auto ? 'オート · ' : '') + r.choice));
+    if (r.choice) body.push(h('div', { class: 'res-choice' }, (r.auto ? `${this.s.dog.name} · ` : '') + r.choice));
     if (r.res) body.push(this.koBlock(r.res, title));
     if (r.lines.length) body.push(this.renderLines(r.lines, title));
     if (r.delta.length) {
@@ -686,6 +703,15 @@ export class GameView {
         h('button', { class: 'btn primary', type: 'button', onclick: close }, '닫기'))));
     this.app.root.append(back);
   }
+}
+
+// 한국어 해설을 앞부분(상황)과 나머지로 나눈다. 문장 단위로 40자 안팎까지 (첫 문장은 항상 통째로).
+export function splitContext(text) {
+  const parts = String(text).split(/(?<=[.!?…」])\s+/);
+  let head = parts[0];
+  let i = 1;
+  while (i < parts.length && plainKo(head + ' ' + parts[i]).length <= 40) head += ' ' + parts[i++];
+  return { head, rest: parts.slice(i).join(' ') };
 }
 
 function lineHas(tpl, id) {

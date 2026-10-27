@@ -55,7 +55,7 @@ const measure = () => page.evaluate(() => {
     visTop: Math.round(visTop),
     visBottom: Math.round(visBottom),
     toolBtn: t ? { top: Math.round(t.top), bottom: Math.round(t.bottom) } : null,
-    choiceMinH: Math.min(...[...document.querySelectorAll('.foot .btn')].map((b) => b.getBoundingClientRect().height)),
+    choiceMinH: Math.min(...[...document.querySelectorAll('.foot .btn')].map((b) => b.getBoundingClientRect().height).filter((x) => x > 0)),
   };
 });
 
@@ -135,8 +135,13 @@ for (const id of ids) {
   console.log(id, JSON.stringify({ inner: m0.inner, top: m0.topH, lcd: m0.lcdH, panel: m0.panelH, foot: m0.footH, scrollMax: m1.scrollMax }));
   // 선택 → 결과 화면이 맨 위(제목)부터 보이는가
   await page.evaluate(() => window.__dojoinu.view.togglePause());
-  const btn = await page.$('.foot .btn:not([disabled])');
-  await btn.click();
+  const open = await page.$('.foot .open-choices');
+  if (open) {
+    await open.click();
+    await page.waitForTimeout(150);
+    await page.screenshot({ path: `${out}${tag}-${id}-3b-choices.png` });
+  }
+  await page.locator('.foot .btn:not([disabled]) >> visible=true').first().click();
   await page.waitForTimeout(300);
   await page.evaluate(() => window.__dojoinu.view.togglePause());
   const m3 = await measure();

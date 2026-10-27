@@ -249,7 +249,9 @@ class App {
       custom,
       sw('hideEasy', '쉬운 단어 학습 표시 끄기'),
       sw('focus', '학습 집중 모드'),
-      h('p', { class: 'note small' }, 'JLPT 등급은 공식 목록이 없어 추정 분류다.'));
+      h('div', { class: 'field-label' }, '선택지'),
+      grid('choiceMode', [['major', '중요한 장면만'], ['all', '모든 장면']]),
+      h('p', { class: 'note small' }, '「중요한 장면만」: 나머지 장면에서는 개가 성격대로 움직이고, 대사를 읽은 뒤 つぎへ만 누른다. JLPT 등급은 공식 목록이 없어 추정 분류다.'));
   }
   furiganaRow() {
     return this.studyControls();

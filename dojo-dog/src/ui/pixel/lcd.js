@@ -1,7 +1,7 @@
 // LCD 창: 160×96 도트 장면을 캔버스에 그린다. 배경 + 사람 + 개 + 말풍선 + 계절 입자.
 import { Buf, C, PAL } from './core.js';
 import { bgBuf, BW, BH } from './bg.js';
-import { dogFrame, propBuf, bubbleBuf } from './dog.js';
+import { dogFrame, propBuf, bubbleBuf, DW, DH } from './dog.js';
 import { personFrame, LOOKS } from './people.js';
 import { FLOOR } from './director.js';
 
@@ -56,6 +56,10 @@ export class LCD {
     this.lastDraw = 0;
     this.s = null;
     this.onFrame = this.frame.bind(this);
+    // 2배 카메라: 개를 따라가며 장면의 절반(80×48)을 크게 보인다. 시합·심판 장면은 전체를 보인다.
+    this.zoom = true;
+    this.cam = null;
+    this.zbuf = new Buf(BW, BH);
   }
   start() {
     if (this.running) return;
@@ -175,7 +179,38 @@ export class LCD {
     const talker = ppl.find((q) => q.talk);
     if (talker && this.plan.talkBubble !== false) b.blit(bubbleBuf(f ? 'note' : '!'), Math.round(talker.x) + 10, talker.y - 6);
     this.particles(b);
-    paint(this.ctx, b);
+    paint(this.ctx, this.zoomed(b, fl, ppl, talker));
+  }
+  // 개(와 가까이 있는 말하는 사람)를 중심으로 2배 확대. 정수 배율이라 도트가 고르게 유지된다.
+  zoomed(b, fl, ppl, talker) {
+    const p = this.plan;
+    const wide = !this.zoom || p.zoom === false || p.judges || p.match || p.people.some((q) => q.anim === 'match');
+    if (wide || !this.dog) {
+      this.cam = null;
+      return b;
+    }
+    const ZW = BW / 2;
+    const ZH = BH / 2;
+    let cx = this.dx + DW / 2;
+    if (talker && Math.abs(talker.x + 14 - cx) < 56) cx = (cx + talker.x + 14) / 2;
+    const ground = fl.dy + DH;
+    const tx = Math.max(0, Math.min(BW - ZW, cx - ZW / 2));
+    // 개는 발끝까지, 말하는 사람이 가까우면 머리까지 들어오게
+    let want = ground - ZH + 4;
+    if (talker && Math.abs(talker.x + 14 - cx) < 56) want = Math.min(want, talker.y - 8);
+    const ty = Math.max(0, Math.min(BH - ZH, Math.max(ground - ZH + 2, want)));
+    // 부드럽게 따라간다 (처음에는 바로 맞춘다)
+    if (!this.cam) this.cam = { x: tx, y: ty };
+    this.cam.x += (tx - this.cam.x) * 0.18;
+    this.cam.y += (ty - this.cam.y) * 0.18;
+    const ox = Math.round(this.cam.x);
+    const oy = Math.round(this.cam.y);
+    const z = this.zbuf;
+    for (let y = 0; y < BH; y++) {
+      const sy = oy + (y >> 1);
+      for (let x = 0; x < BW; x++) z.d[y * BW + x] = b.d[sy * BW + ox + (x >> 1)];
+    }
+    return z;
   }
   bubbleKind(pose) {
     if (this.plan.bubble) return this.plan.bubble;

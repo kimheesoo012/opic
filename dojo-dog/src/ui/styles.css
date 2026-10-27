@@ -364,3 +364,9 @@ html, body { overflow: hidden; overscroll-behavior: none; }
 .game.xs .ev-title { font-size: 18px; margin: 0 0 4px; }
 .game.xs .ev-cat { font-size: 14px; }
 .scroll { padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }
+/* ───── 5판: 일본어가 먼저 ───── */
+.ev-text.ctx { font-size: 16px; line-height: 1.6; color: var(--ink2); margin: 0 0 8px; }
+.ev-text.ctx .more-btn { display: inline; min-height: 0; padding: 0 2px; font-size: 15px; }
+.dog-acts { display: flex; gap: 8px; align-items: stretch; }
+.dog-acts .btn { flex: 1; }
+.dog-acts .mini-btn { min-height: 48px; }
