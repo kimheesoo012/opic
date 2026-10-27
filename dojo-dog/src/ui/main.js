@@ -317,6 +317,7 @@ class App {
 
   resume(save) {
     const s = save.state;
+    G.repairState(s);
     if (s.phase === 'farewell') return this.toFarewell(s);
     if (s.phase === 'birth') G.beginLife(s);
     this.enterGame(s);

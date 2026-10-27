@@ -115,7 +115,7 @@ export default [
     id: 'm_10', cat: 'milestone',
     title: '10살이 되었다',
     text: '주둥이에 흰 털이 섞이기 시작했다. 계단 앞에서 잠깐 멈추는 일이 늘었다. 앞으로의 시간을 어떻게 보낼까?',
-    lines: [['okami', '{N}も、もうおじいちゃん……おばあちゃん？　どっちでもいいわね。まだまだ元気でいてもらわ〘ないことには|ないことには〙困るのよ。', '{N}도 이제 할아버지……할머니? 어느 쪽이든 상관없지. 아직 건강하게 있어 주지 않으면 곤란해.']],
+    lines: [['okami', '{N}も、もうおじいちゃん……おばあちゃん？　どっちでもいいわね。まだまだ元気でいてもらわなきゃ困るんだから。', '{N}도 이제 할아버지……할머니? 어느 쪽이든 상관없지. 아직 건강하게 있어 주지 않으면 곤란해.']],
     choices: [
       { t: '좋아하는 사람 곁에서 천천히', tag: 'calm', fx: { hap: 6, b_okami: 3, b_shihan: 3, b_kid: 3 }, set: 'old_slow', res: '서두를 일은 이제 없다. 모두가 지나가며 머리를 쓰다듬는다.' },
       { t: '아직 현역! 도장 순찰은 계속', tag: 'brave', fx: { brave: 5, hea: 2 }, risk: 0.08, set: 'old_active', res: '아침마다 도장 네 귀퉁이를 확인하는 일은 그만두지 않았다.' },
@@ -130,7 +130,7 @@ export default [
     lines: [['shihan', '{N}、無理して歩く〘ことはない|ことはない〙からな。', '{N}, 무리해서 걸을 필요는 없어.']],
     choices: [
       { t: '신단 아래, 도장이 다 보이는 자리', tag: 'guard', fx: { hap: 4, b_shihan: 5 }, set: 'last_kamidana', res: '모두가 연습 전에 고개를 숙이는 그 자리 아래에서, {N|은} 눈을 감고 기합 소리를 들었다.' },
-      { t: '{okami}의 무릎', tag: 'sweet', fx: { hap: 6, b_okami: 6 }, set: 'last_lap', res: '장부를 정리하는 {okami}의 무릎은 오늘도 따뜻했다.' },
+      { t: '{okami}의 무릎', tag: 'sweet', fx: { hap: 6, b_okami: 6 }, set: 'last_lap', res: '아이들 도복에 이름표를 다는 {okami}의 무릎은 오늘도 따뜻했다.' },
       { t: '햇볕 드는 툇마루', tag: 'lazy', fx: { hap: 5, hea: 2 }, set: 'last_engawa', res: '툇마루에 누워 있으면 상점가 쪽에서 고로케 냄새가 바람에 실려 온다.' },
       { t: '죽도 가방 속', tag: 'play', fx: { hap: 5, mis: 2 }, set: 'last_bag', cnt: 'bag', req: (s) => s.st.back >= 25, why: '허리 때문에 들어가기 어렵다', res: '누군가 죽도 가방 입구를 조금 넓혀 두었다. 다들 알고 있었던 것이다.' },
     ],
@@ -145,7 +145,7 @@ export default [
     choices: [
       { t: '{roshi} 옆', tag: 'calm', req: alive, fx: { b_roshi: 5 }, pool: 'beside_roshi', poolEmpty: '{roshi|은} 말없이 {N}의 등을 한 번 쓸었다.' },
       { t: '{shihan} 옆', tag: 'guard', fx: { b_shihan: 5 }, pool: 'beside_shihan', poolEmpty: '{shihan|은} 죽도를 손질하며 {N|을} 발로 살짝 밀어 자리를 내 주었다.' },
-      { t: '{okami} 옆', tag: 'sweet', fx: { b_okami: 5 }, pool: 'beside_okami', poolEmpty: '{okami}의 무릎 위에서 장부 넘기는 소리를 들으며 졸았다.' },
+      { t: '{okami} 옆', tag: 'sweet', fx: { b_okami: 5 }, pool: 'beside_okami', poolEmpty: '{okami}의 무릎 위에서 바늘이 천을 지나가는 소리를 들으며 졸았다.' },
       { t: '{kid} 옆', tag: 'play', fx: { b_kid: 5 }, pool: 'beside_kid', poolEmpty: '{kid|와} 마루를 몇 번 왕복하며 놀았다.' },
     ],
   },
@@ -164,7 +164,7 @@ export default [
     id: 'h_walk', cat: 'hub', once: false, cd: 2, max: 14, w: 1.4,
     title: '산책 코스 고르기',
     text: '목줄이 찰칵 소리를 냈다. 오늘은 어디로 갈까?',
-    lines: [['okami', 'さあ、お[散歩]行こうか。行き先は[天気]〘次第|次第〙ね。どっちにする？', '자, 산책 갈까. 어디로 갈지는 날씨에 달렸네. 어느 쪽으로 할래?']],
+    lines: [['okami', 'さあ、お[散歩]行こうか。今日はどっちにする？', '자, 산책 갈까. 오늘은 어느 쪽으로 할래?']],
     choices: [
       { t: '{S} (상점가)', tag: 'social', fx: { soc: 2 }, pool: 'walk_street', poolEmpty: '상점가 사람들에게 인사를 한 바퀴 돌고 왔다.' },
       { t: '{RV} 강변', tag: 'brave', fx: { hea: 3 }, risk: 0.03, req: (s) => s.st.back >= 30 && s.st.hea >= 25, why: '긴 산책은 지금 몸에 무리다', pool: 'walk_river', poolEmpty: '강바람을 맞으며 풀 냄새를 실컷 맡았다.' },

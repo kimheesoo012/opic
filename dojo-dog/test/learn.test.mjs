@@ -296,7 +296,7 @@ test('읽기 검사: 학습 단어의 읽기가 어휘 DB 읽기와 같다 (대�
 test('읽기 검사: 전수 검토에서 찾은 오독이 다시 생기지 않는다', () => {
   const pairs = new Set();
   // 한자어 뒤에 붙은 조각(廃棄物의 物=ぶつ, 外国人의 人=じん)은 맞는 읽기이므로 앞에 한자 조각이 없는 것만 본다
-  const OK_CTX = { '生=なま': /生ごみ|生卵|生意気|生放送/ };
+  const OK_CTX = { '生=なま': /生ごみ|生卵|生意気|生放送|生中継/ };
   for (const src of ['lines', 'ex', 'speakers']) for (const [tpl, segs] of Object.entries(LINES[src])) {
     const surf = flat(segs).map((it) => (Array.isArray(it) ? it[0] : typeof it === 'string' ? it : '')).join('');
     const list = flat(segs).filter((it) => !(Array.isArray(it) && OK_CTX[it[0] + '=' + it[1]] && OK_CTX[it[0] + '=' + it[1]].test(surf)));

@@ -220,3 +220,18 @@ test('분량과 소요 시간 보고', () => {
   console.log(`  1배속 한 계절 평균 ${(lives.reduce((a, l) => a + l.ms / l.s.t, 0) / lives.length / 1000).toFixed(1)}초`);
   assert.ok(avg >= 12 && avg <= 25, `1배속 평균 ${avg.toFixed(1)}분`);
 });
+
+test('삭제한 이벤트(밤 11시의 장부 등) 도중에 저장한 견생도 이어서 할 수 있다', () => {
+  const s = G.newLife({ seed: 'repair' });
+  G.beginLife(s);
+  s.cur = { id: 'o0', t: s.t };
+  s.phase = 'event';
+  s.queue = ['c_ledger', 'wsc_lunch', ...s.queue];
+  s.sched.push({ id: 'c_ledger', t: s.t + 1 });
+  const n = G.repairState(s);
+  assert.ok(n >= 4, `고친 곳 ${n}`);
+  assert.equal(s.phase, 'season');
+  assert.ok(!s.queue.includes('c_ledger') && !s.sched.some((x) => x.id === 'c_ledger'));
+  for (let i = 0; i < 20000 && s.phase !== 'ended'; i++) G.stepAuto(s);
+  assert.equal(s.phase, 'ended');
+});

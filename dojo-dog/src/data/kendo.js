@@ -10,7 +10,7 @@ export default [
     id: 'kd_kangeiko', cat: 'kendo', season: ['winter'], cal: true, minAge: 0.5,
     title: '첫 한겨울 새벽 연습',
     text: '1월, 가장 추운 무렵의 아침 6시. 한겨울 새벽 연습이 시작됐다. 열흘 동안 매일 아침이다. 마루가 얼음처럼 차갑다. 맨발의 사람들이 입김을 내뿜으며 《切り返し》를 한다.',
-    lines: [['shihan', '[寒]い[時]こそ[声]を[出]せ！　声を出さ〘ないことには|ないことには〙[体]は温まらないぞ！', '추울 때일수록 소리를 내라! 소리를 내지 않으면 몸은 안 데워진다!']],
+    lines: [['shihan', '[寒]い[時]こそ[声]を[出]せ！　声を出せば、[体]も温まる！', '추울 때일수록 소리를 내라! 소리를 내면 몸도 데워진다!']],
     choices: [
       { t: '열흘 동안 매일 아침 도장에 나온다', tag: 'brave', fx: { brave: 4, hea: 2, b_shihan: 4 }, set: 'dog_kaikin', res: '열흘째 아침, {shihan|이} 아이들의 개근상과 함께 종이 한 장을 더 꺼냈다. 「개근상 {N}」. 발바닥 도장이 찍혔다.' },
       { t: '고타쓰 속에서 기합 소리를 듣는다', tag: 'lazy', fx: { hap: 3 }, res: '고타쓰 속까지 기합 소리가 울렸다. 열흘 내내. 듣기만 해도 추웠다.' },
@@ -84,7 +84,7 @@ export default [
     ],
   },
   {
-    id: 'kd_kimodameshi', cat: 'kendo', season: ['summer'], minAge: 2, req: (s) => has(s, 'gasshuku_seen') || s.seen.kd_gasshuku !== undefined,
+    id: 'kd_kimodameshi', cat: 'kendo', season: ['summer'], minAge: 2, req: (s) => s.seen.kd_gasshuku !== undefined,
     title: '합숙의 담력 시험',
     text: '합숙 둘째 밤, 담력 시험. 공민관 뒤 신사까지 둘씩 짝지어 갔다 온다. {worker|이} 하얀 천을 뒤집어쓰고 숨어 있다.',
     choices: [
@@ -255,7 +255,7 @@ export default [
     lines: [['shihan', '[一本勝負]だ。[思い切]っていけ。', '한 판 승부다. 과감하게 가라.']],
     choices: [
       { t: '관중석 난간에서 꼬리를 흔든다', tag: 'social', fx: { soc: 3, b_shihan: 3 }, check: { st: 'soc', dc: 45, ok: { set: 'kids_team_win', res: '아이는 난간의 꼬리를 보고 숨을 들이쉬었다. 《出ばな小手》. 붉은 깃발 셋. 대표전 승리. 아이들이 서로 끌어안고 울었다. 기뻐서.' }, ng: { res: '연장 2분, 상대의 《面》. 아이는 울지 않았다. {shihan|이} 「오늘은 안 우는구나」라고 하자 그제야 울었다.' } } },
-      { t: '{okami}의 가방 속에서 귀만 세운다', tag: 'calm', fx: { b_okami: 3 }, check: { st: 'b_shihan', dc: 40, ok: { set: 'kids_team_win', res: '가방 속에서 들은 소리: 죽도 한 번, 발구름 한 번, 그리고 함성. 가방 지퍼를 열었을 때 아이들이 뛰어오고 있었다. 이겼다.' }, ng: { res: '가방 속에서 들은 소리: 죽도 여러 번, 「止め」, 그리고 조용한 박수. 졌다. 가방을 열자 아이가 {N|을} 끌어안았다.' } } },
+      { t: '체육관 밖에서 {okami}의 휴대폰 생중계를 같이 본다', tag: 'calm', fx: { b_okami: 3 }, check: { st: 'b_shihan', dc: 40, ok: { set: 'kids_team_win', res: '화면 속: 죽도 한 번, 발구름 한 번, 그리고 함성. {okami|이} 소리를 지르자 {N}도 짖었다. 이겼다.' }, ng: { res: '화면 속에서 죽도가 여러 번 울리고, 「止め」. 졌다. 밖으로 나온 아이가 {N|을} 끌어안았다.' } } },
     ],
   },
   {

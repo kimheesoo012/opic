@@ -254,6 +254,28 @@ function applyBrief(s, ch) {
   s.hist.push({ t: s.t, id: ch.id, title: ch.title, titleJa: ch.titleJa || jaOnly(ch.title), brief: true });
 }
 
+// 저장 데이터 복구: 빠진(삭제·빈 자리) 이벤트를 가리키는 진행 중 장면·대기열·예약을 정리한다.
+// (예: 「밤 11시의 장부」 도중에 저장한 견생을 불러올 때)
+export function repairState(s) {
+  const gone = (id) => !EV.has(id) || EV.get(id).removed;
+  let fixed = 0;
+  if (s.cur && gone(s.cur.id)) {
+    s.cur = null;
+    if (s.phase === 'event') s.phase = 'season';
+    fixed++;
+  }
+  if (s.res && s.res.id && gone(s.res.id) && s.phase === 'result') {
+    s.res = null;
+    s.phase = 'season';
+    fixed++;
+  }
+  const q0 = s.queue.length;
+  s.queue = s.queue.filter((id) => !gone(id));
+  const k0 = s.sched.length;
+  s.sched = s.sched.filter((x) => !gone(x.id));
+  return fixed + (q0 - s.queue.length) + (k0 - s.sched.length);
+}
+
 // ───────── 이벤트 진행 ─────────
 export function hasEvent(s) {
   return s.phase === 'season' && s.queue.length > 0;

@@ -124,9 +124,9 @@ export default [
       { if: 'e_family_ok', l: [['@家族', '[今日]は[見]に[来]たよ。……[応援]してる。', '오늘은 보러 왔어요. ……응원해요.']] },
     ],
     choices: [
-      { t: '가방 속에서 관람석 가족 옆에 앉아 지켜본다', tag: 'calm', cnt: 'exam_watch',
-        check: { st: 'b_elder', dc: 45, ok: { set: 'e_3dan', fx: { b_elder: 6 }, ach: ['elder', '3단 합격'], news: { elder: '3단. 도장 최고의 노력가.' }, res: '본 7본째의 마지막 《残心》. {elder|이} 죽도를 거두는 순간 관람석 어딘가에서 작게 박수 소리가 났다. 합격.' },
-          ng: { fx: { b_elder: 3 }, ach: ['elder', '3단 심사 도전'], res: '실기에서 한 번 넘어질 뻔했다. 불합격. {elder|은} 「3단은 다음 생에 노려도 되지」라며 웃었다.' } } },
+      { t: '심사장 밖 벤치에서 가족과 함께 기다린다', tag: 'calm', cnt: 'exam_watch',
+        check: { st: 'b_elder', dc: 45, ok: { set: 'e_3dan', fx: { b_elder: 6 }, ach: ['elder', '3단 합격'], news: { elder: '3단. 도장 최고의 노력가.' }, res: '심사장에서 나온 {elder|이} 손가락으로 동그라미를 만들어 보였다. 합격.' },
+          ng: { fx: { b_elder: 3 }, ach: ['elder', '3단 심사 도전'], res: '나온 {elder|은} 「넘어질 뻔했어」라며 웃었다. 불합격. 「3단은 다음 생에 노려도 되지.」' } } },
       { t: '출발 전 그녀의 죽도 가방에 들어가 같이 가자고 한다', tag: 'play', fx: { mis: 2 }, cnt: ['exam_watch', 'bag'],
         check: { st: 'b_elder', dc: 50, ok: { set: 'e_3dan', fx: { b_elder: 6, hap: 2 }, ach: ['elder', '3단 합격'], news: { elder: '3단.' }, res: '죽도 가방에서 꺼내지는 동안 웃음이 나서 긴장이 다 풀렸다고 한다. 합격.' },
           ng: { fx: { b_elder: 3 }, ach: ['elder', '3단 심사 도전'], res: '죽도 가방이 무거워서 늦을 뻔했다. 불합격. 그래도 「즐거웠다」고 했다.' } } },
@@ -141,6 +141,7 @@ export default [
       ['elder', '[一句]できたのよ。「春の[床]　[短]き[足]の　[行き来]かな」', '한 수 지었어. 「봄날의 마루 / 짧은 다리가 / 오가는구나」'],
       ['okami', '{N}のことですか？　道場の景色が目に浮かぶようです。', '{N} 얘기예요? 도장 풍경이 눈앞에 떠오르는 것 같아요.'],
       ['elder', 'さあ、どうかしら。', '글쎄, 어떨까.'],
+      { if: 'e_step_dog', l: [['elder', 'すり[足]の[稽古]、{N}ちゃんと[一緒]にやったものね。', '스리아시 연습, {N}이랑 같이 했었지.']] },
     ],
     choices: [
       { t: '종이 아래에 앉아 감상한다', tag: 'calm', fx: { b_elder: 5, hap: 2 }, set: 'e_haiku', news: { elder: '도장 사무실 벽에 하이쿠를 붙였다.' },
