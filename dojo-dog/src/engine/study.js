@@ -84,6 +84,8 @@ export function readingTraps(r) {
     if (c === 'っ') out.add(chars.slice(0, i).join('') + chars.slice(i + 1).join(''));
     if (i > 0 && GEMINATE_BEFORE.includes(c) && !'っんーうい'.includes(chars[i - 1])) out.add(chars.slice(0, i).join('') + 'っ' + chars.slice(i).join(''));
     if (SMALL[c]) out.add(chars.slice(0, i).join('') + SMALL[c] + chars.slice(i + 1).join(''));
+    if (c === 'ん' && i > 0) out.add(chars.slice(0, i).join('') + chars.slice(i + 1).join(''));
+    if (c === 'い' && i > 0 && 'えけせてねへめれげぜでべ'.includes(chars[i - 1])) out.add(chars.slice(0, i).join('') + chars.slice(i + 1).join(''));
   });
   out.delete(r);
   return [...out].filter((x) => HIRA.test(x) && !x.startsWith('っ') && !/っっ|っん|っう|うう/.test(x));
@@ -122,7 +124,13 @@ export function makeQuestion(id, seed = 'q', rec = null) {
     let traps = shuffle(h, readingTraps(it.r));
     // 함정이 모자라면 길이가 비슷한 다른 단어의 읽기로 채운다
     if (traps.length < 3) {
-      const others = shuffle(h, Object.entries(VOCAB).filter(([k, v]) => k !== key && HIRA.test(v.r) && Math.abs(v.r.length - it.r.length) <= 1 && v.r !== it.r).map(([, v]) => v.r));
+      // 같은 한자를 쓰는 단어나 첫 글자가 같은 단어의 읽기 (헷갈리기 쉬운 순)
+      const shareKanji = (k) => [...k].some((ch) => KANJI.test(ch) && key.includes(ch));
+      const others = Object.entries(VOCAB)
+        .filter(([k, v]) => k !== key && HIRA.test(v.r) && v.r !== it.r && Math.abs(v.r.length - it.r.length) <= 2)
+        .map(([k, v]) => ({ r: v.r, s: (shareKanji(k) ? 10 : 0) + (v.r[0] === it.r[0] ? 5 : 0) - Math.abs(v.r.length - it.r.length) + rand(h) * 3 }))
+        .sort((a, b) => b.s - a.s)
+        .map((x) => x.r);
       traps = [...traps, ...others];
     }
     const wrong = [...new Set(traps)].filter((x) => x !== it.r).slice(0, 3);

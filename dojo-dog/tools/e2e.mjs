@@ -20,7 +20,7 @@ const phone = { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isM
 async function run() {
   const ctx = await browser.newContext(phone);
   await ctx.addInitScript(() => {
-    if (!localStorage.getItem('dojoinu.settings')) localStorage.setItem('dojoinu.settings', JSON.stringify({ speed: 16, auto: true, autoMode: 'all', furigana: 'hard' }));
+    if (!localStorage.getItem('dojoinu.settings')) localStorage.setItem('dojoinu.settings', JSON.stringify({ speed: 16, auto: true, autoMode: 'major', furigana: 'hard', sound: false }));
   });
   const p = await ctx.newPage();
   const errs = [];
@@ -29,24 +29,44 @@ async function run() {
   await p.goto(BASE + 'index.html');
   await p.click('text=はじめから');
   await p.click('text=この子と生きる');
-  await p.waitForSelector('.sheet');
+  await p.waitForSelector('.device .lcd-canvas');
+  await p.waitForSelector('.foot:not([hidden]) .btn', { timeout: 20000 });
   const overflow = await p.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   ok('가로 스크롤 없음 (390px)', overflow <= 0, `overflow ${overflow}px`);
-  // 학습 단어 탭 → 팝업 → 장면과 함께 저장
+  const pix = await p.evaluate(() => getComputedStyle(document.querySelector('.lcd-canvas')).imageRendering);
+  ok('LCD 도트 확대 (pixelated)', /pixelated|crisp/.test(pix), pix);
+  // 오토 패널: 메인 화면에서 바로 펼쳐진다
+  await p.click('.ctl.auto');
+  const modes = await p.$$eval('.auto-panel:not([hidden]) .btn', (b) => b.map((x) => x.textContent));
+  ok('オート → 아래에 세 가지 방식', modes.join('|') === '大事な場面だけ止まる|全部おまかせ|オートを切る', modes.join('|'));
+  await p.screenshot({ path: OUT + '/auto-panel.png' });
+  await p.click('.auto-panel [data-mode=all]');
+  const cap = await p.textContent('.auto-cap');
+  ok('현재 오토 방식 표시', cap === '全部おまかせ', cap);
+  // 학습 대상 탭 → 팝업 (탭하지 않으면 뜨지 않음)
   await p.evaluate(() => window.__dojoinu.view.togglePause());
-  const w = await p.$('.sheet .w');
-  if (w) {
-    await w.click();
+  ok('탭하지 않으면 학습 창이 뜨지 않음', !(await p.$('.modal')));
+  let target = null;
+  for (let i = 0; i < 40 && !target; i++) {
+    target = await p.$('.panel .w, .panel .gm');
+    if (!target) {
+      await p.evaluate(() => window.__dojoinu.view.togglePause());
+      await p.waitForTimeout(400);
+      await p.evaluate(() => window.__dojoinu.view.togglePause());
+    }
+  }
+  if (target) {
+    const n = await p.$$eval('.panel .w, .panel .gm', (x) => new Set(x.map((e) => e.dataset.k || e.dataset.g)).size);
+    ok('한 장면의 학습 대상 1~3개', n >= 1 && n <= 3, `${n}개`);
+    await target.click();
     await p.waitForSelector('.modal');
     const txt = await p.textContent('.modal');
-    ok('단어 탭 → 학습 창', /JLPT/.test(txt) && /이 장면|예문/.test(txt), txt.slice(0, 60).replace(/\s+/g, ' '));
+    ok('학습 대상 탭 → 학습 창 (DB 내용)', /추정|검도 용어/.test(txt) && /例文|接続/.test(txt), txt.slice(0, 50).replace(/\s+/g, ' '));
     await p.screenshot({ path: OUT + '/word-popup.png' });
     await p.click('.modal .btn.primary');
-  } else ok('단어 탭 → 학습 창', false, '밑줄 단어를 찾지 못함');
-  const noPopup = await p.$('.modal');
-  ok('탭하지 않으면 학습 창이 뜨지 않음', !noPopup);
+  } else ok('학습 대상 탭 → 학습 창', false, '밑줄을 찾지 못함');
   await p.evaluate(() => window.__dojoinu.view.togglePause());
-  // 진행 시간 측정 + 중간 이어하기
+  // 진행 + 중간 이어하기
   const t0 = Date.now();
   await p.waitForTimeout(15000);
   const before = await p.evaluate(() => window.__dojoinu.state.t);
@@ -54,86 +74,105 @@ async function run() {
   await p.reload();
   await p.waitForSelector('text=つづきから');
   await p.click('text=つづきから');
-  await p.waitForSelector('.hud');
+  await p.waitForSelector('.device');
   const after = await p.evaluate(() => window.__dojoinu.state.t);
   ok('이어하기', after === before, `계절 ${before} → ${after}`);
   // 끝까지
-  await p.waitForSelector('text=무지개다리', { timeout: 15 * 60 * 1000 });
+  await p.waitForSelector('h2:has-text("虹の橋")', { timeout: 15 * 60 * 1000 });
   const wall = (Date.now() - t0) / 1000;
-  const seasons = await p.evaluate(() => (window.__dojoinu.state ? window.__dojoinu.state.t : null));
-  ok('16배속 全部おまかせ로 끝까지 진행', true, `실측 ${wall.toFixed(0)}초 (새로고침 포함), ${seasons}계절`);
-  await p.screenshot({ path: OUT + '/farewell.png', fullPage: false });
+  ok('16배속 全部おまかせ로 끝까지 진행', true, `실측 ${wall.toFixed(0)}초 (새로고침 포함)`);
+  await p.waitForTimeout(2500);
+  ok('무지개다리: 창이 흐려진다', !!(await p.$('.lcd.rainbow.fade')));
+  await p.screenshot({ path: OUT + '/rainbow.png' });
+  await p.click('text=つぎへ');
+  await p.waitForSelector('.memorial');
+  const faces = await p.$$eval('.line.memo canvas.face', (x) => x.length);
+  const memoTxt = await p.textContent('.memorial');
+  ok('추도 화면: 흑백 초상·연도·가족 한 줄·마지막 한마디', faces >= 3 && /最後に、この子へ一言/.test(memoTxt) && /\d{4} — \d{4}/.test(memoTxt), `얼굴 ${faces}`);
+  await p.screenshot({ path: OUT + '/memorial.png', fullPage: true });
   await p.fill('#last-word', '고마워, 도장의 수호신');
-  await p.click('text=남기고 결과 보기');
+  await p.click('text=残す');
   await p.waitForSelector('.result-img');
-  await p.waitForFunction(() => document.querySelector('.result-img').src.startsWith('blob:'));
+  await p.waitForFunction(() => document.querySelector('.result-img').src.startsWith('blob:'), null, { timeout: 15000 });
   const card = await p.evaluate(async () => {
     const img = document.querySelector('.result-img');
     const r = await fetch(img.src);
-    const b = await r.blob();
-    const buf = await b.arrayBuffer();
+    const u = new Uint8Array(await (await r.blob()).arrayBuffer());
     let s = '';
-    const u = new Uint8Array(buf);
     for (let i = 0; i < u.length; i += 8192) s += String.fromCharCode(...u.subarray(i, i + 8192));
     return { b64: btoa(s), w: img.naturalWidth, h: img.naturalHeight };
   });
   fs.writeFileSync(OUT + '/result-card.png', Buffer.from(card.b64, 'base64'));
-  ok('결과 카드 이미지 생성 (1080×1920)', card.w === 1080 && card.h === 1920, `${card.w}×${card.h}`);
-  const [dl] = await Promise.all([p.waitForEvent('download', { timeout: 8000 }).catch(() => null), p.click('text=이미지 저장')]);
-  ok('이미지 저장 버튼 → 내려받기', !!dl, dl ? dl.suggestedFilename() : '내려받기 이벤트 없음');
+  ok('결과 카드 이미지 (1080×1920)', card.w === 1080 && card.h === 1920, `${card.w}×${card.h}`);
+  const [dl] = await Promise.all([p.waitForEvent('download', { timeout: 8000 }).catch(() => null), p.click('text=カードを保存')]);
+  ok('カードを保存 → 내려받기', !!dl, dl ? dl.suggestedFilename() : '내려받기 이벤트 없음');
   await p.screenshot({ path: OUT + '/result.png', fullPage: true });
-  // 퀴즈
-  const quizBtn = await p.$('text=복습 퀴즈');
+  // 이번 견생 복습
+  const quizBtn = await p.$('text=この一生の復習 10問');
   if (quizBtn) {
     await quizBtn.click();
     let answered = 0;
+    let explained = 0;
     for (let i = 0; i < 10; i++) {
       const opts = await p.$$('.q-opt');
       if (!opts.length) break;
-      // 일부러 몇 개는 틀린다: 첫 문제는 오답을 고른다
-      const qn = await p.evaluate(() => [...document.querySelectorAll('.q-opt')].length);
-      await opts[i === 0 ? (qn - 1) : 0].click();
+      await opts[i === 0 ? 3 : 0].click();
       answered++;
-      if (i === 2) await p.screenshot({ path: OUT + '/quiz.png' });
-      await p.click('text=다음');
+      if (await p.$('.q-explain:not([hidden]) p')) explained++;
+      if (i === 1) await p.screenshot({ path: OUT + '/quiz.png' });
+      await p.click('.sheet-foot .btn.primary');
     }
     const sumText = await p.textContent('.scroll');
-    ok('퀴즈 10문제', answered === 10 && /정답/.test(sumText), `${answered}문제 답함`);
-    const retry = await p.$('text=틀린 단어만 다시 풀기');
+    ok('복습 퀴즈 10문제 + 해설', answered === 10 && explained === 10 && /結果/.test(sumText), `${answered}문제, 해설 ${explained}`);
+    const retry = await p.$('text=間違いだけ もう一度');
     if (retry) {
       await retry.click();
       const n = await p.$$eval('.q-opt', (x) => x.length);
-      ok('틀린 단어만 다시 풀기', n === 4, `선택지 ${n}개`);
+      ok('틀린 것만 다시', n === 4, `선택지 ${n}개`);
       while (await p.$('.q-opt')) {
         await (await p.$$('.q-opt'))[0].click();
-        await p.click('text=다음');
+        await p.click('.sheet-foot .btn.primary');
       }
-    } else ok('틀린 단어만 다시 풀기', true, '틀린 문제가 없어서 생략');
-    await p.click('text=결과 복사');
+    } else ok('틀린 것만 다시', true, '틀린 문제가 없어서 생략');
+    await p.click('text=コピー');
     const clip = await p.evaluate(() => navigator.clipboard.readText().catch(() => ''));
-    ok('결과 복사', /道場犬 단어 복습/.test(clip), clip.split('\n')[0]);
-    await p.click('text=돌아가기');
-  } else ok('퀴즈 10문제', false, '퀴즈 버튼 없음');
-  // 단어장
-  await p.click('text=타이틀로');
+    ok('결과 복사', /道場犬/.test(clip), clip.split('\n')[0]);
+    await p.click('.sheet-foot .row .btn:last-child');
+  } else ok('복습 퀴즈 10문제 + 해설', false, '버튼 없음');
+  await p.click('text=タイトルへ');
+  // 간격 반복: 기한을 지난 것으로 만들고 타이틀·復習 탭 확인
+  await p.evaluate(() => {
+    const srs = JSON.parse(localStorage.getItem('dojoinu.srs') || '{}');
+    for (const r of Object.values(srs)) r.due = 0;
+    localStorage.setItem('dojoinu.srs', JSON.stringify(srs));
+  });
+  await p.reload();
+  const due = await p.textContent('.study-strip .due span');
+  ok('타이틀에 오늘의 복습 수', Number(due) > 0, due);
+  await p.screenshot({ path: OUT + '/title.png' });
+  await p.click('.study-strip');
+  await p.waitForSelector('text=今日の復習');
+  await p.screenshot({ path: OUT + '/review.png' });
   await p.click('text=単語帳');
-  const cards = await p.$$('.list details');
-  ok('단어장에 장면과 함께 저장', cards.length > 0, `${cards.length}개`);
-  if (cards.length) {
-    await cards[0].click();
-    await p.screenshot({ path: OUT + '/wordbook.png' });
-  }
-  // 도장의 역사 + 이어서 살아가는 세계
-  await p.click('text=돌아가기');
+  const book = await p.$$('.book-item');
+  ok('単語帳 (탭한 말 저장)', book.length > 0, `${book.length}개`);
+  await p.click('text=戻る');
+  // 今日の一問 → スキップ → 게임
   await p.click('text=はじめから');
-  const cont = await p.$('text=이어서 살아가는 세계');
-  ok('견생 계승: 「이어서 살아가는 세계」 선택지', !!cont);
+  const cont = await p.$('text=이어지는 세계');
+  ok('견생 계승: 「이어지는 세계」', !!cont);
   if (cont) {
     await cont.click();
     const info = await p.textContent('.card');
-    ok('이어지는 세계 설정', /선대/.test(info), info.match(/선대[^.]*\./)?.[0] || '');
-    await p.screenshot({ path: OUT + '/birth-continue.png' });
+    ok('이어지는 세계 설정', /선대/.test(info), info.match(/선대.*/)?.[0] || '');
   }
+  await p.click('text=この子と生きる');
+  await p.waitForSelector('text=今日の一問');
+  ok('시작 전 今日の一問', true);
+  await p.screenshot({ path: OUT + '/daily.png' });
+  await p.click('text=スキップ');
+  await p.waitForSelector('.device');
+  ok('スキップ → 게임', true);
   ok('콘솔 오류 없음', errs.length === 0, errs.slice(0, 3).join(' | '));
   await ctx.close();
 }
@@ -152,7 +191,7 @@ async function offline() {
   ok('오프라인 실행 (서비스 워커)', /道場犬/.test(title), title.slice(0, 10));
   await p.click('text=はじめから');
   await p.click('text=この子と生きる');
-  await p.waitForSelector('.hud');
+  await p.waitForSelector('.device');
   ok('오프라인에서 새 견생 시작', true);
   await ctx.close();
 }

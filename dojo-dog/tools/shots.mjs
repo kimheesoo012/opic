@@ -54,5 +54,34 @@ for (let i = 0; i < 60; i++) {
 await page.waitForTimeout(300);
 await shot('05-event');
 await overflow('event');
+// 稽古 장면
+await page.evaluate(() => {
+  const v = window.__dojoinu.view;
+  v.togglePause();
+  v.lcd.setPlan({ loc: 'dojo', tod: 'day', people: [{ role: 'shihan', x: 74, anim: 'keiko', bogu: true }, { role: 'kid', x: 104, anim: 'keiko', bogu: true, flip: true, phase: 1 }, { role: 'roshi', x: 132, pose: 'seiza', flip: true }], dog: { mode: 'stay', pose: 'sit', x: 30 } }, v.s);
+  v.togglePause();
+});
+await page.waitForTimeout(700);
+await shot('06-keiko');
+// 시합: 旗가 올라가는 순간
+await page.evaluate(() => {
+  const v = window.__dojoinu.view;
+  v.lcd.setPlan({ loc: 'court', tod: 'day', people: [{ role: 'kid', x: 58, anim: 'match', bogu: true, mark: 'red' }, { role: '_rival', x: 86, anim: 'match', bogu: true, flip: true, mark: 'white', phase: 1 }], judges: true, dog: { mode: 'peek', pose: 'sniff', x: -9 } }, v.s);
+  v.lcd.flags();
+  v.big('一本');
+});
+await page.waitForTimeout(500);
+await shot('07-match');
+// 復習 퀴즈 (문법)
+await page.evaluate(() => window.__dojoinu.startQuiz(['g:ざるを得ない', 'g:に沿って', 'g:をきっかけに', 'g:ものの'], '復習'));
+await page.waitForTimeout(400);
+await page.click('.q-opt >> nth=0');
+await page.waitForTimeout(300);
+await shot('08-quiz');
+await overflow('quiz');
+await page.evaluate(() => window.__dojoinu.go('review'));
+await page.waitForTimeout(300);
+await shot('09-review');
+await overflow('review');
 console.log(tag, 'errors', errors.length, errors.slice(0, 5).join('\n'));
 await browser.close();

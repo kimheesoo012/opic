@@ -273,7 +273,7 @@ class App {
         h('dt', null, '性格'), h('dd', null, gloss(per.ja, per.desc)),
         h('dt', null, '町'), h('dd', null, w.region.ko),
         h('dt', null, '道場'), h('dd', null, gloss(w.dojoName, w.dojo.ko)),
-        w.continued ? [h('dt', null, '代'), h('dd', null, `${w.gen}대째 · 선대 ${s.prevDog.name}`)] : null);
+        ...(w.continued ? [h('dt', null, '代'), h('dd', null, `${w.gen}대째 · 선대 ${s.prevDog.name}`)] : []));
       if (lcd) {
         lcd.dog = s.dog;
         lcd.draw();
