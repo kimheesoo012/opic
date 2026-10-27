@@ -1,9 +1,11 @@
 /* 연습 세션: 문제 목록을 하나씩 풀고, 틀린 것은 세션 끝에 한 번 더, 끝나면 요약 */
-import { S, record, setResume, todayLog } from '../core/store.js';
+import { S, record, setResume, todayLog, streak } from '../core/store.js';
 import { buildSession, buildToday, resolve, MODES, parseKey } from '../core/deck.js';
 import { stt, tts } from '../core/speech.js';
 import { MOUNT } from './items.js';
-import { $, esc, confirmSheet, pct, fmtMin } from './ui.js';
+import { $, esc, confirmSheet, pct, fmtMin, toast } from './ui.js';
+import { levelInfo, nextTitle, STREAK_STEPS } from '../core/game.js';
+import { beep } from '../core/speech.js';
 
 export default {
   title: '연습', parentTab: 'practice', fullscreen: true,
@@ -32,8 +34,8 @@ export default {
       return;
     }
 
-    const state = resume ? { keys, idx: resume.idx, results: resume.results || [], retried: new Set(resume.retried || []) }
-      : { keys, idx: 0, results: [], retried: new Set() };
+    const state = resume ? { keys, idx: resume.idx, results: resume.results || [], retried: new Set(resume.retried || []), xp: resume.xp || 0, combo: 0, best: resume.best || 0, lvUp: 0, badges: [], events: [] }
+      : { keys, idx: 0, results: [], retried: new Set(), xp: 0, combo: 0, best: 0, lvUp: 0, badges: [], events: [] };
     const persist = mode !== 'one';
     const t0 = Date.now();
     let itemStart = Date.now(), off = null;
@@ -47,7 +49,7 @@ export default {
     const save = () => {
       if (!persist) return;
       if (state.idx >= state.keys.length) setResume(null);
-      else setResume({ keys: state.keys, idx: state.idx, results: state.results, retried: [...state.retried], label, t: Date.now() });
+      else setResume({ keys: state.keys, idx: state.idx, results: state.results, retried: [...state.retried], label, t: Date.now(), xp: state.xp, best: state.best });
     };
     const top = () => {
       $('#pg', view).style.width = pct(state.idx, state.keys.length) + '%';
@@ -69,8 +71,21 @@ export default {
       const isRetry = state.results.some(r => r.k === key);
       off = MOUNT[item.type](box, item, (g, info = {}) => {
         if (state.idx >= state.keys.length || state.keys[state.idx] !== key) return;
-        record(key, g, { ms: Date.now() - itemStart, said: info.said });
-        state.results.push({ k: key, g, retry: isRetry });
+        state.combo = g >= 2 ? state.combo + 1 : 0;
+        if (state.combo > state.best) state.best = state.combo;
+        const rw = record(key, g, { ms: Date.now() - itemStart, said: info.said, combo: state.combo });
+        state.xp += rw.xp;
+        state.results.push({ k: key, g, retry: isRetry, xp: rw.xp });
+        if (rw.levelUp) state.lvUp = rw.levelUp;
+        if (rw.badges.length) state.badges.push(...rw.badges);
+        if (rw.goalHit) state.events.push('goal');
+        if (rw.frozen.length) state.events.push('frozen');
+        if (rw.freezeGot) state.events.push('freeze');
+        if (rw.levelUp) { toast(`🎉 레벨 ${rw.levelUp}! ${esc(levelInfo(S.xp).title)}`, 2600); if (S.settings.sound) beep(true); }
+        else if (rw.badges.length) toast(`${rw.badges[0].icon} 배지: ${rw.badges[0].name}`, 2400);
+        else if (rw.goalHit) toast('🎯 오늘 목표 달성! +30 XP', 2400);
+        else if (state.combo >= 3 && (state.combo === 3 || state.combo === 5 || state.combo % 10 === 0)) toast(`🔥 ${state.combo}연속 정답! +${rw.xp} XP`, 1500);
+        else toast(`+${rw.xp} XP`, 900);
         if (g === 0 && !state.retried.has(key)) { state.retried.add(key); state.keys.push(key); }
         state.idx++;
         save();
@@ -91,17 +106,30 @@ export default {
       first.forEach(r => { const t = parseKey(r.k).type; const b = byType[t] || (byType[t] = { n: 0, ok: 0 }); b.n++; if (r.g >= 2) b.ok++; });
       const L = todayLog();
       const goal = S.settings.goal;
+      const rw0 = { streak: streak() };
       $('#pg', view).style.width = '100%';
       $('#cnt', view).textContent = '끝';
+      const li = levelInfo(S.xp);
+      const nt = nextTitle(li.level);
+      const st = rw0.streak;
+      const nextStep = STREAK_STEPS.find(x => x > st);
       q.innerHTML = `<div class="done-h"><big>${pct(ok, first.length) >= 80 ? '🎉' : '👍'}</big><h2>${esc(label)} 끝!</h2>
           <p class="muted">${first.length}문제 중 ${ok}개 맞힘 · ${pct(ok, first.length)}% · ${fmtMin(Date.now() - t0)}</p></div>
+        <div class="xpcard">
+          <div class="row"><div class="xpbig">+${state.xp} <small>XP</small></div><div class="spacer"></div><div class="small">최고 ${state.best}연속</div></div>
+          <div class="row" style="margin-top:8px"><b>레벨 ${li.level} · ${esc(li.title)}</b><span class="spacer"></span><span class="small muted">${li.cur}/${li.need}</span></div>
+          <div class="meter lv" style="height:10px"><i style="width:${li.pct}%"></i></div>
+          <div class="tiny muted" style="margin-top:4px">${state.lvUp ? `🎉 레벨 ${state.lvUp}에 올랐어요!` : `다음 레벨까지 ${li.need - li.cur} XP${nt ? ` · 레벨 ${nt.level}이 되면 「${nt.title}」` : ''}`}</div>
+        </div>
+        <div class="panel" style="padding:12px 16px"><div class="row"><span style="font-size:26px">${st >= 7 ? '🔥' : '🕯'}</span><div style="flex:1"><b>연속 ${st}일</b><div class="small muted">${state.events.includes('frozen') ? '휴식권이 어제를 지켜 줬어요 · ' : ''}${nextStep ? `${nextStep}일까지 ${nextStep - st}일 남았어요` : '대단해요!'}${state.events.includes('freeze') ? ' · 휴식권 +1 🧊' : ''}</div></div></div></div>
+        ${state.badges.length ? `<div class="panel"><h3>새 배지</h3><div class="badges">${state.badges.map(b => `<div class="badge-it got pop"><span class="bi">${b.icon}</span><b>${esc(b.name)}</b><span>${esc(b.desc)}</span></div>`).join('')}</div></div>` : ''}
         <div class="grid3">${Object.entries(byType).map(([t, b]) => `<div class="stat"><b>${b.ok}/${b.n}</b><span>${esc(MODES[t].short)}</span></div>`).join('')}</div>
-        <div class="panel"><div class="row"><div style="flex:1"><b>오늘 ${L.n}문제</b><div class="small muted">하루 목표 ${goal}문제${L.n >= goal ? ' · 달성!' : ` · ${goal - L.n}문제 남음`}</div></div></div>
+        <div class="panel"><div class="row"><div style="flex:1"><b>오늘 ${L.n}문제 · ${L.xp || 0} XP</b><div class="small muted">하루 목표 ${goal}문제${L.n >= goal ? ' · 달성!' : ` · ${goal - L.n}문제 남음`}</div></div></div>
           <div class="meter good" style="margin-top:8px"><i style="width:${Math.min(100, pct(L.n, goal))}%"></i></div></div>
         ${wrong.length ? `<div class="panel"><h3>틀린 문제 ${wrong.length}개</h3>${wrong.slice(0, 12).map(k => { const it = resolve(k); return `<div class="list-item"><div class="tx"><span class="en">${esc(itemText(it))}</span><span class="small muted">${esc(MODES[it.type].short)}</span></div>${it.card ? `<a class="btn sm" href="#/card/${esc(it.card.id)}">보기</a>` : ''}</div>`; }).join('')}</div>` : ''}
         <div style="display:flex;flex-direction:column;gap:8px;margin:14px 0 30px">
           ${wrong.length ? `<a class="btn primary block" href="#/s/keys?keys=${encodeURIComponent(wrong.join(','))}&label=${encodeURIComponent('틀린 문제 다시')}">틀린 ${wrong.length}문제 다시 풀기</a>` : ''}
-          <a class="btn block${wrong.length ? '' : ' primary'}" href="#/s/today">오늘의 학습 더 하기</a>
+          <a class="btn block${wrong.length ? '' : ' primary'}" href="#/s/today">${L.n < goal ? `목표까지 ${goal - L.n}문제 더` : '오늘의 학습 더 하기'}</a>
           <a class="btn block ghost" href="#/">처음 화면</a>
         </div>`;
     };

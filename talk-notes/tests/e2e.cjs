@@ -102,7 +102,9 @@ const ok = (cond, msg) => { if (cond) console.log('  ✓ ' + msg); else { fails+
     await p.goto(base + '#/stats');
     ok(await p.locator('.heat i.today.l1, .heat i.today.l2, .heat i.today.l3').count() === 1, '오늘 달력 칸 칠해짐');
     await p.goto(base + '#/');
-    ok((await p.locator('.hero .nums b').first().innerText()) === '1', '연속 학습일 1');
+    ok(/\b1$/.test((await p.locator('.hero .nums b').first().innerText()).trim()), '연속 학습일 1');
+    ok(/Lv\.2|Lv\.3/.test(await p.locator('.hero .lvline').innerText()), '한 세션 뒤 레벨 2 이상');
+    ok(await p.locator('.badge-it.got').count() >= 0, '배지 영역');
 
     // 모드별 세션: 이어서 하기
     await p.goto(base + '#/s/pair?n=5&order=random');

@@ -4,10 +4,28 @@ import { LESSONS, TAGS, PRON } from '../data/notes.js';
 import { CARDS, itemKey, lessonProgress, resolve, parseKey, MODES, PRON_ROWS } from '../core/deck.js';
 import { dayNum, dayKey, level } from '../core/srs.js';
 import { esc, pct, fmtMin } from './ui.js';
+import { levelInfo, nextTitle, skills, overall, lastDays, masteredSeries, weekdayOf, BADGES, FREEZE_MAX } from '../core/game.js';
+
+/* 30일 익힘 수 추이 선 그래프 (SVG) */
+function growthSvg(series, W = 320, H = 90) {
+  const max = Math.max(5, ...series.map(s => s.m));
+  const n = series.length;
+  const x = i => 8 + i * (W - 16) / (n - 1), y = v => H - 14 - v / max * (H - 24);
+  const pts = series.map((s, i) => `${x(i).toFixed(1)},${y(s.m).toFixed(1)}`);
+  const last = series[n - 1];
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="최근 30일 익힌 문장 수">
+    <line x1="8" y1="${H - 14}" x2="${W - 8}" y2="${H - 14}" stroke="var(--line)"/>
+    <path d="M${pts[0]} L${pts.join(' L')} L${x(n - 1).toFixed(1)},${H - 14} L8,${H - 14} Z" fill="var(--sky)" opacity=".15"/>
+    <polyline points="${pts.join(' ')}" fill="none" stroke="var(--sky)" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="${x(n - 1).toFixed(1)}" cy="${y(last.m).toFixed(1)}" r="4" fill="var(--blue)"/>
+    <text x="${W - 8}" y="${Math.max(10, y(last.m) - 8).toFixed(1)}" text-anchor="end" font-size="12" fill="var(--ink)" font-weight="700">${last.m}</text>
+    <text x="8" y="${H - 2}" font-size="10" fill="var(--muted)">30일 전</text><text x="${W - 8}" y="${H - 2}" text-anchor="end" font-size="10" fill="var(--muted)">오늘</text>
+  </svg>`;
+}
 
 export default {
   title: '기록', tab: 'stats',
-  render(view) {
+  render(view, params, query) {
     const today = dayNum();
     const logs = Object.values(S.log);
     const total = logs.reduce((a, l) => a + l.n, 0);
@@ -26,7 +44,7 @@ export default {
       const L = S.log[dayKey(d)];
       const n = L ? L.n : 0;
       const lv = n === 0 ? 0 : n < 10 ? 1 : n < 25 ? 2 : n < 50 ? 3 : 4;
-      cells.push(`<i class="l${lv}${d === today ? ' today' : ''}" title="${dayKey(d)} · ${n}문제"></i>`);
+      cells.push(`<i class="l${lv}${d === today ? ' today' : ''}${L && L.frz && !n ? ' frz' : ''}" title="${dayKey(d)} · ${n}문제${L && L.frz ? ' · 휴식권' : ''}"></i>`);
     }
 
     // 문장 진도 (말하기 기준)
@@ -57,10 +75,44 @@ export default {
     const pronRows = PRON_ROWS.filter(r => S.pron[r.w]).map(r => ({ r, p: S.pron[r.w] })).sort((a, b) => (a.p.ok / a.p.n) - (b.p.ok / b.p.n));
     const prog = lessonProgress(S);
 
+    const li = levelInfo(S.xp), nt = nextTitle(li.level);
+    const sk = skills(S).sort((a, b) => b.pct - a.pct);
+    const ov = overall(S);
+    const d14 = lastDays(S, 14, today);
+    const xmax = Math.max(50, ...d14.map(d => d.xp));
+    const series = masteredSeries(S, 30, today);
+    const gotBadges = BADGES.filter(b => S.badges[b.id]).sort((a, b) => S.badges[b.id] - S.badges[a.id]);
+    const lockedBadges = BADGES.filter(b => !S.badges[b.id]);
+
     view.innerHTML = `
+      <div class="xpcard">
+        <div class="row"><span class="lvbadge big">Lv.${li.level}</span><div style="flex:1"><b style="font-size:18px">${esc(li.title)}</b><div class="small muted">${S.xp} XP · ${nt ? `레벨 ${nt.level}이 되면 「${esc(nt.title)}」` : '최고 칭호예요'}</div></div></div>
+        <div class="meter lv" style="height:10px;margin-top:10px"><i style="width:${li.pct}%"></i></div>
+        <div class="tiny muted" style="margin-top:4px">레벨 ${li.level + 1}까지 ${li.need - li.cur} XP · 한 문제 2~12 XP, 새 문장 +4, 3연속부터 +3, 오늘 첫 문제 +10, 목표 달성 +30</div>
+      </div>
+
+      <div class="panel" id="skills"><h2>성장</h2>
+        <div class="row" style="margin:4px 0 2px"><b>익힌 문장 ${series[series.length - 1].m}개</b><span class="spacer"></span><span class="small muted">30일 전 ${series[0].m}개 → ${series[series.length - 1].m - series[0].m >= 0 ? '+' : ''}${series[series.length - 1].m - series[0].m}</span></div>
+        ${growthSvg(series)}
+        <div class="row" style="margin:12px 0 2px"><b>최근 14일 XP</b><span class="spacer"></span><span class="small muted">합계 ${d14.reduce((a, d) => a + d.xp, 0)}</span></div>
+        <div class="week w14">${d14.map(d => `<div class="wd${d.d === today ? ' today' : ''}${d.frz ? ' frz' : ''}" title="${d.key} · ${d.xp} XP"><i style="height:${Math.round(Math.min(1, d.xp / xmax) * 50)}px"></i><em>${d.d === today ? '오늘' : weekdayOf(d.d)}</em></div>`).join('')}</div>
+        <hr class="sep">
+        <div class="row"><b>전체 숙련도 ${ov}%</b><span class="spacer"></span><span class="tiny muted">처음 0 · 익히는 중 35 · 복습 중 70 · 익힘 100</span></div>
+        <div class="meter lv" style="height:10px;margin:6px 0 10px"><i style="width:${ov}%"></i></div>
+        ${sk.map(s => `<div class="tagrow"><a href="#/s/speak?tag=${s.tag}&order=due&n=10" style="text-decoration:none;color:inherit">${esc(s.name)}</a>
+            <div class="meter ${s.pct < 25 ? 'bad' : s.pct < 60 ? 'warn' : 'good'}"><i style="width:${s.pct}%"></i></div>
+            <span class="v"><b style="color:var(--ink)">${s.pct}%</b> <span class="tiny">${s.mastered}/${s.n}</span></span></div>`).join('')}
+        <p class="tiny muted" style="margin:6px 0 0">그 실수 유형이 있던 문장을 얼마나 오래 기억하는지예요. 오른쪽은 익힌 문장 수 / 전체.</p>
+      </div>
+
+      <div class="panel" id="badges"><h2>배지 <span class="small muted" style="font-weight:400">${gotBadges.length}/${BADGES.length}</span></h2>
+        <div class="badges">${gotBadges.map(b => `<div class="badge-it got"><span class="bi">${b.icon}</span><b>${esc(b.name)}</b><span>${esc(b.desc)}</span></div>`).join('')}
+        ${lockedBadges.map(b => `<div class="badge-it"><span class="bi">${b.icon}</span><b>${esc(b.name)}</b><span>${esc(b.desc)}</span></div>`).join('')}</div>
+      </div>
+
       <div class="grid2">
         <div class="stat"><b>${total}</b><span>푼 문제 · 정답 ${pct(okAll, total)}%</span></div>
-        <div class="stat"><b>${streak(today)}일</b><span>연속 학습 · 총 ${days}일</span></div>
+        <div class="stat"><b>${streak(today)}일</b><span>연속 학습 · 총 ${days}일${S.freezes ? ` · 🧊 ${S.freezes}/${FREEZE_MAX}` : ''}</span></div>
         <div class="stat"><b>${fmtMin(ms)}</b><span>연습한 시간</span></div>
         <div class="stat"><b>${lv.mastered}<small style="font-size:14px;color:var(--muted)">/${CARDS.length}</small></b><span>익힌 문장</span></div>
       </div>
@@ -105,5 +157,6 @@ export default {
         ${pronRows.map(({ r, p }) => `<div class="tagrow"><span class="en" style="font-size:15.5px">${esc(r.w)}</span><div class="meter ${p.ok / p.n < 0.5 ? 'bad' : p.ok / p.n < 0.8 ? 'warn' : 'good'}"><i style="width:${pct(p.ok, p.n)}%"></i></div><span class="v">${p.ok}/${p.n}</span></div>
           ${p.last && p.last[0] && !p.last[0].ok ? `<div class="tiny muted" style="margin:-4px 0 4px">최근: “${esc(p.last[0].h)}”(으)로 들림</div>` : ''}`).join('')}
         <p class="tiny muted" style="margin:6px 0 0">${PRON.reduce((a, g) => a + g.rows.length, 0)}개 중 ${pronRows.length}개 연습</p></div>` : ''}`;
+    if (query && query.to) { const t = document.getElementById(query.to); if (t) setTimeout(() => t.scrollIntoView({ block: 'start', behavior: 'smooth' }), 50); }
   }
 };

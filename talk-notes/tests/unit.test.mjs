@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import { words, similarity, compare, makeCloze, heardWord, sameSentence, stripHtml } from '../js/core/text.js';
 import { grade, nextInterval, dayNum, dayKey, isDue, level, suggestGrade, fresh } from '../js/core/srs.js';
 import { LESSONS, TAGS, MIST, GROW, PHR, PRON } from '../js/data/notes.js';
+import { xpFor, levelOf, levelInfo, titleFor, streakOn, applyFreeze, skillOf, overall, checkBadges, BADGES, masteredSeries, encouragement } from '../js/core/game.js';
 import { CARDS, CARD, PHRASES, PATTERNS, PRON_ROWS, PAIRS, clozeOf, clozeBank, poolFor, buildSession, buildToday, resolve, itemKey, parseKey, search } from '../js/core/deck.js';
 
 const blankS = () => ({ settings: { newOrder: 'recent' }, srs: {}, stars: {}, tagStats: {} });
@@ -119,4 +120,56 @@ test('문제 목록과 세션', () => {
   assert.deepEqual(poolFor('speak', { star: '1' }, S), [itemKey('speak', '0828-1')]);
   assert.ok(search('prepare for').length > 3);
   assert.ok(CARD['1026a-5']);
+});
+
+test('XP·레벨', () => {
+  assert.equal(xpFor(2), 10); assert.equal(xpFor(0), 2); assert.equal(xpFor(3, { wasNew: true }), 16); assert.equal(xpFor(2, { combo: 3 }), 13); assert.equal(xpFor(0, { wasNew: true, combo: 5 }), 2);
+  assert.equal(levelOf(0), 1); assert.equal(levelOf(99), 1); assert.equal(levelOf(100), 2); assert.equal(levelOf(300), 3); assert.equal(levelOf(5500), 11);
+  const li = levelInfo(150); assert.deepEqual([li.level, li.cur, li.need, li.pct], [2, 50, 200, 25]);
+  assert.equal(titleFor(1), '새싹'); assert.equal(titleFor(6), '말문 트임'); assert.equal(titleFor(99), '회화 마스터');
+});
+
+test('연속 학습과 휴식권', () => {
+  const T = dayNum();
+  const S = { log: {}, freezes: 0, settings: { goal: 30 }, srs: { 's:0807-1': { n: 1 } } };
+  const put = (d, n) => { S.log[dayKey(T - d)] = { n, ok: n, nw: 0, ms: 0, modes: {} }; };
+  assert.equal(streakOn(S, T), 0);
+  put(1, 5); put(2, 5); put(3, 5);
+  assert.equal(streakOn(S, T), 3, '오늘 아직 안 했어도 어제까지 3일');
+  put(0, 1); assert.equal(streakOn(S, T), 4);
+  // 어제 빼먹음: 휴식권 없으면 끊김
+  const S2 = { log: {}, freezes: 0, settings: { goal: 30 }, srs: {} };
+  S2.log[dayKey(T - 2)] = { n: 3 }; S2.log[dayKey(T - 3)] = { n: 3 };
+  assert.equal(streakOn(S2, T), 0);
+  assert.deepEqual(applyFreeze(S2, T), []);
+  S2.freezes = 1;
+  assert.deepEqual(applyFreeze(S2, T), [dayKey(T - 1)]);
+  assert.equal(S2.freezes, 0);
+  assert.equal(streakOn(S2, T), 3, '휴식권으로 지킨 날 포함(그제·그그저께·어제)');
+  // 이틀 빼먹음 + 휴식권 1장 → 못 지킴
+  const S3 = { log: { [dayKey(T - 3)]: { n: 2 } }, freezes: 1, settings: { goal: 30 }, srs: {} };
+  assert.deepEqual(applyFreeze(S3, T), []); assert.equal(S3.freezes, 1);
+  // 지킬 연속이 없으면 쓰지 않음
+  const S4 = { log: {}, freezes: 2, settings: { goal: 30 }, srs: {} };
+  assert.deepEqual(applyFreeze(S4, T), []); assert.equal(S4.freezes, 2);
+  assert.ok(encouragement({ srs: {}, log: {}, settings: { goal: 30 } }, T).text.includes('첫 문제'));
+  assert.ok(encouragement(S, T).text.includes('연속 4일'));
+});
+
+test('숙련도·배지·성장', () => {
+  const T = dayNum();
+  const S = { log: {}, freezes: 0, settings: { goal: 30 }, srs: {}, pron: {}, tagStats: {}, stars: {}, badges: {}, xp: 0 };
+  assert.equal(skillOf(S, 'cond').pct, 0);
+  const cond = CARDS.filter(c => c.g.includes('cond'));
+  cond.forEach(c => { S.srs[itemKey('speak', c.id)] = { n: 3, i: 30, d: T + 10 }; });
+  assert.equal(skillOf(S, 'cond').pct, 100); assert.equal(skillOf(S, 'cond').mastered, cond.length);
+  assert.ok(overall(S) > 0 && overall(S) < 5);
+  assert.deepEqual(checkBadges(S).map(b => b.id), ['master10', 'skill50']);
+  assert.deepEqual(checkBadges(S), [], '같은 배지는 두 번 주지 않음');
+  S.log[dayKey(T)] = { n: 100, ok: 80 };
+  assert.deepEqual(checkBadges(S).map(b => b.id).sort(), ['day100', 'first', 'goal1']);
+  assert.equal(new Set(BADGES.map(b => b.id)).size, BADGES.length);
+  S.log[dayKey(T - 5)] = { n: 3, m: 4 }; S.log[dayKey(T)].m = 11;
+  const ser = masteredSeries(S, 30, T);
+  assert.equal(ser.length, 30); assert.equal(ser[0].m, 0); assert.equal(ser[25].m, 4); assert.equal(ser[27].m, 4); assert.equal(ser[29].m, 11);
 });

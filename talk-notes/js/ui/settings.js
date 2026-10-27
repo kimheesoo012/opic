@@ -4,6 +4,7 @@ import { tts, stt, recorder } from '../core/speech.js';
 import { CARDS, PHRASES, PRON_ROWS, PAIRS, PATTERNS } from '../core/deck.js';
 import { LESSONS } from '../data/notes.js';
 import { $, $$, esc, toast, confirmSheet, applyTheme, speak } from './ui.js';
+import { FREEZE_MAX, FREEZE_EVERY } from '../core/game.js';
 
 function sw(k, label, sub) {
   return `<label class="set"><div class="lb"><b>${label}</b>${sub ? `<span>${sub}</span>` : ''}</div><span class="switch"><input type="checkbox" data-k="${k}" ${S.settings[k] ? 'checked' : ''}><span></span></span></label>`;
@@ -39,6 +40,11 @@ export default {
         ${sel('goal', '하루 목표', [[10, '10문제'], [20, '20문제'], [30, '30문제'], [50, '50문제'], [80, '80문제']])}
         ${sel('newOrder', '새 문장 순서', [['recent', '최근 수업부터'], ['first', '첫 수업부터'], ['weak', '약한 실수 유형부터'], ['random', '무작위']])}
       </div>
+      <div class="panel"><h2>매일 하게 만들기</h2>
+        <div class="set"><div class="lb"><b>매일 알림</b><span>휴대폰 캘린더에 매일 반복 일정을 넣어요(앱은 알림을 직접 보낼 수 없어요). 시간을 고르고 받은 파일을 열어 추가하세요.</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end"><input type="time" id="remind-t" value="${esc(S.settings.remindAt || '21:00')}" style="height:40px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit;padding:0 8px"><button class="btn sm" id="remind">📅 캘린더에 넣기</button></div></div>
+        <div class="set"><div class="lb"><b>휴식권 🧊 ${S.freezes || 0}/${FREEZE_MAX}</b><span>${FREEZE_EVERY}일 연속마다 1장. 하루 빼먹으면 자동으로 써서 연속을 지켜요.</span></div></div>
+      </div>
       <div class="panel" id="backup"><h2>백업</h2>
         <p class="small muted" style="margin:0 0 10px">기록은 이 기기 브라우저에만 있어요. 아이폰 Safari는 오래 안 쓴 사이트 기록을 지울 수 있으니 가끔 내보내 두세요. 다른 기기로 옮길 때도 써요. (녹음은 포함되지 않아요)</p>
         <div class="grid2"><button class="btn" id="exp">⤓ 내보내기</button><label class="btn" for="imp">⤒ 가져오기</label></div>
@@ -68,7 +74,7 @@ export default {
       const c = e.target.closest('[data-k]');
       if (c) { setSetting(c.dataset.k, c.checked); if (c.dataset.k === 'record' && c.checked && recorder.supported()) navigator.mediaDevices.getUserMedia({ audio: true }).then(s => s.getTracks().forEach(t => t.stop())).catch(() => toast('마이크 권한이 필요해요')); return; }
       const s = e.target.closest('[data-sel]');
-      if (s) { const v = s.value; setSetting(s.dataset.sel, s.dataset.sel === 'voice' || s.dataset.sel === 'newOrder' ? v : +v); toast('저장했어요', 900); }
+      if (s) { const v = s.value; setSetting(s.dataset.sel, typeof DEFAULT_SETTINGS[s.dataset.sel] === 'number' ? +v : v); toast('저장했어요', 900); }
     });
     view.addEventListener('click', e => {
       const b = e.target.closest('[data-seg] button');
@@ -80,6 +86,24 @@ export default {
       if (k === 'rate') speak('That works for me.');
     });
 
+    $('#remind', view).onclick = () => {
+      const t = $('#remind-t', view).value || '21:00';
+      setSetting('remindAt', t);
+      const [hh, mm] = t.split(':').map(Number);
+      const d = new Date(); d.setHours(hh, mm, 0, 0); if (d < Date.now()) d.setDate(d.getDate() + 1);
+      const pad = n => String(n).padStart(2, '0');
+      const local = `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}T${pad(hh)}${pad(mm)}00`;
+      const stamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
+      const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//talk-notes//KO', 'BEGIN:VEVENT', `UID:talk-notes-daily-${Date.now()}@local`, `DTSTAMP:${stamp}`,
+        `DTSTART:${local}`, `DTEND:${local.slice(0, 9)}${pad(hh)}${pad(Math.min(59, mm + 10))}00`, 'RRULE:FREQ=DAILY', 'SUMMARY:회화 교정 노트 5문제', `DESCRIPTION:${location.origin}${location.pathname}`,
+        `URL:${location.origin}${location.pathname}`, 'BEGIN:VALARM', 'TRIGGER:PT0M', 'ACTION:DISPLAY', 'DESCRIPTION:회화 교정 노트', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+      a.download = 'talk-notes-daily.ics';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+      toast('캘린더 파일을 받았어요. 열어서 추가하면 매일 ' + t + '에 알려 줘요.', 3500);
+    };
     $('#exp', view).onclick = () => {
       const blob = new Blob([exportJSON()], { type: 'application/json' });
       const a = document.createElement('a');
