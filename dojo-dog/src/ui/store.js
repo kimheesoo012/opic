@@ -39,7 +39,7 @@ export const DEFAULT_SETTINGS = {
   hideEasy: true, // 쉬운 단어 학습 표시 끄기
   focus: false, // 학습 집중 모드
   choiceMode: 'major', // 'major' 중요한 장면만 직접 고른다(나머지는 개가 성격대로 움직인다) / 'all' 모든 장면
-  lcdFold: null, // 도트 창 접기: null=자동(아주 낮은 화면에서 이야기 중에만 접음), true/false=직접 고른 값
+  lcdFold: null, // 도트 창 접기: null=자동(600px 미만 화면에서는 접음), true/false=직접 고른 값
   sound: false,
   bgm: 0.5,
   sfx: 0.45,

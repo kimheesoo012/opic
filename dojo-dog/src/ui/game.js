@@ -95,10 +95,10 @@ export class GameView {
     this.lcd && this.lcd.stop();
   }
 
-  // 접힘 여부: 직접 고른 값이 있으면 그 값, 없으면 아주 낮은 화면(600px 미만)에서 이야기가 펼쳐질 때만 접는다
+  // 접힘 여부: 직접 고른 값이 있으면 그 값, 없으면 아주 낮은 화면(600px 미만)에서는 늘 접어 둔다 (장면마다 열고 닫으면 화면이 흔들린다)
   isFolded() {
     if (typeof this.set.lcdFold === 'boolean') return this.set.lcdFold;
-    return this.s.phase !== 'season' && window.innerHeight < 600;
+    return window.innerHeight < 600;
   }
   toggleFold() {
     this.set.lcdFold = !this.isFolded();
@@ -120,14 +120,14 @@ export class GameView {
     // 이야기가 펼쳐질 때는 도트 창을 줄여 대사와 선택지에 자리를 내준다.
     // 높이 기준: iPhone SE Safari(주소창 포함) ≈ 548px, iPhone 13/14 Safari ≈ 664px, 홈 화면 앱 667 / 844px
     const vh = window.innerHeight;
-    const busy = this.s.phase !== 'season';
     const short = vh < 760;
     const tiny = vh < 700;
     const mini = vh < 600;
-    const target = busy ? Math.min(avail, mini ? 160 : tiny ? 175 : short ? 230 : 290) : Math.min(avail, mini ? 240 : short ? 300 : 420);
-    this.el.classList.toggle('tiny', busy && tiny);
-    this.el.classList.toggle('compact', busy && short);
-    this.el.classList.toggle('xs', busy && mini);
+    // 장면이 바뀔 때 크기·간격이 오르내리면 화면 전체가 흔들려 어지럽다. 화면 높이로만 정하고 장면과 무관하게 고정한다.
+    const target = Math.min(avail, mini ? 160 : tiny ? 175 : short ? 230 : 290);
+    this.el.classList.toggle('tiny', tiny);
+    this.el.classList.toggle('compact', short);
+    this.el.classList.toggle('xs', mini);
     this.renderFold();
     const k = Math.max(1, Math.floor((target * dpr) / 160));
     const w = (k * 160) / dpr;

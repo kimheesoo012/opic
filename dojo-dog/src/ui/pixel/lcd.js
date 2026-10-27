@@ -72,12 +72,15 @@ export class LCD {
   }
   setPlan(plan, s) {
     const changedLoc = plan.loc !== this.plan.loc;
+    // 시간대·말풍선만 바뀔 때는 카메라를 그대로 둔다
+    const sameScene = !changedLoc && plan.people === this.plan.people && plan.dog.mode === this.plan.dog.mode;
     this.plan = plan;
     this.s = s;
     if (plan.dog.mode !== 'wander' && plan.dog.x != null) this.dx = plan.dog.x;
     if (changedLoc) this.parts = [];
     this.act = plan.dog.mode === 'wander' ? 'walk' : plan.dog.pose || 'sit';
     this.actUntil = this.t + 3;
+    if (!sameScene) this.cam = null; // 장면이 바뀔 때만 카메라 위치를 다시 정한다 (장면 안에서는 움직이지 않는다)
     this.draw();
   }
   bark() {
@@ -115,8 +118,11 @@ export class LCD {
     if (this.act === 'walk' || this.act === 'run') {
       const v = (this.act === 'run' ? 26 : this.stage === 'senior' ? 6 : 12) * dt;
       this.dx += this.dir * v;
-      if (this.dx > 120) this.dir = -1;
-      if (this.dx < 4) this.dir = 1;
+      // 확대 화면에서는 개가 고정된 화면 밖으로 나가지 않는다
+      const lo = this.cam ? this.cam.x + 2 : 4;
+      const hi = this.cam ? this.cam.x + BW / 2 - DW - 2 : 120;
+      if (this.dx > hi) (this.dx = hi), (this.dir = -1);
+      if (this.dx < lo) (this.dx = lo), (this.dir = 1);
     }
   }
   dogPose() {
@@ -182,6 +188,7 @@ export class LCD {
     paint(this.ctx, this.zoomed(b, fl, ppl, talker));
   }
   // 개(와 가까이 있는 말하는 사람)를 중심으로 2배 확대. 정수 배율이라 도트가 고르게 유지된다.
+  // 카메라는 장면이 시작될 때 한 번만 정하고 따라 움직이지 않는다 (화면이 흔들려 어지럽지 않게).
   zoomed(b, fl, ppl, talker) {
     const p = this.plan;
     const wide = !this.zoom || p.zoom === false || p.judges || p.match || p.people.some((q) => q.anim === 'match');
@@ -199,10 +206,7 @@ export class LCD {
     let want = ground - ZH + 4;
     if (talker && Math.abs(talker.x + 14 - cx) < 56) want = Math.min(want, talker.y - 8);
     const ty = Math.max(0, Math.min(BH - ZH, Math.max(ground - ZH + 2, want)));
-    // 부드럽게 따라간다 (처음에는 바로 맞춘다)
-    if (!this.cam) this.cam = { x: tx, y: ty };
-    this.cam.x += (tx - this.cam.x) * 0.18;
-    this.cam.y += (ty - this.cam.y) * 0.18;
+    if (!this.cam) this.cam = { x: Math.round(tx), y: Math.round(ty) };
     const ox = Math.round(this.cam.x);
     const oy = Math.round(this.cam.y);
     const z = this.zbuf;

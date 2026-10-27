@@ -370,3 +370,10 @@ html, body { overflow: hidden; overscroll-behavior: none; }
 .dog-acts { display: flex; gap: 8px; align-items: stretch; }
 .dog-acts .btn { flex: 1; }
 .dog-acts .mini-btn { min-height: 48px; }
+/* ───── 6판: 움직임 줄이기 (멀미) ───── */
+/* 큰 장면에서 도트 창이 커졌다 작아지던 효과를 없앤다. 큰 글자는 제자리에서 나타났다 사라지기만 한다 */
+.lcd.zoom .lcd-canvas { animation: none; }
+.lcd-canvas { transition: none; }
+.modal { animation: none; }
+.stamp { animation: none; }
+#app { transition: none; }

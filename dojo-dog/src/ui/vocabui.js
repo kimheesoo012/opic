@@ -8,7 +8,7 @@ import { store } from './store.js';
 const POS = { n: '명사', v: '동사', a: 'い형용사', na: 'な형용사', adv: '부사', exp: '표현' };
 
 export function levelLabel(lv) {
-  return lv === '범위 밖' ? '검도 용어' : `${lv} 추정`;
+  return lv === '범위 밖' ? '검도 용어' : lv;
 }
 
 // 단어장: { 'key' | 'g:key': { key, at, n, last, scenes: [{ja, ko, sp, title, when}] } }

@@ -61,7 +61,7 @@ async function run() {
     await target.click();
     await p.waitForSelector('.modal');
     const txt = await p.textContent('.modal');
-    ok('학습 대상 탭 → 학습 창 (DB 내용·게임 속 문장·저장 버튼)', /추정|검도 용어/.test(txt) && /例文|접속/.test(txt) && /게임 속 문장/.test(txt) && /단어장 저장/.test(txt), txt.slice(0, 50).replace(/\s+/g, ' '));
+    ok('학습 대상 탭 → 학습 창 (DB 내용·게임 속 문장·저장 버튼)', /수준(N[1-5]|검도 용어)/.test(txt) && !/추정/.test(txt) && /例文|접속/.test(txt) && /게임 속 문장/.test(txt) && /단어장 저장/.test(txt), txt.slice(0, 50).replace(/\s+/g, ' '));
     await p.click('.modal .save-btn');
     ok('「단어장 저장」으로 저장', /저장됨/.test(await p.textContent('.modal .save-btn')));
     await p.screenshot({ path: OUT + '/word-popup.png' });
