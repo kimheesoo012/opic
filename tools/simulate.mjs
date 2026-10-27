@@ -106,6 +106,33 @@ for (let run = 0; run < RUNS; run++) {
     }
     now += DAY;
   }
+  // 모든 세션 종류를 한 번씩 만들어 구성 검사 (일부 학습자)
+  if (run % 10 === 0) {
+    const env = { bank, state, rng, now };
+    const size = (ss) => ss.items.reduce((t, it) => t + (it.type === 'unit' ? questionsOf(bank.unitById.get(it.unitId)).length : 0), 0);
+    const want = { diag: [25, 40], deep: [50, 70], mock: [42, 60], full: [95, 110], speed: [12, 12], p7time: [6, 10] };
+    for (const [kind, [lo, hi]] of Object.entries(want)) {
+      const ss = newSession(kind, {}, env);
+      check(!!ss, `${kind} 세션 생성 실패`);
+      if (!ss) continue;
+      const n = size(ss);
+      check(n >= lo && n <= hi, `${kind} 문항 수 ${n} (기대 ${lo}~${hi})`);
+      const units = ss.items.map((it) => bank.unitById.get(it.unitId));
+      check(units.every((u) => u.part >= 5), `${kind}에 LC 문항`);
+      check(new Set(units.map((u) => u.id)).size === units.length, `${kind} 중복 세트`);
+      if (kind === 'full') {
+        const byP = {};
+        for (const u of units) byP[u.part] = (byP[u.part] || 0) + questionsOf(u).length;
+        const multi = units.filter((u) => u.part === 7 && u.passages.length > 1);
+        check(byP[5] === 30 && byP[6] === 16, `실전 모의고사 P5/P6 문항 수 ${byP[5]}/${byP[6]}`);
+        check(multi.filter((u) => u.passages.length === 2).length === 2 && multi.filter((u) => u.passages.length === 3).length === 3, '실전 모의고사 이중 2·삼중 3세트');
+        check(ss.limitSec === 75 * 60, '실전 모의고사 75분');
+      }
+      if (kind === 'speed') check(ss.perQ === 20 && ss.autoNext, '연속 풀이 20초·자동 넘김');
+      if (kind === 'p7time') check(ss.perSet && units.every((u) => u.part === 7), '지문별 시간 훈련 설정');
+      kindCount['구성검사:' + kind] = (kindCount['구성검사:' + kind] || 0) + 1;
+    }
+  }
   const est = estimate(state.attempts);
   results.push({ ability: learner.ability, point: est.rc.point, n: est.n, lo: est.rc.lo, hi: est.rc.hi });
   // 같은 문제 재풀이 표시 검증: repeat=true인 시도는 같은 qid가 이전에 있어야 함

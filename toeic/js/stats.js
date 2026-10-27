@@ -105,5 +105,5 @@ export function overtimeQids(attempts, now = Date.now()) {
     const prev = last.get(a.qid);
     if (!prev || a.t >= prev.t) last.set(a.qid, a);
   }
-  return [...last.values()].filter((a) => a.sec > a.target && now - a.t < 60 * 86400000).sort((a, b) => b.t - a.t).map((a) => a.qid);
+  return [...last.values()].filter((a) => (a.sec > a.target || a.choice === -1) && now - a.t < 60 * 86400000).sort((a, b) => b.t - a.t).map((a) => a.qid);
 }

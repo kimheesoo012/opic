@@ -1,6 +1,4 @@
-// 휴대폰 화면(390×844)에서 실제 브라우저로 전체 흐름 확인:
-// 진단 → 결과 → 목표 → 추천 학습(오답 원인 선택) → 단계별 복습 → 결과 요약 복사 → 중간 종료 후 복원
-// → 내보내기/잘못된 가져오기 보호 → 서비스 워커로 오프라인 실행. TTS는 가짜 음성으로 한 번, 음성 없음으로 한 번.
+// 휴대폰 화면(390×844, 360×740)에서 실제 브라우저로 RC 앱 전체 흐름 확인
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -14,292 +12,304 @@ const shotDir = process.env.SHOTS || path.resolve('dist/shots');
 fs.mkdirSync(shotDir, { recursive: true });
 const results = [];
 const ok = (name, cond, detail = '') => { results.push({ name, pass: !!cond, detail }); console.log(`${cond ? 'PASS' : 'FAIL'} ${name}${detail ? ' — ' + detail : ''}`); };
+const shot = (p, name, full = false) => p.screenshot({ path: `${shotDir}/${name}.png`, fullPage: full });
 
-// 가짜 Web Speech: 미국/영국/호주 음성 3개, speak()는 짧게 기다렸다 onend
-const FAKE_TTS = `
-(() => {
-  const voices = [
-    { name: 'Fake Samantha', lang: 'en-US', voiceURI: 'fake-us', localService: true, default: true },
-    { name: 'Fake Daniel', lang: 'en-GB', voiceURI: 'fake-gb', localService: true },
-    { name: 'Fake Karen', lang: 'en-AU', voiceURI: 'fake-au', localService: true },
-    { name: 'Fake Yuna', lang: 'ko-KR', voiceURI: 'fake-ko', localService: true },
-  ];
-  window.__spoken = [];
-  class U { constructor(t) { this.text = t; } }
-  const synth = { speaking: false, getVoices: () => voices, addEventListener() {}, cancel() { this.speaking = false; },
-    speak(u) { this.speaking = true; window.__spoken.push({ text: u.text, voice: u.voice && u.voice.voiceURI, rate: u.rate }); setTimeout(() => { this.speaking = false; u.onend && u.onend(); }, 20); } };
-  Object.defineProperty(window, 'speechSynthesis', { value: synth, configurable: true });
-  window.SpeechSynthesisUtterance = U;
-})();`;
-const NO_TTS = `(() => { try { delete window.speechSynthesis; } catch {} Object.defineProperty(window, 'speechSynthesis', { value: undefined, configurable: true }); window.SpeechSynthesisUtterance = undefined; })();`;
-
-async function answerLoop(p, { maxSteps = 400, wrongRate = 0.4, causeRate = 0.8, stopAt = null } = {}) {
+async function answerLoop(p, { maxSteps = 500, wrongRate = 0.4, causeRate = 0.7, stopAt = null } = {}) {
   let answered = 0;
   for (let i = 0; i < maxSteps; i++) {
-    const hash = await p.evaluate(() => location.hash);
-    if (hash !== '#play') return answered;
+    if ((await p.evaluate(() => location.hash)) !== '#play') return answered;
     if (stopAt != null && answered >= stopAt) return answered;
-    if (await p.$('[data-act="previewSkip"]')) { await p.click('[data-act="previewSkip"]'); continue; }
     if (await p.$('[data-act="conceptOk"]')) { await p.click('[data-act="conceptOk"]'); continue; }
     const fresh = await p.$$('.choice[data-act="choose"]:not(.right):not(.wrong)');
-    const fb = await p.$('.exp');
-    if (fresh.length && !fb) {
-      const idx = Math.random() < wrongRate ? Math.floor(Math.random() * fresh.length) : null;
-      if (idx != null) await fresh[idx].click();
-      else await fresh[0].click();
+    if (fresh.length && !(await p.$('.exp'))) {
+      const idx = Math.random() < wrongRate ? Math.floor(Math.random() * fresh.length) : 0;
+      await fresh[idx].click();
       answered++;
     }
     const cause = await p.$$('[data-act="cause"]');
-    if (cause.length && Math.random() < causeRate) {
-      const pressed = await p.$('[data-act="cause"][aria-pressed="true"]');
-      if (!pressed) await cause[Math.floor(Math.random() * cause.length)].click();
-    }
+    if (cause.length && Math.random() < causeRate && !(await p.$('[data-act="cause"][aria-pressed="true"]'))) await cause[Math.floor(Math.random() * cause.length)].click();
     const next = await p.$('[data-act="next"]:not([disabled])');
     if (next) await next.click();
-    await p.waitForTimeout(15);
+    await p.waitForTimeout(10);
   }
   return answered;
 }
+const total = (p) => p.evaluate(() => Number((document.querySelector('.prog .xs').textContent.split('/')[1] || '0').trim()));
+const appText = (p) => p.textContent('#app');
+
+// 화면 문구 규칙: 안내 말투·이모지 금지, LC 흔적 없음
+const BAD_COPY = /해 보세요|보세요|하세요!|[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
+const LC_WORDS = /Part [1-4]\b|듣기|음성|사진 묘사|질의응답|짧은 대화|짧은 담화/;
 
 const server = await serve(PORT);
 const browser = await chromium.launch();
 const errors = [];
+const copyIssues = [];
+async function checkCopy(p, where) {
+  const t = await appText(p);
+  if (BAD_COPY.test(t)) copyIssues.push(`${where}: ${t.match(BAD_COPY)[0]}`);
+  if (LC_WORDS.test(t)) copyIssues.push(`${where}: LC 흔적 "${t.match(LC_WORDS)[0]}"`);
+}
 try {
-  // ===== 1. 가짜 TTS로 전체 흐름 =====
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, hasTouch: true, isMobile: true, acceptDownloads: true, permissions: ['clipboard-read', 'clipboard-write'] });
-  await ctx.addInitScript(FAKE_TTS);
   const p = await ctx.newPage();
   p.on('pageerror', (e) => errors.push(e.message));
   p.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
+
+  // 1. 홈 → 간단 진단
   await p.goto(BASE);
   await p.waitForSelector('[data-act="startRec"]');
-  ok('홈 화면 표시 + 첫 추천은 진단', (await p.textContent('.rec')).includes('진단'));
-  await p.screenshot({ path: `${shotDir}/01-home.png` });
-
-  // 버튼 크기·글자 크기 점검(선택지 48px 이상, 16px 이상)
+  ok('홈: 첫 추천은 진단', (await p.textContent('.rec')).includes('진단'));
+  await checkCopy(p, '홈');
+  await shot(p, '01-home');
   await p.click('[data-act="startRec"]');
   await p.waitForSelector('.sess');
-  await p.screenshot({ path: `${shotDir}/02-diag-first.png` });
-  // 진단 진행
-  let lcSeen = false;
-  let checkedSizes = false;
-  for (let i = 0; i < 400; i++) {
-    if ((await p.evaluate(() => location.hash)) !== '#play') break;
-    if (await p.$('[data-act="previewSkip"]')) { await p.screenshot({ path: `${shotDir}/03-p3-preview.png` }); await p.click('[data-act="previewSkip"]'); continue; }
-    if (!lcSeen && await p.$('.tts-note')) { lcSeen = true; await p.screenshot({ path: `${shotDir}/03-lc.png` }); }
-    const ch = await p.$$('.choice[data-act="choose"]');
-    if (ch.length && !checkedSizes) {
-      const m = await p.evaluate(() => { const b = document.querySelector('.choice'); const r = b.getBoundingClientRect(); return { h: r.height, fs: parseFloat(getComputedStyle(b).fontSize), bottom: r.bottom, vh: innerHeight }; });
-      ok('선택지 버튼 높이 ≥48px, 글자 ≥16px, 화면 아래쪽', m.h >= 48 && m.fs >= 16 && m.bottom > m.vh * 0.5, JSON.stringify(m));
-      checkedSizes = true;
-    }
-    if (ch.length) await ch[Math.floor(Math.random() * ch.length)].click();
-    const next = await p.$('[data-act="next"]:not([disabled])');
-    if (next) await next.click();
-  }
-  await p.waitForSelector('h1');
-  ok('간단 진단 완료 → 결과 화면', (await p.evaluate(() => location.hash)) === '#result');
-  const spoken = await p.evaluate(() => window.__spoken);
-  const vset = new Set(spoken.map((s) => s.voice));
-  ok('LC 음성 재생(설치된 영어 음성만 사용)', spoken.length > 0 && !vset.has('fake-ko'), `발화 ${spoken.length}개, 음성 ${[...vset].join(',')}`);
-  ok('화자별로 다른 억양 음성 배정', vset.size >= 2);
-  await p.screenshot({ path: `${shotDir}/04-diag-result.png`, fullPage: true });
-  const resultText = await p.textContent('#app');
-  ok('진단 결과에 범위(추정) 또는 학습 수준 표시', /추정 점수 범위|학습 수준/.test(resultText) && /추정|데이터 부족/.test(resultText));
-  ok('진단 결과에 틀린 문제 해설(오답별 함정) 포함', (await p.$$('details.card')).length > 0);
+  const diagN = await total(p);
+  ok('간단 진단 RC 약 30문항', diagN >= 25 && diagN <= 40, `${diagN}문항`);
+  const m = await p.evaluate(() => { const b = document.querySelector('.choice'); const r = b.getBoundingClientRect(); return { h: r.height, fs: parseFloat(getComputedStyle(b).fontSize), bottom: r.bottom, vh: innerHeight }; });
+  ok('선택지 버튼 높이 ≥48px, 글자 ≥16px, 화면 아래쪽', m.h >= 48 && m.fs >= 16 && m.bottom > m.vh * 0.5, JSON.stringify(m));
+  await shot(p, '02-diag-p5');
+  await checkCopy(p, '진단 풀이');
+  await answerLoop(p);
+  ok('간단 진단 완료 → 결과', (await p.evaluate(() => location.hash)) === '#result');
+  const rt = await appText(p);
+  ok('결과: RC 추정 점수 범위 또는 학습 수준', /RC 추정 점수 범위|학습 수준/.test(rt));
+  await checkCopy(p, '진단 결과');
+  await shot(p, '03-diag-result', true);
 
-  // 목표 설정
-  await p.click('a[href="#goal"]');
-  await p.waitForSelector('[data-act="setGoal"]');
+  // 2. 목표
+  await p.goto(BASE + '#goal');
+  await p.click('[data-act="setGoal"][data-g="850"]');
+  await p.waitForTimeout(100);
+  const gt = await appText(p);
+  ok('목표 850 → RC 목표 455 표시', gt.includes('RC 목표') && gt.includes('455'));
   await p.click('[data-act="setGoal"][data-g="900"]');
   await p.waitForTimeout(100);
-  ok('목표 900 선택 + 파트별 차이 표시', (await p.textContent('#app')).includes('파트별 차이 (목표 900)'));
-  await p.screenshot({ path: `${shotDir}/05-goal.png`, fullPage: true });
+  ok('목표 900 → RC 만점으로도 부족 안내', (await appText(p)).includes('LC도 올려야'));
+  await shot(p, '04-goal', true);
 
-  // 홈 추천 코스
-  await p.goto(BASE + '#home');
-  await p.waitForSelector('[data-act="startRec"]');
-  const recs = await p.$$eval('.rec', (els) => els.map((e) => e.textContent.replace(/\s+/g, ' ').trim()));
-  ok('추천 코스에 이유 문장 표시', recs.length >= 1 && recs.every((r) => r.length > 20), recs.slice(0, 3).join(' | '));
-  await p.screenshot({ path: `${shotDir}/06-home-after-diag.png`, fullPage: true });
-
-  // 파트 5 연습 (즉시 해설 + 오답 원인)
+  // 3. Part 5 연습: 즉시 해설·핵심·오답 원인·어휘
   await p.goto(BASE + '#learn');
+  await checkCopy(p, '학습 메뉴');
+  await shot(p, '05-learn', true);
   await p.click('[data-act="startPart"][data-p="5"]');
   await p.waitForSelector('.sess');
-  const fresh = await p.$$('.choice[data-act="choose"]');
-  // 일부러 오답 고르기: 정답을 알 수 없으므로 두 번째를 고른 뒤 결과 확인
-  await fresh[1].click();
+  const target = await p.textContent('.target-time');
+  ok('Part 5 문제당 목표 시간 표시', /목표 20초/.test(target), target);
+  await (await p.$$('.choice[data-act="choose"]'))[1].click();
   await p.waitForSelector('.exp');
-  const expText = await p.textContent('.exp');
-  ok('즉시 해설: 정답 이유 + 선택지별 설명', /정답|오답/.test(expText) && (await p.$$('.exp ul.traps li')).length === 4);
+  ok('즉시 해설: 정답 이유 + 핵심 + 선택지별 함정', (await p.$('.exp .why')) && (await p.$('.exp .tip')) && (await p.$$('.exp ul.traps li')).length === 4);
   if (await p.$('[data-act="cause"]')) {
     await p.click('[data-act="cause"][data-c="grammar"]');
-    ok('오답 원인 탭 한 번으로 선택', await p.$('[data-act="cause"][data-c="grammar"][aria-pressed="true"]'));
+    ok('오답 원인 탭 한 번으로 선택', !!(await p.$('[data-act="cause"][data-c="grammar"][aria-pressed="true"]')));
   }
-  await p.screenshot({ path: `${shotDir}/07-p5-feedback.png`, fullPage: false });
-  // 어휘 탭 → 단어장 저장
+  await shot(p, '06-p5-feedback');
   const wbtn = await p.$('.exp [data-act="word"]');
   if (wbtn) {
     await wbtn.click();
     await p.waitForSelector('.sheet');
-    await p.screenshot({ path: `${shotDir}/08-word-sheet.png` });
     await p.click('[data-act="saveWord"]');
     await p.click('[data-act="closeSheet"]');
     ok('문제 속 어휘 탭 → 뜻·문맥 → 단어장 저장', true);
   }
   await p.click('[data-act="next"]');
   await answerLoop(p, { stopAt: 3 });
-  // 중간에 나가기(새로고침) → 복원
   const before = await p.evaluate(() => document.querySelector('.prog .xs').textContent);
   await p.goto('about:blank');
-  await p.goto(BASE); // 앱을 닫았다가 다시 여는 상황(시작 URL)
+  await p.goto(BASE);
   await p.waitForSelector('[data-act="resume"]');
-  ok('풀다가 나가도 홈에 이어서 풀기 표시', true);
   await p.click('[data-act="resume"]');
   await p.waitForSelector('.sess');
   const after = await p.evaluate(() => document.querySelector('.prog .xs').textContent);
-  ok('이어서 풀기: 진행 상태 복원', before.split('·')[1].trim() === after.split('·')[1].trim(), `${before} → ${after}`);
-  await answerLoop(p, {});
-  ok('연습 세션 완료', (await p.evaluate(() => location.hash)) === '#result');
+  ok('앱을 닫았다 열어도 이어서 풀기', before.split('·')[1].trim() === after.split('·')[1].trim(), `${before} → ${after}`);
+  await answerLoop(p);
 
-  // 단계별 복습
+  // 4. Part 6: 빈칸 강조, 문장 삽입
+  await p.goto(BASE + '#learn');
+  await p.click('[data-act="startPart"][data-p="6"]');
+  await p.waitForSelector('.passage');
+  ok('Part 6 현재 빈칸 강조', !!(await p.$('.passage .bk.on')));
+  await shot(p, '07-p6');
+  await answerLoop(p);
+
+  // 5. Part 7 이중·삼중 지문: 탭 전환, 긴 지문 스크롤, 선택지 고정
+  await p.goto(BASE + '#learn');
+  await p.click('[data-act="startMulti"]');
+  await p.waitForSelector('.ptabs');
+  const tabs = await p.$$('[data-act="ptab"]');
+  const title1 = await p.textContent('.passage .ptitle');
+  await tabs[1].click();
+  await p.waitForTimeout(50);
+  const title2 = await p.textContent('.passage .ptitle');
+  ok('다중 지문 탭 전환', tabs.length >= 2 && title1 !== title2, `${tabs.length}개 탭: ${title1} → ${title2}`);
+  await shot(p, '08-p7-multi-tab2');
+  // 지문이 화면보다 긴 탭을 찾는다(세트가 무작위라 짧은 탭일 수 있음)
+  for (let i = 0; i < tabs.length; i++) {
+    const long = await p.evaluate(() => { const mm = document.querySelector('.sess-main'); return mm.scrollHeight > mm.clientHeight; });
+    if (long) break;
+    const tb = await p.$$('[data-act="ptab"]');
+    if (tb[i]) await tb[i].click();
+  }
+  const geo = await p.evaluate(() => {
+    const main = document.querySelector('.sess-main');
+    const foot = document.querySelector('.sess-foot');
+    main.scrollTop = main.scrollHeight;
+    const tabsBox = document.querySelector('.ptabs').getBoundingClientRect();
+    return { scrollable: main.scrollHeight > main.clientHeight, footBottom: foot.getBoundingClientRect().bottom, vh: innerHeight, tabsTop: tabsBox.top, mainTop: main.getBoundingClientRect().top };
+  });
+  ok('긴 지문은 본문만 스크롤, 선택지는 화면 아래에 고정', geo.footBottom <= geo.vh + 1, JSON.stringify(geo));
+  ok('스크롤해도 지문 탭이 위에 붙어 있음', geo.tabsTop <= geo.mainTop + 2 && geo.tabsTop >= geo.mainTop - 14, JSON.stringify(geo));
+  await shot(p, '09-p7-scrolled');
+  const fh1 = await p.evaluate(() => document.querySelector('.sess-foot').getBoundingClientRect().height);
+  await p.click('[data-act="wide"]');
+  const fh2 = await p.evaluate(() => document.querySelector('.sess-foot').getBoundingClientRect().height);
+  ok('지문 크게: 선택지 영역 축소', fh2 <= fh1, `${Math.round(fh1)} → ${Math.round(fh2)}`);
+  await p.click('[data-act="wide"]');
+  const keptTitle = await p.evaluate(() => document.querySelector('[data-act="ptab"][aria-selected="true"]').textContent);
+  await (await p.$$('.choice[data-act="choose"]'))[0].click();
+  await p.click('[data-act="next"]');
+  ok('다음 문항에서도 선택한 지문 탭 유지', (await p.evaluate(() => document.querySelector('[data-act="ptab"][aria-selected="true"]').textContent)) === keptTitle, keptTitle);
+  await answerLoop(p);
+  ok('이중·삼중 지문 세션 완료', (await p.evaluate(() => location.hash)) === '#result');
+
+  // 6. Part 7 지문별 시간 훈련
+  await p.goto(BASE + '#learn');
+  await p.click('[data-act="startKind"][data-k="p7time"]');
+  await p.waitForSelector('.sess');
+  const tl = await p.textContent('.timer small');
+  ok('Part 7 지문별 카운트다운', tl === '지문' && /지문 목표/.test(await p.textContent('.target-time')), tl);
+  await shot(p, '10-p7time');
+  await answerLoop(p);
+
+  // 7. Part 5 연속 풀이: 20초 지나면 자동으로 다음 문항
+  await p.goto(BASE + '#learn');
+  await p.clock.install();
+  await p.click('[data-act="startKind"][data-k="speed"]');
+  await p.waitForSelector('.sess');
+  ok('연속 풀이 문항 타이머', (await p.textContent('.timer small')) === '문항');
+  await (await p.$$('.choice[data-act="choose"]'))[0].click(); // 탭 한 번으로 다음
+  await p.waitForTimeout(50);
+  const q2 = await p.evaluate(() => document.querySelector('.prog .xs').textContent);
+  await p.clock.runFor(21500);
+  await p.waitForTimeout(100);
+  const q3 = await p.evaluate(() => document.querySelector('.prog .xs').textContent);
+  ok('20초가 지나면 시간 초과로 다음 문항', q2 !== q3, `${q2} → ${q3}`);
+  await shot(p, '11-speed');
+  await answerLoop(p);
+  const st = await appText(p);
+  ok('연속 풀이 결과에 시간 초과 표시', st.includes('시간 초과'));
+  await shot(p, '12-speed-result', true);
+  await p.reload();
+
+  // 8. 시간 초과 문제 모음
   await p.goto(BASE + '#review');
   await p.waitForSelector('h1');
+  const ot = await p.$('[data-act="overtimeStart"]');
+  ok('복습 화면에 시간 초과 문제 모음', !!ot);
+  if (ot) {
+    await ot.click();
+    await p.waitForSelector('.sess');
+    await answerLoop(p);
+    ok('시간 초과 문제 다시 풀기 완료', (await p.evaluate(() => location.hash)) === '#result');
+  }
+
+  // 9. 단계별 복습
+  await p.goto(BASE + '#review');
+  await checkCopy(p, '복습');
   if (await p.$('[data-act="startReview"]')) {
     await p.click('[data-act="startReview"]');
     await p.waitForSelector('.sess');
-    const hasConcept = !!(await p.$('[data-act="conceptOk"]'));
-    await p.screenshot({ path: `${shotDir}/09-review-concept.png` });
-    ok('복습 1단계: 핵심 개념 카드', hasConcept);
+    ok('복습 1단계 핵심 개념 카드', !!(await p.$('[data-act="conceptOk"]')));
+    await shot(p, '13-review-concept');
     await answerLoop(p, { wrongRate: 0.2 });
-    ok('단계별 복습 세션 완료', (await p.evaluate(() => location.hash)) === '#result');
-    await p.goto(BASE + '#review');
-    await p.screenshot({ path: `${shotDir}/10-review-hub.png`, fullPage: true });
-  } else ok('복습 카드 생성', false, '복습 대기 없음');
+    ok('단계별 복습 완료', (await p.evaluate(() => location.hash)) === '#result');
+  } else ok('복습 카드 생성', false);
 
-  // 하프 모의고사 일부 + 결과(RC 시간 제한 표시)
+  // 10. RC 실전 모의고사 100문항
   await p.goto(BASE + '#learn');
-  await p.click('[data-act="startKind"][data-k="mock"]');
+  await p.click('[data-act="startKind"][data-k="full"]');
   await p.waitForSelector('.sess');
-  const total = await p.evaluate(() => document.querySelector('.prog .xs').textContent);
-  ok('하프 모의고사 약 100문항 구성', /\/(9\d|10\d)$/.test(total.trim()), total);
+  const fullN = await total(p);
+  ok('RC 실전 모의고사 100문항', fullN >= 98 && fullN <= 104, `${fullN}문항`);
+  ok('실전 모의고사 남은 시간 75분', (await p.textContent('.timer small')) === '남은 시간' && (await p.textContent('.timer b')).startsWith('7'));
   await answerLoop(p, { stopAt: 5 });
   await p.click('[data-act="exitAsk"]');
   await p.click('[data-act="exitFinish"]');
   await p.waitForSelector('h1');
-  ok('모의고사 중간 종료 → 결과(미응답 표시)', (await p.textContent('#app')).includes('미응답'));
+  ok('모의고사 중간 종료 → 미응답 표시', (await appText(p)).includes('미응답'));
 
-  // 심화 진단: 유형별 실력 + 시간 관리 분석
-  await p.goto(BASE + '#learn');
-  await p.click('[data-act="startKind"][data-k="deep"]');
-  await p.waitForSelector('.sess');
-  const deepTotal = await p.evaluate(() => document.querySelector('.prog .xs').textContent);
-  await answerLoop(p, { maxSteps: 600 });
-  const deepText = await p.textContent('#app');
-  ok('심화 진단 완료 → 유형별 실력·시간 관리 표시', deepText.includes('유형별 실력') && deepText.includes('시간 관리'), deepTotal);
-  await p.screenshot({ path: `${shotDir}/11b-deep-result.png`, fullPage: true });
-
-  // 기록 화면 + 결과 요약 복사
+  // 11. 기록·요약 복사·백업
   await p.goto(BASE + '#stats');
-  await p.waitForSelector('[data-act="copySummary"]');
+  await checkCopy(p, '기록');
   await p.click('[data-act="copySummary"]');
   await p.waitForTimeout(200);
   const clip = await p.evaluate(() => navigator.clipboard.readText());
-  ok('결과 요약 복사(문제 수·파트별 정답률·약점 유형)', clip.includes('[토익 훈련 요약]') && clip.includes('파트별 정답률') && clip.includes('약점 유형'), clip.split('\n').slice(0, 3).join(' / '));
-  await p.screenshot({ path: `${shotDir}/11-stats.png`, fullPage: true });
-
-  // 내보내기
+  ok('결과 요약 복사', clip.includes('[토익 RC 훈련 요약]') && clip.includes('파트별 정답률') && clip.includes('약점 유형'), clip.split('\n').slice(0, 2).join(' / '));
+  await shot(p, '14-stats', true);
   const [dl] = await Promise.all([p.waitForEvent('download'), p.click('[data-act="exportData"]')]);
   const exported = JSON.parse(fs.readFileSync(await dl.path(), 'utf8'));
-  const nAttempts = exported.data.attempts.length;
-  ok('기록 JSON 내보내기(버전 포함)', exported.app === 'toeic-trainer' && exported.schema === 1 && nAttempts > 0, `${nAttempts}개 기록`);
-  // 잘못된 파일 가져오기 → 기존 기록 유지
+  const nA = exported.data.attempts.length;
+  ok('기록 JSON 내보내기', exported.app === 'toeic-trainer' && exported.schema === 1 && nA > 0, `${nA}개`);
   const badPath = path.join(shotDir, 'bad.json');
   fs.writeFileSync(badPath, JSON.stringify({ app: 'other', data: {} }));
   await p.setInputFiles('#importFile', badPath);
   await p.waitForSelector('.sheet');
   const sheetText = await p.textContent('.sheet');
   await p.click('.sheet [data-act="closeSheet"]');
-  const countAfterBad = await p.evaluate(async () => (await new Promise((res) => { const r = indexedDB.open('toeic-trainer'); r.onsuccess = () => { const t = r.result.transaction('attempts'); const q = t.objectStore('attempts').count(); q.onsuccess = () => res(q.result); }; })));
-  ok('잘못된 파일이면 거부하고 기존 기록 보호', sheetText.includes('가져올 수 없는') && countAfterBad === nAttempts, `${countAfterBad}/${nAttempts}`);
-  // 올바른 파일 가져오기
-  const goodPath = path.join(shotDir, 'good.json');
-  fs.writeFileSync(goodPath, JSON.stringify(exported));
-  await p.setInputFiles('#importFile', goodPath);
-  await p.waitForSelector('[data-act="importConfirm"]');
-  await Promise.all([p.waitForEvent('download'), p.click('[data-act="importConfirm"]')]);
-  await p.waitForTimeout(300);
-  ok('올바른 파일 가져오기', (await p.textContent('.toast')).includes('가져왔습니다'));
+  const cnt = await p.evaluate(async () => new Promise((res) => { const r = indexedDB.open('toeic-trainer'); r.onsuccess = () => { const q = r.result.transaction('attempts').objectStore('attempts').count(); q.onsuccess = () => res(q.result); }; }));
+  ok('잘못된 파일은 거부, 기존 기록 유지', sheetText.includes('가져올 수 없는') && cnt === nA, `${cnt}/${nA}`);
 
-  // 훈련 화면들
-  for (const t of ['listen', 'para', 'vocab']) {
-    await p.goto(BASE + '#train-' + t);
+  // 12. 독해·어휘 훈련, 설정, 다크 모드, 가로 스크롤
+  for (const r of ['train-para', 'train-vocab', 'prefs', 'about']) {
+    await p.goto(BASE + '#' + r);
     await p.waitForSelector('h1');
-    await p.screenshot({ path: `${shotDir}/12-train-${t}.png`, fullPage: true });
+    await checkCopy(p, r);
   }
-  await p.goto(BASE + '#train-listen');
-  await p.click('[data-act="ltMode"][data-m="dict"]');
-  const pick = await p.$('[data-act="ltPick"]');
-  if (pick) await pick.click();
-  ok('LC 받아쓰기(빈칸 단어 고르기)', (await p.textContent('#app')).includes('맞힘 1/1') || (await p.textContent('#app')).includes('맞힘 0/1'));
   await p.goto(BASE + '#train-para');
   await p.click('[data-act="ptChoose"]');
-  ok('패러프레이즈 퀴즈', (await p.textContent('#app')).includes('맞힘'));
+  ok('바꿔 말하기 퀴즈', (await appText(p)).includes('맞힘 '));
   await p.goto(BASE + '#train-vocab');
   if (await p.$('[data-act="vtSeed"]')) await p.click('[data-act="vtSeed"]');
-  if (await p.$('[data-act="vtChoose"]')) { await p.click('[data-act="vtChoose"]'); ok('단어장 4지선다 복습', !!(await p.$('.choice.right'))); }
+  if (await p.$('[data-act="vtChoose"]')) { await p.click('[data-act="vtChoose"]'); ok('단어장 4지선다', !!(await p.$('.choice.right'))); }
   await p.goto(BASE + '#prefs');
-  await p.waitForSelector('select[data-acc="US"]');
-  const opts = await p.$$eval('select option', (os) => os.map((o) => o.textContent));
-  ok('설정: 실제 설치된 영어 음성만 목록에 표시', !opts.some((o) => o.includes('ko-KR')) && opts.some((o) => o.includes('en-GB')));
-  await p.screenshot({ path: `${shotDir}/13-settings.png`, fullPage: true });
-
-  // 다크 모드
   await p.click('[data-act="theme"][data-t="dark"]');
   await p.goto(BASE + '#learn');
-  await p.screenshot({ path: `${shotDir}/14-dark-learn.png` });
-  const bg = await p.evaluate(() => getComputedStyle(document.body).backgroundColor);
-  ok('다크 모드', bg === 'rgb(15, 18, 22)', bg);
-  const overflow = await p.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
-  ok('가로 스크롤 없음', !overflow);
+  await shot(p, '15-dark-learn');
+  ok('다크 모드', (await p.evaluate(() => getComputedStyle(document.body).backgroundColor)) === 'rgb(15, 18, 22)');
+  let overflow = [];
+  for (const r of ['home', 'learn', 'review', 'stats', 'prefs', 'goal']) {
+    await p.goto(BASE + '#' + r);
+    await p.waitForSelector('h1');
+    if (await p.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1)) overflow.push(r);
+  }
+  ok('가로 스크롤 없음', !overflow.length, overflow.join(','));
 
-  // 오프라인
+  // 13. 오프라인
   await p.evaluate(() => navigator.serviceWorker.ready);
   await p.waitForTimeout(500);
   await ctx.setOffline(true);
   await p.goto(BASE + '#home', { waitUntil: 'domcontentloaded' }).catch(() => {});
   await p.reload().catch(() => {});
   await p.waitForSelector('[data-act="nav"]', { timeout: 8000 }).catch(() => {});
-  const offText = await p.textContent('#app').catch(() => '');
-  ok('오프라인에서 앱 실행(서비스 워커 캐시)', offText.includes('오늘의 토익'));
+  ok('오프라인에서 앱 실행', (await appText(p).catch(() => '')).includes('오늘의 RC'));
   await p.goto(BASE + '#learn').catch(() => {});
   await p.click('[data-act="startPart"][data-p="7"]').catch(() => {});
-  await p.waitForSelector('.sess', { timeout: 5000 }).catch(() => {});
-  ok('오프라인에서 문제 풀이', !!(await p.$('.passage')));
-  await p.screenshot({ path: `${shotDir}/15-offline-p7.png` });
+  await p.waitForSelector('.passage', { timeout: 5000 }).catch(() => {});
+  ok('오프라인에서 Part 7 풀이', !!(await p.$('.passage')));
   await ctx.setOffline(false);
   await ctx.close();
 
-  // ===== 2. 음성 합성 없는 기기: 스크립트로 진행 =====
+  // 14. 작은 화면(360×740)에서 삼중 지문
   const ctx2 = await browser.newContext({ viewport: { width: 360, height: 740 }, isMobile: true, hasTouch: true });
-  await ctx2.addInitScript(NO_TTS);
   const p2 = await ctx2.newPage();
-  p2.on('pageerror', (e) => errors.push('[noTTS] ' + e.message));
+  p2.on('pageerror', (e) => errors.push('[360] ' + e.message));
   await p2.goto(BASE + '#learn');
-  await p2.waitForSelector('[data-act="startPart"][data-p="3"]');
-  await p2.click('[data-act="startPart"][data-p="3"]');
-  await p2.waitForSelector('.sess');
-  const t2 = await p2.textContent('.sess-main');
-  ok('TTS 없는 기기: 안내 + 스크립트 표시', t2.includes('스크립트를 보며') && !!(await p2.$('.script')));
-  await p2.screenshot({ path: `${shotDir}/16-no-tts-p3.png` });
-  await answerLoop(p2, {});
-  ok('TTS 없이 LC 세션 완료', (await p2.evaluate(() => location.hash)) === '#result');
-  await p2.goto(BASE + '#learn');
-  await p2.click('[data-act="startPart"][data-p="1"]');
-  await p2.waitForSelector('.photo svg');
-  await p2.screenshot({ path: `${shotDir}/17-no-tts-p1.png` });
-  ok('Part 1 SVG 그림 + 문장 선택지(스크립트 모드)', (await p2.$$('.choice')).length === 4);
+  await p2.waitForSelector('[data-act="startMulti"]');
+  await p2.click('[data-act="startMulti"]');
+  await p2.waitForSelector('.ptabs');
+  const g2 = await p2.evaluate(() => ({ over: document.documentElement.scrollWidth > innerWidth + 1, tabsOver: document.querySelector('.ptabs').scrollWidth > document.querySelector('.ptabs').clientWidth, foot: document.querySelector('.sess-foot').getBoundingClientRect().bottom <= innerHeight + 1 }));
+  ok('360px 화면: 페이지 가로 넘침 없음, 선택지 보임', !g2.over && g2.foot, JSON.stringify(g2));
+  await shot(p2, '16-360-multi');
   await ctx2.close();
 } catch (e) {
   ok('예외 없이 실행', false, e.stack);
@@ -307,6 +317,7 @@ try {
   await browser.close();
   server.close();
 }
+ok('화면 문구 규칙(안내 말투·이모지·LC 흔적 없음)', copyIssues.length === 0, [...new Set(copyIssues)].join(' | '));
 ok('페이지 오류 없음', errors.length === 0, errors.slice(0, 5).join(' | '));
 const failed = results.filter((r) => !r.pass);
 console.log(`\n${results.length - failed.length}/${results.length} 통과`);

@@ -213,7 +213,7 @@ export function summarize(s, bank) {
       if (!a) { p.unanswered++; unanswered++; continue; }
       p.n++; n++;
       p.sec += a.sec; sec += a.sec;
-      if (a.sec > targetSec(bank, q, unit)) { p.over++; over++; }
+      if (a.sec > targetSec(bank, q, unit) || a.choice === -1) { p.over++; over++; }
       if (a.choice === q.answer) { p.correct++; correct++; } else wrong.push({ qid: q.id, unitId: unit.id });
     }
   }

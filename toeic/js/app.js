@@ -153,7 +153,7 @@ function renderHome() {
     <button class="btn sm ghost" data-act="courseRefresh">다시 추천</button></div>`;
   course.items.forEach((c, i) => {
     const done = course.done.includes(c.key);
-    html += `<div class="card rec"><div class="grow"><b>${done ? '<span class="done-mark">✓</span> ' : ''}${h(c.title)}</b> <span class="tag">${c.minutes}분</span><p>${h(c.reason)}</p></div>
+    html += `<div class="card rec"><div class="grow"><b>${h(c.title)}</b>${done ? ' <span class="tag ok">완료</span>' : ''} <span class="tag">${c.minutes}분</span><p>${h(c.reason)}</p></div>
       <button class="btn ${done ? '' : 'primary'} sm" data-act="startRec" data-i="${i}">${done ? '다시' : '시작'}</button></div>`;
   });
   if (due.length) html += `<div class="card"><div class="row"><div class="grow"><h3>복습 대기 ${due.length}개 유형</h3><p class="small muted" style="margin:0">${due.slice(0, 3).map((c) => h(conceptName(C.bank, c.concept))).join(' · ')}</p></div><a class="btn sm" href="#review">복습</a></div></div>`;
@@ -213,7 +213,7 @@ function renderLearn() {
   html += `<div class="card rec"><div class="grow"><b>Part 7 이중·삼중 지문</b> <span class="tag">${(C.bank.byPart[7] || []).filter((u) => u.passages.length > 1).length}세트</span><p>지문 사이 정보를 연결하는 연계 문제.</p></div><button class="btn sm" data-act="startMulti">2세트</button></div>
     <h2>속도 훈련</h2>
     ${row('Part 5 연속 풀이', '12문항', '문항당 20초. 시간이 다 되면 다음 문항으로 넘어갑니다.', 'startKind', 'data-k="speed"', true)}
-    ${row('Part 7 지문별 시간 훈련', '약 6문항', '지문 길이로 정한 목표 시간 안에 풀기.', 'startKind', 'data-k="p7time"')}
+    ${row('Part 7 지문별 시간 훈련', '2~3세트', '지문 길이로 정한 목표 시간 안에 풀기.', 'startKind', 'data-k="p7time"')}
     ${row('시간 초과 문제 모음', `${over}문항`, '목표 시간을 넘겼던 문제를 시간 안에 다시 풀기.', 'startKind', `data-k="overtime" ${over ? '' : 'disabled'}`)}
     <h2>실전</h2>
     ${row('RC 실전 모의고사', '75분', '100문항. Part 5 30, Part 6 16, Part 7 54. 해설은 끝나고.', 'startKind', 'data-k="full"', true)}
@@ -293,7 +293,7 @@ function renderResult() {
       const att = s.attemptIds && s.attemptIds[q.id] ? C.state.attempts.find((x) => x.id === s.attemptIds[q.id]) : null;
       const tag = slow ? ['warn', '시간 초과'] : !a ? ['bad', '미응답'] : a.choice === -1 ? ['bad', '시간 초과'] : ['bad', '오답'];
       const label = unit.part === 6 ? `빈칸 (${q.blank})` : q.question;
-      html += `<details class="card"><summary><span class="tag ${tag[0]}">${tag[1]}</span> <span class="small">Part ${unit.part} · ${h(String(label || '').slice(0, 70))}</span></summary>
+      html += `<details class="card"><summary><span class="tag ${tag[0]}">${tag[1]}</span> <span class="small">Part ${unit.part} · ${h(String(label || '').replace(/-{7}/, '___').slice(0, 70))}</span></summary>
         ${unit.part >= 6 ? `<p class="xs muted">지문은 오답노트에서 다시 풀며 볼 수 있습니다.</p>` : ''}
         ${explainHtml(q, unit, a, { causeFor: att })}</details>`;
     }

@@ -40,7 +40,7 @@ export function renderReview() {
       if (!ref) return '';
       const label = ref.unit.part === 6 ? `빈칸 (${ref.q.blank})` : ref.q.question;
       return `<div class="list-item"><div class="grow"><div class="xs muted">P${n.part} · ${h(conceptName(C.bank, n.concept))} · 틀림 ${n.wrongCount}${n.rightAfter ? ` · 이후 정답 ${n.rightAfter}` : ''}${n.cause ? ` · ${h(CAUSES.find((c) => c.id === n.cause)?.label || '')}` : ''}</div>
-        <div class="small">${h(String(label || '').slice(0, 80))}</div></div><button class="btn sm" data-act="wnOne" data-q="${n.qid}">다시</button></div>`;
+        <div class="small">${h(String(label || '').replace(/-{7}/, '___').slice(0, 80))}</div></div><button class="btn sm" data-act="wnOne" data-q="${n.qid}">다시</button></div>`;
     }).join('');
   } else html += `<p class="muted small">해당하는 오답이 없습니다.</p>`;
   const over = overtimeQids(st.attempts);

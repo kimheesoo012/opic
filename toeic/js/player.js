@@ -227,7 +227,7 @@ function renderUnit(s, it, unit, q, qs) {
   if (fb) {
     main += explainHtml(q, unit, ans, { causeFor: lastAttempt(s, q) });
     foot += `<div class="foot-actions"><button class="btn primary" data-act="next">${isLast(s, qs) ? '결과 보기' : '다음'}</button></div>`;
-  } else if (s.feedback === 'end') {
+  } else if (s.feedback === 'end' && !s.autoNext) {
     foot += `<div class="foot-actions"><button class="btn primary" data-act="next" ${P.chosen == null ? 'disabled' : ''}>${isLast(s, qs) ? '제출' : '다음'}</button></div>`;
   }
   return `<div class="sess">${topBar(s)}<div class="sess-main">${main}</div><div class="sess-foot ${P.wide ? 'narrow' : ''}">${foot}</div></div>`;
@@ -250,14 +250,14 @@ export function explainHtml(q, unit, ans, { causeFor = null } = {}) {
   let out = `<div class="exp">`;
   if (ans && ans.choice === -1) out += `<div class="verdict bad">시간 초과 <span class="small muted">정답 ${LETTERS[q.answer]}</span></div>`;
   else if (ans) {
-    out += `<div class="verdict ${ok ? 'ok' : 'bad'}">${ok ? '정답' : '오답'} <span class="small muted">정답 ${LETTERS[q.answer]}${ok ? '' : ` · 내 답 ${LETTERS[ans.choice]}`} · ${Math.round(ans.sec)}초, 목표 ${tgt}초</span></div>`;
+    out += `<div class="verdict ${ok ? 'ok' : 'bad'}">${ok ? '정답' : '오답'} <span class="small muted">${ok ? LETTERS[q.answer] : `정답 ${LETTERS[q.answer]} · 내 답 ${LETTERS[ans.choice]}`} · ${Math.round(ans.sec)}초 · 목표 ${tgt}초</span></div>`;
   } else out += `<div class="verdict bad">미응답 <span class="small muted">정답 ${LETTERS[q.answer]}</span></div>`;
   out += `<div class="xs muted">${h(concept ? concept.name : q.concept)} · ${LEVELS[q.difficulty]}${q.tags && q.tags.includes('trap') ? ' · 함정' : ''}</div>`;
   out += `<p class="why">${h(ex.why)}</p>`;
   if (concept && concept.tip) out += `<p class="tip"><b>핵심</b> ${h(concept.tip)}</p>`;
   out += `<ul class="traps">`;
   q.choices.forEach((c, i) => {
-    out += `<li><b class="${i === q.answer ? 'done-mark' : ''}">${LETTERS[i]}${i === q.answer ? ' ✓' : ''}</b>${h(c)}${i !== q.answer ? `<div class="small muted">${h(ex.traps[i])}</div>` : ''}</li>`;
+    out += `<li><b class="${i === q.answer ? 'done-mark' : ''}">${LETTERS[i]}</b>${i === q.answer ? '<span class="tag ok">정답</span> ' : ''}${h(c)}${i !== q.answer ? `<div class="small muted">${h(ex.traps[i])}</div>` : ''}</li>`;
   });
   out += `</ul>`;
   if (q.para && q.para.length) {
