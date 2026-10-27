@@ -222,7 +222,7 @@ function buildSeason(s, first = false) {
     q.push(e.id);
   }
   // 6) 허브: 산책 코스 고르기 / 누구 옆에
-  if (!first && q.length < 3 && chance(s, 0.3)) {
+  if (!first && q.length < 3 && chance(s, 0.22)) {
     const h = weighted(s, HUBS.filter((e) => eligible(s, e)), (x) => x.w ?? 1);
     if (h) q.push(h.id);
   }
