@@ -2,6 +2,7 @@
 // 게임 진행(사건 순서·관계·능력치)에는 손대지 않는다. 기록은 견생 상태의 s.quiz와 간격 반복 기록(srs)에만 남는다.
 import { itemOf, isN2, questionKinds, makeQuestion, grade, mastered, MASTER_STREAK, DAY } from './study.js';
 import { hashSeed, rand } from './rng.js';
+import { BANK_BY_REF, bankQuestion } from './bankq.js';
 
 // 몇 장면마다 한 문제 (보통: 4~5장면)
 export const QUIZ_FREQ = { off: null, low: [8, 10], mid: [4, 5], high: [2, 3] };
@@ -87,7 +88,13 @@ export function pickItem(log, srs, now, src = 'scene') {
       score = 100;
     } else {
       const due = !!r && r.due <= now;
-      if (r && mastered(r) && !due) continue;
+      // 익힌 말(복습일 전)은 다른 후보가 없을 때만 — 방금 장면에서 만난 것으로 (확인 문제 간격을 지키기 위해)
+      if (r && mastered(r) && !due) {
+        if (src === 'scene' && recent.includes(id)) score = 5 + rand(h) * 3;
+        else continue;
+        if (!best || score > best.score) best = { id, score };
+        continue;
+      }
       const weak = !!r && r.ng > 0 && r.streak === 0;
       const unsure = !r || r.streak < MASTER_STREAK;
       const fresh = src === 'scene' && recent.includes(id);
@@ -122,17 +129,27 @@ export function chooseKind(id, log, srs, ctx) {
 }
 
 // 문제 만들기 (ctx: { hasScene, blank } — 문장은 화면 쪽이 준비한다)
+// 문제은행에 그 말을 다루는 문항이 있으면, 다시 묻는 때(이번 견생에서 또는 예전에 푼 적 있음)나 세 번에 한 번은 그것을 낸다.
+// 이번 견생에서 이미 낸 문항은 다시 내지 않는다.
 export function buildQuestion(id, log, srs, ctx) {
-  const kind = chooseKind(id, log, srs, ctx);
   const seed = log.seed + id + ':' + log.asked.length + ':' + (srs[id] ? srs[id].ok + srs[id].ng : 0);
+  const used = new Set(log.asked.map((a) => a.bank).filter(Boolean));
+  const items = (BANK_BY_REF[id] || []).filter((q) => !used.has(q.id));
+  if (items.length) {
+    const r = srs[id];
+    const again = !!runState(log, id) || (r && r.ok + r.ng > 0);
+    const h = { rng: hashSeed(seed + 'bank') };
+    if (again || rand(h) < 1 / 3) return bankQuestion(id, items[Math.floor(rand(h) * items.length)]);
+  }
+  const kind = chooseKind(id, log, srs, ctx);
   return makeQuestion(id, seed, srs[id], { ...ctx, kind });
 }
 
 // 답 기록: 간격 반복에 반영하고(틀리면 내일 다시 · 이번 견생에서도 간격을 두고 한 번 더), 게임 능력치에는 반영하지 않는다
 export function recordAnswer(log, srs, q, ok, now, src) {
   const r = grade(srs, q.id, ok, now);
-  r.lk = q.kind;
-  log.asked.push({ id: q.id, kind: q.kind, ok, scene: log.scenes, src });
+  if (q.kind !== 'bank') r.lk = q.kind;
+  log.asked.push({ id: q.id, kind: q.kind, ok, scene: log.scenes, src, ...(q.bankId ? { bank: q.bankId } : {}) });
   return r;
 }
 

@@ -5,6 +5,8 @@ import { sceneOf } from './scenes.js';
 import { blankOf } from '../engine/study.js';
 import { pickItem, buildQuestion, recordAnswer } from '../engine/quizplan.js';
 import { store } from './store.js';
+import { BANK_TYPES } from '../data/n2/bank.js';
+import { richQ } from './n2ui.js';
 
 export const KIND_LABEL = {
   reading: '読み — 읽기 고르기',
@@ -68,6 +70,15 @@ export function renderQuiz(app, view, { q, tpl }, src, log, done) {
     const srs = store.srs();
     recordAnswer(log, srs, q, ok, Date.now(), src);
     store.saveSrs(srs);
+    if (q.bankId) {
+      const ql = store.qlog();
+      const r = ql[q.bankId] || { ok: 0, ng: 0, t: q.btype };
+      r[ok ? 'ok' : 'ng']++;
+      r.last = Date.now();
+      r.lastOk = ok;
+      ql[q.bankId] = r;
+      store.saveQlog(ql);
+    }
     view.save();
     e.currentTarget.classList.add(ok ? 'right' : 'wrong');
     opts[q.answer].classList.add('right');
@@ -75,7 +86,8 @@ export function renderQuiz(app, view, { q, tpl }, src, log, done) {
     if (scene) ko.hidden = false;
     fb.replaceChildren(...[
       h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
-      h('p', null, q.explain),
+      q.why ? h('ul', { class: 'why' }, q.options.map((op, k) => h('li', { class: k === q.answer ? 'ans' : null }, h('b', { lang: 'ja' }, op), ` — ${q.why[k] || ''}`))) : h('p', null, q.explain),
+      q.ko ? h('p', { class: 'note' }, q.ko) : null,
       ok ? null : h('p', { class: 'note' }, '복습 목록에 넣었어요. 몇 문제 뒤에 다른 형태로 한 번 더 나옵니다.'),
     ].filter(Boolean));
     fb.hidden = false;
@@ -87,10 +99,10 @@ export function renderQuiz(app, view, { q, tpl }, src, log, done) {
   // replaceChildren은 null을 「null」 글자로 넣으므로 빈 칸은 걸러 낸다
   view.panel.replaceChildren(...[
     h('div', { class: 'ev-cat' }, src === 'card' ? '復習カード' : 'ちょっと確認'),
-    h('div', { class: 'q-kind' }, KIND_LABEL[q.kind] || ''),
+    h('div', { class: 'q-kind' }, q.kind === 'bank' ? `${BANK_TYPES[q.btype][0]} — ${BANK_TYPES[q.btype][1]}` : KIND_LABEL[q.kind] || ''),
     h('p', { class: 'note small q-why' }, src === 'card' ? '전에 만난 말을 다시 꺼내 봅니다. 게임 진행에는 영향이 없어요.' : '방금 장면에 나온 말이에요. 틀려도 게임에는 영향이 없어요.'),
     line,
-    q.prompt ? h('div', { class: 'q-prompt' + (koPrompt ? ' ko' : '') + (q.kind === 'grammar' ? ' long' : ''), lang: koPrompt ? 'ko' : 'ja' }, q.prompt) : null,
+    q.prompt ? h('div', { class: 'q-prompt' + (koPrompt ? ' ko' : '') + (q.kind === 'grammar' || q.kind === 'bank' ? ' long' : ''), lang: koPrompt ? 'ko' : 'ja' }, q.kind === 'bank' ? richQ(q.prompt) : q.prompt) : null,
     h('div', { class: 'btns' }, opts),
     fb,
   ].filter(Boolean));

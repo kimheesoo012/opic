@@ -9,6 +9,7 @@ import { GameView } from './game.js';
 import { farewellScreen, memorialScreen, resultScreen } from './end.js';
 import { wordPopup, grammarPopup } from './vocabui.js';
 import { studyScreen, quizScreen, dailyIds, progressBox } from './studyui.js';
+import { n2Screen, n2SummaryBox } from './n2ui.js';
 import { LCD, fitCanvas } from './pixel/lcd.js';
 import { lookFor } from './pixel/director.js';
 import { icon } from './icons.js';
@@ -64,7 +65,7 @@ class App {
     this.root.append(el);
     el.scrollTop = 0;
   }
-  go(name, arg) {
+  go(name, arg, arg2) {
     if (this.view && name !== 'game') {
       this.view.unmount();
       this.view = null;
@@ -87,6 +88,8 @@ class App {
         return this.mountScreen(studyScreen(this, 'book'));
       case 'history':
         return this.mountScreen(this.historyScreen());
+      case 'n2':
+        return this.mountScreen(n2Screen(this, arg || 'home', arg2));
       case 'settings':
         return this.mountScreen(this.settingsScreen());
       default:
@@ -297,6 +300,7 @@ class App {
         h('div', null, h('h1', { class: 'logo', lang: 'ja' }, '道場犬'), h('p', { class: 'subtitle', lang: 'ja' }, 'ある道場の、ある犬の一生')),
         h('div', { class: 'device title-device' }, h('div', { class: 'lcd' }, cv)),
         h('button', { class: 'study-strip', type: 'button', onclick: () => this.go('review') }, h('span', { class: 'due' }, h('b', null, '今日の復習'), h('span', null, String(due))), progressBox(srs)),
+        n2SummaryBox(this),
         h('div', { class: 'btns' },
           has ? h('button', { class: 'btn primary', type: 'button', onclick: () => this.resume(save) }, `つづきから · ${save.state.dog.name} ${Math.floor(save.state.t / 4)}歳`) : null,
           h('button', { class: has ? 'btn center' : 'btn primary', type: 'button', onclick: () => this.go('birth') }, 'はじめから'),

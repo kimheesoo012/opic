@@ -4,6 +4,7 @@ import { FW } from '../src/data/farewell.js';
 import { JA } from '../src/data/ja/all.js';
 import { JA_MISC } from '../src/data/ja/misc.js';
 import { splitSentJa } from '../src/engine/text.js';
+import { GRAMMAR } from '../src/data/grammar.js';
 
 // 일본어 서술·선택지·결과 등의 모든 문장 (문장 하나가 템플릿 하나)
 export function jaStrings() {
@@ -15,6 +16,8 @@ export function jaStrings() {
   };
   for (const [id, v] of Object.entries(JA)) walk(v, id);
   walk(JA_MISC, 'misc');
+  // 문법 예문 (문법 창에서 후리가나와 함께 보인다)
+  for (const [k, g] of Object.entries(GRAMMAR)) for (const e of g.ex || []) out.push([e[0], 'gex:' + k]);
   return out;
 }
 

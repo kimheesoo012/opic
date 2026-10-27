@@ -106,6 +106,13 @@ export const store = {
   saveSrs(x) {
     write('srs', x);
   },
+  // N2 문제 기록 { 문제id: { ok, ng, last, lastOk, t 유형 } }
+  qlog() {
+    return read('qlog', {});
+  },
+  saveQlog(x) {
+    write('qlog', x);
+  },
   // 오늘의 한 문제를 푼 날 (YYYY-MM-DD)
   dailyDone() {
     return read('daily', '');
@@ -134,6 +141,6 @@ export const store = {
     write('legacy', l);
   },
   resetAll() {
-    for (const k of ['settings', 'save', 'wordbook', 'study', 'terms', 'history', 'legacy', 'srs', 'daily']) remove(k);
+    for (const k of ['settings', 'save', 'wordbook', 'study', 'terms', 'history', 'legacy', 'srs', 'daily', 'qlog']) remove(k);
   },
 };

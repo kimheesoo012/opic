@@ -89,7 +89,7 @@ function saveButton(key, scene) {
   return b;
 }
 
-function modal(app, label, ...kids) {
+export function modal(app, label, ...kids) {
   const close = () => back.remove();
   const back = h('div', { class: 'modal-back', onclick: (e) => e.target === back && close() },
     h('div', { class: 'modal', role: 'dialog', 'aria-label': label }, ...kids, h('button', { class: 'btn primary close-btn', type: 'button', onclick: close }, '閉じる')));
