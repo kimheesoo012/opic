@@ -3,6 +3,7 @@ import { VOCAB } from '../data/vocab.js';
 import { GRAMMAR } from '../data/grammar.js';
 import { dueIds, grade, makeSet, mastered, progress, itemOf, reviewGroups, learningStats, blankOf } from '../engine/study.js';
 import { kindName } from './playquiz.js';
+import { explainView } from './explainui.js';
 import { h, LINES } from './render.js';
 import { store } from './store.js';
 import { firstScene, levelLabel, wordPopup, grammarPopup } from './vocabui.js';
@@ -149,7 +150,7 @@ export function quizScreen(app, ids, label, opts = {}) {
       opt[q.answer].classList.add('right');
       const scene = q.kind === 'context' || q.kind === 'gcontext' ? null : firstScene(app, q.id, app.settings.furigana);
       // 한국어 해설: 일본어 모드에서는 「解説」을 눌렀을 때만
-      const explain = h('p', { class: 'q-ko', hidden: ja }, q.explain);
+      const explain = h('div', { class: 'q-ko', hidden: ja }, explainView(q, oi));
       fb.replaceChildren(...[
         h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
         ja ? h('button', { class: 'mini-btn', type: 'button', onclick: (ev) => { explain.hidden = !explain.hidden; ev.currentTarget.textContent = explain.hidden ? '解説' : '閉じる'; } }, '解説') : null,

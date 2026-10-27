@@ -12,6 +12,7 @@ import { hashSeed, shuffle } from '../engine/rng.js';
 import { h, LINES, renderExample, renderJa } from './render.js';
 import { store } from './store.js';
 import { modal, saveWord, wordPopup, grammarPopup, uiJa, jaConn } from './vocabui.js';
+import { explainView } from './explainui.js';
 
 const TABS = [
   ['home', 'ホーム'], ['vocab', '語彙'], ['grammar', '文法'], ['drill', '問題演習'], ['read', '読解'], ['listen', '聴解'], ['weak', '弱点克服'], ['review', '復習'],
@@ -292,7 +293,8 @@ export function grammarDetail(app, key) {
       meet(s2, 'g:' + key);
       grade(s2, 'g:' + key, ok);
       store.saveSrs(s2);
-      fb.replaceChildren(h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'), ...koBlock(h('p', null, explain), g.qx ? h('ul', { class: 'why' }, wrong.map((w, i) => h('li', null, h('b', { lang: 'ja' }, w), ` — ${g.qx[i] || ''}`))) : null));
+      const why = opts.map((x) => (x === ans ? `정답. ${explain}` : (g.qx && g.qx[wrong.indexOf(x)]) || ''));
+      fb.replaceChildren(h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'), ...koBlock(...explainView({ options: opts, answer: opts.indexOf(ans), why }, opts.indexOf(o))));
       fb.hidden = false;
     } }, o));
     practice.append(h('h4', null, '練習'), h('div', { class: 'q-prompt long', lang: 'ja' }, stem.replace('＿＿', '（　　）')), h('div', { class: 'btns' }, btns), fb);
@@ -356,7 +358,7 @@ export function runDrill(app, body, qs, label, onDone) {
       btns[q.a].classList.add('right');
       if (!ok) btns[oi].classList.add('wrong');
       fb.replaceChildren(); appendAll(fb, h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
-        ...koBlock(h('ul', { class: 'why' }, q.opts.map((op, k) => h('li', { class: k === q.a ? 'ans' : null }, h('b', { lang: 'ja' }, `${k + 1}. ${op}`), ` — ${(q.why || [])[k] || ''}`)))),
+        ...koBlock(...explainView({ options: q.opts, answer: q.a, why: q.why }, oi, { numbered: true })),
         (q.ref || []).filter((id) => itemOf(id)).length ? h('div', { class: 'chips' }, q.ref.filter((id) => itemOf(id)).map((id) => h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => (id[0] === 'g' ? grammarDetail(app, id.slice(2)) : vocabDetail(app, id.slice(2))) }, id[0] === 'g' ? GRAMMAR[id.slice(2)].f : id.slice(2)))) : null);
       fb.hidden = false;
       next.hidden = false;
