@@ -251,7 +251,7 @@ function applyBrief(s, ch) {
   const out = applyOutcome(s, { ...b, fx: b.fx }, ch, true);
   s.seen[ch.id] = s.t;
   s.log.push({ t: s.t, kind: 'news', who: ch.who, text: out.res || resolveKo(b.news ? Object.values(b.news)[0] : '', { s }), textJa: out.resJa || (b.newsJa ? Object.values(b.newsJa)[0] : null) });
-  s.hist.push({ t: s.t, id: ch.id, title: ch.title, titleJa: ch.titleJa || null, brief: true });
+  s.hist.push({ t: s.t, id: ch.id, title: ch.title, titleJa: ch.titleJa || jaOnly(ch.title), brief: true });
 }
 
 // ───────── 이벤트 진행 ─────────
@@ -315,7 +315,7 @@ export function view(s) {
     who: e.who,
     title: resolveKo(e.title, ctx),
     // 일본어는 템플릿 그대로 (자리표시자·후리가나는 화면이 처리한다)
-    titleJa: e.titleJa || null,
+    titleJa: e.titleJa || jaOnly(e.title),
     text: resolveKo(flatText(s, e.text), ctx),
     textJa: flatText(s, e.textJa) || null,
     lines: flatLines(s, e.lines),
@@ -382,7 +382,7 @@ export function choose(s, i, auto = false) {
     foil: out.foil,
     word: e.word || null,
   };
-  s.hist.push({ t: s.t, id: e.id, title: resolveKo(e.title, { s }), titleJa: e.titleJa || null, choice: s.res.choice, choiceJa: s.res.choiceJa, auto });
+  s.hist.push({ t: s.t, id: e.id, title: resolveKo(e.title, { s }), titleJa: e.titleJa || jaOnly(e.title), choice: s.res.choice, choiceJa: s.res.choiceJa, auto });
   s.phase = 'result';
   return s.res;
 }

@@ -487,6 +487,7 @@ export class GameView {
 
   // 일본어 제목: 탭하면 한국어 제목
   titleEl(ja, ko) {
+    if (!ja) return h('h3', { class: 'ev-title' }, resolveKo(ko || '', { s: this.s }));
     const koEl = h('span', { class: 'title-ko', hidden: true, lang: 'ko' }, ko);
     const el = h('h3', { class: 'ev-title jp', lang: 'ja', role: 'button', tabindex: '0', onclick: () => (koEl.hidden = !koEl.hidden) }, renderJa(ja, { ...this.ctxFor(null), targets: new Set() }), koEl);
     return el;

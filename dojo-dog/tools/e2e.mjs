@@ -24,7 +24,7 @@ async function run() {
   });
   const p = await ctx.newPage();
   const errs = [];
-  p.on('pageerror', (e) => errs.push(e.message));
+  p.on('pageerror', (e) => errs.push(e.message + ' @ ' + String(e.stack || '').split('\n').slice(1, 6).join(' ')));
   p.on('console', (m) => m.type() === 'error' && errs.push(m.text()));
   await p.goto(BASE + 'index.html');
   await p.click('text=はじめから');
@@ -231,7 +231,7 @@ async function legacyData() {
   });
   const p = await ctx.newPage();
   const errs = [];
-  p.on('pageerror', (e) => errs.push(e.message));
+  p.on('pageerror', (e) => errs.push(e.message + ' @ ' + String(e.stack || '').split('\n').slice(1, 6).join(' ')));
   await p.goto(BASE + 'index.html');
   const set = await p.evaluate(() => window.__dojoinu.settings);
   ok('옛 설정 이전 (furigana hard → n2, 배속 유지)', set.furigana === 'n2' && set.speed === 2 && set.studyLevel === 'n2', JSON.stringify({ f: set.furigana, sp: set.speed, lv: set.studyLevel }));

@@ -81,7 +81,8 @@ export function sceneTargets(tpls, set = {}) {
 
 // ctx: { s, speaker, mode, onWord(key), onGrammar(key), saved:Set, targets:Set('v:…'|'g:…') }
 export function renderJa(tpl, ctx) {
-  const segs = ctx.segs || LINES.lines[tpl] || LINES.ex[tpl] || fallbackSegs(tpl);
+  // 비어 있으면 빈 칸 (데이터 누락으로 화면이 멈추지 않게)
+  const segs = ctx.segs || LINES.lines[tpl] || LINES.ex[tpl] || fallbackSegs(tpl || '');
   const span = h('span', { class: 'ja-text', lang: 'ja' });
   const isTarget = (id) => !ctx.targets || ctx.targets.has(id);
   for (const sg of segs) {
