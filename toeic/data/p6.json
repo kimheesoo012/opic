@@ -16,7 +16,7 @@
      "blank": 1,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "will be distributed",
       "were distributed",
@@ -51,7 +51,7 @@
      "blank": 2,
      "type": "insert",
      "concept": "p6.insert",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "The new building has a cafeteria on the ground floor.",
       "Thank you for attending last week's training session.",
@@ -74,7 +74,7 @@
      "blank": 3,
      "type": "vocab",
      "concept": "p6.vocab",
-     "difficulty": 2,
+     "difficulty": 1,
      "choices": [
       "commute",
       "transport",
@@ -97,7 +97,7 @@
      "blank": 4,
      "type": "connector",
      "concept": "p6.connector",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "However",
       "For example",
@@ -133,7 +133,7 @@
      "blank": 1,
      "type": "vocab",
      "concept": "p6.vocab",
-     "difficulty": 2,
+     "difficulty": 1,
      "choices": [
       "inaccurate",
       "unavailable",
@@ -168,7 +168,7 @@
      "blank": 2,
      "type": "insert",
      "concept": "p6.insert",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "We will notify you as soon as it arrives.",
       "Your chairs were delivered yesterday afternoon.",
@@ -191,7 +191,7 @@
      "blank": 3,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "preferred",
       "will prefer",
@@ -214,7 +214,7 @@
      "blank": 4,
      "type": "vocab",
      "concept": "p6.vocab",
-     "difficulty": 2,
+     "difficulty": 1,
      "choices": [
       "We appreciate",
       "We regret",
@@ -250,7 +250,7 @@
      "blank": 1,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 4,
+     "difficulty": 3,
      "choices": [
       "much",
       "most",
@@ -280,7 +280,7 @@
      "blank": 2,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "has supplied",
       "supplies",
@@ -303,7 +303,7 @@
      "blank": 3,
      "type": "connector",
      "concept": "p6.connector",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "In contrast",
       "Even so",
@@ -326,7 +326,7 @@
      "blank": 4,
      "type": "insert",
      "concept": "p6.insert",
-     "difficulty": 4,
+     "difficulty": 3,
      "choices": [
       "Harlow Foods was founded by two brothers in a small garage.",
       "The city council rejected the proposal last week.",
@@ -374,7 +374,7 @@
      "blank": 1,
      "type": "vocab",
      "concept": "p6.vocab",
-     "difficulty": 2,
+     "difficulty": 1,
      "choices": [
       "admitted",
       "accepted",
@@ -404,7 +404,7 @@
      "blank": 2,
      "type": "vocab",
      "concept": "p6.vocab",
-     "difficulty": 2,
+     "difficulty": 1,
      "choices": [
       "shorten",
       "extend",
@@ -427,7 +427,7 @@
      "blank": 3,
      "type": "connector",
      "concept": "p6.connector",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "However",
       "Nevertheless",
@@ -450,7 +450,7 @@
      "blank": 4,
      "type": "insert",
      "concept": "p6.insert",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "Paper forms can still be used until December.",
       "The finance department recently moved to the third floor.",
@@ -486,7 +486,7 @@
      "blank": 1,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "install",
       "installing",
@@ -516,7 +516,7 @@
      "blank": 2,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "which",
       "where",
@@ -539,7 +539,7 @@
      "blank": 3,
      "type": "insert",
      "concept": "p6.insert",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "The pool is open twenty-four hours a day during the renovation.",
       "Towels will be provided there free of charge.",
@@ -562,7 +562,7 @@
      "blank": 4,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 2,
+     "difficulty": 1,
      "choices": [
       "renovating",
       "renovation",
@@ -598,7 +598,7 @@
      "blank": 1,
      "type": "vocab",
      "concept": "p6.vocab",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "attend",
       "remind",
@@ -628,7 +628,7 @@
      "blank": 2,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "Familiarity",
       "Familiar",
@@ -651,7 +651,7 @@
      "blank": 3,
      "type": "insert",
      "concept": "p6.insert",
-     "difficulty": 4,
+     "difficulty": 3,
      "choices": [
       "The position has already been filled.",
       "Experience with forklift operation is preferred but not required.",
@@ -681,7 +681,7 @@
      "blank": 4,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 2,
+     "difficulty": 1,
      "choices": [
       "contacted",
       "have contacted",
@@ -717,7 +717,7 @@
      "blank": 1,
      "type": "vocab",
      "concept": "p6.vocab",
-     "difficulty": 2,
+     "difficulty": 1,
      "choices": [
       "exceed",
       "expire",
@@ -747,7 +747,7 @@
      "blank": 2,
      "type": "connector",
      "concept": "p6.connector",
-     "difficulty": 2,
+     "difficulty": 1,
      "choices": [
       "Therefore",
       "Similarly",
@@ -770,7 +770,7 @@
      "blank": 3,
      "type": "insert",
      "concept": "p6.insert",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "In-person renewals require a photo ID and proof of address.",
       "The library will be closed permanently next month.",
@@ -800,7 +800,7 @@
      "blank": 4,
      "type": "vocab",
      "concept": "p6.vocab",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "take advantage of",
       "take part",
@@ -836,7 +836,7 @@
      "blank": 1,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 2,
+     "difficulty": 1,
      "choices": [
       "among",
       "on",
@@ -866,7 +866,7 @@
      "blank": 2,
      "type": "insert",
      "concept": "p6.insert",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "Registration must be completed in person at the store.",
       "Your warranty has now expired.",
@@ -889,7 +889,7 @@
      "blank": 3,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "so that",
       "as if",
@@ -912,7 +912,7 @@
      "blank": 4,
      "type": "grammar",
      "concept": "p6.grammar",
-     "difficulty": 3,
+     "difficulty": 2,
      "choices": [
       "causing",
       "caused",

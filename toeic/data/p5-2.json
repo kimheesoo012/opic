@@ -5,7 +5,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.form",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "The company plans ------- a second distribution center in the southern region next year.",
    "choices": [
     "open",
@@ -36,7 +36,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.form",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Ms. Hwang recommended ------- the client meeting until the final figures were available.",
    "choices": [
     "postponing",
@@ -72,7 +72,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.form",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -106,7 +106,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.form",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "------- customer wait times, the bank has added two more tellers during lunch hours.",
    "choices": [
     "Reduce",
@@ -137,7 +137,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.form",
-   "difficulty": 5,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -176,7 +176,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.participle",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "Please read the ------- documents carefully before the meeting on Thursday.",
    "choices": [
     "attach",
@@ -207,7 +207,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.participle",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The results of the customer survey were ------- to the product development team.",
    "choices": [
     "encouraging",
@@ -238,7 +238,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.participle",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Participants ------- in the workshop should register at the information booth by noon.",
    "choices": [
     "interesting",
@@ -269,7 +269,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.participle",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -308,7 +308,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.participle",
-   "difficulty": 5,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -383,7 +383,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pronoun",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "The interns presented ------- findings to the senior research staff on Friday.",
    "choices": [
     "they",
@@ -414,7 +414,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pronoun",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Since the receptionist was on leave, Ms. Patel answered the phones -------.",
    "choices": [
     "her",
@@ -445,7 +445,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pronoun",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -479,7 +479,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pronoun",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "New employees are encouraged to familiarize ------- with the safety procedures before their first shift.",
    "choices": [
     "they",
@@ -515,7 +515,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.rel",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "The consultant ------- we hired last spring helped us reorganize the warehouse.",
    "choices": [
     "whom",
@@ -546,7 +546,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.rel",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Applicants ------- résumés arrive after the deadline will not be considered.",
    "choices": [
     "whose",
@@ -577,7 +577,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.rel",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The hotel ------- the annual sales conference will be held is located near the convention center.",
    "choices": [
     "which",
@@ -608,7 +608,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.rel",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -647,7 +647,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.rel",
-   "difficulty": 5,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -686,7 +686,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.conj",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "------- the train was delayed by forty minutes, most passengers arrived in time for the opening speech.",
    "choices": [
     "Despite",
@@ -717,7 +717,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.conj",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The store will remain open until 9 P.M. ------- the holiday shopping season.",
    "choices": [
     "while",
@@ -748,7 +748,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.conj",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Refunds will not be issued ------- the original receipt is presented at the time of return.",
    "choices": [
     "unless",
@@ -784,7 +784,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.conj",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -823,7 +823,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.conj",
-   "difficulty": 5,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -857,7 +857,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.prep",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "Completed expense forms must be submitted ------- Friday, March 14.",
    "choices": [
     "until",
@@ -888,7 +888,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.prep",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Mr. Nkemelu will speak at the trade fair ------- the entire sales department.",
    "choices": [
     "in spite of",
@@ -919,7 +919,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.prep",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The new policy was chosen ------- three alternatives presented by the planning team.",
    "choices": [
     "among",
@@ -950,7 +950,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.prep",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -989,7 +989,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.prep",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The factory has operated at full capacity ------- the beginning of the year.",
    "choices": [
     "for",

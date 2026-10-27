@@ -5,7 +5,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.noun",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "Ms. Okafor's ------- of the quarterly budget helped the team avoid unnecessary expenses.",
    "choices": [
     "analyze",
@@ -41,7 +41,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.noun",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "All applicants must submit proof of ------- along with their résumés.",
    "choices": [
     "employment",
@@ -77,7 +77,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.noun",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -111,7 +111,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.noun",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Employees must complete safety ------- before operating the new packaging machinery.",
    "choices": [
     "train",
@@ -147,7 +147,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.noun",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -186,7 +186,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.adj",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "The new filing system has made the archive much more ------- to staff members.",
    "choices": [
     "accessible",
@@ -248,7 +248,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.adj",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "The instructions for assembling the shelves were not as ------- as customers had expected.",
    "choices": [
     "clearly",
@@ -279,7 +279,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.adj",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -318,7 +318,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.adj",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -357,7 +357,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.adv",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "The technicians worked ------- to restore the network before business hours began on Monday.",
    "choices": [
     "tirelessly",
@@ -388,7 +388,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.adv",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "Sales of the compact model have increased ------- since the price was reduced in March.",
    "choices": [
     "steady",
@@ -419,7 +419,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.adv",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The large conference room is ------- reserved for client meetings on Thursday afternoons.",
    "choices": [
     "typical",
@@ -450,7 +450,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.adv",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -489,7 +489,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.pos.adv",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Only candidates who have ------- completed the online assessment will be contacted for an interview.",
    "choices": [
     "success",
@@ -525,7 +525,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.tense",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "Mr. Abara ------- in the accounting department since he joined the firm in 2019.",
    "choices": [
     "has worked",
@@ -556,7 +556,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.tense",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "By the time the new shipment arrived, the store ------- out of the advertised blenders.",
    "choices": [
     "sells",
@@ -592,7 +592,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.tense",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -631,7 +631,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.tense",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The revised quarterly report ------- to all shareholders next Friday.",
    "choices": [
     "sent",
@@ -662,7 +662,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.tense",
-   "difficulty": 5,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -696,7 +696,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.voice",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "All visitors ------- to sign in at the front desk upon arrival.",
    "choices": [
     "require",
@@ -732,7 +732,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.voice",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Last year's awards ceremony ------- by more than 300 employees and their families.",
    "choices": [
     "was attended",
@@ -763,7 +763,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.voice",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The marketing team ------- several new slogans for the spring campaign.",
    "choices": [
     "has been proposed",
@@ -794,7 +794,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.voice",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -833,7 +833,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.voice",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -872,7 +872,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.agree",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "The list of approved vendors ------- updated every six months.",
    "choices": [
     "is",
@@ -908,7 +908,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.agree",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Each of the regional managers ------- expected to submit a progress report by Friday.",
    "choices": [
     "are",
@@ -939,7 +939,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.agree",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The number of customers using the mobile ordering app ------- doubled over the past year.",
    "choices": [
     "has",
@@ -970,7 +970,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.agree",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -1009,7 +1009,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.verb.agree",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],

@@ -15,7 +15,7 @@
      "id": "p7-s09-1",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What problem did Mr. Mills report?",
      "choices": [
       "He was charged twice for an item.",
@@ -44,7 +44,7 @@
      "id": "p7-s09-2",
      "type": "not",
      "concept": "p7.not",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is Mr. Mills NOT asked to do?",
      "choices": [
       "Print a shipping label",
@@ -67,7 +67,7 @@
      "id": "p7-s09-3",
      "type": "inference",
      "concept": "p7.inference",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is implied about Mr. Mills's headphones?",
      "choices": [
       "They were bought at a discount.",
@@ -109,7 +109,7 @@
      "id": "p7-s10-1",
      "type": "inference",
      "concept": "p7.inference",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "Why did the Diaz family most likely move to Grant Street?",
      "choices": [
       "The rent on Maple Avenue increased.",
@@ -138,7 +138,7 @@
      "id": "p7-s10-2",
      "type": "synonym",
      "concept": "p7.synonym",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "The word “supplies” in paragraph 2 is closest in meaning to",
      "choices": [
       "provides",
@@ -161,7 +161,7 @@
      "id": "p7-s10-3",
      "type": "insert",
      "concept": "p7.insert",
-     "difficulty": 4,
+     "difficulty": 3,
      "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
      "sentence": "On weekends, customers often waited in line for more than an hour.",
      "choices": [
@@ -185,7 +185,7 @@
      "id": "p7-s10-4",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What is indicated about Elena Diaz?",
      "choices": [
       "She founded the bakery in 1987.",
@@ -227,7 +227,7 @@
      "id": "p7-s11-1",
      "type": "not",
      "concept": "p7.not",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is NOT stated about the combined airline?",
      "choices": [
       "It will reduce ticket prices.",
@@ -250,7 +250,7 @@
      "id": "p7-s11-2",
      "type": "synonym",
      "concept": "p7.synonym",
-     "difficulty": 4,
+     "difficulty": 3,
      "tags": [
       "trap"
      ],
@@ -276,7 +276,7 @@
      "id": "p7-s11-3",
      "type": "inference",
      "concept": "p7.inference",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is suggested about the two airlines?",
      "choices": [
       "They were founded in the same year.",
@@ -305,7 +305,7 @@
      "id": "p7-s11-4",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "According to the article, what will happen in January?",
      "choices": [
       "The merger will receive final approval.",
@@ -347,7 +347,7 @@
      "id": "p7-s12-1",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "Why does Ms. Benson want Mr. Malhotra to attend the interviews?",
      "choices": [
       "He will work with the person who is hired.",
@@ -376,7 +376,7 @@
      "id": "p7-s12-2",
      "type": "inference",
      "concept": "p7.inference",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "Which interview will Mr. Malhotra most likely be unable to attend?",
      "choices": [
       "The one at 10:00 A.M.",
@@ -399,7 +399,7 @@
      "id": "p7-s12-3",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What will Ms. Benson send Mr. Malhotra by Wednesday morning?",
      "choices": [
       "A list of interview questions",
@@ -445,7 +445,7 @@
      "id": "p7-s13-1",
      "type": "purpose",
      "concept": "p7.purpose",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What is the main purpose of the notice?",
      "choices": [
       "To introduce a new fitness instructor",
@@ -468,7 +468,7 @@
      "id": "p7-s13-2",
      "type": "not",
      "concept": "p7.not",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is NOT mentioned as a change?",
      "choices": [
       "An earlier opening time on weekdays",
@@ -491,7 +491,7 @@
      "id": "p7-s13-3",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What will happen to members who miss a reserved class without canceling?",
      "choices": [
       "They will be temporarily unable to make reservations.",
@@ -562,7 +562,7 @@
      "id": "p7-s14-2",
      "type": "synonym",
      "concept": "p7.synonym",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "The word “handled” in paragraph 2 is closest in meaning to",
      "choices": [
       "touched",
@@ -585,7 +585,7 @@
      "id": "p7-s14-3",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What problem does Carlos M. mention?",
      "choices": [
       "The private room was too small.",
@@ -614,7 +614,7 @@
      "id": "p7-s14-4",
      "type": "inference",
      "concept": "p7.inference",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What can be inferred about Carlos M.?",
      "choices": [
       "He made his reservation by telephone.",
@@ -656,7 +656,7 @@
      "id": "p7-s15-1",
      "type": "purpose",
      "concept": "p7.purpose",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What is the purpose of the letter?",
      "choices": [
       "To invite Dr. Achebe to submit a research paper",
@@ -679,7 +679,7 @@
      "id": "p7-s15-2",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What is Dr. Achebe asked to do by November 7?",
      "choices": [
       "Book a hotel room",
@@ -708,7 +708,7 @@
      "id": "p7-s15-3",
      "type": "not",
      "concept": "p7.not",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is NOT mentioned as something the committee will provide?",
      "choices": [
       "Airfare",
@@ -731,7 +731,7 @@
      "id": "p7-s15-4",
      "type": "insert",
      "concept": "p7.insert",
-     "difficulty": 4,
+     "difficulty": 3,
      "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
      "sentence": "Please forward your flight details to my assistant so that the driver knows when to expect you.",
      "choices": [

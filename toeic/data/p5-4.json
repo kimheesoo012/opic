@@ -5,7 +5,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.verb",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "Please ------- the attached registration form and return it to the personnel office by Friday.",
    "choices": [
     "complete",
@@ -36,7 +36,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.verb",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The Grandview Hotel can ------- up to 500 guests in its main ballroom.",
    "choices": [
     "accommodate",
@@ -72,7 +72,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.verb",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -106,7 +106,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.verb",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -140,7 +140,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.verb",
-   "difficulty": 4,
+   "difficulty": 3,
    "question": "The CEO ------- the success of the product launch to the hard work of the design team.",
    "choices": [
     "contributed",
@@ -176,7 +176,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.verb",
-   "difficulty": 3,
+   "difficulty": 2,
    "tags": [
     "trap"
    ],
@@ -210,7 +210,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.noun",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "The color printer is still under -------, so the repair will be free of charge.",
    "choices": [
     "warranty",
@@ -246,7 +246,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.noun",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The new branch offers a wide ------- of financial services for small businesses.",
    "choices": [
     "field",
@@ -277,7 +277,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.noun",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Employees should keep all receipts as ------- of their travel expenses.",
    "choices": [
     "reason",
@@ -308,7 +308,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.noun",
-   "difficulty": 4,
+   "difficulty": 3,
    "question": "The factory was fined for failing to operate in ------- with environmental regulations.",
    "choices": [
     "obedience",
@@ -344,7 +344,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.noun",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -378,7 +378,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.noun",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "A ------- of the meeting will be sent to everyone who was unable to attend.",
    "choices": [
     "summit",
@@ -409,7 +409,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.adjadv",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "The history museum is ------- closed for renovations but will reopen in May.",
    "choices": [
     "previously",
@@ -440,7 +440,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.adjadv",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The new procedure has ------- reduced the time needed to process insurance claims.",
    "choices": [
     "highly",
@@ -476,7 +476,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.adjadv",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Please arrive at least fifteen minutes before your ------- appointment time.",
    "choices": [
     "punctual",
@@ -507,7 +507,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.adjadv",
-   "difficulty": 4,
+   "difficulty": 3,
    "question": "The front desk staff were ------- helpful during our stay, especially when our luggage was delayed.",
    "choices": [
     "remarkably",
@@ -538,7 +538,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.adjadv",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -572,7 +572,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.adjadv",
-   "difficulty": 5,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -611,7 +611,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.colloc",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "Customers who ------- an order before noon will receive their items the next business day.",
    "choices": [
     "place",
@@ -642,7 +642,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.colloc",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The research team will ------- a survey of 2,000 consumers next month.",
    "choices": [
     "attend",
@@ -673,7 +673,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.colloc",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -707,7 +707,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.colloc",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Seating at the awards dinner is ------- limited, so guests are encouraged to reply early.",
    "choices": [
     "strictly",
@@ -738,7 +738,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.colloc",
-   "difficulty": 4,
+   "difficulty": 3,
    "question": "Several employees have ------- concerns about the new overtime policy.",
    "choices": [
     "risen",
@@ -774,7 +774,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.colloc",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "After months of negotiation, the two companies finally ------- an agreement.",
    "choices": [
     "arrived",
@@ -805,7 +805,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.confuse",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Fuel prices have ------- sharply over the past two months.",
    "choices": [
     "raised",
@@ -836,7 +836,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.confuse",
-   "difficulty": 4,
+   "difficulty": 3,
    "question": "The new tax law will ------- small businesses in several ways.",
    "choices": [
     "effect",
@@ -867,7 +867,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.confuse",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -901,7 +901,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.confuse",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -935,7 +935,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.confuse",
-   "difficulty": 4,
+   "difficulty": 3,
    "question": "Please ------- the boxes on the bottom shelf near the loading dock.",
    "choices": [
     "lie",
@@ -966,7 +966,7 @@
    "part": 5,
    "type": "vocab",
    "concept": "p5.voc.confuse",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The board accepted the CFO's ------- to postpone the expansion until next year.",
    "choices": [
     "advise",

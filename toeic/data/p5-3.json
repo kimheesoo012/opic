@@ -5,7 +5,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.subj",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "If the replacement parts ------- earlier, we would have been able to fill the order on time.",
    "choices": [
     "arrived",
@@ -41,7 +41,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.subj",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "If the clinic ------- more nurses, it would be able to extend its weekend hours.",
    "choices": [
     "hires",
@@ -72,7 +72,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.subj",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -106,7 +106,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.subj",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -140,7 +140,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.subj",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -179,7 +179,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.inversion",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Rarely ------- Mr. Ito missed a deadline in his twelve years at the firm.",
    "choices": [
     "does",
@@ -210,7 +210,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.inversion",
-   "difficulty": 4,
+   "difficulty": 3,
    "question": "Not only ------- the new label printer faster, but it also uses considerably less ink.",
    "choices": [
     "is",
@@ -241,7 +241,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.inversion",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -275,7 +275,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.inversion",
-   "difficulty": 5,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -309,7 +309,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.inversion",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "Hardly ------- the quarterly meeting begun when the fire alarm went off.",
    "choices": [
     "has",
@@ -340,7 +340,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.compare",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "The new delivery van is ------- than the old one, so it can fit into narrower streets.",
    "choices": [
     "small",
@@ -371,7 +371,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.compare",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "This year's design expo attracted the ------- number of visitors in the event's history.",
    "choices": [
     "large",
@@ -402,7 +402,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.compare",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The redesigned website loads twice as ------- as the previous version did.",
    "choices": [
     "fast",
@@ -433,7 +433,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.compare",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -467,7 +467,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.compare",
-   "difficulty": 5,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -506,7 +506,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.quant",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "------- employee is required to wear an identification badge while in the building.",
    "choices": [
     "All",
@@ -537,7 +537,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.quant",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "There is still ------- room in the budget for additional marketing expenses.",
    "choices": [
     "a little",
@@ -568,7 +568,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.quant",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The orientation packet includes ------- useful tips for first-time managers.",
    "choices": [
     "much",
@@ -599,7 +599,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.quant",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -633,7 +633,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.quant",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],
@@ -672,7 +672,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.correl",
-   "difficulty": 2,
+   "difficulty": 1,
    "question": "Applicants can submit their registration forms ------- online or by mail.",
    "choices": [
     "both",
@@ -703,7 +703,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.correl",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "The new branch manager is ------- experienced but also very approachable.",
    "choices": [
     "both",
@@ -734,7 +734,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.correl",
-   "difficulty": 3,
+   "difficulty": 2,
    "question": "------- the sales director nor the marketing manager was available for comment.",
    "choices": [
     "Either",
@@ -765,7 +765,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.correl",
-   "difficulty": 4,
+   "difficulty": 3,
    "question": "The two-day seminar will cover ------- recruitment strategies and employee retention.",
    "choices": [
     "either",
@@ -801,7 +801,7 @@
    "part": 5,
    "type": "grammar",
    "concept": "p5.correl",
-   "difficulty": 4,
+   "difficulty": 3,
    "tags": [
     "trap"
    ],

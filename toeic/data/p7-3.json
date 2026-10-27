@@ -48,7 +48,7 @@
      "id": "p7-d01-1",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What is included with every room rental?",
      "choices": [
       "Presentation equipment",
@@ -77,7 +77,7 @@
      "id": "p7-d01-2",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "Which room will Mr. Lee most likely book?",
      "choices": [
       "The Birch Room",
@@ -106,7 +106,7 @@
      "id": "p7-d01-3",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 4,
+     "difficulty": 3,
      "tags": [
       "trap"
      ],
@@ -138,7 +138,7 @@
      "id": "p7-d01-4",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "Why will Mr. Lee send a list by March 6?",
      "choices": [
       "To register the workshop participants",
@@ -167,7 +167,7 @@
      "id": "p7-d01-5",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 4,
+     "difficulty": 3,
      "question": "What is true about the lunch Mr. Lee requested for March 12?",
      "choices": [
       "It will be prepared by Lakeview Business Center staff.",
@@ -208,7 +208,7 @@
      "id": "p7-d02-1",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "Why is KitchenPro recalling the blenders?",
      "choices": [
       "A part may fail to close securely.",
@@ -237,7 +237,7 @@
      "id": "p7-d02-2",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is indicated about the blender owned by Ms. Walsh's sister?",
      "choices": [
       "It was manufactured in May.",
@@ -266,7 +266,7 @@
      "id": "p7-d02-3",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 4,
+     "difficulty": 3,
      "tags": [
       "trap"
      ],
@@ -292,7 +292,7 @@
      "id": "p7-d02-4",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What does Ms. Walsh ask about?",
      "choices": [
       "How to find a serial number",
@@ -321,7 +321,7 @@
      "id": "p7-d02-5",
      "type": "synonym",
      "concept": "p7.synonym",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "In the notice, the word “affected” in paragraph 2 is closest in meaning to",
      "choices": [
       "emotional",
@@ -401,7 +401,7 @@
      "id": "p7-d03-1",
      "type": "purpose",
      "concept": "p7.purpose",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What is the purpose of the e-mail?",
      "choices": [
       "To request feedback on a meeting",
@@ -424,7 +424,7 @@
      "id": "p7-d03-2",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What time will the workshop on social media begin?",
      "choices": [
       "9:30",
@@ -447,7 +447,7 @@
      "id": "p7-d03-3",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 4,
+     "difficulty": 3,
      "tags": [
       "trap"
      ],
@@ -473,7 +473,7 @@
      "id": "p7-d03-4",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "Why was the location of lunch changed?",
      "choices": [
       "Bad weather is expected.",
@@ -502,7 +502,7 @@
      "id": "p7-d03-5",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is suggested about the Garden Terrace?",
      "choices": [
       "It is located in a different hotel.",
@@ -543,7 +543,7 @@
      "id": "p7-d04-1",
      "type": "not",
      "concept": "p7.not",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is NOT listed as a responsibility of the position?",
      "choices": [
       "Taking photographs",
@@ -566,7 +566,7 @@
      "id": "p7-d04-2",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is indicated about Ms. Carvalho's application?",
      "choices": [
       "It was submitted after the deadline.",
@@ -589,7 +589,7 @@
      "id": "p7-d04-3",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What qualification of Ms. Carvalho's would most likely be considered an advantage?",
      "choices": [
       "Her experience living in Vancouver",
@@ -618,7 +618,7 @@
      "id": "p7-d04-4",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 4,
+     "difficulty": 3,
      "question": "What is true about Ms. Carvalho's availability?",
      "choices": [
       "She cannot start until August.",
@@ -641,7 +641,7 @@
      "id": "p7-d04-5",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What kind of books does Arbor Publishing produce?",
      "choices": [
       "Literature textbooks",

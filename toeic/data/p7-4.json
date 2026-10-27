@@ -53,7 +53,7 @@
      "id": "p7-t01-1",
      "type": "purpose",
      "concept": "p7.purpose",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "Why did Ms. Park send the first e-mail?",
      "choices": [
       "To place an order for office furniture",
@@ -76,7 +76,7 @@
      "id": "p7-t01-2",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is suggested about Corvus Design?",
      "choices": [
       "It is moving to a smaller office.",
@@ -105,7 +105,7 @@
      "id": "p7-t01-3",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "Which item was delivered in the wrong quantity?",
      "choices": [
       "The item priced at $150 each",
@@ -128,7 +128,7 @@
      "id": "p7-t01-4",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "When will Corvus Design's employees begin working at the new office?",
      "choices": [
       "October 2",
@@ -151,7 +151,7 @@
      "id": "p7-t01-5",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What does Ms. Park request in the second e-mail?",
      "choices": [
       "A replacement for a damaged item",
@@ -232,7 +232,7 @@
      "id": "p7-t02-1",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "What is mentioned about this year's festival?",
      "choices": [
       "It is being held for the first time.",
@@ -261,7 +261,7 @@
      "id": "p7-t02-2",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "Why was Mr. Whitfield unable to buy festival passes?",
      "choices": [
       "They had sold out.",
@@ -284,7 +284,7 @@
      "id": "p7-t02-3",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 4,
+     "difficulty": 3,
      "tags": [
       "trap"
      ],
@@ -310,7 +310,7 @@
      "id": "p7-t02-4",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "Where will Mr. Whitfield most likely be at 7:00 P.M. on Saturday?",
      "choices": [
       "In Riverside Park",
@@ -414,7 +414,7 @@
      "id": "p7-t03-2",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "What is indicated about Mr. Navarro?",
      "choices": [
       "He meets the requirement to serve as a mentor.",
@@ -437,7 +437,7 @@
      "id": "p7-t03-3",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "Why was Ms. Ito most likely paired with Mr. Navarro?",
      "choices": [
       "They work on the same floor.",
@@ -460,7 +460,7 @@
      "id": "p7-t03-4",
      "type": "link",
      "concept": "p7.link",
-     "difficulty": 3,
+     "difficulty": 2,
      "question": "Why will Mr. Navarro's preferred meeting day not be used at first?",
      "choices": [
       "Mr. Navarro will be traveling.",
@@ -489,7 +489,7 @@
      "id": "p7-t03-5",
      "type": "detail",
      "concept": "p7.detail",
-     "difficulty": 2,
+     "difficulty": 1,
      "question": "How often will Mr. Navarro and Ms. Ito meet?",
      "choices": [
       "Every week",
