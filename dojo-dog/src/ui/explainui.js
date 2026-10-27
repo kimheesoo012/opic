@@ -1,24 +1,27 @@
-// 퀴즈 해설 화면 조각: 고른 답(틀렸을 때) → 정답 → 나머지 선택지 → 덧붙임(품사·접속·예문) → 문제 번역
+// 퀴즈 해설 화면 조각: 고른 답(틀렸을 때) → 정답 → 나머지 선택지(한 줄씩) → 「자세히」(접속·차이·주의·예문, 접혀 있음) → 문제 번역
 import { h } from './render.js';
 
 const JA = /[ぁ-んァ-ン一-龯]/;
+const esc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+// 해설이 선택지 글자로 시작하면(「にわたって는 …」) 그 부분은 화면이 이미 보여 주므로 뺀다
+function trimHead(text, opt) {
+  let t = String(text || '').replace(/^정답[.。]\s*/, '').trim();
+  const bare = String(opt).replace(/^～/, '').replace(/^\d+\.\s*/, '');
+  if (bare) t = t.replace(new RegExp(`^「?～?${esc(bare)}」?\\s*(는|은|이|가|를|을|의)?\\s+`), '');
+  return t;
+}
+
 // q: { options, answer, why?, more?, explain?, ko? } · pick: 고른 선택지 번호 · numbered: 「1. 」 붙이기
 export function explainView(q, pick, { numbered = false, ko = true } = {}) {
-  // 「정답」 표시는 칸 제목이 하므로 해설 앞의 「정답.」은 뺀다
-  const why = (q.why || []).map((w) => String(w || '').replace(/^정답\.\s*/, ''));
-  const label = (i) => {
-    const t = (numbered ? `${i + 1}. ` : '') + q.options[i];
-    return h('b', { lang: JA.test(q.options[i]) ? 'ja' : null }, t);
-  };
+  const why = q.options.map((o, i) => trimHead((q.why || [])[i], o));
+  const label = (i) => h('b', { lang: JA.test(q.options[i]) ? 'ja' : null }, (numbered ? `${i + 1}. ` : '') + q.options[i]);
+  const box = (cls, tag, i, text) => h('div', { class: 'ex-box ' + cls }, h('div', { class: 'ex-head' }, h('span', { class: 'ex-tag' }, tag), label(i)), text ? h('p', null, text) : null);
   const out = [];
-  if (pick != null && pick !== q.answer) {
-    out.push(h('div', { class: 'ex-box ex-pick' }, h('span', { class: 'ex-tag ng' }, '고른 답'), label(pick), why[pick] ? h('p', null, why[pick]) : null));
-  }
-  const ansWhy = why[q.answer] || (q.explain || '').replace(/^정답\.\s*/, '');
-  out.push(h('div', { class: 'ex-box ex-ans' }, h('span', { class: 'ex-tag ok' }, '정답'), label(q.answer), ansWhy ? h('p', null, ansWhy) : null));
+  if (pick != null && pick !== q.answer) out.push(box('ex-pick', '고른 답', pick, why[pick]));
+  out.push(box('ex-ans', '정답', q.answer, why[q.answer] || trimHead(q.explain, q.options[q.answer])));
   const others = q.options.map((_, i) => i).filter((i) => i !== q.answer && i !== pick && why[i]);
-  if (others.length) out.push(h('ul', { class: 'why ex-others' }, others.map((i) => h('li', null, label(i), ` — ${why[i]}`))));
-  if (q.more && q.more.length) out.push(h('div', { class: 'ex-more' }, q.more.map((m) => h('p', null, m))));
-  if (ko && q.ko) out.push(h('p', { class: 'note' }, q.ko));
+  if (others.length) out.push(h('ul', { class: 'ex-others' }, others.map((i) => h('li', null, label(i), h('span', null, why[i])))));
+  if (q.more && q.more.length) out.push(h('details', { class: 'ex-more' }, h('summary', null, '자세히'), q.more.map((m) => h('p', null, m))));
+  if (ko && q.ko) out.push(h('p', { class: 'ex-ko' }, q.ko));
   return out;
 }

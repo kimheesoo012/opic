@@ -2,7 +2,7 @@
 // 항목 id: 'v:단어' 또는 'g:문법키'. 기록: { met, box, due, streak, ok, ng, last, iv, ef, tr }
 // 간격: 처음 세 번은 1·3·7일, 그다음부터는 지난 간격 × 쉬움 계수(ef). 맞히면 ef가 조금 오르고, 틀리면 내려가며 다음 날부터 다시.
 // 「번역 보기」(tr)는 틀린 것으로 치지 않는다. 복습 순서를 정할 때만 참고한다.
-import { readingDiff, vocabLine, withReading, grammarByForm, grammarLine, vocabMore, grammarMore, josa } from './explain.js';
+import { readingDiff, withReading, grammarByForm, gShort, vShort, vocabMore, grammarMore, shortConnOf } from './explain.js';
 import { VOCAB } from '../data/vocab.js';
 import { GRAMMAR } from '../data/grammar.js';
 import { hashSeed, rand, shuffle } from './rng.js';
@@ -309,7 +309,7 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
       const i = wrong.indexOf(o);
       const qx = it.qx && it.qx[i];
       const g = grammarByForm(o);
-      return qx || (g ? `${grammarLine(g)}. 이 문장에는 맞지 않는다.` : '이 문장에는 맞지 않는다.');
+      return qx || (g ? gShort(g) : '');
     });
     return { id, kind, prompt: stem, options, answer: options.indexOf(ans), explain, why, more: grammarMore(it.key), label: it.f, sub: it.m };
   }
@@ -318,9 +318,9 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
     const wrong = blankDistractors(it.key, ctx.blank.cls, h);
     const options = shuffle(h, [ctx.blank.surface, ...wrong.map((k) => blankForm(k, ctx.blank.cls))]);
     const why = options.map((o) => {
-      if (o === ctx.blank.surface) return `정답. 「${it.f}」 = ${it.m}. 이 문장의 흐름에 맞는 것은 이것뿐이다.`;
+      if (o === ctx.blank.surface) return gShort(it);
       const k = wrong.find((w) => blankForm(w, ctx.blank.cls) === o);
-      return k ? `${grammarLine({ ...GRAMMAR[k] })}. 뜻이 이 장면의 흐름과 맞지 않는다.` : '';
+      return k ? gShort(GRAMMAR[k]) : '';
     });
     return { id, kind, prompt: '（　）에 들어갈 말', options, answer: options.indexOf(ctx.blank.surface), explain: `「${it.f}」 = ${it.m}. 오답: ${wrong.map((k) => `${blankForm(k, ctx.blank.cls)} = ${GRAMMAR[k].m}`).join(' · ')}.`, why, more: grammarMore(it.key), label: it.f, sub: it.m, blank: true };
   }
@@ -340,17 +340,17 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
     if (kind === 'gcontext') {
       const options = shuffle(h, [it.m, ...wrong.map((k) => GRAMMAR[k].m)]);
       const why = options.map((o) => {
-        if (o === it.m) return `정답. 이 문장의 ${josa(`「${it.f.replace(/^～/, '')}」`, '은는')} 「${it.m}」라는 뜻이다.`;
+        if (o === it.m) return `${it.f} · ${shortConnOf(it)}`;
         const k = wrong.find((w) => GRAMMAR[w].m === o);
-        return k ? `${josa(`「${o}」`, '은는')} 「${GRAMMAR[k].f}」의 뜻이다.` : '';
+        return k ? `${GRAMMAR[k].f}의 뜻` : '';
       });
       return { id, kind, prompt: `밑줄 친 「${it.f.replace(/^～/, '')}」의 뜻`, options, answer: options.indexOf(it.m), explain: `「${it.f}」 = ${it.m}. 오답: ${wrong.map((k) => `${GRAMMAR[k].f} = ${GRAMMAR[k].m}`).join(' · ')}.`, why, more: grammarMore(it.key), label: it.f, sub: it.m, context: true };
     }
     const options = shuffle(h, [it.f, ...wrong.map((k) => GRAMMAR[k].f)]);
     const why = options.map((o) => {
-      if (o === it.f) return `정답. 「${it.f}」 = ${it.m}.`;
+      if (o === it.f) return gShort(it);
       const k = wrong.find((w) => GRAMMAR[w].f === o);
-      return k ? `${grammarLine(GRAMMAR[k])}. ${josa(`「${it.m}」`, '과와')}는 뜻이 다르다.` : '';
+      return k ? gShort(GRAMMAR[k]) : '';
     });
     return { id, kind, prompt: it.m, options, answer: options.indexOf(it.f), explain: `${it.m} → 「${it.f}」. ${it.d} 오답: ${wrong.map((k) => `${GRAMMAR[k].f} = ${GRAMMAR[k].m}`).join(' · ')}.`, why, more: grammarMore(it.key), label: it.f, sub: it.m };
   }
@@ -366,9 +366,9 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
     }
     const options = shuffle(h, [it.f, ...wrong.map((w) => w.g.f)]);
     const why = options.map((o) => {
-      if (o === it.f) return `정답. 「${it.f}」 = ${it.m}.`;
+      if (o === it.f) return gShort(it);
       const w = wrong.find((x) => x.g.f === o);
-      return w ? `${grammarLine(w.g)}. ${josa(`「${it.m}」`, '과와')}는 뜻이 다르다.` : '';
+      return w ? gShort(w.g) : '';
     });
     return { id, kind, prompt: it.m, options, answer: options.indexOf(it.f), explain: `「${it.f}」 = ${it.m}. ${it.d}`, why, more: grammarMore(it.key), label: it.f, sub: it.m };
   }
@@ -387,14 +387,14 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
     }
     if (wrong.length < 3) return makeQuestion(id, seed, rec, { ...ctx, kind: 'meaning' });
     const options = shuffle(h, [key, ...wrong.map((w) => w.k)]);
-    const why = options.map((o) => (o === key ? `정답. ${vocabLine(key)}.` : `${vocabLine(o)}. ${josa(`「${it.m}」`, '과와')}는 뜻이 다르다.`));
+    const why = options.map((o) => vShort(o));
     return { id, kind, prompt: it.m, options, answer: options.indexOf(key), explain: `${it.m} → 「${key}（${it.r}）」. 오답: ${wrong.map((w) => `${w.k}（${VOCAB[w.k].r}）= ${w.m}`).join(' · ')}.`, why, more: vocabMore(key), label: key, sub: it.r };
   }
   if (kind === 'reading') {
     const wrong = readingOptions(key, seed);
     if (wrong.length < 3) return makeQuestion(id, seed, rec, { ...ctx, kind: 'meaning' });
     const options = shuffle(h, [it.r, ...wrong]);
-    const why = options.map((o) => (o === it.r ? `정답. ${key}의 읽기는 「${it.r}」 (${it.m}).` : `${readingDiff(it.r, o)}. ${key}의 읽기는 「${it.r}」.`));
+    const why = options.map((o) => (o === it.r ? it.m : readingDiff(it.r, o)));
     return { id, kind, prompt: key, options, answer: options.indexOf(it.r), explain: `「${key}」의 읽기는 「${it.r}」(${it.m}). 장음(う)·탁음·촉음(っ)·요음(ゃゅょ)이 하나만 달라도 다른 말이 된다.`, why, more: vocabMore(key), label: key, sub: it.r };
   }
   // 같은 품사·비슷한 길이를 먼저 고른다 (품사가 드물면 다른 품사도)
@@ -412,9 +412,9 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
   const wrongNote = wrong.map((w) => `${w.m} = ${w.k}`).join(' · ');
   // context: 게임 속 문장 안에서 이 말의 뜻 (문장은 화면이 보여 준다)
   const why = options.map((o) => {
-    if (o === it.m) return `정답. ${vocabLine(key)}.`;
+    if (o === it.m) return withReading(key);
     const w = wrong.find((x) => x.m === o);
-    return w ? `${josa(`「${o}」`, '은는')} 「${withReading(w.k)}」의 뜻이다.` : '';
+    return w ? `${withReading(w.k)}의 뜻` : '';
   });
   return { id, kind, prompt: key, options, answer: options.indexOf(it.m), explain: `「${key}（${it.r}）」 = ${it.m}. 오답: ${wrongNote}.`, why, more: vocabMore(key), label: key, sub: it.r, context: kind === 'context' };
 }
