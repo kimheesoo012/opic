@@ -1,0 +1,1150 @@
+{
+ "units": [
+  {
+   "id": "p5-161",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 1,
+   "question": "The quarterly sales meeting will be held ------- Friday afternoon.",
+   "choices": [
+    "on",
+    "in",
+    "at",
+    "to"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "요일이 들어간 때(Friday afternoon) 앞에는 on을 쓴다.",
+    "traps": [
+     null,
+     "in은 the afternoon처럼 요일 없는 하루의 때나 월·연도 앞에 쓴다.",
+     "at은 시각(at 3 P.M.) 앞에 쓴다.",
+     "to는 방향을 나타내며 때를 나타내지 않는다."
+    ]
+   }
+  },
+  {
+   "id": "p5-162",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 2,
+   "question": "Mr. Wu has worked as a management consultant ------- more than ten years.",
+   "choices": [
+    "since",
+    "during",
+    "while",
+    "for"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "more than ten years는 숫자로 된 기간이다. 기간 앞에는 for를 쓴다.",
+    "traps": [
+     "since 뒤에는 시작 시점(since 2015)이 와야 한다.",
+     "during 뒤에는 사건·특정 기간(during the meeting)이 온다.",
+     "while은 접속사라 명사구를 받지 못한다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-163",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 3,
+   "question": "------- the absence of the director, Ms. Kim chaired the weekly meeting.",
+   "choices": [
+    "On",
+    "At",
+    "In",
+    "By"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "in the absence of(~이 없는 상황에서)는 정해진 전치사 표현이다.",
+    "traps": [
+     "on the absence of라는 표현은 쓰지 않는다.",
+     "at the absence of라는 표현은 없다.",
+     null,
+     "by the absence of는 '부재로 인해'처럼 수단으로 읽혀 문맥과 맞지 않고 관용 표현도 아니다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "chair",
+     "pos": "v",
+     "m": "(회의를) 주재하다"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-164",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.subj",
+   "difficulty": 2,
+   "question": "If I ------- in your position, I would accept the job offer from Lumen Tech.",
+   "choices": [
+    "am",
+    "were",
+    "will be",
+    "had"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "주절이 would + 동사원형이라 현재 사실의 반대를 가정하는 가정법 과거다. be동사는 주어와 관계없이 were.",
+    "traps": [
+     "am은 실제 조건문 형태라 주절의 would와 맞지 않는다.",
+     null,
+     "if절에는 will을 쓰지 않는다.",
+     "had는 뒤에 과거분사가 와야 하고 in your position과 결합하지 못한다."
+    ]
+   }
+  },
+  {
+   "id": "p5-165",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.subj",
+   "difficulty": 2,
+   "question": "If we had left the office earlier, we ------- the last train.",
+   "choices": [
+    "would catch",
+    "will catch",
+    "caught",
+    "would have caught"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "if절이 had left(가정법 과거완료)이므로 주절은 would have + p.p.가 된다.",
+    "traps": [
+     "would catch는 가정법 과거의 주절 형태다.",
+     "will catch는 실제 미래 조건문 형태다.",
+     "caught는 단순 과거라 가정의 결과를 나타내지 못한다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-166",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.subj",
+   "difficulty": 3,
+   "question": "------- it not been for the generous donation, the library would have closed last year.",
+   "choices": [
+    "Were",
+    "Should",
+    "Had",
+    "If"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "If it had not been for(~이 없었다면)에서 If를 생략하면 Had it not been for가 된다. 주절도 would have closed.",
+    "traps": [
+     "Were it not for는 가능하지만 뒤에 been이 올 수 없다.",
+     "Should 뒤에는 동사원형이 와야 한다.",
+     null,
+     "If를 쓰면 If it had not been이 되어야 하며 If it not been은 틀린 형태다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "donation",
+     "pos": "n",
+     "m": "기부금"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-167",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.subj",
+   "difficulty": 3,
+   "question": "The director requested that the revised budget ------- by noon on Thursday.",
+   "choices": [
+    "be submitted",
+    "is submitted",
+    "was submitted",
+    "submits"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "request, require, recommend 뒤 that절에는 (should) + 동사원형을 쓴다. 예산은 제출'되는' 대상이므로 be submitted.",
+    "traps": [
+     null,
+     "is submitted는 수일치한 현재형이다. 요구 동사 뒤 that절에서는 원형을 쓴다.",
+     "was submitted는 과거라 앞으로 할 일과 맞지 않는다.",
+     "submits는 능동이라 예산이 제출하는 주체가 된다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-168",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.inversion",
+   "difficulty": 2,
+   "question": "Only recently ------- the company begin selling its products online.",
+   "choices": [
+    "has",
+    "did",
+    "does",
+    "was"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "Only + 부사가 문장 앞에 오면 조동사가 주어 앞으로 나온다. 뒤가 동사원형 begin이고 recently는 과거 일이므로 did.",
+    "traps": [
+     "has 뒤에는 과거분사(begun)가 와야 한다.",
+     null,
+     "does는 현재 습관을 나타내 recently와 어울리지 않는다.",
+     "was 뒤에는 begin이 올 수 없다."
+    ]
+   }
+  },
+  {
+   "id": "p5-169",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.inversion",
+   "difficulty": 2,
+   "question": "Not until the contract was signed ------- the team start production.",
+   "choices": [
+    "had",
+    "was",
+    "has",
+    "did"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "Not until ~이 앞에 오면 주절이 도치된다. 뒤의 동사원형 start와 결합하는 과거 조동사 did.",
+    "traps": [
+     "had 뒤에는 과거분사가 와야 한다.",
+     "was 뒤에는 start가 올 수 없다.",
+     "has 뒤에도 과거분사가 와야 한다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-170",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.inversion",
+   "difficulty": 3,
+   "question": "Seldom ------- such a large order been received in a single day.",
+   "choices": [
+    "have",
+    "has",
+    "did",
+    "does"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "부정어 Seldom 뒤 도치. 뒤에 been received가 있으므로 완료 조동사가 필요하고, 주어 such a large order는 단수라 has.",
+    "traps": [
+     "have는 복수 주어에 쓴다. order는 단수.",
+     null,
+     "did 뒤에는 동사원형이 와야 한다.",
+     "does 뒤에도 동사원형이 와야 한다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-171",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.inversion",
+   "difficulty": 3,
+   "question": "So popular ------- the new model that it sold out within a week.",
+   "choices": [
+    "was",
+    "were",
+    "did",
+    "had"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "So + 형용사가 문장 앞으로 나와 be동사와 주어가 도치되었다. 원래 문장은 The new model was so popular that ~. 주어가 단수이고 과거이므로 was.",
+    "traps": [
+     null,
+     "were는 복수 주어에 쓴다.",
+     "did는 일반동사 도치에 쓰며 형용사 보어와 결합하지 못한다.",
+     "had 뒤에는 과거분사가 와야 한다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-172",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.compare",
+   "difficulty": 1,
+   "question": "The new laptop is ------- than the previous model.",
+   "choices": [
+    "light",
+    "lightest",
+    "lighter",
+    "more light"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "than 앞이므로 비교급 lighter.",
+    "traps": [
+     "light는 원급이라 than과 쓰지 않는다.",
+     "lightest는 최상급이다.",
+     null,
+     "light의 비교급은 lighter이며 more light라고 쓰지 않는다."
+    ]
+   }
+  },
+  {
+   "id": "p5-173",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.compare",
+   "difficulty": 1,
+   "question": "Saturday is usually the ------- day of the week at the store.",
+   "choices": [
+    "busy",
+    "busier",
+    "busiest",
+    "most busy"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "the + ___ + of the week는 범위 안에서 '가장 ~한'이라는 최상급 구조라 busiest가 정답이다.",
+    "traps": [
+     "busy는 원급이다.",
+     "busier는 비교급이라 비교 대상 than이 필요하다.",
+     null,
+     "busy의 최상급은 busiest다."
+    ]
+   }
+  },
+  {
+   "id": "p5-174",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.compare",
+   "difficulty": 2,
+   "question": "The new office is not as ------- as the old one, but it is much closer to the station.",
+   "choices": [
+    "more spacious",
+    "most spacious",
+    "spaciously",
+    "spacious"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "as ~ as 사이에는 원급 형용사가 온다. be동사의 보어이므로 형용사 spacious.",
+    "traps": [
+     "more spacious는 비교급이라 as ~ as 사이에 쓰지 않는다.",
+     "most spacious는 최상급이다.",
+     "spaciously는 부사라 be동사의 보어가 될 수 없다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "spacious",
+     "pos": "adj",
+     "m": "넓은"
+    }
+   ]
+  },
+  {
+   "id": "p5-175",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.compare",
+   "difficulty": 3,
+   "question": "Of the three finalists, Ms. Harper is the ------- qualified for the position.",
+   "choices": [
+    "most",
+    "more",
+    "much",
+    "very"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "Of the three(셋 중에서)라는 범위가 있으므로 최상급 the most qualified.",
+    "traps": [
+     null,
+     "the more는 둘 사이 비교에 쓴다. 셋 이상이면 최상급.",
+     "much는 비교급을 강조하며 the much qualified라는 형태는 없다.",
+     "the very qualified는 형용사 앞 the와 결합하지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-176",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.quant",
+   "difficulty": 1,
+   "question": "We received ------- applications for the summer internship this year.",
+   "choices": [
+    "much",
+    "many",
+    "a little",
+    "every"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "applications는 복수 가산 명사라 many가 정답.",
+    "traps": [
+     "much는 불가산 명사에 쓴다.",
+     null,
+     "a little도 불가산 명사에 쓴다.",
+     "every는 단수 명사와 쓴다."
+    ]
+   }
+  },
+  {
+   "id": "p5-177",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.quant",
+   "difficulty": 2,
+   "question": "There is ------- information about the job fair on our Web site.",
+   "choices": [
+    "many",
+    "a few",
+    "a lot of",
+    "several"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "information은 불가산 명사이고 동사도 단수 is다. 불가산 명사와 쓰는 a lot of가 정답.",
+    "traps": [
+     "many는 복수 가산 명사에 쓴다.",
+     "a few도 복수 가산 명사에 쓴다.",
+     null,
+     "several도 복수 가산 명사에 쓴다."
+    ]
+   }
+  },
+  {
+   "id": "p5-178",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.quant",
+   "difficulty": 3,
+   "question": "------- employees signed up for the weekend workshop, so it was canceled.",
+   "choices": [
+    "A few",
+    "Few",
+    "Many",
+    "Several"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "so it was canceled(그래서 취소됐다)라는 결과가 나오려면 신청자가 '거의 없어야' 한다. 부정 의미의 Few.",
+    "traps": [
+     "A few는 '몇 명 있는'이라는 긍정 의미라 취소의 이유가 되지 않는다. a 하나로 뜻이 바뀌는 대표 함정.",
+     null,
+     "Many는 취소와 반대되는 의미다.",
+     "Several도 '몇몇 있는'이라는 긍정 의미다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-179",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.quant",
+   "difficulty": 2,
+   "question": "------- other company in the region offers same-day delivery.",
+   "choices": [
+    "None",
+    "Nothing",
+    "Not",
+    "No"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "명사 company 앞에서 한정사 역할을 하는 No가 필요하다. No other company는 '다른 어떤 회사도 ~않다'.",
+    "traps": [
+     "None은 대명사라 명사 앞에 올 수 없다(None of the companies는 가능).",
+     "Nothing은 대명사라 명사를 꾸밀 수 없다.",
+     "Not은 부사라 명사 앞 한정사 자리에 오지 않는다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-180",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.correl",
+   "difficulty": 1,
+   "question": "Customers can contact us ------- by phone or by e-mail.",
+   "choices": [
+    "either",
+    "neither",
+    "both",
+    "not only"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "뒤의 or와 짝을 이루는 either A or B.",
+    "traps": [
+     null,
+     "neither는 nor와 짝을 이룬다.",
+     "both는 and와 짝을 이룬다.",
+     "not only는 but also와 짝을 이룬다."
+    ]
+   }
+  },
+  {
+   "id": "p5-181",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.correl",
+   "difficulty": 2,
+   "question": "The new model is ------- lighter and cheaper than the old one.",
+   "choices": [
+    "both",
+    "either",
+    "neither",
+    "whether"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "뒤에 and가 있으므로 both A and B.",
+    "traps": [
+     null,
+     "either는 or와 짝을 이룬다.",
+     "neither는 nor와 짝을 이룬다.",
+     "whether는 or와 짝을 이루며 명사절·부사절을 이끈다."
+    ]
+   }
+  },
+  {
+   "id": "p5-182",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.correl",
+   "difficulty": 2,
+   "question": "Neither Mr. Han ------- Ms. Lopez was able to attend the conference.",
+   "choices": [
+    "or",
+    "and",
+    "nor",
+    "but"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "Neither와 짝을 이루는 것은 nor다.",
+    "traps": [
+     "or는 either와 짝을 이룬다.",
+     "and는 both와 짝을 이룬다.",
+     null,
+     "but은 not only ~ but also에서 쓴다."
+    ]
+   }
+  },
+  {
+   "id": "p5-183",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.correl",
+   "difficulty": 3,
+   "question": "The workshop is designed not only for managers ------- for new employees.",
+   "choices": [
+    "and also",
+    "but also",
+    "or",
+    "as well"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "not only A but also B 구문이다. A와 B 자리에 for + 명사가 병렬되었다.",
+    "traps": [
+     "and also는 not only와 짝을 이루지 않는다.",
+     null,
+     "or는 either와 짝을 이룬다.",
+     "as well은 B as well as A 형태로 쓰며 not only와 짝을 이루지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-184",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 1,
+   "question": "Passengers should ------- their seat belts while the plane is moving.",
+   "choices": [
+    "close",
+    "tie",
+    "lock",
+    "fasten"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "안전벨트는 fasten(매다)과 짝을 이룬다.",
+    "traps": [
+     "close는 문·창문을 닫을 때 쓴다.",
+     "tie는 끈·리본을 묶을 때 쓴다.",
+     "lock은 열쇠로 잠글 때 쓴다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-185",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 2,
+   "question": "Kestrel Foods plans to ------- 50 new workers for its second factory.",
+   "choices": [
+    "apply",
+    "hire",
+    "attend",
+    "retire"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "회사가 근로자를 '고용하다'는 hire다.",
+    "traps": [
+     "apply는 apply for(지원하다)처럼 지원자 쪽에서 쓰는 동사다.",
+     null,
+     "attend는 행사에 참석할 때 쓴다.",
+     "retire(은퇴하다)는 자동사다."
+    ]
+   }
+  },
+  {
+   "id": "p5-186",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 2,
+   "question": "Could you ------- me of the meeting time tomorrow morning?",
+   "choices": [
+    "remember",
+    "mention",
+    "notice",
+    "remind"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "remind A of B(A에게 B를 상기시키다)가 빈칸 뒤 me of와 맞는다.",
+    "traps": [
+     "remember는 사람 + of 구조를 취하지 않는다.",
+     "mention은 mention B to A 구조다.",
+     "notice(알아차리다)는 of와 결합하지 않는다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-187",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 3,
+   "question": "The manager asked the support team to ------- the login problem as soon as possible.",
+   "choices": [
+    "resolve",
+    "respond",
+    "react",
+    "result"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "빈칸 뒤 목적어 the login problem을 바로 받는 타동사가 필요하다. resolve(해결하다).",
+    "traps": [
+     null,
+     "respond는 respond to처럼 전치사가 필요하다.",
+     "react도 react to처럼 쓰는 자동사다.",
+     "result는 result in/from처럼 쓰는 자동사이고 의미도 맞지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-188",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 1,
+   "question": "Please keep your ------- as proof of purchase.",
+   "choices": [
+    "recipe",
+    "reception",
+    "receipt",
+    "recipient"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "구매 증빙으로 보관하는 것은 영수증(receipt)이다.",
+    "traps": [
+     "recipe는 요리법이다.",
+     "reception은 접수처·환영회다.",
+     null,
+     "recipient는 받는 사람이다."
+    ]
+   }
+  },
+  {
+   "id": "p5-189",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 2,
+   "question": "The hotel was fully booked, so we had to find other -------.",
+   "choices": [
+    "accommodations",
+    "accommodate",
+    "accountants",
+    "accounts"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "호텔이 꽉 차서 다른 '숙소'를 찾아야 했다는 뜻이다. accommodations(숙박 시설).",
+    "traps": [
+     null,
+     "accommodate는 동사라 other 뒤 명사 자리에 올 수 없다.",
+     "accountants(회계사)는 문맥과 관계없다.",
+     "accounts(계좌, 거래처)도 문맥과 관계없다."
+    ]
+   }
+  },
+  {
+   "id": "p5-190",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 2,
+   "question": "The company's annual ------- will be held in the ballroom of the Grand Hotel.",
+   "choices": [
+    "bouquet",
+    "budget",
+    "bonus",
+    "banquet"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "호텔 연회장에서 '열리는' 것은 연회(banquet)다.",
+    "traps": [
+     "bouquet는 꽃다발이라 개최될 수 없다.",
+     "budget(예산)은 열리는 행사가 아니다.",
+     "bonus(상여금)도 개최되는 대상이 아니다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-191",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 3,
+   "question": "Staff members must obtain ------- from a supervisor before using a company vehicle.",
+   "choices": [
+    "admission",
+    "submission",
+    "permission",
+    "commission"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "회사 차량을 쓰기 전에 상사에게 받아야 하는 것은 허가(permission)다. obtain permission from은 자연스러운 결합.",
+    "traps": [
+     "admission은 입장(허가)으로, 시설에 들어갈 때 쓴다.",
+     "submission은 제출(물)이라 상사에게서 받는 것이 아니다.",
+     null,
+     "commission은 수수료·위원회라 문맥과 맞지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-192",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 1,
+   "question": "The new printer is very ------- and rarely breaks down.",
+   "choices": [
+    "responsible",
+    "reliable",
+    "respective",
+    "reversible"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "'거의 고장 나지 않는다'와 이어지는 것은 '믿을 수 있는'을 뜻하는 reliable이다.",
+    "traps": [
+     "responsible(책임 있는)은 사람에게 쓴다.",
+     null,
+     "respective(각각의)는 명사 앞에서만 쓰며 보어로 쓰지 않는다.",
+     "reversible(뒤집을 수 있는)은 프린터 성능을 설명하지 못한다."
+    ]
+   }
+  },
+  {
+   "id": "p5-193",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 2,
+   "question": "The concert tickets sold out ------- after they went on sale.",
+   "choices": [
+    "lately",
+    "nearly",
+    "hardly",
+    "shortly"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "shortly after는 '~ 직후에'라는 뜻이다.",
+    "traps": [
+     "lately(최근에)는 주로 현재완료와 쓰고 after와 결합하지 않는다.",
+     "nearly(거의)는 nearly sold out처럼 쓸 수 있지만 after 앞에서 '직후'라는 뜻이 되지 않는다.",
+     "hardly(거의 ~않다)는 부정 의미라 문맥과 맞지 않는다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-194",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 2,
+   "question": "Please return the signed form ------- so that we can process your order quickly.",
+   "choices": [
+    "promptly",
+    "mostly",
+    "closely",
+    "likely"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "'빨리 처리하도록' 서류를 '즉시' 보내 달라는 뜻이다. promptly.",
+    "traps": [
+     null,
+     "mostly(대부분)는 의미가 맞지 않는다.",
+     "closely(면밀히)는 return과 어울리지 않는다.",
+     "likely는 '아마'라는 뜻이라 요청 문장과 맞지 않는다."
+    ]
+   }
+  },
+  {
+   "id": "p5-195",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 3,
+   "question": "Sales have increased by ------- 20 percent since the new campaign began.",
+   "choices": [
+    "extremely",
+    "approximately",
+    "highly",
+    "completely"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "숫자 앞에서 '대략'을 뜻하는 approximately가 정답이다.",
+    "traps": [
+     "extremely는 형용사를 강조하며 숫자 앞에 쓰지 않는다.",
+     null,
+     "highly도 형용사·분사를 강조하며 숫자를 꾸미지 않는다.",
+     "completely는 숫자 앞에서 쓰지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-196",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 1,
+   "question": "Our company ------- close attention to customer feedback.",
+   "choices": [
+    "holds",
+    "takes",
+    "pays",
+    "makes"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "pay attention to(~에 주의를 기울이다)가 정해진 결합이라 pays가 정답이다.",
+    "traps": [
+     "hold attention은 '주의를 끌어 붙잡다'라는 뜻으로 to와 결합해 '~에 주의를 기울이다'가 되지 않는다.",
+     "take attention이라는 표현은 쓰지 않는다.",
+     null,
+     "make attention이라는 표현도 없다."
+    ]
+   }
+  },
+  {
+   "id": "p5-197",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 2,
+   "question": "The new data protection law will ------- into effect next January.",
+   "choices": [
+    "take",
+    "make",
+    "come",
+    "put"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "come into effect(시행되다)가 정해진 결합이다. into와 함께 쓰는 것은 come.",
+    "traps": [
+     "take는 take effect로 쓰며 into가 붙지 않는다.",
+     "make into effect라는 표현은 없다.",
+     null,
+     "put into effect는 '시행하다'라는 타동사 표현이라 목적어가 필요하다. 법이 주어면 맞지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-198",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 2,
+   "question": "Ms. Nakamura will ------- a presentation on the spring marketing campaign.",
+   "choices": [
+    "take",
+    "give",
+    "raise",
+    "place"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "give a presentation(발표하다)이 정해진 결합이다.",
+    "traps": [
+     "take a presentation이라는 표현은 쓰지 않는다.",
+     null,
+     "raise는 raise a question처럼 쓴다.",
+     "place는 place an order처럼 쓴다."
+    ]
+   }
+  },
+  {
+   "id": "p5-199",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 3,
+   "question": "Ms. Ito was ------- recommended by her former employer.",
+   "choices": [
+    "highly",
+    "largely",
+    "heavily",
+    "deeply"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "highly recommended(적극 추천받은)가 정해진 결합이다.",
+    "traps": [
+     null,
+     "largely(주로)는 정도가 아니라 비중을 말한다.",
+     "heavily는 heavily rely처럼 양·무게에 쓴다.",
+     "deeply는 deeply moved처럼 감정에 쓰며 recommended와 결합하지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-200",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 1,
+   "question": "The price of the tour ------- breakfast and dinner.",
+   "choices": [
+    "concludes",
+    "encloses",
+    "intrudes",
+    "includes"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "투어 가격에 아침과 저녁이 '포함된다'는 뜻이다. includes.",
+    "traps": [
+     "concludes(끝맺다)는 철자가 비슷한 혼동 어휘다.",
+     "encloses(동봉하다)는 편지·봉투에 쓴다.",
+     "intrudes(침범하다)는 자동사라 목적어를 받지 않는다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-201",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 2,
+   "question": "Ms. Okoro will ------- the sales department starting next week.",
+   "choices": [
+    "lead",
+    "lend",
+    "load",
+    "loan"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "부서를 '이끌다'는 lead다.",
+    "traps": [
+     null,
+     "lend(빌려주다)는 철자가 비슷한 혼동 어휘다.",
+     "load(싣다)는 짐에 쓴다.",
+     "loan(대출하다)은 돈에 쓴다."
+    ]
+   }
+  },
+  {
+   "id": "p5-202",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 2,
+   "question": "The hotel has an ------- staff who speak five languages.",
+   "choices": [
+    "experiential",
+    "experiment",
+    "experimental",
+    "experienced"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "직원을 꾸미는 '숙련된'은 experienced다.",
+    "traps": [
+     "experiential(경험에 근거한)은 학습 방식 등에 쓰며 사람을 꾸미지 않는다.",
+     "experiment는 명사·동사라 형용사 자리에 맞지 않는다.",
+     "experimental(실험적인)은 직원을 설명하는 말로 어색하다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-203",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 3,
+   "question": "Mr. Kwon is ------- for training all new staff members.",
+   "choices": [
+    "responsive",
+    "responsible",
+    "respective",
+    "respectful"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "be responsible for(~을 책임지다)가 정해진 표현이다.",
+    "traps": [
+     "responsive(반응이 빠른)는 to와 쓰며 for와 결합하지 않는다.",
+     null,
+     "respective(각각의)는 명사 앞에서만 쓴다.",
+     "respectful(공손한)은 of·to와 쓰며 의미도 맞지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-204",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 2,
+   "question": "The ------- requires at least three years of sales experience.",
+   "choices": [
+    "situation",
+    "condition",
+    "position",
+    "location"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "'영업 경력 3년 이상을 요구하는' 것은 일자리(position)다.",
+    "traps": [
+     "situation(상황)은 경력을 요구하지 않는다.",
+     "condition(조건)은 requires의 주어로 어색하고 the condition requires는 뜻이 통하지 않는다.",
+     null,
+     "location(위치)은 문맥과 관계없다."
+    ]
+   }
+  },
+  {
+   "id": "p5-205",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 3,
+   "question": "The software update will ------- the speed of the system significantly.",
+   "choices": [
+    "approve",
+    "prove",
+    "remove",
+    "improve"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "업데이트가 시스템 속도를 크게 '향상시키다'는 improve다.",
+    "traps": [
+     "approve(승인하다)는 철자가 비슷한 혼동 어휘다.",
+     "prove(증명하다)는 속도를 목적어로 두면 의미가 통하지 않는다.",
+     "remove(제거하다)는 속도에 쓰면 뜻이 성립하지 않는다.",
+     null
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  }
+ ]
+}

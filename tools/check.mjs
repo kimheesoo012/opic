@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { validateBank } from '../toeic/js/schema.js';
+const dir = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../toeic/data');
+const concepts = JSON.parse(fs.readFileSync(path.join(dir, 'concepts.json'))).concepts;
+const files = fs.readdirSync(dir).filter(f => /^p\d/.test(f));
+const units = files.flatMap(f => JSON.parse(fs.readFileSync(path.join(dir, f))).units);
+const r = validateBank(units, concepts);
+console.log('units', units.length, 'errors', r.errors.length, 'warnings', r.warnings.length);
+r.errors.forEach(e => console.log('ERR', e));
+r.warnings.forEach(e => console.log('WARN', e));

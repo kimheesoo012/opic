@@ -1,0 +1,1198 @@
+{
+ "units": [
+  {
+   "id": "p5-116",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 1,
+   "question": "The ------- of the new branch is scheduled for early March.",
+   "choices": [
+    "open",
+    "opened",
+    "opening",
+    "opens"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "정관사 The 뒤, 전치사구 of the new branch의 수식을 받는 주어 자리라 명사가 필요하다. opening은 '개점'이라는 명사로 쓰인다.",
+    "traps": [
+     "open은 동사·형용사라 관사 뒤 주어 자리에서 '개점'이라는 뜻의 명사가 되지 못한다.",
+     "opened는 동사 과거형·과거분사라 주어가 될 수 없다.",
+     null,
+     "opens는 동사 3인칭 단수형이라 관사 뒤에 올 수 없다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "branch",
+     "pos": "n",
+     "m": "지점"
+    }
+   ]
+  },
+  {
+   "id": "p5-117",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 1,
+   "question": "Please read the safety ------- before using the cutting machine.",
+   "choices": [
+    "instruct",
+    "instructive",
+    "instructed",
+    "instructions"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "read의 목적어 자리이며 safety와 함께 복합명사 safety instructions(안전 지침)를 이룬다.",
+    "traps": [
+     "instruct는 동사원형이라 the safety 뒤 목적어 자리에 올 수 없다.",
+     "instructive(유익한)는 형용사라 명사 자리를 채우지 못한다.",
+     "instructed는 과거형·과거분사라 목적어가 될 수 없다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-118",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 2,
+   "question": "Ms. Ruiz received ------- for her outstanding work on the merger.",
+   "choices": [
+    "recognize",
+    "recognizable",
+    "recognized",
+    "recognition"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "received의 목적어 자리에 명사가 와야 한다. recognition(인정, 표창)은 불가산 명사로 관사 없이 쓸 수 있다.",
+    "traps": [
+     "recognize는 동사원형이라 동사 received의 목적어가 될 수 없다.",
+     "recognizable(알아볼 수 있는)은 형용사라 목적어 자리에 올 수 없다.",
+     "recognized는 과거분사라 목적어 명사 자리를 채우지 못한다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "merger",
+     "pos": "n",
+     "m": "합병"
+    },
+    {
+     "w": "outstanding",
+     "pos": "adj",
+     "m": "뛰어난"
+    }
+   ]
+  },
+  {
+   "id": "p5-119",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.noun",
+   "difficulty": 3,
+   "question": "Mr. Lee has extensive ------- in negotiating contracts with overseas suppliers.",
+   "choices": [
+    "experiences",
+    "experienced",
+    "experience",
+    "experiencing"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "'~하는 데 쌓은 경험, 경력'이라는 뜻의 experience는 불가산 명사다. extensive experience in -ing(~에 폭넓은 경력)가 정해진 표현이다.",
+    "traps": [
+     "experiences는 가산 명사로 쓰면 '개별적인 체험들'이라는 뜻이 되어 업무 경력을 말하는 extensive ~ in -ing와 어울리지 않는다. 명사 자리라는 것만 보고 고르기 쉬운 함정.",
+     "experienced(숙련된)는 형용사라 extensive 뒤 명사 자리를 채우지 못한다.",
+     null,
+     "experiencing은 동명사로 쓰면 '경험하는 것'이라 extensive가 꾸미기 어색하고 의미도 맞지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "extensive",
+     "pos": "adj",
+     "m": "폭넓은, 광범위한"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-120",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 1,
+   "question": "The Harbor Inn offers ------- rooms at reasonable prices.",
+   "choices": [
+    "comfortable",
+    "comfort",
+    "comfortably",
+    "comforts"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "동사 offers와 명사 rooms 사이는 명사를 꾸미는 형용사 자리다. comfortable(편안한)이 정답.",
+    "traps": [
+     null,
+     "comfort는 명사·동사라 rooms를 꾸밀 수 없다.",
+     "comfortably는 부사라 명사를 꾸밀 수 없다.",
+     "comforts는 동사·복수 명사라 형용사 자리에 맞지 않는다."
+    ]
+   }
+  },
+  {
+   "id": "p5-121",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 1,
+   "question": "The revised travel policy will become ------- on July 1.",
+   "choices": [
+    "effect",
+    "effectively",
+    "effective",
+    "effectiveness"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "become은 형용사 보어를 취한다. become effective는 '(규정이) 시행되다'라는 뜻이다.",
+    "traps": [
+     "effect는 명사라 become 뒤에서 '정책=효과'가 되어 어색하다. take effect와 혼동하기 쉽다.",
+     "effectively는 부사라 become의 보어가 될 수 없다.",
+     null,
+     "effectiveness(효과성)는 명사라 보어로 쓰면 의미가 통하지 않는다."
+    ]
+   }
+  },
+  {
+   "id": "p5-122",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 2,
+   "question": "Customer feedback on the redesigned app has been largely -------.",
+   "choices": [
+    "positively",
+    "positive",
+    "positivity",
+    "positives"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "has been 뒤 보어 자리다. largely는 보어를 꾸미는 부사이므로 그 뒤에 형용사 positive(긍정적인)가 온다.",
+    "traps": [
+     "positively는 부사라 be동사의 보어가 될 수 없다. largely 뒤라서 부사를 고르기 쉬운 함정.",
+     null,
+     "positivity는 명사라 '피드백=긍정성'이 되어 어색하다.",
+     "positives는 복수 명사라 보어로 쓰면 '피드백이 장점들이다'가 되어 의미가 맞지 않는다."
+    ]
+   }
+  },
+  {
+   "id": "p5-123",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adj",
+   "difficulty": 3,
+   "question": "The marketing director considers the proposed slogan too ------- to appeal to younger customers.",
+   "choices": [
+    "tradition",
+    "traditionally",
+    "traditionalism",
+    "traditional"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "consider + 목적어 + 보어 구조에 too ~ to do가 결합했다. 목적격 보어 자리이자 too 뒤이므로 형용사 traditional이 필요하다.",
+    "traps": [
+     "tradition은 명사라 too의 수식을 받는 보어 자리에 맞지 않는다.",
+     "traditionally는 부사다. too 뒤라서 부사를 고르기 쉽지만 목적격 보어는 형용사여야 한다.",
+     "traditionalism(전통주의)은 명사라 보어로 쓰기 어색하다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "appeal to",
+     "pos": "phr",
+     "m": "~의 마음을 끌다"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-124",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 1,
+   "question": "The package was ------- delivered to the wrong address.",
+   "choices": [
+    "mistakenly",
+    "mistake",
+    "mistaken",
+    "mistakes"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "be동사와 과거분사 사이(was ___ delivered)는 부사 자리다. mistakenly(잘못하여)가 정답.",
+    "traps": [
+     null,
+     "mistake는 명사·동사라 수동태 사이에 들어갈 수 없다.",
+     "mistaken은 형용사·과거분사라 was mistaken delivered처럼 동사가 겹친다.",
+     "mistakes는 명사 복수·동사라 부사 자리에 맞지 않는다."
+    ]
+   }
+  },
+  {
+   "id": "p5-125",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 1,
+   "question": "Ms. Chen speaks ------- when she presents to international clients.",
+   "choices": [
+    "confidently",
+    "confident",
+    "confidence",
+    "confide"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "speaks는 자동사라 뒤는 동사를 꾸미는 부사 자리다. confidently(자신 있게)가 정답.",
+    "traps": [
+     null,
+     "confident는 형용사라 동사 speaks를 꾸밀 수 없다.",
+     "confidence는 명사라 자동사 뒤에 목적어처럼 올 수 없다.",
+     "confide는 동사원형이라 speaks 뒤에 올 수 없다."
+    ]
+   }
+  },
+  {
+   "id": "p5-126",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 2,
+   "question": "The board meeting ended ------- after the budget was approved.",
+   "choices": [
+    "short",
+    "shortly",
+    "shorten",
+    "shortness"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "shortly after는 '~ 직후에'라는 부사 표현이다. 자동사 ended를 꾸미는 부사 shortly가 정답.",
+    "traps": [
+     "short도 부사로 쓰이지만 '갑자기, 모자라게'라는 뜻이라 short after는 '직후에'라는 뜻이 되지 않는다.",
+     null,
+     "shorten은 동사라 ended 뒤에 올 수 없다.",
+     "shortness는 명사라 부사 자리에 맞지 않는다."
+    ]
+   }
+  },
+  {
+   "id": "p5-127",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pos.adv",
+   "difficulty": 3,
+   "question": "Applications that are not ------- completed will be returned to the sender.",
+   "choices": [
+    "full",
+    "fullness",
+    "fully",
+    "fuller"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "are not과 과거분사 completed 사이는 부사 자리다. fully completed는 '완전히 작성된'.",
+    "traps": [
+     "full은 형용사라 과거분사를 꾸밀 수 없다. 우리말 '완전'에 끌리기 쉬운 함정.",
+     "fullness는 명사라 수동태 사이에 들어갈 수 없다.",
+     null,
+     "fuller는 형용사 비교급이라 부사 자리에 맞지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-128",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 1,
+   "question": "Ms. Park ------- the quarterly report to the director yesterday afternoon.",
+   "choices": [
+    "submits",
+    "will submit",
+    "has submitted",
+    "submitted"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "yesterday afternoon은 끝난 과거 시점이므로 단순 과거 submitted가 정답이다.",
+    "traps": [
+     "submits는 현재 시제라 yesterday와 맞지 않는다.",
+     "will submit은 미래라 과거 시점과 충돌한다.",
+     "has submitted 같은 현재완료는 yesterday처럼 명확한 과거 시점 표현과 함께 쓰지 않는다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-129",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 2,
+   "question": "The technician ------- the copier when the power suddenly went out.",
+   "choices": [
+    "repairs",
+    "will repair",
+    "was repairing",
+    "has repaired"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "정전(went out)이 일어난 순간 진행 중이던 동작은 과거진행형 was repairing으로 나타낸다.",
+    "traps": [
+     "repairs는 현재라 과거 사건(went out)과 시제가 맞지 않는다.",
+     "will repair는 미래라 과거의 순간과 맞지 않는다.",
+     null,
+     "has repaired는 현재 기준 완료라 when + 과거 시점과 함께 쓰지 않는다."
+    ]
+   }
+  },
+  {
+   "id": "p5-130",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 2,
+   "question": "As soon as the new manager -------, she will meet with each team member.",
+   "choices": [
+    "will arrive",
+    "arrived",
+    "arriving",
+    "arrives"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "As soon as는 시간 부사절 접속사라 미래 일이어도 현재 시제 arrives를 쓴다. 주절은 will meet.",
+    "traps": [
+     "주절이 미래라 will arrive를 고르기 쉽지만 시간 부사절에는 will을 쓰지 않는다.",
+     "arrived는 과거라 앞으로의 일(will meet)과 맞지 않는다.",
+     "arriving은 분사라 부사절에 동사가 없어진다.",
+     null
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-131",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.tense",
+   "difficulty": 3,
+   "question": "Ms. Adams ------- at the firm for only two months when she was promoted to team leader.",
+   "choices": [
+    "had worked",
+    "has worked",
+    "works",
+    "will have worked"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "승진한 과거 시점(was promoted)까지 2개월 동안 일한 것이므로 과거완료 had worked가 정답이다.",
+    "traps": [
+     null,
+     "has worked는 현재 기준이라 과거 시점까지의 기간을 나타내지 못한다.",
+     "works는 현재라 과거 이야기와 맞지 않는다.",
+     "will have worked는 미래 기준이라 과거 사건과 충돌한다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "promote",
+     "pos": "v",
+     "m": "승진시키다"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-132",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 1,
+   "question": "The conference room ------- every evening by the cleaning staff.",
+   "choices": [
+    "cleans",
+    "is cleaned",
+    "cleaning",
+    "has cleaned"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "회의실은 청소'되는' 대상이고 by + 행위자가 이어진다. every evening(반복)이므로 현재 수동태 is cleaned.",
+    "traps": [
+     "cleans는 능동이라 '회의실이 청소한다'가 되고 목적어도 없다.",
+     null,
+     "cleaning은 분사라 본동사가 될 수 없다.",
+     "has cleaned는 능동이라 목적어가 필요하다."
+    ]
+   }
+  },
+  {
+   "id": "p5-133",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 2,
+   "question": "The new overtime policy ------- to all employees at last week's meeting.",
+   "choices": [
+    "was explained",
+    "explained",
+    "explaining",
+    "has explained"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "정책은 설명'되는' 대상이고 뒤에 목적어가 없다. last week이므로 과거 수동태 was explained.",
+    "traps": [
+     null,
+     "explained는 능동 과거라 '정책이 설명했다'가 된다.",
+     "explaining은 분사라 본동사가 없어진다.",
+     "has explained는 능동이고 지난주라는 과거 시점과도 맞지 않는다."
+    ]
+   }
+  },
+  {
+   "id": "p5-134",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 2,
+   "question": "Our sales team ------- several new clients since January.",
+   "choices": [
+    "has been attracted",
+    "was attracted",
+    "has attracted",
+    "attracting"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "빈칸 뒤에 목적어 several new clients가 있으므로 능동이고, since January와 어울리는 현재완료 has attracted가 정답.",
+    "traps": [
+     "has been attracted는 수동태라 뒤에 목적어가 올 수 없다.",
+     "was attracted도 수동태이고 since와 과거 시제가 맞지 않는다.",
+     null,
+     "attracting은 분사라 본동사가 될 수 없다."
+    ]
+   }
+  },
+  {
+   "id": "p5-135",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.voice",
+   "difficulty": 3,
+   "question": "The results of the customer survey ------- to the board after they are reviewed by our analysts.",
+   "choices": [
+    "present",
+    "are presenting",
+    "have presented",
+    "will be presented"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "결과는 이사회에 제출'되는' 대상이고 after절 이후의 미래 일이다. 미래 수동태 will be presented.",
+    "traps": [
+     "present는 능동이라 결과가 발표하는 주체가 되고 목적어도 없다.",
+     "are presenting은 능동 진행형이라 목적어가 필요하다.",
+     "have presented는 능동 완료라 의미와 구조 모두 맞지 않는다.",
+     null
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-136",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 1,
+   "question": "The manager and her assistant ------- attending the trade show in Berlin.",
+   "choices": [
+    "is",
+    "are",
+    "was",
+    "has"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "A and B가 주어면 복수다. attending과 함께 진행형을 만드는 복수 be동사 are가 정답.",
+    "traps": [
+     "is는 단수 동사라 두 사람이 주어인 문장과 맞지 않는다.",
+     null,
+     "was는 단수형이다.",
+     "has는 attending과 결합하지 못한다."
+    ]
+   }
+  },
+  {
+   "id": "p5-137",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 2,
+   "question": "One of the printers on the third floor ------- repairs.",
+   "choices": [
+    "need",
+    "needing",
+    "needs",
+    "have needed"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "One of + 복수 명사의 주어는 One(단수)이다. 단수 동사 needs가 정답.",
+    "traps": [
+     "need는 printers에 맞춘 복수형이다. 진짜 주어는 One.",
+     "needing은 분사라 본동사가 될 수 없다.",
+     null,
+     "have needed는 복수 동사형이다."
+    ]
+   }
+  },
+  {
+   "id": "p5-138",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 2,
+   "question": "Neither the director nor the managers ------- aware of the schedule change.",
+   "choices": [
+    "was",
+    "is",
+    "has been",
+    "were"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "neither A nor B는 동사를 B에 맞춘다. B인 the managers가 복수이므로 were가 정답.",
+    "traps": [
+     "was는 단수라 가까운 주어 managers와 맞지 않는다.",
+     "is도 단수다.",
+     "has been은 단수 동사형이다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-139",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.agree",
+   "difficulty": 3,
+   "question": "Every room in the newly renovated hotel ------- a view of the harbor.",
+   "choices": [
+    "offer",
+    "offers",
+    "offering",
+    "have offered"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "Every + 단수 명사는 단수 취급한다. in the newly renovated hotel은 수식어이므로 단수 동사 offers.",
+    "traps": [
+     "offer는 복수 동사형이다. 수식어가 길어 주어를 놓치기 쉽다.",
+     null,
+     "offering은 분사라 본동사가 될 수 없다.",
+     "have offered는 복수 동사형이다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-140",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 1,
+   "question": "The company decided ------- its headquarters to Busan.",
+   "choices": [
+    "to move",
+    "move",
+    "moving",
+    "moved"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "decide는 to부정사를 목적어로 취하므로(decide to do) to move가 정답이다.",
+    "traps": [
+     null,
+     "move는 동사원형이라 decided 뒤에 바로 올 수 없다.",
+     "moving은 동명사로, decide는 동명사를 목적어로 쓰지 않는다.",
+     "moved는 동사가 겹친다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "headquarters",
+     "pos": "n",
+     "m": "본사"
+    }
+   ]
+  },
+  {
+   "id": "p5-141",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 1,
+   "question": "Mr. Kim enjoys ------- with clients from many different countries.",
+   "choices": [
+    "work",
+    "to work",
+    "worked",
+    "working"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "enjoy는 동명사를 목적어로 취하므로(enjoy doing) working이 정답이다.",
+    "traps": [
+     "work는 동사원형이라 enjoys 뒤에 올 수 없다.",
+     "to work: enjoy는 to부정사를 목적어로 쓰지 않는다.",
+     "worked는 동사가 겹친다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-142",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 2,
+   "question": "Please remember ------- the lights when you leave the office tonight.",
+   "choices": [
+    "to turn off",
+    "turning off",
+    "turn off",
+    "turned off"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "remember to do는 '(앞으로) ~할 것을 기억하다', remember -ing는 '(과거에) ~한 것을 기억하다'다. 오늘 밤 할 일이므로 to turn off.",
+    "traps": [
+     null,
+     "remember turning off는 '불을 끈 기억이 있다'라는 과거의 뜻이라 문맥과 맞지 않는다.",
+     "turn off는 동사원형이라 remember 뒤에 바로 올 수 없다.",
+     "turned off는 동사가 겹친다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-143",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.verb.form",
+   "difficulty": 3,
+   "question": "The new software enables employees ------- their working hours from their phones.",
+   "choices": [
+    "record",
+    "recording",
+    "to record",
+    "recorded"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "enable + 목적어 + to do(~가 …할 수 있게 하다) 구조라 to record가 정답이다.",
+    "traps": [
+     "record는 동사원형이라 enable의 목적격 보어가 될 수 없다(사역동사 let·make가 아니다).",
+     "recording은 enable의 목적격 보어 형태가 아니다.",
+     null,
+     "recorded는 '기록된'이라는 수동 의미라 직원이 기록하는 능동 관계와 맞지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-144",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 1,
+   "question": "The ------- price includes delivery and installation.",
+   "choices": [
+    "quote",
+    "quoted",
+    "quoting",
+    "quotes"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "가격은 '제시된(견적된)' 대상이므로 수동 의미의 과거분사 quoted가 price를 꾸민다.",
+    "traps": [
+     "quote는 동사·명사라 관사와 명사 사이 수식 자리에 맞지 않는다.",
+     null,
+     "quoting은 '견적을 내는'이라는 능동이라 가격이 견적을 내는 꼴이 된다.",
+     "quotes는 명사 복수·동사라 형용사 자리에 올 수 없다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "quote",
+     "pos": "v",
+     "m": "견적을 내다"
+    }
+   ]
+  },
+  {
+   "id": "p5-145",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 1,
+   "question": "Employees were ------- by the news of the company's expansion.",
+   "choices": [
+    "excite",
+    "exciting",
+    "excited",
+    "excitement"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "주어 Employees(사람)가 소식에 의해 '흥분한' 것이다. 사람이 느끼는 감정은 -ed 형태 excited.",
+    "traps": [
+     "excite는 동사원형이라 were 뒤에 올 수 없다.",
+     "exciting은 '흥분시키는'이라 직원이 남을 흥분시킨다는 뜻이 되고 뒤의 by와도 맞지 않는다.",
+     null,
+     "excitement는 명사라 '직원=흥분'이 되어 어색하다."
+    ]
+   }
+  },
+  {
+   "id": "p5-146",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 2,
+   "question": "Orders ------- after 3 P.M. will be shipped the next business day.",
+   "choices": [
+    "receiving",
+    "received",
+    "receive",
+    "receives"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "Orders를 뒤에서 꾸미는 분사 자리다. 주문은 '접수되는' 대상이므로 과거분사 received. 본동사는 will be shipped.",
+    "traps": [
+     "receiving은 능동이라 주문이 무언가를 받는다는 뜻이 된다.",
+     null,
+     "receive는 동사원형이라 본동사가 겹친다.",
+     "receives도 동사라 will be shipped와 본동사가 두 개가 된다."
+    ]
+   }
+  },
+  {
+   "id": "p5-147",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.participle",
+   "difficulty": 3,
+   "question": "------- the instructions carefully, Mr. Ito assembled the bookshelf in under an hour.",
+   "choices": [
+    "Following",
+    "Followed",
+    "Follows",
+    "Follower"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "분사구문의 주어는 주절의 Mr. Ito이고, 그가 설명서를 '따른' 능동 관계다. 뒤에 목적어 the instructions도 있으므로 현재분사 Following.",
+    "traps": [
+     null,
+     "Followed는 수동이라 Mr. Ito가 설명서에 의해 따라졌다는 뜻이 되고 목적어도 받을 수 없다.",
+     "Follows는 동사라 접속사 없이 두 절이 이어진다.",
+     "Follower는 명사라 문장 구조가 성립하지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-148",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 1,
+   "question": "Ms. Garcia sent the contract to ------- lawyer for review.",
+   "choices": [
+    "she",
+    "hers",
+    "herself",
+    "her"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "빈칸 뒤 명사 lawyer를 꾸미는 소유격 her가 필요하다.",
+    "traps": [
+     "she는 주격이라 명사 앞에 올 수 없다.",
+     "hers는 소유대명사라 뒤에 명사가 오지 않는다.",
+     "herself는 재귀대명사라 명사를 꾸밀 수 없다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-149",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 1,
+   "question": "The clients liked the design, so ------- signed the contract immediately.",
+   "choices": [
+    "them",
+    "their",
+    "themselves",
+    "they"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "so 뒤 절의 주어 자리이므로 주격 they가 정답이다.",
+    "traps": [
+     "them은 목적격이라 주어가 될 수 없다.",
+     "their는 소유격이라 뒤에 명사가 필요하다.",
+     "themselves는 주어 자리에 쓰지 않는다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-150",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 2,
+   "question": "The staff members organized the farewell party by -------.",
+   "choices": [
+    "they",
+    "themselves",
+    "them",
+    "their"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "by oneself는 '혼자 힘으로, 자기들끼리'라는 뜻이다. 주어 The staff members와 같은 대상이므로 themselves.",
+    "traps": [
+     "they는 주격이라 전치사 뒤에 올 수 없다.",
+     null,
+     "by them은 '그들(다른 사람들)에 의해'라는 뜻이 되어 주어와 다른 사람을 가리킨다.",
+     "their는 소유격이라 뒤에 명사가 필요하다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "farewell party",
+     "pos": "n",
+     "m": "송별회"
+    }
+   ]
+  },
+  {
+   "id": "p5-151",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.pronoun",
+   "difficulty": 3,
+   "question": "The sales figures for this quarter are higher than ------- for the same period last year.",
+   "choices": [
+    "that",
+    "them",
+    "those",
+    "it"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "비교 대상은 '작년 같은 기간의 판매 수치'다. 앞의 복수 명사 figures를 대신하는 대명사는 those.",
+    "traps": [
+     "that은 단수 명사를 대신한다. figures는 복수라 맞지 않는다.",
+     "them은 목적격이라 than 뒤에서 수식어 for ~를 달고 명사를 대신하지 못한다.",
+     null,
+     "it은 단수이고 수식어의 꾸밈을 받는 대명사로 쓰지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-152",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 1,
+   "question": "The employee ------- won this year's service award has worked here for ten years.",
+   "choices": [
+    "who",
+    "which",
+    "whose",
+    "whom"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "선행사가 사람이고 관계절에 주어가 빠져 있다(___ won). 주격 관계대명사 who.",
+    "traps": [
+     null,
+     "which는 사물 선행사에 쓴다.",
+     "whose 뒤에는 명사가 와야 한다.",
+     "whom은 목적격이라 주어 자리에 쓸 수 없다."
+    ]
+   }
+  },
+  {
+   "id": "p5-153",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 1,
+   "question": "The printer ------- we bought last month has already broken down.",
+   "choices": [
+    "who",
+    "whose",
+    "which",
+    "what"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "선행사가 사물(printer)이고 관계절 we bought ___에서 목적어가 빠져 있다. which가 정답.",
+    "traps": [
+     "who는 사람 선행사에 쓴다.",
+     "whose 뒤에는 명사가 바로 와야 한다.",
+     null,
+     "what은 선행사를 포함하므로 The printer 뒤에 쓸 수 없다."
+    ]
+   }
+  },
+  {
+   "id": "p5-154",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 2,
+   "question": "This is the factory ------- our kitchen appliances are assembled.",
+   "choices": [
+    "which",
+    "what",
+    "who",
+    "where"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "관계절 our kitchen appliances are assembled는 완전한 수동태 문장이다. 장소 선행사 뒤 완전한 절에는 관계부사 where.",
+    "traps": [
+     "which 뒤에는 불완전한 절이 와야 한다. in which라면 가능.",
+     "what은 선행사가 없을 때 쓴다.",
+     "who는 사람 선행사에 쓴다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "assemble",
+     "pos": "v",
+     "m": "조립하다"
+    }
+   ]
+  },
+  {
+   "id": "p5-155",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.rel",
+   "difficulty": 3,
+   "question": "Please forward the invoice to ------- is in charge of the Henderson project.",
+   "choices": [
+    "whoever",
+    "whomever",
+    "who",
+    "whom"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "전치사 to의 목적어인 명사절이 필요하고, 절 안에서 is의 주어가 빠져 있다. 선행사 없이 '~하는 사람은 누구든'을 뜻하는 주격 whoever.",
+    "traps": [
+     null,
+     "whomever는 목적격이라 is의 주어 자리를 채우지 못한다. 전치사 to 뒤라서 목적격을 고르기 쉬운 함정.",
+     "who는 선행사가 있어야 하는 관계대명사로 쓰이거나 의문사다. 이 자리에는 선행사가 없다.",
+     "whom도 목적격이라 주어 자리에 맞지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-156",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 1,
+   "question": "The store was closed for two hours ------- a power outage.",
+   "choices": [
+    "because",
+    "because of",
+    "although",
+    "despite"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "빈칸 뒤는 명사구(a power outage)이고 '정전 때문에'라는 이유다. 전치사 because of.",
+    "traps": [
+     "because는 접속사라 뒤에 절이 와야 한다.",
+     null,
+     "although는 접속사이고 의미도 양보다.",
+     "despite는 전치사지만 '~에도 불구하고'라 이유 관계와 맞지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "power outage",
+     "pos": "n",
+     "m": "정전"
+    }
+   ]
+  },
+  {
+   "id": "p5-157",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 1,
+   "question": "Please wait in the lobby ------- your name is called.",
+   "choices": [
+    "during",
+    "by",
+    "within",
+    "until"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "뒤에 절(your name is called)이 오고 '이름이 불릴 때까지' 기다리라는 뜻이다. 접속사 until.",
+    "traps": [
+     "during은 전치사라 절을 받을 수 없다.",
+     "by는 접속사로 쓰이지 않는다(by the time은 가능).",
+     "within은 '~ 이내에'라는 전치사라 절을 받지 못한다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p5-158",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 2,
+   "question": "------- the weather was poor, the outdoor concert was held as planned.",
+   "choices": [
+    "Even though",
+    "In spite of",
+    "Because",
+    "Unless"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "뒤에 절이 오고, '날씨가 나빴지만 예정대로 열렸다'는 양보 관계다. Even though.",
+    "traps": [
+     null,
+     "In spite of는 전치사라 절을 받을 수 없다.",
+     "Because는 이유라 '날씨가 나빠서 예정대로 열렸다'가 되어 어색하다.",
+     "Unless(~하지 않으면)는 조건이라 의미가 맞지 않는다."
+    ]
+   }
+  },
+  {
+   "id": "p5-159",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.conj",
+   "difficulty": 3,
+   "question": "The seminar was postponed ------- the speaker's flight had been canceled.",
+   "choices": [
+    "due to",
+    "because",
+    "owing",
+    "although"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "뒤에 주어(the speaker's flight)와 동사(had been canceled)가 있는 절이 오고, 연기의 이유다. 접속사 because.",
+    "traps": [
+     "due to는 뜻은 맞지만 전치사라 절을 받을 수 없다.",
+     null,
+     "owing은 owing to 형태여야 하고 그때도 명사만 받는다.",
+     "although는 양보라 이유 관계와 맞지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p5-160",
+   "part": 5,
+   "type": "grammar",
+   "concept": "p5.prep",
+   "difficulty": 1,
+   "question": "The museum is open ------- 9 A.M. to 6 P.M. every day.",
+   "choices": [
+    "at",
+    "in",
+    "from",
+    "on"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "from A to B는 '~부터 …까지'라는 범위 표현이다.",
+    "traps": [
+     "at은 한 시점(at 9 A.M.)에 쓰며 to와 짝을 이루지 않는다.",
+     "in은 시각 앞에 쓰지 않는다.",
+     null,
+     "on은 요일·날짜 앞에 쓴다."
+    ]
+   }
+  }
+ ]
+}

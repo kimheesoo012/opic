@@ -1,0 +1,996 @@
+{
+ "units": [
+  {
+   "id": "p5-086",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 1,
+   "question": "Please ------- the attached registration form and return it to the personnel office by Friday.",
+   "choices": [
+    "complete",
+    "perform",
+    "conduct",
+    "achieve"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "양식(form)을 '작성하다, 기입을 마치다'는 complete a form이다. 작성한 뒤 반납하라는 흐름에도 맞는다.",
+    "traps": [
+     null,
+     "perform은 '(업무·공연을) 수행하다'로 양식과 어울리지 않는다.",
+     "conduct는 '(조사·회의를) 실시하다'로 conduct a survey처럼 쓴다. 양식에는 쓰지 않는다.",
+     "achieve는 '(목표를) 달성하다'라 form과 결합하지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "personnel office",
+     "pos": "n",
+     "m": "인사과"
+    }
+   ]
+  },
+  {
+   "id": "p5-087",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 2,
+   "question": "The Grandview Hotel can ------- up to 500 guests in its main ballroom.",
+   "choices": [
+    "accommodate",
+    "attend",
+    "reside",
+    "consist"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "accommodate는 '(인원을) 수용하다'라는 타동사로 up to 500 guests를 목적어로 받는다. 시설의 수용 인원을 말할 때 쓰는 대표 동사.",
+    "traps": [
+     null,
+     "attend는 '참석하다'라 호텔이 손님을 참석한다는 뜻이 되어 맞지 않는다.",
+     "reside(거주하다)는 자동사라 목적어를 취하지 못한다(reside in).",
+     "consist는 consist of(~로 구성되다) 형태로만 쓰는 자동사다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "accommodate",
+     "pos": "v",
+     "m": "수용하다"
+    },
+    {
+     "w": "ballroom",
+     "pos": "n",
+     "m": "연회장"
+    }
+   ]
+  },
+  {
+   "id": "p5-088",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The office manager ------- staff that the building would close early on Friday for maintenance.",
+   "choices": [
+    "explained",
+    "announced",
+    "informed",
+    "said"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "빈칸 뒤에 사람 목적어(staff) + that절이 온다. 이 구조를 취하는 동사는 inform(inform 사람 that …)이다.",
+    "traps": [
+     "explain은 사람을 바로 목적어로 받지 않는다(explain to staff that …).",
+     "announce도 사람 목적어를 바로 취하지 않는다(announce to staff that …).",
+     null,
+     "said(say)도 사람을 바로 목적어로 쓰지 않는다(say to staff 또는 tell staff)."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "maintenance",
+     "pos": "n",
+     "m": "유지 보수"
+    }
+   ]
+  },
+  {
+   "id": "p5-089",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Our technicians will ------- the issue as soon as they receive your service request.",
+   "choices": [
+    "attend",
+    "deal",
+    "respond",
+    "address"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "address는 '(문제를) 다루다, 처리하다'라는 타동사로 the issue를 바로 목적어로 받는다.",
+    "traps": [
+     "attend는 이 뜻일 때 attend to the issue처럼 전치사 to가 필요하다.",
+     "deal은 deal with the issue 형태로 써야 한다.",
+     "respond는 respond to처럼 전치사가 필요하다. 뜻이 비슷한 자동사들이 함정.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "address",
+     "pos": "v",
+     "m": "(문제를) 다루다, 처리하다"
+    }
+   ]
+  },
+  {
+   "id": "p5-090",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 3,
+   "question": "The CEO ------- the success of the product launch to the hard work of the design team.",
+   "choices": [
+    "contributed",
+    "attributed",
+    "distributed",
+    "recognized"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "attribute A to B는 'A를 B의 덕분(탓)으로 돌리다'라는 뜻이다. 성공을 디자인팀의 노고 덕분으로 돌렸다는 의미가 된다.",
+    "traps": [
+     "contribute A to B는 'A를 B에 기부·기여하다'라 '성공을 노고에 기부했다'가 되어 뜻이 통하지 않는다. 모양이 비슷한 혼동 어휘.",
+     null,
+     "distribute A to B는 'A를 B에게 나눠 주다'라 의미가 맞지 않는다.",
+     "recognize는 recognize A for B 형태로 칭찬할 때 쓰며 to와 결합하지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "attribute A to B",
+     "pos": "v",
+     "m": "A를 B의 덕분으로 돌리다"
+    },
+    {
+     "w": "launch",
+     "pos": "n",
+     "m": "출시"
+    }
+   ]
+  },
+  {
+   "id": "p5-091",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.verb",
+   "difficulty": 2,
+   "tags": [
+    "trap"
+   ],
+   "question": "Audience members are asked to ------- from using mobile phones during the performance.",
+   "choices": [
+    "prevent",
+    "avoid",
+    "refrain",
+    "stop"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "빈칸 뒤 from + -ing와 결합하는 자동사는 refrain(삼가다)이다. refrain from doing은 공지에 자주 나오는 표현.",
+    "traps": [
+     "prevent는 prevent 목적어 from -ing 형태라 목적어가 필요하다.",
+     "avoid는 바로 동명사를 목적어로 받는다(avoid using). from이 붙으면 틀린다.",
+     null,
+     "stop도 바로 동명사를 받는다(stop using)."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "refrain from",
+     "pos": "v",
+     "m": "~을 삼가다"
+    }
+   ]
+  },
+  {
+   "id": "p5-092",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 1,
+   "question": "The color printer is still under -------, so the repair will be free of charge.",
+   "choices": [
+    "warranty",
+    "discount",
+    "inspection",
+    "delivery"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "under warranty는 '품질 보증 기간 중인'이라는 뜻이다. 보증 기간이라서 수리가 무료라는 인과 관계가 성립한다.",
+    "traps": [
+     null,
+     "under discount라는 표현은 없다(at a discount).",
+     "under inspection(점검 중)은 쓸 수 있지만 '점검 중이라 수리가 무료'라는 이유 관계가 성립하지 않는다.",
+     "under delivery라는 표현은 쓰지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "under warranty",
+     "pos": "phr",
+     "m": "보증 기간 중인"
+    },
+    {
+     "w": "free of charge",
+     "pos": "phr",
+     "m": "무료로"
+    }
+   ]
+  },
+  {
+   "id": "p5-093",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 2,
+   "question": "The new branch offers a wide ------- of financial services for small businesses.",
+   "choices": [
+    "field",
+    "distance",
+    "level",
+    "range"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "a wide range of는 '다양한, 폭넓은 ~'이라는 정해진 표현이다.",
+    "traps": [
+     "field는 '분야'라 a wide field of services는 쓰지 않는 표현이다.",
+     "distance(거리)는 서비스의 다양함과 무관하다.",
+     "level은 '수준'이라 a wide level of는 의미가 성립하지 않는다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "a wide range of",
+     "pos": "phr",
+     "m": "다양한"
+    }
+   ]
+  },
+  {
+   "id": "p5-094",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 2,
+   "question": "Employees should keep all receipts as ------- of their travel expenses.",
+   "choices": [
+    "reason",
+    "proof",
+    "cause",
+    "fact"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "영수증은 출장 경비를 '증명하는 것'이다. as proof of(~의 증거로)가 문맥에 맞다.",
+    "traps": [
+     "reason(이유)은 영수증이 경비의 이유가 되는 것이 아니므로 어색하다.",
+     null,
+     "cause(원인)도 영수증과 경비의 관계와 맞지 않는다.",
+     "fact(사실)는 'as fact of'라는 표현으로 쓰지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "travel expense",
+     "pos": "n",
+     "m": "출장 경비"
+    }
+   ]
+  },
+  {
+   "id": "p5-095",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 3,
+   "question": "The factory was fined for failing to operate in ------- with environmental regulations.",
+   "choices": [
+    "obedience",
+    "permission",
+    "attention",
+    "compliance"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "in compliance with(~을 준수하여)는 규정·법과 함께 쓰는 정해진 표현이다. 규정을 지키지 못해 벌금을 냈다는 흐름.",
+    "traps": [
+     "obedience(복종)는 사람·명령에 쓰고 in obedience with라는 표현은 쓰지 않는다(in obedience to).",
+     "permission(허가)은 in permission with라는 표현이 없다.",
+     "attention은 '주의'라 규정 준수의 의미가 되지 않는다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "in compliance with",
+     "pos": "phr",
+     "m": "~을 준수하여"
+    },
+    {
+     "w": "fine",
+     "pos": "v",
+     "m": "벌금을 부과하다"
+    }
+   ]
+  },
+  {
+   "id": "p5-096",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Ms. Kwan was given full ------- for organizing the company's twentieth anniversary celebration.",
+   "choices": [
+    "responsibility",
+    "obligation",
+    "duty",
+    "reliance"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "be given full responsibility for -ing(~을 전적으로 책임지게 되다)가 자연스러운 표현이다. 행사 준비의 책임자를 맡았다는 뜻.",
+    "traps": [
+     null,
+     "obligation은 '(법적·도덕적) 의무'로 보통 an obligation to do 형태이며 full obligation for는 어색하다.",
+     "duty도 '의무'이지만 full duty for -ing로 쓰지 않는다. 뜻이 비슷한 명사로 헷갈리게 하는 함정.",
+     "reliance(의존)는 reliance on 형태로 쓰며 의미도 맞지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "anniversary",
+     "pos": "n",
+     "m": "기념일"
+    }
+   ]
+  },
+  {
+   "id": "p5-097",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.noun",
+   "difficulty": 1,
+   "question": "A ------- of the meeting will be sent to everyone who was unable to attend.",
+   "choices": [
+    "summit",
+    "summary",
+    "sample",
+    "symbol"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "참석하지 못한 사람에게 보내는 것은 회의의 '요약본'이다. summary가 정답.",
+    "traps": [
+     "summit은 '정상 회담·정상'으로 철자가 비슷한 함정이다.",
+     null,
+     "sample(견본)은 회의 내용과 어울리지 않는다.",
+     "symbol(상징)은 문맥과 무관하다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "summary",
+     "pos": "n",
+     "m": "요약"
+    }
+   ]
+  },
+  {
+   "id": "p5-098",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 1,
+   "question": "The history museum is ------- closed for renovations but will reopen in May.",
+   "choices": [
+    "previously",
+    "lately",
+    "currently",
+    "formerly"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "현재 시제 is closed와 '5월에 재개관한다'는 미래 계획이 이어지므로 '현재'를 뜻하는 currently가 정답이다.",
+    "traps": [
+     "previously(이전에)는 과거 시제와 어울린다.",
+     "lately(최근에)는 주로 현재완료와 쓰인다(has lately been).",
+     null,
+     "formerly(예전에)는 과거 상태를 말해 현재 휴관 중이라는 뜻과 맞지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "reopen",
+     "pos": "v",
+     "m": "재개장하다"
+    }
+   ]
+  },
+  {
+   "id": "p5-099",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 2,
+   "question": "The new procedure has ------- reduced the time needed to process insurance claims.",
+   "choices": [
+    "highly",
+    "significantly",
+    "extremely",
+    "deeply"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "reduce, increase, improve 같은 변화 동사는 significantly(상당히)와 자주 결합한다.",
+    "traps": [
+     "highly는 highly recommended, highly qualified처럼 일부 형용사·분사와만 결합하며 reduce와는 쓰지 않는다.",
+     null,
+     "extremely는 주로 형용사를 강조한다(extremely busy). 동사 reduced 수식은 어색하다.",
+     "deeply는 감정(deeply moved)과 어울리고 수치 감소와는 맞지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "insurance claim",
+     "pos": "n",
+     "m": "보험금 청구"
+    },
+    {
+     "w": "procedure",
+     "pos": "n",
+     "m": "절차"
+    }
+   ]
+  },
+  {
+   "id": "p5-100",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 2,
+   "question": "Please arrive at least fifteen minutes before your ------- appointment time.",
+   "choices": [
+    "punctual",
+    "eventual",
+    "scheduled",
+    "frequent"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "'예약된 시간보다 15분 일찍 오라'는 뜻이므로 '예정된'을 뜻하는 scheduled가 정답이다.",
+    "traps": [
+     "punctual(시간을 잘 지키는)은 사람에게 쓰는 형용사로 appointment time을 꾸미기 어색하다.",
+     "eventual(최종적인)은 예약 시간과 어울리지 않는다.",
+     null,
+     "frequent(잦은)는 반복 횟수를 말하는 형용사라 하나의 예약 시각(appointment time)을 꾸미면 뜻이 통하지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "punctual",
+     "pos": "adj",
+     "m": "시간을 엄수하는"
+    }
+   ]
+  },
+  {
+   "id": "p5-101",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 3,
+   "question": "The front desk staff were ------- helpful during our stay, especially when our luggage was delayed.",
+   "choices": [
+    "remarkably",
+    "densely",
+    "mutually",
+    "vacantly"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "형용사 helpful의 정도를 강조하는 부사가 필요하다. remarkably(놀랄 만큼)가 '특히 짐이 늦었을 때'라는 칭찬 문맥에 맞다.",
+    "traps": [
+     null,
+     "densely(빽빽하게)는 densely populated처럼 밀도에 쓴다.",
+     "mutually(서로)는 mutually beneficial처럼 상호 관계에 쓴다.",
+     "vacantly(멍하니)는 의미가 문맥과 정반대다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "remarkably",
+     "pos": "adv",
+     "m": "현저하게, 놀랄 만큼"
+    }
+   ]
+  },
+  {
+   "id": "p5-102",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The supplier has ------- met its delivery deadlines, so we plan to renew the contract.",
+   "choices": [
+    "hardly",
+    "rarely",
+    "nearly",
+    "consistently"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "so we plan to renew the contract(그래서 계약을 갱신할 계획)라는 결과가 나오려면 마감을 '꾸준히' 지켰어야 한다. consistently가 정답이다.",
+    "traps": [
+     "hardly(거의 ~않다)는 부정 의미라 계약 갱신이라는 결과와 모순된다.",
+     "rarely(좀처럼 ~않다)도 부정 의미라 뒤의 so 절과 맞지 않는다.",
+     "nearly met은 '거의 지켰다(실제로는 못 지켰다)'는 뜻이라 갱신의 이유로 약하다. 의미를 반대로 착각하기 쉬운 함정.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "renew",
+     "pos": "v",
+     "m": "갱신하다"
+    }
+   ]
+  },
+  {
+   "id": "p5-103",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.adjadv",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The budget proposal received ------- support from the board, with all twelve members voting in favor.",
+   "choices": [
+    "anonymous",
+    "numerous",
+    "partial",
+    "unanimous"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "열두 명 모두 찬성했다는 뒤의 설명과 맞는 것은 '만장일치의'를 뜻하는 unanimous다.",
+    "traps": [
+     "anonymous(익명의)는 철자가 비슷한 혼동 어휘로, 공개 투표 문맥과 맞지 않는다.",
+     "numerous는 복수 가산 명사와 쓴다(numerous members). 불가산 support를 꾸밀 수 없다.",
+     "partial(부분적인)은 '전원 찬성'이라는 내용과 모순된다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "unanimous",
+     "pos": "adj",
+     "m": "만장일치의"
+    },
+    {
+     "w": "in favor",
+     "pos": "phr",
+     "m": "찬성하여"
+    }
+   ]
+  },
+  {
+   "id": "p5-104",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 1,
+   "question": "Customers who ------- an order before noon will receive their items the next business day.",
+   "choices": [
+    "place",
+    "put",
+    "set",
+    "give"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "'주문하다'는 place an order가 정해진 표현이다.",
+    "traps": [
+     null,
+     "put an order라고는 쓰지 않는다(put in an order는 가능하지만 in이 빠져 있다).",
+     "set an order는 '순서를 정하다'처럼 들릴 뿐 '주문하다'가 아니다.",
+     "give an order는 '명령을 내리다'라는 뜻이다. order의 다른 의미를 이용한 함정."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "place an order",
+     "pos": "phr",
+     "m": "주문하다"
+    }
+   ]
+  },
+  {
+   "id": "p5-105",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 2,
+   "question": "The research team will ------- a survey of 2,000 consumers next month.",
+   "choices": [
+    "attend",
+    "conduct",
+    "raise",
+    "gain"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "conduct a survey(설문 조사를 실시하다)는 자주 출제되는 콜로케이션이다.",
+    "traps": [
+     "attend는 회의·행사에 '참석하다'로 survey와 결합하지 않는다.",
+     null,
+     "raise는 raise funds, raise concerns처럼 쓰며 설문 조사와는 어울리지 않는다.",
+     "gain(얻다)은 gain experience처럼 쓴다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "conduct",
+     "pos": "v",
+     "m": "실시하다"
+    }
+   ]
+  },
+  {
+   "id": "p5-106",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The revised safety regulations will take ------- on January 1.",
+   "choices": [
+    "place",
+    "action",
+    "effect",
+    "part"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "법·규정이 '시행되다, 효력이 발생하다'는 take effect다.",
+    "traps": [
+     "take place는 행사·사건이 '열리다, 일어나다'에 쓴다. 규정의 시행에는 쓰지 않는 함정.",
+     "take action은 사람이 '조치를 취하다'라 규정이 주어일 수 없다.",
+     null,
+     "take part는 '참가하다'(take part in)로 사람이 주어다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "take effect",
+     "pos": "phr",
+     "m": "시행되다, 효력이 발생하다"
+    }
+   ]
+  },
+  {
+   "id": "p5-107",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 2,
+   "question": "Seating at the awards dinner is ------- limited, so guests are encouraged to reply early.",
+   "choices": [
+    "strictly",
+    "closely",
+    "eagerly",
+    "deeply"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "strictly limited(엄격히 제한된)는 좌석·인원 제한을 알릴 때 쓰는 대표 콜로케이션이다.",
+    "traps": [
+     null,
+     "closely는 closely monitored, closely related처럼 쓴다.",
+     "eagerly(열심히, 간절히)는 eagerly awaited처럼 기대를 나타낸다.",
+     "deeply는 감정과 어울리는 부사다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "strictly",
+     "pos": "adv",
+     "m": "엄격히"
+    }
+   ]
+  },
+  {
+   "id": "p5-108",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 3,
+   "question": "Several employees have ------- concerns about the new overtime policy.",
+   "choices": [
+    "risen",
+    "raised",
+    "arisen",
+    "lifted"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "raise concerns(우려를 제기하다)는 자주 나오는 콜로케이션이다. raise는 목적어를 받는 타동사.",
+    "traps": [
+     "risen은 자동사 rise의 과거분사라 목적어 concerns를 받을 수 없다.",
+     null,
+     "arisen도 자동사 arise(발생하다)의 과거분사라 목적어를 취하지 못한다. Concerns have arisen은 가능.",
+     "lift는 lift a ban(금지를 해제하다)처럼 쓰며 '우려를 들어 올리다'는 쓰지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "raise concerns",
+     "pos": "phr",
+     "m": "우려를 제기하다"
+    },
+    {
+     "w": "overtime",
+     "pos": "n",
+     "m": "초과 근무"
+    }
+   ]
+  },
+  {
+   "id": "p5-109",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.colloc",
+   "difficulty": 2,
+   "question": "After months of negotiation, the two companies finally ------- an agreement.",
+   "choices": [
+    "arrived",
+    "came",
+    "reached",
+    "went"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "reach an agreement(합의에 이르다)는 정해진 콜로케이션이다. reach는 타동사라 바로 목적어를 받는다.",
+    "traps": [
+     "arrive는 자동사라 arrive at an agreement처럼 전치사가 필요하다.",
+     "came(come)은 come to an agreement 형태로 to가 있어야 한다.",
+     null,
+     "went는 의미·구조 모두 맞지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "negotiation",
+     "pos": "n",
+     "m": "협상"
+    }
+   ]
+  },
+  {
+   "id": "p5-110",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 2,
+   "question": "Fuel prices have ------- sharply over the past two months.",
+   "choices": [
+    "raised",
+    "aroused",
+    "rose",
+    "risen"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "빈칸 뒤에 목적어가 없으므로 자동사가 필요하다. rise(오르다)의 과거분사 risen이 정답이다.",
+    "traps": [
+     "raised는 타동사 raise(올리다)의 과거분사라 목적어가 필요하다. rise/raise 혼동 함정.",
+     "aroused(불러일으키다)는 타동사이고 감정·관심에 쓴다.",
+     "rose는 rise의 과거형이라 have 뒤(현재완료)에 올 수 없다. 현재완료에는 과거분사 risen이 필요하다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "sharply",
+     "pos": "adv",
+     "m": "급격히"
+    }
+   ]
+  },
+  {
+   "id": "p5-111",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 3,
+   "question": "The new tax law will ------- small businesses in several ways.",
+   "choices": [
+    "effect",
+    "infect",
+    "affect",
+    "effective"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "will 뒤 동사원형 자리이고 '중소기업에 영향을 미치다'라는 뜻이 필요하다. affect가 정답이다.",
+    "traps": [
+     "effect는 주로 명사(영향)이며, 동사일 때는 '(변화를) 일으키다'라는 뜻이라 effect businesses는 의미가 맞지 않는다.",
+     "infect는 '감염시키다'로 철자 함정이다.",
+     null,
+     "effective는 형용사라 will 뒤에 올 수 없다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "affect",
+     "pos": "v",
+     "m": "영향을 미치다"
+    }
+   ]
+  },
+  {
+   "id": "p5-112",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "The hotel offers ------- discounts to guests who stay for more than a week.",
+   "choices": [
+    "considerate",
+    "considering",
+    "considered",
+    "considerable"
+   ],
+   "answer": 3,
+   "explanation": {
+    "why": "할인 '규모가 상당한'이라는 뜻의 considerable이 discounts를 꾸민다.",
+    "traps": [
+     "considerate(사려 깊은)는 사람의 성격에 쓰는 혼동 어휘다.",
+     "considering은 전치사·접속사(~을 고려하면)로 명사 앞 형용사 자리에 맞지 않는다.",
+     "considered는 '숙고한 끝의'라는 뜻으로 할인과 어울리지 않는다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "considerable",
+     "pos": "adj",
+     "m": "상당한"
+    }
+   ]
+  },
+  {
+   "id": "p5-113",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 3,
+   "tags": [
+    "trap"
+   ],
+   "question": "Switching to LED lighting is an ------- way to reduce the building's energy costs.",
+   "choices": [
+    "economical",
+    "economic",
+    "economy",
+    "economics"
+   ],
+   "answer": 0,
+   "explanation": {
+    "why": "비용을 '절약하는' 방법이라는 뜻이므로 economical(경제적인, 절약하는)이 정답이다.",
+    "traps": [
+     null,
+     "economic은 '경제(학)의'라는 뜻으로 economic growth처럼 쓴다. 비용 절감 의미가 아니다.",
+     "economy는 명사라 an과 way 사이 형용사 자리에 맞지 않는다.",
+     "economics(경제학)는 명사다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "economical",
+     "pos": "adj",
+     "m": "절약하는, 경제적인"
+    }
+   ]
+  },
+  {
+   "id": "p5-114",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 3,
+   "question": "Please ------- the boxes on the bottom shelf near the loading dock.",
+   "choices": [
+    "lie",
+    "lay",
+    "lain",
+    "lying"
+   ],
+   "answer": 1,
+   "explanation": {
+    "why": "빈칸 뒤에 목적어 the boxes가 있으므로 타동사 lay(놓다)가 필요하다. 명령문이라 동사원형 lay.",
+    "traps": [
+     "lie(놓여 있다, 눕다)는 자동사라 목적어를 받을 수 없다. lie/lay 혼동 함정.",
+     null,
+     "lain은 lie의 과거분사라 명령문에 쓸 수 없다.",
+     "lying은 현재분사라 명령문 동사가 될 수 없다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "loading dock",
+     "pos": "n",
+     "m": "하역장"
+    }
+   ]
+  },
+  {
+   "id": "p5-115",
+   "part": 5,
+   "type": "vocab",
+   "concept": "p5.voc.confuse",
+   "difficulty": 2,
+   "question": "The board accepted the CFO's ------- to postpone the expansion until next year.",
+   "choices": [
+    "advise",
+    "advised",
+    "advice",
+    "advisable"
+   ],
+   "answer": 2,
+   "explanation": {
+    "why": "소유격 the CFO's 뒤, accepted의 목적어 자리는 명사다. advice(조언)가 to postpone의 수식을 받는다.",
+    "traps": [
+     "advise는 동사라 소유격 뒤 명사 자리에 올 수 없다. 철자 하나 차이의 혼동 어휘.",
+     "advised는 과거형·과거분사라 명사 자리에 맞지 않는다.",
+     null,
+     "advisable(바람직한)은 형용사다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "expansion",
+     "pos": "n",
+     "m": "확장"
+    }
+   ]
+  }
+ ]
+}

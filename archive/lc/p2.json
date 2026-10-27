@@ -1,0 +1,1566 @@
+{
+ "units": [
+  {
+   "id": "p2-001",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 2,
+   "question": "When is the new marketing manager starting?",
+   "choices": [
+    "In the conference room.",
+    "Next Monday, I believe.",
+    "She manages the sales team."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "m",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "When(언제)에 대해 '다음 주 월요일'이라는 시점으로 답했다.",
+    "traps": [
+     "When 질문에 장소(Where의 답)로 응답한 함정이다.",
+     null,
+     "manager와 비슷한 manages를 반복한 유사 발음·반복 함정이다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "start",
+     "pos": "v",
+     "m": "(일을) 시작하다"
+    }
+   ]
+  },
+  {
+   "id": "p2-002",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 1,
+   "question": "Where can I find extra printer paper?",
+   "choices": [
+    "About two hundred pages.",
+    "Yes, I printed it already.",
+    "In the supply cabinet by the copier."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "m",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "Where(어디)에 대해 '복사기 옆 비품 캐비닛'이라는 장소로 답했다.",
+    "traps": [
+     "paper에서 연상되는 pages로 수량을 말했을 뿐 장소가 아니다.",
+     "의문사 의문문에는 Yes/No로 답할 수 없고, printer와 printed는 반복 함정이다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "supply cabinet",
+     "pos": "n",
+     "m": "비품 보관함"
+    }
+   ]
+  },
+  {
+   "id": "p2-003",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 2,
+   "question": "Who's in charge of ordering lunch for the workshop?",
+   "choices": [
+    "Mr. Hayashi said he'd handle it.",
+    "The workshop starts at nine.",
+    "No, I already had lunch."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "US"
+    },
+    "A": {
+     "g": "f",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "Who(누가)에 대해 사람 이름(Mr. Hayashi)으로 답했다. handle it = 점심 주문을 맡겠다.",
+    "traps": [
+     null,
+     "workshop을 반복했지만 시간 정보라 누가 담당인지에 답하지 못한다.",
+     "의문사 의문문에 No로 답할 수 없고 lunch만 반복했다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "in charge of",
+     "pos": "phr",
+     "m": "~을 담당하는"
+    }
+   ]
+  },
+  {
+   "id": "p2-004",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 2,
+   "question": "Why was the shipment to Denver delayed?",
+   "choices": [
+    "Because of a snowstorm on the highway.",
+    "By express mail.",
+    "Yes, it arrived yesterday."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "Why(왜)에 대해 Because of로 이유(폭설)를 말했다.",
+    "traps": [
+     null,
+     "배송 '수단'을 말한 것으로 How 질문의 답이다.",
+     "의문사 의문문에 Yes로 답할 수 없다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "shipment",
+     "pos": "n",
+     "m": "배송(품)"
+    }
+   ]
+  },
+  {
+   "id": "p2-005",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 2,
+   "question": "How did the client meeting go this morning?",
+   "choices": [
+    "I'll go by taxi.",
+    "It's on the third floor.",
+    "Better than we expected."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "m",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "How did ~ go?는 '어떻게 됐어?'라는 결과를 묻는다. '예상보다 좋았다'가 자연스러운 답이다.",
+    "traps": [
+     "go를 반복했지만 '이동 수단'을 답해 질문 의도와 다르다.",
+     "장소를 묻는 질문이 아니다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p2-006",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 2,
+   "question": "What time does the bank close on Fridays?",
+   "choices": [
+    "It's very close to the station.",
+    "At five thirty.",
+    "I opened an account last week."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "US"
+    },
+    "A": {
+     "g": "m",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "What time(몇 시)에 대해 '5시 30분'이라는 시각으로 답했다.",
+    "traps": [
+     "close(닫다)와 철자가 같은 close(가까운)를 이용한 함정이다.",
+     null,
+     "bank에서 연상되는 account를 썼을 뿐 시각이 아니다."
+    ]
+   }
+  },
+  {
+   "id": "p2-007",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 3,
+   "question": "How long will the system upgrade take?",
+   "choices": [
+    "The new version is faster.",
+    "About three hours.",
+    "Since last Tuesday."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "f",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "How long(얼마나 오래)에 대해 '약 세 시간'이라는 소요 시간으로 답했다.",
+    "traps": [
+     "upgrade에서 연상되는 내용이지만 소요 시간에 답하지 않는다.",
+     null,
+     "Since는 과거부터 계속된 일에 쓰며, 앞으로 걸릴 시간을 묻는 미래 질문과 맞지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "upgrade",
+     "pos": "n",
+     "m": "업그레이드"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-008",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 2,
+   "question": "Which hotel did you book for the conference?",
+   "choices": [
+    "The one across from the convention center.",
+    "I read that book, too.",
+    "Three nights, starting Sunday."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "Which hotel(어느 호텔)에 대해 'the one(그 호텔) across from …'으로 특정 호텔을 지목했다.",
+    "traps": [
+     null,
+     "book(예약하다)을 명사 book(책)으로 바꾼 동음이의어 함정이다.",
+     "숙박 기간이라 '어느 호텔'에 대한 답이 아니다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "across from",
+     "pos": "prep",
+     "m": "~의 맞은편에"
+    }
+   ]
+  },
+  {
+   "id": "p2-009",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 3,
+   "question": "How much does it cost to ship this package overseas?",
+   "choices": [
+    "Two packages, please.",
+    "Yes, it's going overseas.",
+    "It depends on the weight."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "US"
+    },
+    "A": {
+     "g": "m",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "가격을 묻자 '무게에 따라 다르다'고 답했다. 정확한 금액 대신 조건을 말하는 자연스러운 응답이다.",
+    "traps": [
+     "package를 반복했지만 개수를 말한 것으로 가격과 무관하다.",
+     "의문사 의문문에 Yes로 답할 수 없고 overseas만 반복했다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "depend on",
+     "pos": "phr",
+     "m": "~에 달려 있다"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-010",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 2,
+   "question": "Whose turn is it to lead the team meeting?",
+   "choices": [
+    "I think it's Sandra's.",
+    "Turn left at the next corner.",
+    "The meeting was productive."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "m",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "Whose turn(누구 차례)에 대해 'Sandra의 차례'라고 소유격으로 답했다.",
+    "traps": [
+     null,
+     "turn(차례)을 turn(돌다)으로 바꾼 다의어 함정이다.",
+     "meeting을 반복했지만 지난 회의의 평가라 질문과 맞지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "productive",
+     "pos": "adj",
+     "m": "생산적인"
+    }
+   ]
+  },
+  {
+   "id": "p2-011",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 1,
+   "question": "Where should I put these boxes?",
+   "choices": [
+    "They were delivered this morning.",
+    "Just leave them by the door.",
+    "Yes, they're quite heavy."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "f",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "Where에 대해 '문 옆에 두라'는 장소로 답했다.",
+    "traps": [
+     "배송된 시점을 말해 장소 질문에 답하지 않는다.",
+     null,
+     "의문사 의문문에 Yes로 답할 수 없다."
+    ]
+   }
+  },
+  {
+   "id": "p2-012",
+   "part": 2,
+   "type": "wh",
+   "concept": "p2.wh",
+   "difficulty": 3,
+   "question": "When will the renovation of the lobby be finished?",
+   "choices": [
+    "In the main lobby.",
+    "The new carpet is blue.",
+    "Not until the end of the month."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "US"
+    },
+    "A": {
+     "g": "f",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "When에 대해 'not until the end of the month(월말이 되어서야)'로 완료 시점을 답했다.",
+    "traps": [
+     "lobby를 반복하며 장소로 답한 함정이다.",
+     "renovation에서 연상되는 내용이지만 시점이 아니다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "renovation",
+     "pos": "n",
+     "m": "보수 공사"
+    },
+    {
+     "w": "not until",
+     "pos": "phr",
+     "m": "~이 되어서야 비로소"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-013",
+   "part": 2,
+   "type": "yesno",
+   "concept": "p2.yesno",
+   "difficulty": 1,
+   "question": "Did you send the invoice to Ms. Chen?",
+   "choices": [
+    "Yes, first thing this morning.",
+    "She's a new client.",
+    "A shipping address."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "m",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "보냈는지 묻는 질문에 Yes + '오늘 아침 가장 먼저'로 답했다.",
+    "traps": [
+     null,
+     "Ms. Chen에 대한 정보일 뿐 보냈는지에 답하지 않는다.",
+     "send에서 연상되는 shipping을 썼지만 질문에 대한 답이 아니다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "invoice",
+     "pos": "n",
+     "m": "청구서"
+    }
+   ]
+  },
+  {
+   "id": "p2-014",
+   "part": 2,
+   "type": "yesno",
+   "concept": "p2.yesno",
+   "difficulty": 2,
+   "question": "Isn't the cafeteria open on weekends?",
+   "choices": [
+    "The lunch special is pasta.",
+    "No, only on weekdays.",
+    "Yes, I'll open the window."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "m",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "부정 의문문은 not을 빼고 '주말에 여나?'로 생각한다. '아니요, 평일에만'은 사실에 맞는 답이다.",
+    "traps": [
+     "cafeteria에서 연상되는 메뉴 이야기라 질문에 답하지 않는다.",
+     null,
+     "open을 반복했지만 창문을 연다는 엉뚱한 답이다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "cafeteria",
+     "pos": "n",
+     "m": "구내식당"
+    }
+   ]
+  },
+  {
+   "id": "p2-015",
+   "part": 2,
+   "type": "yesno",
+   "concept": "p2.yesno",
+   "difficulty": 2,
+   "question": "You've met our new accountant, haven't you?",
+   "choices": [
+    "The accounts are up to date.",
+    "We'll meet at noon.",
+    "Yes, at the orientation last week."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "US"
+    },
+    "A": {
+     "g": "f",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "부가 의문문으로 '만나 봤죠?'라고 확인하자 Yes + 만난 장소·시점을 덧붙였다.",
+    "traps": [
+     "accountant와 비슷한 accounts를 쓴 유사 발음 함정이다.",
+     "meet을 반복했지만 미래 약속이라 '만나 봤는지'에 답하지 않는다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "accountant",
+     "pos": "n",
+     "m": "회계사"
+    }
+   ]
+  },
+  {
+   "id": "p2-016",
+   "part": 2,
+   "type": "yesno",
+   "concept": "p2.yesno",
+   "difficulty": 2,
+   "question": "Is the quarterly report ready for review?",
+   "choices": [
+    "She reviewed the restaurant.",
+    "Almost. I just need to add the charts.",
+    "Every three months."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "준비됐냐는 질문에 '거의요, 차트만 추가하면 돼요'라고 진행 상황으로 답했다.",
+    "traps": [
+     "review를 반복했지만 식당 리뷰라는 엉뚱한 내용이다.",
+     null,
+     "quarterly(분기별)의 뜻을 풀어 말한 연상 함정이다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "quarterly",
+     "pos": "adj",
+     "m": "분기별의"
+    }
+   ]
+  },
+  {
+   "id": "p2-017",
+   "part": 2,
+   "type": "yesno",
+   "concept": "p2.yesno",
+   "difficulty": 2,
+   "question": "Have you tried the new coffee machine yet?",
+   "choices": [
+    "Two sugars, please.",
+    "It was a long trial.",
+    "Not yet. Is it any good?"
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "m",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "써 봤냐는 질문에 '아직요'라고 답하고 되묻는 자연스러운 응답이다.",
+    "traps": [
+     "coffee에서 연상되는 설탕 주문이라 질문에 답하지 않는다.",
+     "tried와 비슷한 trial(재판, 시험)을 쓴 유사 발음 함정이다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p2-018",
+   "part": 2,
+   "type": "yesno",
+   "concept": "p2.yesno",
+   "difficulty": 3,
+   "question": "Didn't Mr. Lopez transfer to the Seoul office?",
+   "choices": [
+    "Yes, he moved there in March.",
+    "You can transfer at the next station.",
+    "The office opens at eight."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "US"
+    },
+    "A": {
+     "g": "m",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "not을 빼고 '서울 사무소로 전근 갔나?'로 생각한다. Yes + 3월에 옮겼다는 답이 일치한다.",
+    "traps": [
+     null,
+     "transfer(전근 가다)를 transfer(환승하다)로 바꾼 다의어 함정이다.",
+     "office를 반복했지만 개점 시간이라 질문과 무관하다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "transfer",
+     "pos": "v",
+     "m": "전근 가다; 환승하다"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-019",
+   "part": 2,
+   "type": "yesno",
+   "concept": "p2.yesno",
+   "difficulty": 3,
+   "question": "Do you know if the elevator has been repaired?",
+   "choices": [
+    "On the fifth floor.",
+    "A new pair of shoes.",
+    "The technician is still working on it."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "f",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "수리됐는지 묻자 '기술자가 아직 작업 중'이라고 답했다. 아직 안 됐다는 뜻을 간접적으로 전한다.",
+    "traps": [
+     "elevator에서 연상되는 층 정보일 뿐이다.",
+     "repaired와 비슷하게 들리는 pair를 이용한 함정이다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "technician",
+     "pos": "n",
+     "m": "기술자"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-020",
+   "part": 2,
+   "type": "indirect",
+   "concept": "p2.indirect",
+   "difficulty": 3,
+   "question": "When is the deadline for the budget proposal?",
+   "choices": [
+    "Ms. Park would know that.",
+    "In the budget meeting room.",
+    "The proposal was very detailed."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "마감일을 직접 말하지 않고 'Park 씨가 알 것'이라고 다른 사람에게 넘기는 간접 응답이다. 고득점 단골 정답 유형.",
+    "traps": [
+     null,
+     "budget을 반복하며 장소로 답한 함정이다.",
+     "proposal을 반복했지만 마감일과 무관하다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "budget proposal",
+     "pos": "n",
+     "m": "예산안"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-021",
+   "part": 2,
+   "type": "indirect",
+   "concept": "p2.indirect",
+   "difficulty": 3,
+   "question": "Which flight are you taking to Chicago?",
+   "choices": [
+    "Chicago is very cold in winter.",
+    "I haven't decided yet.",
+    "It took off on time."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "US"
+    },
+    "A": {
+     "g": "m",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "어느 항공편인지 묻자 '아직 정하지 않았다'고 답했다. 질문 자체에 대한 정직한 응답이다.",
+    "traps": [
+     "Chicago를 반복했지만 날씨 이야기다.",
+     null,
+     "flight에서 연상되는 took off를 썼지만 이미 이륙한 비행기 이야기라 앞으로 탈 항공편과 맞지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-022",
+   "part": 2,
+   "type": "indirect",
+   "concept": "p2.indirect",
+   "difficulty": 3,
+   "question": "Can you tell me where the training room is?",
+   "choices": [
+    "The training lasts two days.",
+    "Yes, I can tell.",
+    "I'm new here, too."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "m",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "위치를 묻자 '저도 여기 처음이에요'라고 답했다. 모른다는 뜻을 우회적으로 전하는 정답이다.",
+    "traps": [
+     "training을 반복했지만 기간 정보다.",
+     "Can you tell me ~?는 정보를 달라는 요청이라 'Yes, I can tell'로 끝나면 대화가 성립하지 않는다.",
+     null
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-023",
+   "part": 2,
+   "type": "indirect",
+   "concept": "p2.indirect",
+   "difficulty": 4,
+   "question": "Why is the parking lot closed today?",
+   "choices": [
+    "Didn't you read the notice?",
+    "Close to the main entrance.",
+    "Yes, it's a large parking lot."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "f",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "이유를 직접 말하지 않고 '공지 못 봤어요?'라고 되묻는다. 공지에 이유가 나와 있다는 반문형 정답이다.",
+    "traps": [
+     null,
+     "closed와 철자가 비슷한 close(가까운)를 이용한 함정이다.",
+     "의문사 의문문에 Yes로 답할 수 없고 parking lot만 반복했다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "notice",
+     "pos": "n",
+     "m": "공지"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-024",
+   "part": 2,
+   "type": "indirect",
+   "concept": "p2.indirect",
+   "difficulty": 3,
+   "question": "Who's going to cover for Ms. Tanaka while she's on leave?",
+   "choices": [
+    "She left the documents on your desk.",
+    "That hasn't been announced yet.",
+    "A new laptop cover."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "US"
+    },
+    "A": {
+     "g": "f",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "누가 업무를 대신할지 묻자 '아직 발표되지 않았다'고 답했다. 모른다는 우회 응답이다.",
+    "traps": [
+     "leave(휴가)와 형태가 같은 left(두고 갔다)를 이용한 함정이다.",
+     null,
+     "cover(대신하다)를 cover(덮개)로 바꾼 다의어 함정이다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "cover for",
+     "pos": "phr",
+     "m": "~의 일을 대신하다"
+    },
+    {
+     "w": "on leave",
+     "pos": "phr",
+     "m": "휴가 중인"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-025",
+   "part": 2,
+   "type": "indirect",
+   "concept": "p2.indirect",
+   "difficulty": 3,
+   "question": "How much will the catering cost for the party?",
+   "choices": [
+    "About fifty guests.",
+    "The party was fun.",
+    "We're still waiting for the quote."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "m",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "비용을 묻자 '아직 견적을 기다리는 중'이라고 답했다. 금액을 모르는 이유를 말하는 간접 응답이다.",
+    "traps": [
+     "How many(몇 명)의 답이다.",
+     "party를 반복했지만 과거 파티에 대한 감상이다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "quote",
+     "pos": "n",
+     "m": "견적(서)"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-026",
+   "part": 2,
+   "type": "indirect",
+   "concept": "p2.indirect",
+   "difficulty": 3,
+   "question": "Has the shipment from Busan arrived yet?",
+   "choices": [
+    "Let me check the tracking number.",
+    "Busan is a port city.",
+    "It's shipped overseas."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "m",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "도착 여부를 바로 답하지 않고 '운송장 번호를 확인해 보겠다'고 했다. 확인해 보겠다는 대표 우회 응답.",
+    "traps": [
+     null,
+     "Busan을 반복했지만 도시 소개일 뿐이다.",
+     "shipment와 비슷한 shipped를 쓴 반복 함정이다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "tracking number",
+     "pos": "n",
+     "m": "운송장 번호"
+    }
+   ]
+  },
+  {
+   "id": "p2-027",
+   "part": 2,
+   "type": "indirect",
+   "concept": "p2.indirect",
+   "difficulty": 4,
+   "question": "Where did you get that ergonomic chair?",
+   "choices": [
+    "It's very important to sit.",
+    "It came with the office.",
+    "I'll get it for you."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "US"
+    },
+    "A": {
+     "g": "f",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "어디서 샀냐는 질문에 '사무실에 원래 있던 거예요'라고 답했다. 산 곳이 없다는 사실을 알려 주는 간접 응답이다.",
+    "traps": [
+     "chair에서 연상되는 sit을 썼지만 장소에 답하지 않는다.",
+     null,
+     "get을 반복했지만 '가져다주겠다'는 엉뚱한 답이다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "ergonomic",
+     "pos": "adj",
+     "m": "인체 공학적인"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-028",
+   "part": 2,
+   "type": "request",
+   "concept": "p2.request",
+   "difficulty": 1,
+   "question": "Could you review my presentation slides before lunch?",
+   "choices": [
+    "Sure, send them over.",
+    "The lunch menu changed.",
+    "I presented it yesterday."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "요청에 Sure로 수락하고 '보내 달라'고 덧붙였다.",
+    "traps": [
+     null,
+     "lunch를 반복한 함정이다.",
+     "presentation과 비슷한 presented를 쓴 반복 함정이다."
+    ]
+   }
+  },
+  {
+   "id": "p2-029",
+   "part": 2,
+   "type": "request",
+   "concept": "p2.request",
+   "difficulty": 3,
+   "question": "Why don't we take a short break?",
+   "choices": [
+    "Because the copier broke.",
+    "Good idea. I could use some coffee.",
+    "It took a week."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "m",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "Why don't we ~?는 이유가 아니라 '~하는 게 어때?'라는 제안이다. 'Good idea'로 수락했다.",
+    "traps": [
+     "Why를 이유 질문으로 착각하게 만드는 Because 함정이다. break와 broke도 비슷하게 들린다.",
+     null,
+     "take를 반복했지만 기간을 말해 제안에 대한 응답이 아니다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-030",
+   "part": 2,
+   "type": "request",
+   "concept": "p2.request",
+   "difficulty": 2,
+   "question": "Would you like me to book a meeting room?",
+   "choices": [
+    "I like the new book.",
+    "The room is on the left.",
+    "That would be helpful, thanks."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "US"
+    },
+    "A": {
+     "g": "m",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "도와주겠다는 제안에 '도움이 되겠다, 고맙다'고 수락했다.",
+    "traps": [
+     "like, book을 반복했지만 책 이야기다.",
+     "room을 반복하며 위치를 말했다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p2-031",
+   "part": 2,
+   "type": "request",
+   "concept": "p2.request",
+   "difficulty": 3,
+   "question": "Can I borrow your stapler for a minute?",
+   "choices": [
+    "Sorry, I lent it to Jake.",
+    "A box of staples.",
+    "For about a minute."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "f",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "빌려 달라는 요청에 '미안, 제이크에게 빌려줬어'라며 거절하고 이유를 댔다. 거절도 자연스러운 정답이 된다.",
+    "traps": [
+     null,
+     "stapler와 비슷한 staples(스테이플 심)를 쓴 함정이다.",
+     "for a minute을 그대로 반복했을 뿐 빌려줄지에 답하지 않는다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "lend",
+     "pos": "v",
+     "m": "빌려주다"
+    }
+   ]
+  },
+  {
+   "id": "p2-032",
+   "part": 2,
+   "type": "request",
+   "concept": "p2.request",
+   "difficulty": 3,
+   "question": "Would you mind closing the window?",
+   "choices": [
+    "The store closes at nine.",
+    "It's a nice window seat.",
+    "Not at all."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "Would you mind ~?는 '~해도 괜찮을까요?'라는 요청이다. 'Not at all(전혀 상관없어요)'은 수락의 뜻이다.",
+    "traps": [
+     "closing과 같은 동사 close를 써서 가게 마감 시간을 말한 함정이다.",
+     "window를 반복한 함정이다.",
+     null
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-033",
+   "part": 2,
+   "type": "request",
+   "concept": "p2.request",
+   "difficulty": 2,
+   "question": "Let's go over the contract terms one more time.",
+   "choices": [
+    "It's a two-year term.",
+    "OK, I'll get my copy.",
+    "Yes, I went over there."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "US"
+    },
+    "A": {
+     "g": "m",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "계약 조건을 한 번 더 검토하자는 제안에 '좋아요, 제 사본을 가져올게요'라고 응했다.",
+    "traps": [
+     "terms(조건)를 term(기간)으로 바꾼 다의어 함정이다.",
+     null,
+     "go over(검토하다)를 '저쪽으로 가다'로 바꾼 함정이다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "go over",
+     "pos": "phr",
+     "m": "검토하다"
+    }
+   ]
+  },
+  {
+   "id": "p2-034",
+   "part": 2,
+   "type": "choice",
+   "concept": "p2.choice",
+   "difficulty": 2,
+   "question": "Would you prefer a window seat or an aisle seat?",
+   "choices": [
+    "Whichever is available.",
+    "Yes, I'd prefer that.",
+    "I saw it through the window."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "m",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "선택 의문문에 '아무거나 가능한 걸로'라고 답했다. 둘 다 괜찮다는 정답 유형이다.",
+    "traps": [
+     null,
+     "선택 의문문에는 Yes/No로 답하지 않는다.",
+     "window를 반복한 함정이다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "aisle",
+     "pos": "n",
+     "m": "통로"
+    }
+   ]
+  },
+  {
+   "id": "p2-035",
+   "part": 2,
+   "type": "choice",
+   "concept": "p2.choice",
+   "difficulty": 4,
+   "question": "Should we meet in your office or in the conference room?",
+   "choices": [
+    "Yes, we should.",
+    "The conference was in May.",
+    "Mine is a bit small."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "f",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "'제 방은 좀 좁아요'라고 답해 회의실에서 만나자는 뜻을 간접적으로 전했다.",
+    "traps": [
+     "선택 의문문에 Yes로 답할 수 없다.",
+     "conference를 반복했지만 지난 학회 이야기다.",
+     null
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-036",
+   "part": 2,
+   "type": "choice",
+   "concept": "p2.choice",
+   "difficulty": 3,
+   "question": "Is the presentation on Tuesday or Wednesday?",
+   "choices": [
+    "Yes, it's a long presentation.",
+    "It's been moved to Thursday.",
+    "Every week."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "US"
+    },
+    "A": {
+     "g": "f",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "둘 다 아닌 제3의 답(목요일로 변경)이다. 선택 의문문에서 자주 나오는 정답 유형.",
+    "traps": [
+     "선택 의문문에 Yes로 답할 수 없다.",
+     null,
+     "빈도를 말해 특정 요일을 묻는 질문과 맞지 않는다."
+    ]
+   },
+   "tags": [
+    "trap"
+   ]
+  },
+  {
+   "id": "p2-037",
+   "part": 2,
+   "type": "choice",
+   "concept": "p2.choice",
+   "difficulty": 1,
+   "question": "Do you want to pay by card or in cash?",
+   "choices": [
+    "Card, please.",
+    "Yes, that's fine.",
+    "It was cashed yesterday."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "m",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "둘 중 하나(카드)를 골랐다.",
+    "traps": [
+     null,
+     "선택 의문문에 Yes로 답하면 무엇을 고른 건지 알 수 없다.",
+     "cash와 비슷한 cashed(현금화된)를 쓴 함정이다."
+    ]
+   }
+  },
+  {
+   "id": "p2-038",
+   "part": 2,
+   "type": "statement",
+   "concept": "p2.statement",
+   "difficulty": 2,
+   "question": "The printer on the second floor is out of toner again.",
+   "choices": [
+    "On the second floor.",
+    "I'll order some more today.",
+    "He printed his ticket."
+   ],
+   "answer": 1,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "m",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "토너가 떨어졌다는 문제 제기에 '오늘 더 주문하겠다'는 해결책으로 답했다.",
+    "traps": [
+     "second floor를 그대로 반복한 함정이다.",
+     null,
+     "printer와 비슷한 printed를 쓴 함정이다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "out of",
+     "pos": "phr",
+     "m": "~이 떨어진"
+    }
+   ]
+  },
+  {
+   "id": "p2-039",
+   "part": 2,
+   "type": "statement",
+   "concept": "p2.statement",
+   "difficulty": 3,
+   "question": "I can't find the file for the Henderson account.",
+   "choices": [
+    "A file cabinet.",
+    "I found it very interesting.",
+    "Did you check the shared drive?"
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "US"
+    },
+    "A": {
+     "g": "f",
+     "accent": "AU"
+    }
+   },
+   "explanation": {
+    "why": "파일을 못 찾겠다는 말에 '공유 드라이브는 확인해 봤어요?'라고 되물으며 해결책을 제시했다.",
+    "traps": [
+     "file을 반복한 함정이다.",
+     "find와 같은 동사 found를 썼지만 '흥미롭다고 생각했다'는 엉뚱한 뜻이다.",
+     null
+    ]
+   },
+   "vocab": [
+    {
+     "w": "shared drive",
+     "pos": "n",
+     "m": "공유 드라이브"
+    }
+   ]
+  },
+  {
+   "id": "p2-040",
+   "part": 2,
+   "type": "statement",
+   "concept": "p2.statement",
+   "difficulty": 2,
+   "question": "Our flight has been delayed by two hours.",
+   "choices": [
+    "It's a two-hour drive.",
+    "He flew to Tokyo.",
+    "Then let's get something to eat."
+   ],
+   "answer": 2,
+   "speakers": {
+    "Q": {
+     "g": "m",
+     "accent": "GB"
+    },
+    "A": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "explanation": {
+    "why": "비행기가 두 시간 지연됐다는 말에 '그럼 뭐 좀 먹자'고 상황에 맞게 반응했다.",
+    "traps": [
+     "two hours를 반복했지만 운전 시간 이야기다.",
+     "flight와 관련된 flew를 썼지만 다른 사람 이야기다.",
+     null
+    ]
+   }
+  },
+  {
+   "id": "p2-041",
+   "part": 2,
+   "type": "statement",
+   "concept": "p2.statement",
+   "difficulty": 3,
+   "question": "The new hires will start next week.",
+   "choices": [
+    "Then we need to prepare their desks.",
+    "Higher than last year.",
+    "It started raining."
+   ],
+   "answer": 0,
+   "speakers": {
+    "Q": {
+     "g": "f",
+     "accent": "AU"
+    },
+    "A": {
+     "g": "m",
+     "accent": "GB"
+    }
+   },
+   "explanation": {
+    "why": "신입 사원이 다음 주에 온다는 말에 '그럼 책상을 준비해야겠네'라고 이어 갔다.",
+    "traps": [
+     null,
+     "hires와 발음이 비슷한 higher를 쓴 유사 발음 함정이다.",
+     "start를 반복했지만 날씨 이야기다."
+    ]
+   },
+   "vocab": [
+    {
+     "w": "new hire",
+     "pos": "n",
+     "m": "신입 사원"
+    }
+   ],
+   "tags": [
+    "trap"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1589 @@
+{
+ "units": [
+  {
+   "id": "p3-s01",
+   "part": 3,
+   "speakers": {
+    "W": {
+     "g": "f",
+     "accent": "GB"
+    },
+    "M": {
+     "g": "m",
+     "accent": "US"
+    }
+   },
+   "script": [
+    {
+     "s": "W",
+     "t": "Hi, Marcus. I'm putting together this week's order for office supplies. Is there anything your team needs?"
+    },
+    {
+     "s": "M",
+     "t": "Actually, yes. We're almost out of printer cartridges, and a few people have asked for larger monitors."
+    },
+    {
+     "s": "W",
+     "t": "Cartridges are no problem, but monitors have to be approved by the finance department, since they cost more than two hundred dollars each."
+    },
+    {
+     "s": "M",
+     "t": "I see. Then I'll send a request to finance this afternoon with the number of monitors we need."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p3.gist",
+     "difficulty": 1,
+     "question": "What are the speakers mainly discussing?",
+     "choices": [
+      "An order for office supplies",
+      "A new printer model",
+      "A budget meeting",
+      "Hiring new team members"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "여자가 첫 문장에서 이번 주 사무용품 주문을 준비 중이라며 필요한 것이 있는지 묻고, 대화 전체가 그 주문 품목 이야기다.",
+      "traps": [
+       null,
+       "프린터 카트리지가 언급될 뿐 새 프린터 모델 이야기는 없다.",
+       "재무팀은 모니터 승인 주체로만 나온다. 예산 회의를 하는 것이 아니다.",
+       "'a few people have asked'는 팀원 요청이지 채용 이야기가 아니다."
+      ]
+     },
+     "id": "p3-s01-1",
+     "vocab": [
+      {
+       "w": "put together",
+       "pos": "phr",
+       "m": "준비하다, 만들다"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 2,
+     "question": "According to the woman, why do the monitors need approval?",
+     "choices": [
+      "They are currently out of stock.",
+      "They cost over a certain amount.",
+      "They must be ordered from overseas.",
+      "They are for the finance department."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "여자는 모니터가 개당 200달러가 넘기 때문에(since they cost more than two hundred dollars each) 재무팀 승인이 필요하다고 했다.",
+      "traps": [
+       "품절(out of stock)이라는 말은 없다. 'almost out of'는 카트리지 이야기다.",
+       null,
+       "해외 주문 이야기는 없다.",
+       "재무팀은 승인을 하는 부서이지 모니터를 쓰는 부서가 아니다."
+      ]
+     },
+     "para": [
+      {
+       "p": "cost more than two hundred dollars each",
+       "a": "cost over a certain amount"
+      }
+     ],
+     "id": "p3-s01-2"
+    },
+    {
+     "type": "next",
+     "concept": "p3.next",
+     "difficulty": 2,
+     "question": "What will the man do this afternoon?",
+     "choices": [
+      "Install some monitors",
+      "Buy printer cartridges",
+      "Submit a request",
+      "Meet with the woman"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "남자는 오늘 오후에 필요한 모니터 수를 적어 재무팀에 요청을 보내겠다(I'll send a request to finance this afternoon)고 했다.",
+      "traps": [
+       "모니터는 아직 승인도 받지 않았다.",
+       "카트리지는 여자가 주문서에 넣어 처리한다.",
+       null,
+       "여자와 만나겠다는 말은 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "send a request",
+       "a": "Submit a request"
+      }
+     ],
+     "id": "p3-s01-3"
+    }
+   ]
+  },
+  {
+   "id": "p3-s02",
+   "part": 3,
+   "speakers": {
+    "M": {
+     "g": "m",
+     "accent": "AU"
+    },
+    "W": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "script": [
+    {
+     "s": "M",
+     "t": "Good evening. I have a reservation under the name Daniel Okafor."
+    },
+    {
+     "s": "W",
+     "t": "Welcome, Mr. Okafor. I see you're staying with us for three nights. Unfortunately, the room with a city view that you requested won't be ready until tomorrow."
+    },
+    {
+     "s": "M",
+     "t": "Hmm, I've got a really early meeting tomorrow."
+    },
+    {
+     "s": "W",
+     "t": "I understand. In that case, I can give you a garden-view room tonight at no extra charge, and you won't need to move tomorrow if you'd rather stay there."
+    },
+    {
+     "s": "M",
+     "t": "That works. Could I also get a wake-up call at five thirty?"
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p3.gist",
+     "difficulty": 1,
+     "question": "Where most likely are the speakers?",
+     "choices": [
+      "At an airport",
+      "At a restaurant",
+      "At a conference center",
+      "At a hotel"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "예약자 이름 확인, 3박 투숙, 시티뷰 객실, 모닝콜 요청 등으로 보아 호텔 프런트 대화다.",
+      "traps": [
+       "공항 관련 표현(탑승, 수하물)은 없다.",
+       "식당 예약이 아니라 객실 이야기다.",
+       "meeting이 언급되지만 회의 장소에서 나누는 대화가 아니다.",
+       null
+      ]
+     },
+     "id": "p3-s02-1",
+     "vocab": [
+      {
+       "w": "at no extra charge",
+       "pos": "phr",
+       "m": "추가 요금 없이"
+      }
+     ]
+    },
+    {
+     "type": "intent",
+     "concept": "p3.intent",
+     "difficulty": 4,
+     "question": "Why does the man say, “I've got a really early meeting tomorrow”?",
+     "choices": [
+      "He wants to check out early.",
+      "He needs directions to a meeting.",
+      "He does not want to change rooms in the morning.",
+      "He wants to cancel his reservation."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "원하는 방이 내일에야 준비된다는 말에 '내일 아침 일찍 회의가 있다'고 답한다. 아침에 방을 옮기기 곤란하다는 뜻이고, 여자도 '내일 옮기지 않아도 된다'고 응답한다.",
+      "traps": [
+       "3박 예약이고 일찍 체크아웃하겠다는 말은 없다.",
+       "회의 장소를 묻는 것이 아니다.",
+       null,
+       "예약 취소 의도는 없다. 대안을 받아들인다."
+      ]
+     },
+     "tags": [
+      "trap"
+     ],
+     "id": "p3-s02-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 2,
+     "question": "What does the man request?",
+     "choices": [
+      "A late checkout",
+      "A city map",
+      "A ride to the airport",
+      "A wake-up call"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "마지막에 5시 30분 모닝콜을 요청했다.",
+      "traps": [
+       "늦은 체크아웃 요청은 없다.",
+       "city는 객실 전망(city view)에서 나온 단어일 뿐이다.",
+       "공항 교통편 요청은 없다.",
+       null
+      ]
+     },
+     "id": "p3-s02-3"
+    }
+   ]
+  },
+  {
+   "id": "p3-s03",
+   "part": 3,
+   "speakers": {
+    "W": {
+     "g": "f",
+     "accent": "AU"
+    },
+    "M": {
+     "g": "m",
+     "accent": "GB"
+    }
+   },
+   "script": [
+    {
+     "s": "W",
+     "t": "Hi, I'd like to order some flyers for our bakery's grand opening next Saturday."
+    },
+    {
+     "s": "M",
+     "t": "Sure. How many do you need?"
+    },
+    {
+     "s": "W",
+     "t": "A thousand should be enough. Oh, and I'd like them printed on heavier paper, if possible."
+    },
+    {
+     "s": "M",
+     "t": "Heavier paper adds ten dollars to the price. We can have them ready by Thursday."
+    },
+    {
+     "s": "W",
+     "t": "Thursday's perfect. I'll pick them up after work."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p3.gist",
+     "difficulty": 2,
+     "question": "Why is the woman placing an order?",
+     "choices": [
+      "To advertise a store opening",
+      "To replace damaged flyers",
+      "To prepare for a job fair",
+      "To send wedding invitations"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "빵집 개업(grand opening)을 위해 전단지를 주문한다고 했다. 전단지 = 홍보용.",
+      "traps": [
+       null,
+       "손상된 전단지를 교체한다는 말은 없다.",
+       "채용 박람회 이야기는 없다.",
+       "결혼 초대장 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "flyers for our bakery's grand opening",
+       "a": "advertise a store opening"
+      }
+     ],
+     "id": "p3-s03-1",
+     "vocab": [
+      {
+       "w": "flyer",
+       "pos": "n",
+       "m": "전단지"
+      },
+      {
+       "w": "grand opening",
+       "pos": "n",
+       "m": "개업"
+      }
+     ]
+    },
+    {
+     "type": "graphic",
+     "concept": "p3.graphic",
+     "difficulty": 3,
+     "question": "Look at the graphic. How much will the woman most likely pay?",
+     "choices": [
+      "$85",
+      "$95",
+      "$120",
+      "$130"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "가격표에서 전단지 1,000장은 85달러이고, 남자가 두꺼운 종이는 10달러가 추가된다고 했다. 85 + 10 = 95달러.",
+      "traps": [
+       "85달러는 기본 가격이다. 두꺼운 종이 추가 요금을 놓치면 고르게 되는 함정.",
+       null,
+       "120달러는 포스터 가격이다.",
+       "130달러는 포스터 가격에 10달러를 더한 값으로 품목이 다르다."
+      ]
+     },
+     "tags": [
+      "trap"
+     ],
+     "id": "p3-s03-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 1,
+     "question": "When will the woman pick up her order?",
+     "choices": [
+      "On Thursday",
+      "On Friday",
+      "On Saturday",
+      "On Monday"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "목요일까지 준비된다는 말에 '목요일 좋아요, 퇴근 후에 찾으러 갈게요'라고 했다.",
+      "traps": [
+       null,
+       "금요일은 언급되지 않았다.",
+       "토요일은 개업일이다.",
+       "월요일은 언급되지 않았다."
+      ]
+     },
+     "id": "p3-s03-3"
+    }
+   ],
+   "graphic": {
+    "kind": "table",
+    "title": "Printing Price List",
+    "header": [
+     "Item",
+     "Price"
+    ],
+    "rows": [
+     [
+      "Business cards (500)",
+      "$40"
+     ],
+     [
+      "Flyers (1,000)",
+      "$85"
+     ],
+     [
+      "Posters (50)",
+      "$120"
+     ],
+     [
+      "Brochures (500)",
+      "$150"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "p3-s04",
+   "part": 3,
+   "speakers": {
+    "W": {
+     "g": "f",
+     "accent": "US"
+    },
+    "M1": {
+     "g": "m",
+     "accent": "GB"
+    },
+    "M2": {
+     "g": "m",
+     "accent": "AU"
+    }
+   },
+   "script": [
+    {
+     "s": "W",
+     "t": "Hi Tom, hi Raj. Thanks for meeting. We need to fill the sales coordinator position by the end of the month."
+    },
+    {
+     "s": "M1",
+     "t": "We've received over forty applications so far. I've narrowed them down to six."
+    },
+    {
+     "s": "M2",
+     "t": "That's great. Could we interview all six on Thursday?"
+    },
+    {
+     "s": "W",
+     "t": "I'll be at a client's site all day Thursday. How about Friday?"
+    },
+    {
+     "s": "M1",
+     "t": "Friday works for me. I'll reserve the small meeting room and send the candidates an invitation."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p3.gist",
+     "difficulty": 1,
+     "question": "What are the speakers discussing?",
+     "choices": [
+      "Planning a client visit",
+      "Renovating a meeting room",
+      "Filling a job opening",
+      "Reviewing sales figures"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "첫 문장에서 영업 코디네이터 자리를 이달 말까지 채워야 한다고 하고, 지원서·면접 일정 이야기가 이어진다.",
+      "traps": [
+       "고객사 방문은 여자가 목요일에 바쁜 이유로만 나온다.",
+       "회의실은 면접 장소로 예약할 뿐이다.",
+       null,
+       "sales는 직책 이름(sales coordinator)에 들어간 단어일 뿐이다."
+      ]
+     },
+     "id": "p3-s04-1",
+     "vocab": [
+      {
+       "w": "narrow down",
+       "pos": "phr",
+       "m": "(범위를) 좁히다"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 2,
+     "question": "Why is the woman unavailable on Thursday?",
+     "choices": [
+      "She will be on vacation.",
+      "She has a training session.",
+      "She is moving to a new office.",
+      "She will be visiting a client."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "여자는 목요일 하루 종일 고객사 현장에 있을 것(I'll be at a client's site all day Thursday)이라고 했다.",
+      "traps": [
+       "휴가 이야기는 없다.",
+       "교육 일정은 언급되지 않았다.",
+       "사무실 이전 이야기는 없다.",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "at a client's site",
+       "a": "visiting a client"
+      }
+     ],
+     "id": "p3-s04-2"
+    },
+    {
+     "type": "next",
+     "concept": "p3.next",
+     "difficulty": 2,
+     "question": "What does Tom say he will do?",
+     "choices": [
+      "Post a job advertisement",
+      "Reserve a room",
+      "Call a client",
+      "Review more applications"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "Tom(첫 번째 남자)은 작은 회의실을 예약하고 후보자들에게 초대장을 보내겠다고 했다.",
+      "traps": [
+       "이미 지원서 40여 건을 받았으므로 채용 공고를 올릴 필요가 없다.",
+       null,
+       "고객에게 연락하는 것은 여자의 일정과 관련된 내용이 아니다.",
+       "이미 6명으로 좁혔다."
+      ]
+     },
+     "id": "p3-s04-3"
+    }
+   ]
+  },
+  {
+   "id": "p3-s05",
+   "part": 3,
+   "speakers": {
+    "M": {
+     "g": "m",
+     "accent": "US"
+    },
+    "W": {
+     "g": "f",
+     "accent": "AU"
+    }
+   },
+   "script": [
+    {
+     "s": "M",
+     "t": "Hi, this is Kenji from Accounting. The air conditioning on our floor has stopped working again."
+    },
+    {
+     "s": "W",
+     "t": "Oh, no. That's the third time this month."
+    },
+    {
+     "s": "M",
+     "t": "I know. It's getting really hot in here, and we have clients coming in at two."
+    },
+    {
+     "s": "W",
+     "t": "I'll call the repair company right away and ask them to replace the unit instead of just fixing it. In the meantime, you could use the conference room on the fourth floor. It's on a different system."
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 1,
+     "question": "What problem does the man report?",
+     "choices": [
+      "A meeting room is double-booked.",
+      "Some clients are late.",
+      "A floor needs cleaning.",
+      "An air-conditioning system is not working."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "남자는 자기 층의 에어컨이 또 작동을 멈췄다고 보고했다.",
+      "traps": [
+       "회의실 이중 예약 이야기는 없다.",
+       "고객은 2시에 올 예정이라고 했을 뿐 늦는다는 말은 없다.",
+       "floor(층)라는 단어를 이용한 함정이다.",
+       null
+      ]
+     },
+     "id": "p3-s05-1",
+     "vocab": [
+      {
+       "w": "in the meantime",
+       "pos": "phr",
+       "m": "그동안"
+      }
+     ]
+    },
+    {
+     "type": "intent",
+     "concept": "p3.intent",
+     "difficulty": 3,
+     "question": "What does the woman imply when she says, “That's the third time this month”?",
+     "choices": [
+      "The problem keeps happening.",
+      "She has called the man before.",
+      "The repair was inexpensive.",
+      "The building is new."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "에어컨이 '또(again)' 멈췄다는 말에 '이번 달만 세 번째'라고 반응한다. 같은 문제가 반복된다는 뜻이고, 이후 수리 대신 교체를 요청하겠다고 한다.",
+      "traps": [
+       null,
+       "남자에게 세 번 전화했다는 뜻이 아니다.",
+       "수리비 이야기는 없다.",
+       "건물이 새것이라는 근거는 없다."
+      ]
+     },
+     "id": "p3-s05-2"
+    },
+    {
+     "type": "suggest",
+     "concept": "p3.next",
+     "difficulty": 2,
+     "question": "What does the woman suggest the man do?",
+     "choices": [
+      "Reschedule a client meeting",
+      "Use a different room",
+      "Call the repair company",
+      "Open the windows"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "그동안 다른 냉방 시스템을 쓰는 4층 회의실을 이용하라고 제안했다.",
+      "traps": [
+       "고객 미팅 일정을 바꾸라는 말은 없다.",
+       null,
+       "수리 업체에는 여자가 직접 전화하겠다고 했다. 주어를 바꾼 함정.",
+       "창문 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "you could use the conference room on the fourth floor",
+       "a": "Use a different room"
+      }
+     ],
+     "id": "p3-s05-3"
+    }
+   ]
+  },
+  {
+   "id": "p3-s06",
+   "part": 3,
+   "speakers": {
+    "W": {
+     "g": "f",
+     "accent": "GB"
+    },
+    "M": {
+     "g": "m",
+     "accent": "AU"
+    }
+   },
+   "script": [
+    {
+     "s": "W",
+     "t": "Hello. I reserved a compact car for pickup at noon today. My name is Grace Lim."
+    },
+    {
+     "s": "M",
+     "t": "Yes, Ms. Lim. All our compact cars are out at the moment, so we're upgrading you to a midsize car at no extra cost."
+    },
+    {
+     "s": "W",
+     "t": "Oh, that's great. Does it have a navigation system? I'm driving to a client's office in a town I've never been to."
+    },
+    {
+     "s": "M",
+     "t": "It does. I'll just need to see your driver's license and a credit card, and then I'll show you how to use the navigation system."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p3.gist",
+     "difficulty": 1,
+     "question": "Where most likely does the man work?",
+     "choices": [
+      "At a repair shop",
+      "At a travel agency",
+      "At a car rental agency",
+      "At a parking garage"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "소형차 예약·픽업, 중형차 업그레이드, 운전면허증 확인으로 보아 렌터카 업체 직원이다.",
+      "traps": [
+       "차를 고치는 이야기는 없다.",
+       "여행사는 차량을 직접 내주지 않는다.",
+       null,
+       "주차장 이야기는 없다."
+      ]
+     },
+     "id": "p3-s06-1",
+     "vocab": [
+      {
+       "w": "upgrade",
+       "pos": "v",
+       "m": "상위 등급으로 바꿔 주다"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 2,
+     "question": "What is the woman told about her reservation?",
+     "choices": [
+      "She will receive a larger vehicle.",
+      "She must pay an additional fee.",
+      "Her pickup time has changed.",
+      "Her reservation was canceled."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "소형차가 다 나가 '추가 비용 없이 중형차로 업그레이드'해 준다고 했다.",
+      "traps": [
+       null,
+       "'at no extra cost'라고 했다. 반대 내용 함정.",
+       "픽업 시간 변경 이야기는 없다.",
+       "예약은 유지되고 차종만 바뀌었다."
+      ]
+     },
+     "para": [
+      {
+       "p": "upgrading you to a midsize car",
+       "a": "receive a larger vehicle"
+      }
+     ],
+     "id": "p3-s06-2"
+    },
+    {
+     "type": "next",
+     "concept": "p3.next",
+     "difficulty": 2,
+     "question": "What will the man do after checking the woman's documents?",
+     "choices": [
+      "Give directions to a client's office",
+      "Wash the car",
+      "Explain how to use a device",
+      "Print a map"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "면허증과 카드를 확인한 뒤 내비게이션 사용법을 알려 주겠다고 했다. 내비게이션 = 기기(device).",
+      "traps": [
+       "고객사로 가는 길을 직접 알려 주겠다는 말은 없다.",
+       "세차 이야기는 없다.",
+       null,
+       "지도를 출력한다는 말은 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "show you how to use the navigation system",
+       "a": "Explain how to use a device"
+      }
+     ],
+     "id": "p3-s06-3"
+    }
+   ]
+  },
+  {
+   "id": "p3-s07",
+   "part": 3,
+   "speakers": {
+    "M": {
+     "g": "m",
+     "accent": "GB"
+    },
+    "W": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "script": [
+    {
+     "s": "M",
+     "t": "Excuse me. My ticket says my train leaves at nine twenty-five, but I don't see it on the board for platform two."
+    },
+    {
+     "s": "W",
+     "t": "Let me check. Ah, that train's been delayed, and it's departing from platform five today."
+    },
+    {
+     "s": "M",
+     "t": "Oh, thanks. Do I have time to get a coffee?"
+    },
+    {
+     "s": "W",
+     "t": "You do. There's a café right next to platform five."
+    }
+   ],
+   "questions": [
+    {
+     "type": "graphic",
+     "concept": "p3.graphic",
+     "difficulty": 3,
+     "question": "Look at the graphic. Where is the man traveling to?",
+     "choices": [
+      "Oakton",
+      "Bridgeport",
+      "Millbrook",
+      "Weston"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "남자의 기차는 9시 25분 출발이다. 표에서 9:25 출발 열차의 목적지는 Bridgeport이고, 상태도 '지연'으로 여자의 말과 일치한다.",
+      "traps": [
+       "Oakton은 9시 10분 열차다.",
+       null,
+       "Millbrook은 9시 40분 열차다.",
+       "Weston은 10시 5분 열차다."
+      ]
+     },
+     "id": "p3-s07-1",
+     "vocab": [
+      {
+       "w": "depart",
+       "pos": "v",
+       "m": "출발하다"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 2,
+     "question": "What does the woman tell the man?",
+     "choices": [
+      "His train has been canceled.",
+      "His ticket is not valid.",
+      "He needs to change trains.",
+      "His train will leave from a different platform."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "기차가 지연되었고 오늘은 5번 승강장에서 출발한다고 했다. 원래 보던 2번이 아닌 다른 승강장이다.",
+      "traps": [
+       "취소가 아니라 지연(delayed)이다.",
+       "표에 문제가 있다는 말은 없다.",
+       "환승 이야기는 없다.",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "it's departing from platform five today",
+       "a": "leave from a different platform"
+      }
+     ],
+     "id": "p3-s07-2"
+    },
+    {
+     "type": "next",
+     "concept": "p3.next",
+     "difficulty": 2,
+     "question": "What will the man most likely do next?",
+     "choices": [
+      "Buy a beverage",
+      "Exchange his ticket",
+      "Take a taxi",
+      "Call his office"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "커피 마실 시간이 있냐고 묻자 여자가 시간이 있고 5번 승강장 옆에 카페가 있다고 했다. 음료를 살 것이다.",
+      "traps": [
+       null,
+       "표를 바꿀 필요는 없다.",
+       "택시 이야기는 없다.",
+       "사무실에 전화한다는 말은 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "get a coffee",
+       "a": "Buy a beverage"
+      }
+     ],
+     "id": "p3-s07-3"
+    }
+   ],
+   "graphic": {
+    "kind": "table",
+    "title": "Departures",
+    "header": [
+     "Destination",
+     "Departure",
+     "Status"
+    ],
+    "rows": [
+     [
+      "Oakton",
+      "9:10",
+      "On time"
+     ],
+     [
+      "Bridgeport",
+      "9:25",
+      "Delayed (9:50)"
+     ],
+     [
+      "Millbrook",
+      "9:40",
+      "On time"
+     ],
+     [
+      "Weston",
+      "10:05",
+      "On time"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "p3-s08",
+   "part": 3,
+   "speakers": {
+    "W": {
+     "g": "f",
+     "accent": "AU"
+    },
+    "M": {
+     "g": "m",
+     "accent": "US"
+    }
+   },
+   "script": [
+    {
+     "s": "W",
+     "t": "Hi Dev. Are you going to the product launch in Singapore next month?"
+    },
+    {
+     "s": "M",
+     "t": "I'm supposed to, but my travel budget hasn't been approved yet."
+    },
+    {
+     "s": "W",
+     "t": "Didn't Ms. Romero say she'd approve it by Friday?"
+    },
+    {
+     "s": "M",
+     "t": "She did, but I wouldn't count on it. She's been traveling all week."
+    },
+    {
+     "s": "W",
+     "t": "Well, if you need a backup plan, the launch will also be streamed online."
+    },
+    {
+     "s": "M",
+     "t": "Good to know. I'll register for the online version just in case."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p3.gist",
+     "difficulty": 1,
+     "question": "What event are the speakers discussing?",
+     "choices": [
+      "A budget meeting",
+      "A training workshop",
+      "A trade show",
+      "A product launch"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "첫 문장에서 다음 달 싱가포르 제품 출시 행사(product launch)에 가는지 묻는다.",
+      "traps": [
+       "예산은 출장 경비 승인 이야기일 뿐 회의가 아니다.",
+       "교육 워크숍 이야기는 없다.",
+       "무역 박람회는 언급되지 않았다.",
+       null
+      ]
+     },
+     "id": "p3-s08-1",
+     "vocab": [
+      {
+       "w": "count on",
+       "pos": "phr",
+       "m": "~을 믿다, 기대하다"
+      },
+      {
+       "w": "stream",
+       "pos": "v",
+       "m": "(온라인으로) 실시간 중계하다"
+      }
+     ]
+    },
+    {
+     "type": "intent",
+     "concept": "p3.intent",
+     "difficulty": 4,
+     "question": "What does the man imply when he says, “I wouldn't count on it”?",
+     "choices": [
+      "He does not know how much the trip will cost.",
+      "He disagrees with the budget.",
+      "He doubts the approval will come on time.",
+      "He thinks the event will be canceled."
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "금요일까지 승인해 준다고 하지 않았냐는 말에 '그렇긴 한데 기대하지 않는다, 그녀가 일주일 내내 출장 중'이라고 답한다. 제때 승인이 나지 않을 것 같다는 뜻이다.",
+      "traps": [
+       "비용 이야기가 아니다.",
+       "예산 자체에 반대하는 것이 아니다.",
+       null,
+       "행사가 취소된다는 말이 아니라 온라인 중계도 있다."
+      ]
+     },
+     "tags": [
+      "trap"
+     ],
+     "id": "p3-s08-2"
+    },
+    {
+     "type": "next",
+     "concept": "p3.next",
+     "difficulty": 2,
+     "question": "What does the man say he will do?",
+     "choices": [
+      "Book a flight to Singapore",
+      "Sign up for an online event",
+      "Contact Ms. Romero",
+      "Prepare a presentation"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "만약을 대비해 온라인 버전에 등록하겠다(register for the online version)고 했다.",
+      "traps": [
+       "아직 출장 승인을 받지 못했다.",
+       null,
+       "Ms. Romero에게 연락하겠다는 말은 없다.",
+       "발표 준비 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "register for the online version",
+       "a": "Sign up for an online event"
+      }
+     ],
+     "id": "p3-s08-3"
+    }
+   ]
+  },
+  {
+   "id": "p3-s09",
+   "part": 3,
+   "speakers": {
+    "M": {
+     "g": "m",
+     "accent": "AU"
+    },
+    "W": {
+     "g": "f",
+     "accent": "GB"
+    }
+   },
+   "script": [
+    {
+     "s": "M",
+     "t": "Hi. I'd like to book a table for eight people this Thursday at seven."
+    },
+    {
+     "s": "W",
+     "t": "Let me see. We're fully booked at seven, but we have a private room available at eight thirty."
+    },
+    {
+     "s": "M",
+     "t": "That's a bit late for my clients. Is there anything earlier?"
+    },
+    {
+     "s": "W",
+     "t": "Six o'clock is open in the main dining area."
+    },
+    {
+     "s": "M",
+     "t": "Six it is, then. And could you prepare a vegetarian menu for two of the guests?"
+    },
+    {
+     "s": "W",
+     "t": "Certainly. I'll note that on the reservation."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p3.gist",
+     "difficulty": 1,
+     "question": "Why is the man calling?",
+     "choices": [
+      "To make a reservation",
+      "To cancel a booking",
+      "To complain about a meal",
+      "To order takeout"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "첫 문장에서 목요일 8명 테이블을 예약하고 싶다고 했다.",
+      "traps": [
+       null,
+       "취소가 아니라 새로 예약한다.",
+       "불만 이야기는 없다.",
+       "포장 주문이 아니다."
+      ]
+     },
+     "id": "p3-s09-1",
+     "vocab": [
+      {
+       "w": "fully booked",
+       "pos": "phr",
+       "m": "예약이 꽉 찬"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 3,
+     "question": "What time will the man's group most likely arrive?",
+     "choices": [
+      "At 6:00",
+      "At 7:00",
+      "At 8:00",
+      "At 8:30"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "7시는 만석, 8시 30분은 늦다고 해서 결국 'Six it is'라며 6시로 정했다.",
+      "traps": [
+       null,
+       "7시는 처음 원했지만 예약이 찬 시간이다.",
+       "8시는 언급되지 않았다.",
+       "8시 30분은 고객에게 너무 늦다고 거절한 시간이다."
+      ]
+     },
+     "tags": [
+      "trap"
+     ],
+     "id": "p3-s09-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 2,
+     "question": "What does the man request?",
+     "choices": [
+      "A private room",
+      "A discount",
+      "Special meals for some guests",
+      "A parking space"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "손님 두 명을 위한 채식 메뉴를 준비해 달라고 했다.",
+      "traps": [
+       "개별 룸은 8시 30분에만 가능해 선택하지 않았다.",
+       "할인 요청은 없다.",
+       null,
+       "주차 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "a vegetarian menu for two of the guests",
+       "a": "Special meals for some guests"
+      }
+     ],
+     "id": "p3-s09-3"
+    }
+   ]
+  },
+  {
+   "id": "p3-s10",
+   "part": 3,
+   "speakers": {
+    "W": {
+     "g": "f",
+     "accent": "US"
+    },
+    "M": {
+     "g": "m",
+     "accent": "GB"
+    }
+   },
+   "script": [
+    {
+     "s": "W",
+     "t": "Andre, have you started using the new scheduling software?"
+    },
+    {
+     "s": "M",
+     "t": "I tried this morning, but I couldn't figure out how to add recurring meetings."
+    },
+    {
+     "s": "W",
+     "t": "There's a training video on the company intranet. It's only ten minutes long."
+    },
+    {
+     "s": "M",
+     "t": "Ten minutes? I've got a full afternoon of calls."
+    },
+    {
+     "s": "W",
+     "t": "Then why don't I just show you? I'm free right now, and it only takes a few clicks."
+    },
+    {
+     "s": "M",
+     "t": "That'd be great, thanks."
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 2,
+     "question": "What problem does the man have?",
+     "choices": [
+      "His computer is not working.",
+      "He missed an important meeting.",
+      "He cannot access the intranet.",
+      "He doesn't know how to use a software feature."
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "새 일정 관리 프로그램에서 반복 회의를 추가하는 방법을 모르겠다고 했다.",
+      "traps": [
+       "컴퓨터 고장 이야기는 없다.",
+       "meetings는 프로그램 기능 이름(recurring meetings)에 나올 뿐이다.",
+       "인트라넷 접속 문제는 언급되지 않았다.",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "couldn't figure out how to add recurring meetings",
+       "a": "doesn't know how to use a software feature"
+      }
+     ],
+     "id": "p3-s10-1",
+     "vocab": [
+      {
+       "w": "recurring",
+       "pos": "adj",
+       "m": "반복되는, 정기적인"
+      }
+     ]
+    },
+    {
+     "type": "intent",
+     "concept": "p3.intent",
+     "difficulty": 3,
+     "question": "Why does the man say, “I've got a full afternoon of calls”?",
+     "choices": [
+      "To ask the woman to cancel his calls",
+      "To indicate he has no time to watch a video",
+      "To request a new phone",
+      "To ask for help with a call"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "10분짜리 교육 영상이 있다는 말에 '오후 내내 통화가 잡혀 있다'고 답한다. 영상 볼 시간이 없다는 뜻이고, 여자가 직접 보여 주겠다고 제안한다.",
+      "traps": [
+       "통화를 취소해 달라는 것이 아니다.",
+       null,
+       "새 전화기 이야기가 아니다.",
+       "통화에 도움을 청하는 것이 아니다."
+      ]
+     },
+     "tags": [
+      "trap"
+     ],
+     "id": "p3-s10-2"
+    },
+    {
+     "type": "next",
+     "concept": "p3.next",
+     "difficulty": 2,
+     "question": "What will the woman most likely do next?",
+     "choices": [
+      "Send a link to a video",
+      "Schedule a meeting",
+      "Demonstrate a process",
+      "Call technical support"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "'제가 그냥 보여 줄게요(why don't I just show you?)'라고 하고 남자가 수락한다. 사용 방법을 직접 시연할 것이다.",
+      "traps": [
+       "영상 대신 직접 보여 주기로 했다.",
+       "회의 일정을 잡는 것이 아니다.",
+       null,
+       "기술 지원팀에 전화하지 않는다."
+      ]
+     },
+     "para": [
+      {
+       "p": "why don't I just show you?",
+       "a": "Demonstrate a process"
+      }
+     ],
+     "id": "p3-s10-3"
+    }
+   ]
+  },
+  {
+   "id": "p3-s11",
+   "part": 3,
+   "speakers": {
+    "M": {
+     "g": "m",
+     "accent": "US"
+    },
+    "W": {
+     "g": "f",
+     "accent": "AU"
+    }
+   },
+   "script": [
+    {
+     "s": "M",
+     "t": "Welcome to the team, Sara. Let me show you to your desk. You'll be sharing an office with Yuna from the design team."
+    },
+    {
+     "s": "W",
+     "t": "Thanks. Is it the office next to the kitchen?"
+    },
+    {
+     "s": "M",
+     "t": "No, that one's for the accountants. Yours is the corner office at the end of the hall."
+    },
+    {
+     "s": "W",
+     "t": "Great. Oh, and where can I get a parking permit?"
+    },
+    {
+     "s": "M",
+     "t": "Just stop by the security office on the first floor. They'll issue one in a few minutes."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p3.gist",
+     "difficulty": 1,
+     "question": "Who most likely is the woman?",
+     "choices": [
+      "A client",
+      "A new employee",
+      "A security guard",
+      "An accountant"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "'Welcome to the team'과 자리를 안내해 주는 내용으로 보아 새로 입사한 직원이다.",
+      "traps": [
+       "팀에 합류하고 사무실을 배정받으므로 고객이 아니다.",
+       null,
+       "보안실은 주차 허가증을 받는 곳으로 나올 뿐이다.",
+       "부엌 옆 사무실을 쓰는 사람들이 회계 담당자다."
+      ]
+     },
+     "id": "p3-s11-1",
+     "vocab": [
+      {
+       "w": "parking permit",
+       "pos": "n",
+       "m": "주차 허가증"
+      },
+      {
+       "w": "issue",
+       "pos": "v",
+       "m": "발급하다"
+      }
+     ]
+    },
+    {
+     "type": "graphic",
+     "concept": "p3.graphic",
+     "difficulty": 3,
+     "question": "Look at the graphic. Which office will the woman use?",
+     "choices": [
+      "301",
+      "302",
+      "303",
+      "304"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "부엌 옆이냐는 질문에 남자가 아니라며 '복도 끝 코너 사무실'이라고 했다. 표에서 Corner office는 303호다.",
+      "traps": [
+       "301호는 엘리베이터 옆이다.",
+       "302호(부엌 옆)는 회계 담당자들의 방이라고 했다. 여자가 먼저 말한 위치라 고르기 쉬운 함정.",
+       null,
+       "304호는 계단 옆이다."
+      ]
+     },
+     "tags": [
+      "trap"
+     ],
+     "id": "p3-s11-2"
+    },
+    {
+     "type": "suggest",
+     "concept": "p3.next",
+     "difficulty": 1,
+     "question": "What does the man suggest the woman do?",
+     "choices": [
+      "Meet the design team",
+      "Park on the street",
+      "Fill out a form online",
+      "Visit the security office"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "주차 허가증은 1층 보안실에 들르면(stop by the security office) 몇 분 안에 발급해 준다고 했다.",
+      "traps": [
+       "디자인팀 Yuna는 사무실을 같이 쓸 사람으로 소개되었을 뿐이다.",
+       "길가에 주차하라는 말은 없다.",
+       "온라인 양식 이야기는 없다.",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "stop by the security office",
+       "a": "Visit the security office"
+      }
+     ],
+     "id": "p3-s11-3"
+    }
+   ],
+   "graphic": {
+    "kind": "table",
+    "title": "Third Floor Offices",
+    "header": [
+     "Room",
+     "Location"
+    ],
+    "rows": [
+     [
+      "301",
+      "Next to the elevator"
+     ],
+     [
+      "302",
+      "Next to the kitchen"
+     ],
+     [
+      "303",
+      "Corner office"
+     ],
+     [
+      "304",
+      "Next to the stairs"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "p3-s12",
+   "part": 3,
+   "speakers": {
+    "M": {
+     "g": "m",
+     "accent": "GB"
+    },
+    "W": {
+     "g": "f",
+     "accent": "US"
+    }
+   },
+   "script": [
+    {
+     "s": "M",
+     "t": "Hi, Ms. Varga. This is Leo from Atlas Components. I'm calling about your order of steel brackets."
+    },
+    {
+     "s": "W",
+     "t": "Yes, we need them by the fifteenth for an assembly line upgrade."
+    },
+    {
+     "s": "M",
+     "t": "Unfortunately, one of our machines broke down, so we can only ship half the order by then. The rest would arrive about a week later."
+    },
+    {
+     "s": "W",
+     "t": "Hmm. Half should let us start the upgrade, but I'd like the remaining brackets sent by express shipping."
+    },
+    {
+     "s": "M",
+     "t": "Of course. We'll cover the cost of express shipping, since the delay is on our end."
+    }
+   ],
+   "questions": [
+    {
+     "type": "gist",
+     "concept": "p3.gist",
+     "difficulty": 2,
+     "question": "Why is the man calling?",
+     "choices": [
+      "To report a delay with an order",
+      "To request a payment",
+      "To schedule a factory tour",
+      "To offer a new product"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "브래킷 주문 건으로 전화해, 기계 고장으로 절반만 기한 내 보낼 수 있다고 알린다. 주문 지연을 알리는 전화다.",
+      "traps": [
+       null,
+       "결제 요청은 없다.",
+       "공장 견학 이야기는 없다.",
+       "신제품 제안은 없다."
+      ]
+     },
+     "id": "p3-s12-1",
+     "vocab": [
+      {
+       "w": "bracket",
+       "pos": "n",
+       "m": "받침대, 까치발"
+      },
+      {
+       "w": "break down",
+       "pos": "phr",
+       "m": "고장 나다"
+      }
+     ]
+    },
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 2,
+     "question": "What caused the problem?",
+     "choices": [
+      "A shipment was lost.",
+      "A machine stopped working.",
+      "Materials became more expensive.",
+      "An employee was absent."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "기계 한 대가 고장 났다(one of our machines broke down)고 했다.",
+      "traps": [
+       "배송품 분실 이야기는 없다.",
+       null,
+       "재료비 인상 이야기는 없다.",
+       "직원 결근 이야기는 없다."
+      ]
+     },
+     "para": [
+      {
+       "p": "one of our machines broke down",
+       "a": "A machine stopped working."
+      }
+     ],
+     "id": "p3-s12-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p3.detail",
+     "difficulty": 3,
+     "question": "What does the man offer to do?",
+     "choices": [
+      "Give a discount on the next order",
+      "Provide a full refund",
+      "Send a technician",
+      "Pay for faster delivery"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "지연이 자기 회사 탓이니 특급 배송비를 부담하겠다(We'll cover the cost of express shipping)고 했다.",
+      "traps": [
+       "다음 주문 할인은 언급되지 않았다.",
+       "환불 이야기는 없다.",
+       "기술자 파견 이야기는 없다. 고장 난 것은 공급업체의 기계다.",
+       null
+      ]
+     },
+     "para": [
+      {
+       "p": "cover the cost of express shipping",
+       "a": "Pay for faster delivery"
+      }
+     ],
+     "id": "p3-s12-3"
+    }
+   ]
+  }
+ ]
+}
