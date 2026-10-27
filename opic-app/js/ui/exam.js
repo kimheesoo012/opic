@@ -127,8 +127,10 @@
           const adjL = { easier: '쉬운 질문', same: '비슷한 질문', harder: '어려운 질문' }[ses.adjust] || '-';
           ses.summary = `난이도 ${ses.sa} · 재조정 ${adjL} · ${ses.items.length}/${total}문항 답변 · 사용 ${util.fmtClock(EXAM_SEC - ses.timeLeft)}${timeout ? ' (시간 종료)' : ''}`;
           await store.saveSession(ses);
+          if (store.S.recs.filter(r => r.sessionId === ses.id).length >= 5) await store.award(30, '모의고사 완주');
           cleanupRun = null;
           root.OPIC.renderSession(el, ses);
+          root.OPIC.P.flush();
         }
         async function next() {
           ses.cur++;

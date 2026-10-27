@@ -94,6 +94,10 @@
         });
       }
 
+      const scriptXp = new Set();
+      function scriptReward(cov, recId) {
+        if (cov != null && cov >= 0.8 && !scriptXp.has(recId)) { scriptXp.add(recId); store.award(5, '스크립트 일치율 80%+', { flags: { script80: true } }); }
+      }
       function showResult(rec) {
         const box = ui.$('#after', el);
         const draw = () => {
@@ -114,6 +118,7 @@
             const c2 = v ? script.compare(sc.text, v) : null;
             const attempts = (sc.attempts || []).filter(a => a.recId !== rec.id).concat([{ at: rec.createdAt, level: sc.level || 0, coverage: c2 ? c2.coverage : null, recId: rec.id }]);
             sc = await store.saveScript(Object.assign({}, sc, { attempts }));
+            scriptReward(c2 && c2.coverage, rec.id);
             draw();
           };
           const up = ui.$('#lvUp', box);
@@ -121,6 +126,7 @@
         };
         const attempts = (sc.attempts || []).concat([{ at: rec.createdAt, level: sc.level || 0, coverage: rec.transcript ? script.compare(sc.text, rec.transcript).coverage : null, recId: rec.id }]);
         store.saveScript(Object.assign({}, sc, { attempts })).then(s => { sc = s; });
+        scriptReward(attempts[attempts.length - 1].coverage, rec.id);
         draw();
         box.scrollIntoView({ behavior: 'smooth' });
       }

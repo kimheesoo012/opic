@@ -24,13 +24,7 @@
       const inProg = store.S.sessions.find(s => s.mode === 'exam' && s.status === 'in_progress');
       const needBackup = st.count >= 3 && Date.now() - (S.lastExportAt || 0) > 7 * util.DAY;
       el.innerHTML = `
-      <section class="hero card">
-        <div class="hero-row">
-          <div><div class="big">${st.streak}<small>일</small></div><div class="muted small">연속 학습</div></div>
-          <div><div class="big">${Math.round(st.totalSec / 60)}<small>분</small></div><div class="muted small">총 녹음</div></div>
-          <div><div class="big">${S.targetLevel}</div><div class="muted small">목표</div></div>
-        </div>
-      </section>
+      ${root.OPIC.P.heroHtml()}
       ${inProg ? `<a class="card link-card warn-card" href="#/exam?resume=${esc(inProg.id)}"><b>진행 중인 모의고사</b><span>${inProg.cur + 1}번 문제부터 이어서 하기 ›</span></a>` : ''}
       ${needBackup ? `<a class="card link-card warn-card" href="#/records?go=backup"><b>백업할 때가 되었어요</b><span>아이폰 Safari는 오래 쓰지 않은 사이트의 데이터를 지울 수 있어요. 기록을 내보내 두세요 ›</span></a>` : ''}
       <section class="card">
