@@ -1,0 +1,1314 @@
+{
+ "units": [
+  {
+   "id": "p7-d05",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "web page",
+     "title": "Web Page",
+     "text": "Brewline Espresso Machines\n\nAll models come with a two-year warranty. Orders over $500 ship free. Businesses that buy three or more machines receive free installation.",
+     "table": {
+      "header": [
+       "Model",
+       "Cups per day",
+       "Milk frother",
+       "Price"
+      ],
+      "rows": [
+       [
+        "Brewline 100",
+        "up to 20",
+        "No",
+        "$249"
+       ],
+       [
+        "Brewline 200",
+        "up to 50",
+        "Yes",
+        "$449"
+       ],
+       [
+        "Brewline 300",
+        "up to 100",
+        "Yes",
+        "$799"
+       ],
+       [
+        "Brewline 300 Pro",
+        "up to 150",
+        "Yes, dual",
+        "$1,099"
+       ]
+      ]
+     }
+    },
+    {
+     "kind": "online review",
+     "title": "Customer Review",
+     "text": "Posted by Rachel Dunn, owner, Cornerstone Café ★★★★☆\n\nWe bought two machines for our café last month. We serve about 90 coffees a day, many with steamed milk, so we chose the model that could handle that volume without paying for the largest one. Shipping was free and fast. My only complaint is that we had to install the machines ourselves, which took most of an afternoon. The coffee has been excellent, and our customers have noticed."
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "A two-year warranty",
+      "Free installation",
+      "A milk frother",
+      "Free coffee beans"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "웹페이지에 'All models come with a two-year warranty'라고 했다.",
+      "traps": [
+       null,
+       "무료 설치는 세 대 이상 구매한 업체에만 해당한다.",
+       "Brewline 100에는 우유 거품기가 없다.",
+       "원두 제공 이야기는 없다."
+      ]
+     },
+     "question": "According to the Web page, what do all models include?",
+     "id": "p7-d05-1"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "choices": [
+      "Brewline 100",
+      "Brewline 200",
+      "Brewline 300",
+      "Brewline 300 Pro"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "리뷰에서 하루 약 90잔, 우유 스팀 음료가 많고 가장 큰 모델은 피했다고 했다. 표에서 하루 100잔까지 되고 우유 거품기가 있는 Brewline 300이다.",
+      "traps": [
+       "Brewline 100은 하루 20잔까지이고 거품기도 없다.",
+       "Brewline 200은 하루 50잔까지라 90잔을 감당하지 못한다.",
+       null,
+       "300 Pro는 가장 큰 모델이라 '가장 큰 것은 피했다'는 말과 맞지 않는다."
+      ]
+     },
+     "question": "Which model did Ms. Dunn most likely buy?",
+     "tags": [
+      "trap"
+     ],
+     "id": "p7-d05-2"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "She bought fewer than three machines.",
+      "Her café is outside the delivery area.",
+      "Installation is not offered for that model.",
+      "She declined the service to save money."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "웹페이지에서 무료 설치는 세 대 이상 구매한 업체에만 제공된다. Ms. Dunn은 두 대를 샀다.",
+      "traps": [
+       null,
+       "배송 지역 문제는 없었다. 배송은 무료이고 빨랐다.",
+       "모델별 설치 제한은 없다.",
+       "설치를 거절했다는 말은 없다. 오히려 직접 설치한 것이 불만이다."
+      ]
+     },
+     "question": "Why did Ms. Dunn most likely have to install the machines herself?",
+     "id": "p7-d05-3"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "Her order cost more than $500.",
+      "She used a discount code.",
+      "She bought during a holiday sale.",
+      "She picked up the machines in person."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "500달러가 넘는 주문은 무료 배송이다. Brewline 300 두 대는 1,598달러다.",
+      "traps": [
+       null,
+       "할인 코드 이야기는 없다.",
+       "세일 이야기는 없다.",
+       "배송받았다고 했으므로 직접 가져간 것이 아니다."
+      ]
+     },
+     "question": "Why was Ms. Dunn's shipping free?",
+     "id": "p7-d05-4"
+    },
+    {
+     "type": "synonym",
+     "concept": "p7.synonym",
+     "difficulty": 2,
+     "choices": [
+      "manage",
+      "touch",
+      "carry",
+      "sell"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'하루 그만큼의 양을 감당할 수 있는 모델'이라는 뜻이다. handle = manage.",
+      "traps": [
+       null,
+       "touch(만지다)는 handle의 물리적 뜻에 끌린 함정이다.",
+       "carry(나르다)는 문맥과 맞지 않는다.",
+       "sell(팔다)은 의미가 다르다."
+      ]
+     },
+     "question": "In the review, the word “handle” is closest in meaning to",
+     "id": "p7-d05-5"
+    }
+   ]
+  },
+  {
+   "id": "p7-d06",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "schedule",
+     "title": "Bus Schedule",
+     "text": "Coastal Express Bus — Weekday Departures from Port Allen\n\nTickets may be purchased online or from the driver (cash only). Passengers with a monthly pass may board any bus.",
+     "table": {
+      "header": [
+       "Departs Port Allen",
+       "Arrives Danford",
+       "Notes"
+      ],
+      "rows": [
+       [
+        "6:15 A.M.",
+        "7:40 A.M.",
+        ""
+       ],
+       [
+        "7:30 A.M.",
+        "8:50 A.M.",
+        "Express, no stops"
+       ],
+       [
+        "9:00 A.M.",
+        "10:35 A.M.",
+        ""
+       ],
+       [
+        "12:45 P.M.",
+        "2:10 P.M.",
+        ""
+       ]
+      ]
+     }
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Tom Reyes\nFrom: Olivia Grant\nDate: Monday, May 4\nSubject: Thursday trip\n\nTom,\n\nI've scheduled our meeting with the Danford city planners for 9:30 A.M. on Thursday at their office, which is a ten-minute walk from the bus station. I'd rather not drive, since parking downtown is difficult. Let's take the bus that gets us there with enough time to walk over, but not hours early.\n\nI'll buy both tickets online tonight, so you won't need cash.\n\nOlivia"
+    }
+   ],
+   "questions": [
+    {
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "choices": [
+      "To make travel plans for a meeting",
+      "To cancel a meeting",
+      "To request a parking permit",
+      "To ask about bus fares"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "목요일 회의를 위해 버스로 가자고 정하고 표를 사겠다는 이동 계획 이메일이다.",
+      "traps": [
+       null,
+       "회의를 잡았다는 내용이다.",
+       "주차가 어려워 운전하지 않겠다고 했다.",
+       "요금을 묻지 않는다."
+      ]
+     },
+     "question": "Why did Ms. Grant send the e-mail?",
+     "id": "p7-d06-1"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "choices": [
+      "6:15 A.M.",
+      "7:30 A.M.",
+      "9:00 A.M.",
+      "12:45 P.M."
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "회의는 9시 30분이고 정류장에서 10분 걸린다. 7시 30분 버스는 8시 50분에 도착해 시간이 맞다. 6시 15분 버스는 7시 40분 도착이라 너무 이르다.",
+      "traps": [
+       "7시 40분에 도착하면 회의까지 거의 두 시간이 남아 '너무 일찍은 말자'는 조건에 맞지 않는다.",
+       null,
+       "10시 35분 도착이라 9시 30분 회의에 늦는다.",
+       "오후 버스라 오전 회의에 맞지 않는다."
+      ]
+     },
+     "question": "Which bus will Ms. Grant and Mr. Reyes most likely take?",
+     "tags": [
+      "trap"
+     ],
+     "id": "p7-d06-2"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "It makes no stops along the way.",
+      "It requires a monthly pass.",
+      "It accepts only cash.",
+      "It arrives after the meeting starts."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "두 사람이 탈 7시 30분 버스는 표에 'Express, no stops'로 표시되어 있다.",
+      "traps": [
+       null,
+       "월 정기권이 있으면 모든 버스를 탈 수 있다는 뜻이지 필수가 아니다.",
+       "현금만 받는 것은 기사에게 직접 살 때다.",
+       "8시 50분에 도착하므로 회의 전이다."
+      ]
+     },
+     "question": "What is indicated about the bus the two will most likely take?",
+     "id": "p7-d06-3"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "Parking is hard to find.",
+      "Her car is being repaired.",
+      "The bus is faster than driving.",
+      "Mr. Reyes does not drive."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'parking downtown is difficult'라고 이유를 밝혔다.",
+      "traps": [
+       null,
+       "차 수리 이야기는 없다.",
+       "속도 비교는 없다.",
+       "Mr. Reyes가 운전하지 않는다는 말은 없다."
+      ]
+     },
+     "question": "Why does Ms. Grant prefer not to drive?",
+     "para": [
+      {
+       "p": "parking downtown is difficult",
+       "a": "Parking is hard to find"
+      }
+     ],
+     "id": "p7-d06-4"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "Ms. Grant will buy the tickets in advance.",
+      "He has a monthly pass.",
+      "The bus is free on weekdays.",
+      "The driver accepts credit cards."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "기사에게 살 때는 현금만 받지만, Ms. Grant가 오늘 밤 온라인으로 두 장을 사 두겠다고 했다.",
+      "traps": [
+       null,
+       "정기권 이야기는 없다.",
+       "평일 무료 이야기는 없다.",
+       "기사는 현금만 받는다고 표 안내에 나와 있다."
+      ]
+     },
+     "question": "Why will Mr. Reyes not need cash?",
+     "id": "p7-d06-5"
+    }
+   ]
+  },
+  {
+   "id": "p7-d07",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "estimate",
+     "title": "Estimate",
+     "text": "Greenleaf Landscaping — Estimate for Hollis Office Park\nPrepared for: Carla Mendes, Facilities Manager\nDate: April 3\n\nTotal monthly cost: $1,210\nThis estimate is valid for 30 days. Customers who sign a two-year contract receive a 10% discount on all services.",
+     "table": {
+      "header": [
+       "Service",
+       "Frequency",
+       "Monthly cost"
+      ],
+      "rows": [
+       [
+        "Lawn mowing",
+        "Weekly",
+        "$640"
+       ],
+       [
+        "Hedge trimming",
+        "Monthly",
+        "$180"
+       ],
+       [
+        "Seasonal planting",
+        "Twice a year",
+        "$90"
+       ],
+       [
+        "Snow removal",
+        "As needed, Nov.–Mar.",
+        "$300"
+       ]
+      ]
+     }
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: estimates@greenleaf.example\nFrom: Carla Mendes\nDate: April 12\nSubject: Hollis Office Park estimate\n\nThank you for the estimate. Our board has approved most of it, but we have decided to handle snow removal ourselves, since our maintenance crew already has the equipment. Please revise the estimate without that service.\n\nWe are also interested in a longer agreement if it lowers our costs, so please include the discount you mentioned in the revised figure. We would like work to begin on May 1.\n\nCarla Mendes"
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "Once a month",
+      "Once a week",
+      "Twice a year",
+      "Only when needed"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "표에서 Hedge trimming의 빈도는 Monthly다.",
+      "traps": [
+       null,
+       "주 1회는 잔디 깎기다.",
+       "연 2회는 계절 식재다.",
+       "필요할 때마다는 제설이다."
+      ]
+     },
+     "question": "How often will hedges be trimmed under the estimate?",
+     "id": "p7-d07-1"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "choices": [
+      "$819",
+      "$910",
+      "$1,089",
+      "$1,210"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "제설(300달러)을 빼면 월 910달러이고, 2년 계약 할인 10%를 적용하면 819달러다.",
+      "traps": [
+       null,
+       "910달러는 할인을 적용하지 않은 값이다.",
+       "1,089달러는 제설을 빼지 않고 할인만 적용한 값이다.",
+       "1,210달러는 원래 견적 그대로다."
+      ]
+     },
+     "question": "What will the revised monthly total most likely be?",
+     "tags": [
+      "trap"
+     ],
+     "id": "p7-d07-2"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "It already owns the necessary equipment.",
+      "Snow rarely falls in the area.",
+      "Greenleaf does not offer the service in winter.",
+      "The board rejected the price."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'our maintenance crew already has the equipment'라고 이유를 밝혔다.",
+      "traps": [
+       null,
+       "강설량 이야기는 없다.",
+       "견적에 11~3월 제설이 포함되어 있다.",
+       "이사회는 대부분을 승인했다. 가격을 거절했다는 말은 없다."
+      ]
+     },
+     "question": "Why will Ms. Mendes's company handle snow removal itself?",
+     "para": [
+      {
+       "p": "already has the equipment",
+       "a": "already owns the necessary equipment"
+      }
+     ],
+     "id": "p7-d07-3"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "It will last at least two years.",
+      "It will begin in April.",
+      "It will include snow removal.",
+      "It will be paid in one payment."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "할인을 받으려면 2년 계약을 해야 한다(견적서). Ms. Mendes는 비용이 줄면 장기 계약을 원한다며 할인을 반영해 달라고 했다.",
+      "traps": [
+       null,
+       "작업 시작은 5월 1일이다.",
+       "제설은 빼 달라고 했다.",
+       "일시불 이야기는 없다."
+      ]
+     },
+     "question": "What is suggested about the agreement Ms. Mendes wants?",
+     "id": "p7-d07-4"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "It was sent while the estimate was still valid.",
+      "It rejects the estimate.",
+      "It asks for weekly hedge trimming.",
+      "It requests that work start immediately."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "견적은 4월 3일 작성, 30일간 유효하다. 이메일은 4월 12일에 보냈으므로 유효 기간 안이다.",
+      "traps": [
+       null,
+       "대부분 승인했다고 했다.",
+       "산울타리 손질 빈도 변경 요청은 없다.",
+       "5월 1일 시작을 원한다."
+      ]
+     },
+     "question": "What is true about Ms. Mendes's e-mail?",
+     "id": "p7-d07-5"
+    }
+   ]
+  },
+  {
+   "id": "p7-d08",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "article",
+     "title": "Article",
+     "text": "City to Expand Bike-Share Program\n\nLEXFORD (March 5) — The city of Lexford will add 40 new bike-share stations this summer, bringing the total to 120. The new stations will be located mainly in the eastern neighborhoods of Brookside and Millbrae, which currently have no stations.\n\nAnnual memberships will remain $60, but the price of a single ride will rise from $2.00 to $2.50 on July 1 to help pay for the expansion. Station locations will be finalized after a public meeting on April 2 at City Hall."
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Lexford Transportation Office\nFrom: Ana Duarte\nDate: March 9\nSubject: Bike-share expansion\n\nDear Transportation Office,\n\nI live in Millbrae and am pleased that our neighborhood will finally get bike-share stations. I ride about four times a week, mostly to and from the train station. I plan to attend the April 2 meeting to suggest a station near Millbrae Station, where many commuters would use it.\n\nI also wanted to ask whether the price change will affect people like me who pay for single rides. If so, I may switch to a membership.\n\nSincerely,\nAna Duarte"
+    }
+   ],
+   "questions": [
+    {
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "choices": [
+      "40",
+      "80",
+      "120",
+      "160"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "새 정류장 40곳을 더해 총 120곳이 된다고 했으므로 현재는 80곳이다.",
+      "traps": [
+       "40은 새로 추가하는 수다.",
+       null,
+       "120은 확장 후 총수다.",
+       "160은 120에 40을 더한 잘못된 계산이다."
+      ]
+     },
+     "question": "How many bike-share stations does Lexford currently have?",
+     "tags": [
+      "trap"
+     ],
+     "id": "p7-d08-1"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "It does not currently have any stations.",
+      "It already has 40 stations.",
+      "It is in the western part of the city.",
+      "It will not be part of the expansion."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "Ms. Duarte는 Millbrae에 산다. 기사에 Millbrae는 현재 정류장이 없는 동쪽 동네라고 나온다.",
+      "traps": [
+       null,
+       "40은 새로 생길 정류장 수다.",
+       "동쪽 동네라고 했다.",
+       "확장 대상 동네로 소개된다."
+      ]
+     },
+     "question": "What is suggested about Ms. Duarte's neighborhood?",
+     "id": "p7-d08-2"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "At City Hall",
+      "At Millbrae Station",
+      "At the transportation office",
+      "Online"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "그녀는 4월 2일 공청회에서 제안하겠다고 했고, 기사에 그 회의는 시청에서 열린다고 나온다.",
+      "traps": [
+       null,
+       "Millbrae 역은 정류장을 제안할 위치다.",
+       "교통국은 이메일을 받는 곳이다.",
+       "온라인 제출 이야기는 없다."
+      ]
+     },
+     "question": "Where will Ms. Duarte most likely make her suggestion?",
+     "id": "p7-d08-3"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "$2.00",
+      "$2.50",
+      "$4.00",
+      "$60.00"
+     ],
+     "answer": 1,
+     "explanation": {
+      "why": "7월 1일부터 1회 이용 요금이 2.50달러로 오른다.",
+      "traps": [
+       "2.00달러는 인상 전 요금이다.",
+       null,
+       "4.00달러는 지문에 없는 금액이다.",
+       "60달러는 연간 회원권 가격이다."
+      ]
+     },
+     "question": "If Ms. Duarte continues to pay per ride after July 1, how much will each ride cost?",
+     "id": "p7-d08-4"
+    },
+    {
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 3,
+     "choices": [
+      "She rides often enough to save money with it.",
+      "Memberships include train tickets.",
+      "Single rides will no longer be offered.",
+      "Her employer pays for memberships."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "그녀는 일주일에 약 네 번 탄다. 1회 2.50달러면 한 달에 40달러가 넘으므로 연 60달러 회원권이 훨씬 싸다.",
+      "traps": [
+       null,
+       "회원권에 기차표가 포함된다는 말은 없다.",
+       "1회 이용권은 가격만 오른다.",
+       "고용주 지원 이야기는 없다."
+      ]
+     },
+     "question": "Why would Ms. Duarte most likely switch to a membership?",
+     "tags": [
+      "trap"
+     ],
+     "id": "p7-d08-5"
+    }
+   ]
+  },
+  {
+   "id": "p7-t04",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "job posting",
+     "title": "Job Posting",
+     "text": "Halden Museum of Science — Education Coordinator\nPart-time, 25 hours per week\n\nResponsibilities: planning hands-on science workshops for school groups, training volunteer guides, and managing workshop bookings.\n\nRequirements: a degree in science or education; at least two years of experience teaching children; ability to work some Saturdays. Fluency in Spanish is a plus.\n\nApply by May 9 by sending a cover letter and résumé to jobs@haldenmuseum.example."
+    },
+    {
+     "kind": "email",
+     "title": "E-mail 1",
+     "text": "To: jobs@haldenmuseum.example\nFrom: Priya Shah\nDate: May 6\nSubject: Education Coordinator application\n\nDear Hiring Committee,\n\nI am applying for the education coordinator position. I hold a degree in biology and have spent the past three years teaching science at Crestview Elementary School. I also volunteered for two summers at the Riverside Aquarium, where I led tours for visiting families.\n\nI am available on weekends and would be happy to work Saturdays. My résumé is attached.\n\nPriya Shah"
+    },
+    {
+     "kind": "email",
+     "title": "E-mail 2",
+     "text": "To: Priya Shah\nFrom: Leo Martin, Human Resources\nDate: May 13\nSubject: Interview invitation\n\nDear Ms. Shah,\n\nThank you for your application. We would like to invite you to an interview on May 20 at 10:00 A.M. As part of the interview, you will be asked to lead a ten-minute sample activity for a small group of staff members, as if they were ten-year-old students. Please bring any materials you need.\n\nThe interview will take place in the Discovery Room on the museum's second floor.\n\nLeo Martin"
+    }
+   ],
+   "questions": [
+    {
+     "type": "not",
+     "concept": "p7.not",
+     "difficulty": 2,
+     "choices": [
+      "Planning workshops",
+      "Training volunteers",
+      "Managing bookings",
+      "Designing exhibits"
+     ],
+     "answer": 3,
+     "explanation": {
+      "why": "업무는 워크숍 기획, 자원봉사 안내원 교육, 예약 관리다. 전시 디자인은 없다.",
+      "traps": [
+       "'planning hands-on science workshops'에 나온다.",
+       "'training volunteer guides'에 나온다.",
+       "'managing workshop bookings'에 나온다.",
+       null
+      ]
+     },
+     "question": "What is NOT listed as a responsibility of the position?",
+     "id": "p7-t04-1"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "The required teaching experience",
+      "The language requirement",
+      "The required degree field",
+      "The weekly working hours"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "공고는 아동 교육 경력 2년 이상을 요구하는데, Ms. Shah는 3년간 초등학교에서 과학을 가르쳤다.",
+      "traps": [
+       null,
+       "스페인어는 우대 사항이고 그녀는 언급하지 않았다.",
+       "생물학 학위는 과학 학위 조건을 충족하지만 넘어선다고 보기 어렵다.",
+       "근무 시간 이야기는 그녀의 이메일에 없다."
+      ]
+     },
+     "question": "Which requirement does Ms. Shah exceed?",
+     "id": "p7-t04-2"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "Spanish fluency",
+      "Saturday availability",
+      "A science degree",
+      "Experience with children"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "공고의 우대 사항은 스페인어 능력인데 Ms. Shah의 이메일에는 언급이 없다. 나머지는 모두 다룬다.",
+      "traps": [
+       null,
+       "토요일 근무가 가능하다고 했다.",
+       "생물학 학위가 있다고 했다.",
+       "초등학교 교사 경력과 가족 대상 투어 경험을 말했다."
+      ]
+     },
+     "question": "Which qualification from the job posting does Ms. Shah's e-mail NOT address?",
+     "id": "p7-t04-3"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "Demonstrate a teaching activity",
+      "Give a tour of the museum",
+      "Submit a writing sample",
+      "Meet with a group of students"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "면접에서 직원들을 10살 학생처럼 여기고 10분짜리 시범 활동을 진행하라고 했다.",
+      "traps": [
+       null,
+       "박물관 투어 진행 이야기는 없다.",
+       "글 샘플 제출 요청은 없다.",
+       "실제 학생이 아니라 직원들 앞에서 한다."
+      ]
+     },
+     "question": "What will Ms. Shah be asked to do at the interview?",
+     "para": [
+      {
+       "p": "lead a ten-minute sample activity",
+       "a": "Demonstrate a teaching activity"
+      }
+     ],
+     "id": "p7-t04-4"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "It was received before the deadline.",
+      "It included letters of reference.",
+      "It was sent by mail.",
+      "It was for a full-time position."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "지원 마감은 5월 9일이고 Ms. Shah는 5월 6일에 이메일을 보냈다.",
+      "traps": [
+       null,
+       "추천서 첨부 이야기는 없다. 이력서만 첨부했다.",
+       "이메일로 지원했다.",
+       "주 25시간 파트타임 자리다."
+      ]
+     },
+     "question": "What is indicated about Ms. Shah's application?",
+     "id": "p7-t04-5"
+    }
+   ]
+  },
+  {
+   "id": "p7-t05",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "notice",
+     "title": "Notice",
+     "text": "Conference Room Booking Rules — Tellis Building\n\nRooms may be booked through the online system up to 30 days in advance. Bookings longer than four hours require approval from the office manager. Room C has a video conferencing system; Rooms A and B do not. Room D seats 30; all other rooms seat 12. Please cancel unused bookings at least 24 hours in advance so that others may use the room."
+    },
+    {
+     "kind": "schedule",
+     "title": "Booking Calendar",
+     "text": "Booking Calendar — Tuesday, June 10",
+     "table": {
+      "header": [
+       "Room",
+       "9–11",
+       "11–1",
+       "1–3",
+       "3–5"
+      ],
+      "rows": [
+       [
+        "A",
+        "Sales team",
+        "",
+        "",
+        "HR"
+       ],
+       [
+        "B",
+        "",
+        "",
+        "Finance",
+        ""
+       ],
+       [
+        "C",
+        "IT training",
+        "IT training",
+        "",
+        "Marketing"
+       ],
+       [
+        "D",
+        "",
+        "All-staff lunch",
+        "",
+        ""
+       ]
+      ]
+     }
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: Sam Okafor\nFrom: Grace Lee\nDate: Friday, June 6\nSubject: Room for Tuesday\n\nHi Sam,\n\nI need a room on Tuesday from 1 to 3 for a call with our partners in Singapore. There will be eight of us in the room, and we'll be meeting the partners by video. Can you book something for me?\n\nAlso, I don't think the marketing team will need their 3–5 slot after all. Their client canceled.\n\nGrace"
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "Approval from the office manager",
+      "A booking at least 30 days ahead",
+      "A video conferencing system",
+      "Payment of a fee"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "4시간이 넘는 예약은 사무실 관리자의 승인이 필요하다.",
+      "traps": [
+       null,
+       "30일은 예약 가능한 최대 기간이다.",
+       "화상 회의 시스템은 C실 정보다.",
+       "요금 이야기는 없다."
+      ]
+     },
+     "question": "What is required for bookings longer than four hours?",
+     "id": "p7-t05-1"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "choices": [
+      "Room A",
+      "Room B",
+      "Room C",
+      "Room D"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "화상 회의가 필요한데 화상 장비는 C실에만 있다. 화요일 1~3시에 C실은 비어 있다.",
+      "traps": [
+       "A실에는 화상 장비가 없다.",
+       "B실도 장비가 없고 그 시간에 재무팀이 쓴다.",
+       null,
+       "D실은 화상 장비가 있다는 언급이 없다. 공지에서 장비가 있는 방은 C실뿐이다."
+      ]
+     },
+     "question": "Which room will Mr. Okafor most likely book for Ms. Lee?",
+     "tags": [
+      "trap"
+     ],
+     "id": "p7-t05-2"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "Cancel their reservation",
+      "Move to Room D",
+      "Join the call with Singapore",
+      "Extend their booking"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "Ms. Lee는 마케팅팀이 3~5시 예약이 필요 없을 것 같다고 했고, 규칙상 쓰지 않는 예약은 24시간 전까지 취소해야 한다.",
+      "traps": [
+       null,
+       "방을 옮기라는 이야기는 없다.",
+       "싱가포르 통화는 Ms. Lee 팀의 일이다.",
+       "고객이 취소했으므로 연장할 이유가 없다."
+      ]
+     },
+     "question": "What will the marketing team most likely be asked to do?",
+     "id": "p7-t05-3"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "Partners in another country",
+      "New employees",
+      "The IT team",
+      "A client who canceled"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "싱가포르의 파트너들과 화상으로 만난다고 했다.",
+      "traps": [
+       null,
+       "신입 사원 이야기는 없다.",
+       "IT팀은 오전에 C실에서 교육을 한다.",
+       "취소한 고객은 마케팅팀의 고객이다."
+      ]
+     },
+     "question": "Who will Ms. Lee's group meet on Tuesday?",
+     "para": [
+      {
+       "p": "our partners in Singapore",
+       "a": "Partners in another country"
+      }
+     ],
+     "id": "p7-t05-4"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "It can seat more people than Ms. Lee needs.",
+      "It seats 30 people.",
+      "It has no video equipment.",
+      "It is booked by the finance team."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "C실은 12명까지 앉을 수 있고 Ms. Lee 팀은 8명이다.",
+      "traps": [
+       null,
+       "30명은 D실 정원이다.",
+       "C실에만 화상 장비가 있다.",
+       "재무팀은 B실을 쓴다."
+      ]
+     },
+     "question": "What is true about the room Ms. Lee will most likely use?",
+     "id": "p7-t05-5"
+    }
+   ]
+  },
+  {
+   "id": "p7-t06",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "web page",
+     "title": "Web Page",
+     "text": "Pacific Home Expo — Exhibitor Information\nVancouver Convention Centre, September 12–14\n\nPrices include one table, two chairs, and electricity. Exhibitors who book before June 30 save 15%. Each exhibitor receives four free admission badges; additional badges cost $40 each.",
+     "table": {
+      "header": [
+       "Booth type",
+       "Size",
+       "Price"
+      ],
+      "rows": [
+       [
+        "Standard",
+        "3 m × 3 m",
+        "$1,200"
+       ],
+       [
+        "Large",
+        "6 m × 3 m",
+        "$2,100"
+       ],
+       [
+        "Corner",
+        "3 m × 3 m, two open sides",
+        "$1,500"
+       ]
+      ]
+     }
+    },
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: exhibitors@pacifichomeexpo.example\nFrom: Martin Holt, Holt Lighting\nDate: July 3\nSubject: Booth reservation\n\nHello,\n\nWe would like to reserve a booth at this year's expo. We want our lamps to be visible from two aisles, so please assign us a space with two open sides. We do not need more floor space than that. We will have six staff members working at the booth over the three days.\n\nPlease send the invoice to my attention.\n\nMartin Holt"
+    },
+    {
+     "kind": "invoice",
+     "title": "Invoice",
+     "text": "Pacific Home Expo — Invoice #EX-4471\nBill to: Martin Holt, Holt Lighting\nDate: July 5\n\nPayment due by August 15.",
+     "table": {
+      "header": [
+       "Item",
+       "Amount"
+      ],
+      "rows": [
+       [
+        "Corner booth",
+        "$1,500"
+       ],
+       [
+        "Additional badges (2)",
+        "$80"
+       ],
+       [
+        "Total due",
+        "$1,580"
+       ]
+      ]
+     }
+    }
+   ],
+   "questions": [
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "Basic furniture and power",
+      "Free parking",
+      "Booth decorations",
+      "Lunch for staff"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "부스 가격에는 테이블 하나, 의자 두 개, 전기가 포함된다.",
+      "traps": [
+       null,
+       "주차 이야기는 없다.",
+       "장식 이야기는 없다.",
+       "식사 이야기는 없다."
+      ]
+     },
+     "question": "What is included in the price of a booth?",
+     "para": [
+      {
+       "p": "one table, two chairs, and electricity",
+       "a": "Basic furniture and power"
+      }
+     ],
+     "id": "p7-t06-1"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "He booked after the discount deadline.",
+      "He chose the most expensive booth.",
+      "He did not pay in advance.",
+      "He requested extra badges."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "6월 30일 전 예약만 15% 할인인데 Mr. Holt는 7월 3일에 예약했다.",
+      "traps": [
+       null,
+       "가장 비싼 부스는 Large다. 그는 Corner를 받았다.",
+       "선불 조건은 할인과 관계없다.",
+       "배지 추가는 할인 여부와 관계없다."
+      ]
+     },
+     "question": "Why did Holt Lighting not receive a discount?",
+     "id": "p7-t06-2"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 3,
+     "choices": [
+      "It needed more badges than the number provided free.",
+      "Badges cost extra for corner booths.",
+      "It lost two of its badges.",
+      "It ordered badges for visitors."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "무료 배지는 4개인데 부스 직원은 6명이다. 2개를 40달러씩 추가해 80달러가 청구되었다.",
+      "traps": [
+       null,
+       "부스 종류별 배지 요금 차이는 없다.",
+       "배지 분실 이야기는 없다.",
+       "방문객용이 아니라 직원용이다."
+      ]
+     },
+     "question": "Why was Holt Lighting charged $80?",
+     "tags": [
+      "trap"
+     ],
+     "id": "p7-t06-3"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "Standard",
+      "Large",
+      "Corner",
+      "Outdoor"
+     ],
+     "answer": 2,
+     "explanation": {
+      "why": "두 통로에서 보이도록 양면이 트인 자리를 원했고 더 넓은 공간은 필요 없다고 했다. 송장에도 Corner booth가 청구되었다.",
+      "traps": [
+       "Standard는 트인 면이 하나다.",
+       "Large는 더 넓은 공간이라 필요 없다고 했다.",
+       null,
+       "야외 부스는 없다."
+      ]
+     },
+     "question": "Which type of booth did Holt Lighting receive?",
+     "id": "p7-t06-4"
+    },
+    {
+     "type": "detail",
+     "concept": "p7.detail",
+     "difficulty": 1,
+     "choices": [
+      "August 15",
+      "July 5",
+      "June 30",
+      "September 12"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "송장에 'Payment due by August 15'라고 적혀 있다.",
+      "traps": [
+       null,
+       "7월 5일은 송장 발행일이다.",
+       "6월 30일은 할인 마감일이다.",
+       "9월 12일은 박람회 시작일이다."
+      ]
+     },
+     "question": "By what date must Holt Lighting pay?",
+     "id": "p7-t06-5"
+    }
+   ]
+  },
+  {
+   "id": "p7-t07",
+   "part": 7,
+   "passages": [
+    {
+     "kind": "email",
+     "title": "E-mail",
+     "text": "To: orders@printhaus.example\nFrom: Jun Takeda, Office Manager, Brightwater Consulting\nDate: October 1\nSubject: Business card order\n\nHello,\n\nI'd like to order 500 business cards for our new employee, Dana Cole. Please use the same design as our last order (#7781), but change the title to “Senior Analyst.” We need them by October 10, as Ms. Cole starts on October 13 and will be attending a conference that week.\n\nJun Takeda"
+    },
+    {
+     "kind": "shipping notice",
+     "title": "Shipping Confirmation",
+     "text": "PrintHaus — Shipping Confirmation\nOrder #8120 — Brightwater Consulting\nItem: Business cards (500), name: Dana Cole, title: Senior Analyst\nShipped: October 6 via standard delivery\nEstimated delivery: October 9–11\nTracking number: PH-55102"
+    },
+    {
+     "kind": "text message chain",
+     "title": "Text-message chain",
+     "text": "Jun Takeda [10:12 A.M.]\nHi Dana, the tracking page says your business cards might not arrive until the 11th.\n\nDana Cole [10:15 A.M.]\nThat's cutting it close. The conference starts on the 14th.\n\nJun Takeda [10:16 A.M.]\nI can have them sent to your home address instead if that's easier.\n\nDana Cole [10:18 A.M.]\nNo need. I'll pick them up at the office on the 13th, my first day."
+    }
+   ],
+   "questions": [
+    {
+     "type": "purpose",
+     "concept": "p7.purpose",
+     "difficulty": 1,
+     "choices": [
+      "To place an order for printed items",
+      "To complain about a late delivery",
+      "To change a shipping address",
+      "To introduce a new employee to clients"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "새 직원 Dana Cole의 명함 500장을 주문하는 이메일이다.",
+      "traps": [
+       null,
+       "배송 지연 걱정은 나중의 문자 대화에 나온다.",
+       "주소 변경 요청은 없다.",
+       "고객에게 소개하는 글이 아니다."
+      ]
+     },
+     "question": "What is the purpose of the e-mail?",
+     "id": "p7-t07-1"
+    },
+    {
+     "type": "inference",
+     "concept": "p7.inference",
+     "difficulty": 2,
+     "choices": [
+      "It has ordered from PrintHaus before.",
+      "It is a printing company.",
+      "It is hiring several analysts.",
+      "It recently changed its logo."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "'the same design as our last order (#7781)'라고 했으므로 이전에도 주문한 적이 있다.",
+      "traps": [
+       null,
+       "Brightwater Consulting은 고객사다.",
+       "새 직원 한 명의 명함을 주문한다.",
+       "같은 디자인을 쓰라고 했으므로 로고 변경은 아니다."
+      ]
+     },
+     "question": "What is suggested about Brightwater Consulting?",
+     "id": "p7-t07-2"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "The cards may arrive later than he requested.",
+      "The wrong title was printed.",
+      "The order was sent to the wrong company.",
+      "The cards were damaged."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "그는 10월 10일까지 받기를 원했는데, 배송 예정일은 9~11일이고 추적 페이지는 11일 도착일 수 있다고 한다.",
+      "traps": [
+       null,
+       "배송 확인서에 직함이 Senior Analyst로 올바르게 나와 있다.",
+       "회사명이 맞게 나와 있다.",
+       "파손 이야기는 없다."
+      ]
+     },
+     "question": "Why is Mr. Takeda concerned?",
+     "id": "p7-t07-3"
+    },
+    {
+     "type": "intent",
+     "concept": "p7.intent",
+     "difficulty": 2,
+     "choices": [
+      "She may have little time before she needs the cards.",
+      "The office is too far from her home.",
+      "She has not heard of the conference.",
+      "She wants to change the order."
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "11일에 도착할 수 있다는 말에 '아슬아슬하다, 학회가 14일에 시작한다'고 답한다. 필요한 날 직전에 받게 된다는 뜻이다.",
+      "traps": [
+       null,
+       "집과 사무실 거리 이야기는 없다.",
+       "학회 일정을 알고 있다.",
+       "주문 변경 이야기는 없다."
+      ]
+     },
+     "question": "At 10:15 A.M., what does Ms. Cole mean when she writes, “That's cutting it close”?",
+     "id": "p7-t07-4"
+    },
+    {
+     "type": "link",
+     "concept": "p7.link",
+     "difficulty": 2,
+     "choices": [
+      "Collect her business cards",
+      "Attend the conference",
+      "Change her job title",
+      "Track a package online"
+     ],
+     "answer": 0,
+     "explanation": {
+      "why": "13일은 그녀의 첫 출근일이고, 그날 사무실에서 명함을 찾아가겠다고 했다.",
+      "traps": [
+       null,
+       "학회는 14일에 시작한다.",
+       "직함 변경 이야기는 없다.",
+       "배송 추적은 Mr. Takeda가 확인했다."
+      ]
+     },
+     "question": "What will Ms. Cole most likely do on October 13?",
+     "id": "p7-t07-5"
+    }
+   ]
+  }
+ ]
+}

@@ -110,7 +110,7 @@ export function validateUnit(u, conceptIds) {
       }
     }
     if (u.part === 6 || u.part === 7) {
-      if (!Array.isArray(u.passages) || !u.passages.length || u.passages.some((p) => !isStr(p.text, 40))) e('지문 없음');
+      if (!Array.isArray(u.passages) || !u.passages.length || u.passages.some((p) => !isStr(p.text, p.table ? 10 : 40))) e('지문 없음');
     }
     if (u.part === 6 && Array.isArray(u.passages)) {
       const text = u.passages.map((p) => p.text).join('\n');
