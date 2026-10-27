@@ -118,7 +118,7 @@ button { font: inherit; color: inherit; }
 .who b { display: block; font-size: 16px; color: var(--accent); font-weight: 600; }
 .who span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: var(--ink2); }
 .who.flash { border-color: var(--accent); }
-.log { max-height: 92px; overflow: hidden; font-size: 16px; color: var(--ink2); padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); }
+.log { font-size: 16px; color: var(--ink2); padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)); }
 .log p { margin: 2px 0; }
 
 /* 이야기 칸 */
@@ -464,3 +464,10 @@ ruby rt { font-size: 0.5em; }
 
 /* 설정의 짧은 단추(画面: 自動/ダーク/ライト)는 한 줄로 */
 .toggle-row .seg button { white-space: nowrap; }
+
+/* 메뉴의 도장 사람들: 두 줄 격자 */
+.people-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.people-grid .btn { min-height: 44px; padding: 6px 8px; font-size: 15px; }
+/* 오토 줄의 「직접 고르기」는 줄어들지 않게 */
+.auto-line .mini-btn { flex: 0 0 auto; white-space: nowrap; }
+.foot > *, .auto-line { min-width: 0; max-width: 100%; }

@@ -75,7 +75,6 @@ export class GameView {
     // ── 이야기 칸과 버튼
     this.panel = h('div', { class: 'panel pad', 'aria-live': 'polite' });
     this.foot = h('div', { class: 'foot pad' });
-    this.ticker = h('div', { class: 'ticker' });
     this.logEl = h('div', { class: 'log' });
     this.el = h('div', { class: 'screen game' }, top, h('div', { class: 'pad' }, this.device), this.panel, this.foot);
     this.app.mountScreen(this.el);
@@ -216,7 +215,6 @@ export class GameView {
     }
     const sea = G.season(s);
     this.big(`${SEASON_JA[sea]}　${G.yearNo(s)}年目`, false);
-    this.log(`${SEASON_KO[sea]}. ${this.ageText()}.`, `${SEASON_JA[sea]}。${this.ageTextJa()}。`);
     this.renderHud();
     this.setIdle();
     this.renderIdle();
@@ -345,17 +343,6 @@ export class GameView {
     if (first) this.fitLcd();
   }
 
-  renderTicker() {
-    const s = this.s;
-    const prev = this.lastNews || {};
-    this.ticker.replaceChildren(...ROLES.map((r) => {
-      const p = personFor(s.cast, r);
-      return h('button', { class: 'who' + (this.lastNews && prev[r] !== s.news[r] ? ' flash' : ''), type: 'button', onclick: () => this.castSheet(r) },
-        h('b', { lang: this.ja ? 'ja' : null }, this.ja ? p.call : p.ko),
-        h('span', { lang: this.ja && s.newsJa && s.newsJa[r] ? 'ja' : null }, this.ja && s.newsJa && s.newsJa[r] ? plainJa(s.newsJa[r], { s }) : s.news[r] || ''));
-    }));
-    this.lastNews = { ...s.news };
-  }
 
   log(text, textJa = null) {
     this.pendingLog = this.pendingLog || [];
@@ -366,7 +353,7 @@ export class GameView {
     for (const l of s.log.splice(0)) this.log(l.text, l.textJa ? plainJa(l.textJa, { s }) : null);
     for (const t of this.pendingLog || []) this.logEl.prepend(h('p', null, t));
     this.pendingLog = [];
-    while (this.logEl.children.length > 4) this.logEl.lastChild.remove();
+    while (this.logEl.children.length > 3) this.logEl.lastChild.remove();
   }
 
   // ───── 장면 ─────
@@ -376,8 +363,8 @@ export class GameView {
   }
   renderIdle() {
     this.flushLog();
-    this.renderTicker();
-    this.panel.replaceChildren(this.ticker, this.logEl);
+    // 기다리는 동안은 도트 창의 개만 본다. 사람들의 근황은 메뉴 → 「道場の人々」
+    this.panel.replaceChildren(this.logEl);
     this.foot.replaceChildren();
     this.foot.hidden = true;
     this.fitLcd();
@@ -827,6 +814,11 @@ export class GameView {
     const close = () => back.remove();
     back.append(h('div', { class: 'modal' },
       h('h3', { class: 'ev-title' }, 'メニュー'),
+      h('h3', { class: 'h' }, this.ja ? '道場の人々' : '도장 사람들'),
+      h('div', { class: 'people-grid' }, ROLES.map((r) => {
+        const p = personFor(this.s.cast, r);
+        return h('button', { class: 'btn center', type: 'button', lang: this.ja ? 'ja' : null, onclick: () => this.castSheet(r) }, this.ja ? p.call : p.ko);
+      })),
       this.app.studyControls(() => { close(); this.menu(); }),
       h('h3', { class: 'h' }, this.ja ? 'サウンド' : '소리'),
       this.app.soundControls(),

@@ -15,10 +15,10 @@ export default [
     choices: [
       { t: '마루 한가운데로 힘껏 달려간다', tag: 'play', fx: { mis: 4, brave: 3, b_roshi: -3 }, set: 'arrive_ran',
         res: '발톱이 마루 위에서 탁탁탁 미끄러졌다. 노사범의 눈썹이 한 번 움직였다.',
-        lines: [['roshi', '道場の[板の間]は[遊び場]ではない。', '도장의 마루는 놀이터가 아니다.']] },
+        lines: [['roshi', '道場の[板の間]は[遊び場]ではない。', '도장 마루는 놀이터가 아닐세.']] },
       { t: '{okami} 발치에서 떨어지지 않는다', tag: 'sweet', fx: { b_okami: 6, hap: 3 }, set: 'arrive_clung',
         res: '{okami|이} 웃으며 안아 올렸다. 이 사람 품은 따뜻하다.',
-        lines: [['okami', 'よしよし、[怖]くないよ。', '옳지옳지, 무섭지 않아.']] },
+        lines: [['okami', 'よしよし、[怖]くないよ。', '옳지 옳지, 안 무서워.']] },
       { t: '노사범 앞에 가서 얌전히 앉는다', tag: 'calm', fx: { b_roshi: 6, brave: 2 }, set: 'arrive_sat',
         res: '노사범이 잠깐 내려다보더니, 아주 조금 고개를 끄덕였다.',
         lines: [['roshi', 'ほう。[礼儀]を知っておる。', '호오. 예의를 아는구나.']] },
@@ -47,7 +47,7 @@ export default [
     title: '동물병원에 다녀왔다',
     text: '아침에 {N|이} 뒷다리를 조금 끌었다. {okami|이} 서둘러 동물병원에 데려갔다. 닥스훈트에게 허리는 늘 조심해야 하는 곳이다.',
     lines: [
-      ['okami', '[獣医]さんがね、[無理]をすると[悪化]し〘かねない|かねない〙から、しばらく[階段]は[禁止]だって。', '수의사 선생님이, 무리하면 더 나빠질 수 있으니까 한동안 계단은 금지래.'],
+      ['okami', '[獣医]さんがね、[無理]をすると[悪化]し〘かねない|かねない〙から、しばらく[階段]は[禁止]だって。', '수의사 선생님이 그러는데, 무리하면 더 나빠질 수도 있으니까 한동안 계단은 금지래.'],
       ['shihan', 'よし、[段差]には[板]を[渡]しておこう。', '좋아, 턱에는 판자를 걸쳐 두자.'],
     ],
     choices: [
@@ -78,7 +78,7 @@ export default [
     id: 'm_1', cat: 'milestone',
     title: '1살이 되었다',
     text: '{D}에 온 지 1년. 이제 죽도 소리에 놀라 숨는 일은 거의 없다. 도장에서 가장 좋아하는 장소는?',
-    lines: [['okami', '{N}、お[誕生日]おめでとう。{N}が来たの〘をきっかけに|をきっかけに〙、道場がずいぶん明るくなったわ。', '{N}, 생일 축하해. {N|이} 온 걸 계기로 도장이 꽤 밝아졌어.']],
+    lines: [['okami', '{N}、お[誕生日]おめでとう。{N}が来たの〘をきっかけに|をきっかけに〙、道場がずいぶん明るくなったわ。', '{N}, 생일 축하해. {N|이} 오고 나서부터 도장이 한결 밝아졌어.']],
     choices: [
       { t: '현관에 세워 둔 죽도 가방 속', tag: 'lazy', fx: { hap: 5, mis: 2 }, set: 'fav_bag', cnt: 'bag', res: '죽도 가방 속은 어둡고 좁고, 딱 맞는다.' },
       { t: '사범실 방석 위', tag: 'calm', fx: { b_shihan: 5, hap: 3 }, set: 'fav_cushion', res: '사범의 방석은 사범의 엉덩이 모양으로 꺼져 있어서 편하다.' },
@@ -90,7 +90,7 @@ export default [
     id: 'm_3', cat: 'milestone',
     title: '3살이 되었다',
     text: '어엿한 성견이 되었다. 도장 사람들의 발소리만 들어도 누가 왔는지 안다. 요즘 가장 마음이 가는 사람은?',
-    lines: [['shihan', '三歳か。体は小さい〘ながらも|ながらも〙、もう[一人前]だな、{N}。', '세 살인가. 몸은 작아도 벌써 어엿하구나, {N}.']],
+    lines: [['shihan', '三歳か。体は小さい〘ながらも|ながらも〙、もう[一人前]だな、{N}。', '세 살인가. 몸은 작아도 이제 제법 어른이네, {N}.']],
     choices: [
       { t: '{kid}', tag: 'play', fx: { b_kid: 8 }, set: 'fav_kid', res: '{kid|이} 오는 시간이 되면 현관에서 기다리게 되었다.' },
       { t: '{kor}', tag: 'social', fx: { b_kor: 8 }, set: 'fav_kor', req: (s) => s.flags.kor_left === undefined, res: '{kor}의 서툰 일본어가 들리면 귀가 쫑긋 선다.' },
@@ -103,11 +103,11 @@ export default [
     id: 'm_7', cat: 'milestone',
     title: '7살이 되었다',
     text: '도장에서 {N}보다 오래 다닌 사람은 손에 꼽는다. 요즘 {N}의 하루는?',
-    lines: [{ if: (s) => s.flags.roshi_gone === undefined, l: [['roshi', '{N}も[貫禄]が出てきたな。歳を重ねる〘につれて|につれて〙、顔つきが変わってきた。', '{N}도 관록이 붙었구나. 나이를 먹을수록 얼굴이 달라졌어.']], else: [['shihan', '{N}も[貫禄]が出てきたな。歳を重ねる〘につれて|につれて〙、顔つきが変わってきた。', '{N}도 관록이 붙었구나. 나이를 먹을수록 얼굴이 달라졌어.'], ['okami', '{roshi}がいたら、きっとそう[言]ったわね。', '{roshi}님이 계셨다면 분명 그렇게 말씀하셨겠지.']] }],
+    lines: [{ if: (s) => s.flags.roshi_gone === undefined, l: [['roshi', '{N}も[貫禄]が出てきたな。歳を重ねる〘につれて|につれて〙、顔つきが変わってきた。', '{N}도 관록이 붙었구나. 나이가 들수록 얼굴이 달라지는군.']], else: [['shihan', '{N}も[貫禄]が出てきたな。歳を重ねる〘につれて|につれて〙、顔つきが変わってきた。', '{N}도 관록이 붙었네. 나이가 들수록 얼굴이 달라지는구나.'], ['okami', '{roshi}がいたら、きっとそう[言]ったわね。', '{roshi}님이 계셨다면 분명 그렇게 말씀하셨겠지.']] }],
     choices: [
       { t: '연습 지켜보기가 본업', tag: 'guard', fx: { b_shihan: 4, b_roshi: 3, brave: 2 }, set: 'life_watch', res: '《切り返し》 소리만 들어도 누가 하는지 안다. 오늘은 기합이 좋다.' },
       { t: '산책이 인생', tag: 'brave', fx: { hea: 5, soc: 3 }, risk: 0.04, set: 'life_walk', res: '상점가 사람들 절반은 {N}의 이름을 안다.' },
-      { t: '낮잠이 본업', tag: 'lazy', fx: { hap: 6, hea: -1 }, set: 'life_nap', res: '오후 3시의 햇볕이 드는 자리를 정확히 안다.' },
+      { t: '낮잠이 본업', tag: 'lazy', fx: { hap: 6, hea: -1 }, set: 'life_nap', res: '오후 3시에 볕이 드는 자리를 정확히 안다.' },
     ],
     word: { q: '7살의 {N}에게 한마디', presets: ['벌써 7년이라니', '도장의 터줏대감', '앞으로도 잘 부탁해', '간식은 하루 두 번까지야'] },
   },
@@ -115,7 +115,7 @@ export default [
     id: 'm_10', cat: 'milestone',
     title: '10살이 되었다',
     text: '주둥이에 흰 털이 섞이기 시작했다. 계단 앞에서 잠깐 멈추는 일이 늘었다. 앞으로의 시간을 어떻게 보낼까?',
-    lines: [['okami', '{N}も、もうおじいちゃん……おばあちゃん？　どっちでもいいわね。まだまだ元気でいてもらわなきゃ困るんだから。', '{N}도 이제 할아버지……할머니? 어느 쪽이든 상관없지. 아직 건강하게 있어 주지 않으면 곤란해.']],
+    lines: [['okami', '{N}も、もうおじいちゃん……おばあちゃん？　どっちでもいいわね。まだまだ元気でいてもらわなきゃ困るんだから。', '{N}도 이제 할아버지……할머니? 어느 쪽이면 어때. 아직은 한참 건강해야 해, 안 그러면 곤란하다니까.']],
     choices: [
       { t: '좋아하는 사람 곁에서 천천히', tag: 'calm', fx: { hap: 6, b_okami: 3, b_shihan: 3, b_kid: 3 }, set: 'old_slow', res: '서두를 일은 이제 없다. 모두가 지나가며 머리를 쓰다듬는다.' },
       { t: '아직 현역! 도장 순찰은 계속', tag: 'brave', fx: { brave: 5, hea: 2 }, risk: 0.08, set: 'old_active', res: '아침마다 도장 네 귀퉁이를 확인하는 일은 그만두지 않았다.' },
@@ -127,12 +127,12 @@ export default [
     id: 'm_last', cat: 'milestone',
     title: '조용한 계절',
     text: '요즘 낮잠이 길어졌다. 밥을 먹는 데도 시간이 걸린다. 그래도 연습 시작 소리가 들리면 고개를 든다. 가장 따뜻한 자리를 고른다면?',
-    lines: [['shihan', '{N}、無理して歩く〘ことはない|ことはない〙からな。', '{N}, 무리해서 걸을 필요는 없어.']],
+    lines: [['shihan', '{N}、無理して歩く〘ことはない|ことはない〙からな。', '{N}, 무리해서 걸을 거 없다.']],
     choices: [
       { t: '신단 아래, 도장이 다 보이는 자리', tag: 'guard', fx: { hap: 4, b_shihan: 5 }, set: 'last_kamidana', res: '모두가 연습 전에 고개를 숙이는 그 자리 아래에서, {N|은} 눈을 감고 기합 소리를 들었다.' },
       { t: '{okami}의 무릎', tag: 'sweet', fx: { hap: 6, b_okami: 6 }, set: 'last_lap', res: '아이들 도복에 이름표를 다는 {okami}의 무릎은 오늘도 따뜻했다.' },
       { t: '햇볕 드는 툇마루', tag: 'lazy', fx: { hap: 5, hea: 2 }, set: 'last_engawa', res: '툇마루에 누워 있으면 상점가 쪽에서 고로케 냄새가 바람에 실려 온다.' },
-      { t: '죽도 가방 속', tag: 'play', fx: { hap: 5, mis: 2 }, set: 'last_bag', cnt: 'bag', req: (s) => s.st.back >= 25, why: '허리 때문에 들어가기 어렵다', res: '누군가 죽도 가방 입구를 조금 넓혀 두었다. 다들 알고 있었던 것이다.' },
+      { t: '죽도 가방 속', tag: 'play', fx: { hap: 5, mis: 2 }, set: 'last_bag', cnt: 'bag', req: (s) => s.st.back >= 25, why: '허리 때문에 들어가기 어렵다', res: '누군가 죽도 가방 입구를 조금 넓혀 두었다. 다들 알고 있었나 보다.' },
     ],
     word: { q: '마지막 해의 {N}에게 한마디', presets: ['고마워, 정말로', '천천히 쉬어도 돼', '언제나 여기 있을게', '최고의 도장 개였어'] },
   },
@@ -146,7 +146,7 @@ export default [
       { t: '{roshi} 옆', tag: 'calm', req: alive, fx: { b_roshi: 5 }, pool: 'beside_roshi', poolEmpty: '{roshi|은} 말없이 {N}의 등을 한 번 쓸었다.' },
       { t: '{shihan} 옆', tag: 'guard', fx: { b_shihan: 5 }, pool: 'beside_shihan', poolEmpty: '{shihan|은} 죽도를 손질하며 {N|을} 발로 살짝 밀어 자리를 내 주었다.' },
       { t: '{okami} 옆', tag: 'sweet', fx: { b_okami: 5 }, pool: 'beside_okami', poolEmpty: '{okami}의 무릎 위에서 바늘이 천을 지나가는 소리를 들으며 졸았다.' },
-      { t: '{kid} 옆', tag: 'play', fx: { b_kid: 5 }, pool: 'beside_kid', poolEmpty: '{kid|와} 마루를 몇 번 왕복하며 놀았다.' },
+      { t: '{kid} 옆', tag: 'play', fx: { b_kid: 5 }, pool: 'beside_kid', poolEmpty: '{kid|와} 마루를 몇 번이고 오가며 놀았다.' },
     ],
   },
   {
@@ -169,7 +169,7 @@ export default [
       { t: '{S}', tag: 'social', fx: { soc: 2 }, pool: 'walk_street', poolEmpty: '상점가 사람들에게 인사를 한 바퀴 돌고 왔다.' },
       { t: '{RV} 강변', tag: 'brave', fx: { hea: 3 }, risk: 0.03, req: (s) => s.st.back >= 30 && s.st.hea >= 25, why: '긴 산책은 지금 몸에 무리다', pool: 'walk_river', poolEmpty: '강바람을 맞으며 풀 냄새를 실컷 맡았다.' },
       { t: '{SH}', tag: 'calm', fx: { hap: 2 }, pool: 'walk_shrine', poolEmpty: '신사의 돌계단 아래에서 비둘기를 구경했다.' },
-      { t: '학교 앞', tag: 'play', fx: { b_kid: 2, soc: 1 }, pool: 'walk_school', poolEmpty: '하교하는 아이들에게 둘러싸여 실컷 쓰다듬어졌다.' },
+      { t: '학교 앞', tag: 'play', fx: { b_kid: 2, soc: 1 }, pool: 'walk_school', poolEmpty: '하교하는 아이들에게 둘러싸여 실컷 쓰다듬을 받았다.' },
     ],
   },
 ];
