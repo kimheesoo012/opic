@@ -98,12 +98,13 @@ export function renderQuiz(app, view, { q, tpl }, src, log, done) {
     e.currentTarget.classList.add(ok ? 'right' : 'wrong');
     opts[q.answer].classList.add('right');
     opts.forEach((b) => b.setAttribute('aria-disabled', 'true'));
-    // 해설(한국어)과 문장 번역: 한국어 모드에서는 바로, 일본어 모드에서는 「解説」을 눌렀을 때만
-    const explain = h('div', { class: 'q-ko', hidden: ja }, explainView(q, i));
-    if (scene && !ja) ko.hidden = false;
+    // 해설(한국어)과 문장 번역: 한국어 모드이거나 틀렸을 때는 바로 펼치고, 일본어 모드에서 맞혔을 때는 「解説」을 눌렀을 때만
+    const shut = ja && ok;
+    const explain = h('div', { class: 'q-ko', hidden: shut }, explainView(q, i));
+    if (scene && !shut) ko.hidden = false;
     fb.replaceChildren(...[
       h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
-      ja ? h('button', { class: 'mini-btn', type: 'button', onclick: (ev) => { explain.hidden = !explain.hidden; if (scene) ko.hidden = explain.hidden; ev.currentTarget.textContent = explain.hidden ? '解説' : '閉じる'; } }, '解説') : null,
+      ja ? h('button', { class: 'mini-btn', type: 'button', onclick: (ev) => { explain.hidden = !explain.hidden; if (scene) ko.hidden = explain.hidden; ev.currentTarget.textContent = explain.hidden ? '解説' : '閉じる'; } }, shut ? '解説' : '閉じる') : null,
       explain,
     ].filter(Boolean));
     fb.hidden = false;

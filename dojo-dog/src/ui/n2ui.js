@@ -56,11 +56,15 @@ const TAG_JA = { abstract: '抽象・思考', society: '社会・ニュース', 
 const POS_JA = { v: '動詞', a: 'い形容詞', na: 'な形容詞', adv: '副詞', exp: '表現' };
 // 한국어 해설 덩어리: 한국어 모드에서는 그대로, 일본어 모드에서는 「解説」 단추 뒤에
 function koBlock(...kids) {
+  return koBlockOpen(false, ...kids);
+}
+// open: 처음부터 펼쳐 둔다 (문제를 틀렸을 때)
+function koBlockOpen(open, ...kids) {
   const list = kids.filter(Boolean);
   if (!list.length) return [];
   if (!uiJa()) return list;
-  const box = h('div', { class: 'q-ko', hidden: true }, ...list);
-  const b = h('button', { class: 'mini-btn', type: 'button', onclick: () => { box.hidden = !box.hidden; b.textContent = box.hidden ? '解説' : '閉じる'; } }, '解説');
+  const box = h('div', { class: 'q-ko', hidden: !open }, ...list);
+  const b = h('button', { class: 'mini-btn', type: 'button', onclick: () => { box.hidden = !box.hidden; b.textContent = box.hidden ? '解説' : '閉じる'; } }, open ? '閉じる' : '解説');
   return [b, box];
 }
 // DOM append는 null을 「null」 글자로 넣으므로 빈 칸을 걸러서 붙인다
@@ -294,7 +298,7 @@ export function grammarDetail(app, key) {
       grade(s2, 'g:' + key, ok);
       store.saveSrs(s2);
       const why = opts.map((x) => (x === ans ? `정답. ${explain}` : (g.qx && g.qx[wrong.indexOf(x)]) || ''));
-      fb.replaceChildren(h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'), ...koBlock(...explainView({ options: opts, answer: opts.indexOf(ans), why }, opts.indexOf(o))));
+      fb.replaceChildren(h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'), ...koBlockOpen(!ok, ...explainView({ options: opts, answer: opts.indexOf(ans), why }, opts.indexOf(o))));
       fb.hidden = false;
     } }, o));
     practice.append(h('h4', null, '練習'), h('div', { class: 'q-prompt long', lang: 'ja' }, stem.replace('＿＿', '（　　）')), h('div', { class: 'btns' }, btns), fb);
@@ -358,7 +362,7 @@ export function runDrill(app, body, qs, label, onDone) {
       btns[q.a].classList.add('right');
       if (!ok) btns[oi].classList.add('wrong');
       fb.replaceChildren(); appendAll(fb, h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
-        ...koBlock(...explainView({ options: q.opts, answer: q.a, why: q.why }, oi, { numbered: true })),
+        ...koBlockOpen(!ok, ...explainView({ options: q.opts, answer: q.a, why: q.why }, oi, { numbered: true })),
         (q.ref || []).filter((id) => itemOf(id)).length ? h('div', { class: 'chips' }, q.ref.filter((id) => itemOf(id)).map((id) => h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => (id[0] === 'g' ? grammarDetail(app, id.slice(2)) : vocabDetail(app, id.slice(2))) }, id[0] === 'g' ? GRAMMAR[id.slice(2)].f : id.slice(2)))) : null);
       fb.hidden = false;
       next.hidden = false;
