@@ -39,3 +39,21 @@ test('vocabRows: 한자 줄이 먼저 오고, 없는 말은 빈 배열', () => {
   assert.equal(vocabRows('逮捕')[0].t, '한자');
   assert.deepEqual(vocabRows('없는말'), []);
 });
+
+import { readingCause, errorCause, filledSentence } from '../src/engine/explain.js';
+import { BANK, BANK_TYPES } from '../src/data/n2/bank.js';
+test('틀린 원인: 장음·탁음·촉음을 구별한다', () => {
+  assert.equal(readingCause('かじょう', 'かじょ'), 'long');
+  assert.equal(readingCause('たいほ', 'たいぼ'), 'voice');
+  assert.equal(readingCause('がっこう', 'がくこう'), 'sokuon');
+  assert.equal(readingCause('しゅくしょう', 'しゅうしょう'), 'on');
+  assert.equal(errorCause({ options: ['a', 'b', 'c', 'd'], answer: 0, btype: 'hyoki' }, 1), 'shape');
+});
+test('정답을 채운 문제문', () => {
+  assert.deepEqual(filledSentence({ options: ['無', '不'], answer: 0, btype: 'gokei', prompt: '（　　）計画な旅行' }), ['', '無', '計画な旅行']);
+  assert.equal(filledSentence({ options: ['かじょう'], answer: 0, btype: 'kanji', prompt: '〔過剰〕包装' })[1], '過剰（かじょう）');
+});
+test('語形成 유형이 문제은행에 있다', () => {
+  assert.ok(BANK_TYPES.gokei);
+  assert.ok(BANK.filter((q) => q.type === 'gokei').length >= 40);
+});

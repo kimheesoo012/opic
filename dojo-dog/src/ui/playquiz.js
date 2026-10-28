@@ -8,6 +8,7 @@ import { store } from './store.js';
 import { BANK_TYPES } from '../data/n2/bank.js';
 import { richQ } from './n2ui.js';
 import { explainView } from './explainui.js';
+import { errorCause } from '../engine/explain.js';
 
 export const KIND_LABEL = {
   reading: '読み — 읽기 고르기',
@@ -94,6 +95,7 @@ export function renderQuiz(app, view, { q, tpl }, src, log, done) {
       ql[q.bankId] = r;
       store.saveQlog(ql);
     }
+    if (!ok && q.bankId) store.addCause(errorCause(q, i), q.bankId);
     view.save();
     e.currentTarget.classList.add(ok ? 'right' : 'wrong');
     opts[q.answer].classList.add('right');
