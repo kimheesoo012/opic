@@ -45,6 +45,11 @@
        "pos": "n",
        "m": "旅程表"
       }
+     ],
+     "trans": "Choさんはなぜメールを書いたのか。",
+     "evidence": [
+      "I moved your return flight from April 18 to April 19",
+      "has also extended your reservation by one night"
      ]
     },
     {
@@ -74,6 +79,10 @@
        "p": "at the same conference rate",
        "a": "costs the same rate as the other nights"
       }
+     ],
+     "trans": "ホテルの追加の1泊について何が述べられているか。",
+     "evidence": [
+      "extended your reservation by one night at the same conference rate"
      ]
     },
     {
@@ -97,7 +106,11 @@
        "worry about（心配する）は文脈と関係ない。",
        null
       ]
-     }
+     },
+     "trans": "メールの第2段落の \"take care of\" に最も意味が近いのは。",
+     "evidence": [
+      "just reply to this e-mail and I will take care of it"
+     ]
     }
    ]
   },
@@ -139,6 +152,11 @@
        "p": "First thing I tried.",
        "a": "He has already checked the power connection."
       }
+     ],
+     "trans": "午前9時15分にParkさんが \"First thing I tried\" と書いたのはどういう意味か。",
+     "evidence": [
+      "Did you check that it's plugged in?",
+      "First thing I tried."
      ]
     },
     {
@@ -168,6 +186,11 @@
        "p": "I can bring it up. / Will do.",
        "a": "Bring some equipment to Mr. Park"
       }
+     ],
+     "trans": "Ortizさんは次に何をすると考えられるか。",
+     "evidence": [
+      "I can bring it up.",
+      "Will do."
      ]
     }
    ]
@@ -204,7 +227,11 @@
        null,
        "'an upgraded security system' が書かれている。"
       ]
-     }
+     },
+     "trans": "改修プロジェクトの一部として述べられていないものは。",
+     "evidence": [
+      "The work is part of a building-wide modernization project that will also include new lobby lighting and an upgraded security system"
+     ]
     },
     {
      "id": "p7-s03-2",
@@ -222,7 +249,7 @@
      "explanation": {
       "why": "2段落目で、その週末に配達予定のある入居者は前もって警備室に知らせる（inform the security desk in advance）必要があると言っている。",
       "traps": [
-       "出入口についての記述はない。",
+       "東口についての記述はない。お知らせに出てくる場所は建物の裏の貨物用エレベーター（freight elevator at the rear）だけ。",
        "内線210は問い合わせ先で、配達当日に電話するようにという案内ではない。",
        "配達の日程を変えるようにとは言っていない。警備員が貨物用エレベーターまで案内してくれる。",
        null
@@ -233,6 +260,10 @@
        "p": "inform the security desk in advance",
        "a": "Notify the security desk beforehand"
       }
+     ],
+     "trans": "7月12日に配達の予定がある入居者はどうすべきか。",
+     "evidence": [
+      "should inform the security desk in advance"
      ]
     },
     {
@@ -257,7 +288,11 @@
        null,
        "[4]の前は今後の改修プロジェクトの内容なので、警備サービスの時間の案内と流れが合わない。"
       ]
-     }
+     },
+     "trans": "[1]、[2]、[3]、[4] のうち、次の文が入る位置として最も適切なのは。",
+     "evidence": [
+      "so that a guard can escort delivery personnel to the freight elevator."
+     ]
     }
    ]
   },
@@ -299,6 +334,10 @@
        "p": "Now serving offices in the downtown area",
        "a": "recently expanded its service area"
       }
+     ],
+     "trans": "Brightway Cleaning Servicesについて何が分かるか。",
+     "evidence": [
+      "Now serving offices in the downtown area!"
      ]
     },
     {
@@ -332,6 +371,10 @@
        "p": "at half price",
        "a": "a discount"
       }
+     ],
+     "trans": "新規顧客はどうすれば割引を受けられるか。",
+     "evidence": [
+      "New customers who sign a six-month contract before September 30 will receive their first month of service at half price."
      ]
     },
     {
@@ -352,7 +395,7 @@
       "traps": [
        "月1回の清掃プランは基本プランの1つ。",
        null,
-       "現地での見積もりは無料。",
+       "現地での見積もりは無料（free on-site estimate）だと最後の文に書かれている。追加料金ではない。",
        "従業員の保険は会社が加入しているという説明で、顧客が別に買うサービスではない。"
       ]
      },
@@ -361,6 +404,10 @@
        "p": "for an additional fee",
        "a": "at an extra cost"
       }
+     ],
+     "trans": "追加料金で利用できるサービスは。",
+     "evidence": [
+      "Window washing and carpet cleaning are available for an additional fee."
      ]
     }
    ]
@@ -397,7 +444,11 @@
        "Martha Quinnはインタビューを受けた館長で、退職の話はない。",
        null
       ]
-     }
+     },
+     "trans": "記事は主に何について書かれているか。",
+     "evidence": [
+      "Small-business owners in Riverton now have a new place to get help."
+     ]
     },
     {
      "id": "p7-s05-2",
@@ -426,6 +477,10 @@
        "p": "one-on-one advising sessions",
        "a": "receive individual advice"
       }
+     ],
+     "trans": "記事によると、木曜日の夜には何が行われるか。",
+     "evidence": [
+      "will also hold one-on-one advising sessions every Thursday evening"
      ]
     },
     {
@@ -449,7 +504,11 @@
        "detailed（詳しい）は情報の量を言う。",
        "dependent（依存している）はrely（頼る）と語源が似ていて選びやすいが、意味が違う。"
       ]
-     }
+     },
+     "trans": "第3段落の \"reliable\" に最も意味が近いのは。",
+     "evidence": [
+      "a place to find reliable information without cost"
+     ]
     },
     {
      "id": "p7-s05-4",
@@ -478,6 +537,10 @@
        "p": "hope to open a similar space at the library's east branch next year",
        "a": "may get a business center in the future"
       }
+     ],
+     "trans": "図書館の東分館について何が分かるか。",
+     "evidence": [
+      "they hope to open a similar space at the library's east branch next year"
      ]
     }
    ]
@@ -548,6 +611,11 @@
        "p": "Shipping: FREE (orders over $250)",
        "a": "qualified for free shipping"
       }
+     ],
+     "trans": "注文について何が述べられているか。",
+     "evidence": [
+      "Shipping: FREE (orders over $250)",
+      "Total: $312.00"
      ]
     },
     {
@@ -566,7 +634,7 @@
      "explanation": {
       "why": "オーガナイザーは10月14日に別に「発送」されると言っているので、受け取るのは14日かそれ以降。",
       "traps": [
-       "10月6日は注文日。",
+       "10月6日は注文日（Order date）。品物を受け取る日ではない。",
        "10月9日は残りの品物の到着予定日。日付を取り違えさせるひっかけ。",
        null,
        "オーガナイザーは在庫切れなので、9日より前には受け取れない。"
@@ -577,6 +645,10 @@
        "p": "will be shipped separately on October 14",
        "a": "On or after October 14"
       }
+     ],
+     "trans": "Adeyemiさんはいつデスクオーガナイザーを受け取ると考えられるか。",
+     "evidence": [
+      "will be shipped separately on October 14"
      ]
     }
    ]
@@ -619,6 +691,10 @@
        "p": "a new recycling program",
        "a": "a new waste-sorting system"
       }
+     ],
+     "trans": "メモの目的は何か。",
+     "evidence": [
+      "will introduce a new recycling program on every floor"
      ]
     },
     {
@@ -639,7 +715,7 @@
       "traps": [
        "キッチンには緑の回収箱が置かれる。色を入れ替えて尋ねるひっかけ。",
        null,
-       "ロビーについての記述はない。",
+       "ロビーについての記述はない。回収箱が置かれるのはプリンターの横（青）とキッチン（緑）だけ。",
        "エレベーターについての記述はない。"
       ]
      },
@@ -648,6 +724,10 @@
        "p": "next to each printer",
        "a": "Beside the printers"
       }
+     ],
+     "trans": "メモによると、青い回収箱はどこに置かれるか。",
+     "evidence": [
+      "Blue bins will be placed next to each printer"
      ]
     },
     {
@@ -672,7 +752,11 @@
        null,
        "[4]の前は廃棄物削減の見込みなので、these itemsとつながらない。"
       ]
-     }
+     },
+     "trans": "[1]、[2]、[3]、[4] のうち、次の文が入る位置として最も適切なのは。",
+     "evidence": [
+      "Please do not put food waste or coffee cups in either type of bin, as this can contaminate an entire load."
+     ]
     }
    ]
   },
@@ -714,6 +798,11 @@
        "p": "limited to 8 → at least 12 vegetarians",
        "a": "will not be enough"
       }
+     ],
+     "trans": "午後2時6分にBelloさんが \"We'll have at least 12 vegetarians\" と書いたのは何を示しているか。",
+     "evidence": [
+      "the vegetarian option is limited to 8",
+      "We'll have at least 12 vegetarians."
      ]
     },
     {
@@ -734,7 +823,7 @@
       "traps": [
        "ケータリング業者に連絡すると言っているのはMr. Reed。",
        "人数を数えるという提案はない。",
-       "会場についての話はない。",
+       "会場や部屋の広さの話はない。会話の問題はベジタリアンメニューの数。",
        null
       ]
      },
@@ -743,6 +832,10 @@
        "p": "I could pick some up",
        "a": "Buy additional food"
       }
+     ],
+     "trans": "Linさんは何をすると申し出ているか。",
+     "evidence": [
+      "I could pick some up Friday morning."
      ]
     },
     {
@@ -766,7 +859,11 @@
        "Mr. Reedを責める発言ではない。",
        "説明を求めず、すぐに数（6個）を決めている。"
       ]
-     }
+     },
+     "trans": "午後2時9分にBelloさんが \"That would solve it\" と書いたのはどういう意味か。",
+     "evidence": [
+      "That would solve it. Can you get 6?"
+     ]
     },
     {
      "id": "p7-s08-4",
@@ -795,6 +892,10 @@
        "p": "I'll let the caterer know",
        "a": "Contact the caterer"
       }
+     ],
+     "trans": "Reedさんは次に何をすると考えられるか。",
+     "evidence": [
+      "Then I'll let the caterer know the final count is 40 sandwiches."
      ]
     }
    ]

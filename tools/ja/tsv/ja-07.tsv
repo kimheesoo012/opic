@@ -1,5 +1,5 @@
 p5-140|t2	movingは動名詞で、decideは動名詞を目的語にとらない。
-p5-140|t3	movedだと動詞が重なる。
+p5-140|t3	movedは過去形なので、decided movedのように動詞が重なる。decideの後ろにはto不定詞が来る。
 p5-141|why	enjoyは動名詞を目的語にとるので（enjoy doing）、workingが正解。
 p5-141|t0	workは動詞の原形なので、enjoysの後ろには入らない。
 p5-141|t1	to work: enjoyはto不定詞を目的語にとらない。
@@ -28,11 +28,11 @@ p5-147|why	分詞構文の主語は主節のMr. Itoで、彼が説明書に「�
 p5-147|t1	Followedは受動なので、Mr. Itoが説明書に従われたという意味になり、目的語もとれない。
 p5-147|t2	Followsは動詞なので、接続詞なしで2つの節がつながってしまう。
 p5-147|t3	Followerは名詞なので文の形が成り立たない。
-p5-148|why	空所の後ろの名詞lawyerを修飾する所有格herが必要。
+p5-148|why	空所の後ろの名詞lawyerを修飾する所有格herが必要。主語Ms. Garciaを受けて「自分の弁護士」という意味になる。
 p5-148|t0	sheは主格なので名詞の前には入らない。
 p5-148|t1	hersは所有代名詞なので後ろに名詞は来ない。
 p5-148|t2	herselfは再帰代名詞なので名詞を修飾できない。
-p5-149|why	soの後ろの節の主語の位置なので、主格theyが正解。
+p5-149|why	soの後ろの節の主語の位置なので、主格theyが正解。前の節のThe clientsを受けて「だから彼らはすぐに契約書に署名した」という意味。
 p5-149|t0	themは目的格なので主語になれない。
 p5-149|t1	theirは所有格なので後ろに名詞が必要。
 p5-149|t2	themselvesは主語の位置には使わない。
@@ -76,11 +76,11 @@ p5-159|why	後ろに主語（the speaker's flight）と動詞（had been cancele
 p5-159|t0	due toは意味は合うが前置詞なので節を受けられない。
 p5-159|t2	owingはowing toの形でなければならず、その場合も名詞しか受けない。
 p5-159|t3	althoughは譲歩なので理由の関係と合わない。
-p5-160|why	from A to Bは「〜から…まで」という範囲の表現。
+p5-160|why	from A to Bは「〜から…まで」という範囲の表現。午前9時から午後6時まで開いているという意味で、後ろのtoと組になるのはfrom。
 p5-160|t0	atは1つの時点（at 9 A.M.）に使い、toとは組にならない。
 p5-160|t1	inは時刻の前には使わない。
 p5-160|t3	onは曜日・日付の前に使う。
-p5-161|why	曜日の入った時（Friday afternoon）の前にはonを使う。
+p5-161|why	曜日の入った時（Friday afternoon）の前にはonを使う。曜日・日付にはon、月・年や単独のafternoonにはin、時刻にはatを使うという規則。
 p5-161|t1	inはthe afternoonのように曜日のない1日の時間帯や、月・年の前に使う。
 p5-161|t2	atは時刻（at 3 P.M.）の前に使う。
 p5-161|t3	toは方向を表し、時は表さない。
@@ -88,7 +88,7 @@ p5-162|why	more than ten yearsは数字で表した期間。期間の前にはfo
 p5-162|t0	sinceの後ろには始まりの時点（since 2015）が来る。
 p5-162|t1	duringの後ろには出来事・特定の期間（during the meeting）が来る。
 p5-162|t2	whileは接続詞なので名詞句を受けられない。
-p5-163|why	in the absence of（〜がない状況で、〜の不在時に）は決まった前置詞の表現。
+p5-163|why	in the absence of（〜がない状況で）は決まった前置詞の表現。部長の不在中にKimさんが会議の議長を務めたという意味。
 p5-163|t0	on the absence ofという表現は使わない。
 p5-163|t1	at the absence ofという表現はない。
 p5-163|t3	by the absence ofは「不在によって」と手段のように読めて文脈と合わず、慣用表現でもない。

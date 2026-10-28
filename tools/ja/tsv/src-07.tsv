@@ -1,5 +1,5 @@
 p5-140|t2	moving은 동명사로, decide는 동명사를 목적어로 쓰지 않는다.
-p5-140|t3	moved는 동사가 겹친다.
+p5-140|t3	moved는 과거형이라 decided moved처럼 동사가 겹친다. decide 뒤에는 to부정사가 온다.
 p5-141|why	enjoy는 동명사를 목적어로 취하므로(enjoy doing) working이 정답이다.
 p5-141|t0	work는 동사원형이라 enjoys 뒤에 올 수 없다.
 p5-141|t1	to work: enjoy는 to부정사를 목적어로 쓰지 않는다.
@@ -28,11 +28,11 @@ p5-147|why	분사구문의 주어는 주절의 Mr. Ito이고, 그가 설명서�
 p5-147|t1	Followed는 수동이라 Mr. Ito가 설명서에 의해 따라졌다는 뜻이 되고 목적어도 받을 수 없다.
 p5-147|t2	Follows는 동사라 접속사 없이 두 절이 이어진다.
 p5-147|t3	Follower는 명사라 문장 구조가 성립하지 않는다.
-p5-148|why	빈칸 뒤 명사 lawyer를 꾸미는 소유격 her가 필요하다.
+p5-148|why	빈칸 뒤 명사 lawyer를 꾸미는 소유격 her가 필요하다. 주어 Ms. Garcia를 받아 '자신의 변호사'라는 뜻이 된다.
 p5-148|t0	she는 주격이라 명사 앞에 올 수 없다.
 p5-148|t1	hers는 소유대명사라 뒤에 명사가 오지 않는다.
 p5-148|t2	herself는 재귀대명사라 명사를 꾸밀 수 없다.
-p5-149|why	so 뒤 절의 주어 자리이므로 주격 they가 정답이다.
+p5-149|why	so 뒤 절의 주어 자리이므로 주격 they가 정답이다. 앞 절의 The clients를 받아 '그래서 그들이 바로 계약서에 서명했다'는 뜻이다.
 p5-149|t0	them은 목적격이라 주어가 될 수 없다.
 p5-149|t1	their는 소유격이라 뒤에 명사가 필요하다.
 p5-149|t2	themselves는 주어 자리에 쓰지 않는다.
@@ -76,11 +76,11 @@ p5-159|why	뒤에 주어(the speaker's flight)와 동사(had been canceled)가 �
 p5-159|t0	due to는 뜻은 맞지만 전치사라 절을 받을 수 없다.
 p5-159|t2	owing은 owing to 형태여야 하고 그때도 명사만 받는다.
 p5-159|t3	although는 양보라 이유 관계와 맞지 않는다.
-p5-160|why	from A to B는 '~부터 …까지'라는 범위 표현이다.
+p5-160|why	from A to B는 '~부터 …까지'라는 범위 표현이다. 9 A.M.부터 6 P.M.까지 문을 연다는 뜻으로, 뒤의 to와 짝을 이루는 것은 from이다.
 p5-160|t0	at은 한 시점(at 9 A.M.)에 쓰며 to와 짝을 이루지 않는다.
 p5-160|t1	in은 시각 앞에 쓰지 않는다.
 p5-160|t3	on은 요일·날짜 앞에 쓴다.
-p5-161|why	요일이 들어간 때(Friday afternoon) 앞에는 on을 쓴다.
+p5-161|why	요일이 들어간 때(Friday afternoon) 앞에는 on을 쓴다. 요일·날짜에는 on, 월·연도·오전/오후 단독에는 in, 시각에는 at을 쓴다는 규칙이다.
 p5-161|t1	in은 the afternoon처럼 요일 없는 하루의 때나 월·연도 앞에 쓴다.
 p5-161|t2	at은 시각(at 3 P.M.) 앞에 쓴다.
 p5-161|t3	to는 방향을 나타내며 때를 나타내지 않는다.
@@ -88,7 +88,7 @@ p5-162|why	more than ten years는 숫자로 된 기간이다. 기간 앞에는 f
 p5-162|t0	since 뒤에는 시작 시점(since 2015)이 와야 한다.
 p5-162|t1	during 뒤에는 사건·특정 기간(during the meeting)이 온다.
 p5-162|t2	while은 접속사라 명사구를 받지 못한다.
-p5-163|why	in the absence of(~이 없는 상황에서)는 정해진 전치사 표현이다.
+p5-163|why	in the absence of(~이 없는 상황에서)는 정해진 전치사 표현이다. 이사가 없는 동안 Kim 씨가 회의를 주재했다는 뜻이다.
 p5-163|t0	on the absence of라는 표현은 쓰지 않는다.
 p5-163|t1	at the absence of라는 표현은 없다.
 p5-163|t3	by the absence of는 '부재로 인해'처럼 수단으로 읽혀 문맥과 맞지 않고 관용 표현도 아니다.

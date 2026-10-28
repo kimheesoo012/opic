@@ -287,3 +287,22 @@ details > summary { cursor: pointer; padding: 8px 0; list-style-position: inside
 .badge.on { opacity: 1; background: #fff4e6; color: #e8590c; }
 :root[data-theme="dark"] .badge.on { background: #33240f; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .badge.on { background: #33240f; } }
+
+/* ===== 해설 구조: 구역 이름표, 해석, 근거 강조 ===== */
+.exp .lbl, .exp .qtr .lbl { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .4px; color: var(--muted); text-transform: uppercase; margin: 10px 0 2px; }
+.exp .sec { margin-top: 2px; }
+.exp .sec .lbl { display: block; }
+.exp .why b, .exp .en b { color: var(--accent); }
+.exp .qtr { margin-top: 8px; font-size: 15px; padding: 8px 10px; background: var(--surface-2); border-radius: 8px; }
+.exp .qtr .lbl { margin: 0 8px 0 0; }
+.exp .trans .en { margin: 2px 0; font-size: 15px; }
+.exp .trans .tr, .exp .ev .tr { margin: 2px 0 0; font-size: 15px; color: var(--text); }
+.exp .trans { padding: 8px 10px; background: var(--surface-2); border-radius: 8px; }
+.exp .ev .en { margin: 2px 0; font-size: 14.5px; padding: 6px 10px; border-left: 3px solid #f59f00; background: #fff8e6; border-radius: 0 6px 6px 0; }
+:root[data-theme="dark"] .exp .ev .en { background: #33290f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .exp .ev .en { background: #33290f; } }
+.exp .ev .btn { margin-top: 6px; }
+.exp ul.traps li .ch { font-weight: 600; }
+.passage mark.ev, .passage td.ev { background: #ffe8a3; color: inherit; border-radius: 3px; padding: 0 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+:root[data-theme="dark"] .passage mark.ev, :root[data-theme="dark"] .passage td.ev { background: #5a4a12; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .passage mark.ev, :root:not([data-theme="light"]) .passage td.ev { background: #5a4a12; } }

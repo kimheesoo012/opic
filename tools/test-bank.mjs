@@ -38,6 +38,29 @@ for (const u of bank.units) {
   }
 }
 
+// 해석(trans)과 Part 7 근거 문장(evidence): 모든 문항에 있어야 하고, 근거는 지문의 정확한 일부여야 한다
+const normT = (x) => String(x).replace(/\s+/g, ' ').trim();
+let evN = 0;
+for (const u of bank.units) {
+  const hay = normT([...(u.passages || []).map((p) => p.text), ...(u.passages || []).filter((p) => p.table).map((p) => [...p.table.header, ...p.table.rows.flat()].join(' '))].join(' '));
+  for (const q of questionsOf(u)) {
+    if (typeof q.trans !== 'string' || q.trans.trim().length < 5) fails.push(`${q.id}: 해석(trans) 없음`);
+    else if (/-{7}|\{\{\d\}\}/.test(q.trans)) fails.push(`${q.id}: 해석에 빈칸 표시가 남아 있음`);
+    if (u.part === 7) {
+      if (!Array.isArray(q.evidence) || !q.evidence.length) fails.push(`${q.id}: 근거(evidence) 없음`);
+      else for (const e of q.evidence) { evN++; if (!hay.includes(normT(e))) fails.push(`${q.id}: 근거가 지문에 없음 "${e.slice(0, 40)}"`); if (/[가-힣]/.test(e)) fails.push(`${q.id}: 근거에 한글`); }
+    }
+  }
+}
+console.log(`해석 ${bank.units.reduce((n, u) => n + questionsOf(u).filter((q) => q.trans).length, 0)}개, Part 7 근거 ${evN}개`);
+// 짧은 해설(한국어: 정답 이유 45자·오답 해설 16자 미만, 일본어는 글자가 촘촘해 28자·10자)
+const JA = /ja$/.test(process.env.TT_APP || '');
+const [minWhy, minTrap] = JA ? [28, 10] : [45, 16];
+for (const u of bank.units) for (const q of questionsOf(u)) {
+  if (q.explanation.why.length < minWhy) fails.push(`${q.id}: 정답 해설이 짧음(${q.explanation.why.length}자)`);
+  q.explanation.traps.forEach((t, i) => { if (t && t.length < minTrap) fails.push(`${q.id}: 오답 ${'ABCD'[i]} 해설이 짧음(${t.length}자)`); });
+}
+
 // 정답 해설이 정답 선택지를 언급하는지(P5)
 for (const u of bank.byPart[5] || []) {
   const c = u.choices[u.answer].toLowerCase();

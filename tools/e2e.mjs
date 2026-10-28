@@ -101,6 +101,8 @@ try {
   await (await p.$$('.choice[data-act="choose"]'))[1].click();
   await p.waitForSelector('.exp');
   ok('즉시 해설: 정답 이유 + 핵심 + 선택지별 함정', (await p.$('.exp .why')) && (await p.$('.exp .tip')) && (await p.$$('.exp ul.traps li')).length === 4);
+  const tr5 = await p.evaluate(() => ({ en: !!document.querySelector('.exp .trans .en b'), tr: (document.querySelector('.exp .trans .tr') || {}).textContent || '', lbl: [...document.querySelectorAll('.exp .lbl')].map((x) => x.textContent) }));
+  ok('Part 5 해설: 정답을 넣은 문장과 우리말 해석, 구역 이름표', tr5.en && /[가-힣]/.test(tr5.tr) && tr5.lbl.includes('정답 이유') && tr5.lbl.includes('해석') && tr5.lbl.includes('선택지'), tr5.lbl.join('/'));
   if (await p.$('[data-act="cause"]')) {
     await p.click('[data-act="cause"][data-c="grammar"]');
     ok('오답 원인 탭 한 번으로 선택', !!(await p.$('[data-act="cause"][data-c="grammar"][aria-pressed="true"]')));
@@ -169,6 +171,13 @@ try {
   await p.click('[data-act="wide"]');
   const keptTitle = await p.evaluate(() => document.querySelector('[data-act="ptab"][aria-selected="true"]').textContent);
   await (await p.$$('.choice[data-act="choose"]'))[0].click();
+  await p.waitForSelector('.exp');
+  const ev7 = await p.evaluate(() => ({ marks: document.querySelectorAll('.passage mark.ev, .passage td.ev').length, ev: (document.querySelector('.exp .ev') || {}).textContent || '', q: (document.querySelector('.exp .qtr') || {}).textContent || '' }));
+  ok('Part 7 해설: 근거 문장 표시 + 지문 안 강조 + 질문 해석', ev7.marks >= 1 && ev7.ev.includes('근거 문장') && /[가-힣]/.test(ev7.q), JSON.stringify(ev7).slice(0, 120));
+  await p.click('[data-act="scrollEv"]');
+  await p.waitForTimeout(400);
+  const vis = await p.evaluate(() => { const m = document.querySelector('.sess-main mark.ev, .sess-main td.ev'); const r = m.getBoundingClientRect(); const c = document.querySelector('.sess-main').getBoundingClientRect(); return r.top >= c.top - 2 && r.bottom <= c.bottom + 2; });
+  ok('지문에서 보기 → 근거 문장이 화면 안에 들어옴', vis);
   await p.click('[data-act="next"]');
   ok('다음 문항에서도 선택한 지문 탭 유지', (await p.evaluate(() => document.querySelector('[data-act="ptab"][aria-selected="true"]').textContent)) === keptTitle, keptTitle);
   await answerLoop(p);

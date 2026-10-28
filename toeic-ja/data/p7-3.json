@@ -62,7 +62,7 @@
       "traps": [
        null,
        "昼食は提携業者を通じて「別に」注文する必要がある。",
-       "駐車場は書かれていない。",
+       "駐車場は書かれていない。貸し出しに含まれるのはWi-Fi、プロジェクター、ホワイトボードだけ。",
        "技術サポートの人員は書かれていない。"
       ]
      },
@@ -71,6 +71,10 @@
        "p": "a projector, and a whiteboard",
        "a": "Presentation equipment"
       }
+     ],
+     "trans": "すべての会議室の貸し出しに含まれるものは。",
+     "evidence": [
+      "All rentals include Wi-Fi, a projector, and a whiteboard."
      ]
     },
     {
@@ -100,6 +104,11 @@
        "p": "18 new employees",
        "a": "Capacity 25 → Cedar Room"
       }
+     ],
+     "trans": "Leeさんはどの部屋を予約すると考えられるか。",
+     "evidence": [
+      "a training workshop for 18 new employees",
+      "Cedar Room"
      ]
     },
     {
@@ -121,7 +130,7 @@
      "explanation": {
       "why": "Mr. Leeは3月12・19・26日、9時から5時まで（終日）3回予約しようとしている。ウェブページの条件「1か月以内に終日3日以上予約すると10%割引」に当てはまる。",
       "traps": [
-       "保証金についての記述はない。",
+       "保証金についての記述はない。ウェブページの条件はケータリングの48時間前の連絡と、3日以上の予約での割引だけ。",
        "確認を電話でするようにという条件はない。",
        "9時〜5時は8時間なので、半日（4時間）ではなく終日の貸し出し。",
        null
@@ -132,6 +141,11 @@
        "p": "March 12, 19, and 26, 9 A.M. to 5 P.M.",
        "a": "three or more full days within a calendar month"
       }
+     ],
+     "trans": "Leeさんの予約について何が分かるか。",
+     "evidence": [
+      "Customers who book three or more full days within a calendar month receive a 10% discount",
+      "on March 12, 19, and 26"
      ]
     },
     {
@@ -152,8 +166,8 @@
       "traps": [
        "参加者の登録名簿ではなく、食事制限のリスト。",
        null,
-       "いすの追加の依頼はない。",
-       "支払い方法の話はない。"
+       "いすの追加の依頼はない。送るというリストは食事制限（dietary restrictions）のリスト。",
+       "支払い方法の話はない。メールは部屋の空き状況と昼食の配達を問い合わせている。"
       ]
      },
      "para": [
@@ -161,6 +175,10 @@
        "p": "a list of their dietary restrictions",
        "a": "dietary needs"
       }
+     ],
+     "trans": "Leeさんはなぜ3月6日までにリストを送るのか。",
+     "evidence": [
+      "Several participants have food allergies, so I will send you a list of their dietary restrictions by March 6."
      ]
     },
     {
@@ -184,7 +202,12 @@
        null,
        "当日の注文ではなく、48時間前に知らせることが条件。"
       ]
-     }
+     },
+     "trans": "Leeさんが3月12日に頼んだ昼食について正しいものは。",
+     "evidence": [
+      "with at least 48 hours' notice",
+      "Date: March 3"
+     ]
     }
    ]
   },
@@ -231,6 +254,10 @@
        "p": "the lid may not lock properly",
        "a": "A part may fail to close securely."
       }
+     ],
+     "trans": "KitchenProはなぜミキサーをリコールしているのか。",
+     "evidence": [
+      "the lid may not lock properly"
      ]
     },
     {
@@ -260,6 +287,11 @@
        "p": "begins with 24C",
        "a": "24A through 24D are included in the recall"
       }
+     ],
+     "trans": "Walshさんの妹が持っているミキサーについて何が述べられているか。",
+     "evidence": [
+      "Units with serial numbers beginning with 24A through 24D are included in the recall.",
+      "which begins with 24C"
      ]
     },
     {
@@ -286,7 +318,12 @@
        "別のモデルへの交換という選択肢はお知らせにない。",
        "サービスセンターでの修理という選択肢もお知らせにない。"
       ]
-     }
+     },
+     "trans": "Walshさんはどの選択肢を選ぶと考えられるか。",
+     "evidence": [
+      "a free replacement lid, which ships within two days, or a full refund, which takes up to three weeks to process",
+      "we would like whichever option is faster"
+     ]
     },
     {
      "id": "p7-d02-4",
@@ -315,6 +352,10 @@
        "p": "could any refund be sent to that card",
        "a": "Where a refund would be sent"
       }
+     ],
+     "trans": "Walshさんは何について尋ねているか。",
+     "evidence": [
+      "could any refund be sent to that card even though the blender is at her house?"
      ]
     },
     {
@@ -338,7 +379,11 @@
        "improved（改善された）は文脈と逆。",
        null
       ]
-     }
+     },
+     "trans": "お知らせの第2段落の \"affected\" に最も意味が近いのは。",
+     "evidence": [
+      "To check whether your blender is affected"
+     ]
     }
    ]
   },
@@ -413,12 +458,16 @@
      "explanation": {
       "why": "土曜日のプログラムの2つの変更点（ワークショップの時間の入れ替え、昼食会場の変更）を知らせるメール。",
       "traps": [
-       "意見を求める内容はない。",
+       "意見を求める内容はない。メールは2つの変更点を知らせているだけ。",
        null,
        "基調講演者Ana Torresについての変更はない。",
-       "参加費の話はない。"
+       "参加費の話はない。メールに金額は出てこない。"
       ]
-     }
+     },
+     "trans": "メールの目的は何か。",
+     "evidence": [
+      "Please note two changes to Saturday's program."
+     ]
     },
     {
      "id": "p7-d03-2",
@@ -437,11 +486,16 @@
       "why": "もともとソーシャルメディアのワークショップ（Ben Okoro）は1:15だったが、メールでMs. GrantとMr. Okoroが時間帯を入れ替えたと言っている。したがってMs. Grantの元の時間の2:30に始まる。",
       "traps": [
        "9:30は基調講演の時間。",
-       "12:00は昼食の時間。",
+       "12:00は昼食（Lunch）の時間。ワークショップの時間ではない。",
        "1:15は変更前の時間。予定表だけを見て答えると間違えるクロスリファレンスのひっかけ。",
        null
       ]
-     }
+     },
+     "trans": "ソーシャルメディアのワークショップは何時に始まるか。",
+     "evidence": [
+      "Ms. Grant and Mr. Okoro have switched time slots",
+      "2:30–3:30"
+     ]
     },
     {
      "id": "p7-d03-3",
@@ -467,7 +521,12 @@
        null,
        "Ballroom Bは変更後の昼食会場。"
       ]
-     }
+     },
+     "trans": "在庫コストのワークショップはどこで開かれるか。",
+     "evidence": [
+      "Each of them will still use the same room as originally planned.",
+      "Room 5"
+     ]
     },
     {
      "id": "p7-d03-4",
@@ -486,7 +545,7 @@
       "why": "'because rain is forecast'（雨の予報のため）と理由を述べている。",
       "traps": [
        null,
-       "テラスの修理の話はない。",
+       "テラスの修理の話はない。昼食の場所を変えた理由は雨の予報の1つだけ。",
        "登録者の増加は書かれていない。",
        "講演者の依頼は時間の入れ替えの理由でもなく、昼食会場とも関係ない。"
       ]
@@ -496,6 +555,10 @@
        "p": "because rain is forecast",
        "a": "Bad weather is expected."
       }
+     ],
+     "trans": "昼食の場所はなぜ変更されたのか。",
+     "evidence": [
+      "because rain is forecast"
      ]
     },
     {
@@ -516,10 +579,15 @@
       "traps": [
        "すべてのイベントはKingsley Hotelで開かれる。",
        null,
-       "ステージについての記述はない。",
+       "ステージについての記述はない。予定表には場所の名前しか出てこない。",
        "土曜日が休みなら、最初から予定表に入れていないはず。変更の理由は天気。"
       ]
-     }
+     },
+     "trans": "Garden Terraceについて何が分かるか。",
+     "evidence": [
+      "lunch will be served in Ballroom B instead of outdoors",
+      "Garden Terrace"
+     ]
     }
    ]
   },
@@ -560,7 +628,11 @@
        "checking facts = 情報の確認（verifying information）。",
        "coordinating with freelance photographers = カメラマンとの協力。"
       ]
-     }
+     },
+     "trans": "この職の業務として挙げられていないものは。",
+     "evidence": [
+      "Responsibilities include proofreading manuscripts, checking facts, and coordinating with freelance photographers."
+     ]
     },
     {
      "id": "p7-d04-2",
@@ -581,9 +653,14 @@
        "締め切りは5月31日で、メールは5月28日に送っている。",
        "カバーレター（cover letter）も添付したと言っている。",
        null,
-       "メールで応募している。"
+       "メールで応募している。求人もメールアドレス（jobs@arborpub.example）に送るよう言っている。"
       ]
-     }
+     },
+     "trans": "Carvalhoさんの応募について何が述べられているか。",
+     "evidence": [
+      "two writing samples",
+      "three samples of my published articles"
+     ]
     },
     {
      "id": "p7-d04-3",
@@ -612,6 +689,11 @@
        "p": "native speaker of Portuguese … fluent in Spanish",
        "a": "knowledge of other languages"
       }
+     ],
+     "trans": "Carvalhoさんのどの資格が有利と見なされると考えられるか。",
+     "evidence": [
+      "Knowledge of a second language is an advantage.",
+      "As a native speaker of Portuguese who is also fluent in Spanish"
      ]
     },
     {
@@ -635,7 +717,12 @@
        null,
        "'immediately after that date' は6月15日の後すぐという意味で、今すぐではない。語だけを見て選ばせるひっかけ。"
       ]
-     }
+     },
+     "trans": "Carvalhoさんの勤務開始の可能性について正しいものは。",
+     "evidence": [
+      "Applicants must be available to start by July 1.",
+      "My current contract ends on June 15, so I would be available to begin work immediately after that date."
+     ]
     },
     {
      "id": "p7-d04-5",
@@ -658,7 +745,11 @@
        "カメラマンと協力するとは書かれているが、写真雑誌を出しているとは書かれていない。",
        null
       ]
-     }
+     },
+     "trans": "Arbor Publishingはどんな種類の本を作っているか。",
+     "evidence": [
+      "a publisher of travel guides"
+     ]
     }
    ]
   }
