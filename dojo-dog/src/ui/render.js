@@ -2,7 +2,7 @@
 import LINES from '../gen/lines.json';
 import { VOCAB } from '../data/vocab.js';
 import { GRAMMAR } from '../data/grammar.js';
-import { lookup, rubyName, isHardKanji, splitJa, splitKo, resolveKo } from '../engine/text.js';
+import { lookup, rubyName, isHardKanji, kanjiLevel, splitJa, splitKo, resolveKo, NAME_PLAIN, nameExplained } from '../engine/text.js';
 import { showRuby, lvCode, pickTargets } from '../engine/learn.js';
 
 export function h(tag, attrs, ...kids) {
@@ -27,12 +27,14 @@ export function h(tag, attrs, ...kids) {
 // 표시 규칙은 셋으로 나눠 서로 섞지 않는다.
 //  1) 후리가나: 후리가나 설정 × 그 말의 수준 코드로만 정한다 (밑줄 여부와 무관). → rubyNode
 //  2) 학습 밑줄: 장면의 학습 대상(sceneTargets)인 단어·문법에만. 단어는 실선, 문법은 물결선. → renderJa
-//  3) 고유명사: 점선, 처음 나올 때만 읽기를 달고 그 뒤로는 후리가나 설정을 따른다. 탭하면 읽기. → nameNode
+//  3) 고유명사: 점선, 처음 나올 때만 읽기를 달고 그 뒤로는 후리가나 설정을 따른다. → nameUnit
+//     자리표시자 값 하나(しらかば町こども剣友会)는 점선 하나. 탭하면 읽기와 누구(무엇)인지 풀이 창.
+//     1인칭(私·俺·僕)·숫자·개 이름에는 점선을 긋지 않는다 (NAME_PLAIN).
 // it: [표기, 읽기, 수준 코드, N3 밖 한자 여부]. 옛 조각(수준 없음)은 한자 난이도로 판단한다.
 const modeOf = (ctx) => (typeof ctx === 'string' ? ctx : ctx && ctx.mode);
 
 // 이 조각에 후리가나를 다는가. 화면(rubyNode)과 「이 장면에서 읽기를 이미 보여 줬나」(확인 문제)가 같은 판단을 쓴다.
-// 고유명사(P)는 처음 나올 때만 달리므로 여기서는 다루지 않는다 (nameNode).
+// 고유명사(P)는 처음 나올 때만 달리므로 여기서는 다루지 않는다 (nameUnit).
 export function rubyShows(it, mode) {
   const [base, reading, code, hk] = it;
   if (!reading || code === 'P') return false;
@@ -45,9 +47,27 @@ const rubyEl = (base, reading) => h('ruby', { class: 'rb' }, base, h('rt', null,
 function rubyNode(it, ctx) {
   const mode = modeOf(ctx);
   const [base, reading, code] = it;
-  if (code === 'P' && reading) return nameNode(base, reading, typeof ctx === 'object' ? ctx : mode);
+  if (code === 'P' && reading) {
+    // 형태소 분석기가 고유명사로 잘못 본 말(日用品의 「日」 등): 눌러도 풀이가 없으니 점선 없이 보통 글자처럼
+    const s = ctx && typeof ctx === 'object' ? ctx.s : null;
+    if (nameExplained(s, base)) return nameUnit(base, ctx, { reading });
+    const lv = String(kanjiLevel(base));
+    return rubyShows([base, reading, lv, isHardKanji(base) ? 1 : 0], mode) ? rubyEl(base, reading) : document.createTextNode(base);
+  }
   if (!rubyShows(it, mode)) return document.createTextNode(base);
   return rubyEl(base, reading);
+}
+
+// 고유명사 바로 뒤의 호칭(鷲尾|先生)은 이름 하나로: 점선·탭이 「鷲尾先生」 한 덩어리
+const HONORIFIC = new Set(['先生', 'さん', 'ちゃん', 'くん', '様']);
+function joinHonorific(list) {
+  const out = [];
+  for (const it of list) {
+    const prev = out[out.length - 1];
+    if (Array.isArray(it) && Array.isArray(prev) && prev[2] === 'P' && prev[1] && HONORIFIC.has(it[0])) out[out.length - 1] = [prev[0] + it[0], prev[1] + (it[1] || it[0]), 'P', prev[3]];
+    else out.push(it);
+  }
+  return out;
 }
 
 // 형태소 분석기가 한 낱말을 여러 조각으로 나눈 경우(観客|席, 試合|場, 誕生|日): 이어진 한자 조각에 둘 다 루비를 달 때는
@@ -69,7 +89,7 @@ export function mergeRuby(list, mode) {
 
 function items(list, ctx) {
   const out = [];
-  for (const it of mergeRuby(list, modeOf(ctx))) {
+  for (const it of mergeRuby(joinHonorific(list), modeOf(ctx))) {
     if (typeof it === 'string') out.push(document.createTextNode(it));
     else if (Array.isArray(it)) out.push(rubyNode(it, ctx));
     else if (it && it.merge) out.push(rubyEl(it.base, it.reading));
@@ -80,19 +100,57 @@ function items(list, ctx) {
 // 학습 대상(단어·문법) 조각에 후리가나가 하나라도 달렸는가 (확인 문제에서 방금 본 읽기를 묻지 않기 위해)
 export const segRubyShown = (sg, mode) => !!sg && Array.isArray(sg.s) && sg.s.some((x) => Array.isArray(x) && rubyShows(x, mode));
 
-function nameNode(base, reading, ctx) {
-  const mode = typeof ctx === 'string' ? ctx : ctx.mode;
-  const seen = typeof ctx === 'object' ? ctx.seenNames : null;
-  const first = !!seen && !seen.has(base);
-  if (seen) seen.add(base);
+// 점선 이름을 눌렀을 때: ctx.onName이 없으면 앱이 정한 기본 동작(풀이 창). 둘 다 없으면 눌러도 아무 일이 없으므로 글은 바깥(문장 번역)으로 넘긴다.
+let nameHandler = null;
+export function setNameHandler(f) {
+  nameHandler = f;
+}
+
+// 고유명사 하나 = 점선 하나. 안의 한자 조각에만 루비 (처음 나올 때 또는 설정). meta: { key, prop, reading }
+export function nameUnit(value, ctx, meta = {}) {
+  const obj = ctx && typeof ctx === 'object' ? ctx : null;
+  const mode = modeOf(ctx);
+  const seen = obj ? obj.seenNames : null;
+  const first = !!seen && !seen.has(value);
+  if (seen) seen.add(value);
   const ruby = showRuby(mode, 'P', { first });
-  const el = h('span', { class: 'pn', role: 'button', tabindex: '0', 'data-r': reading }, ruby ? rubyEl(base, reading) : base);
-  el.addEventListener('click', (e) => {
+  const pieces = meta.reading ? [[value, meta.reading]] : joinNames(rubyName(value));
+  const reading = pieces.map((x) => (typeof x === 'string' ? x : x[1])).join('');
+  // 단추 안의 글(선택지 등): 이름을 눌러도 그 단추가 눌려야 하므로 점선·탭 없이 읽기만
+  if (obj && obj.plainNames) return h('span', { class: 'pn-plain' }, pieces.map((x) => (typeof x === 'string' ? x : ruby ? rubyEl(x[0], x[1]) : x[0])));
+  const el = h('span', { class: 'pn', role: 'button', tabindex: '0', 'data-r': reading, 'data-key': meta.key || null }, pieces.map((x) => (typeof x === 'string' ? x : ruby ? rubyEl(x[0], x[1]) : x[0])));
+  const fire = (e) => {
+    const f = (obj && obj.onName) || nameHandler;
+    if (!f) return;
     e.stopPropagation();
-    const t = typeof ctx === 'object' && ctx.onName;
-    if (t) t(base, reading);
-  });
+    if (e.type === 'keydown') e.preventDefault();
+    f({ key: meta.key || null, prop: meta.prop || null, value, reading, speaker: obj ? obj.speaker || null : null }, obj ? obj.s : null);
+  };
+  el.addEventListener('click', fire);
+  el.addEventListener('keydown', (e) => (e.key === 'Enter' || e.key === ' ') && fire(e));
   return el;
+}
+
+// 점선을 긋지 않는 자리표시자 값: 1인칭은 보통 낱말처럼(수준에 따라) 루비, 개 이름은 고유명사처럼 처음에만 루비
+function plainName(value, ctx, key) {
+  if (key === 'Y' || !/[一-鿿]/.test(value)) return [document.createTextNode(value)];
+  const mode = modeOf(ctx);
+  const seen = ctx && typeof ctx === 'object' ? ctx.seenNames : null;
+  const first = key === 'N' && !!seen && !seen.has(value);
+  if (key === 'N' && seen) seen.add(value);
+  return rubyName(value).map((x) => {
+    if (typeof x === 'string') return document.createTextNode(x);
+    const show = key === 'N' ? showRuby(mode, 'P', { first }) : rubyShows([x[0], x[1], String(kanjiLevel(x[0])), isHardKanji(x[0]) ? 1 : 0], mode);
+    return show ? rubyEl(x[0], x[1]) : document.createTextNode(x[0]);
+  });
+}
+
+// 자리표시자({okami}·{D}·{T}…)를 그린다
+export function placeholderNodes(key, prop, ctx) {
+  const value = lookup(key, prop || undefined, ctx, 'ja');
+  if (!value || value[0] === '{') return [document.createTextNode(value || '')];
+  if (NAME_PLAIN.has(key)) return plainName(value, ctx, key);
+  return [nameUnit(value, ctx, { key, prop })];
 }
 
 // 이름 조각이 바로 이어지면(坂上|剣道場, 坂上|先生) 한 이름으로 합친다: 루비도 탭도 한 덩어리
@@ -106,9 +164,9 @@ export function joinNames(parts) {
   return out;
 }
 
-// 인명·지명: 처음 나올 때는 읽기를 보이고, 그 뒤로는 설정을 따른다. 탭하면 읽기를 확인할 수 있다.
-export function nameNodes(str, ctx) {
-  return joinNames(rubyName(str)).map((x) => (typeof x === 'string' ? document.createTextNode(x) : nameNode(x[0], x[1], ctx)));
+// 인명·지명 문자열 하나를 점선 이름 하나로 (처음 나올 때는 읽기를 보이고, 그 뒤로는 설정을 따른다)
+export function nameNodes(str, ctx, meta = {}) {
+  return [nameUnit(str, ctx, meta)];
 }
 
 // 글 덩어리(제목·대사·서술)의 첫 글자를 왼쪽 끝에 맞춘다.
@@ -176,7 +234,7 @@ export function renderJa(tpl, ctx) {
     flush();
     if (!sg) continue;
     if (ctx.rubySeen && (sg.v || (sg.g && ctx.blankG !== sg.g)) && segRubyShown(sg, ctx.mode)) ctx.rubySeen.add(sg.v ? 'v:' + sg.v : 'g:' + sg.g);
-    if (sg.p) span.append(...nameNodes(lookup(sg.p, sg.q || undefined, ctx, 'ja'), ctx));
+    if (sg.p) span.append(...placeholderNodes(sg.p, sg.q, ctx));
     else if (sg.g) {
       // 문장 빈칸 문제: 이 문법 자리를 비운다
       if (ctx.blankG === sg.g) {
@@ -188,9 +246,11 @@ export function renderJa(tpl, ctx) {
         continue;
       }
       const b = h('button', { class: 'gm', type: 'button', 'data-g': sg.g }, items(sg.s, ctx));
+      // 해설 창을 열 곳이 없으면(뜻 창 속 예문 등) 탭을 문장 쪽(번역 열기)으로 넘긴다
       b.addEventListener('click', (e) => {
+        if (!ctx.onGrammar) return;
         e.stopPropagation();
-        ctx.onGrammar && ctx.onGrammar(sg.g);
+        ctx.onGrammar(sg.g);
       });
       span.append(b);
     } else if (sg.v && !isTarget('v:' + sg.v)) {
@@ -198,8 +258,9 @@ export function renderJa(tpl, ctx) {
     } else if (sg.v) {
       const b = h('button', { class: 'w' + (ctx.saved && ctx.saved.has(sg.v) ? ' saved' : ''), type: 'button', 'data-k': sg.v }, items(sg.s, ctx));
       b.addEventListener('click', (e) => {
+        if (!ctx.onWord) return;
         e.stopPropagation();
-        ctx.onWord && ctx.onWord(sg.v);
+        ctx.onWord(sg.v);
       });
       span.append(b);
       ctx.seenWords && ctx.seenWords.add(sg.v);
@@ -240,7 +301,8 @@ export function renderSpeaker(sp, s, mode, ctx = null) {
     return segs ? h('span', { lang: 'ja' }, items(segs, ctx ? { ...ctx, mode } : mode)) : sp.slice(1);
   }
   if (sp === 'dog') return s.dog.name;
-  return h('span', { lang: 'ja' }, nameNodes(lookup(sp, undefined, { s }, 'ja'), ctx ? { ...ctx, mode } : mode));
+  const value = lookup(sp, undefined, { s }, 'ja');
+  return h('span', { lang: 'ja' }, value[0] === '{' ? value : nameUnit(value, ctx ? { ...ctx, mode, s: ctx.s || s } : { mode, s }, { key: sp }));
 }
 
 // 한국어 해설: 《용어》는 일본어로 표시하고, 처음 나올 때만 짧은 설명을 붙인다.
@@ -286,4 +348,27 @@ export function plainSegs(tpl, ctx) {
   return segs
     .map((sg) => (typeof sg === 'string' ? sg : Array.isArray(sg) ? sg[0] : sg.p ? lookup(sg.p, sg.q || undefined, ctx, 'ja') : sg.s.map((x) => (Array.isArray(x) ? x[0] : x)).join('')))
     .join('');
+}
+
+// 갈래 이름을 줄바꿈할 수 있는 덩어리로: 한국어는 띄어쓰기, 일본어는 「の」「から来た」「・」 뒤
+export function catChunks(text) {
+  return /[가-힣]/.test(text) ? text.split(' ').filter(Boolean) : text.split(/(?<=の|から来た|・)/).filter(Boolean);
+}
+
+// 문장(span)들 가운데 (x, y)에서 가장 가까운 것 (줄 위·아래 거리를 먼저, 같은 줄이면 옆 거리)
+export function nearestSpan(spans, x, y) {
+  let best = null;
+  let bd = Infinity;
+  for (const sp of spans) {
+    for (const r of sp.getClientRects()) {
+      const dy = y < r.top ? r.top - y : y > r.bottom ? y - r.bottom : 0;
+      const dx = x < r.left ? r.left - x : x > r.right ? x - r.right : 0;
+      const d = dy * 4 + dx;
+      if (d < bd) {
+        bd = d;
+        best = sp;
+      }
+    }
+  }
+  return best;
 }
