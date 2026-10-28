@@ -12,6 +12,7 @@ import { n2Screen, n2SummaryBox } from './n2ui.js';
 import { LCD, fitCanvas } from './pixel/lcd.js';
 import { lookFor } from './pixel/director.js';
 import { icon } from './icons.js';
+import { legendView, SETTING_DESC } from './help.js';
 
 // 복습 계열 화면: 이 사이를 오가는 동안 「戻る」는 처음 들어온 곳(타이틀·게임·결과)으로
 const STUDY_SCREENS = ['quiz', 'review', 'wordbook', 'metwords'];
@@ -263,7 +264,8 @@ class App {
     };
     const sw = (key, label) => {
       const b = h('button', { class: 'switch', type: 'button', role: 'switch', 'aria-checked': String(!!set[key]), 'aria-label': label, onclick: () => { set[key] = !set[key]; b.setAttribute('aria-checked', String(!!set[key])); changed(); } }, h('i'));
-      return h('div', { class: 'toggle-row' }, h('span', null, label), b);
+      const desc = SETTING_DESC[key];
+      return h('div', { class: 'toggle-block' }, h('div', { class: 'toggle-row' }, h('span', null, label), b), desc ? h('p', { class: 'toggle-desc' }, t(desc[0], desc[1])) : null);
     };
     const custom = h('div', { class: 'opt-grid checks', hidden: set.studyLevel !== 'custom' },
       [['5', 'N5'], ['4', 'N4'], ['3', 'N3'], ['2', 'N2'], ['1', 'N1'], ['K', t('검도 용어', '剣道用語')]].map(([c, label]) => h('button', { type: 'button', role: 'checkbox', 'aria-checked': String(set.customLevels.includes(c)), onclick: (e) => {
@@ -289,6 +291,8 @@ class App {
       custom,
       sw('hideEasy', t('쉬운 단어 학습 표시 끄기', 'やさしい語の印を消す')),
       sw('focus', t('학습 집중 모드', '学習集中モード')),
+      h('div', { class: 'field-label' }, t('글 아래 표시 보는 법', '下線・点線の見方')),
+      legendView((set.lang || 'ja') === 'ja'),
       h('div', { class: 'field-label' }, t('선택지', '選択肢')),
       grid('choiceMode', [['major', t('중요한 장면만', '大事な場面だけ')], ['all', t('모든 장면', 'すべての場面')]]));
   }
