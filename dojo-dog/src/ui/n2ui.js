@@ -60,11 +60,15 @@ function koBlock(...kids) {
 }
 // open: 처음부터 펼쳐 둔다 (문제를 틀렸을 때)
 function koBlockOpen(open, ...kids) {
+  return koBlockLabeled(open, '解説', ...kids);
+}
+// label: 접힌 상태의 단추 이름 (문제 해설은 「解説」, 사전 창의 보충 설명은 「詳しく」)
+function koBlockLabeled(open, label, ...kids) {
   const list = kids.filter(Boolean);
   if (!list.length) return [];
   if (!uiJa()) return list;
   const box = h('div', { class: 'q-ko', hidden: !open }, ...list);
-  const b = h('button', { class: 'mini-btn', type: 'button', onclick: () => { box.hidden = !box.hidden; b.textContent = box.hidden ? '解説' : '閉じる'; } }, open ? '閉じる' : '解説');
+  const b = h('button', { class: 'mini-btn', type: 'button', onclick: () => { box.hidden = !box.hidden; b.textContent = box.hidden ? label : '閉じる'; } }, open ? '閉じる' : label);
   return [b, box];
 }
 // DOM append는 null을 「null」 글자로 넣으므로 빈 칸을 걸러서 붙인다
@@ -94,6 +98,9 @@ function logAnswer(qid, type, ok, refs = []) {
     store.saveSrs(srs);
   }
 }
+
+// 문제 유형 이름: 문제은행 유형 / 読解·聴解는 「読解・短文」처럼
+export const typeName = (t) => (BANK_TYPES[t] ? BANK_TYPES[t][0] : t.startsWith('read-') ? '読解・' + (READ_KIND[t.slice(5)] || [''])[0] : t.startsWith('listen-') ? '聴解・' + (LISTEN_KIND[t.slice(7)] || [''])[0] : t);
 
 // 유형별 정답률
 export function typeStats(ql = store.qlog()) {
@@ -251,7 +258,7 @@ export function vocabDetail(app, key) {
       v.gram && v.gram.length ? [h('dt', null, tt('관련 문법', '関連文法')), h('dd', null, v.gram.filter((g) => GRAMMAR[g]).map((g) => h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => grammarDetail(app, g) }, GRAMMAR[g].f)))] : null,
       h('dt', null, tt('학습 상태', '学習状況')), h('dd', null, STATUS[statusOf(r)] + (r ? ` (○${r.ok} ×${r.ng})` : '')),
       h('dt', null, tt('복습일', '復習日')), h('dd', null, r ? dateText(r.due) : '—')),
-    v.note ? h('div', { class: 'v-sec' }, ...koBlock(h('div', { class: 'v-note' }, v.note))) : null,
+    v.note ? h('div', { class: 'v-sec' }, ...koBlockLabeled(false, '詳しく', h('div', { class: 'v-note' }, v.note))) : null,
     h('div', { class: 'v-sec' }, h('h4', null, '例文'), h('div', { class: 'line' }, h('div', { class: 'ja', lang: 'ja' }, renderExample(key, app.settings.furigana)), exKo), h('div', { class: 'tools' }, toggleKo(exKo))),
     h('div', { class: 'row' }, add, h('button', { class: 'btn center', type: 'button', onclick: () => { saveWord(key, null); app.toast(tt('단어장에 저장', '単語帳に保存した')); } }, '単語帳')));
 }
@@ -311,7 +318,7 @@ export function grammarDetail(app, key) {
       uiJa() ? null : [h('dt', null, '사용 조건'), h('dd', null, g.use || '—'), h('dt', null, '문체'), h('dd', null, g.style || '—')],
       h('dt', null, tt('수준', 'レベル')), h('dd', null, tt(`${g.lv} 추정`, `${g.lv}（推定）`)),
       h('dt', null, tt('학습 상태', '学習状況')), h('dd', null, STATUS[statusOf(r)] + (r ? ` · ${tt('복습', '復習')} ${dateText(r.due)}` : ''))),
-    uiJa() ? h('div', { class: 'v-sec' }, ...koBlock(
+    uiJa() ? h('div', { class: 'v-sec' }, ...koBlockLabeled(false, '詳しく',
       g.use ? h('div', { class: 'v-note' }, `사용 조건: ${g.use}`) : null,
       g.style ? h('div', { class: 'v-note' }, `문체: ${g.style}`) : null,
       g.d ? h('div', { class: 'v-note' }, g.d) : null,
@@ -363,7 +370,7 @@ export function runDrill(app, body, qs, label, onDone) {
       if (!ok) btns[oi].classList.add('wrong');
       fb.replaceChildren(); appendAll(fb, h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
         ...koBlockOpen(!ok, ...explainView({ options: q.opts, answer: q.a, why: q.why }, oi, { numbered: true })),
-        (q.ref || []).filter((id) => itemOf(id)).length ? h('div', { class: 'chips' }, q.ref.filter((id) => itemOf(id)).map((id) => h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => (id[0] === 'g' ? grammarDetail(app, id.slice(2)) : vocabDetail(app, id.slice(2))) }, id[0] === 'g' ? GRAMMAR[id.slice(2)].f : id.slice(2)))) : null);
+        (q.ref || []).filter((id) => itemOf(id)).length ? h('div', { class: 'chips' }, h('span', { class: 'chips-label' }, uiJa() ? '関連' : '관련'), q.ref.filter((id) => itemOf(id)).map((id) => h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => (id[0] === 'g' ? grammarDetail(app, id.slice(2)) : vocabDetail(app, id.slice(2))) }, id[0] === 'g' ? GRAMMAR[id.slice(2)].f : id.slice(2)))) : null);
       fb.hidden = false;
       next.hidden = false;
       fb.scrollIntoView({ block: 'nearest' });
@@ -372,7 +379,7 @@ export function runDrill(app, body, qs, label, onDone) {
     const pko = passage ? h('div', { class: 'ko', hidden: true }, passage.ko) : null;
     appendAll(box,
       h('div', { class: 'kicker' }, `${label} · ${i + 1} / ${qs.length}`),
-      h('div', { class: 'q-kind', lang: 'ja' }, (BANK_TYPES[q.type] || [q.type])[0]),
+      h('div', { class: 'q-kind', lang: 'ja' }, typeName(q.type)),
       passage ? h('div', { class: 'card passage', lang: 'ja' }, passage.text.split('\n').map((p) => h('p', null, p)), pko, h('div', { class: 'tools' }, toggleKo(pko, '本文の訳'))) : null,
       h('div', { class: 'q-prompt long', lang: 'ja' }, q.q.split('\n').map((line) => h('div', null, ...richQ(line)))),
       ko, h('div', { class: 'tools' }, toggleKo(ko)),
@@ -472,7 +479,7 @@ function listen(app, body, id) {
   const qbox = h('div');
   appendAll(body, h('div', { class: 'kicker' }, uiJa() ? LISTEN_KIND[item.kind][0] : `${LISTEN_KIND[item.kind][0]} · ${item.titleKo}`), h('h3', { class: 'h', lang: 'ja' }, item.title),
     item.lead ? h('p', { class: 'q-prompt long', lang: 'ja' }, item.lead) : null,
-    h('div', { class: 'row' }, play, showScript, showKo), script, qbox);
+    h('div', { class: 'row nowrap' }, play, showScript, showKo), script, qbox);
   runDrill(app, qbox, [{ id: item.id, type: 'listen-' + item.kind, q: item.kind === 'quick' ? '最もよい返事を選んでください。' : item.q, opts: item.opts, a: item.a, why: item.why, ko: '', ref: [] }], LISTEN_KIND[item.kind][0], () => {
     if (window.speechSynthesis) speechSynthesis.cancel();
     app.go('n2', 'listen');
@@ -484,7 +491,7 @@ function weak(app, body) {
   const st = typeStats();
   const srs = store.srs();
   const rows = Object.entries(st).filter(([, x]) => x.ok + x.ng >= 3).map(([t, x]) => ({ t, p: pct(x), n: x.ok + x.ng })).sort((a, b) => a.p - b.p);
-  const name = (t) => (BANK_TYPES[t] ? BANK_TYPES[t][0] : t.startsWith('read-') ? '読解・' + (READ_KIND[t.slice(5)] || [''])[0] : t.startsWith('listen-') ? '聴解・' + (LISTEN_KIND[t.slice(7)] || [''])[0] : t);
+  const name = typeName;
   body.append(h('h3', { class: 'h' }, tt('유형별 정답률', '問題形式別の正答率')),
     rows.length ? h('div', { class: 'list' }, rows.map((r) => h('div', { class: 'card weak-row' }, h('span', { lang: 'ja' }, name(r.t)), h('b', null, `${r.p}%`), h('small', null, `${r.n}問`),
       BANK_TYPES[r.t] ? h('button', { class: 'mini-btn', type: 'button', onclick: () => app.go('n2', 'drill', r.t) }, '練習') : null))) : h('p', { class: 'note' }, tt('3문제 이상 풀면 표시됩니다.', '3問以上解くと表示される。')));

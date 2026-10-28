@@ -493,3 +493,7 @@ button.delta { background: none; font: inherit; font-size: 16px; cursor: pointer
 .ex-more summary { cursor: pointer; color: var(--accent); font-size: 15px; padding: 6px 0; }
 .ex-more p { margin: 4px 0; font-size: 14px; line-height: 1.6; color: var(--ink2); }
 .ex-ko { margin: 8px 0 0; font-size: 14px; color: var(--ink2); }
+
+/* 청해 화면의 단추 줄: 한 줄로 */
+.row.nowrap > .btn { white-space: nowrap; padding-inline: 10px; flex: 1 1 0; }
+.chips-label { align-self: center; font-size: 13px; color: var(--ink2); margin-right: 2px; }
