@@ -99,7 +99,7 @@ export default [
     text: '{elder|이} 2단 심사를 본다. 이번에는 정해진 순서대로 움직이는 「본」이 있다. 상대역은 {shihan|이} 맡아서 연습을 봐 주었다.',
     lines: [['elder', '[最後]に[出]すの、どっちの[足]だったかしら……。この[頃]、[忘]れ〘がち|がち〙で[困]るわ。', '마지막에 내미는 게 어느 발이었더라……. 요즘 자꾸 깜빡해서 큰일이야.']],
     choices: [
-      { t: '오른쪽 앞발을 번쩍 든다', tag: 'play', fx: { mis: 2, b_elder: 4 }, set: ['e_2dan', 'e_paw_hint'], ach: ['elder', '2단 합격'], news: { elder: '2단.' }, cnt: 'exam_watch', res: '맞는지 틀린지는 아무도 몰랐다. 그래도 {elder|은} 「그래, 오른발」 하고 무릎을 쳤다. 합격했으니 아마 맞았나 보다.' },
+      { t: '오른쪽 앞발을 번쩍 든다', tag: 'play', fx: { hap: 2, b_elder: 4 }, set: ['e_2dan', 'e_paw_hint'], ach: ['elder', '2단 합격'], news: { elder: '2단.' }, cnt: 'exam_watch', res: '맞는지 틀린지는 아무도 몰랐다. 그래도 {elder|은} 「그래, 오른발」 하고 무릎을 쳤다. 합격했으니 아마 맞았나 보다.' },
       { t: '발치에서 순서를 지켜본다', tag: 'calm', fx: { b_elder: 5 }, set: 'e_2dan', ach: ['elder', '2단 합격'], news: { elder: '2단.' }, cnt: 'exam_watch', res: '세 번 되풀이하자 순서가 몸에 익었다. {N|은} 다섯 번째쯤에서 잠들었다. 2단 합격.' },
     ],
   },

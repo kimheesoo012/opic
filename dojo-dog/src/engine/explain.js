@@ -10,7 +10,7 @@ const LONG = /^[うい]$|^ー$/;
 const POS_KO = { n: '명사', v: '동사', a: 'い형용사', na: 'な형용사', adv: '부사', exp: '표현' };
 
 // 조사 고르기: josa('대칭', '은는') → '대칭은'. 한글은 받침으로, 가나는 ん만 받침으로 본다.
-const PAIRS = { 은는: ['은', '는'], 이가: ['이', '가'], 을를: ['을', '를'], 과와: ['과', '와'], 으로로: ['으로', '로'], 이에요예요: ['이에요', '예요'], 이라는라는: ['이라는', '라는'] };
+const PAIRS = { 은는: ['은', '는'], 이가: ['이', '가'], 을를: ['을', '를'], 과와: ['과', '와'], 으로로: ['으로', '로'], 이에요예요: ['이에요', '예요'], 이라는라는: ['이라는', '라는'], 이라고라고: ['이라고', '라고'], 이라서라서: ['이라서', '라서'], 이랑랑: ['이랑', '랑'] };
 export function josa(word, pair) {
   const w = String(word).replace(/[\s」』)）\].,、。]+$/, '');
   const c = w[w.length - 1] || '';
@@ -30,34 +30,88 @@ const q = (t) => `「${t}」`;
 export const pt = (word, pair) => josa(word, pair).slice(String(word).length);
 
 // 정답 읽기와 틀린 읽기의 차이를 말로 (공통 앞뒤를 빼고 다른 부분만 본다). 틀린 사람에게 말해 주듯 쓴다.
-export function readingDiff(right, wrong) {
+// word가 있으면(한자어) 어느 한자의 읽기가 달랐는지 짚어 준다: 「力는 りき가 아니라 りょく로 읽어요.」
+const UNVOICED = Object.fromEntries([...Object.entries(VOICED), ...Object.entries(HANDAKU)].map(([a, b]) => [b, a]));
+const seion = (t) => [...t].map((c) => UNVOICED[c] || c).join('');
+const LONG_TAIL = /[うい]$/;
+const E_ROW = 'えけせてねへめれげぜでべぺ';
+const OU_ROW = 'おこそとのほもよろごぞどぼぽょうくすつぬふむゆるぐずぶぷゅ';
+// 긴 읽기(こう)에서 장음을 뗀 꼴이 짧은 읽기(こ)인가
+const longOf = (short, long) => long.length === short.length + 1 && long.startsWith(short) && LONG_TAIL.test(long) && (long.endsWith('う') ? OU_ROW.includes(short[short.length - 1]) : E_ROW.includes(short[short.length - 1]));
+function diffParts(right, wrong) {
   let p = 0;
   while (p < right.length && p < wrong.length && right[p] === wrong[p]) p++;
+  // 요음·촉음 한가운데서 갈리면 앞 글자까지 묶어서 본다 (「ょく」가 아니라 「りょく」)
+  if (p > 0 && (/[ゃゅょ]/.test(right[p] || '') || /[ゃゅょ]/.test(wrong[p] || ''))) p--;
   let s = 0;
   while (s < right.length - p && s < wrong.length - p && right[right.length - 1 - s] === wrong[wrong.length - 1 - s]) s++;
-  const a = right.slice(p, right.length - s);
-  const b = wrong.slice(p, wrong.length - s);
+  return { p, s, a: right.slice(p, right.length - s), b: wrong.slice(p, wrong.length - s) };
+}
+export function readingDiff(right, wrong, word = '') {
+  const { p, s, a, b } = diffParts(right, wrong);
   let before = right.slice(Math.max(0, p - 1), p);
   if (/[ゃゅょ]/.test(before) && p >= 2) before = right.slice(p - 2, p);
+  const atEnd = s === 0;
+  const whole = josa(right, '이라고라고');
+  // 한자어면 어느 글자의 읽기가 달랐는지 (다른 음독·청탁·장단·요음·촉음)
+  const byKanji = () => {
+    const hit = word ? kanjiAt(word, right, p, right.length - s) : null;
+    if (!hit) return '';
+    const { c: ch, r } = hit;
+    const w = wrong.slice(hit.start, hit.start + r.length + (b.length - a.length));
+    if (!w || w === r) return '';
+    const on = (KANJI[ch] && KANJI[ch].on) || [];
+    // 한자 뒤의 조사는 한국 한자음(쇠 금 → 금)으로 고른다: 金은·者는
+    const ko = (KANJI[ch] && KANJI[ch].ko) || '';
+    const kpt = (pair) => pt(ko ? ko.slice(-1) : ch, pair);
+    const big = (t) => t.replace(/[ゃゅょ]/g, (m) => SMALL[m]);
+    if (seion(w) === seion(r)) return `${ch}${kpt('은는')} ${josa(w, '이가')} 아니라 ${josa(r, '으로로')} 읽어요. 청음·탁음만 달라요.`;
+    if (big(r) === w) return `${ch}${kpt('은는')} ${josa(r, '으로로')} 읽어요. 작은 ${r.match(/[ゃゅょ]/)[0]}라서 한 박자예요. ${w}처럼 크게 읽으면 다른 말이 돼요.`;
+    if (big(w) === r) return `${ch}${kpt('은는')} ${josa(r, '으로로')} 읽어요. ${w}처럼 작게 붙여 읽지 않아요.`;
+    if (r.endsWith('っ') && /[くつちき]$/.test(w) && seion(w.slice(0, -1)) === seion(r.slice(0, -1))) return `${ch}${kpt('은는')} 뒤 글자와 만나 ${josa(r, '으로로')} 줄어들어요. ${w}처럼 끝까지 읽지 않고 한 박자 끊어요.`;
+    if (w.endsWith('っ') && /[くつちき]$/.test(r) && seion(r.slice(0, -1)) === seion(w.slice(0, -1))) return `${ch}${kpt('은는')} ${josa(r, '으로로')} 끝까지 읽어요. 여기서는 촉음 っ로 줄지 않아요.`;
+    if (longOf(w, r)) return `${ch}${kpt('은는')} ${josa(r, '으로로')} 길게 읽어요. ${josa(w, '으로로')} 짧게 끊으면 다른 말이 돼요.`;
+    if (longOf(r, w)) return `${ch}${kpt('은는')} ${josa(r, '으로로')} 짧게 읽어요. ${w}처럼 늘이지 않아요.`;
+    if (on.includes(w) || on.includes(seion(w))) return `${w}도 ${ch}의 음독이지만, 이 말에서는 ${josa(r, '으로로')} 읽어요.`;
+    return `${ch}${kpt('은는')} ${josa(w, '이가')} 아니라 ${josa(r, '으로로')} 읽어요.`;
+  };
   if (!a && b) {
     if (b === 'っ') return `${before ? before + ' 뒤에 ' : ''}촉음 っ가 들어갈 자리가 아니에요. 끊지 않고 이어서 읽어요.`;
-    if (LONG.test(b)) return `${before ? before + '는 ' : ''}길게 늘이지 않고 짧게 읽어요. 장음 ${b}가 붙지 않아요.`;
-    return `${josa(b, '이가')} 더 들어간 읽기예요.`;
+    if (b === 'ん') return atEnd ? `끝에 ん이 붙지 않아요. ${josa(before, '으로로')} 끝나는 ${whole} 읽어요.` : `${before} 뒤에 ん이 들어가지 않아요. ${whole} 이어서 읽어요.`;
+    if (LONG_TAIL.test(b) && b.length === 1) return `${josa(before, '은는')} 길게 늘이지 않고 짧게 읽어요. 장음 ${josa(b, '이가')} 붙지 않아요.`;
+    return byKanji() || `${josa(b, '이가')} 더 들어갔어요. ${whole} 읽어요.`;
   }
   if (a && !b) {
     if (a === 'っ') return `${before ? before + ' 뒤에 ' : ''}촉음 っ가 들어가요. 한 박자 끊어서 읽어요.`;
-    if (LONG.test(a)) return `${before ? before + '는 ' : ''}장음이라서 ${before}${a}로 길게 읽어요. ${a}가 빠지면 다른 말이 돼요.`;
-    return `${josa(a, '이가')} 빠진 읽기예요.`;
+    if (a === 'ん') return atEnd ? `마지막 ん이 빠졌어요. ${whole} ん까지 읽어요.` : `${before} 뒤에 ん이 들어가요. ${whole} 읽어요.`;
+    if (LONG_TAIL.test(a) && a.length === 1) return `${josa(before, '은는')} 장음이라서 ${before}${a}로 길게 읽어요. ${josa(a, '이가')} 빠지면 다른 말이 돼요.`;
+    return byKanji() || `${josa(a, '이가')} 빠졌어요. ${whole} 읽어요.`;
   }
   if (a.length === 1 && b.length === 1) {
-    if (VOICED[a] === b) return `여기서는 ${a}가 탁음이 되지 않아요. ${b}가 아니라 ${a}로 읽어요.`;
-    if (VOICED[b] === a) return `여기서는 ${b}가 탁음이 돼서 ${a}로 읽어요.`;
-    if (HANDAKU[a] === b || HANDAKU[b] === a || (VOICED[Object.keys(HANDAKU).find((k) => HANDAKU[k] === a)] === b) || (VOICED[Object.keys(HANDAKU).find((k) => HANDAKU[k] === b)] === a)) return `${a}와 ${b}가 헷갈리기 쉬워요. 여기서는 ${a}예요.`;
+    // 한자어는 글자를 짚어 말한다 (같은 종류의 오답이 둘이어도 설명이 달라진다)
+    const kj = byKanji();
+    if (kj) return kj;
+    if (VOICED[a] === b) return `여기서는 ${a}가 탁음이 되지 않아요. ${b}가 아니라 ${josa(a, '으로로')} 읽어요.`;
+    if (VOICED[b] === a) return `여기서는 ${b}가 탁음이 돼서 ${josa(a, '으로로')} 읽어요.`;
+    if (HANDAKU[a] === b || HANDAKU[b] === a || seion(a) === seion(b)) return `${a}와 ${b}가 헷갈리기 쉬워요. 여기서는 ${a}예요.`;
     if (SMALL[a] === b) return `작은 ${a}예요. 큰 ${b}로 읽으면 박자가 하나 늘어서 다른 말이 돼요.`;
     if (SMALL[b] === a) return `큰 ${a}예요. 작은 ${b}로 읽으면 박자가 줄어서 다른 말이 돼요.`;
-    if (LONG.test(a)) return `${before}${a}로 길게 늘여 읽는 자리예요. ${b}가 아니에요.`;
+    if (LONG_TAIL.test(a)) return `${before}${a}로 길게 늘여 읽는 자리예요. ${b}가 아니에요.`;
   }
-  return `${a} 자리를 ${josa(b, '으로로')} 잘못 읽은 거예요.`;
+  return byKanji() || `${a} 자리를 ${josa(b, '으로로')} 잘못 읽었어요. ${whole} 읽어요.`;
+}
+// right의 [from, to) 구간을 덮는 한자 하나 (kanjiSplit으로 음독을 쪼갤 수 있을 때만)
+function kanjiAt(word, right, from, to) {
+  const parts = kanjiSplit(word, right);
+  if (!parts.length || parts.some((x) => !x.r)) return null;
+  let at = 0;
+  for (const x of parts) {
+    const end = at + x.r.length;
+    if (from >= at && to <= end && (to > from || from < end)) return { ...x, start: at };
+    if (from >= at && from < end && to > end) return null; // 두 글자에 걸쳐 다르다
+    at = end;
+  }
+  return null;
 }
 
 // 읽기가 표기와 같으면(가타카나어 등) 읽기를 붙이지 않는다
@@ -76,7 +130,7 @@ export const vShort = (k) => {
   const v = VOCAB[k];
   if (!v) return '';
   const noRead = k2h(k) === v.r || k === v.r;
-  return noRead ? `「${v.m}」${pt(v.m, '이라는라는')} 뜻이에요.` : `${v.r}라고 읽고, 「${v.m}」${pt(v.m, '이라는라는')} 뜻이에요.`;
+  return noRead ? `「${v.m}」${pt(v.m, '이라는라는')} 뜻이에요.` : `${josa(v.r, '이라고라고')} 읽고, 「${v.m}」${pt(v.m, '이라는라는')} 뜻이에요.`;
 };
 // 예문 [ja, ko]
 export const vocabEx = (k) => (VOCAB[k] && VOCAB[k].ex ? [VOCAB[k].ex, VOCAB[k].exk || ''] : null);
@@ -202,21 +256,14 @@ export const CAUSES = {
 };
 // 읽기 두 개의 차이로 원인을 고른다: readingCause('かじょう', 'かじょ') → 'long'
 export function readingCause(right, wrong) {
-  let p = 0;
-  while (p < right.length && p < wrong.length && right[p] === wrong[p]) p++;
-  let s = 0;
-  while (s < right.length - p && s < wrong.length - p && right[right.length - 1 - s] === wrong[wrong.length - 1 - s]) s++;
-  const a = right.slice(p, right.length - s);
-  const b = wrong.slice(p, wrong.length - s);
+  const { a, b } = diffParts(right, wrong);
   const one = (x) => x.length === 1;
-  if ((!a && b === 'っ') || (!b && a === 'っ') || (one(a) && one(b) && (a === 'っ' || b === 'っ'))) return 'sokuon';
-  if ((!a && LONG.test(b)) || (!b && LONG.test(a)) || (one(a) && one(b) && (a === 'ー' || b === 'ー'))) return 'long';
-  if (one(a) && one(b)) {
-    if (VOICED[a] === b || VOICED[b] === a || HANDAKU[a] === b || HANDAKU[b] === a) return 'voice';
-    const base = (c) => Object.keys(VOICED).find((k) => VOICED[k] === c) || Object.keys(HANDAKU).find((k) => HANDAKU[k] === c) || c;
-    if (base(a) === base(b)) return 'voice';
-    if (SMALL[a] === b || SMALL[b] === a) return 'youon';
-  }
+  const drop = (x, re) => x.replace(re, '');
+  if ((!a && b === 'っ') || (!b && a === 'っ') || (one(a) && one(b) && (a === 'っ' || b === 'っ')) || drop(a, /っ/g) === drop(b, /っ/g)) return 'sokuon';
+  if ((!a && LONG.test(b)) || (!b && LONG.test(a)) || (one(a) && one(b) && (a === 'ー' || b === 'ー')) || longOf(a, b) || longOf(b, a)) return 'long';
+  if (seion(a) === seion(b)) return 'voice';
+  const big = (t) => t.replace(/[ゃゅょ]/g, (m) => SMALL[m]);
+  if ((one(a) && one(b) && (SMALL[a] === b || SMALL[b] === a)) || big(a) === b || big(b) === a) return 'youon';
   if (/[ゃゅょ]/.test(a) !== /[ゃゅょ]/.test(b) && a.replace(/[ゃゅょ]/g, '').length && Math.abs(a.length - b.length) <= 1) {
     const strip = (x) => x.replace(/[きしちにひみりぎじびぴ]([ゃゅょ])/g, '$1');
     if (strip(a) === strip(b) || a.replace(/[ゃゅょ]/g, '') === b.replace(/[ゃゅょ]/g, '')) return 'youon';

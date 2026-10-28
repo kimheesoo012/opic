@@ -65,7 +65,7 @@ export default [
       { if: 'w_river_wait', l: [['worker', 'あの[河原]で、{N}が[最後]まで[見]ててくれただろ。あれ〘をきっかけに|をきっかけに〙、[毎朝][素振り]するようになったんだ。', '그 강변에서 {N|이} 끝까지 봐 줬잖아. 그게 계기가 돼서 아침마다 휘두르기를 하게 됐어.']] },
     ],
     choices: [
-      { t: '심사장 가는 차 뒷좌석에 몰래 탄다', tag: 'brave', fx: { brave: 2 }, cnt: 'exam_watch',
+      { t: '심사장 가는 차 뒷좌석에 몰래 탄다', tag: 'brave', fx: { mis: 2, brave: 1 }, cnt: 'exam_watch',
         check: { st: 'b_worker', dc: 40,
           ok: { set: ['w_4dan', 'w_car'], fx: { b_worker: 6 }, ach: ['worker', '4단 합격'], news: { worker: '4단.' },
             res: '심사장 주차장에서 뒷좌석의 {N|을} 발견한 {worker|은} 웃음이 터졌다. 긴장이 싹 풀렸다. 그리고 붙었다.' },

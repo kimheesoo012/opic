@@ -29,16 +29,24 @@ export function sentenceFor(id, log) {
 }
 export const blankFor = (id, tpl) => (id[0] === 'g' && tpl ? blankOf(LINES.lines[tpl], id.slice(2)) : null);
 
+// 문제 만들기에 넘기는 문맥 (quizplan.buildQuestion / chooseKind)
+// rubyShown: 방금 장면에서 이 말에 후리가나를 달아 보여 줬다(후리가나 설정 × 수준, 화면과 같은 판단 render.rubyShows)
+//            → 읽기를 바로 옆에서 본 말이므로 「読み」 문제로 내지 않는다 (판단은 문제 엔진 쪽)
+export function quizCtx(id, tpl, jaOnly = false, rubySeen = null) {
+  return { hasScene: !!tpl, blank: blankFor(id, tpl), jaOnly, rubyShown: !!(rubySeen && rubySeen.has(id)) };
+}
+
 // 문제를 하나 만든다 (없으면 null)
 // jaOnly: 일본어 몰입 모드 — 일본어만으로 풀 수 있는 문제만 (못 만들면 다른 말을 몇 번 더 고른다)
-export function planQuiz(log, src, now = Date.now(), jaOnly = false) {
+// rubySeen: 최근 장면들에서 후리가나를 달아 보여 준 단어·문법 id (Set)
+export function planQuiz(log, src, now = Date.now(), jaOnly = false, rubySeen = null) {
   const srs = store.srs();
   const skip = new Set();
   for (let i = 0; i < 6; i++) {
     const id = pickItem(log, srs, now, src, skip);
     if (!id) return null;
     const tpl = sentenceFor(id, log);
-    const q = buildQuestion(id, log, srs, { hasScene: !!tpl, blank: blankFor(id, tpl), jaOnly });
+    const q = buildQuestion(id, log, srs, quizCtx(id, tpl, jaOnly, rubySeen));
     if (q && q.answer >= 0) return { q, tpl };
     skip.add(id);
   }

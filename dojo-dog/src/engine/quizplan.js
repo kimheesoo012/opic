@@ -135,7 +135,8 @@ export function chooseKind(id, log, srs, ctx) {
 export function buildQuestion(id, log, srs, ctx) {
   const seed = log.seed + id + ':' + log.asked.length + ':' + (srs[id] ? srs[id].ok + srs[id].ng : 0);
   const used = new Set(log.asked.map((a) => a.bank).filter(Boolean));
-  const items = (BANK_BY_REF[id] || []).filter((q) => !used.has(q.id));
+  // 방금 장면에서 후리가나를 보여 준 말은 읽기를 묻지 않는다 (문제은행의 한자 읽기 문항도)
+  const items = (BANK_BY_REF[id] || []).filter((q) => !used.has(q.id) && !(ctx.rubyShown && q.type === 'kanji'));
   if (items.length) {
     const r = srs[id];
     const again = !!runState(log, id) || (r && r.ok + r.ng > 0);

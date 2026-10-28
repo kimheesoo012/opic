@@ -3,22 +3,53 @@ import * as G from '../engine/core.js';
 import { ROLES, ROLE_KO, ROLE_JA, SEASON_KO, SEASON_JA, personFor } from '../engine/world.js';
 import { resolveKo, plainJa } from '../engine/text.js';
 import { FAVORITE, farewellJa } from '../data/ja/misc.js';
-import { progress, itemOf, DAY } from '../engine/study.js';
+import { itemOf, DAY } from '../engine/study.js';
 import { lifeSummary } from '../engine/quizplan.js';
-import { h, renderJa, renderSpeaker } from './render.js';
+import { h, renderJa, renderSpeaker, sceneTargets } from './render.js';
 import { drawCard } from './card.js';
 import { store } from './store.js';
 import { dogPortrait, fitCanvas, paint } from './pixel/lcd.js';
 import { faceBuf } from './pixel/people.js';
 import { lookFor } from './pixel/director.js';
+import { metProgress, reviewCounts } from './studyui.js';
 
 const isJa = (app) => (app.settings.lang || 'ja') === 'ja';
+
+// 나이 표기: 게임 화면(game.js ageTextJa·ageText)과 같은 규칙. t는 계절 수(4계절 = 1년), 첫 계절이 생후 3개월.
+// 1살이 되기 전(子犬 시기)은 개월로, 그 뒤는 살로. short: 연표처럼 좁은 칸에서는 「生後」를 뺀다.
+export function ageLabel(t, ja = true, short = false) {
+  if (t < 4) {
+    const m = 3 + t * 3;
+    if (ja) return short ? `${m}か月` : `生後${m}か月`;
+    return short ? `${m}개월` : `생후 ${m}개월`;
+  }
+  const y = Math.floor(t / 4);
+  return ja ? `${y}歳` : `${y}살`;
+}
+
+// 「家族から」: 같은 사람의 말은 한 칸에 모은다 (노사범이 떠난 판에서는 도장 살림 담당이 두 번 말하는 등)
+// 역할(role)이 아니라 사람(s.cast의 인물 id)으로 묶는다. 순서는 처음 말한 차례대로.
+export function familyLines(s, lines = G.farewell(s)) {
+  const out = [];
+  const byPerson = new Map();
+  for (const [sp, ja, ko] of lines) {
+    const person = ROLES.includes(sp) ? (s.cast && s.cast[sp]) || sp : sp;
+    const e = byPerson.get(person);
+    if (e) e.lines.push([ja, ko]);
+    else {
+      const n = { sp, person, lines: [[ja, ko]] };
+      byPerson.set(person, n);
+      out.push(n);
+    }
+  }
+  return out;
+}
 
 // 일본어 한 줄 + 탭하면 한국어 (몰입 모드). 한국어 모드면 한국어만.
 function jaKo(app, s, ja, ko, cls = 'ev-text') {
   if (!isJa(app) || !ja) return h('p', { class: cls }, resolveKo(ko || '', { s }));
   const koEl = h('div', { class: 'sent-ko', hidden: true, lang: 'ko' }, resolveKo(ko || '', { s }));
-  const p = h('p', { class: cls + ' jp', lang: 'ja', role: 'button', tabindex: '0', 'aria-label': '번역 보기' }, renderJa(ja, { s, mode: app.settings.furigana, onWord: (k) => app.openWord(k, null), onGrammar: (k) => app.openGrammar(k, null) }));
+  const p = h('p', { class: cls + ' jp', lang: 'ja', role: 'button', tabindex: '0', 'aria-label': '번역 보기' }, renderJa(ja, { s, mode: app.settings.furigana, targets: new Set(sceneTargets([ja], app.settings)), onWord: (k) => app.openWord(k, null), onGrammar: (k) => app.openGrammar(k, null) }));
   const toggle = () => {
     koEl.hidden = !koEl.hidden;
     p.classList.toggle('on', !koEl.hidden);
@@ -66,23 +97,28 @@ export function memorialScreen(app, s) {
   const years = Math.floor(s.t / 4);
   const portrait = dogPortrait(h('canvas', { class: 'portrait', 'aria-hidden': 'true' }), s.dog, { pose: 'stand', stage: 'adult', gray: true, pad: 3 });
   // 견생 연표: 큰 일만
-  const key = s.hist.filter((x) => !x.brief && (G.EV.get(x.id)?.major || ['milestone', 'sub'].includes(G.EV.get(x.id)?.cat))).slice(0, 14);
-  const tl = h('div', { class: 'timeline' }, key.map((x) => h('div', { class: 'tl' }, h('b', null, x.t < 4 ? `${3 + x.t * 3}か月` : `${Math.floor(x.t / 4)}歳`), h('span', isJa(app) && x.titleJa ? { lang: 'ja' } : null, isJa(app) && x.titleJa ? plainJa(x.titleJa, { s }) : x.title))));
-  const words = s.words.length ? h('div', { class: 'list' }, s.words.map((w) => h('div', { class: 'card' }, h('div', { class: 'note' }, `${w.age}歳`), isJa(app) && w.textJa ? h('span', { lang: 'ja', title: w.text }, `“${w.textJa}”`) : `“${w.text}”`))) : null;
-  // 식구들의 추도 한 줄 (얼굴 도트)
+  // 견생 연표: 나이대마다 고르게 (앞에서 14개만 자르면 다섯 살에서 끝나 버린다) → core.lifeTimeline
+  const key = G.lifeTimeline(s);
+  const ja0 = isJa(app);
+  const tl = h('div', { class: 'timeline' }, key.map((x) => h('div', { class: 'tl' }, h('b', null, ageLabel(x.t, ja0, true)), h('span', ja0 && x.titleJa ? { lang: 'ja' } : null, ja0 && x.titleJa ? plainJa(x.titleJa, { s }) : x.title))));
+  const words = s.words.length ? h('div', { class: 'list' }, s.words.map((w) => h('div', { class: 'card' }, h('div', { class: 'note' }, ageLabel(w.t != null ? w.t : (w.age || 0) * 4, ja0, true)), ja0 && w.textJa ? h('span', { lang: 'ja', title: w.text }, `“${w.textJa}”`) : `“${w.text}”`))) : null;
+  // 식구들의 추도 (얼굴 도트). 한 사람에 한 칸 — 말이 둘이면 한 칸 안에 차례로.
+  // 얼굴 칸은 늘 둔다: 얼굴이 없으면 글이 48px 칸에 들어가 한 글자씩 세로로 늘어서기 때문 (위원장 칸이 그랬다)
   const kos = [];
-  const msgs = h('div', { class: 'lines' }, G.farewell(s).map(([sp, ja, ko]) => {
-    const koEl = h('div', { class: 'ko', hidden: true }, resolveKo(ko, { s }));
-    kos.push(koEl);
-    let face = null;
-    if (ROLES.includes(sp)) {
-      const lk = lookFor(s, sp);
+  const msgs = h('div', { class: 'lines' }, familyLines(s).map(({ sp, lines }) => {
+    let face;
+    const lk = ROLES.includes(sp) || sp === 'iincho' ? lookFor(s, sp) : null;
+    if (lk && lk.look) {
       const f = faceBuf(lk.look, lk.size === 'kid' ? 'kid' : 'adult');
-      const c = h('canvas', { class: 'face', 'aria-hidden': 'true', width: String(f.w), height: String(f.h) });
-      paint(c.getContext('2d'), f);
-      face = c;
-    }
-    return h('div', { class: 'line memo' }, face, h('div', null, h('div', { class: 'sp' }, renderSpeaker(sp, s, mode)), h('div', { class: 'ja' }, renderJa(ja, { s, speaker: sp, mode, onWord: (k) => app.openWord(k, null), onGrammar: (k) => app.openGrammar(k, null) })), koEl));
+      face = h('canvas', { class: 'face', 'aria-hidden': 'true', width: String(f.w), height: String(f.h) });
+      paint(face.getContext('2d'), f);
+    } else face = h('div', { class: 'face', 'aria-hidden': 'true' });
+    const said = lines.map(([ja, ko]) => {
+      const koEl = h('div', { class: 'ko', hidden: true }, resolveKo(ko, { s }));
+      kos.push(koEl);
+      return [h('div', { class: 'ja' }, renderJa(ja, { s, speaker: sp, mode, targets: new Set(sceneTargets([ja], app.settings)), onWord: (k) => app.openWord(k, null), onGrammar: (k) => app.openGrammar(k, null) })), koEl];
+    });
+    return h('div', { class: 'line memo' }, face, h('div', { class: 'memo-body' }, h('div', { class: 'sp' }, renderSpeaker(sp, s, mode)), ...said.flat()));
   }));
   let on = false;
   const tbtn = h('button', { class: 'mini-btn', type: 'button', onclick: () => { on = !on; kos.forEach((k) => (k.hidden = !on)); tbtn.textContent = on ? '訳を閉じる' : '訳'; } }, '訳');
@@ -109,7 +145,8 @@ export function resultScreen(app, s) {
   const sum = s.summary;
   const srs = store.srs();
   const lifeIds = s.met || [];
-  const study = progress(srs, lifeIds);
+  // 만난 수는 이번 견생에서 만난 것 전체 (복습 목록에 들어갔는지와 상관없이), 익힘은 복습 기록에서
+  const study = metProgress(srs, lifeIds);
   const canvas = h('canvas');
   const img = h('img', { class: 'result-img', alt: `${sum.dog.name} 결과 카드` });
   let blobUrl = null;
@@ -171,6 +208,7 @@ export function resultScreen(app, s) {
 // 이번 견생의 일본어: 만난 N2 어휘·문법, 퀴즈 정답률, 취약 표현, 다음 복습
 function lifeStudy(app, s, srs) {
   const L = lifeSummary(s, srs);
+  const rc = reviewCounts(srs);
   const ja = isJa(app);
   const t = (ko, jt) => (ja ? jt : ko);
   const head = (id) => {
@@ -189,7 +227,9 @@ function lifeStudy(app, s, srs) {
       h('dt', null, t('만난 N2 어휘', '出会ったN2語彙')), h('dd', null, t(`${L.words.length}개`, `${L.words.length}語`)),
       h('dt', null, t('만난 N2 문법', '出会ったN2文法')), h('dd', null, t(`${L.grammar.length}개`, `${L.grammar.length}項目`)),
       h('dt', null, t('퀴즈', 'クイズ')), h('dd', null, L.asked ? t(`${L.ok} / ${L.asked} 정답 (${L.accuracy}%)`, `${L.ok} / ${L.asked} 正解（${L.accuracy}%）`) : t('이번 견생에서는 풀지 않음', 'この一生では解いていない')),
-      h('dt', null, t('내일까지 복습', '明日までの復習')), h('dd', null, t(`${L.dueTomorrow}개`, `${L.dueTomorrow}件`))),
+      // 복습 수는 타이틀·복습 화면과 같은 숫자 (studyui.reviewCounts). 복습 날짜는 실제 날짜라서 이번 판의 말은 대개 「내일부터」
+      h('dt', null, t('오늘의 복습', '今日の復習')), h('dd', null, t(`${rc.today}개`, `${rc.today}件`)),
+      h('dt', null, t('내일부터 복습', '明日から復習')), h('dd', null, t(`${rc.tomorrow}개`, `${rc.tomorrow}件`))),
     L.grammar.length ? [h('h4', null, t('만난 N2 문법', '出会ったN2文法')), chips(L.grammar)] : null,
     L.weak.length ? [h('h4', null, t('취약 표현', '苦手な表現')), h('ul', { class: 'weak' }, L.weak.map((id) => h('li', null, h('b', { lang: 'ja' }, head(id)), ja ? '' : ` ${itemOf(id).m}`)))] : null,
     L.next.length ? [h('h4', null, t('다음 복습 예정', '次の復習')), h('ul', { class: 'weak' }, L.next.map((x) => h('li', null, h('b', { lang: 'ja' }, head(x.id)), ` · ${when(x.due)}`)))] : null,

@@ -523,3 +523,49 @@ button.delta { background: none; font: inherit; font-size: 16px; cursor: pointer
 
 .mock-card { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
 .mock-clock { float: right; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent); }
+
+/* ───── game: 루비·서술 「訳」·선택지 칸·オート 창 (game 담당) ───── */
+/* 루비: 읽기가 표기보다 길어도 낱말이 벌어지지 않게 rt가 양옆 글자 위로 반 글자씩 걸친다(render.js가 나뉜 한자 조각은 하나로 합친다) */
+ruby.rb { white-space: nowrap; } /* 한 낱말의 루비가 줄 끝에서 둘로 갈라지지 않게 */
+ruby.rb > rt { margin-inline: -0.5em; }
+/* 글 덩어리 첫 글자가 루비면 앞쪽에 맞춰 들여 쓴 것처럼 보이지 않게, 여는 괄호는 반 칸 내어 단다 */
+ruby.rb.lead { ruby-align: start; }
+ruby.rb.lead > rt { margin-inline-start: 0; margin-inline-end: -1em; }
+.hang { margin-inline-start: -0.5em; }
+/* 서술의 「訳」: 대사 칸의 「訳」과 같은 모양으로 오른쪽 위에 */
+.narr { display: flow-root; }
+.narr > .narr-ko { float: right; margin: 2px 0 2px 10px; min-height: 36px; min-width: 56px; padding: 0 10px; font-family: var(--f-ja); }
+.narr > .narr-ko[aria-pressed='true'] { border-color: var(--accent); color: var(--accent); }
+.sent-ko > div + div { margin-top: 4px; }
+/* 선택지 칸: 짧은 화면에서는 선택지를 조금 낮게 (마지막 대사가 함께 보이게) */
+.game.compact .choice-row .btn[lang='ja'] { line-height: 1.6; padding-top: 4px; padding-bottom: 4px; }
+.game.compact .choice-row .btn[lang='ja'] ruby rt { line-height: 1; }
+/* オート 고르기: 조작 줄 위에 겹치는 작은 창 (도트 창·이야기는 가리지 않는다) */
+.ctrl { position: relative; }
+.auto-panel { position: absolute; inset: 0; z-index: 20; display: flex; gap: 4px; padding: 0; background: var(--bg2); border-radius: 10px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22); }
+.auto-panel .btn { flex: 1 1 0; min-width: 0; min-height: 0; height: 100%; padding: 2px 4px; border-radius: 10px; font-size: 13px; line-height: 1.25; justify-content: center; text-align: center; word-break: keep-all; overflow-wrap: anywhere; }
+.auto-panel .btn:first-child { flex-grow: 1.2; }
+.auto-panel .btn[aria-pressed='true'] { background: var(--wood); border-color: var(--wood); color: #1a1209; font-weight: 700; box-shadow: none; }
+/* ───── flow: 엔딩 「家族から」·복습 퀴즈 머리줄·복습 수·만난 말·타이틀 ───── */
+/* 家族から: 얼굴 칸은 늘 48px, 글 칸은 줄어들 수 있게 (얼굴이 없던 칸의 글이 48px 칸에 끼어 세로로 늘어서던 문제) */
+.line.memo > * { min-width: 0; }
+.line.memo .memo-body { grid-column: 2; overflow-wrap: anywhere; }
+.line.memo div.face { display: block; }
+.line.memo .memo-body .ko + .ja, .line.memo .memo-body .ja + .ja { margin-top: 6px; }
+/* 복습 퀴즈: 위에 붙는 머리줄 (진행 · 그만두기) */
+.quiz-head { position: sticky; top: -16px; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: -16px 0 6px; padding: 16px 0 6px; background: var(--bg); border-bottom: 1px solid var(--line); }
+.quiz-head .kicker { min-width: 0; overflow-wrap: anywhere; }
+.quiz-head .quiz-quit { flex: 0 0 auto; }
+/* 복습 수: 오늘 / 내일부터 */
+.due-line b { margin-right: auto; }
+.due-line .due-next, .study-strip .due .due-next { margin-left: 10px; font-family: var(--f-body, inherit); font-size: 16px; color: var(--ink2); }
+.study-strip .due { align-items: baseline; }
+.study-strip .due b { margin-right: auto; }
+/* 「出会った語」 칸은 누르면 만난 말 목록 */
+.learn-stats > .stat-link { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 6px 8px; display: grid; text-align: left; font: inherit; color: var(--ink); cursor: pointer; }
+.learn-stats > .stat-link b { font-weight: 400; color: var(--accent); font-size: 16px; }
+.learn-stats > .stat-link span { font-family: var(--f-display); font-size: 22px; }
+.met-item .bi-meta { overflow-wrap: anywhere; }
+/* game: 서로 붙은 두 루비(합치지 못한 경계)는 마주 보는 쪽으로 걸치지 않는다 */
+ruby.rb.ne > rt { margin-inline-end: 0; }
+ruby.rb.ns > rt { margin-inline-start: 0; }

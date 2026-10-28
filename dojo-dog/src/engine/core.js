@@ -1,5 +1,5 @@
 // 게임 진행 로직. DOM을 전혀 모르고, 상태(state)는 JSON으로 저장 가능한 순수 객체다.
-import { rand, rint, chance, pick, weighted, hashSeed } from './rng.js';
+import { rand, rint, chance, pick, weighted, hashSeed, shuffle } from './rng.js';
 import {
   SEASONS, STAT_KEYS, PERSONALITIES, COATS, HAIRS, DOG_NAMES, REGIONS, DOJOS, GEN1, ROLES,
   stageOf, nextGeneration, personFor,
@@ -26,6 +26,17 @@ const HUBS = ALL_EVENTS.filter((e) => e.cat === 'hub');
 
 export const MILESTONE_T = { 4: 'm_1', 12: 'm_3', 28: 'm_7', 40: 'm_10' };
 const MAX_EVENTS_PER_SEASON = 4;
+
+// 능력치 균형. 이벤트마다 효과를 고치지 않고 엔진에서 한 번에 다룬다 (test/balance.test.mjs가 결과를 잰다).
+//  softTop/softBottom: 끝(100/0)에서 이만큼 안쪽부터 같은 효과도 덜 움직인다. 끝이 아니면 최소 1은 움직인다.
+//  drift: 계절마다 타고난 성격(태어날 때의 값) 쪽으로 돌아가는 비율. 높이 올라간 값일수록 더 끌려 내려온다.
+export const BALANCE = {
+  softTop: 40,
+  softBottom: 20,
+  drift: { soc: 0.02, brave: 0.02, mis: 0.02 },
+  // 식구 서사: 이만큼(년) 밀린 장은 그 계절의 두 번째 장으로 들어갈 수 있다
+  secondChapterLate: 0.5,
+};
 
 // ───────── 생성 ─────────
 export function newLife(opts = {}) {
@@ -93,6 +104,9 @@ export function newLife(opts = {}) {
   for (const [k, v] of Object.entries(dojo.st)) st[k] += v;
   for (const k of STAT_KEYS) st[k] = clamp(st[k] + rint(s, -5, 5));
   s.st = st;
+  // 타고난 성격: 계절이 지나면 능력치가 조금씩 이 값 쪽으로 돌아온다
+  s.base = { ...st };
+  s.stf = {};
   s.bond = { roshi: 15, shihan: 25, okami: 35, kid: 20, worker: 15, elder: 15, kor: 15, iincho: 0 };
   for (const r of ROLES) {
     s.ach[r] = [];
@@ -134,6 +148,32 @@ export function beginLife(s) {
 
 // ───────── 조회 도우미 ─────────
 export const clamp = (v) => Math.max(0, Math.min(100, Math.round(v)));
+
+// 이벤트 효과 v가 지금 값 x를 실제로 얼마나 움직이는지. 100(또는 0)에 가까울수록 덜 움직이지만,
+// 끝에 닿지 않았다면 +2 같은 작은 효과도 적어도 1은 보인다.
+export function statDelta(x, v) {
+  if (!v) return 0;
+  const up = v > 0;
+  const room = up ? 100 - x : x;
+  if (room <= 0) return 0;
+  const k = Math.min(1, room / (up ? BALANCE.softTop : BALANCE.softBottom));
+  const d = Math.min(room, Math.max(1, Math.round(Math.abs(v) * k)));
+  return up ? d : -d;
+}
+
+// 예전 저장 데이터에는 타고난 값이 없다: 성격·도장에서 다시 계산한다 (무작위 몫은 빼고)
+function baseOf(s) {
+  if (!s.base) {
+    const per = PERSONALITIES.find((p) => p.id === s.dog.per) || { st: {} };
+    const b = { hap: 55, hea: 70, back: 70, soc: 45, brave: 45, mis: 45 };
+    for (const [k, v] of Object.entries(per.st)) b[k] += v;
+    for (const [k, v] of Object.entries((s.world.dojo && s.world.dojo.st) || {})) b[k] += v;
+    for (const k of STAT_KEYS) b[k] = clamp(b[k]);
+    s.base = b;
+  }
+  if (!s.stf) s.stf = {};
+  return s.base;
+}
 export const ageY = (s) => s.t / 4;
 export const season = (s) => SEASONS[(s.startSeason + s.t) % 4];
 export const yearNo = (s) => Math.floor((s.startSeason + s.t) / 4) + 1;
@@ -183,12 +223,14 @@ function buildSeason(s, first = false) {
   const due = s.sched.filter((x) => x.t <= t);
   s.sched = s.sched.filter((x) => x.t > t);
   for (const d of due) if (EV.has(d.id) && eligible(s, EV.get(d.id), true)) q.push(d.id);
-  // 3) 도장 식구들의 장기 서사
-  let deepCount = 0;
+  // 3) 도장 식구들의 장기 서사: 사람마다 장 순서는 지키고, 누구 이야기가 먼저 열릴지는 견생마다 다르다
+  const ready = [];
   for (const role of ROLES) {
     const list = CHAPTERS[role] || [];
     const ch = list[s.castCh[role]];
-    if (!ch || a < ch.at) continue;
+    if (!ch) continue;
+    const at = chapterAt(s, ch);
+    if (a < at) continue;
     if (!condOk(s, ch.req)) {
       if (ch.skip) {
         s.castCh[role]++;
@@ -196,15 +238,22 @@ function buildSeason(s, first = false) {
       continue;
     }
     const deep = ch.deep === undefined || s.bond[role] >= ch.deep;
-    const overdue = a - ch.at >= 1.5;
-    if (deep && (deepCount === 0 || overdue) && !q.includes(ch.id)) {
-      q.push(ch.id);
-      s.castCh[role]++;
-      deepCount++;
-    } else if (!deep) {
+    if (!deep) {
       applyBrief(s, ch);
       s.castCh[role]++;
+    } else if (!q.includes(ch.id)) {
+      // 오래 기다린 장일수록 먼저. 비슷하면 무작위
+      ready.push({ role, ch, late: a - at, key: a - at + rand(s) * 0.75 });
     }
+  }
+  ready.sort((x, y) => y.key - x.key);
+  let deepCount = 0;
+  for (const r of ready) {
+    // 한 계절에 한 장. 밀린 장이 있으면 두 장까지, 아주 오래 밀린 장은 몇 장이든
+    if (deepCount > 0 && !(deepCount === 1 && r.late >= BALANCE.secondChapterLate) && r.late < 1.5) continue;
+    q.push(r.ch.id);
+    s.castCh[r.role]++;
+    deepCount++;
   }
   // 4) 委員長
   const next = IINCHO[s.iinchoEp];
@@ -232,12 +281,32 @@ function buildSeason(s, first = false) {
     if (idx < 0) break;
     q.splice(idx, 1);
   }
+  // 한 계절 안의 순서도 섞는다. 맨 앞의 도착·생일(고비)만 그대로 둔다.
+  let head = 0;
+  while (head < q.length && (EV.get(q[head])?.cat === 'milestone' || q[head] === 'a_arrive' || q[head] === 'l_intro')) head++;
+  if (q.length - head > 1) q.splice(head, q.length - head, ...shuffle(s, q.slice(head)));
+}
+
+// 식구 서사의 장이 열리는 나이: 견생마다 한 계절 앞당겨지거나 두 계절까지 늦어진다 (시드로 정해지므로 저장이 필요 없다).
+// 같은 사람·같은 나이의 갈림길 장(o5a/o5b/o5c 등)은 함께 움직인다. 생후 반년 안의 장은 앞당기지 않고, 9살 이후의 장은 늦추지 않는다.
+// 다른 사람의 장과 순서가 꼭 맞아야 하는 장은 데이터에 fixedAt: true 를 달면 원래 나이에 고정된다.
+export function chapterAt(s, ch) {
+  if (ch.fixedAt) return ch.at;
+  const r = rand({ rng: hashSeed(s.seed + '|' + ch.who + '|' + ch.at) });
+  const lo = ch.at <= 0.5 ? 0 : -1;
+  const hi = ch.at >= 9 ? 0 : 2;
+  return ch.at + (lo + Math.floor(r * (hi - lo + 1))) * 0.25;
 }
 
 function poolWeight(s, e, sea) {
   let w = e.w ?? 1;
   if (e.cat === 'kendo') w *= 0.9;
-  if (e.cat === 'sub') w *= 0.55;
+  if (e.cat === 'sub') w *= 0.68;
+  // 큰 사건, 늘그막에만 있는 장면, 곧 지나가 버릴 장면은 일상 더미에 묻히지 않게
+  if (e.major && e.cat !== 'sub') w *= 3;
+  if ((e.minAge ?? 0) >= 9 || (e.stage && e.stage.every((x) => x === 'senior'))) w *= 4;
+  else if ((e.minAge ?? 0) >= 7) w *= 2.5;
+  if (e.maxAge !== undefined && e.maxAge - ageY(s) <= 1) w *= 2;
   if (e.cal && e.season && e.season.includes(sea)) w *= 3;
   if (e.gag) w *= 0.5 + s.st.mis / 80;
   if (e.brave) w *= 0.5 + s.st.brave / 80;
@@ -480,6 +549,14 @@ function passive(s) {
   if (st.hea < 25) st.hap -= 1;
   if (a < 3 && s.t % 2 === 1) st.mis += 1;
   if (a >= 9 && s.t % 3 === 0) st.mis -= 1;
+  // 성격 쪽으로 천천히 돌아온다: 멀리 올라간 값일수록 많이. 소수점 몫은 모아 두었다가 1이 되면 움직인다.
+  const base = baseOf(s);
+  for (const [k, rate] of Object.entries(BALANCE.drift)) {
+    const f = (s.stf[k] || 0) + (base[k] - st[k]) * rate;
+    const n = Math.trunc(f);
+    st[k] += n;
+    s.stf[k] = Math.round((f - n) * 1000) / 1000;
+  }
   for (const k of STAT_KEYS) st[k] = clamp(st[k]);
   if (has(s, 'back_care') && s.t - s.flags.back_care > 6) delete s.flags.back_care;
 }
@@ -503,7 +580,7 @@ function applyOutcome(s, o, e, silent) {
           if (v > 0) v = Math.max(1, Math.round(v * (0.75 + s.st.soc / 200)));
           s.bond[r] = clamp((s.bond[r] ?? 0) + v);
         } else if (k in s.st) {
-          s.st[k] = clamp(s.st[k] + v);
+          s.st[k] = clamp(s.st[k] + statDelta(s.st[k], v));
         }
       }
     }
@@ -613,6 +690,89 @@ export function titlesOf(s) {
   return got.map((t) => ({ id: t.id, ja: t.ja, ko: t.ko }));
 }
 
+// 견생 연표(「一生」)에 올릴 큰 일. 앞에서부터 자르면 다섯 살 무렵에서 끝나 버리므로
+// 나이대(0~2, 3~5, 6~9, 10~)마다 몫을 나누고, 같은 나이대 안에서는 서로 떨어진 일을 고른다.
+//  - 맨 처음(도장에 온 날)과 마지막 해의 고비는 늘 넣는다
+//  - 서브스토리는 한 이야기에 한 줄(마지막으로 본 장면)
+//  - 생일 고비는 그 나이대에 올릴 일이 모자랄 때만
+export const TIMELINE_BANDS = [0, 3, 6, 10];
+// 이 견생에만 있었던 일(갈림길 장, 우연히 만난 큰 사건, 동네 이야기)을 누구에게나 오는 장보다 조금 앞에 둔다
+function keyPriority(e) {
+  if (e.cat === 'milestone') return 0.5;
+  if (e.cat === 'cast') return e.req || e.chainOnly ? 3.5 : 3;
+  if (e.cat === 'sub') return e.major ? 3.5 : 3;
+  return 3.5;
+}
+export function lifeTimeline(s, max = 14) {
+  const isKey = (e) => e && (e.major || e.cat === 'milestone' || e.cat === 'sub');
+  const cand = [];
+  const lastOfSub = new Map();
+  s.hist.forEach((x, i) => {
+    if (x.brief) return;
+    const e = EV.get(x.id);
+    if (!isKey(e)) return;
+    const c = { x, i, t: x.t, e, pri: keyPriority(e) };
+    if (e.sub) {
+      const prev = lastOfSub.get(e.sub);
+      if (prev) prev.drop = true;
+      lastOfSub.set(e.sub, c);
+    }
+    cand.push(c);
+  });
+  const pool = cand.filter((c) => !c.drop);
+  if (!pool.length) return [];
+  const chosen = new Set();
+  const take = (c) => c && chosen.add(c);
+  take(pool[0]);
+  if (max > 1) take(pool.find((c) => c.x.id === 'm_last'));
+  const bandOf = (t) => {
+    let b = 0;
+    TIMELINE_BANDS.forEach((from, k) => {
+      if (t / 4 >= from) b = k;
+    });
+    return b;
+  };
+  const gap = (c) => {
+    let g = 99;
+    for (const o of chosen) g = Math.min(g, Math.abs(o.t - c.t));
+    return g;
+  };
+  // 점수: 큰 일일수록, 이미 고른 일과 떨어져 있을수록 (계절 8개 거리까지)
+  const best = (list) => {
+    let top = null;
+    let ts = -1;
+    for (const c of list) {
+      if (chosen.has(c)) continue;
+      const sc = c.pri * 4 + Math.min(gap(c), 8);
+      if (sc > ts) {
+        ts = sc;
+        top = c;
+      }
+    }
+    return top;
+  };
+  const nb = TIMELINE_BANDS.length;
+  const room = Math.max(0, max - chosen.size);
+  const bands = Array.from({ length: nb }, (_, k) => pool.filter((c) => bandOf(c.t) === k));
+  // 나이대별 몫: 고르게 나누고, 남는 자리는 뒤쪽 나이대부터
+  const quota = bands.map(() => Math.floor(room / nb));
+  for (let k = nb - 1, r = room - quota[0] * nb; r > 0; k--, r--) quota[k]++;
+  for (let k = 0; k < nb; k++) {
+    for (let n = 0; n < quota[k]; n++) {
+      const c = best(bands[k].filter((x) => x.pri >= 1)) || best(bands[k]);
+      if (!c) break;
+      take(c);
+    }
+  }
+  // 나이대에 일이 모자라 남은 자리는 전체에서
+  while (chosen.size < max) {
+    const c = best(pool.filter((x) => x.pri >= 1)) || best(pool);
+    if (!c) break;
+    take(c);
+  }
+  return [...chosen].sort((p, q) => p.i - q.i).map((c) => c.x);
+}
+
 export function summarize(s) {
   const titles = titlesOf(s);
   const cast = {};
@@ -643,6 +803,7 @@ export function summarize(s) {
     stats: { ...s.st },
     events: s.evCount,
     dojoState: dojoState(s),
+    timeline: lifeTimeline(s).map((x) => ({ t: x.t, id: x.id, title: x.title, titleJa: x.titleJa || null })),
   };
 }
 

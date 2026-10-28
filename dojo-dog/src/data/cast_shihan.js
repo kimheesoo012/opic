@@ -92,7 +92,7 @@ export default [
             res: '오후 4시, 공원 입구에 {shihan|이} 나타났다. 걸음이 이상했다. 뛰는 것도 걷는 것도 아니었다.', lines: [['shihan', '……[受]かった。', '……붙었어.'], ['okami', 'うそ……ほんとに！？', '거짓말……진짜로?!']] },
           ng: { fx: { b_shihan: 3 }, ach: ['shihan', '8단 심사 세 번째 도전(2차 불합격)'], news: { shihan: '8단 2차 불합격. 「다음에 또」.' },
             res: '{shihan|은} 공원 입구에서 {okami|와} {N|을} 발견하더니 어깨를 으쓱했다.', lines: [['shihan', 'また[来年]だ。……とりあえず[腹]が[減]った。', '내년에 또 보지. ……일단 배고프다.']] } } },
-      { t: '심사장 쪽으로 귀를 세우고 기다린다', tag: 'guard', fx: { brave: 3 }, cnt: 'exam_watch',
+      { t: '심사장 쪽으로 귀를 세우고 기다린다', tag: 'guard', fx: { b_shihan: 2 }, cnt: 'exam_watch',
         check: { st: 'b_shihan', dc: 84,
           ok: { set: 'shihan_8dan', fx: { hap: 6, b_shihan: 6 }, ach: ['shihan', '8단 합격'], news: { shihan: '8단. 도장 사람들이 축하회를 열었다.' },
             res: '먼저 알아챈 건 {N}의 귀였다. 멀리서 들려오는 발소리가 오늘 아침보다 가벼웠다.', lines: [['shihan', '[待]たせたな。……[受]かったよ。', '많이 기다렸지. ……붙었어.']] },
