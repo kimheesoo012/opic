@@ -98,6 +98,8 @@ try {
   const exp = await p.textContent('.exp');
   ok('Part 5 해설: 일본어(가나 포함)', KANA.test(await p.textContent('.why')) && !HANGUL.test(exp));
   ok('Part 5 해설: 不正解 표시와 ポイント', exp.includes('不正解') && exp.includes('ポイント'));
+  const tr5 = await p.evaluate(() => ({ en: !!document.querySelector('.exp .trans .en b'), tr: (document.querySelector('.exp .trans .tr') || {}).textContent || '', lbl: [...document.querySelectorAll('.exp .lbl')].map((x) => x.textContent) }));
+  ok('Part 5 해설: 訳 구역(정답 넣은 문장 + 일본어 해석)', tr5.en && KANA.test(tr5.tr) && !HANGUL.test(tr5.tr) && tr5.lbl.includes('正解の理由') && tr5.lbl.includes('訳'), tr5.lbl.join('/'));
   const causes = await p.$$eval('[data-act="cause"]', (bs) => bs.map((b) => b.textContent));
   ok('오답 원인 칩 일본어', causes.includes('知らない単語') && causes.includes('ひっかけ'), causes.join('/'));
   await checkText(p, 'Part 5 解説');
@@ -123,6 +125,8 @@ try {
   await (await p.$$('.choice[data-act="choose"]'))[0].click();
   await p.waitForSelector('.exp');
   ok('Part 7 해설 일본어', KANA.test(await p.textContent('.why')));
+  const ev7 = await p.evaluate(() => ({ marks: document.querySelectorAll('.passage mark.ev, .passage td.ev').length, ev: (document.querySelector('.exp .ev') || {}).textContent || '', q: (document.querySelector('.exp .qtr') || {}).textContent || '' }));
+  ok('Part 7 해설: 根拠の文 + 지문 강조 + 設問 일본어', ev7.marks >= 1 && ev7.ev.includes('根拠の文') && KANA.test(ev7.q) && !HANGUL.test(ev7.q), JSON.stringify(ev7).slice(0, 100));
   await checkText(p, 'Part 7 解説');
   await answerLoop(p);
 

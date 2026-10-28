@@ -60,7 +60,7 @@ p5-072|t2	larger는 비교급이라 than이나 비교 대상이 필요하다.
 p5-072|t3	large의 최상급은 largest이며 most large라고 쓰지 않는다.
 p5-073|why	as ~ as 사이에는 원급이 온다. twice as fast as는 '~보다 두 배 빠르게'. fast는 형용사와 부사 형태가 같아 동사 loads를 꾸밀 수 있다.
 p5-073|t1	faster는 비교급이라 as ~ as 사이에 올 수 없다. 'twice'의 '두 배'라는 뜻에 끌리기 쉽다.
-p5-073|t2	fastest는 최상급이다.
+p5-073|t2	fastest는 최상급이라 as ~ as 사이에 올 수 없다. twice as fast as는 '두 배 빠르게'라는 원급 비교다.
 p5-073|t3	fastly는 존재하지 않는 단어다. fast 자체가 부사로 쓰인다.
 p5-074|why	비교급 faster를 강조하는 부사가 필요하다. 비교급 강조에는 much, even, far, still, a lot을 쓰므로 much가 정답이다.
 p5-074|t0	very는 원급을 강조한다(very fast). 비교급 앞에는 쓸 수 없는 대표 함정.
@@ -102,7 +102,7 @@ p5-083|why	뒤의 nor와 짝을 이루는 neither A nor B(A도 B도 아닌) 구�
 p5-083|t0	Either는 or와 짝을 이룬다.
 p5-083|t2	Both는 and와 짝을 이루고 동사도 복수(were)가 되어야 한다.
 p5-083|t3	Not 단독으로는 nor와 짝을 이루지 못한다.
-p5-084|why	뒤에 and가 있으므로 both A and B(A와 B 둘 다) 구문이다.
+p5-084|why	뒤에 and가 있으므로 both A and B(A와 B 둘 다) 구문이다. A와 B 자리에 recruitment strategies와 employee retention이라는 명사구가 병렬로 놓였다.
 p5-084|t0	either는 or와 짝을 이룬다.
 p5-084|t1	between A and B는 '~ 사이에'라는 전치사 표현으로, '전략과 유지 사이를 다룬다'가 되어 의미가 맞지 않는다.
 p5-084|t2	neither는 nor와 짝을 이룬다.

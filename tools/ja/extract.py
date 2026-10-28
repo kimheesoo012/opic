@@ -4,6 +4,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2] / 'toeic'
 HANGUL = re.compile(r'[가-힣]')
 
+def trans_items():
+    idx = json.load(open(ROOT / 'data/index.json'))
+    for f in idx['files']:
+        for u in json.load(open(ROOT / 'data' / f))['units']:
+            for q in u.get('questions') or [u]:
+                if q.get('trans'): yield f"{q['id']}|trans", q['trans']
+
 def items():
     for c in json.load(open(ROOT / 'data/concepts.json'))['concepts']:
         for k in ('name', 'summary', 'tip'):
@@ -38,6 +45,10 @@ def main(out, size):
     chunks = [vrows] + [rest[i:i + size] for i in range(0, len(rest), size)]
     for n, ch in enumerate(chunks):
         (out / f'src-{n:02d}.tsv').write_text(''.join(f'{k}\t{v}\n' for k, v in ch), encoding='utf-8')
-    print('chunks', len(chunks), [len(c) for c in chunks], [sum(len(v) for _, v in c) for c in chunks])
+    # 해석(trans)은 30번부터 따로 묶는다 (해설 표의 묶음 경계를 바꾸지 않기 위해)
+    tr = list(trans_items())
+    for n, i in enumerate(range(0, len(tr), size)):
+        (out / f'src-{30 + n:02d}.tsv').write_text(''.join(f'{k}\t{v}\n' for k, v in tr[i:i + size]), encoding='utf-8')
+    print('chunks', len(chunks), [len(c) for c in chunks], 'trans', len(tr))
 
 main(sys.argv[1], int(sys.argv[2]))

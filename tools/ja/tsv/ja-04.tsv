@@ -60,7 +60,7 @@ p5-072|t2	largerは比較級なので、thanや比較の対象が必要。
 p5-072|t3	largeの最上級はlargestで、most largeとは書かない。
 p5-073|why	as 〜 asの間には原級が来る。twice as fast asは「〜の2倍速く」。fastは形容詞と副詞が同じ形なので、動詞loadsを修飾できる。
 p5-073|t1	fasterは比較級なのでas 〜 asの間には入らない。「twice」の「2倍」という意味につられやすい。
-p5-073|t2	fastestは最上級。
+p5-073|t2	fastestは最上級なのでas 〜 asの間には入らない。twice as fast asは「2倍速く」という原級の比較。
 p5-073|t3	fastlyという語は存在しない。fastそのものが副詞として使われる。
 p5-074|why	比較級fasterを強調する副詞が必要。比較級の強調にはmuch, even, far, still, a lotを使うのでmuchが正解。
 p5-074|t0	veryは原級を強調する（very fast）。比較級の前には使えない代表的なひっかけ。
@@ -102,7 +102,7 @@ p5-083|why	後ろのnorと組になるneither A nor B（AでもBでもない）�
 p5-083|t0	Eitherはorと組になる。
 p5-083|t2	Bothはandと組になり、動詞も複数（were）になる必要がある。
 p5-083|t3	Not単独ではnorと組にならない。
-p5-084|why	後ろにandがあるので、both A and B（AとBの両方）の構文。
+p5-084|why	後ろにandがあるので、both A and B（AとBの両方）の構文。AとBの位置にrecruitment strategiesとemployee retentionという名詞句が並んでいる。
 p5-084|t0	eitherはorと組になる。
 p5-084|t1	between A and Bは「〜の間に」という前置詞の表現で、「戦略と定着の間を扱う」となり意味が合わない。
 p5-084|t2	neitherはnorと組になる。

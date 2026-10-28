@@ -38,7 +38,11 @@
        "a": "ask for help preparing for a meeting"
       }
      ],
-     "id": "p7-s16-1"
+     "id": "p7-s16-1",
+     "trans": "Ruizさんはなぜ最初のメッセージを送ったのか。",
+     "evidence": [
+      "Could you set up the projector for the 9:30 client meeting?"
+     ]
     },
     {
      "type": "intent",
@@ -55,13 +59,18 @@
       "why": "コーヒーを注文するかと聞かれ、「それは済んでいる、Ms. Liuが昨日注文した」と答えている。すでに用意してあるという意味。",
       "traps": [
        "注文する必要がないという意味なので逆。",
-       "会議の中止の話はない。",
+       "会議の中止の話はない。9時30分の会議を準備しているところ。",
        "Ms. Liuはコーヒーを注文した人。プロジェクターはMr. Parkが設置する。",
        null
       ]
      },
      "question": "At 8:53 A.M., what does Ms. Ruiz mean when she writes, “That's taken care of”?",
-     "id": "p7-s16-2"
+     "id": "p7-s16-2",
+     "trans": "午前8時53分にRuizさんが \"That's taken care of\" と書いたのはどういう意味か。",
+     "evidence": [
+      "Should I order coffee for the clients too?",
+      "That's taken care of. Ms. Liu ordered it yesterday."
+     ]
     }
    ]
   },
@@ -97,7 +106,11 @@
       ]
      },
      "question": "What is the purpose of the e-mail?",
-     "id": "p7-s17-1"
+     "id": "p7-s17-1",
+     "trans": "メールの目的は何か。",
+     "evidence": [
+      "Before we can process your first invoice, we need you to complete our supplier registration."
+     ]
     },
     {
      "type": "not",
@@ -120,7 +133,11 @@
       ]
      },
      "question": "What is Mr. Bianchi NOT asked to send?",
-     "id": "p7-s17-2"
+     "id": "p7-s17-2",
+     "trans": "Bianchiさんが送るよう求められていないものは。",
+     "evidence": [
+      "a completed supplier information form (attached), a copy of your business registration certificate, and your bank account details for direct deposit"
+     ]
     },
     {
      "type": "detail",
@@ -138,7 +155,7 @@
       "traps": [
        "支払いが遅れるのではなく、そもそも返送される。",
        null,
-       "現金払いの話はない。",
+       "現金払いの話はない。支払いは口座振込（direct deposit）で行うと言っている。",
        "管理者に回されるとは言っていない。"
       ]
      },
@@ -149,7 +166,11 @@
        "a": "will be sent back"
       }
      ],
-     "id": "p7-s17-3"
+     "id": "p7-s17-3",
+     "trans": "メールによると、発注番号のない請求書はどうなるか。",
+     "evidence": [
+      "Invoices without this number will be returned to the sender."
+     ]
     }
    ]
   },
@@ -191,7 +212,11 @@
        "a": "Report to a designated person"
       }
      ],
-     "id": "p7-s18-1"
+     "id": "p7-s18-1",
+     "trans": "建物の外に出た後、人々はどうすべきか。",
+     "evidence": [
+      "please go to your floor's assigned meeting point in Corden Plaza and report to your floor warden"
+     ]
     },
     {
      "type": "detail",
@@ -209,7 +234,7 @@
       "traps": [
        null,
        "エレベーターは誰も使えない。",
-       "事前登録の話はない。",
+       "事前登録の話はない。来訪者に求められているのは訓練への参加（take part）だけ。",
        "来訪者に別のお知らせを送るとは言っていない。"
       ]
      },
@@ -220,7 +245,11 @@
        "a": "are required to leave the building during the drill"
       }
      ],
-     "id": "p7-s18-2"
+     "id": "p7-s18-2",
+     "trans": "来訪者について何が述べられているか。",
+     "evidence": [
+      "Visitors in the building at the time of the drill must also take part."
+     ]
     },
     {
      "type": "insert",
@@ -244,7 +273,11 @@
      },
      "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
      "sentence": "Each meeting point is marked by a sign showing the floor number.",
-     "id": "p7-s18-3"
+     "id": "p7-s18-3",
+     "trans": "[1]、[2]、[3]、[4] のうち、次の文が入る位置として最も適切なのは。",
+     "evidence": [
+      "please go to your floor's assigned meeting point in Corden Plaza and report to your floor warden."
+     ]
     }
    ]
   },
@@ -273,14 +306,18 @@
      "explanation": {
       "why": "記事は、Kiro RoboticsがDaejeonに研究センターを開く計画と、その理由・規模・日程を扱っている。",
       "traps": [
-       "ロボット製品の評価ではない。",
+       "ロボット製品の評価（review）ではない。ロボットは会社が作る製品として紹介されているだけ。",
        "2つの大学と協定を結んだだけで、合併の話はない。",
        "オンライン小売は売上増加の理由として触れられているだけ。",
        null
       ]
      },
      "question": "What is the article mainly about?",
-     "id": "p7-s19-1"
+     "id": "p7-s19-1",
+     "trans": "記事は主に何について書かれているか。",
+     "evidence": [
+      "announced yesterday that it will open a research center in Daejeon next spring"
+     ]
     },
     {
      "type": "detail",
@@ -296,7 +333,7 @@
      "explanation": {
       "why": "大学と研究所が多いのでDaejeonを選び、'We want to be close to the talent' と言っている。人材の確保が理由。",
       "traps": [
-       "家賃の話はない。",
+       "家賃の話はない。大田を選んだ理由は大学と研究所、つまり人材。",
        null,
        "主な顧客はオンライン小売業者と言っているだけで、場所の話はない。",
        "税制上の優遇は書かれていない。"
@@ -309,7 +346,12 @@
        "a": "Access to well-educated workers"
       }
      ],
-     "id": "p7-s19-2"
+     "id": "p7-s19-2",
+     "trans": "Kiro Roboticsはなぜ大田を選んだのか。",
+     "evidence": [
+      "Kiro chose Daejeon because of its strong universities and many research institutes",
+      "We want to be close to the talent"
+     ]
     },
     {
      "type": "synonym",
@@ -332,7 +374,11 @@
       ]
      },
      "question": "The word “driven” in paragraph 3 is closest in meaning to",
-     "id": "p7-s19-3"
+     "id": "p7-s19-3",
+     "trans": "第3段落の \"driven\" に最も意味が近いのは。",
+     "evidence": [
+      "driven largely by demand from online retailers"
+     ]
     },
     {
      "type": "inference",
@@ -350,7 +396,7 @@
       "traps": [
        null,
        "組み立てはソウルの本社で行う。センターは研究開発用。",
-       "センターはDaejeonにできる。",
+       "センターは大田（Daejeon）にできる。ソウルは現在の本社がある場所。",
        "採用は秋に始まる予定。"
       ]
      },
@@ -358,7 +404,11 @@
      "tags": [
       "trap"
      ],
-     "id": "p7-s19-4"
+     "id": "p7-s19-4",
+     "trans": "研究センターについて何が分かるか。",
+     "evidence": [
+      "The new center will occupy two floors of the Daejeon Innovation Tower, which is still under construction."
+     ]
     }
    ]
   },
@@ -385,12 +435,12 @@
      ],
      "answer": 1,
      "explanation": {
-      "why": "ケータリング業者が金曜日の11時30分より前には配達できないと言っている。",
+      "why": "最初のメッセージで、ケータリング業者が金曜日の11時30分より前には配達できないと言っている。つまり早い時間に配達してもらえないことが問題。",
       "traps": [
        "注文の取り消しではなく、配達時間の制約。",
        null,
        "ワークショップの日付の変更の話はない。",
-       "食堂の広さの話はない。"
+       "食堂の広さの話はない。食堂（dining room）は案内表示を貼る場所として出てくるだけ。"
       ]
      },
      "question": "What problem does Ms. Kim mention?",
@@ -400,7 +450,11 @@
        "a": "A delivery cannot be made early"
       }
      ],
-     "id": "p7-s20-1"
+     "id": "p7-s20-1",
+     "trans": "Kimさんはどんな問題を述べているか。",
+     "evidence": [
+      "The caterer just told me they can't deliver before 11:30 on Friday."
+     ]
     },
     {
      "type": "intent",
@@ -417,7 +471,7 @@
       "why": "配達が11時30分、昼食が11時45分なので、「大丈夫だろうがぎりぎりだ」という意味。時間の余裕がほとんどないということ。",
       "traps": [
        "tightを「スペースが狭い」と誤解させるひっかけ。",
-       "予算の話はない。",
+       "予算の話はない。ここでのtightは時間がぎりぎりだという意味。",
        "'should be fine' と言っているので、日程を変える必要はない。",
        null
       ]
@@ -426,7 +480,11 @@
      "tags": [
       "trap"
      ],
-     "id": "p7-s20-2"
+     "id": "p7-s20-2",
+     "trans": "午後3時4分にKimさんが \"it'll be tight\" と書いたのはどういう意味か。",
+     "evidence": [
+      "So it should be fine, but it'll be tight."
+     ]
     },
     {
      "type": "detail",
@@ -440,7 +498,7 @@
      ],
      "answer": 2,
      "explanation": {
-      "why": "早めに来てテーブルと皿を前もって並べておくと言っている。",
+      "why": "Ms. Wellsは早めに来てテーブルと皿を前もって並べておくと言っている。料理が届く前に部屋を準備するという意味。",
       "traps": [
        "料理を自分で持ってくるとは言っていない。",
        "午前のセッションの進行役は講演者。",
@@ -455,7 +513,11 @@
        "a": "Prepare the room before the food arrives"
       }
      ],
-     "id": "p7-s20-3"
+     "id": "p7-s20-3",
+     "trans": "Wellsさんは何をすると申し出ているか。",
+     "evidence": [
+      "I can come in early and set up the tables and plates beforehand."
+     ]
     },
     {
      "type": "inference",
@@ -484,7 +546,11 @@
        "a": "Contact a presenter"
       }
      ],
-     "id": "p7-s20-4"
+     "id": "p7-s20-4",
+     "trans": "Ortegaさんは次に何をすると考えられるか。",
+     "evidence": [
+      "I'll ask the speaker to finish her morning session a few minutes early"
+     ]
     }
    ]
   },
@@ -511,7 +577,7 @@
      ],
      "answer": 3,
      "explanation": {
-      "why": "経費の分類、請求書の送付、税務報告書の作成は書かれているが、給与処理はない。",
+      "why": "経費の分類（sorts your expenses）、請求書の送付（sends invoices）、税務報告書の作成（prepares reports for tax season）は書かれているが、給与処理（payroll）はない。",
       "traps": [
        "'automatically sorts your expenses' に出てくる。",
        "'sends invoices to your customers' に出てくる。",
@@ -520,7 +586,11 @@
       ]
      },
      "question": "What is NOT mentioned as a feature of Ledgerly?",
-     "id": "p7-s21-1"
+     "id": "p7-s21-1",
+     "trans": "Ledgerlyの機能として述べられていないものは。",
+     "evidence": [
+      "automatically sorts your expenses, sends invoices to your customers, and prepares reports for tax season"
+     ]
     },
     {
      "type": "detail",
@@ -536,7 +606,7 @@
      "explanation": {
       "why": "Teamプランには、最大5人までの利用とpriority phone support（優先電話サポート）が含まれる。",
       "traps": [
-       "利用者は最大5人。",
+       "利用者は最大5人（up to five users）。無制限ではない。",
        null,
        "モバイル端末の提供の話はない。アプリがあるだけ。",
        "対面のトレーニングは書かれていない。"
@@ -549,7 +619,11 @@
        "a": "Faster access to phone support"
       }
      ],
-     "id": "p7-s21-2"
+     "id": "p7-s21-2",
+     "trans": "Teamプランに含まれているものは。",
+     "evidence": [
+      "includes up to five users and priority phone support"
+     ]
     },
     {
      "type": "detail",
@@ -565,10 +639,10 @@
      "explanation": {
       "why": "'No credit card is required to start your trial' と言っている。",
       "traps": [
-       "お試し期間は30日。",
-       "プランの制限の話はない。",
+       "お試し期間は30日（free for 30 days）。12か月ではない。",
+       "プランの制限の話はない。トライアルはプランに関係なく案内されている。",
        null,
-       "ウェブサイトで申し込む。"
+       "ウェブサイト（www.ledgerly.example）で申し込む。店舗の話はない。"
       ]
      },
      "question": "What is indicated about the free trial?",
@@ -578,7 +652,11 @@
        "a": "do not need to enter payment information"
       }
      ],
-     "id": "p7-s21-3"
+     "id": "p7-s21-3",
+     "trans": "無料トライアルについて何が述べられているか。",
+     "evidence": [
+      "No credit card is required to start your trial."
+     ]
     }
    ]
   },
@@ -648,7 +726,13 @@
       ]
      },
      "question": "When will the workshop take place?",
-     "id": "p7-s22-1"
+     "id": "p7-s22-1",
+     "trans": "ワークショップはいつ行われるか。",
+     "evidence": [
+      "Workshop: Social Media Analytics",
+      "Oct. 13",
+      "Oct. 14–15"
+     ]
     },
     {
      "type": "inference",
@@ -664,14 +748,18 @@
      "explanation": {
       "why": "支払い明細に早期登録割引10%が適用されている。早めに登録したことが分かる。",
       "traps": [
-       "講演者だという情報はない。",
+       "講演者だという情報はない。確認書は参加者（Attendee）用のもの。",
        null,
        "所属はTidewater Hotels。",
        "支払い完了の確認書で、キャンセルの形跡はない。"
       ]
      },
      "question": "What is suggested about Ms. Cho?",
-     "id": "p7-s22-2"
+     "id": "p7-s22-2",
+     "trans": "Choさんについて何が分かるか。",
+     "evidence": [
+      "Early registration discount (10%)"
+     ]
     },
     {
      "type": "detail",
@@ -680,21 +768,25 @@
      "choices": [
       "A printed receipt",
       "A business card",
-      "Her conference pass number",
+      "A confirmation number",
       "Photo identification"
      ],
      "answer": 3,
      "explanation": {
-      "why": "'Please bring photo identification' と言っている。",
+      "why": "案内に 'Please bring photo identification'（写真付きの身分証明書をお持ちください）と書かれている。",
       "traps": [
        "領収書を持ってくるようにとは言っていない。",
-       "名刺は書かれていない。",
+       "名刺は書かれていない。持ってくるよう言われているのは写真付きの身分証明書だけ。",
        "確認番号を持ってくるようにとは言っていない。",
        null
       ]
      },
      "question": "What must attendees bring to pick up their badges?",
-     "id": "p7-s22-3"
+     "id": "p7-s22-3",
+     "trans": "参加者がバッジを受け取るには何を持っていかなければならないか。",
+     "evidence": [
+      "Please bring photo identification."
+     ]
     }
    ]
   },
@@ -721,12 +813,12 @@
      ],
      "answer": 0,
      "explanation": {
-      "why": "はがきの印刷の見積もりと紙のサンプルを求めるメール。",
+      "why": "2,000セットの印刷の見積もり（price quote）と紙のサンプルを送ってほしいと依頼するメール。価格の情報を尋ねることが目的。",
       "traps": [
        null,
-       "印刷ミスへの苦情ではない。",
+       "印刷ミスへの苦情ではない。まだ印刷を頼む前で、見積もりを尋ねている段階。",
        "展示ははがきの写真の出どころとして触れられているだけで、宣伝が目的ではない。",
-       "求職のメールではない。"
+       "求職のメールではない。Vargaさんは博物館のギフトショップを運営している人。"
       ]
      },
      "question": "Why did Mr. Varga write the e-mail?",
@@ -736,7 +828,11 @@
        "a": "To ask for pricing information"
       }
      ],
-     "id": "p7-s23-1"
+     "id": "p7-s23-1",
+     "trans": "Vargaさんはなぜメールを書いたのか。",
+     "evidence": [
+      "Could you send me a price quote, along with samples of the paper you would recommend?"
+     ]
     },
     {
      "type": "detail",
@@ -755,7 +851,7 @@
        null,
        "展示は4月10日に開かれる。",
        "ギフトショップの工事の話はない。",
-       "休暇の話はない。"
+       "休暇の話はない。2月24日は理事会の日付。"
       ]
      },
      "question": "Why does Mr. Varga need a quote before February 24?",
@@ -765,7 +861,11 @@
        "a": "A group must approve the expense"
       }
      ],
-     "id": "p7-s23-2"
+     "id": "p7-s23-2",
+     "trans": "Vargaさんはなぜ2月24日より前に見積もりが必要なのか。",
+     "evidence": [
+      "Our board must approve all purchases over $1,000, and it next meets on February 24"
+     ]
     },
     {
      "type": "insert",
@@ -789,7 +889,11 @@
      },
      "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
      "sentence": "The images were taken by local photographers in the 1920s.",
-     "id": "p7-s23-3"
+     "id": "p7-s23-3",
+     "trans": "[1]、[2]、[3]、[4] のうち、次の文が入る位置として最も適切なのは。",
+     "evidence": [
+      "We are planning to sell a set of six postcards featuring photographs from our new exhibit, which opens on April 10."
+     ]
     }
    ]
   },
@@ -818,10 +922,10 @@
      "explanation": {
       "why": "'so that our staff can complete our annual inventory count' と言っている。棚卸し = 在庫数の確認。",
       "traps": [
-       "工事の話はない。",
-       "祝日の話はない。",
+       "工事の話はない。休業の理由は年1回の棚卸し（annual inventory count）。",
+       "祝日の話はない。1月12日は棚卸しのために休む日。",
        null,
-       "社員研修の話はない。"
+       "社員研修の話はない。社員はその日、在庫を数える。"
       ]
      },
      "question": "Why will Martel Hardware be closed on January 12?",
@@ -831,7 +935,11 @@
        "a": "count the items in stock"
       }
      ],
-     "id": "p7-s24-1"
+     "id": "p7-s24-1",
+     "trans": "Martel Hardwareはなぜ1月12日に休業するのか。",
+     "evidence": [
+      "so that our staff can complete our annual inventory count"
+     ]
     },
     {
      "type": "detail",
@@ -849,7 +957,7 @@
       "traps": [
        "月曜日は営業再開日だが、週末に必要な客への案内ではない。",
        "オンラインでの再注文は勧めていない。",
-       "日曜日は閉まっている。",
+       "日曜日は閉まっているので、電話に出る人がいない。案内は土曜日の午後6時までに受け取るようにというもの。",
        null
       ]
      },
@@ -860,7 +968,11 @@
        "a": "Collect them before the store closes"
       }
      ],
-     "id": "p7-s24-2"
+     "id": "p7-s24-2",
+     "trans": "特別注文品がある客は何をするよう求められているか。",
+     "evidence": [
+      "Customers who need to pick up special orders that weekend are asked to do so by 6:00 P.M. on Saturday, January 11."
+     ]
     }
    ]
   },
@@ -896,7 +1008,12 @@
       ]
      },
      "question": "At 1:18 P.M., what does Mr. Greco imply when he writes, “It's out until 4”?",
-     "id": "p7-s25-1"
+     "id": "p7-s25-1",
+     "trans": "午後1時18分にGrecoさんが \"It's out until 4\" と書いたのは何を示しているか。",
+     "evidence": [
+      "Is the truck from the north depot free?",
+      "It's out until 4."
+     ]
     },
     {
      "type": "inference",
@@ -915,7 +1032,7 @@
        null,
        "トラックは4時まで使えない。",
        "レッカー業者にはMr. Grecoがすでに連絡した。",
-       "修理の話はない。"
+       "修理の話はない。バンはレッカー移動（towed）することになり、レッカー業者への連絡はMr. Grecoがした。"
       ]
      },
      "question": "What will Ms. Osei most likely do next?",
@@ -925,7 +1042,11 @@
        "a": "Contact a store to change a delivery time"
       }
      ],
-     "id": "p7-s25-2"
+     "id": "p7-s25-2",
+     "trans": "Oseiさんは次に何をすると考えられるか。",
+     "evidence": [
+      "Then I'll call Linwood and move the delivery to tomorrow morning."
+     ]
     }
    ]
   },
@@ -961,7 +1082,13 @@
       ]
      },
      "question": "What is NOT mentioned about Rosewood Bakery?",
-     "id": "p7-s26-1"
+     "id": "p7-s26-1",
+     "trans": "Rosewood Bakeryについて述べられていないものは。",
+     "evidence": [
+      "supplies bread to more than 20 restaurants",
+      "started as a stand at the weekend farmers market",
+      "launched a training program"
+     ]
     },
     {
      "type": "synonym",
@@ -987,7 +1114,11 @@
      "tags": [
       "trap"
      ],
-     "id": "p7-s26-2"
+     "id": "p7-s26-2",
+     "trans": "第1段落の \"recognizes\" に最も意味が近いのは。",
+     "evidence": [
+      "The award recognizes companies that have shown strong growth, community involvement, and excellent customer service."
+     ]
     },
     {
      "type": "detail",
@@ -1003,10 +1134,10 @@
      "explanation": {
       "why": "修了生8人が地元の企業に採用され、そのうち3人はRosewoodが直接採用した。",
       "traps": [
-       "仕事を探している若者が対象。",
+       "仕事を探している若者（young adults looking for work）が対象。レストランのオーナー向けではない。",
        null,
        "昨年始めた。6年前はパン屋の創業時期。",
-       "資金の話はない。"
+       "資金の話はない。商業協議会（business council）は賞を与えた団体。"
       ]
      },
      "question": "What is indicated about the training program?",
@@ -1016,7 +1147,11 @@
        "a": "Some of its graduates now work at Rosewood"
       }
      ],
-     "id": "p7-s26-3"
+     "id": "p7-s26-3",
+     "trans": "研修プログラムについて何が述べられているか。",
+     "evidence": [
+      "Eight graduates have since been hired by local businesses, including three by Rosewood itself."
+     ]
     }
    ]
   },
@@ -1043,12 +1178,12 @@
      ],
      "answer": 2,
      "explanation": {
-      "why": "'up to 14 days in advance' と言っている。14日 = 2週間。",
+      "why": "'up to 14 days in advance'（最大14日前まで）と書かれている。14日 = 2週間なので、Up to two weeksが正解。",
       "traps": [
-       "1か月とは言っていない。",
+       "1か月とは言っていない。予約できるのは最大14日前まで。",
        "当日すぐに使うこともできるが、最大14日前まで予約できる。",
        null,
-       "48時間は書かれていない。"
+       "48時間は書かれていない。14日前まで予約できる。"
       ]
      },
      "question": "How far in advance can members reserve a car?",
@@ -1058,7 +1193,11 @@
        "a": "Up to two weeks"
       }
      ],
-     "id": "p7-s27-1"
+     "id": "p7-s27-1",
+     "trans": "会員はどのくらい前から車を予約できるか。",
+     "evidence": [
+      "You can reserve a car up to 14 days in advance"
+     ]
     },
     {
      "type": "inference",
@@ -1074,14 +1213,18 @@
      "explanation": {
       "why": "ほかの会員がその車を予約していないときに限り（as long as）延長できる。いつでも延長できるわけではない。",
       "traps": [
-       "延長料金の話はない。",
-       "アプリで延長する。",
+       "延長料金の話はない。料金が出てくるのは返却が遅れたとき（1分1ドル）だけ。",
+       "アプリで（in the app）延長する。電話は必要ない。",
        "50ドルは延滞料の上限で、延長時間の制限ではない。",
        null
       ]
      },
      "question": "What is suggested about extending a trip?",
-     "id": "p7-s27-2"
+     "id": "p7-s27-2",
+     "trans": "利用時間の延長について何が分かるか。",
+     "evidence": [
+      "you can extend your trip in the app as long as the car has not been reserved by someone else"
+     ]
     },
     {
      "type": "detail",
@@ -1095,7 +1238,7 @@
      ],
      "answer": 0,
      "explanation": {
-      "why": "返却時に燃料が4分の1未満なら給油するよう言っている。",
+      "why": "返却時に燃料が4分の1未満なら給油するよう言っている。燃料が少ないときに補充するという意味。",
       "traps": [
        null,
        "給油カードを返すようにとは言っていない。車の中にある。",
@@ -1110,7 +1253,11 @@
        "a": "Add fuel when the tank is low"
       }
      ],
-     "id": "p7-s27-3"
+     "id": "p7-s27-3",
+     "trans": "会員は利用の終わりに何をするよう求められているか。",
+     "evidence": [
+      "Please refill the tank if it is less than one-quarter full at the end of your trip."
+     ]
     }
    ]
   },
@@ -1137,16 +1284,20 @@
      ],
      "answer": 3,
      "explanation": {
-      "why": "Seaview Logisticsを春の就職フェアに招待する手紙。",
+      "why": "最初の文でSeaview Logisticsを春の就職フェアに招待すると述べている。会社をイベントに招待する手紙。",
       "traps": [
        "ブースは無料で、寄付の依頼はない。",
        "学科は参加する学生の専攻として触れられているだけ。",
-       "採用の申し出の手紙ではない。",
+       "採用の申し出の手紙ではない。Ms. Alvarezは招待される会社（Seaview Logistics）側の人。",
        null
       ]
      },
      "question": "What is the purpose of the letter?",
-     "id": "p7-s28-1"
+     "id": "p7-s28-1",
+     "trans": "手紙の目的は何か。",
+     "evidence": [
+      "I am writing to invite Seaview Logistics to take part in the Westbrook University Spring Career Fair"
+     ]
     },
     {
      "type": "not",
@@ -1160,7 +1311,7 @@
      ],
      "answer": 1,
      "explanation": {
-      "why": "ブースにはテーブル、いす2脚、電源が用意される。スクリーンは書かれていない。",
+      "why": "ブースにはテーブル、いす2脚、電源（table, two chairs, and access to electricity）が用意される。スクリーン（display screen）は書かれていない。",
       "traps": [
        "'a table' が用意される。",
        null,
@@ -1169,7 +1320,11 @@
       ]
      },
      "question": "What is NOT provided with each booth?",
-     "id": "p7-s28-2"
+     "id": "p7-s28-2",
+     "trans": "各ブースに提供されないものは。",
+     "evidence": [
+      "Each booth comes with a table, two chairs, and access to electricity."
+     ]
     },
     {
      "type": "detail",
@@ -1183,11 +1338,11 @@
      ],
      "answer": 0,
      "explanation": {
-      "why": "その場で面接するための別室を50ドルで予約できると言っている。",
+      "why": "その場で面接をしたい場合は、メインホール近くの別室を50ドルで予約できると言っている。追加料金がかかるのは面接用のスペースだけ。",
       "traps": [
        null,
        "入口側のブースの料金の話はない。",
-       "いすの追加料金はない。",
+       "いすの追加料金はない。各ブースにいす2脚が無料で用意される。",
        "履歴書リストの販売の話はない。"
       ]
      },
@@ -1198,7 +1353,11 @@
        "a": "A private space for interviews"
       }
      ],
-     "id": "p7-s28-3"
+     "id": "p7-s28-3",
+     "trans": "追加料金で利用できるものは。",
+     "evidence": [
+      "we can also reserve a private room near the main hall for $50"
+     ]
     },
     {
      "type": "detail",
@@ -1214,8 +1373,8 @@
      "explanation": {
       "why": "'Booth locations are assigned in the order in which registrations are received' と言っている。登録順に割り当てられる。",
       "traps": [
-       "学生が選ぶとは言っていない。",
-       "業種別の割り当ての話はない。",
+       "学生が選ぶとは言っていない。学生はフェアの参加者として出てくるだけ。",
+       "業種別の割り当ての話はない。割り当ての基準は登録順。",
        null,
        "ブースは無料で、場所による料金の違いはない。"
       ]
@@ -1227,7 +1386,11 @@
        "a": "depend on when a company registers"
       }
      ],
-     "id": "p7-s28-4"
+     "id": "p7-s28-4",
+     "trans": "ブースの場所について何が述べられているか。",
+     "evidence": [
+      "Booth locations are assigned in the order in which registrations are received."
+     ]
     }
    ]
   },
@@ -1254,9 +1417,9 @@
      ],
      "answer": 1,
      "explanation": {
-      "why": "引っ越し業者が家具と書類を運ぶが、各自の机の中の物は自分で詰める必要がある。",
+      "why": "引っ越し業者が家具と書類を運ぶ（Movers will transport all furniture and files）が、各自の机の中の物は自分で詰める必要がある（you are responsible for packing the items in your own desk）。",
       "traps": [
-       "書類は引っ越し業者が運ぶ。",
+       "書類（files）は引っ越し業者が運ぶと言っている。社員の責任ではない。",
        null,
        "箱は8月26日に届く。",
        "席はすでに座席表で決まっている。"
@@ -1269,7 +1432,11 @@
        "a": "Packing their own desk items"
       }
      ],
-     "id": "p7-s29-1"
+     "id": "p7-s29-1",
+     "trans": "社員が責任を持つのはどんなことか。",
+     "evidence": [
+      "but you are responsible for packing the items in your own desk"
+     ]
     },
     {
      "type": "detail",
@@ -1283,16 +1450,20 @@
      ],
      "answer": 0,
      "explanation": {
-      "why": "新しい席番号は休憩室に貼られた座席表で確認するよう言っている。",
+      "why": "新しい席番号は休憩室に貼られた座席表（seating chart posted in the break room）で確認するよう言っている。",
       "traps": [
        null,
        "箱には社員が席番号を書く。",
-       "メールの話はない。",
+       "メールの話はない。この文章自体がMs. Wuが書いたメモで、席番号は休憩室の座席表にある。",
        "5階の受付は書かれていない。"
       ]
      },
      "question": "Where can employees find their new desk numbers?",
-     "id": "p7-s29-2"
+     "id": "p7-s29-2",
+     "trans": "社員は新しい席番号をどこで確認できるか。",
+     "evidence": [
+      "which you will find on the seating chart posted in the break room"
+     ]
     },
     {
      "type": "insert",
@@ -1316,7 +1487,11 @@
      },
      "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
      "sentence": "Boxes without labels may not reach the correct location.",
-     "id": "p7-s29-3"
+     "id": "p7-s29-3",
+     "trans": "[1]、[2]、[3]、[4] のうち、次の文が入る位置として最も適切なのは。",
+     "evidence": [
+      "Please label each box with your name and new desk number"
+     ]
     }
    ]
   },
@@ -1343,11 +1518,11 @@
      ],
      "answer": 3,
      "explanation": {
-      "why": "誤って請求されたと思われる2つの項目について、確認と返金を求めている。",
+      "why": "誤って請求されたと思われる2つの項目（駐車場代、ミニバー）について確認と返金を求めている。請求内容に異議を申し立てるメール。",
       "traps": [
-       "宿泊はすでに終わっている。",
-       "ほめる内容はない。",
-       "予約の変更の依頼ではない。",
+       "宿泊（10月28〜30日）はすでに終わっている。予約するメールではない。",
+       "ほめる内容はない。誤った請求2件を指摘している。",
+       "予約の変更の依頼ではない。宿泊後に請求内容の問題を提起している。",
        null
       ]
      },
@@ -1358,7 +1533,11 @@
        "a": "question charges on a bill"
       }
      ],
-     "id": "p7-s30-1"
+     "id": "p7-s30-1",
+     "trans": "Watanabeさんはなぜメールを書いたのか。",
+     "evidence": [
+      "I noticed two charges that I believe were made in error."
+     ]
     },
     {
      "type": "detail",
@@ -1372,7 +1551,7 @@
      ],
      "answer": 2,
      "explanation": {
-      "why": "駐車場込みの条件が書かれた予約確認書を添付したと言っている。",
+      "why": "駐車場込みの条件が書かれた予約確認書（booking confirmation）を添付した（which I have attached）と言っている。",
       "traps": [
        "カードの明細書は確認したと言っているだけで、添付していない。",
        "ミニバーのレシートは書かれていない。",
@@ -1381,7 +1560,11 @@
       ]
      },
      "question": "What did Mr. Watanabe include with the e-mail?",
-     "id": "p7-s30-2"
+     "id": "p7-s30-2",
+     "trans": "Watanabeさんはメールに何を添付したか。",
+     "evidence": [
+      "this is stated in my booking confirmation, which I have attached"
+     ]
     },
     {
      "type": "inference",
@@ -1407,7 +1590,13 @@
      "tags": [
       "trap"
      ],
-     "id": "p7-s30-3"
+     "id": "p7-s30-3",
+     "trans": "Watanabeさんはいくらの返金を期待していると考えられるか。",
+     "evidence": [
+      "from October 28 to 30",
+      "I was charged $35 for parking each night",
+      "there is a $22 charge for the minibar"
+     ]
     },
     {
      "type": "synonym",
@@ -1430,7 +1619,11 @@
       ]
      },
      "question": "The phrase “look into” in paragraph 3 is closest in meaning to",
-     "id": "p7-s30-4"
+     "id": "p7-s30-4",
+     "trans": "第3段落の \"look into\" に最も意味が近いのは。",
+     "evidence": [
+      "I would appreciate it if you could look into these charges"
+     ]
     }
    ]
   }

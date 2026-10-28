@@ -14,7 +14,7 @@ import { play } from './sound.js';
 import { initPlayer, startSession, render as renderPlayer, leavePlayer, explainHtml } from './player.js';
 import { renderReview, renderStats, renderSettings, renderTrain, renderAbout } from './screens.js';
 
-export const APP_VERSION = '2.1.0';
+export const APP_VERSION = '2.2.0';
 
 // ---------- 공용 ----------
 C.save = (keys) => { for (const k of keys) C.store.save(k).catch((e) => console.warn('save', k, e)); };
@@ -370,7 +370,7 @@ function renderResult() {
       const label = unit.part === 6 ? `空所(${q.blank})` : q.question;
       html += `<details class="card"><summary><span class="tag ${tag[0]}">${tag[1]}</span> <span class="small">Part ${unit.part} · ${h(String(label || '').replace(/-{7}/, '___').slice(0, 70))}</span></summary>
         ${unit.part >= 6 ? `<p class="xs muted">本文は間違いノートで解き直すときに見られます。</p>` : ''}
-        ${explainHtml(q, unit, a, { causeFor: att })}</details>`;
+        ${explainHtml(q, unit, a, { causeFor: att, inPlay: false })}</details>`;
     }
     const concepts = [...new Set(wrongQs.filter((w) => !w.a || w.a.choice !== w.q.answer).map((w) => w.q.concept))];
     if (concepts.length) html += `<button class="btn primary block" data-act="reviewConcepts" data-c="${concepts.join(',')}">間違えたタイプをステップ復習・${concepts.length}タイプ</button>`;

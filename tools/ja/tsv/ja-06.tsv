@@ -92,7 +92,7 @@ p5-135|t1	are presentingは能動の進行形なので目的語が必要。
 p5-135|t2	have presentedは能動の完了なので、意味も形も合わない。
 p5-136|why	A and Bが主語なら複数。attendingと一緒に進行形を作る複数のbe動詞areが正解。
 p5-136|t0	isは単数の動詞なので、2人が主語の文と合わない。
-p5-136|t2	wasは単数形。
+p5-136|t2	wasは単数の過去形。主語が2人（A and B）なので複数形でなければならず、attendingと一緒に今進行中のことを言う文。
 p5-136|t3	hasはattendingと組み合わせられない。
 p5-137|why	One of + 複数名詞の主語はOne（単数）。単数動詞needsが正解。
 p5-137|t0	needはprintersに合わせた複数形。本当の主語はOne。
@@ -100,7 +100,7 @@ p5-137|t1	needingは分詞なので述語動詞になれない。
 p5-137|t3	have neededは複数の動詞の形。
 p5-138|why	neither A nor Bは動詞をBに合わせる。Bのthe managersが複数なのでwereが正解。
 p5-138|t0	wasは単数なので、近い方の主語managersと合わない。
-p5-138|t1	isも単数の動詞なので、近い方の主語managersと合わない。
+p5-138|t1	isも単数。neither A nor Bの動詞はB（the managers、複数）に合わせるので、単数形は使えない。
 p5-138|t2	has beenは単数の動詞の形。
 p5-139|why	Every + 単数名詞は単数扱い。in the newly renovated hotelは修飾語なので、単数動詞offers。
 p5-139|t0	offerは複数の動詞の形。修飾語が長いので主語を見失いやすい。

@@ -50,6 +50,7 @@ def main(folder, check_only):
         d = json.load(open(SRC / 'data' / f))
         for u in d['units']:
             for q in u.get('questions') or [u]:
+                if q.get('trans'): q['trans'] = t(f"{q['id']}|trans")
                 ex = q['explanation']
                 ex['why'] = t(f"{q['id']}|why")
                 ex['traps'] = [None if x is None else t(f"{q['id']}|t{i}") for i, x in enumerate(ex['traps'])]

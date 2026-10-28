@@ -92,7 +92,7 @@ p5-135|t1	are presenting은 능동 진행형이라 목적어가 필요하다.
 p5-135|t2	have presented는 능동 완료라 의미와 구조 모두 맞지 않는다.
 p5-136|why	A and B가 주어면 복수다. attending과 함께 진행형을 만드는 복수 be동사 are가 정답.
 p5-136|t0	is는 단수 동사라 두 사람이 주어인 문장과 맞지 않는다.
-p5-136|t2	was는 단수형이다.
+p5-136|t2	was는 단수 과거형이다. 주어가 두 사람(A and B)이라 복수형이어야 하고, attending과 함께 현재 진행 중인 일을 말하는 문장이다.
 p5-136|t3	has는 attending과 결합하지 못한다.
 p5-137|why	One of + 복수 명사의 주어는 One(단수)이다. 단수 동사 needs가 정답.
 p5-137|t0	need는 printers에 맞춘 복수형이다. 진짜 주어는 One.
@@ -100,7 +100,7 @@ p5-137|t1	needing은 분사라 본동사가 될 수 없다.
 p5-137|t3	have needed는 복수 동사형이다.
 p5-138|why	neither A nor B는 동사를 B에 맞춘다. B인 the managers가 복수이므로 were가 정답.
 p5-138|t0	was는 단수라 가까운 주어 managers와 맞지 않는다.
-p5-138|t1	is도 단수다.
+p5-138|t1	is도 단수다. neither A nor B의 동사는 B(the managers, 복수)에 맞추므로 단수형은 쓸 수 없다.
 p5-138|t2	has been은 단수 동사형이다.
 p5-139|why	Every + 단수 명사는 단수 취급한다. in the newly renovated hotel은 수식어이므로 단수 동사 offers.
 p5-139|t0	offer는 복수 동사형이다. 수식어가 길어 주어를 놓치기 쉽다.

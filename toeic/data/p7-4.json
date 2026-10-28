@@ -68,9 +68,13 @@
        null,
        "배송 불만은 두 번째 이메일의 내용이다.",
        "소식지는 할인 정보의 출처로 언급되었을 뿐이다.",
-       "카탈로그 요청은 없다."
+       "카탈로그 요청은 없다. 주문서를 첨부했다고 했으므로 이미 품목을 정한 상태다."
       ]
-     }
+     },
+     "trans": "Park 씨는 왜 첫 번째 이메일을 보냈는가?",
+     "evidence": [
+      "Please process the attached order for our new office on Bay Street."
+     ]
     },
     {
      "id": "p7-t01-2",
@@ -88,10 +92,10 @@
      "explanation": {
       "why": "첫 이메일에서 'As a returning customer'(재구매 고객으로서)라고 했고, 송장에 로열티 할인이 적용되었다. 이전에 Supply Hub에서 구매한 적이 있다.",
       "traps": [
-       "사무실 크기 비교는 없다.",
+       "사무실 크기 비교는 없다. 새 사무실(new office on Bay Street)로 옮긴다는 말만 있다.",
        null,
        "소식지는 Supply Hub가 발행한 것이다.",
-       "송장의 할인율은 5퍼센트다."
+       "송장의 할인율은 5퍼센트(Loyalty discount (5%))다. 10퍼센트가 아니다."
       ]
      },
      "para": [
@@ -99,6 +103,10 @@
        "p": "As a returning customer",
        "a": "has purchased from Supply Hub before"
       }
+     ],
+     "trans": "Corvus Design에 대해 무엇을 알 수 있는가?",
+     "evidence": [
+      "As a returning customer, we would like to use the loyalty discount"
      ]
     },
     {
@@ -122,7 +130,12 @@
        "문제가 된 것은 스탠딩 데스크의 수량뿐이다.",
        null
       ]
-     }
+     },
+     "trans": "잘못된 수량으로 배송된 품목은?",
+     "evidence": [
+      "we received eight standing desks rather than the four we ordered",
+      "Standing desk"
+     ]
     },
     {
      "id": "p7-t01-4",
@@ -145,7 +158,11 @@
        "10월 9일은 배송일이다. 날짜가 여러 개 나오는 연계 문제의 대표 함정.",
        null
       ]
-     }
+     },
+     "trans": "Corvus Design 직원들은 언제 새 사무실에서 일을 시작하는가?",
+     "evidence": [
+      "We need all items delivered by October 10, which is when our staff will move in."
+     ]
     },
     {
      "id": "p7-t01-5",
@@ -165,7 +182,7 @@
       "traps": [
        null,
        "의자에 대한 문제 제기는 없다.",
-       "추가 할인 요청은 없다.",
+       "추가 할인 요청은 없다. 할인은 첫 이메일에서 이미 적용을 요청했고 송장에 반영되었다.",
        "오히려 내일 전에 보내 달라고 했다."
       ]
      },
@@ -174,6 +191,10 @@
        "p": "one of the lamps has a cracked base … send a replacement",
        "a": "A replacement for a damaged item"
       }
+     ],
+     "trans": "Park 씨는 두 번째 이메일에서 무엇을 요청하는가?",
+     "evidence": [
+      "one of the lamps has a cracked base. If possible, please send a replacement"
      ]
     }
    ]
@@ -255,6 +276,10 @@
        "p": "For the first time … outdoor screenings … free to the public",
        "a": "free screenings for the first time"
       }
+     ],
+     "trans": "올해 영화제에 대해 무엇이 언급되어 있는가?",
+     "evidence": [
+      "For the first time, the festival will also offer outdoor screenings in Riverside Park, which will be free to the public."
      ]
     },
     {
@@ -276,9 +301,14 @@
        "매진되었다는 정보는 없다. 판매 기한이 지났을 뿐이다.",
        null,
        "웹사이트 문제는 언급되지 않았다.",
-       "가격 때문이라는 말은 없다."
+       "가격 때문이라는 말은 없다. 패스를 못 산 이유는 '더 이상 팔지 않는다(no longer being sold)'는 것이다."
       ]
-     }
+     },
+     "trans": "Whitfield 씨는 왜 영화제 패스를 살 수 없었는가?",
+     "evidence": [
+      "Passes are available only until May 31.",
+      "Date: June 2"
+     ]
     },
     {
      "id": "p7-t02-3",
@@ -304,7 +334,12 @@
        "80달러는 패스 가격인데 패스는 더 이상 팔지 않는다.",
        "160달러는 패스 두 장 가격이다."
       ]
-     }
+     },
+     "trans": "Whitfield 씨가 자신과 Kim 씨의 토요일 표에 쓸 돈은 얼마이겠는가?",
+     "evidence": [
+      "Tickets for individual screenings cost $12",
+      "I'll only need to buy tickets for the first one"
+     ]
     },
     {
      "id": "p7-t02-4",
@@ -327,7 +362,12 @@
        "Arcadia Cinema는 9시 30분 City of Glass 장소이고, 그는 다큐멘터리 두 편을 보려 한다.",
        "저녁 식사는 두 영화 '사이'에 하자고 했으므로 7시에는 영화를 보고 있다."
       ]
-     }
+     },
+     "trans": "Whitfield 씨는 토요일 오후 7시에 어디에 있겠는가?",
+     "evidence": [
+      "Northern Lights (documentary)",
+      "I'd really like to see the two documentaries"
+     ]
     },
     {
      "id": "p7-t02-5",
@@ -356,6 +396,10 @@
        "p": "get dinner",
        "a": "Having a meal together"
       }
+     ],
+     "trans": "Whitfield 씨는 Kim 씨에게 무엇을 제안하는가?",
+     "evidence": [
+      "Do you want to get dinner between the two films?"
      ]
     }
    ]
@@ -397,7 +441,7 @@
      "explanation": {
       "why": "주니어 엔지니어와 선임 직원을 연결하는 멘토링 프로그램을 새로 시작한다(is launching)고 알리는 메모다.",
       "traps": [
-       "승진 발표 내용은 없다.",
+       "승진 발표 내용은 없다. 멘토링 프로그램 안내다.",
        "근무 시간 변경 이야기는 없다.",
        "신규 엔지니어 채용이 아니라 사내 직원 대상 프로그램이다.",
        null
@@ -408,6 +452,10 @@
        "p": "is launching a mentorship program",
        "a": "introduce a new program"
       }
+     ],
+     "trans": "메모의 목적은?",
+     "evidence": [
+      "Halvorsen Engineering is launching a mentorship program that pairs junior engineers with senior staff."
      ]
     },
     {
@@ -431,7 +479,12 @@
        "마감은 1월 24일이고 그는 1월 21일에 제출했다.",
        "그의 부서는 Structural Design이다."
       ]
-     }
+     },
+     "trans": "Navarro 씨에 대해 무엇이 언급되어 있는가?",
+     "evidence": [
+      "Senior staff with at least eight years at the company are eligible to serve as mentors.",
+      "Years with Halvorsen: 9"
+     ]
     },
     {
      "id": "p7-t03-3",
@@ -452,9 +505,14 @@
        "근무 층에 대한 정보는 없다.",
        "이름으로 지명했다는 내용은 없다. 관심 분야를 말했을 뿐이다.",
        null,
-       "현재 상사라는 정보는 없다."
+       "현재 상사라는 정보는 없다. 같은 부서(Structural Design)라는 점만 알 수 있다."
       ]
-     }
+     },
+     "trans": "Ito 씨는 왜 Navarro 씨와 짝이 되었겠는가?",
+     "evidence": [
+      "Areas of expertise: bridge design, project scheduling",
+      "she is especially interested in learning about project scheduling"
+     ]
     },
     {
      "id": "p7-t03-4",
@@ -472,7 +530,7 @@
      "explanation": {
       "why": "신청서의 희망 요일은 수요일인데, 이메일에서 Ms. Ito가 3월까지 수요일마다 교육 과정을 듣는다고 했다.",
       "traps": [
-       "출장 이야기는 없다.",
+       "출장 이야기는 없다. 수요일에 안 되는 이유는 Ms. Ito의 교육 과정이다.",
        null,
        "회의실 예약 문제는 언급되지 않았다.",
        "March는 Ms. Ito의 교육이 끝나는 시점이지 프로그램 시작 시점이 아니다."
@@ -483,6 +541,11 @@
        "p": "she attends a training course on Wednesdays",
        "a": "Ms. Ito has a class on that day."
       }
+     ],
+     "trans": "Navarro 씨가 희망한 요일이 처음에 쓰이지 않는 이유는?",
+     "evidence": [
+      "Preferred meeting day: Wednesday",
+      "Because she attends a training course on Wednesdays until March"
      ]
     },
     {
@@ -501,12 +564,16 @@
      "explanation": {
       "why": "메모에서 멘토와 멘티는 6개월 동안 2주마다 1시간씩(one hour every two weeks) 만난다고 했다.",
       "traps": [
-       "매주가 아니라 2주마다다.",
+       "매주(every week)가 아니라 2주마다(every two weeks)다.",
        null,
        "한 달에 한 번이라는 말은 없다.",
        "6개월 동안 정기적으로 만난다."
       ]
-     }
+     },
+     "trans": "Navarro 씨와 Ito 씨는 얼마나 자주 만나는가?",
+     "evidence": [
+      "Mentors and mentees will meet for one hour every two weeks for six months."
+     ]
     }
    ]
   }

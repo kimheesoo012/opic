@@ -439,6 +439,18 @@ T['js/screens.js'] += [
     ("if (ev.goalReached) toast('오늘 목표 달성');", "if (ev.goalReached) toast('今日の目標達成');"),
 ]
 
+# ---- 해설 구조 (2.2) ----
+T['js/player.js'] += [
+    ('<div class="qtr"><span class="lbl">질문</span>${h(q.trans)}</div>', '<div class="qtr"><span class="lbl">設問</span>${h(q.trans)}</div>'),
+    ("sec('정답 이유',", "sec('正解の理由',"),
+    ("out += sec('해석',", "out += sec('訳',"),
+    ("sec(q.type === 'insert' ? '삽입 문장 해석' : '빈칸 문장 해석',", "sec(q.type === 'insert' ? '挿入文の訳' : '空所の文の訳',"),
+    ("sec('근거 문장',", "sec('根拠の文',"),
+    ('data-act="scrollEv">지문에서 보기</button>', 'data-act="scrollEv">本文で見る</button>'),
+    ('<div class="lbl">선택지</div><ul class="traps">', '<div class="lbl">選択肢</div><ul class="traps">'),
+    ("toast('이 지문에는 강조할 문장이 없습니다.');", "toast('この文書には強調する文がありません。');"),
+]
+
 HANGUL = re.compile(r'[가-힣]')
 
 
