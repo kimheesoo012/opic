@@ -9,7 +9,7 @@ const LONG = /^[うい]$|^ー$/;
 const POS_KO = { n: '명사', v: '동사', a: 'い형용사', na: 'な형용사', adv: '부사', exp: '표현' };
 
 // 조사 고르기: josa('대칭', '은는') → '대칭은'. 한글은 받침으로, 가나는 ん만 받침으로 본다.
-const PAIRS = { 은는: ['은', '는'], 이가: ['이', '가'], 을를: ['을', '를'], 과와: ['과', '와'], 으로로: ['으로', '로'] };
+const PAIRS = { 은는: ['은', '는'], 이가: ['이', '가'], 을를: ['을', '를'], 과와: ['과', '와'], 으로로: ['으로', '로'], 이에요예요: ['이에요', '예요'], 이라는라는: ['이라는', '라는'] };
 export function josa(word, pair) {
   const w = String(word).replace(/[\s」』)）\].,、。]+$/, '');
   const c = w[w.length - 1] || '';
@@ -25,8 +25,10 @@ export function josa(word, pair) {
   return word + (bat ? a : b);
 }
 const q = (t) => `「${t}」`;
+// 조사만: pt('파악', '이라는라는') → '이라는'
+export const pt = (word, pair) => josa(word, pair).slice(String(word).length);
 
-// 정답 읽기와 틀린 읽기의 차이를 말로 (공통 앞뒤를 빼고 다른 부분만 본다)
+// 정답 읽기와 틀린 읽기의 차이를 말로 (공통 앞뒤를 빼고 다른 부분만 본다). 틀린 사람에게 말해 주듯 쓴다.
 export function readingDiff(right, wrong) {
   let p = 0;
   while (p < right.length && p < wrong.length && right[p] === wrong[p]) p++;
@@ -34,25 +36,27 @@ export function readingDiff(right, wrong) {
   while (s < right.length - p && s < wrong.length - p && right[right.length - 1 - s] === wrong[wrong.length - 1 - s]) s++;
   const a = right.slice(p, right.length - s);
   const b = wrong.slice(p, wrong.length - s);
+  let before = right.slice(Math.max(0, p - 1), p);
+  if (/[ゃゅょ]/.test(before) && p >= 2) before = right.slice(p - 2, p);
   if (!a && b) {
-    if (b === 'っ') return '없는 촉음(っ)이 붙었다';
-    if (LONG.test(b)) return `없는 장음(${b})이 붙었다`;
-    return `${josa(q(b), '이가')} 더 들어갔다`;
+    if (b === 'っ') return `${before ? before + ' 뒤에 ' : ''}촉음 っ가 들어갈 자리가 아니에요. 끊지 않고 이어서 읽어요.`;
+    if (LONG.test(b)) return `${before ? before + '는 ' : ''}길게 늘이지 않고 짧게 읽어요. 장음 ${b}가 붙지 않아요.`;
+    return `${josa(b, '이가')} 더 들어간 읽기예요.`;
   }
   if (a && !b) {
-    if (a === 'っ') return '촉음(っ)이 빠졌다';
-    if (LONG.test(a)) return `장음(${a})이 빠졌다`;
-    return `${josa(q(a), '이가')} 빠졌다`;
+    if (a === 'っ') return `${before ? before + ' 뒤에 ' : ''}촉음 っ가 들어가요. 한 박자 끊어서 읽어요.`;
+    if (LONG.test(a)) return `${before ? before + '는 ' : ''}장음이라서 ${before}${a}로 길게 읽어요. ${a}가 빠지면 다른 말이 돼요.`;
+    return `${josa(a, '이가')} 빠진 읽기예요.`;
   }
   if (a.length === 1 && b.length === 1) {
-    if (VOICED[a] === b) return `${josa(q(a), '을를')} 탁음 ${josa(q(b), '으로로')} 읽었다 (여기서는 탁음이 되지 않는다)`;
-    if (VOICED[b] === a) return `탁음 ${josa(q(a), '을를')} 청음 ${josa(q(b), '으로로')} 읽었다`;
-    if (HANDAKU[a] === b || HANDAKU[b] === a || (VOICED[Object.keys(HANDAKU).find((k) => HANDAKU[k] === a)] === b) || (VOICED[Object.keys(HANDAKU).find((k) => HANDAKU[k] === b)] === a)) return `${q(a)}·${q(b)}(반탁음·탁음)를 바꿔 읽었다`;
-    if (SMALL[a] === b) return `작은 ${josa(q(a), '을를')} 큰 ${josa(q(b), '으로로')} 읽었다`;
-    if (SMALL[b] === a) return `큰 ${josa(q(a), '을를')} 작은 ${josa(q(b), '으로로')} 읽었다`;
-    if (LONG.test(a)) return `장음 ${q(a)} 자리를 ${josa(q(b), '으로로')} 읽었다`;
+    if (VOICED[a] === b) return `여기서는 ${a}가 탁음이 되지 않아요. ${b}가 아니라 ${a}로 읽어요.`;
+    if (VOICED[b] === a) return `여기서는 ${b}가 탁음이 돼서 ${a}로 읽어요.`;
+    if (HANDAKU[a] === b || HANDAKU[b] === a || (VOICED[Object.keys(HANDAKU).find((k) => HANDAKU[k] === a)] === b) || (VOICED[Object.keys(HANDAKU).find((k) => HANDAKU[k] === b)] === a)) return `${a}와 ${b}가 헷갈리기 쉬워요. 여기서는 ${a}예요.`;
+    if (SMALL[a] === b) return `작은 ${a}예요. 큰 ${b}로 읽으면 박자가 하나 늘어서 다른 말이 돼요.`;
+    if (SMALL[b] === a) return `큰 ${a}예요. 작은 ${b}로 읽으면 박자가 줄어서 다른 말이 돼요.`;
+    if (LONG.test(a)) return `${before}${a}로 길게 늘여 읽는 자리예요. ${b}가 아니에요.`;
   }
-  return `${q(a)} 부분을 ${josa(q(b), '으로로')} 읽었다`;
+  return `${a} 자리를 ${josa(b, '으로로')} 잘못 읽은 거예요.`;
 }
 
 // 읽기가 표기와 같으면(가타카나어 등) 읽기를 붙이지 않는다
@@ -64,12 +68,18 @@ const plain = (t = '') => String(t).replace(/\[([^\]|]+)(\|[^\]]*)?\]/g, '$1').r
 const shortC = (c = '') => c.replace(/\s*[（(][^）)]*[）)]/g, '').split(' / ')[0].split(/\.\s/)[0].trim();
 // 해설 한 줄용 짧은 꼴: 문법은 「뜻 · 접속」, 어휘는 「읽기 · 뜻」 (선택지 글자는 화면이 따로 보여 주므로 되풀이하지 않는다)
 export const shortConnOf = (g) => shortC(g.c || '');
-export const gShort = (g) => (g ? [g.m, shortC(g.c)].filter(Boolean).join(' · ') : '');
+// 문법 한 줄: 「~할 리가 없다」라는 뜻이에요. 접속은 동사 ます형＋っこない예요.
+export const gShort = (g) => (g ? `「${g.m}」${pt(g.m, '이라는라는')} 뜻이에요.${shortC(g.c) ? ` 접속은 ${shortC(g.c)}${pt(shortC(g.c), '이에요예요')}.` : ''}` : '');
+// 어휘 한 줄: ○○라고 읽고, 「뜻」이라는 뜻이에요. (가타카나어는 읽기 생략)
 export const vShort = (k) => {
   const v = VOCAB[k];
   if (!v) return '';
-  return k2h(k) === v.r || k === v.r ? v.m : `${v.r} · ${v.m}`;
+  const noRead = k2h(k) === v.r || k === v.r;
+  return noRead ? `「${v.m}」${pt(v.m, '이라는라는')} 뜻이에요.` : `${v.r}라고 읽고, 「${v.m}」${pt(v.m, '이라는라는')} 뜻이에요.`;
 };
+// 예문 [ja, ko]
+export const vocabEx = (k) => (VOCAB[k] && VOCAB[k].ex ? [VOCAB[k].ex, VOCAB[k].exk || ''] : null);
+export const grammarEx = (k) => (GRAMMAR[k] && Array.isArray(GRAMMAR[k].ex) && GRAMMAR[k].ex[0] ? [plain(GRAMMAR[k].ex[0][0]), GRAMMAR[k].ex[0][1]] : null);
 // 「わけがない」 같은 형태로 문법 항목 찾기
 export function grammarByForm(form) {
   if (GRAMMAR[form]) return { key: form, ...GRAMMAR[form] };
