@@ -4,6 +4,7 @@ import { sceneOf, firstSceneOf } from './scenes.js';
 import { GRAMMAR } from '../data/grammar.js';
 import { h, renderExample, renderJa, renderSpeaker, LINES } from './render.js';
 import { store } from './store.js';
+import { nameInfo, splitSentJa } from '../engine/text.js';
 
 
 // 표시 언어 (설정을 직접 읽는다: 팝업은 어느 화면에서나 열린다)
@@ -154,4 +155,27 @@ export function grammarPopup(app, key, scene, mode) {
 
 export function speakerLabel(sp, s, mode) {
   return renderSpeaker(sp, s, mode);
+}
+
+// 점선 이름을 탭하면 보이는 작은 창: 이름·읽기·종류, 누구(무엇)인지, 이름 속 말의 뜻. 내용은 세계 설정에 있는 것만.
+// 일본어 모드: 일본어 이름·종류(人物·道場…)와 일본어 소개 아래에 한국어 풀이 (다른 창과 같은 방식)
+export function namePopup(app, q, state) {
+  const s = state || app.state || app.refState();
+  const info = nameInfo(s, q);
+  const ja = uiJa();
+  const mode = app.settings ? app.settings.furigana : 'always';
+  const jaText = (text) => h('p', { class: 'pn-desc', lang: 'ja' }, splitSentJa(text).map((t) => renderJa(t, { s, mode, targets: new Set() })));
+  const summary = [info.ko, info.roleKo ? (ja && info.roleJa ? `${info.roleKo}(${info.roleJa})` : info.roleKo) : null, info.area, info.label].filter(Boolean).join(' · ');
+  const desc = info.desc ? (info.descThen ? `처음 만났을 때: ${info.desc}` : info.desc) + (info.ageNow ? ` 지금 ${info.ageNow}살.` : '') : null;
+  modal(app, info.value,
+    h('div', { class: 'v-head' },
+      h('span', { class: 'v-word pn-word', lang: 'ja' }, info.value),
+      info.reading && info.reading !== info.value ? h('span', { class: 'v-read', lang: 'ja' }, info.reading) : null,
+      info.kind ? h('span', { class: 'v-lv', lang: ja ? 'ja' : 'ko' }, ja ? info.kindJa : info.kindKo) : null),
+    info.full ? h('div', { class: 'pn-full', lang: 'ja' }, `${info.full}（${info.fullReading}）`) : null,
+    summary ? h('p', { class: 'v-mean' }, summary) : null,
+    ja && info.descJa ? jaText(info.descJa) : null,
+    desc ? h('p', { class: 'pn-desc ko' }, desc) : null,
+    info.parts.length ? h('ul', { class: 'pn-parts' }, info.parts.map((x) => h('li', null, h('b', { lang: 'ja' }, x.w), x.r !== x.w ? h('span', { class: 'pn-r', lang: 'ja' }, x.r) : null, h('span', null, x.ko)))) : null,
+    !summary && !desc && !info.parts.length ? h('p', { class: 'v-mean' }, ja ? '名前（固有名詞）' : '이름(고유명사)') : null);
 }

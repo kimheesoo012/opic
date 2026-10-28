@@ -12,8 +12,15 @@ import { icon } from './icons.js';
 import { store } from './store.js';
 import { quizLog, noteScene, sceneQuizDue, cardDue, reschedule } from '../engine/quizplan.js';
 import { planQuiz, renderQuiz } from './playquiz.js';
+import { modal } from './vocabui.js';
+import { legendView, LEGEND_TITLE } from './help.js';
 
 const CAT = { daily: '日常', kendo: '稽古', sub: 'サブストーリー', iincho: '委員長', cast: '道場の人々', milestone: '節目', hub: '日常' };
+const CAT_KO = { daily: '일상', kendo: '연습(稽古)', sub: '서브 스토리', iincho: '위원장', cast: '도장 사람들', milestone: '중요한 고비', hub: '일상' };
+// 처음 한 번 뜨는 표시 안내가 열려 있는 동안 오토를 멈춘다. 다만 오래(실제 시간 25초) 두면 다시 흐른다 (오토 감상이 멈춰 버리지 않게)
+const LEGEND_HOLD_MS = 25000;
+// 이야기 칸 아래쪽 여백(styles.css ux 블록의 .panel padding-bottom)보다 더 가려져 있으면 「▼ 続き」
+const MORE_PAD = 16;
 const STAT_ORDER = ['hap', 'hea', 'back', 'soc', 'brave', 'mis'];
 const RUBY_SCENES = 4; // 확인 문제가 고르는 범위(최근 네 장면, quizplan RECENT_SCENES)와 같게
 // 이름은 줄바꿈할 자리(<wbr>)를 넣어 둘로 나눈다 (작은 창에서 두 줄로)
@@ -78,6 +85,14 @@ export class GameView {
       this.statsDetail);
     // ── 이야기 칸과 버튼
     this.panel = h('div', { class: 'panel pad', 'aria-live': 'polite' });
+    // 직접 스크롤해도 「▼ 続き」 단추가 바로 바뀌게
+    this.panel.addEventListener('scroll', () => {
+      if (this.moreRaf) return;
+      this.moreRaf = requestAnimationFrame(() => {
+        this.moreRaf = 0;
+        this.updateMore();
+      });
+    }, { passive: true });
     this.foot = h('div', { class: 'foot pad' });
     this.logEl = h('div', { class: 'log' });
     this.el = h('div', { class: 'screen game' }, top, h('div', { class: 'pad' }, this.device), this.panel, this.foot);
@@ -144,6 +159,12 @@ export class GameView {
     const w = (k * 160) / dpr;
     this.canvas.style.width = w + 'px';
     this.canvas.style.height = (w * 96) / 160 + 'px';
+    // 짧은 화면: 계절·성장 단계·접기 단추를 도트 창 위의 줄 대신 도트 창 양옆의 빈 자리에 둔다 (세로 40px 남짓을 이야기 칸에)
+    // 양옆 자리가 좁은 기기(폭 360px 미만 등)에서는 예전처럼 위의 한 줄
+    // 기기 안쪽 폭(clientWidth − 좌우 padding 16) − 도트 창(캔버스 + padding 8) − 칸 사이 간격 12
+    const side = (this.device.clientWidth - 16 - (w + 8) - 12) / 2;
+    this.el.classList.toggle('lcd-side', short && side >= 48);
+    this.updateMore();
   }
 
   // ───── 시간 ─────
@@ -151,6 +172,11 @@ export class GameView {
     const now = performance.now();
     const dt = Math.min(200, now - this.last);
     this.last = now;
+    // 글자 크기·번역·창 크기가 바뀌어도 「▼ 続き」가 맞게 (가볍게, 0.3초마다)
+    if (!(now - (this.moreAt || 0) < 300)) {
+      this.moreAt = now;
+      this.updateMore();
+    }
     if (this.paused || this.app.modalOpen() || this.quiz) return;
     const sp = this.set.speed;
     const s = this.s;
@@ -171,17 +197,20 @@ export class GameView {
         break;
       }
       case 'event':
+        if (this.legendHold()) break;
         if (this.autoActive() && !this.manualOnce) {
           this.wait += dt * sp;
           const delay = eventShowMs(G.view(s)) * (this.set.focus ? 1.6 : 1);
           if (!this.autoShown && this.wait > delay * 0.4) this.showAutoPick();
-          if (this.wait > delay) this.doChoose(this.autoIdx, true);
+          if (this.autoRead(delay) && this.wait > delay) this.doChoose(this.autoIdx, true);
         }
         break;
       case 'result':
+        if (this.legendHold()) break;
         if (this.autoActive()) {
           this.wait += dt * sp;
-          if (this.wait > this.resultMs * (this.set.focus ? 1.6 : 1)) this.doAck();
+          const delay = this.resultMs * (this.set.focus ? 1.6 : 1);
+          if (this.autoRead(delay) && this.wait > delay) this.doAck();
         }
         break;
       case 'word':
@@ -401,12 +430,13 @@ export class GameView {
 
   log(text, textJa = null) {
     this.pendingLog = this.pendingLog || [];
-    this.pendingLog.push(this.ja && textJa ? textJa : text);
+    this.pendingLog.push({ ko: text, ja: textJa });
   }
+  // 계절 사이의 기록 줄. 일본어 모드: 일본어로 쓰고, 탭하면 한국어가 아래에
   flushLog() {
     const s = this.s;
     for (const l of s.log.splice(0)) this.log(l.text, l.textJa ? plainJa(l.textJa, { s }) : null);
-    for (const t of this.pendingLog || []) this.logEl.prepend(h('p', null, t));
+    for (const { ko, ja } of this.pendingLog || []) this.logEl.prepend(this.ja && ja ? tapKo(h('p', { lang: 'ja' }, ja), ko) : h('p', null, ko));
     this.pendingLog = [];
     while (this.logEl.children.length > 3) this.logEl.lastChild.remove();
   }
@@ -434,7 +464,8 @@ export class GameView {
       seenWords: this.seenWords,
       seenTerms: this.seenTerms,
       seenNames: this.seenNames,
-      onName: (base, reading) => this.app.toast(`${base}（${reading}）`),
+      // 점선 이름: 읽기와 누구(무엇)인지 풀이 창
+      onName: (q) => this.app.openName(q, this.s),
       newTerms: [],
       rubySeen: this.bag ? this.bag.ruby : null,
       saved: new Set(Object.keys(store.wordbook())),
@@ -457,18 +488,20 @@ export class GameView {
   }
 
   // 일본어 서술: 문장마다 탭하면 그 문장의 한국어가 아래에 나온다 (낱말 밑줄을 탭하면 해설 창)
-  // 대사 칸처럼 오른쪽 위에 「訳」: 누르면 서술 전체의 한국어를 문장마다 한 줄씩, 다시 누르면(閉じる) 닫는다
+  // 서술 전체의 번역은 머리줄의 「全訳」이 대사와 함께 열고 닫는다 (this.tr에 등록)
   narrBlock(ja, ko, title, targets, cls = 'ev-text jp') {
     const jaS = splitSentJa(ja);
     const koS = splitSentKo(resolveKo(ko || '', { s: this.s }));
     const aligned = jaS.length === koS.length;
     const p = h('p', { class: cls, lang: 'ja' });
     const koBox = h('div', { class: 'sent-ko', hidden: true, lang: 'ko' });
-    const btn = h('button', { class: 'mini-btn line-ko narr-ko', type: 'button', 'aria-pressed': 'false', 'aria-label': '서술 번역' }, '訳');
     let open = -1; // -1 닫힘 · i 그 문장만 · 'all' 전부
     const show = (which) => {
       open = which;
-      spans.forEach((x, j) => x.classList.toggle('on', which === j));
+      spans.forEach((x, j) => {
+        x.classList.toggle('on', which === j);
+        x.setAttribute('aria-expanded', String(which === j || which === 'all'));
+      });
       if (which === -1) koBox.hidden = true;
       else {
         const rows = which === 'all' ? (aligned ? koS : [koS.join(' ')]) : [aligned ? koS[which] : koS.join(' ')];
@@ -476,33 +509,33 @@ export class GameView {
         koBox.hidden = false;
         for (const t of which === 'all' ? jaS : [jaS[which]]) this.app.noteTranslate(t);
       }
-      btn.textContent = which === -1 ? '訳' : '閉じる';
-      btn.setAttribute('aria-pressed', String(which !== -1));
     };
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      show(open === -1 ? 'all' : -1);
-    });
     const spans = jaS.map((sent, i) => {
       const ctx = this.ctxFor(null);
       ctx.targets = targets;
       const scene = () => ({ tpl: sent, role: null, ja: plainJa(sent, { s: this.s }), ko: aligned ? koS[i] : koS.join(' '), sp: '', title, when: this.ageText() });
       ctx.onWord = (key) => this.app.openWord(key, scene());
       ctx.onGrammar = (key) => this.app.openGrammar(key, scene());
-      const span = h('span', { class: 'sent', role: 'button', tabindex: '0', 'aria-label': '이 문장 번역' }, renderJa(sent, ctx));
-      const toggle = () => show(open === i ? -1 : i);
+      const span = h('span', { class: 'sent', role: 'button', tabindex: '0', 'aria-expanded': 'false', 'aria-label': '이 문장 번역' }, renderJa(sent, ctx));
+      const toggle = () => {
+        show(open === i ? -1 : i);
+        this.translated();
+      };
       span.addEventListener('click', toggle);
       span.addEventListener('keydown', (e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), toggle()));
       return span;
     });
     p.append(...spans);
     markLead(p);
-    return h('div', { class: 'narr' }, koS.length ? btn : null, p, koBox);
+    if (koS.length) this.tr.push({ on: () => open === 'all', set: (on) => (on ? open !== 'all' && show('all') : open !== -1 && show(-1)) });
+    return h('div', { class: 'narr' }, p, koBox);
   }
 
+  // 대사: 화자 이름을 첫 줄 앞에 붙여 쓴다(이름 줄 하나만큼 세로 자리를 아낀다).
+  // 일본어 모드: 대사를 탭하면 그 대사의 한국어가 아래에, 다시 탭하면 닫힌다. 오른쪽 위의 작은 「訳」도 같은 일 (키보드·화면 읽기용)
+  // 대사 속 밑줄 단어·문법·점선 이름은 제 창을 연다 (그쪽에서 탭을 멈춘다)
   renderLines(lines, title, ids = null) {
     const box = h('div', { class: 'lines' });
-    const kos = [];
     const focus = !!this.set.focus;
     const targetIds = ids || this.sceneIds(lines.map((l) => l[1]));
     const targets = new Set(targetIds);
@@ -511,20 +544,44 @@ export class GameView {
       const ctx = this.ctxFor(sp);
       ctx.targets = targets;
       const koText = resolveKo(ko, { s: this.s });
-      const koEl = h('div', { class: 'ko', hidden: this.ja }, koText);
-      kos.push(koEl);
-      const scene = () => ({ tpl: ja, role: sp, ja: plainSegs(ja, { s: this.s, speaker: sp }), ko: koText, sp: spLabelText(sp, this.s), title, when: `${this.ageText()} ${SEASON_KO[G.season(this.s)]}` });
+      const koEl = h('div', { class: 'ko', hidden: this.ja, lang: 'ko' }, koText);
+      const spName = spLabelText(sp, this.s);
+      const scene = () => ({ tpl: ja, role: sp, ja: plainSegs(ja, { s: this.s, speaker: sp }), ko: koText, sp: spName, title, when: `${this.ageText()} ${SEASON_KO[G.season(this.s)]}` });
       for (const id of targetIds) if (!scenes[id] && lineHas(ja, id)) scenes[id] = scene;
       ctx.onWord = (key) => this.app.openWord(key, scene());
       ctx.onGrammar = (key) => this.app.openGrammar(key, scene());
-      // 학습 집중 모드: 대사마다 번역 버튼
-      const lineTool = focus && this.ja ? h('button', { class: 'mini-btn line-ko', type: 'button', onclick: (e) => { koEl.hidden = !koEl.hidden; e.currentTarget.textContent = koEl.hidden ? '訳' : '閉じる'; if (!koEl.hidden) this.app.noteTranslate(ja); } }, '訳') : null;
-      box.append(h('div', { class: 'line' }, h('div', { class: 'sp' }, renderSpeaker(sp, this.s, this.set.furigana, ctx), lineTool), h('div', { class: 'ja' }, markLead(renderJa(ja, ctx))), koEl));
-    }
-    if (kos.length && !focus && this.ja) {
-      let on = false;
-      const btn = h('button', { class: 'mini-btn', type: 'button', onclick: () => { on = !on; kos.forEach((k) => (k.hidden = !on)); btn.textContent = on ? '訳を閉じる' : '訳'; if (on) lines.forEach((l) => this.app.noteTranslate(l[1])); } }, '訳');
-      box.append(h('div', { class: 'tools' }, btn));
+      const spEl = h('span', { class: 'sp' }, renderSpeaker(sp, this.s, this.set.furigana, ctx));
+      const jaEl = h('div', { class: 'ja' }, renderJa(ja, ctx));
+      if (!this.ja) {
+        box.append(h('div', { class: 'line dl' }, spEl, jaEl, koEl));
+        continue;
+      }
+      const btn = h('button', { class: 'mini-btn line-tr', type: 'button', 'aria-pressed': 'false', 'aria-label': `${spName} 대사 번역` }, '訳');
+      const line = h('div', { class: 'line dl tap' }, btn, spEl, jaEl, koEl);
+      const set = (on) => {
+        if (on === !koEl.hidden) return;
+        koEl.hidden = !on;
+        line.classList.toggle('on', on);
+        btn.setAttribute('aria-pressed', String(on));
+        if (on) this.app.noteTranslate(ja);
+      };
+      const toggle = () => {
+        set(koEl.hidden);
+        this.translated();
+      };
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggle();
+      });
+      line.addEventListener('click', (e) => {
+        if (e.target.closest && e.target.closest('button, input, a, .pn')) return;
+        // 글자를 길게 눌러 고르는 중이면 번역을 열지 않는다
+        const sel = window.getSelection && window.getSelection();
+        if (sel && !sel.isCollapsed && line.contains(sel.anchorNode)) return;
+        toggle();
+      });
+      this.tr.push({ on: () => !koEl.hidden, set });
+      box.append(line);
     }
     // 학습 집중 모드: 이 장면의 학습 대상 목록 (탭하면 해설)
     if (focus && targetIds.length) {
@@ -537,12 +594,54 @@ export class GameView {
     return box;
   }
 
-  // 일본어 제목: 탭하면 한국어 제목
+  // 일본어 제목: 탭하면 한국어 제목 (「全訳」에도 들어간다)
   titleEl(ja, ko) {
     if (!ja) return h('h3', { class: 'ev-title' }, resolveKo(ko || '', { s: this.s }));
     const koEl = h('span', { class: 'title-ko', hidden: true, lang: 'ko' }, ko);
-    const el = h('h3', { class: 'ev-title jp', lang: 'ja', role: 'button', tabindex: '0', onclick: () => (koEl.hidden = !koEl.hidden) }, markLead(renderJa(ja, { ...this.ctxFor(null), targets: new Set() })), koEl);
+    const el = h('h3', { class: 'ev-title jp', lang: 'ja', role: 'button', tabindex: '0', 'aria-expanded': 'false' }, markLead(renderJa(ja, { ...this.ctxFor(null), targets: new Set() })), koEl);
+    const set = (on) => {
+      if (on === !koEl.hidden) return;
+      koEl.hidden = !on;
+      el.setAttribute('aria-expanded', String(on));
+      if (on) this.app.noteTranslate(ja);
+    };
+    const toggle = () => {
+      set(koEl.hidden);
+      this.translated();
+    };
+    el.addEventListener('click', toggle);
+    el.addEventListener('keydown', (e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), toggle()));
+    this.tr.push({ on: () => !koEl.hidden, set });
     return el;
+  }
+
+  // 장면 머리줄: 제목 · 갈래(탭하면 한국어) · 「全訳」(일본어 모드). 한 줄에 모아 이야기 칸의 세로 자리를 아낀다.
+  // 「全訳」은 몸통을 다 그린 뒤 번역할 것이 있을 때만 보인다 (finishHead)
+  sceneHead(titleNode, catJa, catKo) {
+    const cat = catJa ? h('button', { class: 'ev-cat', type: 'button', lang: 'ja', 'aria-label': `${catJa} (${catKo})`, onclick: () => this.app.toast(`${catJa} — ${catKo}`) }, catJa) : null;
+    this.allBtn = this.ja ? h('button', { class: 'mini-btn tr-all', type: 'button', 'aria-pressed': 'false', 'aria-label': '장면 전체 번역', hidden: true, onclick: () => this.toggleAll() }, '全訳') : null;
+    return h('div', { class: 'ev-head' }, titleNode, cat, this.allBtn);
+  }
+  finishHead() {
+    if (this.allBtn) this.allBtn.hidden = !this.tr.length;
+    this.syncAll();
+  }
+  // 「全訳」: 하나라도 닫혀 있으면 모두 열고, 모두 열려 있으면 모두 닫는다
+  toggleAll() {
+    const on = !this.tr.every((t) => t.on());
+    for (const t of this.tr) t.set(on);
+    this.translated();
+  }
+  syncAll() {
+    if (!this.allBtn) return;
+    const on = this.tr.length > 0 && this.tr.every((t) => t.on());
+    this.allBtn.textContent = on ? '閉じる' : '全訳';
+    this.allBtn.setAttribute('aria-pressed', String(on));
+  }
+  // 번역을 열거나 닫았다: 「全訳」 표시와 「▼ 続き」를 맞춘다
+  translated() {
+    this.syncAll();
+    this.updateMore();
   }
 
   // 한국어 해설은 상황만 짧게: 앞 문장(40자 안팎)만 보이고 나머지는 「더보기」. 일본어 대사가 주인공이다.

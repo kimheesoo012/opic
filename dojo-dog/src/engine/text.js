@@ -2,7 +2,9 @@
 //  {key} {key.prop} {key|조사}  : 자리표시자 (개 이름 N, 이전 견 P, 마을 T, 상점가 S, 신사 SH, 강 RV, 도장 D, 역할 이름, 화자 1인칭 I)
 //  [표기|어휘키] 또는 [어휘키]   : 일본어 대사 안의 학습 단어 (밑줄)
 //  《표기|어휘키》 또는 《어휘키》 : 한국어 해설 안의 일본어 용어 (검도 용어 등)
-import { personFor } from './world.js';
+import { personFor, PEOPLE, PROMOTE, ROLES, ROLE_KO, ROLE_JA } from './world.js';
+import { CONTINUED_JA } from '../data/ja/misc.js';
+import { KIND, PARTS, PART_KEYS, PERSON_PARTS, PLACES, CONTINUED_KO } from '../data/proper.js';
 
 const JOSA = {
   은: ['은', '는'], 는: ['은', '는'], 이: ['이', '가'], 가: ['이', '가'], 을: ['을', '를'], 를: ['을', '를'],
@@ -203,4 +205,112 @@ export function kanjiLevel(word, extra = null) {
 export function isHardKanji(base) {
   for (const ch of base) if (/[一-鿿]/.test(ch) && !BASIC_SET.has(ch)) return true;
   return false;
+}
+
+// ───── 고유명사 풀이 (점선을 눌렀을 때) ─────
+// 점선을 긋지 않는 자리표시자: 화자의 1인칭(私·俺·僕…), 숫자, 개 이름, 도장 사범의 이력 문구
+export const NAME_PLAIN = new Set(['I', 'Y', 'N', 'BG']);
+const PLACE_KEYS = { D: 'dojo', T: 'town', S: 'street', SH: 'shrine', RV: 'river', P: 'prevdog' };
+
+// 이름 전체의 읽기 (한자 조각은 NAME_READ 읽기, 가나는 그대로)
+export function nameReading(str) {
+  return rubyName(String(str || ''))
+    .map((x) => (Array.isArray(x) ? x[1] : x))
+    .join('');
+}
+
+// 이름 속 뜻이 있는 조각 (剣友会·町·通り·稲荷…). 사람 이름에서는 호칭(先生·さん…)만.
+export function nameParts(value, person = false) {
+  const out = [];
+  const v = String(value || '');
+  for (let i = 0; i < v.length; ) {
+    const k = PART_KEYS.find((x) => v.startsWith(x, i) && (!person || PERSON_PARTS.has(x)));
+    if (!k) {
+      i++;
+      continue;
+    }
+    if (!out.some((x) => x.w === k)) out.push({ w: k, r: PARTS[k][0], ko: PARTS[k][1] });
+    i += k.length;
+  }
+  return out;
+}
+
+const fullName = (p) => (p.s && p.g ? (/^[ァ-ヶー]+$/.test(p.s) ? `${p.s}・${p.g}` : `${p.s}${p.g}`) : p.g || p.call || '');
+const namesOf = (p) => [p.call, p.c, p.g, p.s, fullName(p), p.s && p.g ? `${p.s} ${p.g}` : null].filter(Boolean);
+
+// 자리표시자 키가 없는 이름(대사에 그대로 나온 이름·화면 밖 문장)을 이번 견생의 사람·장소에서 찾는다
+function findKey(s, value) {
+  if (!s || !value) return null;
+  const w = s.world;
+  if (w) {
+    if (value === w.dojoName) return { key: 'D' };
+    const r = w.region || {};
+    if (value === r.town) return { key: 'T' };
+    if (value === r.street) return { key: 'S' };
+    if (value === r.shrine) return { key: 'SH' };
+    if (value === r.river) return { key: 'RV' };
+  }
+  if (s.prevDog && value === s.prevDog.name) return { key: 'P' };
+  if (value === '委員長') return { key: 'iincho' };
+  for (const role of ROLES) if (s.cast && s.cast[role] && namesOf(personFor(s.cast, role)).includes(value)) return { key: role };
+  // 이번 견생에 없는 사람(예: 도장 소개 글 속 鷲尾)
+  for (const [id, p] of Object.entries(PEOPLE)) if (id !== 'iincho' && namesOf(p).includes(value)) return { person: id };
+  return null;
+}
+
+// 점선 이름의 풀이: { value, reading, kind, kindKo, kindJa, ko(한국어 이름), role/roleKo/roleJa, desc, descJa, area, parts[] }
+// 사람은 이번 견생의 역할(s.cast)과 인물 소개(PEOPLE), 장소는 세계 설정(s.world)에 있는 사실만 쓴다.
+export function nameInfo(s, q = {}) {
+  const value = String(q.value || '');
+  const out = { value, reading: q.reading || nameReading(value), kind: null, ko: null, desc: null, descJa: null, parts: [] };
+  const found = q.key ? { key: q.key } : findKey(s, value);
+  const key = found && found.key;
+  const setKind = (k) => Object.assign(out, { kind: k, kindKo: KIND[k][0], kindJa: KIND[k][1] });
+  if (key && PLACE_KEYS[key] && s && s.world) {
+    const w = s.world;
+    const r = w.region || {};
+    setKind(PLACE_KEYS[key]);
+    out.parts = nameParts(value, key === 'P');
+    if (key === 'D') Object.assign(out, { ko: w.dojoNameKo, label: w.dojo.ko, labelJa: w.dojo.labelJa || null, desc: w.dojo.desc, descJa: w.dojo.descJa || null });
+    else if (key === 'T') Object.assign(out, { ko: r.townKo, area: r.ko, desc: r.desc, descJa: r.descJa || null });
+    else if (key === 'S') Object.assign(out, { ko: r.streetKo, area: r.ko });
+    else if (key === 'SH') Object.assign(out, { ko: r.shrineKo, area: r.ko });
+    else if (key === 'RV') Object.assign(out, { ko: r.riverKo, area: r.ko });
+    else if (key === 'P') {
+      const prev = s.prevDog;
+      Object.assign(out, { ko: prev ? prev.nameKo : '선대', desc: prev ? `이 도장에서 전에 살던 개. 무지개다리를 건넌 지 ${w.yearsLater || 0}년.` : '이 도장에서 전에 살던 개.' });
+    }
+    return out;
+  }
+  const role = key && (key === 'iincho' || (s && s.cast && s.cast[key])) ? key : null;
+  if (role || (found && found.person)) {
+    const p = role === 'iincho' ? { id: 'iincho', ...PEOPLE.iincho } : role ? personFor(s.cast, role) : { id: found.person, ...PEOPLE[found.person] };
+    setKind('person');
+    const continued = !!(role && s.world && s.world.continued && CONTINUED_KO[role]);
+    const promoted = !!(role && PROMOTE[p.id] && PROMOTE[p.id][role]);
+    out.ko = p.ko;
+    out.full = p.s || p.g ? fullName(p) : null;
+    if (out.full === value) out.full = null;
+    out.fullReading = out.full ? nameReading(out.full) : null;
+    out.role = role;
+    out.roleKo = role ? ROLE_KO[role] : null;
+    out.roleJa = role ? ROLE_JA[role] : null;
+    out.desc = continued ? CONTINUED_KO[role] : p.desc || null;
+    out.descJa = continued ? CONTINUED_JA[role] || null : p.descJa || null;
+    // 초등부 아이는 자란다: 소개 글은 처음 만났을 때의 것
+    const years = s && typeof s.t === 'number' ? Math.floor(s.t / 4) : 0;
+    if (role === 'kid' && !continued && !promoted && p.age && years >= 1) {
+      out.ageNow = p.age + years;
+      out.descThen = true;
+    }
+    out.parts = nameParts(value, true);
+    return out;
+  }
+  const place = PLACES[value];
+  if (place) {
+    setKind(place[1] === 'person' ? 'person' : place[1]);
+    out.ko = place[0];
+  }
+  out.parts = nameParts(value, !place || place[1] === 'person');
+  return out;
 }

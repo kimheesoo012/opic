@@ -1,12 +1,12 @@
 // 앱 셸: 화면 전환, 설정, 저장, 소리, 학습 기록
 import * as G from '../engine/core.js';
 import { COATS, HAIRS, PERSONALITIES } from '../engine/world.js';
-import { h, LINES, sceneTargets } from './render.js';
+import { h, LINES, sceneTargets, setNameHandler } from './render.js';
 import { store } from './store.js';
 import { Sound } from './audio.js';
 import { GameView } from './game.js';
 import { farewellScreen, memorialScreen, resultScreen, ageLabel } from './end.js';
-import { wordPopup, grammarPopup } from './vocabui.js';
+import { wordPopup, grammarPopup, namePopup } from './vocabui.js';
 import { studyScreen, quizScreen, dailyIds, progressBox, recordMet, engage, reviewCounts } from './studyui.js';
 import { n2Screen, n2SummaryBox } from './n2ui.js';
 import { LCD, fitCanvas } from './pixel/lcd.js';
@@ -29,6 +29,8 @@ class App {
     this.cur = 'title';
     this.lcds = [];
     this.applyTheme();
+    // 점선 이름은 어느 화면에서 눌러도 풀이 창 (render.js nameUnit)
+    setNameHandler((q, s) => this.openName(q, s));
     // 소리 설정은 기억하지만, 브라우저 정책상 첫 탭 이후에만 켠다
     // 안드로이드(갤럭시·LINE 내장 브라우저)는 터치의 pointerdown으로는 소리를 열어 주지 않으므로 pointerup·touchend·click도 듣는다
     if (this.settings.sound) {
@@ -120,6 +122,10 @@ class App {
   // 단어 뜻 창: wordPopup이 onWordSaved를 부르므로 거기서 등록한다 (단어장·N2 목록에서 연 창도 같다)
   openWord(key, scene) {
     wordPopup(this, key, scene, this.settings.furigana);
+  }
+  // 점선 이름 풀이 창 (학습 기록에는 남기지 않는다)
+  openName(q, s) {
+    namePopup(this, q, s || this.state || this.refState());
   }
   // 문법 뜻 창을 열었다 → 간격 반복에 등록
   openGrammar(key, scene) {
