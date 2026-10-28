@@ -138,12 +138,12 @@ try {
   await p.click('[data-act="ptransGo"]');
   await p.waitForSelector('.passage.tr-on');
   const tr7 = await p.evaluate(() => { const ptr = [...document.querySelectorAll('.passage .ptr')]; return { n: ptr.length, pp: document.querySelectorAll('.passage .pp').length, txt: ptr.map((e) => e.textContent).join(' ') }; });
-  ok('Part 7 지문 해석 일본어, 문단마다', tr7.n > 0 && tr7.n === tr7.pp && KANA.test(tr7.txt) && !HANGUL.test(tr7.txt) && (await p.textContent('[data-act="ptrans"]')) === '訳を隠す', `${tr7.n}/${tr7.pp} ${tr7.txt.slice(0, 60)}`);
+  ok('Part 7 지문 해석 일본어, 문단마다', tr7.n > 0 && tr7.n <= tr7.pp && KANA.test(tr7.txt) && !HANGUL.test(tr7.txt) && (await p.textContent('[data-act="ptrans"]')) === '訳を隠す', `${tr7.n}/${tr7.pp} ${tr7.txt.slice(0, 60)}`);
   await checkText(p, 'Part 7 本文の訳');
   await shot(p, '05b-p7-trans');
   await p.click('[data-act="exitAsk"]');
   await p.click('[data-act="exitFinish"]');
-  await p.waitForSelector('.pt-det');
+  await p.waitForSelector('.pt-det', { state: 'attached' });
   const det = await p.evaluate(() => { const d = document.querySelector('.pt-det'); return { sum: d.querySelector('summary').textContent, txt: [...d.querySelectorAll('.ptr')].map((e) => e.textContent).join(' ') }; });
   ok('결과 화면: 本文と訳', det.sum === '本文と訳' && KANA.test(det.txt) && !HANGUL.test(det.txt), det.sum);
   await checkText(p, '結果 本文と訳');

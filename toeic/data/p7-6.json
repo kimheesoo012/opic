@@ -41,12 +41,54 @@
         "$1,099"
        ]
       ]
+     },
+     "trans": [
+      "Brewline 에스프레소 머신",
+      "모든 모델에는 2년 품질 보증이 제공됩니다. 500달러를 초과하는 주문은 무료로 배송됩니다. 기계를 3대 이상 구매하는 업체는 무료 설치를 받으실 수 있습니다."
+     ],
+     "transTable": {
+      "header": [
+       "모델",
+       "하루 처리 잔 수",
+       "우유 거품기",
+       "가격"
+      ],
+      "rows": [
+       [
+        "Brewline 100",
+        "최대 20잔",
+        "없음",
+        "249달러"
+       ],
+       [
+        "Brewline 200",
+        "최대 50잔",
+        "있음",
+        "449달러"
+       ],
+       [
+        "Brewline 300",
+        "최대 100잔",
+        "있음",
+        "799달러"
+       ],
+       [
+        "Brewline 300 Pro",
+        "최대 150잔",
+        "있음 (듀얼)",
+        "1,099달러"
+       ]
+      ]
      }
     },
     {
      "kind": "online review",
      "title": "Customer Review",
-     "text": "Posted by Rachel Dunn, owner, Cornerstone Café ★★★★☆\n\nWe bought two machines for our café last month. We serve about 90 coffees a day, many with steamed milk, so we chose the model that could handle that volume without paying for the largest one. Shipping was free and fast. My only complaint is that we had to install the machines ourselves, which took most of an afternoon. The coffee has been excellent, and our customers have noticed."
+     "text": "Posted by Rachel Dunn, owner, Cornerstone Café ★★★★☆\n\nWe bought two machines for our café last month. We serve about 90 coffees a day, many with steamed milk, so we chose the model that could handle that volume without paying for the largest one. Shipping was free and fast. My only complaint is that we had to install the machines ourselves, which took most of an afternoon. The coffee has been excellent, and our customers have noticed.",
+     "trans": [
+      "작성자: Rachel Dunn, Cornerstone Café 사장 ★★★★☆",
+      "지난달 저희 카페에 쓸 기계를 2대 구입했어요. 저희는 하루에 커피를 약 90잔 내는데 그중 다수가 스팀 우유가 들어간 음료라서, 가장 큰 모델에 돈을 들이지 않고도 그 정도 양을 감당할 수 있는 모델을 골랐어요. 배송은 무료였고 빨랐어요. 유일한 불만은 기계를 저희가 직접 설치해야 했다는 점인데, 오후 시간 대부분이 걸렸어요. 커피 맛은 정말 훌륭하고, 손님들도 그걸 알아차렸어요."
+     ]
     }
    ],
    "questions": [
@@ -229,12 +271,52 @@
         ""
        ]
       ]
+     },
+     "trans": [
+      "Coastal Express Bus — Port Allen 출발 평일 시간표",
+      "승차권은 온라인 또는 버스 기사에게서 구입하실 수 있습니다(현금만 가능). 월 정기권을 소지한 승객은 어느 버스에나 탑승하실 수 있습니다."
+     ],
+     "transTable": {
+      "header": [
+       "Port Allen 출발",
+       "Danford 도착",
+       "비고"
+      ],
+      "rows": [
+       [
+        "오전 6:15",
+        "오전 7:40",
+        ""
+       ],
+       [
+        "오전 7:30",
+        "오전 8:50",
+        "급행, 무정차"
+       ],
+       [
+        "오전 9:00",
+        "오전 10:35",
+        ""
+       ],
+       [
+        "오후 12:45",
+        "오후 2:10",
+        ""
+       ]
+      ]
      }
     },
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: Tom Reyes\nFrom: Olivia Grant\nDate: Monday, May 4\nSubject: Thursday trip\n\nTom,\n\nI've scheduled our meeting with the Danford city planners for 9:30 A.M. on Thursday at their office, which is a ten-minute walk from the bus station. I'd rather not drive, since parking downtown is difficult. Let's take the bus that gets us there with enough time to walk over, but not hours early.\n\nI'll buy both tickets online tonight, so you won't need cash.\n\nOlivia"
+     "text": "To: Tom Reyes\nFrom: Olivia Grant\nDate: Monday, May 4\nSubject: Thursday trip\n\nTom,\n\nI've scheduled our meeting with the Danford city planners for 9:30 A.M. on Thursday at their office, which is a ten-minute walk from the bus station. I'd rather not drive, since parking downtown is difficult. Let's take the bus that gets us there with enough time to walk over, but not hours early.\n\nI'll buy both tickets online tonight, so you won't need cash.\n\nOlivia",
+     "trans": [
+      "받는 사람: Tom Reyes\n보낸 사람: Olivia Grant\n날짜: 5월 4일 월요일\n제목: 목요일 출장",
+      "Tom 씨,",
+      "Danford 시 도시 계획 담당자들과의 회의를 목요일 오전 9:30에 그쪽 사무실에서 하기로 잡았는데, 그 사무실은 버스 터미널에서 걸어서 10분 거리입니다. 시내는 주차하기가 어려워서 저는 차를 가져가지 않는 편이 좋겠습니다. 걸어갈 시간은 충분하되 몇 시간씩 일찍 도착하지는 않는 버스를 탑시다.",
+      "오늘 밤 제가 승차권 두 장을 모두 온라인으로 구입할 테니, 현금은 필요 없을 겁니다.",
+      "Olivia"
+     ]
     }
    ],
    "questions": [
@@ -422,12 +504,51 @@
         "$300"
        ]
       ]
+     },
+     "trans": [
+      "Greenleaf Landscaping — Hollis Office Park 견적서\n수신: Carla Mendes, 시설 관리자\n날짜: 4월 3일",
+      "월 총비용: 1,210달러\n본 견적은 30일간 유효합니다. 2년 계약을 체결하시는 고객께는 모든 서비스에 대해 10% 할인을 제공합니다."
+     ],
+     "transTable": {
+      "header": [
+       "서비스",
+       "빈도",
+       "월 비용"
+      ],
+      "rows": [
+       [
+        "잔디 깎기",
+        "매주",
+        "640달러"
+       ],
+       [
+        "산울타리 손질",
+        "매월",
+        "180달러"
+       ],
+       [
+        "계절별 식재",
+        "연 2회",
+        "90달러"
+       ],
+       [
+        "제설",
+        "필요 시 (11월–3월)",
+        "300달러"
+       ]
+      ]
      }
     },
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: estimates@greenleaf.example\nFrom: Carla Mendes\nDate: April 12\nSubject: Hollis Office Park estimate\n\nThank you for the estimate. Our board has approved most of it, but we have decided to handle snow removal ourselves, since our maintenance crew already has the equipment. Please revise the estimate without that service.\n\nWe are also interested in a longer agreement if it lowers our costs, so please include the discount you mentioned in the revised figure. We would like work to begin on May 1.\n\nCarla Mendes"
+     "text": "To: estimates@greenleaf.example\nFrom: Carla Mendes\nDate: April 12\nSubject: Hollis Office Park estimate\n\nThank you for the estimate. Our board has approved most of it, but we have decided to handle snow removal ourselves, since our maintenance crew already has the equipment. Please revise the estimate without that service.\n\nWe are also interested in a longer agreement if it lowers our costs, so please include the discount you mentioned in the revised figure. We would like work to begin on May 1.\n\nCarla Mendes",
+     "trans": [
+      "받는 사람: estimates@greenleaf.example\n보낸 사람: Carla Mendes\n날짜: 4월 12일\n제목: Hollis Office Park 견적",
+      "견적서를 보내 주셔서 감사합니다. 저희 이사회에서 견적 내용 대부분을 승인했지만, 저희 시설 관리팀이 이미 장비를 갖추고 있어서 제설 작업은 저희가 직접 하기로 결정했습니다. 해당 서비스를 제외하고 견적을 수정해 주십시오.",
+      "또한 비용을 줄일 수 있다면 더 장기적인 계약에도 관심이 있으니, 수정된 금액에 말씀하신 할인을 반영해 주십시오. 작업은 5월 1일에 시작되었으면 합니다.",
+      "Carla Mendes"
+     ]
     }
    ],
    "questions": [
@@ -589,12 +710,24 @@
     {
      "kind": "article",
      "title": "Article",
-     "text": "City to Expand Bike-Share Program\n\nLEXFORD (March 5) — The city of Lexford will add 40 new bike-share stations this summer, bringing the total to 120. The new stations will be located mainly in the eastern neighborhoods of Brookside and Millbrae, which currently have no stations.\n\nAnnual memberships will remain $60, but the price of a single ride will rise from $2.00 to $2.50 on July 1 to help pay for the expansion. Station locations will be finalized after a public meeting on April 2 at City Hall."
+     "text": "City to Expand Bike-Share Program\n\nLEXFORD (March 5) — The city of Lexford will add 40 new bike-share stations this summer, bringing the total to 120. The new stations will be located mainly in the eastern neighborhoods of Brookside and Millbrae, which currently have no stations.\n\nAnnual memberships will remain $60, but the price of a single ride will rise from $2.00 to $2.50 on July 1 to help pay for the expansion. Station locations will be finalized after a public meeting on April 2 at City Hall.",
+     "trans": [
+      "시, 공공자전거 프로그램 확대",
+      "LEXFORD (3월 5일) — Lexford 시가 올여름 공공자전거 대여소 40곳을 새로 추가해 총 120곳으로 늘린다. 새 대여소는 주로 현재 대여소가 한 곳도 없는 동부 지역의 Brookside와 Millbrae 동네에 설치될 예정이다.",
+      "연간 회원권 가격은 60달러로 유지되지만, 확대에 드는 비용을 충당하기 위해 1회 이용 요금은 7월 1일부터 2.00달러에서 2.50달러로 인상된다. 대여소 위치는 4월 2일 시청에서 열리는 공청회 이후에 확정될 예정이다."
+     ]
     },
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: Lexford Transportation Office\nFrom: Ana Duarte\nDate: March 9\nSubject: Bike-share expansion\n\nDear Transportation Office,\n\nI live in Millbrae and am pleased that our neighborhood will finally get bike-share stations. I ride about four times a week, mostly to and from the train station. I plan to attend the April 2 meeting to suggest a station near Millbrae Station, where many commuters would use it.\n\nI also wanted to ask whether the price change will affect people like me who pay for single rides. If so, I may switch to a membership.\n\nSincerely,\nAna Duarte"
+     "text": "To: Lexford Transportation Office\nFrom: Ana Duarte\nDate: March 9\nSubject: Bike-share expansion\n\nDear Transportation Office,\n\nI live in Millbrae and am pleased that our neighborhood will finally get bike-share stations. I ride about four times a week, mostly to and from the train station. I plan to attend the April 2 meeting to suggest a station near Millbrae Station, where many commuters would use it.\n\nI also wanted to ask whether the price change will affect people like me who pay for single rides. If so, I may switch to a membership.\n\nSincerely,\nAna Duarte",
+     "trans": [
+      "받는 사람: Lexford Transportation Office\n보낸 사람: Ana Duarte\n날짜: 3월 9일\n제목: 공공자전거 확대",
+      "교통국 담당자께,",
+      "저는 Millbrae에 살고 있으며, 저희 동네에 드디어 공공자전거 대여소가 생긴다니 기쁩니다. 저는 일주일에 네 번 정도 자전거를 타는데, 주로 기차역을 오갈 때 이용합니다. 4월 2일 회의에 참석해서, 많은 통근자들이 이용할 만한 Millbrae Station 근처에 대여소를 설치하자고 제안할 계획입니다.",
+      "또한 이번 요금 변경이 저처럼 1회 이용 요금을 내는 사람들에게도 영향을 미치는지 여쭤보고 싶었습니다. 만약 그렇다면 회원권으로 바꿀 수도 있습니다.",
+      "감사합니다.\nAna Duarte"
+     ]
     }
    ],
    "questions": [
@@ -751,17 +884,37 @@
     {
      "kind": "job posting",
      "title": "Job Posting",
-     "text": "Halden Museum of Science — Education Coordinator\nPart-time, 25 hours per week\n\nResponsibilities: planning hands-on science workshops for school groups, training volunteer guides, and managing workshop bookings.\n\nRequirements: a degree in science or education; at least two years of experience teaching children; ability to work some Saturdays. Fluency in Spanish is a plus.\n\nApply by May 9 by sending a cover letter and résumé to jobs@haldenmuseum.example."
+     "text": "Halden Museum of Science — Education Coordinator\nPart-time, 25 hours per week\n\nResponsibilities: planning hands-on science workshops for school groups, training volunteer guides, and managing workshop bookings.\n\nRequirements: a degree in science or education; at least two years of experience teaching children; ability to work some Saturdays. Fluency in Spanish is a plus.\n\nApply by May 9 by sending a cover letter and résumé to jobs@haldenmuseum.example.",
+     "trans": [
+      "Halden Museum of Science — 교육 코디네이터\n시간제, 주 25시간",
+      "담당 업무: 학교 단체를 위한 체험형 과학 워크숍 기획, 자원봉사 가이드 교육, 워크숍 예약 관리.",
+      "자격 요건: 과학 또는 교육 분야 학위, 최소 2년의 아동 교육 경력, 일부 토요일 근무 가능. 스페인어에 능통한 분은 우대합니다.",
+      "5월 9일까지 자기소개서와 이력서를 jobs@haldenmuseum.example로 보내 지원해 주십시오."
+     ]
     },
     {
      "kind": "email",
      "title": "E-mail 1",
-     "text": "To: jobs@haldenmuseum.example\nFrom: Priya Shah\nDate: May 6\nSubject: Education Coordinator application\n\nDear Hiring Committee,\n\nI am applying for the education coordinator position. I hold a degree in biology and have spent the past three years teaching science at Crestview Elementary School. I also volunteered for two summers at the Riverside Aquarium, where I led tours for visiting families.\n\nI am available on weekends and would be happy to work Saturdays. My résumé is attached.\n\nPriya Shah"
+     "text": "To: jobs@haldenmuseum.example\nFrom: Priya Shah\nDate: May 6\nSubject: Education Coordinator application\n\nDear Hiring Committee,\n\nI am applying for the education coordinator position. I hold a degree in biology and have spent the past three years teaching science at Crestview Elementary School. I also volunteered for two summers at the Riverside Aquarium, where I led tours for visiting families.\n\nI am available on weekends and would be happy to work Saturdays. My résumé is attached.\n\nPriya Shah",
+     "trans": [
+      "받는 사람: jobs@haldenmuseum.example\n보낸 사람: Priya Shah\n날짜: 5월 6일\n제목: 교육 코디네이터 지원",
+      "채용 위원회 귀중,",
+      "교육 코디네이터 직에 지원합니다. 저는 생물학 학위를 보유하고 있으며, 지난 3년간 Crestview Elementary School에서 과학을 가르쳐 왔습니다. 또한 두 해 여름 동안 Riverside Aquarium에서 자원봉사를 하며 방문 가족들을 위한 투어를 진행했습니다.",
+      "저는 주말에 근무할 수 있으며, 토요일 근무도 기꺼이 하겠습니다. 이력서를 첨부합니다.",
+      "Priya Shah"
+     ]
     },
     {
      "kind": "email",
      "title": "E-mail 2",
-     "text": "To: Priya Shah\nFrom: Leo Martin, Human Resources\nDate: May 13\nSubject: Interview invitation\n\nDear Ms. Shah,\n\nThank you for your application. We would like to invite you to an interview on May 20 at 10:00 A.M. As part of the interview, you will be asked to lead a ten-minute sample activity for a small group of staff members, as if they were ten-year-old students. Please bring any materials you need.\n\nThe interview will take place in the Discovery Room on the museum's second floor.\n\nLeo Martin"
+     "text": "To: Priya Shah\nFrom: Leo Martin, Human Resources\nDate: May 13\nSubject: Interview invitation\n\nDear Ms. Shah,\n\nThank you for your application. We would like to invite you to an interview on May 20 at 10:00 A.M. As part of the interview, you will be asked to lead a ten-minute sample activity for a small group of staff members, as if they were ten-year-old students. Please bring any materials you need.\n\nThe interview will take place in the Discovery Room on the museum's second floor.\n\nLeo Martin",
+     "trans": [
+      "받는 사람: Priya Shah\n보낸 사람: Leo Martin, 인사부\n날짜: 5월 13일\n제목: 면접 안내",
+      "Shah 씨께,",
+      "지원해 주셔서 감사합니다. 5월 20일 오전 10:00 면접에 귀하를 초대하고자 합니다. 면접의 일환으로, 소수의 직원들을 10살 학생들이라고 가정하고 그들을 대상으로 10분간 시범 활동을 진행해 주셔야 합니다. 필요한 자료는 모두 지참해 주십시오.",
+      "면접은 박물관 2층의 Discovery Room에서 진행됩니다.",
+      "Leo Martin"
+     ]
     }
    ],
    "questions": [
@@ -917,7 +1070,11 @@
     {
      "kind": "notice",
      "title": "Notice",
-     "text": "Conference Room Booking Rules — Tellis Building\n\nRooms may be booked through the online system up to 30 days in advance. Bookings longer than four hours require approval from the office manager. Room C is the only room with a video conferencing system. Room D seats 30; all other rooms seat 12. Please cancel unused bookings at least 24 hours in advance so that others may use the room."
+     "text": "Conference Room Booking Rules — Tellis Building\n\nRooms may be booked through the online system up to 30 days in advance. Bookings longer than four hours require approval from the office manager. Room C is the only room with a video conferencing system. Room D seats 30; all other rooms seat 12. Please cancel unused bookings at least 24 hours in advance so that others may use the room.",
+     "trans": [
+      "회의실 예약 규칙 — Tellis Building",
+      "회의실은 온라인 시스템을 통해 최대 30일 전까지 미리 예약할 수 있습니다. 4시간을 초과하는 예약은 사무실 관리자의 승인을 받아야 합니다. 화상 회의 시스템이 있는 회의실은 C실뿐입니다. D실은 30명을 수용할 수 있으며, 나머지 회의실은 모두 12명을 수용할 수 있습니다. 다른 사람들이 회의실을 이용할 수 있도록, 사용하지 않을 예약은 최소 24시간 전에 취소해 주십시오."
+     ]
     },
     {
      "kind": "schedule",
@@ -961,12 +1118,61 @@
         ""
        ]
       ]
+     },
+     "trans": [
+      "예약 현황표 — 6월 10일 화요일"
+     ],
+     "transTable": {
+      "header": [
+       "회의실",
+       "9–11",
+       "11–1",
+       "1–3",
+       "3–5"
+      ],
+      "rows": [
+       [
+        "A",
+        "영업팀",
+        "",
+        "",
+        "인사팀"
+       ],
+       [
+        "B",
+        "",
+        "",
+        "재무팀",
+        ""
+       ],
+       [
+        "C",
+        "IT 교육",
+        "IT 교육",
+        "",
+        "마케팅팀"
+       ],
+       [
+        "D",
+        "",
+        "전 직원 점심",
+        "",
+        ""
+       ]
+      ]
      }
     },
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: Sam Okafor\nFrom: Grace Lee\nDate: Friday, June 6\nSubject: Room for Tuesday\n\nHi Sam,\n\nI need a room on Tuesday from 1 to 3 for a call with our partners in Singapore. There will be eight of us in the room, and we'll be meeting the partners by video. Can you book something for me?\n\nAlso, I don't think the marketing team will need their 3–5 slot after all. Their client canceled.\n\nGrace"
+     "text": "To: Sam Okafor\nFrom: Grace Lee\nDate: Friday, June 6\nSubject: Room for Tuesday\n\nHi Sam,\n\nI need a room on Tuesday from 1 to 3 for a call with our partners in Singapore. There will be eight of us in the room, and we'll be meeting the partners by video. Can you book something for me?\n\nAlso, I don't think the marketing team will need their 3–5 slot after all. Their client canceled.\n\nGrace",
+     "trans": [
+      "받는 사람: Sam Okafor\n보낸 사람: Grace Lee\n날짜: 6월 6일 금요일\n제목: 화요일 회의실",
+      "안녕하세요, Sam 씨.",
+      "화요일 1시부터 3시까지 싱가포르에 있는 협력사와 통화할 회의실이 필요합니다. 회의실에는 저희 측 8명이 있을 예정이고, 협력사와는 화상으로 만날 겁니다. 회의실을 하나 예약해 주실 수 있을까요?",
+      "그리고 마케팅팀은 결국 3–5시 시간대가 필요 없을 것 같습니다. 마케팅팀의 고객이 취소했거든요.",
+      "Grace"
+     ]
     }
    ],
    "questions": [
@@ -1150,12 +1356,47 @@
         "$1,500"
        ]
       ]
+     },
+     "trans": [
+      "Pacific Home Expo — 참가업체 안내\nVancouver Convention Centre, 9월 12–14일",
+      "가격에는 테이블 1개, 의자 2개, 전기가 포함됩니다. 6월 30일 이전에 예약하는 참가업체는 15% 할인을 받습니다. 각 참가업체에는 무료 입장 배지 4개가 제공되며, 추가 배지는 개당 40달러입니다."
+     ],
+     "transTable": {
+      "header": [
+       "부스 유형",
+       "크기",
+       "가격"
+      ],
+      "rows": [
+       [
+        "일반",
+        "3 m × 3 m",
+        "1,200달러"
+       ],
+       [
+        "대형",
+        "6 m × 3 m",
+        "2,100달러"
+       ],
+       [
+        "코너",
+        "3 m × 3 m, 두 면 개방",
+        "1,500달러"
+       ]
+      ]
      }
     },
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: exhibitors@pacifichomeexpo.example\nFrom: Martin Holt, Holt Lighting\nDate: July 3\nSubject: Booth reservation\n\nHello,\n\nWe would like to reserve a booth at this year's expo. We want our lamps to be visible from two aisles, so please assign us a space with two open sides. We do not need more floor space than that. We will have six staff members working at the booth over the three days.\n\nPlease send the invoice to my attention.\n\nMartin Holt"
+     "text": "To: exhibitors@pacifichomeexpo.example\nFrom: Martin Holt, Holt Lighting\nDate: July 3\nSubject: Booth reservation\n\nHello,\n\nWe would like to reserve a booth at this year's expo. We want our lamps to be visible from two aisles, so please assign us a space with two open sides. We do not need more floor space than that. We will have six staff members working at the booth over the three days.\n\nPlease send the invoice to my attention.\n\nMartin Holt",
+     "trans": [
+      "받는 사람: exhibitors@pacifichomeexpo.example\n보낸 사람: Martin Holt, Holt Lighting\n날짜: 7월 3일\n제목: 부스 예약",
+      "안녕하세요.",
+      "올해 박람회에 부스를 예약하고 싶습니다. 저희 램프가 두 통로에서 보이도록 하고 싶으니, 두 면이 개방된 공간을 배정해 주십시오. 그보다 더 넓은 바닥 면적은 필요하지 않습니다. 3일 동안 부스에서 근무할 저희 직원은 6명입니다.",
+      "청구서는 제 앞으로 보내 주십시오.",
+      "Martin Holt"
+     ]
     },
     {
      "kind": "invoice",
@@ -1178,6 +1419,30 @@
        [
         "Total due",
         "$1,580"
+       ]
+      ]
+     },
+     "trans": [
+      "Pacific Home Expo — 청구서 #EX-4471\n청구 대상: Martin Holt, Holt Lighting\n날짜: 7월 5일",
+      "결제 기한: 8월 15일까지."
+     ],
+     "transTable": {
+      "header": [
+       "항목",
+       "금액"
+      ],
+      "rows": [
+       [
+        "코너 부스",
+        "1,500달러"
+       ],
+       [
+        "추가 배지 (2개)",
+        "80달러"
+       ],
+       [
+        "총 결제 금액",
+        "1,580달러"
        ]
       ]
      }
@@ -1340,17 +1605,32 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: orders@printhaus.example\nFrom: Jun Takeda, Office Manager, Brightwater Consulting\nDate: October 1\nSubject: Business card order\n\nHello,\n\nI'd like to order 500 business cards for our new employee, Dana Cole. Please use the same design as our last order (#7781), but change the title to “Senior Analyst.” We need them by October 10, as Ms. Cole starts on October 13 and will be attending a conference that week.\n\nJun Takeda"
+     "text": "To: orders@printhaus.example\nFrom: Jun Takeda, Office Manager, Brightwater Consulting\nDate: October 1\nSubject: Business card order\n\nHello,\n\nI'd like to order 500 business cards for our new employee, Dana Cole. Please use the same design as our last order (#7781), but change the title to “Senior Analyst.” We need them by October 10, as Ms. Cole starts on October 13 and will be attending a conference that week.\n\nJun Takeda",
+     "trans": [
+      "받는 사람: orders@printhaus.example\n보낸 사람: Jun Takeda, 사무실 관리자, Brightwater Consulting\n날짜: 10월 1일\n제목: 명함 주문",
+      "안녕하세요.",
+      "저희 신입 직원인 Dana Cole 씨의 명함 500장을 주문하고 싶습니다. 지난번 주문(#7781)과 같은 디자인을 사용하되, 직함은 “Senior Analyst”로 바꿔 주십시오. Cole 씨가 10월 13일에 근무를 시작하고 그 주에 콘퍼런스에 참석할 예정이므로, 10월 10일까지 명함이 필요합니다.",
+      "Jun Takeda"
+     ]
     },
     {
      "kind": "shipping notice",
      "title": "Shipping Confirmation",
-     "text": "PrintHaus — Shipping Confirmation\nOrder #8120 — Brightwater Consulting\nItem: Business cards (500), name: Dana Cole, title: Senior Analyst\nShipped: October 6 via standard delivery\nEstimated delivery: October 9–11\nTracking number: PH-55102"
+     "text": "PrintHaus — Shipping Confirmation\nOrder #8120 — Brightwater Consulting\nItem: Business cards (500), name: Dana Cole, title: Senior Analyst\nShipped: October 6 via standard delivery\nEstimated delivery: October 9–11\nTracking number: PH-55102",
+     "trans": [
+      "PrintHaus — 배송 확인\n주문 #8120 — Brightwater Consulting\n품목: 명함 (500장), 이름: Dana Cole, 직함: Senior Analyst\n발송: 10월 6일, 일반 배송\n예상 도착: 10월 9–11일\n운송장 번호: PH-55102"
+     ]
     },
     {
      "kind": "text message chain",
      "title": "Text-message chain",
-     "text": "Jun Takeda [10:12 A.M.]\nHi Dana, the tracking page says your business cards might not arrive until the 11th.\n\nDana Cole [10:15 A.M.]\nThat's cutting it close. The conference starts on the 14th.\n\nJun Takeda [10:16 A.M.]\nI can have them sent to your home address instead if that's easier.\n\nDana Cole [10:18 A.M.]\nNo need. I'll pick them up at the office on the 13th, my first day."
+     "text": "Jun Takeda [10:12 A.M.]\nHi Dana, the tracking page says your business cards might not arrive until the 11th.\n\nDana Cole [10:15 A.M.]\nThat's cutting it close. The conference starts on the 14th.\n\nJun Takeda [10:16 A.M.]\nI can have them sent to your home address instead if that's easier.\n\nDana Cole [10:18 A.M.]\nNo need. I'll pick them up at the office on the 13th, my first day.",
+     "trans": [
+      "Jun Takeda [오전 10:12]\nDana 씨, 안녕하세요. 배송 조회 페이지에 명함이 11일에야 도착할 수도 있다고 나와 있어요.",
+      "Dana Cole [오전 10:15]\n시간이 빠듯하네요. 콘퍼런스가 14일에 시작하거든요.",
+      "Jun Takeda [오전 10:16]\n그게 더 편하시면 대신 댁 주소로 보내 드리게 할 수도 있어요.",
+      "Dana Cole [오전 10:18]\n그러실 필요 없어요. 첫 출근날인 13일에 사무실에서 찾아갈게요."
+     ]
     }
    ],
    "questions": [

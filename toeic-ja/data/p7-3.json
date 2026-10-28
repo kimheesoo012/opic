@@ -35,12 +35,51 @@
         "$750"
        ]
       ]
+     },
+     "trans": [
+      "Lakeview Business Center — 会議室のレンタル",
+      "すべてのレンタルには、Wi-Fi、プロジェクター、ホワイトボードが含まれます。ケータリングは、少なくとも48時間前までにお知らせいただければ、提携先のFresh Tableを通じて手配できます。同じ暦月内に3日以上の終日利用をご予約いただいたお客様は、レンタル料金の合計から10%割引となります。"
+     ],
+     "transTable": {
+      "header": [
+       "部屋",
+       "定員",
+       "半日（4時間）",
+       "終日"
+      ],
+      "rows": [
+       [
+        "Birch Room",
+        "10",
+        "120ドル",
+        "200ドル"
+       ],
+       [
+        "Cedar Room",
+        "25",
+        "220ドル",
+        "380ドル"
+       ],
+       [
+        "Maple Hall",
+        "60",
+        "450ドル",
+        "750ドル"
+       ]
+      ]
      }
     },
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: bookings@lakeviewbc.example\nFrom: Hyun-woo Lee\nDate: March 3\nSubject: Booking inquiry\n\nHello,\n\nI'm organizing a training workshop for 18 new employees of Tamura Consulting. We would need a room from 9 A.M. to 5 P.M. on March 12, 19, and 26. Could you confirm whether a suitable room is available on those dates?\n\nWe would also like lunch delivered on each day. Several participants have food allergies, so I will send you a list of their dietary restrictions by March 6.\n\nThank you,\nHyun-woo Lee"
+     "text": "To: bookings@lakeviewbc.example\nFrom: Hyun-woo Lee\nDate: March 3\nSubject: Booking inquiry\n\nHello,\n\nI'm organizing a training workshop for 18 new employees of Tamura Consulting. We would need a room from 9 A.M. to 5 P.M. on March 12, 19, and 26. Could you confirm whether a suitable room is available on those dates?\n\nWe would also like lunch delivered on each day. Several participants have food allergies, so I will send you a list of their dietary restrictions by March 6.\n\nThank you,\nHyun-woo Lee",
+     "trans": [
+      "宛先：bookings@lakeviewbc.example\n差出人：Hyun-woo Lee\n日付：3月3日\n件名：予約に関するお問い合わせ",
+      "ご担当者様",
+      "Tamura Consultingの新入社員18名を対象とした研修ワークショップを企画しています。3月12日、19日、26日の午前9時から午後5時まで部屋を利用したいと考えています。これらの日程で適した部屋が空いているかどうか、ご確認いただけますでしょうか。",
+      "また、各日に昼食を配達していただきたいと思っています。参加者のうち何人かに食物アレルギーがあるため、3月6日までに、その方々の食事制限のリストをお送りします。",
+      "よろしくお願いいたします。\nHyun-woo Lee"
+     ]
     }
    ],
    "questions": [
@@ -218,12 +257,25 @@
     {
      "kind": "notice",
      "title": "Recall Notice",
-     "text": "Voluntary Recall: KitchenPro Model KX-200 Blender\n\nKitchenPro is voluntarily recalling KX-200 blenders manufactured between January and April of this year. In some units, the lid may not lock properly, which could cause contents to spill during use. No injuries have been reported.\n\nTo check whether your blender is affected, look at the serial number on the bottom of the base. Units with serial numbers beginning with 24A through 24D are included in the recall.\n\nCustomers with affected units should stop using them immediately and contact KitchenPro at 1-800-555-0199 or visit kitchenpro.example/recall. Customers may choose either a free replacement lid, which ships within two days, or a full refund, which takes up to three weeks to process."
+     "text": "Voluntary Recall: KitchenPro Model KX-200 Blender\n\nKitchenPro is voluntarily recalling KX-200 blenders manufactured between January and April of this year. In some units, the lid may not lock properly, which could cause contents to spill during use. No injuries have been reported.\n\nTo check whether your blender is affected, look at the serial number on the bottom of the base. Units with serial numbers beginning with 24A through 24D are included in the recall.\n\nCustomers with affected units should stop using them immediately and contact KitchenPro at 1-800-555-0199 or visit kitchenpro.example/recall. Customers may choose either a free replacement lid, which ships within two days, or a full refund, which takes up to three weeks to process.",
+     "trans": [
+      "自主回収：KitchenPro KX-200型ブレンダー",
+      "KitchenProは、今年の1月から4月の間に製造されたKX-200ブレンダーを自主回収いたします。一部の製品では、ふたが正しくロックされないおそれがあり、その場合、使用中に中身がこぼれる可能性があります。けがの報告はありません。",
+      "お使いのブレンダーが影響を受けているかどうかを確認するには、本体の台座の底面にあるシリアル番号をご覧ください。シリアル番号が24Aから24Dで始まる製品が回収の対象です。",
+      "対象製品をお持ちのお客様は、ただちに使用を中止し、KitchenPro（1-800-555-0199）までご連絡いただくか、次のサイトにアクセスしてください：kitchenpro.example/recall. お客様は、2日以内に発送される無料の交換用ふた、または処理に最大3週間かかる全額返金のどちらかをお選びいただけます。"
+     ]
     },
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: support@kitchenpro.example\nFrom: Megan Walsh\nDate: June 20\nSubject: KX-200 recall\n\nHello,\n\nI bought a KX-200 blender in March as a gift for my sister. She saw your recall notice and checked the serial number, which begins with 24C. She uses the blender every morning and would prefer not to be without it for long, so we would like whichever option is faster.\n\nAlso, since I paid with my credit card, could any refund be sent to that card even though the blender is at her house?\n\nMegan Walsh"
+     "text": "To: support@kitchenpro.example\nFrom: Megan Walsh\nDate: June 20\nSubject: KX-200 recall\n\nHello,\n\nI bought a KX-200 blender in March as a gift for my sister. She saw your recall notice and checked the serial number, which begins with 24C. She uses the blender every morning and would prefer not to be without it for long, so we would like whichever option is faster.\n\nAlso, since I paid with my credit card, could any refund be sent to that card even though the blender is at her house?\n\nMegan Walsh",
+     "trans": [
+      "宛先：support@kitchenpro.example\n差出人：Megan Walsh\n日付：6月20日\n件名：KX-200の回収について",
+      "こんにちは。",
+      "3月に、妹への贈り物としてKX-200ブレンダーを購入しました。妹が御社の回収のお知らせを見てシリアル番号を確認したところ、24Cで始まっていました。妹は毎朝そのブレンダーを使っていて、長い間使えない状態は避けたいと思っているので、私たちはより早く済むほうの選択肢を希望します。",
+      "また、私がクレジットカードで支払ったので、ブレンダーは妹の家にありますが、返金がある場合はそのカードに返金していただくことはできますか。",
+      "Megan Walsh"
+     ]
     }
    ],
    "questions": [
@@ -433,12 +485,61 @@
         "Room 5"
        ]
       ]
+     },
+     "trans": [
+      "Northbridge Retail Association — 年次総会\n9月20日（土）、Kingsley Hotel"
+     ],
+     "transTable": {
+      "header": [
+       "時間",
+       "セッション",
+       "場所"
+      ],
+      "rows": [
+       [
+        "9:00–9:30",
+        "受付とコーヒー",
+        "ロビー"
+       ],
+       [
+        "9:30–10:30",
+        "基調講演：地域での買い物の未来 — Ana Torres",
+        "Ballroom A"
+       ],
+       [
+        "10:45–11:45",
+        "パネルディスカッション：優秀なスタッフの採用と定着",
+        "Ballroom A"
+       ],
+       [
+        "12:00–1:00",
+        "昼食",
+        "Garden Terrace"
+       ],
+       [
+        "1:15–2:15",
+        "ワークショップ：小規模店舗のためのソーシャルメディア — Ben Okoro",
+        "3号室"
+       ],
+       [
+        "2:30–3:30",
+        "ワークショップ：在庫コストの管理 — Lisa Grant",
+        "5号室"
+       ]
+      ]
      }
     },
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: Registered attendees\nFrom: Peter Lunde\nDate: September 15\nSubject: Annual meeting update\n\nDear members,\n\nPlease note two changes to Saturday's program. First, because of a scheduling conflict, Ms. Grant and Mr. Okoro have switched time slots. Each of them will still use the same room as originally planned. Second, because rain is forecast, lunch will be served in Ballroom B instead of outdoors.\n\nWe look forward to seeing you.\n\nPeter Lunde\nEvents Coordinator"
+     "text": "To: Registered attendees\nFrom: Peter Lunde\nDate: September 15\nSubject: Annual meeting update\n\nDear members,\n\nPlease note two changes to Saturday's program. First, because of a scheduling conflict, Ms. Grant and Mr. Okoro have switched time slots. Each of them will still use the same room as originally planned. Second, because rain is forecast, lunch will be served in Ballroom B instead of outdoors.\n\nWe look forward to seeing you.\n\nPeter Lunde\nEvents Coordinator",
+     "trans": [
+      "宛先：登録済みの参加者各位\n差出人：Peter Lunde\n日付：9月15日\n件名：年次総会に関する最新情報",
+      "会員の皆様",
+      "土曜日のプログラムに2点の変更がありますので、ご注意ください。まず、予定が重なってしまったため、GrantさんとOkoroさんの時間枠が入れ替わりました。お二人とも、それぞれ当初の予定どおりの部屋を引き続き使用します。次に、雨の予報が出ているため、昼食は屋外ではなくBallroom Bで提供されます。",
+      "皆様にお会いできることを楽しみにしております。",
+      "Peter Lunde\nイベントコーディネーター"
+     ]
     }
    ],
    "questions": [
@@ -598,12 +699,26 @@
     {
      "kind": "job posting",
      "title": "Job Posting",
-     "text": "Arbor Publishing — Editorial Assistant (Full-time)\n\nArbor Publishing, a publisher of travel guides, seeks an editorial assistant for its Vancouver office. Responsibilities include proofreading manuscripts, checking facts, and coordinating with freelance photographers.\n\nRequirements: a bachelor's degree, excellent written English, and at least one year of experience in publishing or journalism. Knowledge of a second language is an advantage. Applicants must be available to start by July 1.\n\nSend a résumé, a cover letter, and two writing samples to jobs@arborpub.example by May 31."
+     "text": "Arbor Publishing — Editorial Assistant (Full-time)\n\nArbor Publishing, a publisher of travel guides, seeks an editorial assistant for its Vancouver office. Responsibilities include proofreading manuscripts, checking facts, and coordinating with freelance photographers.\n\nRequirements: a bachelor's degree, excellent written English, and at least one year of experience in publishing or journalism. Knowledge of a second language is an advantage. Applicants must be available to start by July 1.\n\nSend a résumé, a cover letter, and two writing samples to jobs@arborpub.example by May 31.",
+     "trans": [
+      "Arbor Publishing — 編集アシスタント（正社員）",
+      "旅行ガイドブックの出版社であるArbor Publishingは、バンクーバー事務所の編集アシスタントを募集しています。業務内容には、原稿の校正、事実確認、フリーランスの写真家との調整が含まれます。",
+      "応募資格：学士号、優れた英語の文章力、出版または報道の分野での1年以上の経験。第二言語の知識があれば有利です。応募者は7月1日までに勤務を開始できる必要があります。",
+      "履歴書、カバーレター、文章のサンプル2点を、5月31日までにjobs@arborpub.exampleへお送りください。"
+     ]
     },
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: jobs@arborpub.example\nFrom: Ines Carvalho\nDate: May 28\nSubject: Editorial Assistant application\n\nDear Hiring Manager,\n\nI am writing to apply for the editorial assistant position advertised on your Web site. I recently completed a degree in English literature at the University of Toronto and have spent the past eighteen months working as a part-time reporter for the Harbourfront Weekly, where I wrote feature articles and edited community news.\n\nAs a native speaker of Portuguese who is also fluent in Spanish, I would be glad to help with your guides to South America. My current contract ends on June 15, so I would be available to begin work immediately after that date.\n\nAttached are my résumé, cover letter, and three samples of my published articles.\n\nSincerely,\nInes Carvalho"
+     "text": "To: jobs@arborpub.example\nFrom: Ines Carvalho\nDate: May 28\nSubject: Editorial Assistant application\n\nDear Hiring Manager,\n\nI am writing to apply for the editorial assistant position advertised on your Web site. I recently completed a degree in English literature at the University of Toronto and have spent the past eighteen months working as a part-time reporter for the Harbourfront Weekly, where I wrote feature articles and edited community news.\n\nAs a native speaker of Portuguese who is also fluent in Spanish, I would be glad to help with your guides to South America. My current contract ends on June 15, so I would be available to begin work immediately after that date.\n\nAttached are my résumé, cover letter, and three samples of my published articles.\n\nSincerely,\nInes Carvalho",
+     "trans": [
+      "宛先：jobs@arborpub.example\n差出人：Ines Carvalho\n日付：5月28日\n件名：編集アシスタント職への応募",
+      "採用ご担当者様",
+      "御社のウェブサイトに掲載されていた編集アシスタント職に応募したく、ご連絡いたしました。私は最近University of Torontoで英文学の学位を取得し、この18か月間はHarbourfront Weeklyでパートタイムの記者として働き、特集記事を執筆したり地域のニュースを編集したりしてきました。",
+      "私はポルトガル語を母語とし、スペイン語も流暢に話せますので、御社の南米のガイドブックのお役に立てればうれしく思います。現在の契約は6月15日に終了するため、その日以降すぐに勤務を開始することができます。",
+      "履歴書、カバーレター、そして掲載された私の記事のサンプル3点を添付いたします。",
+      "よろしくお願いいたします。\nInes Carvalho"
+     ]
     }
    ],
    "questions": [

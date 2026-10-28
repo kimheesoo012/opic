@@ -7,7 +7,14 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "From: Daniel Cho <dcho@meridiantravel.example>\nTo: Sofia Ramirez\nDate: April 2\nSubject: Your Lisbon itinerary\n\nDear Ms. Ramirez,\n\nThank you for booking your business trip through Meridian Travel. I have attached your updated itinerary for the Lisbon trade conference. As you requested, I moved your return flight from April 18 to April 19 so that you can attend the closing reception on the final evening. The change resulted in a fare difference of $85, which has been charged to the corporate card on file.\n\nPlease note that your hotel, the Alfama Plaza, has also extended your reservation by one night at the same conference rate. Breakfast is included each day. If you would like me to arrange airport transportation, just reply to this e-mail and I will take care of it.\n\nBest regards,\nDaniel Cho\nCorporate Travel Consultant"
+     "text": "From: Daniel Cho <dcho@meridiantravel.example>\nTo: Sofia Ramirez\nDate: April 2\nSubject: Your Lisbon itinerary\n\nDear Ms. Ramirez,\n\nThank you for booking your business trip through Meridian Travel. I have attached your updated itinerary for the Lisbon trade conference. As you requested, I moved your return flight from April 18 to April 19 so that you can attend the closing reception on the final evening. The change resulted in a fare difference of $85, which has been charged to the corporate card on file.\n\nPlease note that your hotel, the Alfama Plaza, has also extended your reservation by one night at the same conference rate. Breakfast is included each day. If you would like me to arrange airport transportation, just reply to this e-mail and I will take care of it.\n\nBest regards,\nDaniel Cho\nCorporate Travel Consultant",
+     "trans": [
+      "差出人：Daniel Cho <dcho@meridiantravel.example>\n宛先：Sofia Ramirez\n日付：4月2日\n件名：リスボン出張の旅程表",
+      "Ramirez様",
+      "このたびはMeridian Travelを通じて出張をご予約いただき、ありがとうございます。リスボンでの業界会議の更新した旅程表を添付いたしました。ご依頼のとおり、最終日の夜の閉会レセプションにご出席いただけるよう、帰りの便を4月18日から4月19日に変更しました。この変更により85ドルの運賃差額が生じ、ご登録の法人カードに請求させていただきました。",
+      "なお、ご宿泊先のホテルAlfama Plazaでも、同じ会議参加者向け料金のまま、ご予約を1泊延長しております。朝食は毎日含まれています。空港への送迎の手配をご希望でしたら、このメールにご返信いただくだけで、私が対応いたします。",
+      "よろしくお願いいたします。\nDaniel Cho\n法人旅行コンサルタント"
+     ]
     }
    ],
    "questions": [
@@ -121,7 +128,15 @@
     {
      "kind": "text message chain",
      "title": "Text-message chain",
-     "text": "Kevin Park [9:12 A.M.]\nHi Lena, the projector in Room 4 isn't turning on. The client presentation starts at 10.\n\nLena Ortiz [9:14 A.M.]\nDid you check that it's plugged in? The cleaning crew sometimes unplugs it.\n\nKevin Park [9:15 A.M.]\nFirst thing I tried.\n\nLena Ortiz [9:16 A.M.]\nOK. There's a portable projector in the supply closet on the second floor. I can bring it up.\n\nKevin Park [9:17 A.M.]\nThat would be great. Could you also bring an HDMI cable? Mine is too short.\n\nLena Ortiz [9:18 A.M.]\nWill do. I'll call IT about the Room 4 projector too."
+     "text": "Kevin Park [9:12 A.M.]\nHi Lena, the projector in Room 4 isn't turning on. The client presentation starts at 10.\n\nLena Ortiz [9:14 A.M.]\nDid you check that it's plugged in? The cleaning crew sometimes unplugs it.\n\nKevin Park [9:15 A.M.]\nFirst thing I tried.\n\nLena Ortiz [9:16 A.M.]\nOK. There's a portable projector in the supply closet on the second floor. I can bring it up.\n\nKevin Park [9:17 A.M.]\nThat would be great. Could you also bring an HDMI cable? Mine is too short.\n\nLena Ortiz [9:18 A.M.]\nWill do. I'll call IT about the Room 4 projector too.",
+     "trans": [
+      "Kevin Park [午前9:12]\nLenaさん、4号室のプロジェクターの電源が入りません。顧客へのプレゼンは10時に始まります。",
+      "Lena Ortiz [午前9:14]\nコンセントにつながっているか確認しましたか？清掃スタッフがときどきプラグを抜いてしまうんです。",
+      "Kevin Park [午前9:15]\n真っ先に試しました。",
+      "Lena Ortiz [午前9:16]\nわかりました。2階の備品室に携帯用のプロジェクターがあります。私が持って上がりますね。",
+      "Kevin Park [午前9:17]\nそれは助かります。HDMIケーブルも持ってきてもらえますか？私のは短すぎるんです。",
+      "Lena Ortiz [午前9:18]\n了解です。4号室のプロジェクターのことは、IT部門にも電話しておきます。"
+     ]
     }
    ],
    "questions": [
@@ -202,7 +217,13 @@
     {
      "kind": "notice",
      "title": "Notice",
-     "text": "NOTICE TO TENANTS — Harbor Point Office Building\n\nElevator maintenance is scheduled for the weekend of July 12–13. During this time, the building's main passenger elevators will be out of service. — [1] — The freight elevator at the rear of the building will remain available for tenants who need to move heavy items. — [2] —\n\nTenants expecting deliveries that weekend should inform the security desk in advance so that a guard can escort delivery personnel to the freight elevator. — [3] —\n\nThe work is part of a building-wide modernization project that will also include new lobby lighting and an upgraded security system later this year. — [4] — Questions may be directed to the management office at extension 210."
+     "text": "NOTICE TO TENANTS — Harbor Point Office Building\n\nElevator maintenance is scheduled for the weekend of July 12–13. During this time, the building's main passenger elevators will be out of service. — [1] — The freight elevator at the rear of the building will remain available for tenants who need to move heavy items. — [2] —\n\nTenants expecting deliveries that weekend should inform the security desk in advance so that a guard can escort delivery personnel to the freight elevator. — [3] —\n\nThe work is part of a building-wide modernization project that will also include new lobby lighting and an upgraded security system later this year. — [4] — Questions may be directed to the management office at extension 210.",
+     "trans": [
+      "テナントの皆様へのお知らせ — Harbor Point Office Building",
+      "7月12日～13日の週末に、エレベーターの保守点検が予定されています。この期間中、ビルの主要な乗用エレベーターは運転を停止します。 — [1] — ビル後方の貨物用エレベーターは、重い物を運ぶ必要のあるテナントの方のために、引き続きご利用いただけます。 — [2] —",
+      "その週末に配達を予定しているテナントの方は、警備員が配達員を貨物用エレベーターまで案内できるよう、事前に警備デスクにお知らせください。 — [3] —",
+      "この工事はビル全体の近代化プロジェクトの一環であり、同プロジェクトでは今年後半に、ロビーの照明の新設とセキュリティシステムの更新も行われる予定です。 — [4] — ご質問は、管理事務所（内線210）までお寄せください。"
+     ]
     }
    ],
    "questions": [
@@ -303,7 +324,13 @@
     {
      "kind": "advertisement",
      "title": "Advertisement",
-     "text": "Brightway Cleaning Services — Now serving offices in the downtown area!\n\nIs your office ready for the new season? Brightway offers daily, weekly, and monthly cleaning plans for businesses of all sizes. Our trained staff use only eco-friendly products, and all of our employees are fully insured.\n\nNew customers who sign a six-month contract before September 30 will receive their first month of service at half price. Window washing and carpet cleaning are available for an additional fee.\n\nCall 555-0148 or visit www.brightway.example to request a free on-site estimate."
+     "text": "Brightway Cleaning Services — Now serving offices in the downtown area!\n\nIs your office ready for the new season? Brightway offers daily, weekly, and monthly cleaning plans for businesses of all sizes. Our trained staff use only eco-friendly products, and all of our employees are fully insured.\n\nNew customers who sign a six-month contract before September 30 will receive their first month of service at half price. Window washing and carpet cleaning are available for an additional fee.\n\nCall 555-0148 or visit www.brightway.example to request a free on-site estimate.",
+     "trans": [
+      "Brightway Cleaning Services — ダウンタウン地区のオフィスへのサービスを開始しました！",
+      "貴社のオフィスは新しい季節を迎える準備ができていますか？Brightwayは、あらゆる規模の企業向けに、毎日・毎週・毎月の清掃プランをご用意しています。研修を受けた当社のスタッフは環境に優しい製品のみを使用しており、従業員は全員、十分な保険に加入しています。",
+      "9月30日より前に6か月契約を結ばれた新規のお客様は、最初の1か月のサービスを半額でご利用いただけます。窓の清掃とカーペットの清掃は、追加料金でご利用いただけます。",
+      "555-0148にお電話いただくか、www.brightway.exampleにアクセスして、無料の現地見積もりをご依頼ください。"
+     ]
     }
    ],
    "questions": [
@@ -419,7 +446,14 @@
     {
      "kind": "article",
      "title": "Article",
-     "text": "Riverton Library Opens Business Resource Center\n\nRIVERTON (March 3) — Small-business owners in Riverton now have a new place to get help. The Riverton Public Library opened its Business Resource Center last Tuesday on the second floor of its main branch.\n\nThe center offers free access to market research databases, a collection of more than 600 books on management and finance, and four private meeting rooms that can be reserved for up to three hours at a time. Volunteers from the Riverton Chamber of Commerce will also hold one-on-one advising sessions every Thursday evening.\n\n“Many people starting a business can't afford expensive consultants,” said head librarian Martha Quinn. “We wanted to give them a place to find reliable information without cost.”\n\nThe project was funded by a grant from the Hollis Foundation. Library officials said that if the center proves popular, they hope to open a similar space at the library's east branch next year."
+     "text": "Riverton Library Opens Business Resource Center\n\nRIVERTON (March 3) — Small-business owners in Riverton now have a new place to get help. The Riverton Public Library opened its Business Resource Center last Tuesday on the second floor of its main branch.\n\nThe center offers free access to market research databases, a collection of more than 600 books on management and finance, and four private meeting rooms that can be reserved for up to three hours at a time. Volunteers from the Riverton Chamber of Commerce will also hold one-on-one advising sessions every Thursday evening.\n\n“Many people starting a business can't afford expensive consultants,” said head librarian Martha Quinn. “We wanted to give them a place to find reliable information without cost.”\n\nThe project was funded by a grant from the Hollis Foundation. Library officials said that if the center proves popular, they hope to open a similar space at the library's east branch next year.",
+     "trans": [
+      "Riverton Library、Business Resource Centerを開設",
+      "RIVERTON（3月3日）— Rivertonの中小企業経営者たちに、支援を受けられる新たな場所ができた。Riverton Public Libraryは先週の火曜日、本館の2階にBusiness Resource Centerを開設した。",
+      "同センターでは、市場調査データベースへの無料アクセス、経営と財務に関する600冊を超える蔵書、そして1回につき最長3時間まで予約できる4つの個室会議室が提供されている。また、Riverton Chamber of Commerceのボランティアが、毎週木曜日の夜に個別相談会を開く。",
+      "「起業する人の多くは、高額なコンサルタントを雇う余裕がありません」と、図書館長のMartha Quinn氏は語った。「私たちは、そうした人たちが費用をかけずに信頼できる情報を見つけられる場所を提供したかったのです」",
+      "このプロジェクトは、Hollis Foundationからの助成金によって資金が賄われた。図書館の関係者によると、同センターが好評であれば、来年、同図書館の東分館にも同様のスペースを開設したいと考えているという。"
+     ]
     }
    ],
    "questions": [
@@ -580,6 +614,39 @@
         "$49.00"
        ]
       ]
+     },
+     "trans": [
+      "Pelican Office Supply — 注文確認書\n注文番号：48213    注文日：10月6日\nお客様：Ruth Adeyemi、Linwood Dental Clinic",
+      "小計：312.00ドル\n送料：無料（250ドルを超えるご注文）\n合計：312.00ドル\nお届け予定日：10月9日",
+      "注：デスクオーガナイザーは現在在庫切れのため、10月14日に別便で発送いたします。追加の送料は請求されません。"
+     ],
+     "transTable": {
+      "header": [
+       "品目",
+       "数量",
+       "単価",
+       "合計"
+      ],
+      "rows": [
+       [
+        "コピー用紙（10連入り箱）",
+        "3",
+        "42.00ドル",
+        "126.00ドル"
+       ],
+       [
+        "黒のトナーカートリッジ",
+        "2",
+        "68.50ドル",
+        "137.00ドル"
+       ],
+       [
+        "デスクオーガナイザー",
+        "4",
+        "12.25ドル",
+        "49.00ドル"
+       ]
+      ]
      }
     }
    ],
@@ -660,7 +727,13 @@
     {
      "kind": "memo",
      "title": "Memo",
-     "text": "MEMO\nTo: All employees\nFrom: Gwen Hollis, Office Manager\nDate: February 2\nSubject: Recycling program\n\nBeginning next Monday, Talbot & Reyes will introduce a new recycling program on every floor. — [1] — Blue bins will be placed next to each printer for paper, and green bins will be placed in the kitchens for plastic bottles and cans. — [2] —\n\nPlease do not put food waste or coffee cups in either type of bin, as this can contaminate an entire load. — [3] — The building's cleaning staff will empty the bins every evening.\n\nWe estimate that the program will reduce the amount of waste we send to landfills by about 30 percent. — [4] — Thank you for your cooperation."
+     "text": "MEMO\nTo: All employees\nFrom: Gwen Hollis, Office Manager\nDate: February 2\nSubject: Recycling program\n\nBeginning next Monday, Talbot & Reyes will introduce a new recycling program on every floor. — [1] — Blue bins will be placed next to each printer for paper, and green bins will be placed in the kitchens for plastic bottles and cans. — [2] —\n\nPlease do not put food waste or coffee cups in either type of bin, as this can contaminate an entire load. — [3] — The building's cleaning staff will empty the bins every evening.\n\nWe estimate that the program will reduce the amount of waste we send to landfills by about 30 percent. — [4] — Thank you for your cooperation.",
+     "trans": [
+      "社内連絡\n宛先：全従業員\n差出人：Gwen Hollis、オフィスマネージャー\n日付：2月2日\n件名：リサイクルプログラム",
+      "来週の月曜日から、Talbot & Reyesは全フロアで新しいリサイクルプログラムを導入します。 — [1] — 各プリンターの横には紙用の青い回収箱が、キッチンにはペットボトルと缶用の緑の回収箱が設置されます。 — [2] —",
+      "回収物全体が汚染されてしまうおそれがあるため、どちらの種類の回収箱にも、食べ物のごみやコーヒーカップは入れないでください。 — [3] — ビルの清掃スタッフが毎晩、回収箱を空にします。",
+      "このプログラムにより、埋め立て地に送るごみの量が約30パーセント削減されると見込んでいます。 — [4] — ご協力ありがとうございます。"
+     ]
     }
    ],
    "questions": [
@@ -767,7 +840,16 @@
     {
      "kind": "online chat discussion",
      "title": "Online chat discussion",
-     "text": "Aisha Bello [2:03 P.M.]\nHas anyone heard back from the caterer about Friday's lunch?\n\nTom Reed [2:05 P.M.]\nThey called this morning. They can do sandwiches for 40 people, but the vegetarian option is limited to 8.\n\nAisha Bello [2:06 P.M.]\nWe'll have at least 12 vegetarians.\n\nMei Lin [2:08 P.M.]\nI know a bakery on Fifth Street that makes great vegetable wraps. I could pick some up Friday morning.\n\nAisha Bello [2:09 P.M.]\nThat would solve it. Can you get 6?\n\nMei Lin [2:10 P.M.]\nNo problem. I'll keep the receipt for reimbursement.\n\nTom Reed [2:12 P.M.]\nThen I'll let the caterer know the final count is 40 sandwiches."
+     "text": "Aisha Bello [2:03 P.M.]\nHas anyone heard back from the caterer about Friday's lunch?\n\nTom Reed [2:05 P.M.]\nThey called this morning. They can do sandwiches for 40 people, but the vegetarian option is limited to 8.\n\nAisha Bello [2:06 P.M.]\nWe'll have at least 12 vegetarians.\n\nMei Lin [2:08 P.M.]\nI know a bakery on Fifth Street that makes great vegetable wraps. I could pick some up Friday morning.\n\nAisha Bello [2:09 P.M.]\nThat would solve it. Can you get 6?\n\nMei Lin [2:10 P.M.]\nNo problem. I'll keep the receipt for reimbursement.\n\nTom Reed [2:12 P.M.]\nThen I'll let the caterer know the final count is 40 sandwiches.",
+     "trans": [
+      "Aisha Bello [午後2:03]\n金曜日のランチについて、ケータリング業者から返事があった人はいますか？",
+      "Tom Reed [午後2:05]\n今朝、電話がありました。40人分のサンドイッチは用意できるけれど、ベジタリアン向けのメニューは8人分が限度だそうです。",
+      "Aisha Bello [午後2:06]\nベジタリアンは少なくとも12人はいますよ。",
+      "Mei Lin [午後2:08]\nFifth Streetに、おいしい野菜のラップサンドを作っているパン屋さんを知っています。金曜日の朝に私がいくつか買ってきましょうか。",
+      "Aisha Bello [午後2:09]\nそれで解決しますね。6個買ってきてもらえますか？",
+      "Mei Lin [午後2:10]\nお安いご用です。精算のためにレシートは取っておきますね。",
+      "Tom Reed [午後2:12]\nでは、最終的な数はサンドイッチ40個だとケータリング業者に伝えておきます。"
+     ]
     }
    ],
    "questions": [

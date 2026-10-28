@@ -7,7 +7,15 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: Gregory Mills\nFrom: Customer Relations, Altamira Electronics\nDate: June 11\nSubject: Your inquiry (Case #5531)\n\nDear Mr. Mills,\n\nThank you for contacting us about the wireless headphones you purchased on May 28. We are sorry to hear that the left earpiece stopped working after only two weeks.\n\nBecause your headphones are covered by our one-year limited warranty, we will replace them at no cost. To start the process, please print the attached prepaid shipping label and send the headphones to our service center, in their original packaging if possible. Be sure to include all accessories, such as the charging cable and carrying case.\n\nYour replacement will be shipped within three business days of our receiving the returned item. You can track the status of your case on our Web site by using the case number above.\n\nSincerely,\nJoanna Petrov\nCustomer Relations"
+     "text": "To: Gregory Mills\nFrom: Customer Relations, Altamira Electronics\nDate: June 11\nSubject: Your inquiry (Case #5531)\n\nDear Mr. Mills,\n\nThank you for contacting us about the wireless headphones you purchased on May 28. We are sorry to hear that the left earpiece stopped working after only two weeks.\n\nBecause your headphones are covered by our one-year limited warranty, we will replace them at no cost. To start the process, please print the attached prepaid shipping label and send the headphones to our service center, in their original packaging if possible. Be sure to include all accessories, such as the charging cable and carrying case.\n\nYour replacement will be shipped within three business days of our receiving the returned item. You can track the status of your case on our Web site by using the case number above.\n\nSincerely,\nJoanna Petrov\nCustomer Relations",
+     "trans": [
+      "받는 사람: Gregory Mills\n보낸 사람: 고객 관리팀, Altamira Electronics\n날짜: 6월 11일\n제목: 문의하신 건 (접수 번호 #5531)",
+      "Mills 씨께,",
+      "5월 28일에 구매하신 무선 헤드폰과 관련하여 저희에게 연락해 주셔서 감사합니다. 왼쪽 이어피스가 불과 2주 만에 작동을 멈췄다니 유감입니다.",
+      "귀하의 헤드폰은 저희의 1년 제한 보증 대상이므로 무료로 교체해 드리겠습니다. 절차를 시작하시려면 첨부된 선불 배송 라벨을 인쇄하신 후, 가능하면 원래 포장 상태 그대로 헤드폰을 저희 서비스 센터로 보내 주십시오. 충전 케이블과 휴대용 케이스 등 모든 부속품을 반드시 함께 넣어 주십시오.",
+      "교체품은 반송된 제품을 저희가 수령한 날로부터 영업일 기준 3일 이내에 발송됩니다. 위의 접수 번호를 사용하여 저희 웹사이트에서 접수 건의 처리 상태를 확인하실 수 있습니다.",
+      "감사합니다.\nJoanna Petrov\n고객 관리팀"
+     ]
     }
    ],
    "questions": [
@@ -114,7 +122,12 @@
     {
      "kind": "web page",
      "title": "Web Page",
-     "text": "About Sunfield Bakery\n\nSunfield Bakery began in 1987 as a small shop on Maple Avenue run by Rosa and Hector Diaz. — [1] — Over the years, word spread about their sourdough bread, and the couple soon could not keep up with demand. — [2] — In 1995, they moved to a larger building on Grant Street and hired their first employees.\n\nToday, Sunfield operates six locations across the city and supplies bread to more than 40 restaurants. — [3] — Despite its growth, the company still bakes every loaf by hand, following the same recipes the Diaz family has used from the beginning. — [4] — Their daughter, Elena Diaz, became president of the company in 2016."
+     "text": "About Sunfield Bakery\n\nSunfield Bakery began in 1987 as a small shop on Maple Avenue run by Rosa and Hector Diaz. — [1] — Over the years, word spread about their sourdough bread, and the couple soon could not keep up with demand. — [2] — In 1995, they moved to a larger building on Grant Street and hired their first employees.\n\nToday, Sunfield operates six locations across the city and supplies bread to more than 40 restaurants. — [3] — Despite its growth, the company still bakes every loaf by hand, following the same recipes the Diaz family has used from the beginning. — [4] — Their daughter, Elena Diaz, became president of the company in 2016.",
+     "trans": [
+      "Sunfield Bakery 소개",
+      "Sunfield Bakery는 1987년 Rosa와 Hector Diaz가 운영하던 Maple Avenue의 작은 가게로 시작했습니다. — [1] — 시간이 흐르면서 이들의 사워도우 빵에 대한 입소문이 퍼졌고, 부부는 곧 수요를 감당할 수 없게 되었습니다. — [2] — 1995년에 이들은 Grant Street의 더 큰 건물로 이전하고 첫 직원들을 고용했습니다.",
+      "현재 Sunfield는 시내 전역에서 6개 매장을 운영하고 있으며 40곳이 넘는 레스토랑에 빵을 공급하고 있습니다. — [3] — 이러한 성장에도 불구하고, 이 회사는 여전히 Diaz 가족이 처음부터 사용해 온 것과 똑같은 레시피에 따라 모든 빵을 손으로 굽고 있습니다. — [4] — 부부의 딸인 Elena Diaz가 2016년에 회사 대표가 되었습니다."
+     ]
     }
    ],
    "questions": [
@@ -249,7 +262,14 @@
     {
      "kind": "article",
      "title": "Article",
-     "text": "Coastal Air and Skyline Express to Combine Operations\nBy Neil Ashford\n\nTwo regional airlines, Coastal Air and Skyline Express, announced yesterday that they will merge by the end of the year. The combined airline will keep the Coastal Air name and will be based at Coastal's current headquarters in Halifax.\n\nThe merger is expected to give passengers more connecting options, as the two carriers serve largely different routes. Coastal Air flies mainly along the eastern coast, while Skyline Express focuses on routes to the central provinces. Together, they will serve 38 cities.\n\nExecutives said that no flights would be canceled as a result of the merger and that all current Skyline Express tickets would be honored. Frequent-flyer points from both programs will be combined into a single account for each member beginning in January.\n\nThe agreement still requires approval from the national transportation authority, which is expected to issue its decision within three months."
+     "text": "Coastal Air and Skyline Express to Combine Operations\nBy Neil Ashford\n\nTwo regional airlines, Coastal Air and Skyline Express, announced yesterday that they will merge by the end of the year. The combined airline will keep the Coastal Air name and will be based at Coastal's current headquarters in Halifax.\n\nThe merger is expected to give passengers more connecting options, as the two carriers serve largely different routes. Coastal Air flies mainly along the eastern coast, while Skyline Express focuses on routes to the central provinces. Together, they will serve 38 cities.\n\nExecutives said that no flights would be canceled as a result of the merger and that all current Skyline Express tickets would be honored. Frequent-flyer points from both programs will be combined into a single account for each member beginning in January.\n\nThe agreement still requires approval from the national transportation authority, which is expected to issue its decision within three months.",
+     "trans": [
+      "Coastal Air와 Skyline Express, 운영 통합한다\nNeil Ashford 기자",
+      "지역 항공사인 Coastal Air와 Skyline Express 두 곳이 연말까지 합병할 것이라고 어제 발표했다. 통합 항공사는 Coastal Air라는 이름을 유지하며, Halifax에 있는 Coastal의 현 본사를 기반으로 운영된다.",
+      "두 항공사가 대체로 서로 다른 노선을 운항하고 있어, 이번 합병으로 승객들은 더 많은 연결편 선택지를 갖게 될 것으로 예상된다. Coastal Air는 주로 동부 해안을 따라 운항하는 반면, Skyline Express는 중부 주(州)들로 가는 노선에 주력하고 있다. 두 항공사를 합치면 38개 도시에 취항하게 된다.",
+      "경영진은 합병으로 인해 취소되는 항공편은 없을 것이며 현재 발행된 Skyline Express 항공권은 모두 그대로 인정될 것이라고 밝혔다. 두 상용 고객 프로그램의 포인트는 1월부터 회원마다 하나의 계정으로 통합된다.",
+      "이번 합의는 아직 국가 교통 당국의 승인을 받아야 하며, 당국은 3개월 이내에 결정을 내릴 것으로 예상된다."
+     ]
     }
    ],
    "questions": [
@@ -386,7 +406,15 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "From: Laura Benson\nTo: Raj Malhotra\nDate: Tuesday, August 5\nSubject: Interview schedule\n\nHi Raj,\n\nWe have narrowed the list of candidates for the graphic designer position to three. I'd like you to join me for the second-round interviews, since the new designer will work closely with your team on the product catalog.\n\nThe interviews are scheduled for Thursday, August 7, at 10:00 A.M., 11:30 A.M., and 2:00 P.M. Each one should last about an hour. I know you have a vendor meeting on Thursday afternoon, so if you can't stay for the last interview, I can ask Carla from the marketing department to take your place.\n\nI'll send you the candidates' portfolios by tomorrow morning. Please let me know which interviews you can attend.\n\nLaura"
+     "text": "From: Laura Benson\nTo: Raj Malhotra\nDate: Tuesday, August 5\nSubject: Interview schedule\n\nHi Raj,\n\nWe have narrowed the list of candidates for the graphic designer position to three. I'd like you to join me for the second-round interviews, since the new designer will work closely with your team on the product catalog.\n\nThe interviews are scheduled for Thursday, August 7, at 10:00 A.M., 11:30 A.M., and 2:00 P.M. Each one should last about an hour. I know you have a vendor meeting on Thursday afternoon, so if you can't stay for the last interview, I can ask Carla from the marketing department to take your place.\n\nI'll send you the candidates' portfolios by tomorrow morning. Please let me know which interviews you can attend.\n\nLaura",
+     "trans": [
+      "보낸 사람: Laura Benson\n받는 사람: Raj Malhotra\n날짜: 8월 5일 화요일\n제목: 면접 일정",
+      "안녕하세요, Raj 씨.",
+      "그래픽 디자이너 직책의 지원자 명단을 세 명으로 좁혔습니다. 새 디자이너가 제품 카탈로그 작업에서 Raj 씨 팀과 긴밀히 협력하게 될 것이므로, 2차 면접에 저와 함께 참석해 주셨으면 합니다.",
+      "면접은 8월 7일 목요일 오전 10:00, 오전 11:30, 오후 2:00로 예정되어 있습니다. 각 면접은 약 1시간 정도 걸릴 것입니다. 목요일 오후에 납품업체와의 회의가 있으신 것으로 알고 있으니, 마지막 면접까지 계실 수 없다면 마케팅 부서의 Carla에게 대신 참석해 달라고 부탁할 수 있습니다.",
+      "내일 아침까지 지원자들의 포트폴리오를 보내 드리겠습니다. 어느 면접에 참석하실 수 있는지 알려 주십시오.",
+      "Laura"
+     ]
     }
    ],
    "questions": [
@@ -496,7 +524,13 @@
     {
      "kind": "notice",
      "title": "Notice",
-     "text": "Westgate Fitness Club — Membership Update\n\nStarting May 1, Westgate Fitness Club will extend its weekday hours. The club will open at 5:30 A.M. instead of 6:00 A.M. and close at 11:00 P.M. instead of 10:00 P.M. Weekend hours will remain unchanged.\n\nIn addition, members will now be able to reserve group exercise classes up to seven days in advance through our mobile app. Previously, reservations could be made only two days ahead. Members who reserve a spot but do not attend, without canceling at least two hours in advance, will not be able to book classes for one week.\n\nMonthly membership fees will not change. For questions, please speak with any staff member at the front desk."
+     "text": "Westgate Fitness Club — Membership Update\n\nStarting May 1, Westgate Fitness Club will extend its weekday hours. The club will open at 5:30 A.M. instead of 6:00 A.M. and close at 11:00 P.M. instead of 10:00 P.M. Weekend hours will remain unchanged.\n\nIn addition, members will now be able to reserve group exercise classes up to seven days in advance through our mobile app. Previously, reservations could be made only two days ahead. Members who reserve a spot but do not attend, without canceling at least two hours in advance, will not be able to book classes for one week.\n\nMonthly membership fees will not change. For questions, please speak with any staff member at the front desk.",
+     "trans": [
+      "Westgate Fitness Club — 회원 대상 변경 안내",
+      "5월 1일부터 Westgate Fitness Club은 평일 운영 시간을 연장합니다. 클럽은 오전 6:00가 아닌 오전 5:30에 문을 열고, 오후 10:00가 아닌 오후 11:00에 문을 닫습니다. 주말 운영 시간은 변동이 없습니다.",
+      "또한 이제 회원들은 저희 모바일 앱을 통해 단체 운동 수업을 최대 7일 전부터 미리 예약할 수 있습니다. 이전에는 2일 전부터만 예약할 수 있었습니다. 자리를 예약하고도 최소 2시간 전까지 취소하지 않은 채 참석하지 않은 회원은 1주일 동안 수업을 예약할 수 없습니다.",
+      "월 회비는 변경되지 않습니다. 문의 사항이 있으시면 프런트 데스크의 직원 누구에게나 말씀해 주십시오."
+     ]
     }
    ],
    "questions": [
@@ -597,7 +631,13 @@
     {
      "kind": "online review",
      "title": "Online Review",
-     "text": "Review of Juniper Bistro ★★★★☆\nPosted by Carlos M.\n\nI hosted a dinner for twelve colleagues at Juniper Bistro last Friday to celebrate the completion of a major project. The private dining room was the perfect size, and the staff had arranged the tables exactly as I had requested over the phone.\n\nThe food was excellent, especially the grilled salmon and the mushroom risotto. Our server, Priya, was attentive without being intrusive and handled several special dietary requests with ease.\n\nMy only complaint is that the main courses took nearly forty minutes to arrive after we finished our appetizers. The manager apologized and offered complimentary desserts for the entire table, which was a nice gesture. I would definitely book Juniper Bistro again for a work event."
+     "text": "Review of Juniper Bistro ★★★★☆\nPosted by Carlos M.\n\nI hosted a dinner for twelve colleagues at Juniper Bistro last Friday to celebrate the completion of a major project. The private dining room was the perfect size, and the staff had arranged the tables exactly as I had requested over the phone.\n\nThe food was excellent, especially the grilled salmon and the mushroom risotto. Our server, Priya, was attentive without being intrusive and handled several special dietary requests with ease.\n\nMy only complaint is that the main courses took nearly forty minutes to arrive after we finished our appetizers. The manager apologized and offered complimentary desserts for the entire table, which was a nice gesture. I would definitely book Juniper Bistro again for a work event.",
+     "trans": [
+      "Juniper Bistro 리뷰 ★★★★☆\n작성자: Carlos M.",
+      "지난 금요일, 큰 프로젝트를 마친 것을 축하하기 위해 Juniper Bistro에서 동료 12명을 위한 저녁 식사 자리를 마련했어요. 개별 룸은 크기가 딱 알맞았고, 직원들이 제가 전화로 요청했던 그대로 테이블을 배치해 두었어요.",
+      "음식은 훌륭했는데, 특히 연어 구이와 버섯 리소토가 좋았어요. 저희 담당 서버였던 Priya는 부담스럽지 않으면서도 세심하게 신경 써 주었고, 몇 가지 특별 식단 요청도 능숙하게 처리해 주었어요.",
+      "유일한 불만은 애피타이저를 다 먹은 뒤 메인 요리가 나오기까지 거의 40분이 걸렸다는 점이에요. 매니저가 사과하고 테이블 전원에게 무료 디저트를 제공해 주었는데, 좋은 배려였어요. 업무 관련 행사가 있으면 꼭 다시 Juniper Bistro를 예약할 거예요."
+     ]
     }
    ],
    "questions": [
@@ -736,7 +776,15 @@
     {
      "kind": "letter",
      "title": "Letter",
-     "text": "Dear Dr. Achebe,\n\nOn behalf of the organizing committee, I am delighted to confirm your participation as a keynote speaker at the Regional Healthcare Innovation Forum, to be held on November 14 at the Carlton Convention Center. — [1] —\n\nYour presentation is scheduled for 9:30 A.M. in the Grand Hall and should last approximately 45 minutes, followed by a 15-minute question-and-answer session. — [2] — Please send your presentation slides to our technical coordinator, Mr. Lewis Kang, by November 7 so that they can be tested on our equipment.\n\nAs discussed, the committee will cover your round-trip airfare and two nights at the Carlton Hotel, which is connected to the convention center. A car will meet you at the airport when you arrive. — [3] —\n\nWe are honored to have you join us. — [4] —\n\nSincerely,\nNadia Fournier\nForum Director"
+     "text": "Dear Dr. Achebe,\n\nOn behalf of the organizing committee, I am delighted to confirm your participation as a keynote speaker at the Regional Healthcare Innovation Forum, to be held on November 14 at the Carlton Convention Center. — [1] —\n\nYour presentation is scheduled for 9:30 A.M. in the Grand Hall and should last approximately 45 minutes, followed by a 15-minute question-and-answer session. — [2] — Please send your presentation slides to our technical coordinator, Mr. Lewis Kang, by November 7 so that they can be tested on our equipment.\n\nAs discussed, the committee will cover your round-trip airfare and two nights at the Carlton Hotel, which is connected to the convention center. A car will meet you at the airport when you arrive. — [3] —\n\nWe are honored to have you join us. — [4] —\n\nSincerely,\nNadia Fournier\nForum Director",
+     "trans": [
+      "Achebe 박사님께,",
+      "조직위원회를 대표하여, 11월 14일 Carlton Convention Center에서 열리는 Regional Healthcare Innovation Forum에 박사님께서 기조연설자로 참여하시는 것을 확정해 드리게 되어 매우 기쁩니다. — [1] —",
+      "박사님의 발표는 오전 9:30에 Grand Hall에서 예정되어 있으며 약 45분간 진행된 후 15분간의 질의응답 시간이 이어집니다. — [2] — 저희 장비로 테스트해 볼 수 있도록 발표 슬라이드를 11월 7일까지 저희 기술 코디네이터인 Lewis Kang 씨에게 보내 주십시오.",
+      "논의한 대로, 위원회에서 박사님의 왕복 항공료와 컨벤션 센터와 연결되어 있는 Carlton Hotel 2박 숙박비를 부담할 것입니다. 도착하시면 공항에 차량이 마중 나가 있을 것입니다. — [3] —",
+      "박사님을 모시게 되어 영광입니다. — [4] —",
+      "감사합니다.\nNadia Fournier\n포럼 총괄 책임자"
+     ]
     }
    ],
    "questions": [

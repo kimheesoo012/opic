@@ -7,7 +7,14 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "From: Daniel Cho <dcho@meridiantravel.example>\nTo: Sofia Ramirez\nDate: April 2\nSubject: Your Lisbon itinerary\n\nDear Ms. Ramirez,\n\nThank you for booking your business trip through Meridian Travel. I have attached your updated itinerary for the Lisbon trade conference. As you requested, I moved your return flight from April 18 to April 19 so that you can attend the closing reception on the final evening. The change resulted in a fare difference of $85, which has been charged to the corporate card on file.\n\nPlease note that your hotel, the Alfama Plaza, has also extended your reservation by one night at the same conference rate. Breakfast is included each day. If you would like me to arrange airport transportation, just reply to this e-mail and I will take care of it.\n\nBest regards,\nDaniel Cho\nCorporate Travel Consultant"
+     "text": "From: Daniel Cho <dcho@meridiantravel.example>\nTo: Sofia Ramirez\nDate: April 2\nSubject: Your Lisbon itinerary\n\nDear Ms. Ramirez,\n\nThank you for booking your business trip through Meridian Travel. I have attached your updated itinerary for the Lisbon trade conference. As you requested, I moved your return flight from April 18 to April 19 so that you can attend the closing reception on the final evening. The change resulted in a fare difference of $85, which has been charged to the corporate card on file.\n\nPlease note that your hotel, the Alfama Plaza, has also extended your reservation by one night at the same conference rate. Breakfast is included each day. If you would like me to arrange airport transportation, just reply to this e-mail and I will take care of it.\n\nBest regards,\nDaniel Cho\nCorporate Travel Consultant",
+     "trans": [
+      "보낸 사람: Daniel Cho <dcho@meridiantravel.example>\n받는 사람: Sofia Ramirez\n날짜: 4월 2일\n제목: 귀하의 리스본 여행 일정표",
+      "Ramirez 씨께,",
+      "Meridian Travel을 통해 출장을 예약해 주셔서 감사합니다. 리스본 무역 콘퍼런스를 위한 수정된 여행 일정표를 첨부해 드립니다. 요청하신 대로, 마지막 날 저녁의 폐회 리셉션에 참석하실 수 있도록 귀국 항공편을 4월 18일에서 4월 19일로 변경했습니다. 이 변경으로 85달러의 요금 차액이 발생했으며, 이 금액은 등록되어 있는 법인 카드로 청구되었습니다.",
+      "또한 숙박하실 호텔인 Alfama Plaza도 동일한 콘퍼런스 요금으로 귀하의 예약을 1박 연장했다는 점을 알려 드립니다. 조식은 매일 포함되어 있습니다. 제가 공항 교통편을 마련해 드리기를 원하시면 이 이메일에 회신만 해 주십시오. 그러면 제가 처리해 드리겠습니다.",
+      "감사합니다.\nDaniel Cho\n기업 출장 컨설턴트"
+     ]
     }
    ],
    "questions": [
@@ -121,7 +128,15 @@
     {
      "kind": "text message chain",
      "title": "Text-message chain",
-     "text": "Kevin Park [9:12 A.M.]\nHi Lena, the projector in Room 4 isn't turning on. The client presentation starts at 10.\n\nLena Ortiz [9:14 A.M.]\nDid you check that it's plugged in? The cleaning crew sometimes unplugs it.\n\nKevin Park [9:15 A.M.]\nFirst thing I tried.\n\nLena Ortiz [9:16 A.M.]\nOK. There's a portable projector in the supply closet on the second floor. I can bring it up.\n\nKevin Park [9:17 A.M.]\nThat would be great. Could you also bring an HDMI cable? Mine is too short.\n\nLena Ortiz [9:18 A.M.]\nWill do. I'll call IT about the Room 4 projector too."
+     "text": "Kevin Park [9:12 A.M.]\nHi Lena, the projector in Room 4 isn't turning on. The client presentation starts at 10.\n\nLena Ortiz [9:14 A.M.]\nDid you check that it's plugged in? The cleaning crew sometimes unplugs it.\n\nKevin Park [9:15 A.M.]\nFirst thing I tried.\n\nLena Ortiz [9:16 A.M.]\nOK. There's a portable projector in the supply closet on the second floor. I can bring it up.\n\nKevin Park [9:17 A.M.]\nThat would be great. Could you also bring an HDMI cable? Mine is too short.\n\nLena Ortiz [9:18 A.M.]\nWill do. I'll call IT about the Room 4 projector too.",
+     "trans": [
+      "Kevin Park [오전 9:12]\n안녕하세요, Lena 씨. 4호실 프로젝터가 켜지지 않아요. 고객 대상 프레젠테이션이 10시에 시작하는데요.",
+      "Lena Ortiz [오전 9:14]\n전원 플러그가 꽂혀 있는지 확인해 보셨어요? 청소 직원들이 가끔 플러그를 뽑아 놓거든요.",
+      "Kevin Park [오전 9:15]\n그건 제일 먼저 해 봤어요.",
+      "Lena Ortiz [오전 9:16]\n알겠어요. 2층 비품실에 휴대용 프로젝터가 있어요. 제가 가지고 올라갈 수 있어요.",
+      "Kevin Park [오전 9:17]\n그러면 정말 좋겠어요. HDMI 케이블도 가져다주실 수 있어요? 제 것은 너무 짧아서요.",
+      "Lena Ortiz [오전 9:18]\n그럴게요. 4호실 프로젝터 건은 IT 부서에도 전화해 둘게요."
+     ]
     }
    ],
    "questions": [
@@ -202,7 +217,13 @@
     {
      "kind": "notice",
      "title": "Notice",
-     "text": "NOTICE TO TENANTS — Harbor Point Office Building\n\nElevator maintenance is scheduled for the weekend of July 12–13. During this time, the building's main passenger elevators will be out of service. — [1] — The freight elevator at the rear of the building will remain available for tenants who need to move heavy items. — [2] —\n\nTenants expecting deliveries that weekend should inform the security desk in advance so that a guard can escort delivery personnel to the freight elevator. — [3] —\n\nThe work is part of a building-wide modernization project that will also include new lobby lighting and an upgraded security system later this year. — [4] — Questions may be directed to the management office at extension 210."
+     "text": "NOTICE TO TENANTS — Harbor Point Office Building\n\nElevator maintenance is scheduled for the weekend of July 12–13. During this time, the building's main passenger elevators will be out of service. — [1] — The freight elevator at the rear of the building will remain available for tenants who need to move heavy items. — [2] —\n\nTenants expecting deliveries that weekend should inform the security desk in advance so that a guard can escort delivery personnel to the freight elevator. — [3] —\n\nThe work is part of a building-wide modernization project that will also include new lobby lighting and an upgraded security system later this year. — [4] — Questions may be directed to the management office at extension 210.",
+     "trans": [
+      "입주자 공지 — Harbor Point Office Building",
+      "7월 12–13일 주말에 엘리베이터 정비가 예정되어 있습니다. 이 기간 동안 건물의 주 승객용 엘리베이터는 운행되지 않습니다. — [1] — 건물 뒤편의 화물용 엘리베이터는 무거운 물건을 옮겨야 하는 입주자를 위해 계속 이용하실 수 있습니다. — [2] —",
+      "그 주말에 배송을 받을 예정인 입주자께서는 경비원이 배송 직원을 화물용 엘리베이터까지 안내할 수 있도록 사전에 보안 데스크에 알려 주시기 바랍니다. — [3] —",
+      "이번 작업은 건물 전체 현대화 프로젝트의 일환이며, 이 프로젝트에는 올해 후반에 새 로비 조명과 개선된 보안 시스템도 포함될 예정입니다. — [4] — 문의 사항은 관리 사무소(내선 210번)로 해 주시기 바랍니다."
+     ]
     }
    ],
    "questions": [
@@ -303,7 +324,13 @@
     {
      "kind": "advertisement",
      "title": "Advertisement",
-     "text": "Brightway Cleaning Services — Now serving offices in the downtown area!\n\nIs your office ready for the new season? Brightway offers daily, weekly, and monthly cleaning plans for businesses of all sizes. Our trained staff use only eco-friendly products, and all of our employees are fully insured.\n\nNew customers who sign a six-month contract before September 30 will receive their first month of service at half price. Window washing and carpet cleaning are available for an additional fee.\n\nCall 555-0148 or visit www.brightway.example to request a free on-site estimate."
+     "text": "Brightway Cleaning Services — Now serving offices in the downtown area!\n\nIs your office ready for the new season? Brightway offers daily, weekly, and monthly cleaning plans for businesses of all sizes. Our trained staff use only eco-friendly products, and all of our employees are fully insured.\n\nNew customers who sign a six-month contract before September 30 will receive their first month of service at half price. Window washing and carpet cleaning are available for an additional fee.\n\nCall 555-0148 or visit www.brightway.example to request a free on-site estimate.",
+     "trans": [
+      "Brightway Cleaning Services — 이제 도심 지역 사무실에도 서비스를 제공합니다!",
+      "귀사의 사무실은 새로운 계절을 맞을 준비가 되셨습니까? Brightway는 모든 규모의 기업을 위해 일일, 주간, 월간 청소 플랜을 제공합니다. 교육을 받은 저희 직원들은 친환경 제품만 사용하며, 모든 직원은 보험에 완전히 가입되어 있습니다.",
+      "9월 30일 이전에 6개월 계약을 체결하시는 신규 고객은 첫 달 서비스를 반값에 받으실 수 있습니다. 창문 세척과 카펫 청소는 추가 요금을 내시면 이용하실 수 있습니다.",
+      "555-0148로 전화하시거나 www.brightway.example을 방문하셔서 무료 현장 견적을 요청하십시오."
+     ]
     }
    ],
    "questions": [
@@ -419,7 +446,14 @@
     {
      "kind": "article",
      "title": "Article",
-     "text": "Riverton Library Opens Business Resource Center\n\nRIVERTON (March 3) — Small-business owners in Riverton now have a new place to get help. The Riverton Public Library opened its Business Resource Center last Tuesday on the second floor of its main branch.\n\nThe center offers free access to market research databases, a collection of more than 600 books on management and finance, and four private meeting rooms that can be reserved for up to three hours at a time. Volunteers from the Riverton Chamber of Commerce will also hold one-on-one advising sessions every Thursday evening.\n\n“Many people starting a business can't afford expensive consultants,” said head librarian Martha Quinn. “We wanted to give them a place to find reliable information without cost.”\n\nThe project was funded by a grant from the Hollis Foundation. Library officials said that if the center proves popular, they hope to open a similar space at the library's east branch next year."
+     "text": "Riverton Library Opens Business Resource Center\n\nRIVERTON (March 3) — Small-business owners in Riverton now have a new place to get help. The Riverton Public Library opened its Business Resource Center last Tuesday on the second floor of its main branch.\n\nThe center offers free access to market research databases, a collection of more than 600 books on management and finance, and four private meeting rooms that can be reserved for up to three hours at a time. Volunteers from the Riverton Chamber of Commerce will also hold one-on-one advising sessions every Thursday evening.\n\n“Many people starting a business can't afford expensive consultants,” said head librarian Martha Quinn. “We wanted to give them a place to find reliable information without cost.”\n\nThe project was funded by a grant from the Hollis Foundation. Library officials said that if the center proves popular, they hope to open a similar space at the library's east branch next year.",
+     "trans": [
+      "Riverton Library, Business Resource Center 개관",
+      "RIVERTON (3월 3일) — 이제 Riverton의 소상공인들에게 도움을 받을 수 있는 새로운 공간이 생겼다. Riverton Public Library는 지난 화요일 본관 2층에 Business Resource Center를 열었다.",
+      "이 센터는 시장 조사 데이터베이스 무료 이용, 600권이 넘는 경영 및 재무 관련 도서 컬렉션, 그리고 한 번에 최대 3시간까지 예약할 수 있는 개인 회의실 4개를 제공한다. Riverton Chamber of Commerce의 자원봉사자들도 매주 목요일 저녁 일대일 상담 세션을 진행할 예정이다.",
+      "“창업하는 많은 사람들은 값비싼 컨설턴트를 고용할 형편이 안 된다”고 수석 사서 Martha Quinn은 말했다. “우리는 그들이 비용 부담 없이 신뢰할 수 있는 정보를 찾을 수 있는 장소를 마련해 주고 싶었다.”",
+      "이 프로젝트는 Hollis Foundation의 보조금으로 자금을 지원받았다. 도서관 관계자들은 센터가 인기를 얻는다면 내년에 도서관 동부 분관에도 비슷한 공간을 열기를 희망한다고 말했다."
+     ]
     }
    ],
    "questions": [
@@ -580,6 +614,39 @@
         "$49.00"
        ]
       ]
+     },
+     "trans": [
+      "Pelican Office Supply — 주문 확인서\n주문 번호: 48213    주문일: 10월 6일\n고객: Ruth Adeyemi, Linwood Dental Clinic",
+      "소계: 312.00달러\n배송비: 무료 (250달러 초과 주문 시)\n합계: 312.00달러\n예상 배송일: 10월 9일",
+      "참고: 데스크 정리함은 현재 품절 상태이며 10월 14일에 별도로 발송될 예정입니다. 추가 배송비는 청구되지 않습니다."
+     ],
+     "transTable": {
+      "header": [
+       "품목",
+       "수량",
+       "단가",
+       "합계"
+      ],
+      "rows": [
+       [
+        "복사 용지 (10연들이 상자)",
+        "3",
+        "42.00달러",
+        "126.00달러"
+       ],
+       [
+        "검정 토너 카트리지",
+        "2",
+        "68.50달러",
+        "137.00달러"
+       ],
+       [
+        "데스크 정리함",
+        "4",
+        "12.25달러",
+        "49.00달러"
+       ]
+      ]
      }
     }
    ],
@@ -660,7 +727,13 @@
     {
      "kind": "memo",
      "title": "Memo",
-     "text": "MEMO\nTo: All employees\nFrom: Gwen Hollis, Office Manager\nDate: February 2\nSubject: Recycling program\n\nBeginning next Monday, Talbot & Reyes will introduce a new recycling program on every floor. — [1] — Blue bins will be placed next to each printer for paper, and green bins will be placed in the kitchens for plastic bottles and cans. — [2] —\n\nPlease do not put food waste or coffee cups in either type of bin, as this can contaminate an entire load. — [3] — The building's cleaning staff will empty the bins every evening.\n\nWe estimate that the program will reduce the amount of waste we send to landfills by about 30 percent. — [4] — Thank you for your cooperation."
+     "text": "MEMO\nTo: All employees\nFrom: Gwen Hollis, Office Manager\nDate: February 2\nSubject: Recycling program\n\nBeginning next Monday, Talbot & Reyes will introduce a new recycling program on every floor. — [1] — Blue bins will be placed next to each printer for paper, and green bins will be placed in the kitchens for plastic bottles and cans. — [2] —\n\nPlease do not put food waste or coffee cups in either type of bin, as this can contaminate an entire load. — [3] — The building's cleaning staff will empty the bins every evening.\n\nWe estimate that the program will reduce the amount of waste we send to landfills by about 30 percent. — [4] — Thank you for your cooperation.",
+     "trans": [
+      "회람\n받는 사람: 전 직원\n보낸 사람: Gwen Hollis, 사무실 관리자\n날짜: 2월 2일\n제목: 재활용 프로그램",
+      "다음 주 월요일부터 Talbot & Reyes는 모든 층에 새로운 재활용 프로그램을 도입합니다. — [1] — 파란색 수거함은 종이용으로 각 프린터 옆에 놓이고, 초록색 수거함은 플라스틱 병과 캔용으로 주방에 놓일 예정입니다. — [2] —",
+      "음식물 쓰레기나 커피 컵은 수거물 전체를 오염시킬 수 있으므로 두 수거함 어디에도 넣지 마십시오. — [3] — 건물 청소 직원이 매일 저녁 수거함을 비울 것입니다.",
+      "이 프로그램을 통해 저희가 매립지로 보내는 쓰레기의 양이 약 30퍼센트 줄어들 것으로 예상합니다. — [4] — 협조해 주셔서 감사합니다."
+     ]
     }
    ],
    "questions": [
@@ -767,7 +840,16 @@
     {
      "kind": "online chat discussion",
      "title": "Online chat discussion",
-     "text": "Aisha Bello [2:03 P.M.]\nHas anyone heard back from the caterer about Friday's lunch?\n\nTom Reed [2:05 P.M.]\nThey called this morning. They can do sandwiches for 40 people, but the vegetarian option is limited to 8.\n\nAisha Bello [2:06 P.M.]\nWe'll have at least 12 vegetarians.\n\nMei Lin [2:08 P.M.]\nI know a bakery on Fifth Street that makes great vegetable wraps. I could pick some up Friday morning.\n\nAisha Bello [2:09 P.M.]\nThat would solve it. Can you get 6?\n\nMei Lin [2:10 P.M.]\nNo problem. I'll keep the receipt for reimbursement.\n\nTom Reed [2:12 P.M.]\nThen I'll let the caterer know the final count is 40 sandwiches."
+     "text": "Aisha Bello [2:03 P.M.]\nHas anyone heard back from the caterer about Friday's lunch?\n\nTom Reed [2:05 P.M.]\nThey called this morning. They can do sandwiches for 40 people, but the vegetarian option is limited to 8.\n\nAisha Bello [2:06 P.M.]\nWe'll have at least 12 vegetarians.\n\nMei Lin [2:08 P.M.]\nI know a bakery on Fifth Street that makes great vegetable wraps. I could pick some up Friday morning.\n\nAisha Bello [2:09 P.M.]\nThat would solve it. Can you get 6?\n\nMei Lin [2:10 P.M.]\nNo problem. I'll keep the receipt for reimbursement.\n\nTom Reed [2:12 P.M.]\nThen I'll let the caterer know the final count is 40 sandwiches.",
+     "trans": [
+      "Aisha Bello [오후 2:03]\n금요일 점심 건으로 케이터링 업체한테서 답변 받은 분 있어요?",
+      "Tom Reed [오후 2:05]\n오늘 아침에 전화 왔어요. 40명분 샌드위치는 가능한데, 채식 메뉴는 8인분으로 제한된대요.",
+      "Aisha Bello [오후 2:06]\n채식하는 사람이 최소 12명은 될 거예요.",
+      "Mei Lin [오후 2:08]\nFifth Street에 채소 랩을 정말 잘 만드는 빵집을 알아요. 금요일 아침에 제가 좀 사 올 수 있어요.",
+      "Aisha Bello [오후 2:09]\n그러면 해결되겠네요. 6개 사 올 수 있어요?",
+      "Mei Lin [오후 2:10]\n문제없어요. 비용 환급받을 수 있게 영수증은 챙겨 둘게요.",
+      "Tom Reed [오후 2:12]\n그럼 케이터링 업체에 최종 수량은 샌드위치 40개라고 알려 줄게요."
+     ]
     }
    ],
    "questions": [

@@ -233,7 +233,9 @@ function oneProse(p, q, vocab, evidence, showTr = false) {
   const head = `<div class="ptitle">${h(p.title || p.kind || '')}</div>`;
   const paras = t.split(PARA);
   if (!showTr || !hasTrans(p) || paras.length !== p.trans.length) return `<div class="passage">${head}${t}${table}</div>`;
-  const body = paras.map((x, i) => `<div class="pp">${x}</div><div class="ptr">${trLine(p.trans[i], q)}</div>`).join('');
+  const src = p.text.split(PARA);
+  // 이름·제목만 있는 줄처럼 번역이 원문과 같으면 되풀이하지 않는다
+  const body = paras.map((x, i) => `<div class="pp">${x}</div>${p.trans[i].trim() === src[i].trim() ? '' : `<div class="ptr">${trLine(p.trans[i], q)}</div>`}`).join('');
   const ttab = p.table && p.transTable ? tableHtml(p.transTable, cellHit, 'trt') : '';
   return `<div class="passage tr-on">${head}${body}${table}${ttab}</div>`;
 }
