@@ -46,7 +46,8 @@
         <h3>유형별 연습 횟수</h3>
         <ul class="hbars">${bank.FOCUS_GROUPS.map(g => `<li title="${esc(g.label)}: ${st.byGroup[g.id]}회"><span class="hb-l">${esc(g.label)}</span><span class="hb-t"><i style="width:${(st.byGroup[g.id] / maxG) * 100}%"></i></span><span class="hb-v">${st.byGroup[g.id]}</span></li>`).join('')}</ul>
         <h3>주별 평균 답변 길이</h3>${trendSvg(st.weeks)}
-        <button class="btn block" id="copySum">결과 요약 복사</button></section>
+        <button class="btn block" id="copySum">결과 요약 복사</button>
+        <a class="btn primary block" href="#/progress">내 성장 · 배지 · 숙련도 보기</a></section>
 
       <section class="card"><h2>모의고사·연습 세션</h2>
         ${store.S.sessions.length ? `<ul class="qlist">${store.S.sessions.slice(0, 15).map(s => `<li><a href="${s.status === 'in_progress' && s.mode === 'exam' ? '#/exam?resume=' + s.id : '#/session/' + s.id}">

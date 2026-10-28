@@ -74,6 +74,8 @@ try {
   ok('간단 진단 완료 → 결과', (await p.evaluate(() => location.hash)) === '#result');
   const rt = await appText(p);
   ok('결과: RC 추정 점수 범위 또는 학습 수준', /RC 추정 점수 범위|학습 수준/.test(rt));
+  const xpGain = Number(((await p.textContent('.reward .xp-big')) || '').replace(/\D/g, ''));
+  ok('결과: 획득 XP와 첫 배지', xpGain > 0 && (await p.textContent('.reward')).includes('첫 걸음'), `+${xpGain} XP`);
   await checkCopy(p, '진단 결과');
   await shot(p, '03-diag-result', true);
 
@@ -99,6 +101,8 @@ try {
   await (await p.$$('.choice[data-act="choose"]'))[1].click();
   await p.waitForSelector('.exp');
   ok('즉시 해설: 정답 이유 + 핵심 + 선택지별 함정', (await p.$('.exp .why')) && (await p.$('.exp .tip')) && (await p.$$('.exp ul.traps li')).length === 4);
+  const tr5 = await p.evaluate(() => ({ en: !!document.querySelector('.exp .trans .en b'), tr: (document.querySelector('.exp .trans .tr') || {}).textContent || '', lbl: [...document.querySelectorAll('.exp .lbl')].map((x) => x.textContent) }));
+  ok('Part 5 해설: 정답을 넣은 문장과 우리말 해석, 구역 이름표', tr5.en && /[가-힣]/.test(tr5.tr) && tr5.lbl.includes('정답 이유') && tr5.lbl.includes('해석') && tr5.lbl.includes('선택지'), tr5.lbl.join('/'));
   if (await p.$('[data-act="cause"]')) {
     await p.click('[data-act="cause"][data-c="grammar"]');
     ok('오답 원인 탭 한 번으로 선택', !!(await p.$('[data-act="cause"][data-c="grammar"][aria-pressed="true"]')));
@@ -167,6 +171,13 @@ try {
   await p.click('[data-act="wide"]');
   const keptTitle = await p.evaluate(() => document.querySelector('[data-act="ptab"][aria-selected="true"]').textContent);
   await (await p.$$('.choice[data-act="choose"]'))[0].click();
+  await p.waitForSelector('.exp');
+  const ev7 = await p.evaluate(() => ({ marks: document.querySelectorAll('.passage mark.ev, .passage td.ev').length, ev: (document.querySelector('.exp .ev') || {}).textContent || '', q: (document.querySelector('.exp .qtr') || {}).textContent || '' }));
+  ok('Part 7 해설: 근거 문장 표시 + 지문 안 강조 + 질문 해석', ev7.marks >= 1 && ev7.ev.includes('근거 문장') && /[가-힣]/.test(ev7.q), JSON.stringify(ev7).slice(0, 120));
+  await p.click('[data-act="scrollEv"]');
+  await p.waitForTimeout(400);
+  const vis = await p.evaluate(() => { const m = document.querySelector('.sess-main mark.ev, .sess-main td.ev'); const r = m.getBoundingClientRect(); const c = document.querySelector('.sess-main').getBoundingClientRect(); return r.top >= c.top - 2 && r.bottom <= c.bottom + 2; });
+  ok('지문에서 보기 → 근거 문장이 화면 안에 들어옴', vis);
   await p.click('[data-act="next"]');
   ok('다음 문항에서도 선택한 지문 탭 유지', (await p.evaluate(() => document.querySelector('[data-act="ptab"][aria-selected="true"]').textContent)) === keptTitle, keptTitle);
   await answerLoop(p);
@@ -258,6 +269,43 @@ try {
   await p.click('.sheet [data-act="closeSheet"]');
   const cnt = await p.evaluate(async () => new Promise((res) => { const r = indexedDB.open('toeic-trainer'); r.onsuccess = () => { const q = r.result.transaction('attempts').objectStore('attempts').count(); q.onsuccess = () => res(q.result); }; }));
   ok('잘못된 파일은 거부, 기존 기록 유지', sheetText.includes('가져올 수 없는') && cnt === nA, `${cnt}/${nA}`);
+
+  // 11-b. 학습 동기: 연속 기록·XP·레벨·실력 지도·배지·하루 목표
+  await p.goto(BASE + '#home');
+  await p.waitForSelector('.streak');
+  const hs = await p.evaluate(() => ({ days: document.querySelectorAll('.week .wd').length, today: !!document.querySelector('.wd.today'), ring: document.querySelector('.streak .ring').textContent, lv: document.querySelector('.streak .lv').textContent }));
+  ok('홈: 연속 기록 카드(요일 7칸, 오늘 표시, XP 고리, 레벨)', hs.days === 7 && hs.today && /XP/.test(hs.ring) && /Lv\.\d/.test(hs.lv), JSON.stringify(hs));
+  const g0 = await p.evaluate(() => new Promise((res) => { const r = indexedDB.open('toeic-trainer'); r.onsuccess = () => { const q = r.result.transaction('kv').objectStore('kv').get('game'); q.onsuccess = () => res(q.result); }; }));
+  ok('XP 저장, 하루 목표 달성 → 연속 1일', g0.total > 100 && Object.keys(g0.done).length === 1 && (await p.textContent('.streak-n')).includes('1일 연속'), `총 ${g0.total} XP`);
+  await shot(p, '14b-home-streak');
+  await p.goto(BASE + '#stats');
+  await p.waitForSelector('.badges');
+  const mrows = await p.$$('.mrow');
+  ok('기록: 실력 지도 34유형, 배지, 최근 7일 XP', mrows.length === 34 && (await p.$$('.badge.on')).length >= 2 && (await p.$$('.xpchart .col')).length === 7, `${mrows.length}유형`);
+  await p.click('details summary');
+  await mrows[0].click();
+  await p.waitForSelector('.sess');
+  ok('실력 지도에서 유형 탭 → 그 유형 연습', (await p.textContent('.prog .xs')).includes('집중'));
+  await p.click('.choice[data-act="choose"]');
+  await p.goto(BASE + '#stats');
+  await p.waitForSelector('.badges');
+  await p.click('details summary');
+  await (await p.$$('.mrow'))[1].click();
+  ok('풀던 세션이 있으면 덮어쓰기 전에 확인', ((await p.textContent('.sheet').catch(() => '')) || '').includes('풀던 세션이 있습니다'));
+  await p.click('[data-act="discardAndStartPending"]');
+  await p.waitForSelector('.sess');
+  await p.click('[data-act="exitAsk"]');
+  await p.click('[data-act="exitFinish"]');
+  await p.goto(BASE + '#prefs');
+  await p.click('[data-act="daily"][data-n="150"]');
+  await p.goto(BASE + '#home');
+  ok('하루 목표 변경 → 홈 고리 반영', (await p.textContent('.streak .ring')).includes('/150'));
+  // 2.0 기록(경험치 없음)으로 업데이트한 사용자: 풀이 기록으로 XP를 다시 계산
+  await p.evaluate(() => new Promise((res) => { const r = indexedDB.open('toeic-trainer'); r.onsuccess = () => { const t = r.result.transaction('kv', 'readwrite'); t.objectStore('kv').delete('game'); t.oncomplete = res; }; }));
+  await p.reload();
+  await p.waitForSelector('.streak');
+  const g1 = await p.evaluate(() => new Promise((res) => { const r = indexedDB.open('toeic-trainer'); r.onsuccess = () => { const q = r.result.transaction('kv').objectStore('kv').get('game'); q.onsuccess = () => res(q.result); }; }));
+  ok('이전 버전 기록에서 XP·목표 달성일 복원', g1 && g1.total > 0 && Object.keys(g1.done).length === 1, g1 ? `${g1.total} XP` : '없음');
 
   // 12. 독해·어휘 훈련, 설정, 다크 모드, 가로 스크롤
   for (const r of ['train-para', 'train-vocab', 'prefs', 'about']) {

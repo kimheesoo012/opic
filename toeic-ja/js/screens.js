@@ -5,7 +5,8 @@ import { dueCards, STAGES } from './review.js';
 import { partStats, weakConcepts, causeDist, retentionStats, CAUSES, todayAttempts, todayStudySec, overtimeQids } from './stats.js';
 import { newSession } from './sessions.js';
 import { pct, dayKey, fmtMin, PART_NAMES, DAY, LETTERS, RC_PARTS } from './util.js';
-import { h, on, toast, sheet, closeSheet, copyText, download } from './ui.js';
+import { XP, DAILY_GOALS, BADGES, MASTERY_LABELS, streakInfo, levelOf, setDaily, shiftDay } from './game.js';
+import { h, on, toast, sheet, closeSheet, copyText, download, icons } from './ui.js';
 import { startSession, stageDots } from './player.js';
 import { validateImport } from './store.js';
 
@@ -79,6 +80,8 @@ function summaryText() {
   lines.push(`パート別正答率${today.length ? '・今日' : '・全期間'}: ${parts.join('、') || '記録なし'}`);
   const weak = weakConcepts(st.attempts, 3);
   lines.push(`苦手なタイプ: ${weak.length ? weak.map((w) => `${conceptName(C.bank, w.concept)} ${pct(w.acc)}% ${w.n}問`).join('、') : '判断できる記録が不足'}`);
+  const si = streakInfo(st.game);
+  lines.push(`${si.days}日連続・Lv.${levelOf(st.game.total).level}・累計${st.game.total} XP・今日${si.todayXp}/${st.game.daily} XP`);
   lines.push(est.enough ? `RC推定スコア範囲: ${est.rc.lo}–${est.rc.hi}、公式換算ではない・目標${st.profile.goal}` : `学習レベル: ${est.level}、データ不足・目標${st.profile.goal}`);
   return lines.join('\n');
 }
@@ -94,6 +97,7 @@ export function renderStats() {
   let html = `<div class="page"><h1>記録</h1>`;
   // scoreCard는 app.js에 있으므로 간접 호출
   html += C.scoreCardHtml ? C.scoreCardHtml(est) : '';
+  html += growthCard() + masteryCard() + badgeCard();
   html += `<div class="card"><h3>パート別の正答率・解答時間</h3><table class="t"><thead><tr><th>パート</th><th class="num">問題数</th><th class="num">正答率</th><th class="num">平均</th></tr></thead><tbody>
     ${RC_PARTS.map((p) => `<tr><td>P${p} ${PART_NAMES[p]}</td><td class="num">${ps[p].n}</td><td class="num">${ps[p].n ? pct(ps[p].acc) + '%' : '–'}</td><td class="num">${ps[p].avgSec != null ? `${Math.round(ps[p].avgSec)}秒${p >= 5 && ps[p].target ? `<div class="xs muted">目標${ps[p].target}秒</div>` : ''}` : '–'}</td></tr>`).join('')}</tbody></table></div>`;
   html += `<div class="card"><h3>よく間違えるタイプ TOP 3</h3>${weak.length ? weak.map((w, i) => `<div class="list-item"><b>${i + 1}</b><div class="grow">${h(conceptName(C.bank, w.concept))}<div class="xs muted">正答率${pct(w.acc)}%・${w.n}問${w.avgSec != null ? `・平均${Math.round(w.avgSec)}秒` : ''}</div></div><button class="btn sm" data-act="drillConcept" data-c="${w.concept}">練習</button></div>`).join('') : '<p class="small muted">タイプごとに4問以上解くと苦手を判定します。</p>'}</div>`;
@@ -106,6 +110,56 @@ export function renderStats() {
     <input type="file" accept="application/json,.json" class="hidden" id="importFile" data-change="importFile"></div></div>`;
   return html;
 }
+// 지난 7일과 그 전 7일 비교, 날짜별 XP 막대
+function growthCard() {
+  const g = C.state.game;
+  const now = Date.now();
+  const today = dayKey(now);
+  const days = Array.from({ length: 7 }, (_, i) => shiftDay(today, i - 6));
+  const prevDays = Array.from({ length: 7 }, (_, i) => shiftDay(today, i - 13));
+  const xpSum = (ds) => ds.reduce((a, d) => a + (g.xp[d] || 0), 0);
+  const inDays = (ds) => { const set = new Set(ds); return C.state.attempts.filter((a) => set.has(dayKey(a.t))); };
+  const cur = inDays(days);
+  const prev = inDays(prevDays);
+  const acc = (l) => (l.length ? pct(l.filter((a) => a.correct).length / l.length) : null);
+  const diff = (a, b, unit = '') => (a == null || b == null ? '' : `<span class="delta ${a > b ? 'up' : a < b ? 'down' : ''}">${a > b ? '+' : ''}${a - b}${unit}</span>`);
+  const max = Math.max(g.daily, ...days.map((d) => g.xp[d] || 0));
+  return `<div class="card"><h3>直近7日</h3>
+    <div class="row between"><div><div class="xs muted">XP</div><div class="stat">${xpSum(days)} ${diff(xpSum(days), xpSum(prevDays))}</div></div>
+    <div><div class="xs muted">解いた問題</div><div class="stat">${cur.length} ${diff(cur.length, prev.length)}</div></div>
+    <div><div class="xs muted">正答率</div><div class="stat">${acc(cur) == null ? '–' : acc(cur) + '%'} ${diff(acc(cur), acc(prev), '%p')}</div></div></div>
+    <div class="xpchart" role="img" aria-label="日別XP">${days.map((d) => `<div class="col ${g.done[d] ? 'done' : ''}"><div class="bw"><i style="height:${Math.round(((g.xp[d] || 0) / max) * 100)}%"></i></div><span>${weekdayOf(d)}</span></div>`).join('')}<b class="goal" style="bottom:${20 + Math.round((g.daily / max) * 80)}px"></b></div>
+    <p class="xs muted" style="margin:6px 0 0">数字の横はその前の7日間との差。線は1日の目標${g.daily} XP。</p></div>`;
+}
+const WD = ['日', '月', '火', '水', '木', '金', '土'];
+const weekdayOf = (d) => WD[new Date(`${d}T12:00`).getDay()];
+
+// 유형별 숙련도 0~5. 탭하면 그 유형 연습
+function masteryCard() {
+  const mm = C.mastery();
+  const lv = (c) => (mm[c.id] ? mm[c.id].lv : 0);
+  const all = C.bank.concepts;
+  const masters = all.filter((c) => lv(c) >= 5).length;
+  const adv = all.filter((c) => lv(c) >= 4).length;
+  const overall = pct(all.reduce((a, c) => a + lv(c), 0) / (all.length * 5));
+  const parts = RC_PARTS.map((p) => {
+    const list = all.filter((c) => c.part === p);
+    const avg = pct(list.reduce((a, c) => a + lv(c), 0) / (list.length * 5));
+    return `<details><summary><b>Part ${p}</b> ${PART_NAMES[p]} <span class="tag">${avg}%</span></summary>${list.map((c) => `<button class="mrow" data-act="drillConcept" data-c="${c.id}"><span class="grow">${h(c.name.replace(/^Part \d /, ''))}</span><span class="segs l${lv(c)}">${[1, 2, 3, 4, 5].map((i) => `<i class="${i <= lv(c) ? 'on' : ''}"></i>`).join('')}</span><span class="mlab">${MASTERY_LABELS[lv(c)]}</span></button>`).join('')}</details>`;
+  }).join('');
+  return `<div class="card"><h3>実力マップ</h3>
+    <div class="row between"><div><div class="xs muted">全体の習熟度</div><div class="stat">${overall}%</div></div><div><div class="xs muted">得意以上</div><div class="stat">${adv}/${all.length}</div></div><div><div class="xs muted">マスター</div><div class="stat">${masters}</div></div></div>
+    <div class="bar" style="margin:8px 0 4px"><i style="width:${overall}%"></i></div>
+    ${parts}
+    <p class="xs muted" style="margin:6px 0 0">段階: 入門 → 基礎（2問、50%）→ 習得中（4問、70%）→ 得意（6問、80%、中級に正解）→ マスター（8問、85%、上級に正解、目標時間内）。正答率は直近10回で計算。</p></div>`;
+}
+
+function badgeCard() {
+  const got = C.state.game.badges;
+  const n = BADGES.filter((b) => got[b.id]).length;
+  return `<div class="card"><h3>バッジ <span class="muted small">${n}/${BADGES.length}</span></h3><div class="badges">${BADGES.map((b) => `<div class="badge ${got[b.id] ? 'on' : ''}" title="${h(b.desc)}">${icons[b.icon]}<b>${h(b.label)}</b><span>${h(b.desc)}</span></div>`).join('')}</div></div>`;
+}
+
 on('drillConcept', (el) => startSession(newSession('drill', { concept: el.dataset.c, nQ: 6 }, env())));
 on('copySummary', async () => { toast((await copyText(summaryText())) ? 'コピーしました' : 'コピーできませんでした。テキストを長押ししてコピーできます。'); });
 on('exportData', async () => {
@@ -142,6 +196,8 @@ on('importConfirm', async () => {
   if (!C.embedded) download(`toeic-trainer-ja-backup-before-import-${Date.now()}.json`, JSON.stringify(C.store.exportData(C.version)));
   const r = await C.store.importData(obj);
   if (!r.ok) { toast('読み込めませんでした。今の記録はそのままです。'); return; }
+  C.ensureGame();
+  C.save(['game']);
   C.applyTheme();
   toast(`${r.count}問の記録を読み込みました`);
   C.render();
@@ -154,15 +210,24 @@ export function renderSettings() {
   const total = RC_PARTS.reduce((a, p) => a + C.bank.count(p), 0);
   return `<div class="page"><h1>設定</h1>
     <div class="card"><div class="row between"><div><h3>目標スコア</h3><div class="small muted">トータル${st.profile.goal}・LC基準${st.profile.lcBase}</div></div><a class="btn sm" href="#goal">変更</a></div></div>
+    <div class="card"><h3>1日の目標</h3><div class="seg" style="display:flex">${DAILY_GOALS.map((n) => `<button style="flex:1" data-act="daily" data-n="${n}" aria-pressed="${st.game.daily === n}">${n}</button>`).join('')}</div>
+      <p class="xs muted" style="margin:6px 0 0">XPで設定。正解10、不正解2、同じ問題の解き直しは半分。50 XPは約5問。</p></div>
+    <div class="card"><div class="row between"><h3 style="margin:0">効果音</h3><div class="seg">${[['1', 'オン'], ['0', 'オフ']].map(([v, l]) => `<button data-act="setOpt" data-k="sound" data-v="${v}" aria-pressed="${(s.sound !== false) === (v === '1')}">${l}</button>`).join('')}</div></div></div>
     <div class="card"><h3>画面</h3><div class="seg" style="display:flex">${[['auto', '端末の設定'], ['light', 'ライト'], ['dark', 'ダーク']].map(([k, l]) => `<button style="flex:1" data-act="theme" data-t="${k}" aria-pressed="${(s.theme || 'auto') === k}">${l}</button>`).join('')}</div></div>
     <div class="card"><h3>データ</h3><div class="stack"><button class="btn block" data-act="exportData">学習記録を書き出す</button><button class="btn block" data-act="importPick">学習記録を読み込む</button><button class="btn block ghost" data-act="resetAsk">すべての記録を消去</button></div>
       <input type="file" accept="application/json,.json" class="hidden" id="importFile" data-change="importFile"></div>
     <div class="card small"><h3>アプリ情報</h3>アプリ ${h(C.version)}・問題データ ${h(C.dataVersion)}<br>${RC_PARTS.map((p) => `Part ${p} ${C.bank.count(p)}問`).join('・')}・合計${total}<br>Part 6 ${(C.bank.byPart[6] || []).length}セット・Part 7 シングル${(C.bank.byPart[7] || []).filter((u) => u.passages.length === 1).length}セット、ダブル・トリプル${(C.bank.byPart[7] || []).filter((u) => u.passages.length > 1).length}セット<br>保存方式 ${h(C.store.adapter.kind)}<br><a href="#about">推定スコアの計算方法と限界</a>
       <p class="xs muted">RC専用アプリです。すべての問題はこのアプリのために新しく作ったもので、実際の試験や教材の問題ではありません。TOEICはETSの登録商標です。</p></div></div>`;
 }
+on('daily', (el) => {
+  const ev = setDaily(C.state.game, Number(el.dataset.n));
+  C.save(['game']);
+  if (ev.goalReached) toast('今日の目標達成');
+  C.render();
+});
 on('setOpt', (el) => { C.state.settings[el.dataset.k] = el.dataset.v === '1'; C.save(['settings']); C.render(); });
 on('theme', (el) => { C.state.settings.theme = el.dataset.t; C.save(['settings']); C.applyTheme(); C.render(); });
-on('resetAsk', () => sheet(`<h3>すべての記録を消去しますか？</h3><p class="small">解答記録、復習カード、単語帳、設定がすべて消え、元に戻せません。</p>
+on('resetAsk', () => sheet(`<h3>すべての記録を消去しますか？</h3><p class="small">解答記録、復習カード、単語帳、XP・連続記録、設定がすべて消え、元に戻せません。</p>
   <div class="stack"><button class="btn block" data-act="exportData">先に書き出す</button><button class="btn primary block" data-act="resetConfirm">消去する</button><button class="btn ghost block" data-act="closeSheet">キャンセル</button></div>`));
 on('resetConfirm', async () => { closeSheet(); await C.store.reset(); C.applyTheme(); toast('記録を消去しました'); C.go('home'); });
 
@@ -258,7 +323,7 @@ on('ptChoose', (el) => {
   if (PT.chosen != null) return;
   PT.chosen = Number(el.dataset.i);
   PT.total++;
-  if (PT.chosen === PT.cur.answer) PT.right++;
+  if (PT.chosen === PT.cur.answer) { PT.right++; C.award(XP.drill); }
   const k = dayKey(Date.now());
   C.state.studyLog[k] = (C.state.studyLog[k] || 0) + 15;
   C.save(['studyLog']);
@@ -338,6 +403,7 @@ on('vtChoose', (el) => {
   VT.chosen = Number(el.dataset.i);
   const e = C.state.vocab[VT.cur.entry.w.toLowerCase()];
   const ok = VT.cur.opts[VT.chosen] === e.m;
+  if (ok) C.award(XP.drill);
   if (ok) { e.box = Math.min(6, (e.box || 0) + 1); e.right = (e.right || 0) + 1; e.due = Date.now() + BOX_DAYS[e.box] * DAY; } else { e.box = 0; e.wrong = (e.wrong || 0) + 1; e.due = Date.now() + 10 * 60 * 1000; }
   const k = dayKey(Date.now());
   C.state.studyLog[k] = (C.state.studyLog[k] || 0) + 8;

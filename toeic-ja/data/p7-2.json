@@ -29,7 +29,7 @@
       "traps": [
        "二重請求についての記述はない。",
        null,
-       "配送の遅れの話はない。",
+       "配送の遅れの話はない。5月28日に買ったヘッドホンが2週間で故障したことが問題。",
        "付属品は「返送するときに一緒に入れるように」という案内に出てくるだけで、入っていなかったという苦情ではない。"
       ]
      },
@@ -38,6 +38,10 @@
        "p": "the left earpiece stopped working",
        "a": "Part of a product stopped functioning"
       }
+     ],
+     "trans": "Millsさんはどんな問題を報告したか。",
+     "evidence": [
+      "the left earpiece stopped working after only two weeks"
      ]
     },
     {
@@ -61,7 +65,11 @@
        null,
        "'send the headphones to our service center' と頼んでいる。"
       ]
-     }
+     },
+     "trans": "Millsさんが求められていないことは。",
+     "evidence": [
+      "we will replace them at no cost"
+     ]
     },
     {
      "id": "p7-s09-3",
@@ -90,6 +98,11 @@
        "p": "purchased on May 28 / covered by our one-year limited warranty",
        "a": "purchased less than a year ago"
       }
+     ],
+     "trans": "Millsさんのヘッドホンについて何が示されているか。",
+     "evidence": [
+      "you purchased on May 28",
+      "covered by our one-year limited warranty"
      ]
     }
    ]
@@ -121,7 +134,7 @@
      "explanation": {
       "why": "需要に追いつけなくなり（could not keep up with demand）、もっと大きい建物（a larger building）に移って従業員を雇った。需要に応えるためにもっと広いスペースが必要だった。",
       "traps": [
-       "家賃の話はない。",
+       "家賃の話はない。移転の理由として出てくるのは、需要に追いつけなかったことだけ。",
        "レストランを開こうとしたという内容はない。レストランにはパンを納めているだけ。",
        null,
        "建物の売却についての記述はない。"
@@ -132,6 +145,11 @@
        "p": "could not keep up with demand … a larger building",
        "a": "needed more space to meet demand"
       }
+     ],
+     "trans": "Diaz一家はなぜGrant Streetに移ったと考えられるか。",
+     "evidence": [
+      "the couple soon could not keep up with demand",
+      "they moved to a larger building on Grant Street"
      ]
     },
     {
@@ -155,7 +173,11 @@
        "orders（注文する）は方向が逆（レストランが注文する側）。",
        "equips（備え付ける）はequip A with Bの形で使い、パンをレストランにequipすることはできない。"
       ]
-     }
+     },
+     "trans": "第2段落の \"supplies\" に最も意味が近いのは。",
+     "evidence": [
+      "supplies bread to more than 40 restaurants"
+     ]
     },
     {
      "id": "p7-s10-3",
@@ -179,7 +201,11 @@
        "[3]は現在の6店舗の話なので、過去時制waitedと時点が合わない。",
        "[4]の前は手作りの方法を守る話なので、並ぶ客とつながらない。"
       ]
-     }
+     },
+     "trans": "[1]、[2]、[3]、[4] のうち、次の文が入る位置として最も適切なのは。",
+     "evidence": [
+      "the couple soon could not keep up with demand."
+     ]
     },
     {
      "id": "p7-s10-4",
@@ -208,6 +234,10 @@
        "p": "became president of the company in 2016",
        "a": "has led the company since 2016"
       }
+     ],
+     "trans": "Elena Diazについて何が述べられているか。",
+     "evidence": [
+      "Their daughter, Elena Diaz, became president of the company in 2016."
      ]
     }
    ]
@@ -244,7 +274,12 @@
        "'Together, they will serve 38 cities' とある。",
        "'will keep the Coastal Air name' とある。"
       ]
-     }
+     },
+     "trans": "合併後の航空会社について述べられていないものは。",
+     "evidence": [
+      "will keep the Coastal Air name and will be based at Coastal's current headquarters in Halifax",
+      "Together, they will serve 38 cities."
+     ]
     },
     {
      "id": "p7-s11-2",
@@ -270,7 +305,11 @@
        "awarded（授与される）は賞を与えるときの意味。",
        null
       ]
-     }
+     },
+     "trans": "第3段落の \"honored\" に最も意味が近いのは。",
+     "evidence": [
+      "all current Skyline Express tickets would be honored"
+     ]
     },
     {
      "id": "p7-s11-3",
@@ -288,7 +327,7 @@
      "explanation": {
       "why": "2つの航空会社は 'largely different routes'（ほぼ異なる路線）を運航していると言っている。つまり重なる路線はほとんどない。",
       "traps": [
-       "設立年は書かれていない。",
+       "2社の設立年は書かれていない。記事に出てくる時期は合併の時期（年末）とポイント統合（1月）だけ。",
        "HalifaxはCoastal Airの本社。",
        null,
        "最後の段落で、まだ政府機関の承認が必要だと言っている。"
@@ -299,6 +338,10 @@
        "p": "serve largely different routes",
        "a": "fly few of the same routes"
       }
+     ],
+     "trans": "2つの航空会社について何が分かるか。",
+     "evidence": [
+      "the two carriers serve largely different routes"
      ]
     },
     {
@@ -328,6 +371,10 @@
        "p": "Frequent-flyer points … will be combined",
        "a": "Loyalty program points will be merged"
       }
+     ],
+     "trans": "記事によると、1月に何が起こるか。",
+     "evidence": [
+      "Frequent-flyer points from both programs will be combined into a single account for each member beginning in January."
      ]
     }
    ]
@@ -362,7 +409,7 @@
        null,
        "マーケティング部の人は代わりに入れるCarla。",
        "カタログをデザインしたという記述はない。これから一緒に作業するということ。",
-       "候補者の推薦の話はない。"
+       "候補者の推薦の話はない。候補者3人はMs. Bensonが絞り込んだ（We have narrowed the list）。"
       ]
      },
      "para": [
@@ -370,6 +417,10 @@
        "p": "the new designer will work closely with your team",
        "a": "He will work with the person who is hired."
       }
+     ],
+     "trans": "BensonさんはなぜMalhotraさんに面接に参加してほしいのか。",
+     "evidence": [
+      "since the new designer will work closely with your team on the product catalog"
      ]
     },
     {
@@ -393,7 +444,11 @@
        "Ms. Bensonが午後の打ち合わせのために代わりの人（Carla）まで提案しているので、全部に出席するのは難しいと分かる。",
        null
       ]
-     }
+     },
+     "trans": "Malhotraさんが参加できないと考えられる面接は。",
+     "evidence": [
+      "I know you have a vendor meeting on Thursday afternoon, so if you can't stay for the last interview"
+     ]
     },
     {
      "id": "p7-s12-3",
@@ -426,6 +481,10 @@
        "p": "by tomorrow morning (Tuesday → Wednesday)",
        "a": "by Wednesday morning"
       }
+     ],
+     "trans": "Bensonさんは水曜日の朝までにMalhotraさんに何を送るか。",
+     "evidence": [
+      "I'll send you the candidates' portfolios by tomorrow morning."
      ]
     }
    ]
@@ -457,12 +516,17 @@
      "explanation": {
       "why": "平日の営業時間の延長、クラスの予約受付期間の拡大など、クラブのサービスの変更点を知らせるお知らせ。",
       "traps": [
-       "インストラクターの紹介はない。",
+       "インストラクターの紹介はない。お知らせに人名は出てこない。",
        "月会費は変わらない（will not change）と言っている。逆の内容のひっかけ。",
        null,
-       "新しい支店の話はない。"
+       "新しい支店の話はない。お知らせは既存のクラブの営業時間と予約規則の変更について。"
       ]
-     }
+     },
+     "trans": "お知らせの主な目的は何か。",
+     "evidence": [
+      "Westgate Fitness Club will extend its weekday hours",
+      "members will now be able to reserve group exercise classes up to seven days in advance"
+     ]
     },
     {
      "id": "p7-s13-2",
@@ -485,7 +549,11 @@
        "平日の閉館が10時 → 11時に遅くなる。",
        "予約できる期間が2日前 → 7日前に延びた。"
       ]
-     }
+     },
+     "trans": "変更点として述べられていないものは。",
+     "evidence": [
+      "Weekend hours will remain unchanged."
+     ]
     },
     {
      "id": "p7-s13-3",
@@ -514,6 +582,10 @@
        "p": "will not be able to book classes for one week",
        "a": "temporarily unable to make reservations"
       }
+     ],
+     "trans": "予約したクラスをキャンセルせずに欠席した会員はどうなるか。",
+     "evidence": [
+      "will not be able to book classes for one week"
      ]
     }
    ]
@@ -546,8 +618,8 @@
       "why": "'to celebrate the completion of a major project' と目的を述べている。プロジェクトの完了 = 仕事のプロジェクトが終わったこと。",
       "traps": [
        "一緒に行ったのは同僚（colleagues）で、顧客ではない。",
-       "面接の話はない。",
-       "料理教室の話はない。",
+       "面接の話はない。一緒に行った12人は採用候補ではなく同僚（colleagues）。",
+       "料理教室の話はない。料理（salmon, risotto）は出てくるが、食べたのであって習ったのではない。",
        null
       ]
      },
@@ -556,6 +628,10 @@
        "p": "celebrate the completion of a major project",
        "a": "celebrate the end of a work project"
       }
+     ],
+     "trans": "Carlos M.はなぜJuniper Bistroに行ったのか。",
+     "evidence": [
+      "to celebrate the completion of a major project"
      ]
     },
     {
@@ -579,7 +655,11 @@
        null,
        "sold（売った）は文脈と関係ない。"
       ]
-     }
+     },
+     "trans": "第2段落の \"handled\" に最も意味が近いのは。",
+     "evidence": [
+      "handled several special dietary requests with ease"
+     ]
     },
     {
      "id": "p7-s14-3",
@@ -595,7 +675,7 @@
      ],
      "answer": 3,
      "explanation": {
-      "why": "唯一の不満は、前菜の後メイン料理が出るまでに40分近くかかったこと。",
+      "why": "唯一の不満（My only complaint）は、前菜の後メイン料理が出るまでに40分近くかかったこと。メイン料理を長く待ったという内容が正解と一致する。",
       "traps": [
        "部屋は「ちょうどよい広さ（perfect size）」だったと言っている。",
        "予約が漏れていたという話はない。むしろ依頼どおりにテーブルが用意されていた。",
@@ -608,6 +688,10 @@
        "p": "the main courses took nearly forty minutes to arrive",
        "a": "a long wait for the main dishes"
       }
+     ],
+     "trans": "Carlos M.が述べている問題は。",
+     "evidence": [
+      "the main courses took nearly forty minutes to arrive after we finished our appetizers"
      ]
     },
     {
@@ -637,6 +721,10 @@
        "p": "as I had requested over the phone",
        "a": "made his reservation by telephone"
       }
+     ],
+     "trans": "Carlos M.について何が推測できるか。",
+     "evidence": [
+      "exactly as I had requested over the phone"
      ]
     }
    ]
@@ -671,9 +759,13 @@
        "論文の提出の依頼はない。スライドの提出を頼んでいる。",
        null,
        "むしろ委員会が航空運賃と宿泊費を負担する。",
-       "会場変更の話はない。"
+       "会場変更の話はない。Carlton Convention Centerは最初から決まっている会場として紹介されている。"
       ]
-     }
+     },
+     "trans": "手紙の目的は何か。",
+     "evidence": [
+      "I am delighted to confirm your participation as a keynote speaker"
+     ]
     },
     {
      "id": "p7-s15-2",
@@ -702,6 +794,10 @@
        "p": "send your presentation slides",
        "a": "Submit materials for her presentation"
       }
+     ],
+     "trans": "Achebe博士は11月7日までに何をするよう求められているか。",
+     "evidence": [
+      "Please send your presentation slides to our technical coordinator, Mr. Lewis Kang, by November 7"
      ]
     },
     {
@@ -725,7 +821,12 @@
        "'A car will meet you at the airport' は空港からの交通手段の提供。",
        null
       ]
-     }
+     },
+     "trans": "委員会が提供するものとして述べられていないものは。",
+     "evidence": [
+      "the committee will cover your round-trip airfare and two nights at the Carlton Hotel",
+      "A car will meet you at the airport when you arrive."
+     ]
     },
     {
      "id": "p7-s15-4",
@@ -749,7 +850,11 @@
        null,
        "[4]は結びのあいさつの後なので、空港の送迎の文から離れ、the driverが指すものが遠くなる。"
       ]
-     }
+     },
+     "trans": "[1]、[2]、[3]、[4] のうち、次の文が入る位置として最も適切なのは。",
+     "evidence": [
+      "A car will meet you at the airport when you arrive."
+     ]
     }
    ]
   }

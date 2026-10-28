@@ -46,6 +46,22 @@ function assert(c, m) { if (!c) throw new Error(m || 'assertion failed'); }
   const errors = [];
   page.on('pageerror', e => errors.push(String(e.stack || e)));
   page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+  /* 축하 창(목표 달성·배지·레벨 업)이 다음 동작을 가리면 닫는다. 몇 번 떴는지도 센다 */
+  const celebrations = [];
+  /* 축하 창이 뜰 때마다 기록 (화면 이동으로 닫혀도 놓치지 않게) */
+  await ctx.addInitScript(() => {
+    const seen = new WeakSet();
+    new MutationObserver(() => document.querySelectorAll('.celebrate').forEach(c => { if (!seen.has(c)) { seen.add(c); console.log('CELEBRATE ' + c.textContent); } }))
+      .observe(document, { childList: true, subtree: true });
+  });
+  ctx.on('console', m => { if (m.text().startsWith('CELEBRATE ')) celebrations.push(m.text()); });
+  async function calmCelebrations(pg) {
+    const loc = pg.locator('.modal-wrap:has(.celebrate)');
+    await pg.addLocatorHandler(loc, async () => {
+      await pg.locator('.modal-wrap:has(.celebrate) .modal-actions .primary').first().click();
+    });
+  }
+  await calmCelebrations(page);
   const shot = n => page.screenshot({ path: path.join(SHOTS, n + '.png'), fullPage: false });
   const closeModals = async () => { while (await page.locator('.modal-wrap').count()) { await page.locator('.modal-actions button').last().click(); await page.waitForTimeout(150); } };
   async function record(ms) {
@@ -59,7 +75,7 @@ function assert(c, m) { if (!c) throw new Error(m || 'assertion failed'); }
 
   await step('홈 화면 로드 (휴대폰 390×844, 다크)', async () => {
     await page.goto(base);
-    await page.waitForSelector('.hero');
+    await page.waitForSelector('.hero2');
     assert(await page.locator('.qlist li').count() === 3, '오늘의 3문제 3개');
     const fs16 = await page.evaluate(() => parseFloat(getComputedStyle(document.body).fontSize));
     assert(fs16 >= 16, '기본 글자 16px 이상');
@@ -165,6 +181,7 @@ function assert(c, m) { if (!c) throw new Error(m || 'assertion failed'); }
     await page.close();
     const p2 = await ctx.newPage();
     global.page2 = p2;
+    await calmCelebrations(p2);
     p2.on('pageerror', e => errors.push(String(e.stack || e)));
     await p2.goto(base + '#/q/' + QID);
     await p2.waitForSelector('.btnchip[data-rec]');
@@ -204,10 +221,11 @@ function assert(c, m) { if (!c) throw new Error(m || 'assertion failed'); }
     await p.evaluate(() => { window.removeEventListener('pagehide', () => {}); });
     const p3 = await ctx.newPage();
     global.page3 = p3;
+    await calmCelebrations(p3);
     await p.close({ runBeforeUnload: false });
     p3.on('pageerror', e => errors.push(String(e.stack || e)));
     await p3.goto(base);
-    await p3.waitForSelector('.hero');
+    await p3.waitForSelector('.hero2');
     await p3.waitForTimeout(800);
     const rec = await p3.evaluate(() => OPIC.store.S.recs.find(r => r.questionId === 'park.d1'));
     assert(rec, '복구된 녹음 존재');
@@ -336,6 +354,39 @@ function assert(c, m) { if (!c) throw new Error(m || 'assertion failed'); }
     assert(await q.locator('.result-item .player').count() === 1, '녹음 1개 결과');
   });
 
+  await step('동기부여: XP·일일 목표 링·연속 학습·배지 축하·내 성장 화면', async () => {
+    const X = await q.evaluate(() => OPIC.store.S.xp);
+    assert(X.total >= 60 && X.log.length >= 15, 'XP 누적 ' + X.total + ' ' + X.log.map(l => l.xp + ':' + l.why).join(', '));
+    assert(Object.keys(X.badges).includes('first'), '첫 녹음 배지');
+    assert(X.goalDays.length === 1, '오늘 목표 달성 기록');
+    assert(celebrations.some(t => t.includes('첫 녹음')), '배지 축하 창이 떴음');
+    assert(celebrations.some(t => t.includes('목표')), '목표 달성 축하 창이 떴음 ' + JSON.stringify(celebrations));
+    await q.goto(base);
+    await q.waitForSelector('.hero2 .ring');
+    const hero = await q.locator('.hero2').textContent();
+    assert(/1\s*일 연속/.test(hero), '연속 1일 ' + hero.slice(0, 80));
+    assert(hero.includes('목표 달성'), '오늘 목표 달성 메시지');
+    assert(await q.locator('.weekbars li.met').count() === 1, '주간 막대 중 오늘 달성');
+    await q.screenshot({ path: path.join(SHOTS, '15-home-motivation.png') });
+    await q.goto(base + '#/progress');
+    await q.waitForSelector('.badges li.got');
+    assert(await q.locator('.mastery li').count() === 7, '유형별 숙련도 7개');
+    const gtxt = await q.locator('main').textContent();
+    assert(await q.locator('.growth li').count() >= 2 || /\d+개 더 녹음하면/.test(gtxt), '처음→최근 성장 비교 카드');
+    await q.screenshot({ path: path.join(SHOTS, '16-progress.png'), fullPage: true });
+    /* 보호권: 어제를 건너뛴 상태로 앱을 다시 열면 보호권 사용 */
+    await q.evaluate(async () => {
+      const X = OPIC.store.S.xp; const y = OPIC.util.dayKey(Date.now() - OPIC.util.DAY), d2 = OPIC.util.dayKey(Date.now() - 2 * OPIC.util.DAY);
+      const today = OPIC.util.dayKey(Date.now());
+      X.days[d2] = X.days[today]; delete X.days[today]; X.freezes = 1; X.frozen = [];
+      await OPIC.db.kvSet('xp', X);
+    });
+    await q.goto(base); await q.reload(); await q.waitForSelector('.hero2');
+    const X2 = await q.evaluate(() => OPIC.store.S.xp);
+    assert(X2.freezes === 0 && X2.frozen.length === 1, '보호권 사용');
+    assert((await q.locator('.hero2').textContent()).includes('보호권으로'), '보호권 안내');
+  });
+
   await step('기록 화면: 통계·저장 공간·선택 삭제 UI', async () => {
     await q.goto(base + '#/records');
     await q.waitForSelector('.hbars');
@@ -388,6 +439,12 @@ function assert(c, m) { if (!c) throw new Error(m || 'assertion failed'); }
   await step('설정: 음성 선택·속도 0.8/1.0·라이트 모드', async () => {
     await q.goto(base + '#/settings');
     await q.waitForSelector('#rate');
+    await q.locator('#goal button[data-v="20"]').click();
+    await q.waitForTimeout(200);
+    assert(await q.evaluate(() => OPIC.store.S.settings.dailyGoal) === 20, '하루 목표');
+    const [ics] = await Promise.all([q.waitForEvent('download'), q.locator('#remBtn').click()]);
+    const icsPath = path.join(SHOTS, 'daily.ics'); await ics.saveAs(icsPath);
+    assert(fs.readFileSync(icsPath, 'utf8').includes('RRULE:FREQ=DAILY'), '매일 반복 알림 파일');
     await q.locator('#rate button[data-v="0.8"]').click();
     assert(await q.evaluate(() => OPIC.store.S.settings.rate) === 0.8, '속도');
     await q.screenshot({ path: path.join(SHOTS, '13-settings.png') });
@@ -395,7 +452,7 @@ function assert(c, m) { if (!c) throw new Error(m || 'assertion failed'); }
     await q.waitForTimeout(300);
     assert(await q.evaluate(() => document.documentElement.dataset.theme) === 'light', '라이트');
     await q.goto(base);
-    await q.waitForSelector('.hero');
+    await q.waitForSelector('.hero2');
     await q.screenshot({ path: path.join(SHOTS, '14-home-light.png') });
     await q.goto(base + '#/settings'); await q.waitForSelector('#theme');
     await q.locator('#theme button[data-v="dark"]').click();
@@ -405,10 +462,10 @@ function assert(c, m) { if (!c) throw new Error(m || 'assertion failed'); }
     await q.goto(base);
     await q.evaluate(() => navigator.serviceWorker.ready);
     await q.reload();
-    await q.waitForSelector('.hero');
+    await q.waitForSelector('.hero2');
     await ctx.setOffline(true);
     await q.reload();
-    await q.waitForSelector('.hero', { timeout: 8000 });
+    await q.waitForSelector('.hero2', { timeout: 8000 });
     await q.goto(base + '#/bank');
     await q.waitForSelector('.bankl li');
     await ctx.setOffline(false);

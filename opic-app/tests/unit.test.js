@@ -202,3 +202,68 @@ test('서비스 워커가 앱 파일을 모두 미리 저장', () => {
     assert.ok(sw.includes(`'./${r}'`), 'sw missing ' + r);
   });
 });
+
+const xp = require('../js/core/xp.js');
+
+test('XP: 녹음 XP·레벨 구간', () => {
+  assert.equal(xp.recordingXP({ durationSec: 20 }), 10);
+  assert.equal(xp.recordingXP({ durationSec: 95 }), 16);
+  assert.equal(xp.recordingXP({ durationSec: 600 }), 18);
+  assert.equal(xp.recordingXP({ durationSec: 1 }), 2);
+  assert.equal(xp.recordingXP({ mode: 'story-step', durationSec: 60 }), 4);
+  assert.equal(xp.levelInfo(0).level, 1);
+  assert.equal(xp.levelInfo(49).level, 1);
+  assert.equal(xp.levelInfo(50).level, 2);
+  const l = xp.levelInfo(1000 + 450);
+  assert.equal(l.level, 9); assert.ok(l.pct > 0 && l.pct < 1);
+});
+
+test('연속 학습 보호권: 하루 빠지면 메우고, 보호권보다 길게 빠지면 끊김', () => {
+  const now = new Date(2026, 9, 26, 12).getTime();
+  const k = d => util.dayKey(now - d * util.DAY);
+  const st = { days: { [k(2)]: 20, [k(3)]: 20, [k(4)]: 10 }, frozen: [], freezes: 1 };
+  assert.equal(xp.streakInfo(st, now).streak, 0);
+  assert.deepEqual(xp.applyFreezes(st, now), [k(1)]);
+  assert.equal(st.freezes, 0);
+  assert.equal(xp.streakInfo(st, now).streak, 4);
+  const st2 = { days: { [k(3)]: 20 }, frozen: [], freezes: 1 };
+  assert.deepEqual(xp.applyFreezes(st2, now), []);
+  assert.equal(st2.freezes, 1);
+  const st3 = { days: { [k(0)]: 5 }, frozen: [], freezes: 0 };
+  assert.deepEqual(xp.applyFreezes(st3, now), []);
+});
+
+test('7일 연속마다 보호권 1개(최대 2개), 최고 연속 기록', () => {
+  const now = new Date(2026, 9, 26, 12).getTime();
+  const days = {}; for (let i = 0; i < 7; i++) days[util.dayKey(now - i * util.DAY)] = 10;
+  const st = { days, frozen: [], freezes: 0 };
+  assert.ok(xp.maybeEarnFreeze(st, now)); assert.equal(st.freezes, 1);
+  assert.ok(!xp.maybeEarnFreeze(st, now), '같은 날 두 번 받지 않음');
+  assert.equal(xp.bestStreak(st), 7);
+});
+
+test('배지·숙련도·성장 비교', () => {
+  const qids = bank.QUESTIONS.filter(q => q.type === 'past').slice(0, 8).map(q => q.id);
+  const recs = qids.map((id, i) => ({ id: 'r' + i, questionId: id, mode: 'card', kind: i > 5 ? 'after' : 'first', createdAt: 1000 + i * util.DAY,
+    durationSec: 30 + i * 15, audioStats: { speechRatio: 0.5 + i * 0.04, pauses: [] }, selfCheck: { bg: true, event: i > 3 },
+    transcript: i > 4 ? 'Last year I went there, and then after that we ate, but it was fun because so' : '' }));
+  const state = { total: 0, days: {}, badges: {}, flags: {}, goalDays: [] };
+  const got = xp.newBadges({ recs, qs: {}, notes: [], sessions: [], state, groups: bank.FOCUS_GROUPS, byId: bank.byId }).map(b => b.id);
+  assert.ok(got.includes('first'));
+  assert.ok(!got.includes('rec10'));
+  const m = xp.mastery(recs, { [qids[6]]: { feedback: { savedAt: 1 } } }, bank.FOCUS_GROUPS, bank.byId);
+  const past = m.find(x => x.id === 'past');
+  assert.equal(past.questions, 8); assert.equal(past.cycles, 1); assert.ok(past.score > 0.4 && past.score < 1);
+  assert.equal(m.find(x => x.id === 'issue').score, 0);
+  const g = xp.growth(recs, analysis.analyzeTranscript);
+  assert.ok(g.ready);
+  const dur = g.items.find(x => x.key === 'dur');
+  assert.ok(dur.b > dur.a);
+  assert.ok(!xp.growth(recs.slice(0, 3), analysis.analyzeTranscript).ready);
+});
+
+test('기존 기록으로 XP 처음 계산', () => {
+  const s = xp.backfill([{ createdAt: Date.now(), durationSec: 60, transcript: 'hi' }], { a: { feedback: { savedAt: Date.now() } } }, [{ createdAt: Date.now() }]);
+  assert.equal(s.total, 14 + 3 + 10 + 2);
+  assert.equal(Object.values(s.days)[0], s.total);
+});

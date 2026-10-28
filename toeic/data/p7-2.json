@@ -29,7 +29,7 @@
       "traps": [
        "이중 결제에 대한 언급은 없다.",
        null,
-       "배송 지연 이야기는 없다.",
+       "배송 지연 이야기는 없다. 5월 28일에 산 헤드폰이 2주 만에 고장 난 것이 문제다.",
        "액세서리는 '반송할 때 함께 넣으라'는 안내에 나올 뿐, 빠져 있었다는 불만이 아니다."
       ]
      },
@@ -38,6 +38,10 @@
        "p": "the left earpiece stopped working",
        "a": "Part of a product stopped functioning"
       }
+     ],
+     "trans": "Mills 씨는 어떤 문제를 알렸는가?",
+     "evidence": [
+      "the left earpiece stopped working after only two weeks"
      ]
     },
     {
@@ -61,7 +65,11 @@
        null,
        "'send the headphones to our service center'라고 요청했다."
       ]
-     }
+     },
+     "trans": "Mills 씨가 요청받지 않은 것은?",
+     "evidence": [
+      "we will replace them at no cost"
+     ]
     },
     {
      "id": "p7-s09-3",
@@ -90,6 +98,11 @@
        "p": "purchased on May 28 / covered by our one-year limited warranty",
        "a": "purchased less than a year ago"
       }
+     ],
+     "trans": "Mills 씨의 헤드폰에 대해 무엇을 알 수 있는가?",
+     "evidence": [
+      "you purchased on May 28",
+      "covered by our one-year limited warranty"
      ]
     }
    ]
@@ -121,7 +134,7 @@
      "explanation": {
       "why": "수요를 감당하지 못하게 되자(could not keep up with demand) 더 큰 건물(a larger building)로 옮기고 직원을 고용했다. 수요를 맞추려고 공간이 더 필요했던 것이다.",
       "traps": [
-       "임대료 이야기는 없다.",
+       "임대료 이야기는 없다. 이전 이유로 나오는 것은 수요를 감당하지 못했다는 점뿐이다.",
        "식당을 열려고 했다는 내용은 없다. 식당에는 빵을 공급할 뿐이다.",
        null,
        "건물 매각에 대한 언급은 없다."
@@ -132,6 +145,11 @@
        "p": "could not keep up with demand … a larger building",
        "a": "needed more space to meet demand"
       }
+     ],
+     "trans": "Diaz 가족은 왜 Grant Street로 옮겼겠는가?",
+     "evidence": [
+      "the couple soon could not keep up with demand",
+      "they moved to a larger building on Grant Street"
      ]
     },
     {
@@ -155,7 +173,11 @@
        "orders(주문하다)는 방향이 반대다(식당이 주문하는 쪽).",
        "equips(장비를 갖추게 하다)는 equip A with B 형태로 쓰며, 빵을 식당에 equip할 수 없다."
       ]
-     }
+     },
+     "trans": "두 번째 문단의 \"supplies\"와 뜻이 가장 가까운 것은?",
+     "evidence": [
+      "supplies bread to more than 40 restaurants"
+     ]
     },
     {
      "id": "p7-s10-3",
@@ -179,7 +201,11 @@
        "[3]은 현재 6개 매장 이야기라 과거 시제 waited와 시점이 맞지 않는다.",
        "[4] 앞은 수제 방식 유지 이야기로 줄 서는 손님과 연결되지 않는다."
       ]
-     }
+     },
+     "trans": "[1], [2], [3], [4] 중 다음 문장이 들어가기에 가장 알맞은 곳은?",
+     "evidence": [
+      "the couple soon could not keep up with demand."
+     ]
     },
     {
      "id": "p7-s10-4",
@@ -208,6 +234,10 @@
        "p": "became president of the company in 2016",
        "a": "has led the company since 2016"
       }
+     ],
+     "trans": "Elena Diaz에 대해 무엇이 언급되어 있는가?",
+     "evidence": [
+      "Their daughter, Elena Diaz, became president of the company in 2016."
      ]
     }
    ]
@@ -244,7 +274,12 @@
        "'Together, they will serve 38 cities'라고 나온다.",
        "'will keep the Coastal Air name'이라고 나온다."
       ]
-     }
+     },
+     "trans": "합병된 항공사에 대해 언급되지 않은 것은?",
+     "evidence": [
+      "will keep the Coastal Air name and will be based at Coastal's current headquarters in Halifax",
+      "Together, they will serve 38 cities."
+     ]
     },
     {
      "id": "p7-s11-2",
@@ -270,7 +305,11 @@
        "awarded(수여된)는 상을 줄 때의 뜻이다.",
        null
       ]
-     }
+     },
+     "trans": "세 번째 문단의 \"honored\"와 뜻이 가장 가까운 것은?",
+     "evidence": [
+      "all current Skyline Express tickets would be honored"
+     ]
     },
     {
      "id": "p7-s11-3",
@@ -288,7 +327,7 @@
      "explanation": {
       "why": "두 항공사가 'largely different routes'(대체로 다른 노선)를 운항한다고 했다. 즉 겹치는 노선이 거의 없다.",
       "traps": [
-       "설립 연도는 나오지 않는다.",
+       "두 항공사의 설립 연도는 나오지 않는다. 기사에 나오는 시점은 합병 시기(연말)와 포인트 통합(1월)뿐이다.",
        "Halifax는 Coastal Air의 본사다.",
        null,
        "마지막 문단에서 아직 정부 기관의 승인이 필요하다고 했다."
@@ -299,6 +338,10 @@
        "p": "serve largely different routes",
        "a": "fly few of the same routes"
       }
+     ],
+     "trans": "두 항공사에 대해 무엇을 알 수 있는가?",
+     "evidence": [
+      "the two carriers serve largely different routes"
      ]
     },
     {
@@ -328,6 +371,10 @@
        "p": "Frequent-flyer points … will be combined",
        "a": "Loyalty program points will be merged"
       }
+     ],
+     "trans": "기사에 따르면 1월에 무슨 일이 일어나는가?",
+     "evidence": [
+      "Frequent-flyer points from both programs will be combined into a single account for each member beginning in January."
      ]
     }
    ]
@@ -362,7 +409,7 @@
        null,
        "마케팅 부서 사람은 대신 들어갈 수 있는 Carla다.",
        "카탈로그를 디자인했다는 언급은 없다. 앞으로 함께 작업한다는 것이다.",
-       "후보 추천 이야기는 없다."
+       "후보 추천 이야기는 없다. 후보 세 명은 Ms. Benson이 추렸다(We have narrowed the list)."
       ]
      },
      "para": [
@@ -370,6 +417,10 @@
        "p": "the new designer will work closely with your team",
        "a": "He will work with the person who is hired."
       }
+     ],
+     "trans": "Benson 씨는 왜 Malhotra 씨가 면접에 참석하기를 원하는가?",
+     "evidence": [
+      "since the new designer will work closely with your team on the product catalog"
      ]
     },
     {
@@ -393,7 +444,11 @@
        "Ms. Benson이 오후 미팅 때문에 대체 인원(Carla)까지 제안했으므로 모두 참석하기 어렵다는 것을 알 수 있다.",
        null
       ]
-     }
+     },
+     "trans": "Malhotra 씨가 참석하지 못할 가능성이 큰 면접은?",
+     "evidence": [
+      "I know you have a vendor meeting on Thursday afternoon, so if you can't stay for the last interview"
+     ]
     },
     {
      "id": "p7-s12-3",
@@ -426,6 +481,10 @@
        "p": "by tomorrow morning (Tuesday → Wednesday)",
        "a": "by Wednesday morning"
       }
+     ],
+     "trans": "Benson 씨는 수요일 아침까지 Malhotra 씨에게 무엇을 보낼 것인가?",
+     "evidence": [
+      "I'll send you the candidates' portfolios by tomorrow morning."
      ]
     }
    ]
@@ -457,12 +516,17 @@
      "explanation": {
       "why": "평일 운영 시간 연장, 수업 예약 가능 기간 확대 등 클럽 서비스의 변경 사항을 알리는 공지다.",
       "traps": [
-       "강사 소개 내용은 없다.",
+       "강사 소개 내용은 없다. 공지에 사람 이름은 나오지 않는다.",
        "월 회비는 변하지 않는다(will not change)고 했다. 반대 내용 함정.",
        null,
-       "새 지점 이야기는 없다."
+       "새 지점 이야기는 없다. 공지는 기존 클럽의 운영 시간과 예약 규칙 변경에 관한 것이다."
       ]
-     }
+     },
+     "trans": "공지의 주된 목적은?",
+     "evidence": [
+      "Westgate Fitness Club will extend its weekday hours",
+      "members will now be able to reserve group exercise classes up to seven days in advance"
+     ]
     },
     {
      "id": "p7-s13-2",
@@ -485,7 +549,11 @@
        "평일 폐장이 10시 → 11시로 늦춰진다.",
        "예약 가능 기간이 2일 → 7일 전으로 늘었다."
       ]
-     }
+     },
+     "trans": "변경 사항으로 언급되지 않은 것은?",
+     "evidence": [
+      "Weekend hours will remain unchanged."
+     ]
     },
     {
      "id": "p7-s13-3",
@@ -514,6 +582,10 @@
        "p": "will not be able to book classes for one week",
        "a": "temporarily unable to make reservations"
       }
+     ],
+     "trans": "예약한 수업에 취소 없이 불참한 회원은 어떻게 되는가?",
+     "evidence": [
+      "will not be able to book classes for one week"
      ]
     }
    ]
@@ -546,8 +618,8 @@
       "why": "'to celebrate the completion of a major project'라고 목적을 밝혔다. 프로젝트 완료 = 업무 프로젝트의 끝.",
       "traps": [
        "함께 간 사람은 동료(colleagues)이고 고객이 아니다.",
-       "면접 이야기는 없다.",
-       "요리 수업 이야기는 없다.",
+       "면접 이야기는 없다. 함께 간 열두 명은 채용 후보가 아니라 동료(colleagues)다.",
+       "요리 수업 이야기는 없다. 음식(salmon, risotto)이 나오지만 먹은 것이지 배운 것이 아니다.",
        null
       ]
      },
@@ -556,6 +628,10 @@
        "p": "celebrate the completion of a major project",
        "a": "celebrate the end of a work project"
       }
+     ],
+     "trans": "Carlos M.은 왜 Juniper Bistro에 갔는가?",
+     "evidence": [
+      "to celebrate the completion of a major project"
      ]
     },
     {
@@ -579,7 +655,11 @@
        null,
        "sold(팔았다)는 문맥과 관계없다."
       ]
-     }
+     },
+     "trans": "두 번째 문단의 \"handled\"와 뜻이 가장 가까운 것은?",
+     "evidence": [
+      "handled several special dietary requests with ease"
+     ]
     },
     {
      "id": "p7-s14-3",
@@ -595,7 +675,7 @@
      ],
      "answer": 3,
      "explanation": {
-      "why": "유일한 불만은 전채 후 메인 요리가 나오기까지 거의 40분이 걸렸다는 점이다.",
+      "why": "유일한 불만(My only complaint)은 전채 후 메인 요리가 나오기까지 거의 40분이 걸렸다는 점이다. 메인 요리를 오래 기다렸다는 내용이 정답과 일치한다.",
       "traps": [
        "방은 '딱 맞는 크기(perfect size)'였다고 했다.",
        "예약이 누락되었다는 말은 없다. 오히려 요청대로 테이블이 준비되어 있었다.",
@@ -608,6 +688,10 @@
        "p": "the main courses took nearly forty minutes to arrive",
        "a": "a long wait for the main dishes"
       }
+     ],
+     "trans": "Carlos M.이 언급한 문제는?",
+     "evidence": [
+      "the main courses took nearly forty minutes to arrive after we finished our appetizers"
      ]
     },
     {
@@ -637,6 +721,10 @@
        "p": "as I had requested over the phone",
        "a": "made his reservation by telephone"
       }
+     ],
+     "trans": "Carlos M.에 대해 무엇을 추론할 수 있는가?",
+     "evidence": [
+      "exactly as I had requested over the phone"
      ]
     }
    ]
@@ -671,9 +759,13 @@
        "논문 제출 요청은 없다. 슬라이드 제출을 요청한다.",
        null,
        "오히려 위원회가 항공료와 숙박을 부담한다.",
-       "장소 변경 이야기는 없다."
+       "장소 변경 이야기는 없다. Carlton Convention Center는 처음부터 정해진 장소로 소개된다."
       ]
-     }
+     },
+     "trans": "편지의 목적은?",
+     "evidence": [
+      "I am delighted to confirm your participation as a keynote speaker"
+     ]
     },
     {
      "id": "p7-s15-2",
@@ -702,6 +794,10 @@
        "p": "send your presentation slides",
        "a": "Submit materials for her presentation"
       }
+     ],
+     "trans": "Achebe 박사는 11월 7일까지 무엇을 하도록 요청받는가?",
+     "evidence": [
+      "Please send your presentation slides to our technical coordinator, Mr. Lewis Kang, by November 7"
      ]
     },
     {
@@ -725,7 +821,12 @@
        "'A car will meet you at the airport'는 공항 교통편 제공이다.",
        null
       ]
-     }
+     },
+     "trans": "위원회가 제공하는 것으로 언급되지 않은 것은?",
+     "evidence": [
+      "the committee will cover your round-trip airfare and two nights at the Carlton Hotel",
+      "A car will meet you at the airport when you arrive."
+     ]
     },
     {
      "id": "p7-s15-4",
@@ -749,7 +850,11 @@
        null,
        "[4]는 마무리 인사 뒤라, 공항 픽업 문장과 떨어져 the driver가 가리키는 대상이 멀어진다."
       ]
-     }
+     },
+     "trans": "[1], [2], [3], [4] 중 다음 문장이 들어가기에 가장 알맞은 곳은?",
+     "evidence": [
+      "A car will meet you at the airport when you arrive."
+     ]
     }
    ]
   }

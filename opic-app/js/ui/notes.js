@@ -53,6 +53,7 @@
       const wrongs = [];
       function show() {
         if (i >= items.length) {
+          if (items.length >= 3) store.award(5, '표현 퀴즈 완료', right === items.length ? { flags: { quizPerfect: true } } : null);
           el.innerHTML = `<section class="card center"><h2>${right} / ${items.length}</h2><p>${right === items.length ? '모두 맞혔어요!' : '틀린 표현은 다음 연습에서 먼저 제안됩니다.'}</p>
             ${wrongs.length ? `<ul class="left">${wrongs.map(w => `<li lang="en"><b>${esc(w.answer)}</b>${w.prompt ? ` <span class="muted">← ${esc(w.prompt)}</span>` : ''}</li>`).join('')}</ul>` : ''}
             <div class="row center"><button class="btn primary" id="again">다시 풀기</button><a class="btn" href="#/notes">노트</a></div></section>`;
@@ -68,7 +69,7 @@
         ui.$$('.opt', el).forEach(b => b.onclick = async () => {
           const ok = it.options[+b.dataset.k] === it.answer;
           ui.$$('.opt', el).forEach(x => { x.disabled = true; if (it.options[+x.dataset.k] === it.answer) x.classList.add('right'); });
-          if (!ok) { b.classList.add('wrong'); wrongs.push(it); } else right++;
+          if (!ok) { b.classList.add('wrong'); wrongs.push(it); } else { right++; store.award(2, '퀴즈 정답'); }
           const n = store.S.notes.find(x => x.id === it.noteId);
           if (n) { n.quiz = n.quiz || { right: 0, wrong: 0 }; n.quiz[ok ? 'right' : 'wrong']++; n.quiz.lastAt = Date.now(); await store.saveNote(n); }
           ui.$('#fb', el).innerHTML = `<p class="${ok ? 'good' : 'warn'}">${ok ? '정답!' : '아쉬워요.'}</p><div class="row"><button class="btn small" id="sayA">▶ 정답 듣기</button><button class="btn primary" id="nx">다음 ›</button></div>`;

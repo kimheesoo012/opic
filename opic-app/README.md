@@ -24,13 +24,27 @@ python3 -m http.server 8000
 - 앱 주소: `https://kimheesoo012.github.io/opic/opic-app/`
 - 기존 시뮬레이터: `https://kimheesoo012.github.io/opic/` (변경 없음)
 - main에 push하면 GitHub가 자동으로 다시 배포합니다(Actions의 「pages build and deployment」).
-- 앱 파일을 고친 뒤에는 `sw.js`의 `VERSION`을 바꿔야 휴대폰에 새 버전이 적용됩니다.
+- 서비스 워커는 온라인이면 항상 최신 파일을 먼저 받으므로(네트워크 우선, 3초 안에 응답이 없거나 오프라인이면 저장본), 앱을 고치면 휴대폰에도 다음 실행 때 반영됩니다. 미리 저장할 파일 목록(`ASSETS`)을 바꿀 때는 `VERSION`도 올리세요.
+- 같은 주소(`kimheesoo012.github.io`)를 쓰는 다른 앱(dojo-dog 등)의 캐시는 건드리지 않고, `opic-app-`으로 시작하는 이 앱의 옛 캐시만 지웁니다.
 
 `.github/workflows/opic-app-pages.yml`은 push·PR마다 단위 테스트를 돌립니다. 이 워크플로의 배포 단계는 **수동 실행(workflow_dispatch)** 때만 동작하며, `opic-app/`만 골라 사이트 루트에 올립니다. 이 방식을 쓰려면 Settings → Pages → Source를 **GitHub Actions**로 바꿔야 하고, 그러면 루트 주소의 기존 시뮬레이터가 opic-app으로 바뀌므로 필요할 때만 쓰세요.
 
 다른 브랜치나 `dojo-dog/` 같은 다른 폴더는 배포 대상에 들어가지 않습니다.
 
+## 매일 공부 동기부여
+
+- **XP**: 답변 녹음(10 XP + 말한 시간 30초마다 2 XP), 받아쓴 글·자가 체크, 쓰려던 표현 사용, 첨삭 저장, 3·7일 재도전, 모의고사 완주, 퀴즈, 스크립트 80% 등으로 받습니다. 전체 규칙은 앱의 「내 성장」 화면에 있습니다.
+- **일일 목표 링**: 20/40/60 XP 중 선택(설정). 달성하면 축하 화면이 뜹니다.
+- **연속 학습 🔥 + 보호권 🧊**: 하루 한 번 XP를 받으면 이어집니다. 7일 연속마다 보호권 1개(최대 2개)를 받고, 하루 쉬면 자동으로 사용됩니다.
+- **레벨·배지 18종**: 첫 녹음, 3/7/30일 연속, 2분 답변, 첨삭 한 바퀴, 모든 유형, 퀴즈 만점 등.
+- **실력이 보이게**: 「처음 5개 → 최근 5개 답변」 비교(답변 길이, 말한 비율, 긴 무음, 단어 수, 연결어 종류), 유형별 숙련도(★5), 최근 7·14일 XP 막대.
+- **매일 알림**: 서버 없이 휴대폰 캘린더에 매일 반복 알림(.ics)을 추가합니다.
+- 레벨·XP·숙련도는 연습량과 자가 체크를 보여 주는 표시일 뿐 OPIc 등급 예측이 아닙니다.
+- 업데이트 전부터 쓰던 기록이 있으면 처음 열 때 그 기록으로 XP를 계산해 줍니다. 백업 가져오기는 XP를 덮어쓰지 않고 합칩니다.
+
 ## 테스트
+
+`opic-app/package.json`은 저장소 루트의 `"type": "module"` 설정이 이 폴더에 적용되지 않도록 CommonJS로 고정합니다.
 
 ```bash
 node --test opic-app/tests/unit.test.js   # 분석·문제 선택·퀴즈·백업 검증 등 순수 로직
@@ -43,6 +57,7 @@ node opic-app/tests/e2e.js                # 휴대폰 크기(390×844) Chromium 
 opic-app/
   index.html, manifest.webmanifest, sw.js, icons/   PWA
   css/app.css                                       다크 기본, 16px 이상 글자, 하단 큰 녹음 버튼
+  js/core/xp.js, js/ui/progress.js                  XP·연속 학습·배지·숙련도·성장 비교
   js/data/   survey.js (설문·자가 평가) · questions.js (문제은행) · drills.js (즉흥·이야기 틀·체크리스트)
   js/core/   recorder.js (녹음·끊김 복구) · tts.js · stt.js · db.js (IndexedDB) · store.js
              analysis.js (무음·규칙 기반 분석) · prompt.js (AI 첨삭 복사) · picker.js (출제·재도전)

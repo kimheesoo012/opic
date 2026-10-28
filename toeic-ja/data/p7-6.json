@@ -67,11 +67,15 @@
        "無料設置は3台以上購入した事業者だけが対象。",
        null,
        "Brewline 100にはミルクフォーマーがない。",
-       "コーヒー豆の提供の話はない。"
+       "コーヒー豆の提供の話はない。ウェブページにあるのは保証、送料無料、無料設置の条件。"
       ]
      },
      "question": "According to the Web page, what do all models include?",
-     "id": "p7-d05-1"
+     "id": "p7-d05-1",
+     "trans": "ウェブページによると、すべてのモデルに含まれているものは。",
+     "evidence": [
+      "All models come with a two-year warranty."
+     ]
     },
     {
      "type": "link",
@@ -97,7 +101,12 @@
      "tags": [
       "trap"
      ],
-     "id": "p7-d05-2"
+     "id": "p7-d05-2",
+     "trans": "Dunnさんはどのモデルを買ったと考えられるか。",
+     "evidence": [
+      "We serve about 90 coffees a day, many with steamed milk, so we chose the model that could handle that volume without paying for the largest one.",
+      "Brewline 300"
+     ]
     },
     {
      "type": "link",
@@ -115,12 +124,17 @@
       "traps": [
        null,
        "配送地域の問題はなかった。配送は無料で早かった。",
-       "モデル別の設置制限はない。",
+       "モデル別の設置制限はない。設置の条件は購入台数（3台以上）だけ。",
        "設置を断ったとは言っていない。むしろ自分で設置したことが不満。"
       ]
      },
      "question": "Why did Ms. Dunn most likely have to install the machines herself?",
-     "id": "p7-d05-3"
+     "id": "p7-d05-3",
+     "trans": "Dunnさんはなぜ自分で機械を設置しなければならなかったと考えられるか。",
+     "evidence": [
+      "Businesses that buy three or more machines receive free installation.",
+      "We bought two machines for our café last month."
+     ]
     },
     {
      "type": "link",
@@ -137,13 +151,18 @@
       "why": "500ドルを超える注文は送料無料。Brewline 300の2台は1,598ドル。",
       "traps": [
        null,
-       "割引コードの話はない。",
-       "セールの話はない。",
+       "割引コードの話はない。送料無料の条件は500ドル超の注文。",
+       "セールの話はない。レビューに割引購入の記述はない。",
        "配送してもらったと言っているので、自分で持ち帰ったのではない。"
       ]
      },
      "question": "Why was Ms. Dunn's shipping free?",
-     "id": "p7-d05-4"
+     "id": "p7-d05-4",
+     "trans": "Dunnさんの送料はなぜ無料だったのか。",
+     "evidence": [
+      "Orders over $500 ship free.",
+      "Shipping was free and fast."
+     ]
     },
     {
      "type": "synonym",
@@ -166,7 +185,11 @@
       ]
      },
      "question": "In the review, the word “handle” is closest in meaning to",
-     "id": "p7-d05-5"
+     "id": "p7-d05-5",
+     "trans": "レビューの \"handle\" に最も意味が近いのは。",
+     "evidence": [
+      "the model that could handle that volume"
+     ]
     }
    ]
   },
@@ -227,16 +250,20 @@
      ],
      "answer": 1,
      "explanation": {
-      "why": "木曜日の打ち合わせのためにバスで行くことに決め、チケットを買うという移動計画のメール。",
+      "why": "木曜日の打ち合わせに合わせてバスで行くことに決め、チケットを買うという内容。打ち合わせに出席するための移動計画を立てるメール。",
       "traps": [
-       "打ち合わせを入れたという内容。",
+       "打ち合わせを中止したのではなく、設定した（I've scheduled our meeting）と言っている。",
        null,
        "駐車が難しいので車では行かないと言っている。",
-       "料金は尋ねていない。"
+       "料金は尋ねていない。チケットはMs. Grantがオンラインで買うと言っている。"
       ]
      },
      "question": "Why did Ms. Grant send the e-mail?",
-     "id": "p7-d06-1"
+     "id": "p7-d06-1",
+     "trans": "Grantさんはなぜメールを送ったのか。",
+     "evidence": [
+      "Let's take the bus that gets us there with enough time to walk over, but not hours early."
+     ]
     },
     {
      "type": "link",
@@ -262,7 +289,13 @@
      "tags": [
       "trap"
      ],
-     "id": "p7-d06-2"
+     "id": "p7-d06-2",
+     "trans": "GrantさんとReyesさんはどのバスに乗ると考えられるか。",
+     "evidence": [
+      "for 9:30 A.M. on Thursday",
+      "a ten-minute walk from the bus station",
+      "7:30 A.M."
+     ]
     },
     {
      "type": "link",
@@ -285,7 +318,11 @@
       ]
      },
      "question": "What is indicated about the bus the two will most likely take?",
-     "id": "p7-d06-3"
+     "id": "p7-d06-3",
+     "trans": "2人が乗ると考えられるバスについて何が述べられているか。",
+     "evidence": [
+      "Express, no stops"
+     ]
     },
     {
      "type": "detail",
@@ -299,10 +336,10 @@
      ],
      "answer": 3,
      "explanation": {
-      "why": "'parking downtown is difficult' と理由を述べている。",
+      "why": "'parking downtown is difficult'（中心部の駐車は難しい）と理由を述べている。駐車場所を見つけにくいという意味。",
       "traps": [
-       "車の修理の話はない。",
-       "速さの比較はない。",
+       "車の修理の話はない。運転したくない理由は駐車の問題だけ。",
+       "速さの比較はない。バスを選んだ理由は中心部の駐車が難しいから。",
        "Mr. Reyesが運転しないとは言っていない。",
        null
       ]
@@ -314,7 +351,11 @@
        "a": "Parking is hard to find"
       }
      ],
-     "id": "p7-d06-4"
+     "id": "p7-d06-4",
+     "trans": "Grantさんはなぜ車で行きたくないのか。",
+     "evidence": [
+      "since parking downtown is difficult"
+     ]
     },
     {
      "type": "link",
@@ -330,14 +371,18 @@
      "explanation": {
       "why": "運転手から買うときは現金のみだが、Ms. Grantが今夜オンラインで2枚買っておくと言っている。",
       "traps": [
-       "定期券の話はない。",
-       "平日無料の話はない。",
+       "定期券の話はない。定期券は時刻表の案内にしか出てこない。",
+       "平日無料の話はない。チケットはオンラインか運転手から買う必要がある。",
        "運転手は現金のみ受け付けると表の案内に書かれている。",
        null
       ]
      },
      "question": "Why will Mr. Reyes not need cash?",
-     "id": "p7-d06-5"
+     "id": "p7-d06-5",
+     "trans": "Reyesさんはなぜ現金が必要ないのか。",
+     "evidence": [
+      "I'll buy both tickets online tonight, so you won't need cash."
+     ]
     }
    ]
   },
@@ -398,16 +443,21 @@
      ],
      "answer": 0,
      "explanation": {
-      "why": "表でHedge trimmingの頻度はMonthly。",
+      "why": "見積書の表でHedge trimming（生け垣の手入れ）の頻度（Frequency）はMonthly、つまり月1回。",
       "traps": [
        null,
-       "週1回は芝刈り。",
-       "年2回は季節の植え付け。",
-       "必要に応じてというのは除雪。"
+       "週1回（Weekly）は芝刈り（Lawn mowing）の頻度。",
+       "年2回（Twice a year）は季節の植え付け（Seasonal planting）の頻度。",
+       "必要に応じて（As needed）は除雪（Snow removal）の頻度。"
       ]
      },
      "question": "How often will hedges be trimmed under the estimate?",
-     "id": "p7-d07-1"
+     "id": "p7-d07-1",
+     "trans": "見積もりでは、生け垣はどのくらいの頻度で手入れされるか。",
+     "evidence": [
+      "Hedge trimming",
+      "Monthly"
+     ]
     },
     {
      "type": "link",
@@ -433,7 +483,13 @@
      "tags": [
       "trap"
      ],
-     "id": "p7-d07-2"
+     "id": "p7-d07-2",
+     "trans": "修正後の月額合計はいくらになると考えられるか。",
+     "evidence": [
+      "Total monthly cost: $1,210",
+      "Customers who sign a two-year contract receive a 10% discount on all services.",
+      "Snow removal"
+     ]
     },
     {
      "type": "detail",
@@ -449,7 +505,7 @@
      "explanation": {
       "why": "'our maintenance crew already has the equipment' と理由を述べている。",
       "traps": [
-       "降雪量の話はない。",
+       "降雪量の話はない。自分たちで行う理由は、すでに機材を持っているから。",
        "見積もりには11〜3月の除雪が含まれている。",
        null,
        "理事会はほとんどを承認した。価格を断ったとは言っていない。"
@@ -462,7 +518,11 @@
        "a": "already owns the necessary equipment"
       }
      ],
-     "id": "p7-d07-3"
+     "id": "p7-d07-3",
+     "trans": "Mendesさんの会社はなぜ除雪を自分たちで行うのか。",
+     "evidence": [
+      "since our maintenance crew already has the equipment"
+     ]
     },
     {
      "type": "link",
@@ -478,14 +538,19 @@
      "explanation": {
       "why": "割引を受けるには2年契約が必要（見積書）。Ms. Mendesは費用が下がるなら長期契約を望むと言い、割引を反映してほしいと頼んでいる。",
       "traps": [
-       "作業開始は5月1日。",
+       "作業開始は5月1日（begin on May 1）。4月ではない。",
        null,
-       "除雪は外してほしいと言っている。",
-       "一括払いの話はない。"
+       "除雪は外してほしい（without that service）と言っている。",
+       "一括払いの話はない。見積もりは月額（monthly cost）で書かれている。"
       ]
      },
      "question": "What is suggested about the agreement Ms. Mendes wants?",
-     "id": "p7-d07-4"
+     "id": "p7-d07-4",
+     "trans": "Mendesさんが望む契約について何が分かるか。",
+     "evidence": [
+      "Customers who sign a two-year contract receive a 10% discount on all services.",
+      "We are also interested in a longer agreement if it lowers our costs"
+     ]
     },
     {
      "type": "link",
@@ -501,14 +566,19 @@
      "explanation": {
       "why": "見積もりは4月3日作成で30日間有効。メールは4月12日に送っているので有効期間内。",
       "traps": [
-       "ほとんどを承認したと言っている。",
+       "ほとんどを承認した（approved most of it）と言っている。拒否ではない。",
        "生け垣の手入れの頻度の変更の依頼はない。",
-       "5月1日の開始を希望している。",
+       "5月1日の開始を希望している（begin on May 1）。すぐに開始ではない。",
        null
       ]
      },
      "question": "What is true about Ms. Mendes's e-mail?",
-     "id": "p7-d07-5"
+     "id": "p7-d07-5",
+     "trans": "Mendesさんのメールについて正しいものは。",
+     "evidence": [
+      "This estimate is valid for 30 days.",
+      "Date: April 12"
+     ]
     }
    ]
   },
@@ -540,11 +610,11 @@
      ],
      "answer": 1,
      "explanation": {
-      "why": "新しい停留所を40か所加えて合計120か所になると言っているので、現在は80か所。",
+      "why": "新しいステーションを40か所加えて合計120か所になると言っているので、現在は120 − 40 = 80か所。本文にない数字を計算で求める問題。",
       "traps": [
-       "40は新しく追加する数。",
+       "40は新しく追加するステーションの数。現在の数ではない。",
        null,
-       "120は拡大後の合計。",
+       "120は拡大後の合計。現在の数はそこから40を引いた値。",
        "160は120に40を足した誤った計算。"
       ]
      },
@@ -552,7 +622,11 @@
      "tags": [
       "trap"
      ],
-     "id": "p7-d08-1"
+     "id": "p7-d08-1",
+     "trans": "Lexfordには現在、自転車シェアのステーションがいくつあるか。",
+     "evidence": [
+      "will add 40 new bike-share stations this summer, bringing the total to 120"
+     ]
     },
     {
      "type": "link",
@@ -569,13 +643,18 @@
       "why": "Ms. DuarteはMillbraeに住んでいる。記事ではMillbraeは今停留所がない東側の地区だと書かれている。",
       "traps": [
        "40は新しくできる停留所の数。",
-       "東側の地区だと言っている。",
+       "東側（eastern）の地区だと言っている。西側ではない。",
        null,
-       "拡大の対象の地区として紹介されている。"
+       "Millbraeは新しいステーションが主に置かれる地区として紹介されている。拡大の対象。"
       ]
      },
      "question": "What is suggested about Ms. Duarte's neighborhood?",
-     "id": "p7-d08-2"
+     "id": "p7-d08-2",
+     "trans": "Duarteさんの住む地区について何が分かるか。",
+     "evidence": [
+      "the eastern neighborhoods of Brookside and Millbrae, which currently have no stations",
+      "I live in Millbrae"
+     ]
     },
     {
      "type": "link",
@@ -594,11 +673,16 @@
        "Millbrae駅は停留所を提案する場所。",
        "交通局はメールを受け取る所。",
        null,
-       "オンラインでの提出の話はない。"
+       "オンラインでの提出の話はない。彼女は会議に直接出席して提案すると言っている。"
       ]
      },
      "question": "Where will Ms. Duarte most likely make her suggestion?",
-     "id": "p7-d08-3"
+     "id": "p7-d08-3",
+     "trans": "Duarteさんはどこで提案をすると考えられるか。",
+     "evidence": [
+      "a public meeting on April 2 at City Hall",
+      "I plan to attend the April 2 meeting"
+     ]
     },
     {
      "type": "link",
@@ -612,7 +696,7 @@
      ],
      "answer": 1,
      "explanation": {
-      "why": "7月1日から1回の利用料金が2.50ドルに上がる。",
+      "why": "7月1日から1回の利用料金が2.00ドルから2.50ドルに上がると言っている。7月1日以降も1回ごとに払うなら2.50ドル。",
       "traps": [
        "2.00ドルは値上げ前の料金。",
        null,
@@ -621,7 +705,11 @@
       ]
      },
      "question": "If Ms. Duarte continues to pay per ride after July 1, how much will each ride cost?",
-     "id": "p7-d08-4"
+     "id": "p7-d08-4",
+     "trans": "Duarteさんが7月1日以降も1回ごとに料金を払う場合、1回いくらになるか。",
+     "evidence": [
+      "the price of a single ride will rise from $2.00 to $2.50 on July 1"
+     ]
     },
     {
      "type": "inference",
@@ -639,7 +727,7 @@
       "traps": [
        "会員権に電車の切符が含まれるとは言っていない。",
        "1回券は値段が上がるだけ。",
-       "雇用主の補助の話はない。",
+       "雇用主の補助の話はない。会員になろうとする理由は、よく乗るので費用が節約できるから。",
        null
       ]
      },
@@ -647,7 +735,12 @@
      "tags": [
       "trap"
      ],
-     "id": "p7-d08-5"
+     "id": "p7-d08-5",
+     "trans": "Duarteさんはなぜ会員になると考えられるか。",
+     "evidence": [
+      "Annual memberships will remain $60",
+      "I ride about four times a week"
+     ]
     }
    ]
   },
@@ -684,7 +777,7 @@
      ],
      "answer": 0,
      "explanation": {
-      "why": "仕事はワークショップの企画、ボランティアガイドの研修、予約の管理。展示のデザインはない。",
+      "why": "求人の業務はワークショップの企画（planning workshops）、ボランティアガイドの研修（training volunteer guides）、予約の管理（managing bookings）。展示のデザインはない。",
       "traps": [
        null,
        "'planning hands-on science workshops' に出てくる。",
@@ -693,7 +786,11 @@
       ]
      },
      "question": "What is NOT listed as a responsibility of the position?",
-     "id": "p7-t04-1"
+     "id": "p7-t04-1",
+     "trans": "この職の業務として挙げられていないものは。",
+     "evidence": [
+      "Responsibilities: planning hands-on science workshops for school groups, training volunteer guides, and managing workshop bookings."
+     ]
     },
     {
      "type": "link",
@@ -716,7 +813,12 @@
       ]
      },
      "question": "Which requirement does Ms. Shah exceed?",
-     "id": "p7-t04-2"
+     "id": "p7-t04-2",
+     "trans": "Shahさんが要件を上回っている項目は。",
+     "evidence": [
+      "at least two years of experience teaching children",
+      "have spent the past three years teaching science at Crestview Elementary School"
+     ]
     },
     {
      "type": "link",
@@ -733,13 +835,17 @@
       "why": "求人の歓迎条件はスペイン語の能力だが、Ms. Shahのメールでは触れていない。ほかはすべて扱っている。",
       "traps": [
        "土曜日に勤務できると言っている。",
-       "生物学の学位があると言っている。",
+       "生物学の学位（degree in biology）があると言っている。理系の学位の要件に触れている。",
        "小学校の教師の経験と家族向けツアーの経験を述べている。",
        null
       ]
      },
      "question": "Which qualification from the job posting does Ms. Shah's e-mail NOT address?",
-     "id": "p7-t04-3"
+     "id": "p7-t04-3",
+     "trans": "求人の要件のうち、Shahさんのメールが触れていないものは。",
+     "evidence": [
+      "Fluency in Spanish is a plus."
+     ]
     },
     {
      "type": "detail",
@@ -757,7 +863,7 @@
       "traps": [
        null,
        "博物館のツアーを行う話はない。",
-       "文章のサンプルの提出の依頼はない。",
+       "文章のサンプルの提出の依頼はない。面接で行うのは模擬活動。",
        "本物の生徒ではなく、スタッフの前で行う。"
       ]
      },
@@ -768,7 +874,11 @@
        "a": "Demonstrate a teaching activity"
       }
      ],
-     "id": "p7-t04-4"
+     "id": "p7-t04-4",
+     "trans": "Shahさんは面接で何をするよう求められるか。",
+     "evidence": [
+      "you will be asked to lead a ten-minute sample activity for a small group of staff members, as if they were ten-year-old students"
+     ]
     },
     {
      "type": "link",
@@ -782,16 +892,21 @@
      ],
      "answer": 1,
      "explanation": {
-      "why": "応募の締め切りは5月9日で、Ms. Shahは5月6日にメールを送っている。",
+      "why": "応募の締め切りは5月9日（Apply by May 9）で、Ms. Shahは5月6日にメールを送っている。締め切り前に受け付けられた。",
       "traps": [
        "推薦状の添付の話はない。履歴書だけを添付した。",
        null,
-       "メールで応募している。",
+       "メールで応募している（E-mail 1）。郵送ではない。",
        "週25時間のパートタイムの職。"
       ]
      },
      "question": "What is indicated about Ms. Shah's application?",
-     "id": "p7-t04-5"
+     "id": "p7-t04-5",
+     "trans": "Shahさんの応募について何が述べられているか。",
+     "evidence": [
+      "Apply by May 9",
+      "Date: May 6"
+     ]
     }
    ]
   },
@@ -867,16 +982,20 @@
      ],
      "answer": 2,
      "explanation": {
-      "why": "4時間を超える予約には事務所の管理者の承認が必要。",
+      "why": "規則に、4時間を超える予約にはオフィスマネージャーの承認が必要（require approval from the office manager）と書かれている。",
       "traps": [
        "30日は予約できる最大の期間。",
        "ビデオ会議システムはC室の情報。",
        null,
-       "料金の話はない。"
+       "料金の話はない。規則は予約期間、承認、キャンセルについてのもの。"
       ]
      },
      "question": "What is required for bookings longer than four hours?",
-     "id": "p7-t05-1"
+     "id": "p7-t05-1",
+     "trans": "4時間を超える予約に必要なものは。",
+     "evidence": [
+      "Bookings longer than four hours require approval from the office manager."
+     ]
     },
     {
      "type": "link",
@@ -893,7 +1012,7 @@
       "why": "ビデオ会議が必要だが、ビデオ機器はC室にしかない。火曜日の1〜3時はC室が空いている。",
       "traps": [
        null,
-       "A室にはビデオ機器がない。",
+       "A室にはビデオ機器がない。ビデオ機器がある部屋はC室だけ。",
        "B室も機器がなく、その時間は財務チームが使う。",
        "D室にはビデオ機器がない。機器がある部屋はC室だけ。"
       ]
@@ -902,7 +1021,12 @@
      "tags": [
       "trap"
      ],
-     "id": "p7-t05-2"
+     "id": "p7-t05-2",
+     "trans": "OkaforさんはLeeさんのためにどの部屋を予約すると考えられるか。",
+     "evidence": [
+      "Room C is the only room with a video conferencing system.",
+      "we'll be meeting the partners by video"
+     ]
     },
     {
      "type": "link",
@@ -925,7 +1049,12 @@
       ]
      },
      "question": "What will the marketing team most likely be asked to do?",
-     "id": "p7-t05-3"
+     "id": "p7-t05-3",
+     "trans": "マーケティングチームは何をするよう求められると考えられるか。",
+     "evidence": [
+      "Please cancel unused bookings at least 24 hours in advance",
+      "I don't think the marketing team will need their 3–5 slot after all."
+     ]
     },
     {
      "type": "detail",
@@ -939,9 +1068,9 @@
      ],
      "answer": 3,
      "explanation": {
-      "why": "シンガポールのパートナーとビデオで会うと言っている。",
+      "why": "シンガポールのパートナーとビデオで会う（a call with our partners in Singapore）と言っている。別の国にいるパートナー。",
       "traps": [
-       "新入社員の話はない。",
+       "新入社員の話はない。会う相手はシンガポールのパートナー。",
        "ITチームは午前にC室で研修をする。",
        "キャンセルした顧客はマーケティングチームの顧客。",
        null
@@ -954,7 +1083,11 @@
        "a": "Partners in another country"
       }
      ],
-     "id": "p7-t05-4"
+     "id": "p7-t05-4",
+     "trans": "Leeさんのグループは火曜日に誰と会うか。",
+     "evidence": [
+      "a call with our partners in Singapore"
+     ]
     },
     {
      "type": "link",
@@ -968,16 +1101,21 @@
      ],
      "answer": 2,
      "explanation": {
-      "why": "C室は12人まで座れて、Ms. Leeのチームは8人。",
+      "why": "C室以外の部屋は12人座れて（all other rooms seat 12）、Ms. Leeのチームは8人。必要な人数より多く座れる。",
       "traps": [
-       "30人はD室の定員。",
-       "ビデオ機器があるのはC室だけ。",
+       "30人はD室（Room D seats 30）の定員。C室は12人。",
+       "C室にだけビデオ機器がある。機器がないという説明は逆。",
        null,
-       "財務チームはB室を使う。"
+       "財務チーム（Finance）はB室を使う。C室は1〜3時は空いている。"
       ]
      },
      "question": "What is true about the room Ms. Lee will most likely use?",
-     "id": "p7-t05-5"
+     "id": "p7-t05-5",
+     "trans": "Leeさんが使うと考えられる部屋について正しいものは。",
+     "evidence": [
+      "Room D seats 30; all other rooms seat 12.",
+      "There will be eight of us in the room"
+     ]
     }
    ]
   },
@@ -1058,12 +1196,12 @@
      ],
      "answer": 0,
      "explanation": {
-      "why": "ブースの料金にはテーブル1台、いす2脚、電源が含まれる。",
+      "why": "ウェブページに、ブースの料金にはテーブル1台、いす2脚、電源（one table, two chairs, and electricity）が含まれると書かれている。基本的な家具と電源。",
       "traps": [
        null,
-       "駐車場の話はない。",
-       "装飾の話はない。",
-       "食事の話はない。"
+       "駐車場の話はない。料金に含まれるのはテーブル、いす、電源。",
+       "装飾の話はない。ウェブページにブースの装飾の記述はない。",
+       "食事の話はない。料金に含まれるのは家具と電源だけ。"
       ]
      },
      "question": "What is included in the price of a booth?",
@@ -1073,7 +1211,11 @@
        "a": "Basic furniture and power"
       }
      ],
-     "id": "p7-t06-1"
+     "id": "p7-t06-1",
+     "trans": "ブースの料金に含まれているものは。",
+     "evidence": [
+      "Prices include one table, two chairs, and electricity."
+     ]
     },
     {
      "type": "link",
@@ -1087,7 +1229,7 @@
      ],
      "answer": 3,
      "explanation": {
-      "why": "6月30日より前の予約だけが15%割引で、Mr. Holtは7月3日に予約した。",
+      "why": "6月30日より前の予約だけが15%割引（book before June 30 save 15%）だが、Mr. Holtのメールは7月3日。割引の締め切りを過ぎてから予約した。",
       "traps": [
        "いちばん高いブースはLarge。彼はCornerを取った。",
        "前払いの条件は割引とは関係ない。",
@@ -1096,7 +1238,12 @@
       ]
      },
      "question": "Why did Holt Lighting not receive a discount?",
-     "id": "p7-t06-2"
+     "id": "p7-t06-2",
+     "trans": "Holt Lightingはなぜ割引を受けられなかったのか。",
+     "evidence": [
+      "Exhibitors who book before June 30 save 15%.",
+      "Date: July 3"
+     ]
     },
     {
      "type": "link",
@@ -1114,7 +1261,7 @@
       "traps": [
        "ブースの種類によるバッジ料金の違いはない。",
        null,
-       "バッジの紛失の話はない。",
+       "バッジの紛失の話はない。80ドルは追加バッジ2つ分の料金。",
        "来場者用ではなくスタッフ用。"
       ]
      },
@@ -1122,7 +1269,12 @@
      "tags": [
       "trap"
      ],
-     "id": "p7-t06-3"
+     "id": "p7-t06-3",
+     "trans": "Holt Lightingに80ドルが請求されたのはなぜか。",
+     "evidence": [
+      "Each exhibitor receives four free admission badges; additional badges cost $40 each.",
+      "We will have six staff members working at the booth"
+     ]
     },
     {
      "type": "link",
@@ -1141,11 +1293,16 @@
        "Standardは開いている面が1つ。",
        "Largeはより広いスペースなので、要らないと言っている。",
        null,
-       "屋外のブースはない。"
+       "屋外のブースはない。ブースの種類はStandard、Large、Cornerの3つ。"
       ]
      },
      "question": "Which type of booth did Holt Lighting receive?",
-     "id": "p7-t06-4"
+     "id": "p7-t06-4",
+     "trans": "Holt Lightingはどの種類のブースを割り当てられたか。",
+     "evidence": [
+      "please assign us a space with two open sides",
+      "Corner booth"
+     ]
     },
     {
      "type": "detail",
@@ -1159,7 +1316,7 @@
      ],
      "answer": 0,
      "explanation": {
-      "why": "請求書に 'Payment due by August 15' と書かれている。",
+      "why": "請求書に 'Payment due by August 15'（8月15日までに支払い）と書かれている。",
       "traps": [
        null,
        "7月5日は請求書の発行日。",
@@ -1168,7 +1325,11 @@
       ]
      },
      "question": "By what date must Holt Lighting pay?",
-     "id": "p7-t06-5"
+     "id": "p7-t06-5",
+     "trans": "Holt Lightingはいつまでに支払わなければならないか。",
+     "evidence": [
+      "Payment due by August 15."
+     ]
     }
    ]
   },
@@ -1205,16 +1366,20 @@
      ],
      "answer": 1,
      "explanation": {
-      "why": "新入社員Dana Coleの名刺500枚を注文するメール。",
+      "why": "新入社員Dana Coleの名刺500枚を注文するメール。印刷物を注文することが目的。",
       "traps": [
        "配送の遅れの心配は、後のテキストメッセージのやりとりに出てくる。",
        null,
-       "住所変更の依頼はない。",
+       "住所変更の依頼はない。自宅に送るという話は、後のテキストメッセージでMr. Takedaが提案したもの。",
        "顧客に紹介する文章ではない。"
       ]
      },
      "question": "What is the purpose of the e-mail?",
-     "id": "p7-t07-1"
+     "id": "p7-t07-1",
+     "trans": "メールの目的は何か。",
+     "evidence": [
+      "I'd like to order 500 business cards for our new employee, Dana Cole."
+     ]
     },
     {
      "type": "inference",
@@ -1237,7 +1402,11 @@
       ]
      },
      "question": "What is suggested about Brightwater Consulting?",
-     "id": "p7-t07-2"
+     "id": "p7-t07-2",
+     "trans": "Brightwater Consultingについて何が分かるか。",
+     "evidence": [
+      "Please use the same design as our last order (#7781)"
+     ]
     },
     {
      "type": "link",
@@ -1254,13 +1423,18 @@
       "why": "彼は10月10日までに受け取りたかったが、配達予定日は9〜11日で、追跡ページでは11日着になる可能性があるとしている。",
       "traps": [
        "配送確認書に肩書きがSenior Analystと正しく書かれている。",
-       "会社名は正しく書かれている。",
+       "配送確認書に会社名（Brightwater Consulting）が正しく書かれている。",
        null,
-       "破損の話はない。"
+       "破損の話はない。心配しているのは到着日だけ。"
       ]
      },
      "question": "Why is Mr. Takeda concerned?",
-     "id": "p7-t07-3"
+     "id": "p7-t07-3",
+     "trans": "Takedaさんはなぜ心配しているのか。",
+     "evidence": [
+      "We need them by October 10",
+      "Estimated delivery: October 9–11"
+     ]
     },
     {
      "type": "intent",
@@ -1278,12 +1452,16 @@
       "traps": [
        null,
        "家と事務所の距離の話はない。",
-       "学会の日程は知っている。",
-       "注文の変更の話はない。"
+       "学会の日程は知っている。学会が14日に始まると自分で言っている。",
+       "注文の変更の話はない。自宅に送るという提案も断っている。"
       ]
      },
      "question": "At 10:15 A.M., what does Ms. Cole mean when she writes, “That's cutting it close”?",
-     "id": "p7-t07-4"
+     "id": "p7-t07-4",
+     "trans": "午前10時15分にColeさんが \"That's cutting it close\" と書いたのはどういう意味か。",
+     "evidence": [
+      "That's cutting it close. The conference starts on the 14th."
+     ]
     },
     {
      "type": "link",
@@ -1297,16 +1475,20 @@
      ],
      "answer": 3,
      "explanation": {
-      "why": "13日は彼女の初出勤日で、その日に事務所で名刺を受け取ると言っている。",
+      "why": "13日は彼女の初出勤日（my first day）で、その日に事務所で名刺を受け取る（I'll pick them up at the office on the 13th）と言っている。",
       "traps": [
-       "学会は14日に始まる。",
-       "肩書きの変更の話はない。",
+       "学会は14日に始まる。13日は初出勤日。",
+       "肩書きの変更の話はない。肩書き（Senior Analyst）はすでに名刺に正しく印刷されている。",
        "配送の追跡はMr. Takedaが確認した。",
        null
       ]
      },
      "question": "What will Ms. Cole most likely do on October 13?",
-     "id": "p7-t07-5"
+     "id": "p7-t07-5",
+     "trans": "Coleさんは10月13日に何をすると考えられるか。",
+     "evidence": [
+      "I'll pick them up at the office on the 13th, my first day."
+     ]
     }
    ]
   }

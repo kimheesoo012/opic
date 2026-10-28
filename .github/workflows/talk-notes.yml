@@ -1,0 +1,32 @@
+# talk-notes(회화 교정 노트 앱) 테스트. 배포는 기존 main 브랜치 Pages가 /opic/talk-notes/로 함께 올린다.
+name: talk-notes
+
+on:
+  push:
+    branches: [main]
+    paths: ['talk-notes/**', '.github/workflows/talk-notes.yml']
+  pull_request:
+    paths: ['talk-notes/**', '.github/workflows/talk-notes.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Unit tests
+        run: node --test talk-notes/tests/unit.test.mjs
+      - name: Service worker list is up to date
+        run: |
+          node talk-notes/tools/build-sw.cjs
+          git diff --exit-code talk-notes/sw.js || (echo "talk-notes/sw.js가 오래됐어요. node talk-notes/tools/build-sw.cjs 실행 후 커밋하세요." && exit 1)
+      - name: Browser tests (phone sizes)
+        run: |
+          npm i --no-save playwright@1.47.2
+          npx playwright install --with-deps chromium
+          node talk-notes/tests/e2e.cjs

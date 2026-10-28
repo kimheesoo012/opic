@@ -68,9 +68,13 @@
        null,
        "配送への苦情は2通目のメールの内容。",
        "ニュースレターは割引情報の出どころとして触れられただけ。",
-       "カタログの依頼はない。"
+       "カタログの依頼はない。注文書を添付したと言っているので、すでに品目は決まっている。"
       ]
-     }
+     },
+     "trans": "Parkさんはなぜ最初のメールを送ったのか。",
+     "evidence": [
+      "Please process the attached order for our new office on Bay Street."
+     ]
     },
     {
      "id": "p7-t01-2",
@@ -88,10 +92,10 @@
      "explanation": {
       "why": "最初のメールで 'As a returning customer'（リピーターとして）と言っていて、請求書にはロイヤルティ割引が適用されている。以前にSupply Hubで買ったことがある。",
       "traps": [
-       "オフィスの広さの比較はない。",
+       "オフィスの広さの比較はない。新しいオフィス（new office on Bay Street）に移るという話だけ。",
        null,
        "ニュースレターはSupply Hubが発行したもの。",
-       "請求書の割引率は5パーセント。"
+       "請求書の割引率は5パーセント（Loyalty discount (5%)）。10パーセントではない。"
       ]
      },
      "para": [
@@ -99,6 +103,10 @@
        "p": "As a returning customer",
        "a": "has purchased from Supply Hub before"
       }
+     ],
+     "trans": "Corvus Designについて何が分かるか。",
+     "evidence": [
+      "As a returning customer, we would like to use the loyalty discount"
      ]
     },
     {
@@ -122,7 +130,12 @@
        "問題になっているのはスタンディングデスクの数量だけ。",
        null
       ]
-     }
+     },
+     "trans": "誤った数量で届いた品物は。",
+     "evidence": [
+      "we received eight standing desks rather than the four we ordered",
+      "Standing desk"
+     ]
     },
     {
      "id": "p7-t01-4",
@@ -145,7 +158,11 @@
        "10月9日は配送日。日付がいくつも出てくるクロスリファレンス問題の代表的なひっかけ。",
        null
       ]
-     }
+     },
+     "trans": "Corvus Designの社員はいつ新しいオフィスで働き始めるか。",
+     "evidence": [
+      "We need all items delivered by October 10, which is when our staff will move in."
+     ]
     },
     {
      "id": "p7-t01-5",
@@ -165,7 +182,7 @@
       "traps": [
        null,
        "いすについての問題の指摘はない。",
-       "追加の割引の依頼はない。",
+       "追加の割引の依頼はない。割引は最初のメールですでに適用を頼み、請求書に反映されている。",
        "むしろ明日までに送ってほしいと言っている。"
       ]
      },
@@ -174,6 +191,10 @@
        "p": "one of the lamps has a cracked base … send a replacement",
        "a": "A replacement for a damaged item"
       }
+     ],
+     "trans": "Parkさんは2通目のメールで何を依頼しているか。",
+     "evidence": [
+      "one of the lamps has a cracked base. If possible, please send a replacement"
      ]
     }
    ]
@@ -255,6 +276,10 @@
        "p": "For the first time … outdoor screenings … free to the public",
        "a": "free screenings for the first time"
       }
+     ],
+     "trans": "今年の映画祭について何が述べられているか。",
+     "evidence": [
+      "For the first time, the festival will also offer outdoor screenings in Riverside Park, which will be free to the public."
      ]
     },
     {
@@ -276,9 +301,14 @@
        "売り切れたという情報はない。販売期限が過ぎただけ。",
        null,
        "ウェブサイトの問題は書かれていない。",
-       "値段のせいだとは言っていない。"
+       "値段のせいだとは言っていない。パスを買えなかった理由は「もう販売していない（no longer being sold）」こと。"
       ]
-     }
+     },
+     "trans": "Whitfieldさんはなぜ映画祭のパスを買えなかったのか。",
+     "evidence": [
+      "Passes are available only until May 31.",
+      "Date: June 2"
+     ]
     },
     {
      "id": "p7-t02-3",
@@ -304,7 +334,12 @@
        "80ドルはパスの値段だが、パスはもう販売していない。",
        "160ドルはパス2枚の値段。"
       ]
-     }
+     },
+     "trans": "Whitfieldさんが自分とKimさんの土曜日のチケットに使う金額はいくらと考えられるか。",
+     "evidence": [
+      "Tickets for individual screenings cost $12",
+      "I'll only need to buy tickets for the first one"
+     ]
     },
     {
      "id": "p7-t02-4",
@@ -327,7 +362,12 @@
        "Arcadia Cinemaは9時30分のCity of Glassの会場で、彼はドキュメンタリーを2本見ようとしている。",
        "夕食は2本の映画の「間」にしようと言っているので、7時には映画を見ている。"
       ]
-     }
+     },
+     "trans": "Whitfieldさんは土曜日の午後7時にどこにいると考えられるか。",
+     "evidence": [
+      "Northern Lights (documentary)",
+      "I'd really like to see the two documentaries"
+     ]
     },
     {
      "id": "p7-t02-5",
@@ -356,6 +396,10 @@
        "p": "get dinner",
        "a": "Having a meal together"
       }
+     ],
+     "trans": "WhitfieldさんはKimさんに何を提案しているか。",
+     "evidence": [
+      "Do you want to get dinner between the two films?"
      ]
     }
    ]
@@ -397,7 +441,7 @@
      "explanation": {
       "why": "若手エンジニアとベテラン社員を結ぶメンタリングプログラムを新しく始める（is launching）と知らせるメモ。",
       "traps": [
-       "昇進の発表はない。",
+       "昇進の発表はない。メンタリングプログラムの案内。",
        "勤務時間の変更の話はない。",
        "新しいエンジニアの採用ではなく、社内の社員向けのプログラム。",
        null
@@ -408,6 +452,10 @@
        "p": "is launching a mentorship program",
        "a": "introduce a new program"
       }
+     ],
+     "trans": "メモの目的は何か。",
+     "evidence": [
+      "Halvorsen Engineering is launching a mentorship program that pairs junior engineers with senior staff."
      ]
     },
     {
@@ -431,7 +479,12 @@
        "締め切りは1月24日で、彼は1月21日に提出した。",
        "彼の部署はStructural Design。"
       ]
-     }
+     },
+     "trans": "Navarroさんについて何が述べられているか。",
+     "evidence": [
+      "Senior staff with at least eight years at the company are eligible to serve as mentors.",
+      "Years with Halvorsen: 9"
+     ]
     },
     {
      "id": "p7-t03-3",
@@ -452,9 +505,14 @@
        "働いている階についての情報はない。",
        "名前で指名したという内容はない。関心のある分野を言っただけ。",
        null,
-       "今の上司だという情報はない。"
+       "今の上司だという情報はない。同じ部署（Structural Design）だということしか分からない。"
       ]
-     }
+     },
+     "trans": "ItoさんはなぜNavarroさんと組まされたと考えられるか。",
+     "evidence": [
+      "Areas of expertise: bridge design, project scheduling",
+      "she is especially interested in learning about project scheduling"
+     ]
     },
     {
      "id": "p7-t03-4",
@@ -472,7 +530,7 @@
      "explanation": {
       "why": "申込書の希望曜日は水曜日だが、メールでMs. Itoが3月まで毎週水曜日に研修コースを受けると言っている。",
       "traps": [
-       "出張の話はない。",
+       "出張の話はない。水曜日が使えない理由はMs. Itoの研修コース。",
        null,
        "会議室の予約の問題は書かれていない。",
        "MarchはMs. Itoの研修が終わる時期で、プログラムが始まる時期ではない。"
@@ -483,6 +541,11 @@
        "p": "she attends a training course on Wednesdays",
        "a": "Ms. Ito has a class on that day."
       }
+     ],
+     "trans": "Navarroさんの希望した曜日が最初は使われないのはなぜか。",
+     "evidence": [
+      "Preferred meeting day: Wednesday",
+      "Because she attends a training course on Wednesdays until March"
      ]
     },
     {
@@ -501,12 +564,16 @@
      "explanation": {
       "why": "メモで、メンターとメンティーは6か月間、2週間ごとに1時間（one hour every two weeks）会うと言っている。",
       "traps": [
-       "毎週ではなく2週間ごと。",
+       "毎週（every week）ではなく2週間ごと（every two weeks）。",
        null,
        "月に1回とは言っていない。",
        "6か月間定期的に会う。"
       ]
-     }
+     },
+     "trans": "NavarroさんとItoさんはどのくらいの頻度で会うか。",
+     "evidence": [
+      "Mentors and mentees will meet for one hour every two weeks for six months."
+     ]
     }
    ]
   }

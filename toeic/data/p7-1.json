@@ -45,6 +45,11 @@
        "pos": "n",
        "m": "여행 일정표"
       }
+     ],
+     "trans": "Cho 씨는 왜 이메일을 썼는가?",
+     "evidence": [
+      "I moved your return flight from April 18 to April 19",
+      "has also extended your reservation by one night"
      ]
     },
     {
@@ -74,6 +79,10 @@
        "p": "at the same conference rate",
        "a": "costs the same rate as the other nights"
       }
+     ],
+     "trans": "호텔 추가 1박에 대해 무엇이 언급되어 있는가?",
+     "evidence": [
+      "extended your reservation by one night at the same conference rate"
      ]
     },
     {
@@ -97,7 +106,11 @@
        "worry about(걱정하다)은 문맥과 관계없다.",
        null
       ]
-     }
+     },
+     "trans": "이메일 두 번째 문단의 \"take care of\"와 뜻이 가장 가까운 것은?",
+     "evidence": [
+      "just reply to this e-mail and I will take care of it"
+     ]
     }
    ]
   },
@@ -139,6 +152,11 @@
        "p": "First thing I tried.",
        "a": "He has already checked the power connection."
       }
+     ],
+     "trans": "오전 9시 15분에 Park 씨가 \"First thing I tried\"라고 쓴 것은 무슨 뜻이겠는가?",
+     "evidence": [
+      "Did you check that it's plugged in?",
+      "First thing I tried."
      ]
     },
     {
@@ -168,6 +186,11 @@
        "p": "I can bring it up. / Will do.",
        "a": "Bring some equipment to Mr. Park"
       }
+     ],
+     "trans": "Ortiz 씨는 다음에 무엇을 하겠는가?",
+     "evidence": [
+      "I can bring it up.",
+      "Will do."
      ]
     }
    ]
@@ -204,7 +227,11 @@
        null,
        "'an upgraded security system'이 언급되었다."
       ]
-     }
+     },
+     "trans": "현대화 프로젝트의 일부로 언급되지 않은 것은?",
+     "evidence": [
+      "The work is part of a building-wide modernization project that will also include new lobby lighting and an upgraded security system"
+     ]
     },
     {
      "id": "p7-s03-2",
@@ -222,7 +249,7 @@
      "explanation": {
       "why": "두 번째 문단에서 그 주말에 배송이 예정된 입주자는 경비실에 미리 알려야(inform the security desk in advance) 한다고 했다.",
       "traps": [
-       "출입구에 대한 언급은 없다.",
+       "동쪽 출입구에 대한 언급은 없다. 공지에 나오는 장소는 건물 뒤쪽의 화물용 엘리베이터(freight elevator at the rear)뿐이다.",
        "내선 210은 문의처일 뿐 배송 당일 전화하라는 안내가 아니다.",
        "배송 일정을 바꾸라는 말은 없다. 경비원이 화물용 엘리베이터까지 안내해 준다.",
        null
@@ -233,6 +260,10 @@
        "p": "inform the security desk in advance",
        "a": "Notify the security desk beforehand"
       }
+     ],
+     "trans": "7월 12일에 배송이 예정된 입주자는 어떻게 해야 하는가?",
+     "evidence": [
+      "should inform the security desk in advance"
      ]
     },
     {
@@ -257,7 +288,11 @@
        null,
        "[4] 앞은 향후 현대화 프로젝트 내용이라 경비 서비스 시간 안내와 흐름이 맞지 않는다."
       ]
-     }
+     },
+     "trans": "[1], [2], [3], [4] 중 다음 문장이 들어가기에 가장 알맞은 곳은?",
+     "evidence": [
+      "so that a guard can escort delivery personnel to the freight elevator."
+     ]
     }
    ]
   },
@@ -299,6 +334,10 @@
        "p": "Now serving offices in the downtown area",
        "a": "recently expanded its service area"
       }
+     ],
+     "trans": "Brightway Cleaning Services에 대해 무엇을 알 수 있는가?",
+     "evidence": [
+      "Now serving offices in the downtown area!"
      ]
     },
     {
@@ -332,6 +371,10 @@
        "p": "at half price",
        "a": "a discount"
       }
+     ],
+     "trans": "신규 고객은 어떻게 할인을 받을 수 있는가?",
+     "evidence": [
+      "New customers who sign a six-month contract before September 30 will receive their first month of service at half price."
      ]
     },
     {
@@ -352,7 +395,7 @@
       "traps": [
        "월간 청소 플랜은 기본 플랜 중 하나다.",
        null,
-       "현장 견적은 무료다.",
+       "현장 견적은 무료(free on-site estimate)라고 마지막 문장에 나온다. 추가 요금이 아니다.",
        "직원 보험은 회사가 갖추고 있다는 설명일 뿐 고객이 따로 사는 서비스가 아니다."
       ]
      },
@@ -361,6 +404,10 @@
        "p": "for an additional fee",
        "a": "at an extra cost"
       }
+     ],
+     "trans": "추가 비용을 내야 하는 서비스는?",
+     "evidence": [
+      "Window washing and carpet cleaning are available for an additional fee."
      ]
     }
    ]
@@ -397,7 +444,11 @@
        "Martha Quinn은 인터뷰한 관장일 뿐 은퇴 이야기는 없다.",
        null
       ]
-     }
+     },
+     "trans": "기사는 주로 무엇에 관한 것인가?",
+     "evidence": [
+      "Small-business owners in Riverton now have a new place to get help."
+     ]
     },
     {
      "id": "p7-s05-2",
@@ -426,6 +477,10 @@
        "p": "one-on-one advising sessions",
        "a": "receive individual advice"
       }
+     ],
+     "trans": "기사에 따르면 목요일 저녁에는 무슨 일이 있는가?",
+     "evidence": [
+      "will also hold one-on-one advising sessions every Thursday evening"
      ]
     },
     {
@@ -449,7 +504,11 @@
        "detailed(상세한)는 정보의 양을 말한다.",
        "dependent(의존하는)는 rely(의존하다)와 어원이 비슷해 고르기 쉽지만 뜻이 다르다."
       ]
-     }
+     },
+     "trans": "세 번째 문단의 \"reliable\"과 뜻이 가장 가까운 것은?",
+     "evidence": [
+      "a place to find reliable information without cost"
+     ]
     },
     {
      "id": "p7-s05-4",
@@ -478,6 +537,10 @@
        "p": "hope to open a similar space at the library's east branch next year",
        "a": "may get a business center in the future"
       }
+     ],
+     "trans": "도서관 동부 분관에 대해 무엇을 알 수 있는가?",
+     "evidence": [
+      "they hope to open a similar space at the library's east branch next year"
      ]
     }
    ]
@@ -548,6 +611,11 @@
        "p": "Shipping: FREE (orders over $250)",
        "a": "qualified for free shipping"
       }
+     ],
+     "trans": "주문에 대해 무엇이 언급되어 있는가?",
+     "evidence": [
+      "Shipping: FREE (orders over $250)",
+      "Total: $312.00"
      ]
     },
     {
@@ -566,7 +634,7 @@
      "explanation": {
       "why": "정리함은 10월 14일에 따로 '발송'된다고 했으므로 받는 날은 14일이거나 그 이후다.",
       "traps": [
-       "10월 6일은 주문일이다.",
+       "10월 6일은 주문일(Order date)이다. 물건을 받는 날이 아니다.",
        "10월 9일은 나머지 물품의 예상 도착일이다. 날짜를 잘못 연결하게 하는 함정.",
        null,
        "정리함은 품절이라 9일 전에 받을 수 없다."
@@ -577,6 +645,10 @@
        "p": "will be shipped separately on October 14",
        "a": "On or after October 14"
       }
+     ],
+     "trans": "Adeyemi 씨는 언제 데스크 정리함을 받겠는가?",
+     "evidence": [
+      "will be shipped separately on October 14"
      ]
     }
    ]
@@ -619,6 +691,10 @@
        "p": "a new recycling program",
        "a": "a new waste-sorting system"
       }
+     ],
+     "trans": "메모의 목적은?",
+     "evidence": [
+      "will introduce a new recycling program on every floor"
      ]
     },
     {
@@ -639,7 +715,7 @@
       "traps": [
        "부엌에는 초록색 수거함이 놓인다. 색깔을 바꿔 묻는 함정.",
        null,
-       "로비에 대한 언급은 없다.",
+       "로비에 대한 언급은 없다. 수거함이 놓이는 곳은 프린터 옆(파란색)과 부엌(초록색)뿐이다.",
        "엘리베이터에 대한 언급은 없다."
       ]
      },
@@ -648,6 +724,10 @@
        "p": "next to each printer",
        "a": "Beside the printers"
       }
+     ],
+     "trans": "메모에 따르면 파란색 수거함은 어디에 놓이는가?",
+     "evidence": [
+      "Blue bins will be placed next to each printer"
      ]
     },
     {
@@ -672,7 +752,11 @@
        null,
        "[4] 앞은 폐기물 감소 예상치라 these items와 연결되지 않는다."
       ]
-     }
+     },
+     "trans": "[1], [2], [3], [4] 중 다음 문장이 들어가기에 가장 알맞은 곳은?",
+     "evidence": [
+      "Please do not put food waste or coffee cups in either type of bin, as this can contaminate an entire load."
+     ]
     }
    ]
   },
@@ -714,6 +798,11 @@
        "p": "limited to 8 → at least 12 vegetarians",
        "a": "will not be enough"
       }
+     ],
+     "trans": "오후 2시 6분에 Bello 씨가 \"We'll have at least 12 vegetarians\"라고 쓴 것은 무슨 뜻인가?",
+     "evidence": [
+      "the vegetarian option is limited to 8",
+      "We'll have at least 12 vegetarians."
      ]
     },
     {
@@ -734,7 +823,7 @@
       "traps": [
        "케이터링 업체에 연락하겠다는 사람은 Mr. Reed다.",
        "인원을 세겠다는 제안은 없다.",
-       "장소에 대한 이야기는 없다.",
+       "장소나 방 크기에 대한 이야기는 없다. 대화의 문제는 채식 메뉴 수량이다.",
        null
       ]
      },
@@ -743,6 +832,10 @@
        "p": "I could pick some up",
        "a": "Buy additional food"
       }
+     ],
+     "trans": "Lin 씨는 무엇을 하겠다고 제안하는가?",
+     "evidence": [
+      "I could pick some up Friday morning."
      ]
     },
     {
@@ -766,7 +859,11 @@
        "Mr. Reed를 탓하는 말이 아니다.",
        "설명을 요구하지 않고 바로 수량(6개)을 정한다."
       ]
-     }
+     },
+     "trans": "오후 2시 9분에 Bello 씨가 \"That would solve it\"이라고 쓴 것은 무슨 뜻인가?",
+     "evidence": [
+      "That would solve it. Can you get 6?"
+     ]
     },
     {
      "id": "p7-s08-4",
@@ -795,6 +892,10 @@
        "p": "I'll let the caterer know",
        "a": "Contact the caterer"
       }
+     ],
+     "trans": "Reed 씨는 다음에 무엇을 하겠는가?",
+     "evidence": [
+      "Then I'll let the caterer know the final count is 40 sandwiches."
      ]
     }
    ]

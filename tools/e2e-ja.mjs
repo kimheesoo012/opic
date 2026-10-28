@@ -69,6 +69,8 @@ try {
   await answerLoop(p);
   ok('진단 완료 → 결과', (await p.evaluate(() => location.hash)) === '#result');
   ok('결과: RC推定スコア範囲 또는 学習レベル', /RC推定スコア範囲|学習レベル/.test(await pageText(p)));
+  const rw = await p.textContent('.reward');
+  ok('결과: 획득 XP·첫 배지 일본어', /\+\d+ XP/.test(rw) && rw.includes('はじめの一歩') && rw.includes('今回の学習'), rw.replace(/\s+/g, ' ').slice(0, 60));
   await checkText(p, '結果');
   await shot(p, '03-result', true);
 
@@ -96,6 +98,8 @@ try {
   const exp = await p.textContent('.exp');
   ok('Part 5 해설: 일본어(가나 포함)', KANA.test(await p.textContent('.why')) && !HANGUL.test(exp));
   ok('Part 5 해설: 不正解 표시와 ポイント', exp.includes('不正解') && exp.includes('ポイント'));
+  const tr5 = await p.evaluate(() => ({ en: !!document.querySelector('.exp .trans .en b'), tr: (document.querySelector('.exp .trans .tr') || {}).textContent || '', lbl: [...document.querySelectorAll('.exp .lbl')].map((x) => x.textContent) }));
+  ok('Part 5 해설: 訳 구역(정답 넣은 문장 + 일본어 해석)', tr5.en && KANA.test(tr5.tr) && !HANGUL.test(tr5.tr) && tr5.lbl.includes('正解の理由') && tr5.lbl.includes('訳'), tr5.lbl.join('/'));
   const causes = await p.$$eval('[data-act="cause"]', (bs) => bs.map((b) => b.textContent));
   ok('오답 원인 칩 일본어', causes.includes('知らない単語') && causes.includes('ひっかけ'), causes.join('/'));
   await checkText(p, 'Part 5 解説');
@@ -121,6 +125,8 @@ try {
   await (await p.$$('.choice[data-act="choose"]'))[0].click();
   await p.waitForSelector('.exp');
   ok('Part 7 해설 일본어', KANA.test(await p.textContent('.why')));
+  const ev7 = await p.evaluate(() => ({ marks: document.querySelectorAll('.passage mark.ev, .passage td.ev').length, ev: (document.querySelector('.exp .ev') || {}).textContent || '', q: (document.querySelector('.exp .qtr') || {}).textContent || '' }));
+  ok('Part 7 해설: 根拠の文 + 지문 강조 + 設問 일본어', ev7.marks >= 1 && ev7.ev.includes('根拠の文') && KANA.test(ev7.q) && !HANGUL.test(ev7.q), JSON.stringify(ev7).slice(0, 100));
   await checkText(p, 'Part 7 解説');
   await answerLoop(p);
 
@@ -130,8 +136,22 @@ try {
     await p.waitForSelector('.nav');
     await checkText(p, r);
   }
+  // 7-a. 학습 동기 화면
+  await p.goto(`${BASE}#home`);
+  await p.waitForSelector('.streak');
+  const wk = await p.$$eval('.week .wd span', (xs) => xs.map((x) => x.textContent).join(''));
+  ok('홈: 연속 기록 카드 일본어(월~일, 日連続, XP 고리)', wk === '月火水木金土日' && (await p.textContent('.streak-n')).includes('日連続') && (await p.textContent('.streak .ring')).includes('XP'), wk);
+  await shot(p, '01b-home-streak');
   await p.goto(`${BASE}#stats`);
+  await p.waitForSelector('.badges');
+  ok('기록: 実力マップ 34유형·バッジ·直近7日', (await p.$$('.mrow')).length === 34 && (await pageText(p)).includes('実力マップ') && (await p.$$('.badge.on')).length >= 2 && (await pageText(p)).includes('直近7日'));
+  await p.click('details summary');
   await shot(p, '06-stats', true);
+  await p.goto(`${BASE}#prefs`);
+  await p.click('[data-act="daily"][data-n="20"]');
+  await p.goto(`${BASE}#home`);
+  ok('1日の目標 변경 반영', (await p.textContent('.streak .ring')).includes('/20'));
+  for (const r of ['home', 'stats', 'prefs']) { await p.goto(`${BASE}#${r}`); await p.waitForSelector('.nav'); await checkText(p, `${r} (2.1)`); }
 
   // 7. 저장소 분리: 일본어판 기록은 toeic-trainer-ja에만
   const dbs = await p.evaluate(async () => (indexedDB.databases ? (await indexedDB.databases()).map((d) => d.name) : []));

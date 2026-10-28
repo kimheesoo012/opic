@@ -14,12 +14,12 @@ p5-171|why	So + 형용사가 문장 앞으로 나와 be동사와 주어가 도�
 p5-171|t1	were는 복수 주어에 쓴다.
 p5-171|t2	did는 일반동사 도치에 쓰며 형용사 보어와 결합하지 못한다.
 p5-171|t3	had 뒤에는 과거분사가 와야 한다.
-p5-172|why	than 앞이므로 비교급 lighter.
+p5-172|why	뒤에 than이 있으므로 비교급이 필요하다. 1음절 형용사 light의 비교급은 -er을 붙인 lighter다.
 p5-172|t0	light는 원급이라 than과 쓰지 않는다.
 p5-172|t1	lightest는 최상급이다.
 p5-172|t3	light의 비교급은 lighter이며 more light라고 쓰지 않는다.
 p5-173|why	the + ___ + of the week는 범위 안에서 '가장 ~한'이라는 최상급 구조라 busiest가 정답이다.
-p5-173|t0	busy는 원급이다.
+p5-173|t0	busy는 원급이라 the ___ of the week처럼 '~ 중에서 가장'을 나타내는 최상급 자리에 맞지 않는다.
 p5-173|t1	busier는 비교급이라 비교 대상 than이 필요하다.
 p5-173|t3	busy의 최상급은 busiest다.
 p5-174|why	as ~ as 사이에는 원급 형용사가 온다. be동사의 보어이므로 형용사 spacious.
@@ -30,7 +30,7 @@ p5-175|why	Of the three(셋 중에서)라는 범위가 있으므로 최상급 th
 p5-175|t1	the more는 둘 사이 비교에 쓴다. 셋 이상이면 최상급.
 p5-175|t2	much는 비교급을 강조하며 the much qualified라는 형태는 없다.
 p5-175|t3	the very qualified는 형용사 앞 the와 결합하지 않는다.
-p5-176|why	applications는 복수 가산 명사라 many가 정답.
+p5-176|why	applications는 복수 가산 명사이고, 복수 가산 명사의 '많은'은 many다. 인턴십 지원서를 많이 받았다는 뜻이다.
 p5-176|t0	much는 불가산 명사에 쓴다.
 p5-176|t2	a little도 불가산 명사에 쓴다.
 p5-176|t3	every는 단수 명사와 쓴다.
@@ -46,15 +46,15 @@ p5-179|why	명사 company 앞에서 한정사 역할을 하는 No가 필요하�
 p5-179|t0	None은 대명사라 명사 앞에 올 수 없다(None of the companies는 가능).
 p5-179|t1	Nothing은 대명사라 명사를 꾸밀 수 없다.
 p5-179|t2	Not은 부사라 명사 앞 한정사 자리에 오지 않는다.
-p5-180|why	뒤의 or와 짝을 이루는 either A or B.
+p5-180|why	뒤의 or와 짝을 이루는 either A or B(A 또는 B)다. 전화 또는 이메일 중 한 가지로 연락할 수 있다는 뜻이다.
 p5-180|t1	neither는 nor와 짝을 이룬다.
 p5-180|t2	both는 and와 짝을 이룬다.
 p5-180|t3	not only는 but also와 짝을 이룬다.
-p5-181|why	뒤에 and가 있으므로 both A and B.
+p5-181|why	뒤에 and가 있으므로 both A and B(A도 B도)다. 더 가볍고 더 싸다는 두 가지 장점을 한꺼번에 말한다.
 p5-181|t1	either는 or와 짝을 이룬다.
 p5-181|t2	neither는 nor와 짝을 이룬다.
 p5-181|t3	whether는 or와 짝을 이루며 명사절·부사절을 이끈다.
-p5-182|why	Neither와 짝을 이루는 것은 nor다.
+p5-182|why	Neither와 짝을 이루는 것은 nor다. neither A nor B는 'A도 B도 아닌'이라는 뜻으로, 두 사람 모두 참석하지 못했다는 내용이다.
 p5-182|t0	or는 either와 짝을 이룬다.
 p5-182|t1	and는 both와 짝을 이룬다.
 p5-182|t3	but은 not only ~ but also에서 쓴다.
@@ -62,11 +62,11 @@ p5-183|why	not only A but also B 구문이다. A와 B 자리에 for + 명사가 
 p5-183|t0	and also는 not only와 짝을 이루지 않는다.
 p5-183|t2	or는 either와 짝을 이룬다.
 p5-183|t3	as well은 B as well as A 형태로 쓰며 not only와 짝을 이루지 않는다.
-p5-184|why	안전벨트는 fasten(매다)과 짝을 이룬다.
+p5-184|why	안전벨트(seat belt)를 '매다'는 fasten이다. fasten one's seat belt는 기내 안내 방송에 나오는 정해진 표현이다.
 p5-184|t0	close는 문·창문을 닫을 때 쓴다.
 p5-184|t1	tie는 끈·리본을 묶을 때 쓴다.
 p5-184|t2	lock은 열쇠로 잠글 때 쓴다.
-p5-185|why	회사가 근로자를 '고용하다'는 hire다.
+p5-185|why	회사가 근로자를 '고용하다'는 hire다. 두 번째 공장을 위해 새 직원 50명을 뽑는다는 뜻으로, plan to 뒤라 동사원형이 온다.
 p5-185|t0	apply는 apply for(지원하다)처럼 지원자 쪽에서 쓰는 동사다.
 p5-185|t2	attend는 행사에 참석할 때 쓴다.
 p5-185|t3	retire(은퇴하다)는 자동사다.
@@ -78,15 +78,15 @@ p5-187|why	빈칸 뒤 목적어 the login problem을 바로 받는 타동사가 
 p5-187|t1	respond는 respond to처럼 전치사가 필요하다.
 p5-187|t2	react도 react to처럼 쓰는 자동사다.
 p5-187|t3	result는 result in/from처럼 쓰는 자동사이고 의미도 맞지 않는다.
-p5-188|why	구매 증빙으로 보관하는 것은 영수증(receipt)이다.
-p5-188|t0	recipe는 요리법이다.
+p5-188|why	구매 증빙(proof of purchase)으로 보관하는 것은 영수증(receipt)이다. 철자가 비슷한 recipe·reception·recipient와 구분하는 문제다.
+p5-188|t0	recipe는 '요리법'이라 구매 증빙과 관계없다. receipt와 철자가 비슷해 고르기 쉬운 함정이다.
 p5-188|t1	reception은 접수처·환영회다.
 p5-188|t3	recipient는 받는 사람이다.
 p5-189|why	호텔이 꽉 차서 다른 '숙소'를 찾아야 했다는 뜻이다. accommodations(숙박 시설).
 p5-189|t1	accommodate는 동사라 other 뒤 명사 자리에 올 수 없다.
 p5-189|t2	accountants(회계사)는 문맥과 관계없다.
 p5-189|t3	accounts(계좌, 거래처)도 문맥과 관계없다.
-p5-190|why	호텔 연회장에서 '열리는' 것은 연회(banquet)다.
+p5-190|why	호텔 연회장(ballroom)에서 '열리는' 것은 연회(banquet)다. annual banquet는 '연례 만찬'이라는 뜻으로 자주 쓰인다.
 p5-190|t0	bouquet는 꽃다발이라 개최될 수 없다.
 p5-190|t1	budget(예산)은 열리는 행사가 아니다.
 p5-190|t2	bonus(상여금)도 개최되는 대상이 아니다.
@@ -98,13 +98,13 @@ p5-192|why	'거의 고장 나지 않는다'와 이어지는 것은 '믿을 수 �
 p5-192|t0	responsible(책임 있는)은 사람에게 쓴다.
 p5-192|t2	respective(각각의)는 명사 앞에서만 쓰며 보어로 쓰지 않는다.
 p5-192|t3	reversible(뒤집을 수 있는)은 프린터 성능을 설명하지 못한다.
-p5-193|why	shortly after는 '~ 직후에'라는 뜻이다.
+p5-193|why	shortly after는 '~ 직후에'라는 뜻이다. 표가 판매 시작 직후에 매진되었다는 내용이라 시간 부사 shortly가 알맞다.
 p5-193|t0	lately(최근에)는 주로 현재완료와 쓰고 after와 결합하지 않는다.
 p5-193|t1	nearly(거의)는 nearly sold out처럼 쓸 수 있지만 after 앞에서 '직후'라는 뜻이 되지 않는다.
 p5-193|t2	hardly(거의 ~않다)는 부정 의미라 문맥과 맞지 않는다.
-p5-194|why	'빨리 처리하도록' 서류를 '즉시' 보내 달라는 뜻이다. promptly.
+p5-194|why	'빨리 처리할 수 있도록' 서류를 '즉시' 돌려보내 달라는 뜻이므로 promptly(즉시)가 정답이다. 뒤의 so that … quickly와 호응한다.
 p5-194|t1	mostly(대부분)는 의미가 맞지 않는다.
 p5-194|t2	closely(면밀히)는 return과 어울리지 않는다.
 p5-194|t3	likely는 '아마'라는 뜻이라 요청 문장과 맞지 않는다.
-p5-195|why	숫자 앞에서 '대략'을 뜻하는 approximately가 정답이다.
+p5-195|why	숫자(20 percent) 앞에서 '대략'을 뜻하는 approximately가 정답이다. 매출이 약 20퍼센트 늘었다는 뜻이다.
 p5-195|t0	extremely는 형용사를 강조하며 숫자 앞에 쓰지 않는다.

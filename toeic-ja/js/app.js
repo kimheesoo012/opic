@@ -9,10 +9,12 @@ import { dueCards } from './review.js';
 import { partStats, todayAttempts, todayStudySec, conceptStats, overtimeQids } from './stats.js';
 import { makeRng, dayKey, pct, fmtSec, fmtMin, PART_NAMES, TARGETS, DAY, RC_PARTS } from './util.js';
 import { h, on, toast, sheet, closeSheet, installDispatcher, icons } from './ui.js';
+import { addXp, streakInfo, settle, levelOf, backfill, masteryMap, MASTERY_LABELS, BADGES, shiftDay } from './game.js';
+import { play } from './sound.js';
 import { initPlayer, startSession, render as renderPlayer, leavePlayer, explainHtml } from './player.js';
 import { renderReview, renderStats, renderSettings, renderTrain, renderAbout } from './screens.js';
 
-export const APP_VERSION = '2.0.0';
+export const APP_VERSION = '2.2.0';
 
 // ---------- 공용 ----------
 C.save = (keys) => { for (const k of keys) C.store.save(k).catch((e) => console.warn('save', k, e)); };
@@ -37,6 +39,78 @@ function applyTheme() {
 }
 C.applyTheme = applyTheme;
 C.scoreCardHtml = (est) => scoreCard(est);
+
+// 경험치 지급: 하루 목표·레벨업은 바로 알리고, 진행 중 세션에도 쌓는다
+C.award = (amount) => {
+  if (!amount) return null;
+  const ev = addXp(C.state.game, amount);
+  const s = C.state.active;
+  if (s) {
+    s.xp = (s.xp || 0) + amount;
+    if (ev.goalReached) s.goalHit = ev.streak;
+    if (ev.levelUp) s.levelUp = ev.levelUp;
+    if (ev.freezeEarned) s.freezeEarned = true;
+  }
+  C.save(s ? ['game', 'active'] : ['game']);
+  // 해설을 끝에 보는 시험형 세션은 풀이 중 알림 없이 결과 화면에서 보여 준다
+  if (s && s.feedback === 'end') return ev;
+  if (ev.goalReached) { toast(`今日の目標達成・${ev.streak}日連続`, 3000); play('goal', C.state.settings.sound); } else if (ev.levelUp) { toast(`レベル${ev.levelUp}に到達`, 3000); play('level', C.state.settings.sound); }
+  return ev;
+};
+C.mastery = () => masteryMap(C.state.attempts, C.maxDiff);
+
+const WD = ['日', '月', '火', '水', '木', '金', '土'];
+export const weekday = (d) => WD[new Date(`${d}T12:00`).getDay()];
+export function ringHtml(xp, daily) {
+  const p = Math.min(100, pct(xp / daily));
+  return `<div class="ring ${xp >= daily ? 'full' : ''}" style="--p:${p}" role="img" aria-label="今日 ${xp}/${daily} XP"><div><b>${xp}</b><small>/${daily} XP</small></div></div>`;
+}
+export function levelHtml(total) {
+  const L = levelOf(total);
+  return `<div class="lv"><span class="tag accent">Lv.${L.level}</span><div class="bar grow"><i style="width:${pct(L.into / L.need)}%"></i></div><span class="xs muted">${L.into}/${L.need} XP</span></div>`;
+}
+
+function streakCard() {
+  const g = C.state.game;
+  if (settle(g).length) C.save(['game']);
+  const si = streakInfo(g);
+  const today = dayKey(Date.now());
+  const mon = shiftDay(today, -((new Date().getDay() + 6) % 7));
+  const week = Array.from({ length: 7 }, (_, i) => shiftDay(mon, i));
+  const left = Math.max(0, g.daily - si.todayXp);
+  const msg = si.doneToday ? `今日の目標達成。明日も達成すれば${si.days + 1}日連続。`
+    : si.days ? `あと${left} XPで${si.days + 1}日連続。約${Math.ceil(left / 10)}問。`
+      : `今日${left} XPで連続1日目。約${Math.ceil(left / 10)}問。`;
+  return `<div class="card streak">
+    <div class="row between">
+      <div class="row" style="gap:10px"><span class="flame ${si.days ? 'on' : ''}">${icons.flame}</span><div><div class="streak-n">${si.days}日連続</div><div class="xs muted">最高${Math.max(g.best, si.days)}日${g.freezes ? `・お休みパス ${g.freezes}` : ''}</div></div></div>
+      ${ringHtml(si.todayXp, g.daily)}
+    </div>
+    <div class="week">${week.map((d) => `<div class="wd ${g.done[d] ? 'done' : g.frozen[d] ? 'frz' : ''} ${d === today ? 'today' : ''}"><i>${g.done[d] ? icons.flame : g.frozen[d] ? icons.snow : ''}</i><span>${weekday(d)}</span></div>`).join('')}</div>
+    <p class="small" style="margin:8px 0 0">${msg}</p>
+    ${levelHtml(g.total)}
+    ${si.doneToday ? '' : '<button class="btn primary block" style="margin-top:10px" data-act="quick">サクッと5問</button>'}
+  </div>`;
+}
+on('quick', () => startNew('practice', { part: 5, nQ: 5, title: 'サクッと5問' }));
+
+// 결과 화면 보상: 얻은 XP, 목표·연속, 레벨, 숙련도 상승, 새 배지
+function rewardCard(s) {
+  const g = C.state.game;
+  const si = streakInfo(g);
+  const gain = s.gain || {};
+  const rows = [];
+  if (s.goalHit) rows.push(`<div class="rw"><span class="flame on">${icons.flame}</span><b>今日の目標達成・${s.goalHit}日連続</b></div>`);
+  else rows.push(`<div class="rw small muted">${si.doneToday ? `今日の目標達成・${si.days}日連続` : `今日の目標まであと${Math.max(0, g.daily - si.todayXp)} XP`}</div>`);
+  if (s.freezeEarned) rows.push(`<div class="rw">${icons.snow}<span>お休みパスを1枚獲得。1日休んでも連続記録が続きます。</span></div>`);
+  if (s.levelUp) rows.push(`<div class="rw">${icons.bolt}<b>レベル${s.levelUp}に到達</b></div>`);
+  for (const m of gain.mastery || []) rows.push(`<div class="rw">${icons.star}<span>${h(conceptName(C.bank, m.c))} <b>${MASTERY_LABELS[m.from]} → ${MASTERY_LABELS[m.to]}</b></span></div>`);
+  for (const id of gain.badges || []) {
+    const b = BADGES.find((x) => x.id === id);
+    if (b) rows.push(`<div class="rw new-badge">${icons[b.icon]}<span>バッジ <b>${h(b.label)}</b>・${h(b.desc)}</span></div>`);
+  }
+  return `<div class="card reward"><div class="row between"><div><div class="xs muted">今回の学習</div><div class="xp-big">+${s.xp || 0} XP</div></div>${ringHtml(si.todayXp, g.daily)}</div>${rows.join('')}${levelHtml(g.total)}</div>`;
+}
 
 const NAV = [['home', 'ホーム', 'home'], ['learn', '学習', 'learn'], ['review', '復習', 'review'], ['stats', '記録', 'stats'], ['prefs', '設定', 'settings']];
 function navHtml(active) {
@@ -140,6 +214,7 @@ function renderHome() {
   const course = courseFor(minutes);
   const due = dueCards(st.reviews, Date.now());
   let html = `<div class="page"><div class="row between"><h1>今日のRC</h1><a class="tag accent" href="#goal">目標 ${st.profile.goal}</a></div>`;
+  html += streakCard();
   if (st.active) {
     const s = st.active;
     html += `<div class="card"><div class="row"><div class="grow"><h3>続きから解く</h3><p class="small muted" style="margin:0">${h(s.title)}・${Object.keys(s.answers).length}問解答済み</p></div>
@@ -257,7 +332,7 @@ function renderResult() {
   if (!s) return `<div class="page"><h1>結果</h1><p class="muted">表示する結果がありません。</p></div>`;
   const sum = summarize(s, C.bank);
   if (s.params && s.params.recKey) markCourseDone(s.params.recKey);
-  let html = `<div class="page"><h1>${h(s.title)}の結果</h1>
+  let html = `<div class="page"><h1>${h(s.title)}の結果</h1>${rewardCard(s)}
     <div class="card"><div class="row between"><div><div class="xs muted">正解</div><div class="score-big">${sum.correct}/${sum.n}</div></div>
     <div><div class="xs muted">正答率</div><div class="stat">${sum.n ? pct(sum.correct / sum.n) : 0}%</div></div>
     <div><div class="xs muted">時間</div><div class="stat">${fmtSec(s.elapsed)}</div></div></div>
@@ -295,7 +370,7 @@ function renderResult() {
       const label = unit.part === 6 ? `空所(${q.blank})` : q.question;
       html += `<details class="card"><summary><span class="tag ${tag[0]}">${tag[1]}</span> <span class="small">Part ${unit.part} · ${h(String(label || '').replace(/-{7}/, '___').slice(0, 70))}</span></summary>
         ${unit.part >= 6 ? `<p class="xs muted">本文は間違いノートで解き直すときに見られます。</p>` : ''}
-        ${explainHtml(q, unit, a, { causeFor: att })}</details>`;
+        ${explainHtml(q, unit, a, { causeFor: att, inPlay: false })}</details>`;
     }
     const concepts = [...new Set(wrongQs.filter((w) => !w.a || w.a.choice !== w.q.answer).map((w) => w.q.concept))];
     if (concepts.length) html += `<button class="btn primary block" data-act="reviewConcepts" data-c="${concepts.join(',')}">間違えたタイプをステップ復習・${concepts.length}タイプ</button>`;
@@ -392,6 +467,13 @@ async function openBestStore() {
   return openStore(memoryAdapter());
 }
 
+// 2.0 이전 기록에는 경험치가 없으니 풀이 기록으로 다시 계산한다
+C.ensureGame = () => {
+  const g = C.state.game;
+  if (!g.total && !g.settled && (C.state.attempts.length || C.state.sessions.length)) backfill(g, C.state.attempts, C.state.sessions);
+  settle(g);
+};
+
 // 1.x 기록 호환: LC/RC 기준 점수, LC 진행 중 세션 정리
 function migrate(st) {
   const p = st.profile;
@@ -406,7 +488,8 @@ function migrate(st) {
   for (const [k, c] of Object.entries(st.reviews)) if (!C.bank.byConcept.has(c.concept)) delete st.reviews[k];
   for (const [k, w] of Object.entries(st.wrongNote)) if (!C.bank.qById.has(w.qid)) delete st.wrongNote[k];
   if (!st.active) st.active = null;
-  C.save(['profile', 'active', 'scoreHistory', 'reviews', 'wrongNote']);
+  C.ensureGame();
+  C.save(['profile', 'active', 'scoreHistory', 'reviews', 'wrongNote', 'game']);
 }
 
 export async function boot() {
@@ -415,6 +498,8 @@ export async function boot() {
   try {
     const data = await loadData();
     C.bank = buildBank(data.units, data.concepts);
+    C.maxDiff = {};
+    for (const [c, refs] of C.bank.byConcept) C.maxDiff[c] = Math.max(...refs.map((r) => r.q.difficulty));
     C.dataVersion = data.version;
     if (C.bank.report.errors.length) console.warn('제외된 문항', C.bank.report.errors);
   } catch (e) {

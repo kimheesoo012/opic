@@ -5,6 +5,8 @@ import { currentItem, makeAttempt, applyAttempt, reviewStepResult, reviewAdvance
 import { STAGES } from './review.js';
 import { CAUSES } from './stats.js';
 import { LETTERS, fmtSec, PART_NAMES } from './util.js';
+import { XP, attemptXp, masteryLevels, checkBadges } from './game.js';
+import { play } from './sound.js';
 
 let C;
 const P = { unitKey: null, qKey: null, phase: 'answer', chosen: null, startT: 0, tick: null, lastTick: 0, tab: 0, wide: false, scrollToExp: false };
@@ -16,6 +18,17 @@ const S = () => C.state.active;
 
 export function startSession(s) {
   if (!s) { toast('条件に合う問題が足りません。'); return; }
+  // 풀던 세션을 말없이 덮어쓰지 않는다
+  const cur = C.state.active;
+  if (cur && cur.id !== s.id && Object.keys(cur.answers).length) {
+    C.pendingSession = s;
+    sheet(`<h3>途中のセッションがあります</h3><p class="small muted">${h(cur.title)}。続きから解くか、破棄して新しく始めます。</p>
+      <div class="stack"><button class="btn primary block" data-act="resume">続きから解く</button><button class="btn block" data-act="discardAndStartPending">破棄して新しく始める</button></div>`);
+    return;
+  }
+  // 끝난 뒤 숙련도 변화를 보여 주려고 시작 시점 단계를 남긴다
+  if (!s.m0) s.m0 = masteryLevels(C.mastery());
+  s.xp ||= 0;
   C.state.active = s;
   C.save(['active']);
   P.unitKey = null;
@@ -125,6 +138,11 @@ export function render() {
   const ans = s.answers[q.id];
   P.phase = ans && s.feedback === 'immediate' ? 'feedback' : 'answer';
   if (P.qKey !== q.id) { P.startT = Date.now(); P.chosen = ans ? ans.choice : null; P.qKey = q.id; }
+  if (P.phase === 'feedback' && P.evKey !== q.id && (unit.passages || []).length > 1 && q.evidence) {
+    const i = unit.passages.findIndex((p) => evidenceIn(p, q.evidence));
+    if (i >= 0) P.tab = i;
+    P.evKey = q.id;
+  }
   root.innerHTML = renderUnit(s, it, unit, q, qs);
   const main = root.querySelector('.sess-main');
   if (main && P.phase === 'feedback' && P.scrollToExp) {
@@ -178,24 +196,43 @@ function linkVocab(text, vocab) {
 
 const allVocab = (unit) => questionsOf(unit).flatMap((q) => q.vocab || []);
 
-function oneProse(p, q, vocab) {
-  let t = linkVocab(p.text, vocab);
+const evRe = (e) => new RegExp(e.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+'));
+const normT = (x) => String(x).replace(/\s+/g, ' ').trim().toLowerCase();
+function markEvidence(text, evidence) {
+  let out = text;
+  for (const e of evidence || []) {
+    const m = out.match(evRe(e));
+    if (m) out = out.slice(0, m.index) + '\u0001' + m[0] + '\u0002' + out.slice(m.index + m[0].length);
+  }
+  return out;
+}
+export function evidenceIn(p, evidence) {
+  if (!evidence || !evidence.length) return false;
+  if (evRe(evidence[0]).test(p.text)) return true;
+  if (p.table) return [...p.table.header, ...p.table.rows.flat()].some((x) => evidence.some((e) => normT(e) === normT(x)));
+  return false;
+}
+
+function oneProse(p, q, vocab, evidence) {
+  const cellHit = (x) => evidence && evidence.some((e) => normT(e) === normT(x)); // 표는 칸 전체가 근거와 같을 때만
+  let t = linkVocab(evidence ? markEvidence(p.text, evidence) : p.text, vocab).replace(/\u0001/g, '<mark class="ev">').replace(/\u0002/g, '</mark>');
   t = t.replace(/\{\{(\d)\}\}/g, (m, n) => `<span class="bk ${Number(n) === q.blank ? 'on' : ''}">(${n})</span>`);
   t = t.replace(/— \[(\d)\] —/g, (m, n) => `<span class="mk">[${n}]</span>`);
   let table = '';
   if (p.table) {
-    table = `<div class="tbl"><table><thead><tr>${p.table.header.map((x) => `<th>${h(x)}</th>`).join('')}</tr></thead><tbody>${p.table.rows.map((r) => `<tr>${r.map((x) => `<td>${h(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    table = `<div class="tbl"><table><thead><tr>${p.table.header.map((x) => `<th>${h(x)}</th>`).join('')}</tr></thead><tbody>${p.table.rows.map((r) => `<tr>${r.map((x) => `<td class="${cellHit(x) ? 'ev' : ''}">${h(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   }
   return `<div class="passage"><div class="ptitle">${h(p.title || p.kind || '')}</div>${t}${table}</div>`;
 }
 
 function passageHtml(unit, q, showVocab) {
   const vocab = showVocab ? allVocab(unit) : null;
+  const ev = showVocab ? q.evidence : null; // 해설을 볼 때만 근거 문장 강조
   const ps = unit.passages || [];
-  if (ps.length < 2) return ps.map((p) => oneProse(p, q, vocab)).join('');
+  if (ps.length < 2) return ps.map((p) => oneProse(p, q, vocab, ev)).join('');
   const tab = Math.min(P.tab, ps.length - 1);
   return `<div class="ptabs" role="tablist">${ps.map((p, i) => `<button role="tab" data-act="ptab" data-i="${i}" aria-selected="${i === tab}">${i + 1}. ${h(p.title || p.kind)}</button>`).join('')}</div>
-    ${oneProse(ps[tab], q, vocab)}`;
+    ${oneProse(ps[tab], q, vocab, ev)}`;
 }
 
 function renderUnit(s, it, unit, q, qs) {
@@ -242,7 +279,16 @@ function lastAttempt(s, q) {
   return id ? C.state.attempts.find((a) => a.id === id) : null;
 }
 
-export function explainHtml(q, unit, ans, { causeFor = null } = {}) {
+// 해설 본문에서 정답 단어를 굵게 (Part 5·6)
+function boldAnswer(text, answer) {
+  const esc = h(text);
+  if (!answer || answer.length < 2 || answer.split(' ').length > 4) return esc;
+  const re = new RegExp(`(^|[^A-Za-z])(${h(answer).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})(?=[^A-Za-z]|$)`, 'g');
+  return esc.replace(re, '$1<b>$2</b>');
+}
+const sec = (label, body, cls = '') => `<div class="sec ${cls}"><div class="lbl">${label}</div>${body}</div>`;
+
+export function explainHtml(q, unit, ans, { causeFor = null, inPlay = true } = {}) {
   const ok = ans && ans.choice === q.answer;
   const tgt = targetSec(C.bank, q, unit);
   const ex = q.explanation;
@@ -250,14 +296,19 @@ export function explainHtml(q, unit, ans, { causeFor = null } = {}) {
   let out = `<div class="exp">`;
   if (ans && ans.choice === -1) out += `<div class="verdict bad">時間切れ <span class="small muted">正解 ${LETTERS[q.answer]}</span></div>`;
   else if (ans) {
-    out += `<div class="verdict ${ok ? 'ok' : 'bad'}">${ok ? '正解' : '不正解'} <span class="small muted">${ok ? LETTERS[q.answer] : `正解 ${LETTERS[q.answer]}・自分の答え ${LETTERS[ans.choice]}`}・${Math.round(ans.sec)}秒・目標${tgt}秒</span></div>`;
+    out += `<div class="verdict ${ok ? 'ok' : 'bad'}">${ok ? '正解' : '不正解'}${ans.xp ? ` <span class="xp-pop">+${ans.xp} XP</span>` : ''} <span class="small muted">${ok ? LETTERS[q.answer] : `正解 ${LETTERS[q.answer]}・自分の答え ${LETTERS[ans.choice]}`}・${Math.round(ans.sec)}秒・目標${tgt}秒</span></div>`;
   } else out += `<div class="verdict bad">未回答 <span class="small muted">正解 ${LETTERS[q.answer]}</span></div>`;
   out += `<div class="xs muted">${h(concept ? concept.name : q.concept)}・${LEVELS[q.difficulty]}${q.tags && q.tags.includes('trap') ? '・ひっかけ' : ''}</div>`;
-  out += `<p class="why">${h(ex.why)}</p>`;
+  const answer = q.choices[q.answer];
+  if (unit.part === 7 && q.trans) out += `<div class="qtr"><span class="lbl">設問</span>${h(q.trans)}</div>`;
+  out += sec('正解の理由', `<p class="why">${unit.part === 7 ? h(ex.why) : boldAnswer(ex.why, answer)}</p>`);
+  if (unit.part === 5 && q.trans) out += sec('訳', `<p class="en">${h(q.question).replace(/-{7}/, `<b>${h(answer)}</b>`)}</p><p class="tr">${h(q.trans)}</p>`, 'trans');
+  if (unit.part === 6 && q.trans) out += sec(q.type === 'insert' ? '挿入文の訳' : '空所の文の訳', `${q.type === 'insert' ? `<p class="en">${h(answer)}</p>` : ''}<p class="tr">${h(q.trans)}</p>`, 'trans');
+  if (unit.part === 7 && q.evidence && q.evidence.length) out += sec('根拠の文', `${q.evidence.map((e) => `<p class="en">“${h(e)}”</p>`).join('')}${inPlay ? '<button class="btn sm ghost" data-act="scrollEv">本文で見る</button>' : ''}`, 'ev');
   if (concept && concept.tip) out += `<p class="tip"><b>ポイント</b> ${h(concept.tip)}</p>`;
-  out += `<ul class="traps">`;
+  out += `<div class="lbl">選択肢</div><ul class="traps">`;
   q.choices.forEach((c, i) => {
-    out += `<li><b class="${i === q.answer ? 'done-mark' : ''}">${LETTERS[i]}</b>${i === q.answer ? '<span class="tag ok">正解</span> ' : ''}${h(c)}${i !== q.answer ? `<div class="small muted">${h(ex.traps[i])}</div>` : ''}</li>`;
+    out += `<li><b class="${i === q.answer ? 'done-mark' : ''}">${LETTERS[i]}</b>${i === q.answer ? '<span class="tag ok">正解</span> ' : ''}<span class="ch">${h(c)}</span>${i !== q.answer ? `<div class="small muted">${h(ex.traps[i])}</div>` : ''}</li>`;
   });
   out += `</ul>`;
   if (q.para && q.para.length) {
@@ -290,6 +341,10 @@ function record(choice, secOverride = null) {
   (s.attemptIds ||= {})[q.id] = a.id;
   C.store.putAttempt(a);
   applyAttempt(a, env());
+  const xp = attemptXp(a);
+  s.answers[q.id].xp = xp;
+  C.award(xp);
+  if (s.feedback === 'immediate' && choice !== -1) play(a.correct ? 'right' : 'wrong', C.state.settings.sound);
   C.save(['active', 'reviews', 'wrongNote', 'studyLog']);
   return a;
 }
@@ -320,7 +375,8 @@ function advance() {
   } else {
     if (s.kind === 'review' && it.focus) {
       const ok = reviewStepResult(s, it, env());
-      toast(ok ? 'クリア。次のステップへ。' : 'もう一度。前のステップへ。');
+      if (ok) { C.state.game.reviewPasses = (C.state.game.reviewPasses || 0) + 1; C.award(XP.reviewPass); }
+      toast(ok ? `クリア +${XP.reviewPass} XP。次のステップへ。` : 'もう一度。前のステップへ。');
       C.save(['reviews']);
     }
     s.cur++;
@@ -349,6 +405,7 @@ on('conceptOk', () => {
   const s = S();
   const it = currentItem(s);
   reviewStepResult(s, it, env());
+  C.award(XP.concept);
   s.cur++;
   s.qIdx = 0;
   if (s.cur >= s.items.length) reviewAdvance(s, env());
@@ -376,12 +433,24 @@ on('ptab', (el) => {
   if (m && tabs) m.scrollTop = Math.min(keep, tabs.offsetTop);
 });
 on('wide', () => { P.wide = !P.wide; render(); });
+on('scrollEv', () => {
+  const m = document.querySelector('.sess-main mark.ev, .sess-main td.ev');
+  if (!m) { toast('この文書には強調する文がありません。'); return; }
+  m.scrollIntoView({ block: 'center', behavior: 'smooth' });
+});
 
 on('exitAsk', () => {
   sheet(`<h3>中断しますか？</h3><p class="muted small">解いた問題は保存されていて、ホームから続きを解けます。</p>
     <div class="stack"><button class="btn primary block" data-act="exitKeep">中断する</button>
     <button class="btn block" data-act="exitFinish">ここで終えて結果を見る</button>
     <button class="btn ghost block" data-act="closeSheet">続ける</button></div>`);
+});
+on('discardAndStartPending', () => {
+  const s = C.pendingSession;
+  C.pendingSession = null;
+  C.state.active = null;
+  closeSheet();
+  startSession(s);
 });
 on('exitKeep', () => { closeSheet(); leavePlayer(); C.save(['active']); C.go('home'); });
 on('exitFinish', () => { closeSheet(); finish(); });
@@ -394,10 +463,18 @@ export function finish() {
   const sum = summarize(s, C.bank);
   C.state.sessions.push({ id: s.id, kind: s.kind, title: s.title, start: s.createdAt, end: Date.now(), n: sum.n, correct: sum.correct, sec: Math.round(sum.sec) });
   if (C.state.sessions.length > 300) C.state.sessions.splice(0, C.state.sessions.length - 300);
+  // 완료 보너스, 숙련도 상승, 새 배지
+  if (sum.n >= 3) C.award(XP.session);
+  if (sum.n >= 10 && sum.correct === sum.n) C.award(XP.perfect);
+  const mNow = C.mastery();
+  const ups = s.m0 ? Object.entries(mNow).filter(([c, m]) => m.lv >= 2 && m.lv > (s.m0[c] || 0)).map(([c, m]) => ({ c, from: s.m0[c] || 0, to: m.lv })).sort((a, b) => b.to - a.to).slice(0, 5) : [];
+  const badges = checkBadges(C.state.game, { attempts: C.state.attempts, sessions: C.state.sessions, mastery: mNow, last: { kind: s.kind, n: sum.n, correct: sum.correct } });
+  if (badges.length && !s.goalHit && !s.levelUp) play('level', C.state.settings.sound);
+  s.gain = { mastery: ups, badges };
   C.lastSession = s;
   C.state.active = null;
   try { sessionStorage.setItem('ttja-last', JSON.stringify(s)); } catch { /* 무시 */ }
   C.snapshotScore();
-  C.save(['active', 'sessions', 'scoreHistory', 'reviews', 'wrongNote', 'studyLog']);
+  C.save(['active', 'sessions', 'scoreHistory', 'reviews', 'wrongNote', 'studyLog', 'game']);
   C.go('result');
 }
