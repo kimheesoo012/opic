@@ -7,7 +7,13 @@
     {
      "kind": "letter",
      "title": "Letter",
-     "text": "Dear Valued Customer,\n\nWe are writing to let you know that the prices of our printing paper products will increase by 5 percent starting May 1. This change is {{1}} by rising costs for raw materials and transportation. {{2}}\n\nOrders placed before April 30 will still be charged at current prices. {{3}}, customers who sign a one-year supply agreement this month will be able to {{4}} their current prices until next April.\n\nThank you for your understanding.\nArden Paper Supply"
+     "text": "Dear Valued Customer,\n\nWe are writing to let you know that the prices of our printing paper products will increase by 5 percent starting May 1. This change is {{1}} by rising costs for raw materials and transportation. {{2}}\n\nOrders placed before April 30 will still be charged at current prices. {{3}}, customers who sign a one-year supply agreement this month will be able to {{4}} their current prices until next April.\n\nThank you for your understanding.\nArden Paper Supply",
+     "trans": [
+      "お客様各位",
+      "5月1日より、弊社の印刷用紙製品の価格を5パーセント値上げすることをお知らせいたします。この変更は、原材料費と輸送費の上昇{{1|によって生じたもの}}です。{{2|私どもはこの値上げ幅をできる限り小さく抑えるよう努めました。}}",
+      "4月30日より前にご注文いただいた分は、引き続き現行価格で請求いたします。{{3|さらに}}、今月中に1年間の供給契約を結ばれたお客様は、来年4月まで現行価格を{{4|維持}}できます。",
+      "ご理解いただき、ありがとうございます。\nArden Paper Supply"
+     ]
     }
    ],
    "questions": [
@@ -123,7 +129,13 @@
     {
      "kind": "notice",
      "title": "Notice",
-     "text": "Attention, Tenants\n\nThe north parking garage will be closed for resurfacing from June 10 through June 14. During this time, tenants may park in the south garage, which {{1}} an additional 200 spaces for the week. Because the south garage is expected to fill up quickly, we encourage employees to carpool or use public transportation whenever {{2}}. {{3}} A shuttle bus will run between the south garage and the main entrance every 15 minutes.\n\nWe apologize for any {{4}} this may cause.\n\nBuilding Management"
+     "text": "Attention, Tenants\n\nThe north parking garage will be closed for resurfacing from June 10 through June 14. During this time, tenants may park in the south garage, which {{1}} an additional 200 spaces for the week. Because the south garage is expected to fill up quickly, we encourage employees to carpool or use public transportation whenever {{2}}. {{3}} A shuttle bus will run between the south garage and the main entrance every 15 minutes.\n\nWe apologize for any {{4}} this may cause.\n\nBuilding Management",
+     "trans": [
+      "入居者の皆様へ",
+      "北駐車場は、路面の再舗装のため6月10日から6月14日まで閉鎖されます。この期間中、入居者の皆様は南駐車場に駐車できます。南駐車場では、この1週間、200台分の駐車スペースを追加で{{1|提供する予定です}}。南駐車場はすぐに満車になると予想されるため、従業員の皆様には、{{2|可能な}}限り相乗りをするか公共交通機関をご利用いただくようお勧めします。{{3|東側入口の近くには駐輪ラックもご用意しています。}}南駐車場と正面入口の間では、15分ごとにシャトルバスが運行します。",
+      "これによりおかけする{{4|ご不便}}について、おわび申し上げます。",
+      "ビル管理事務所"
+     ]
     }
    ],
    "questions": [
@@ -239,7 +251,11 @@
     {
      "kind": "article",
      "title": "Article",
-     "text": "BRIDGEPORT (September 3) — Calder Coffee, a chain of twelve cafés, will stop using plastic straws at all of its locations {{1}} October 1. The company will instead offer paper straws upon request. {{2}}\n\n“Our customers have asked us to reduce waste for years,” said founder Mia Calder. “This is one step, but it will not be our {{3}}.” The company also plans to give a 10 percent discount to customers who bring {{4}} own cups."
+     "text": "BRIDGEPORT (September 3) — Calder Coffee, a chain of twelve cafés, will stop using plastic straws at all of its locations {{1}} October 1. The company will instead offer paper straws upon request. {{2}}\n\n“Our customers have asked us to reduce waste for years,” said founder Mia Calder. “This is one step, but it will not be our {{3}}.” The company also plans to give a 10 percent discount to customers who bring {{4}} own cups.",
+     "trans": [
+      "BRIDGEPORT（9月3日）— 12店舗のカフェチェーンであるCalder Coffeeは、10月1日{{1|から}}全店でプラスチックストローの使用をやめる。同社は代わりに、希望に応じて紙ストローを提供する。{{2|この変更により、年間約30万本のプラスチックストローが削減される見込みだ。}}",
+      "「お客様からは何年も前から、ごみを減らしてほしいと求められてきました。これは一歩ですが、私たちの{{3|最後の}}一歩にはならないでしょう」と創業者のMia Calderは語った。同社はまた、{{4|自分の}}カップを持参した客に10パーセントの割引を提供する予定だ。"
+     ]
     }
    ],
    "questions": [
@@ -348,7 +364,13 @@
     {
      "kind": "letter",
      "title": "Letter",
-     "text": "Dear Mr. Haddad,\n\nOn behalf of Norland Engineering, I am pleased to offer you the position of project coordinator. Your start date will be Monday, August 4. {{1}} your first week, you will attend orientation sessions with other new employees. {{2}}\n\nPlease sign and return the enclosed contract by July 25. If you have any questions about the terms, do not {{3}} to contact me. We look forward to {{4}} you to our team.\n\nSincerely,\nLaura Kim\nHuman Resources"
+     "text": "Dear Mr. Haddad,\n\nOn behalf of Norland Engineering, I am pleased to offer you the position of project coordinator. Your start date will be Monday, August 4. {{1}} your first week, you will attend orientation sessions with other new employees. {{2}}\n\nPlease sign and return the enclosed contract by July 25. If you have any questions about the terms, do not {{3}} to contact me. We look forward to {{4}} you to our team.\n\nSincerely,\nLaura Kim\nHuman Resources",
+     "trans": [
+      "Haddad様",
+      "Norland Engineeringを代表して、Haddad様にプロジェクトコーディネーターの職をご提示できることをうれしく思います。勤務開始日は8月4日（月）です。最初の週{{1|の間}}、ほかの新入社員と一緒にオリエンテーションに参加していただきます。{{2|このオリエンテーションでは、当社の安全手順と社内システムについてご紹介します。}}",
+      "同封の契約書に署名のうえ、7月25日までにご返送ください。条件についてご質問がありましたら、{{3|遠慮なく}}私までご連絡ください。Haddad様を私たちのチームに{{4|お迎えできる}}ことを楽しみにしております。",
+      "敬具\nLaura Kim\n人事部"
+     ]
     }
    ],
    "questions": [
@@ -467,7 +489,13 @@
     {
      "kind": "memo",
      "title": "Memo",
-     "text": "To: All staff\nFrom: IT Department\nSubject: Help desk hours\n\nBeginning next Monday, the IT help desk will be open from 7:30 A.M. to 7:00 P.M., Monday through Friday. The {{1}} hours will make it easier for employees in our overseas offices to reach us during their working day. {{2}}, requests submitted outside these hours will be answered the following morning.\n\nFor urgent problems, such as a complete network failure, please call the emergency line at extension 999. {{3}}\n\nThank you for helping us {{4}} you better."
+     "text": "To: All staff\nFrom: IT Department\nSubject: Help desk hours\n\nBeginning next Monday, the IT help desk will be open from 7:30 A.M. to 7:00 P.M., Monday through Friday. The {{1}} hours will make it easier for employees in our overseas offices to reach us during their working day. {{2}}, requests submitted outside these hours will be answered the following morning.\n\nFor urgent problems, such as a complete network failure, please call the emergency line at extension 999. {{3}}\n\nThank you for helping us {{4}} you better.",
+     "trans": [
+      "宛先：全スタッフ\n差出人：IT部門\n件名：ヘルプデスクの対応時間",
+      "来週の月曜日から、ITヘルプデスクは月曜日から金曜日の午前7:30から午後7:00まで対応いたします。{{1|延長された}}対応時間により、海外オフィスの従業員は、それぞれの勤務時間内に当部門へ連絡しやすくなります。{{2|ただし}}、この時間外に送信された依頼には、翌朝に回答いたします。",
+      "ネットワークが完全に停止した場合などの緊急の問題については、内線999の緊急回線にお電話ください。{{3|この回線には24時間体制で担当者が対応しています。}}",
+      "皆さんにより良い{{4|サービスを提供する}}ためにご協力いただき、ありがとうございます。"
+     ]
     }
    ],
    "questions": [
@@ -576,7 +604,13 @@
     {
      "kind": "advertisement",
      "title": "Advertisement",
-     "text": "Need a quiet place to work?\n\nWorkNest offers private desks and meeting rooms in the heart of downtown. Members have {{1}} access to high-speed Internet, printers, and free coffee. {{2}}\n\nMonthly memberships start at just $150, and there is no long-term contract. {{3}}, members who refer a friend receive one month free.\n\nVisit our Web site to book a free tour or to {{4}} a day pass."
+     "text": "Need a quiet place to work?\n\nWorkNest offers private desks and meeting rooms in the heart of downtown. Members have {{1}} access to high-speed Internet, printers, and free coffee. {{2}}\n\nMonthly memberships start at just $150, and there is no long-term contract. {{3}}, members who refer a friend receive one month free.\n\nVisit our Web site to book a free tour or to {{4}} a day pass.",
+     "trans": [
+      "静かな仕事場をお探しですか？",
+      "WorkNestは、ダウンタウンの中心部で個人用デスクと会議室をご提供しています。会員の方は、高速インターネット、プリンター、無料のコーヒーを{{1|無制限に}}ご利用いただけます。{{2|会議室は当社のアプリから1時間単位で予約できます。}}",
+      "月額会員プランはわずか150ドルからで、長期契約は不要です。{{3|さらに}}、友人を紹介した会員の方は、1か月分が無料になります。",
+      "無料見学を予約したり、1日利用券を{{4|購入したり}}するには、当社のウェブサイトにアクセスしてください。"
+     ]
     }
    ],
    "questions": [
@@ -685,7 +719,14 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: Karin Lindgren\nFrom: Owen Price\nSubject: Program change\n\nDear Ms. Lindgren,\n\nThank you for agreeing to speak at the Northern Logistics Forum. I am writing about a change to the program. Because one of our keynote speakers has had to cancel, your session {{1}} from 2:00 P.M. to 11:00 A.M. on March 8. {{2}}\n\nYour presentation will now take place in the main hall, which seats 400 people. {{3}}, we will be able to accommodate the large number of attendees who have registered for your talk. Please let me know {{4}} this new time works for you.\n\nBest regards,\nOwen Price, Program Coordinator"
+     "text": "To: Karin Lindgren\nFrom: Owen Price\nSubject: Program change\n\nDear Ms. Lindgren,\n\nThank you for agreeing to speak at the Northern Logistics Forum. I am writing about a change to the program. Because one of our keynote speakers has had to cancel, your session {{1}} from 2:00 P.M. to 11:00 A.M. on March 8. {{2}}\n\nYour presentation will now take place in the main hall, which seats 400 people. {{3}}, we will be able to accommodate the large number of attendees who have registered for your talk. Please let me know {{4}} this new time works for you.\n\nBest regards,\nOwen Price, Program Coordinator",
+     "trans": [
+      "宛先：Karin Lindgren\n差出人：Owen Price\n件名：プログラムの変更",
+      "Lindgren様",
+      "Northern Logistics Forumでのご講演をお引き受けいただき、ありがとうございます。プログラムの変更についてご連絡いたします。基調講演者の1人がキャンセルせざるを得なくなったため、Lindgren様のセッションは3月8日の午後2:00から午前11:00に{{1|変更されました}}。{{2|この変更によりご不便をおかけすることをおわび申し上げます。}}",
+      "ご講演は、400人を収容できるメインホールで行われることになりました。{{3|その結果}}、Lindgren様の講演に申し込まれた多数の参加者を収容できるようになります。この新しい時間でご都合がよい{{4|かどうか}}お知らせください。",
+      "よろしくお願いいたします。\nOwen Price（プログラムコーディネーター）"
+     ]
     }
    ],
    "questions": [
@@ -794,7 +835,12 @@
     {
      "kind": "web page",
      "title": "Web Page",
-     "text": "Returns and Exchanges\n\nItems purchased at Hollow Tree Outdoor Gear may be returned within 30 days of {{1}}. To receive a full refund, items must be unused and in their original packaging. {{2}}\n\nItems returned after 30 days are eligible for store credit only. Please note that sale items cannot be returned. {{3}}, they may be exchanged for a different size or color within 14 days. Refunds are issued to the original form of payment and usually appear on your statement within five {{4}} days."
+     "text": "Returns and Exchanges\n\nItems purchased at Hollow Tree Outdoor Gear may be returned within 30 days of {{1}}. To receive a full refund, items must be unused and in their original packaging. {{2}}\n\nItems returned after 30 days are eligible for store credit only. Please note that sale items cannot be returned. {{3}}, they may be exchanged for a different size or color within 14 days. Refunds are issued to the original form of payment and usually appear on your statement within five {{4}} days.",
+     "trans": [
+      "返品・交換について",
+      "Hollow Tree Outdoor Gearでお買い上げいただいた商品は、ご{{1|購入}}から30日以内であれば返品できます。全額返金を受けるには、商品が未使用で、購入時の梱包のままである必要があります。{{2|レシートまたは注文番号も必要です。}}",
+      "30日を過ぎてから返品された商品は、ストアクレジットでの対応のみとなります。なお、セール品は返品できませんのでご注意ください。{{3|ただし}}、セール品は14日以内であれば別のサイズや色の商品と交換できます。返金はお支払い時と同じ方法で行われ、通常5{{4|営業}}日以内にご利用明細に反映されます。"
+     ]
     }
    ],
    "questions": [
@@ -903,7 +949,12 @@
     {
      "kind": "press release",
      "title": "Press Release",
-     "text": "FOR IMMEDIATE RELEASE\n\nVela Motors and the battery maker PowerCell announced today that they have formed a partnership to develop batteries for Vela's next line of compact electric cars. Under the agreement, PowerCell will {{1}} the batteries at its new plant in Ulsan, and Vela will handle design and testing. {{2}}\n\n“Working with PowerCell will allow us to bring affordable electric cars to market {{3}} than we could on our own,” said Vela CEO Jonas Berg. The first vehicles {{4}} through the partnership are expected to go on sale in 2028."
+     "text": "FOR IMMEDIATE RELEASE\n\nVela Motors and the battery maker PowerCell announced today that they have formed a partnership to develop batteries for Vela's next line of compact electric cars. Under the agreement, PowerCell will {{1}} the batteries at its new plant in Ulsan, and Vela will handle design and testing. {{2}}\n\n“Working with PowerCell will allow us to bring affordable electric cars to market {{3}} than we could on our own,” said Vela CEO Jonas Berg. The first vehicles {{4}} through the partnership are expected to go on sale in 2028.",
+     "trans": [
+      "即日発表",
+      "Vela MotorsとバッテリーメーカーのPowerCellは本日、Velaの次期小型電気自動車シリーズ向けのバッテリーを開発するため、提携を結んだことを発表しました。契約に基づき、PowerCellがUlsanの新工場でバッテリーを{{1|製造し}}、Velaが設計と試験を担当します。{{2|契約の金銭的条件は公表されていません。}}",
+      "「PowerCellと協力することで、当社だけで取り組むよりも{{3|速く}}、手頃な価格の電気自動車を市場に投入できるようになります」と、VelaのCEOであるJonas Bergは述べました。この提携を通じて{{4|開発される}}最初の車両は、2028年に発売される見込みです。"
+     ]
     }
    ],
    "questions": [
@@ -1015,7 +1066,12 @@
     {
      "kind": "instructions",
      "title": "Instructions",
-     "text": "Cleaning Your BrewMaster 300\n\nTo keep your coffee maker working {{1}}, clean it at least once a month. First, fill the water tank with a mixture of equal parts water and white vinegar. Then, place an empty mug under the spout and press the Clean button. {{2}}\n\nWhen the cycle is complete, empty the mug and run two more cycles with fresh water only. {{3}}, any vinegar taste will be removed from the machine. Never {{4}} the machine in water, as this can damage the electrical parts."
+     "text": "Cleaning Your BrewMaster 300\n\nTo keep your coffee maker working {{1}}, clean it at least once a month. First, fill the water tank with a mixture of equal parts water and white vinegar. Then, place an empty mug under the spout and press the Clean button. {{2}}\n\nWhen the cycle is complete, empty the mug and run two more cycles with fresh water only. {{3}}, any vinegar taste will be removed from the machine. Never {{4}} the machine in water, as this can damage the electrical parts.",
+     "trans": [
+      "BrewMaster 300のお手入れ方法",
+      "コーヒーメーカーを{{1|正常に}}動作させ続けるために、少なくとも月に1回は洗浄してください。まず、水とホワイトビネガーを同量ずつ混ぜた液を水タンクに入れます。次に、注ぎ口の下に空のマグカップを置き、「Clean」ボタンを押します。{{2|洗浄サイクルには約15分かかります。}}",
+      "サイクルが終わったら、マグカップを空にし、きれいな水だけでさらに2回サイクルを実行します。{{3|こうすることで}}、本体に残ったビネガーの味がすべて取り除かれます。電気部品が損傷するおそれがあるため、本体を水に{{4|浸す}}ことは絶対にしないでください。"
+     ]
     }
    ],
    "questions": [
@@ -1134,7 +1190,14 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: Customer Service Team\nFrom: Rachel Moon\nSubject: Database training\n\nHi team,\n\nAs many of you know, our new customer database will go live on November 1. To make sure everyone is ready, the IT department {{1}} three training sessions next week. Each session will last two hours and will cover the same material, so you only need to attend one. {{2}}\n\nSeats are limited to 15 people per session, so please register as soon as possible. Employees who cannot attend {{3}} session should contact me directly. I will arrange an online session for {{4}}.\n\nThanks,\nRachel"
+     "text": "To: Customer Service Team\nFrom: Rachel Moon\nSubject: Database training\n\nHi team,\n\nAs many of you know, our new customer database will go live on November 1. To make sure everyone is ready, the IT department {{1}} three training sessions next week. Each session will last two hours and will cover the same material, so you only need to attend one. {{2}}\n\nSeats are limited to 15 people per session, so please register as soon as possible. Employees who cannot attend {{3}} session should contact me directly. I will arrange an online session for {{4}}.\n\nThanks,\nRachel",
+     "trans": [
+      "宛先：カスタマーサービスチーム\n差出人：Rachel Moon\n件名：データベース研修",
+      "チームの皆さん",
+      "ご存じの方も多いと思いますが、新しい顧客データベースは11月1日に稼働を開始します。全員が準備を整えられるよう、IT部門が来週、研修を3回{{1|開催します}}。各回は2時間で、同じ内容を扱うので、参加するのはどれか1回だけで大丈夫です。{{2|申し込みはイントラネットの研修ページからできます。}}",
+      "各回の定員は15名までなので、できるだけ早く登録してください。{{3|どの}}回にも参加できない人は、私に直接連絡してください。{{4|その人たち}}のためにオンラインの研修を手配します。",
+      "よろしくお願いします。\nRachel"
+     ]
     }
    ],
    "questions": [
@@ -1246,7 +1309,12 @@
     {
      "kind": "notice",
      "title": "Notice",
-     "text": "Fall Workshop Series for Small Businesses\n\nThe Westfield Chamber of Commerce is pleased to announce its fall workshop series for small-business owners. The workshops will take place on Thursday evenings from 6:00 to 8:00 P.M. at the Chamber's office on Pine Street. Topics include online marketing, hiring, and {{1}} cash flow. {{2}}\n\nEach workshop costs $20 for Chamber members and $35 for nonmembers. {{3}}, participants who register for all four workshops will receive a 25 percent discount. Space is limited, so early registration is {{4}} recommended."
+     "text": "Fall Workshop Series for Small Businesses\n\nThe Westfield Chamber of Commerce is pleased to announce its fall workshop series for small-business owners. The workshops will take place on Thursday evenings from 6:00 to 8:00 P.M. at the Chamber's office on Pine Street. Topics include online marketing, hiring, and {{1}} cash flow. {{2}}\n\nEach workshop costs $20 for Chamber members and $35 for nonmembers. {{3}}, participants who register for all four workshops will receive a 25 percent discount. Space is limited, so early registration is {{4}} recommended.",
+     "trans": [
+      "中小企業向け秋のワークショップシリーズ",
+      "Westfield Chamber of Commerceは、中小企業の経営者を対象とした秋のワークショップシリーズの開催をお知らせいたします。ワークショップは木曜日の夕方、午後6:00から8:00まで、Pine Streetにある同会議所の事務所で行われます。テーマには、オンラインマーケティング、採用、資金繰りの{{1|管理}}などがあります。{{2|すべてのセッションは、経験豊富な地元の事業主が講師を務めます。}}",
+      "各ワークショップの参加費は、会議所の会員が20ドル、非会員が35ドルです。{{3|さらに}}、4つのワークショップすべてに申し込んだ参加者は、25パーセントの割引を受けられます。定員に限りがありますので、早めのお申し込みを{{4|強く}}お勧めします。"
+     ]
     }
    ],
    "questions": [
@@ -1358,7 +1426,13 @@
     {
      "kind": "letter",
      "title": "Letter",
-     "text": "Dear Ms. Benson,\n\nThank you for your letter regarding the delay in the delivery of your sofa. I am very sorry that it arrived nine days later than {{1}}. After looking into the matter, we found that the delay was caused by an error in our scheduling system. {{2}}\n\nTo make up for the inconvenience, we have {{3}} $50 to your credit card. We have also included a coupon for 15 percent off your next purchase. We value your business and hope you will {{4}} to shop with us.\n\nSincerely,\nPaul Adeyemi\nCustomer Service Manager, Linden Home"
+     "text": "Dear Ms. Benson,\n\nThank you for your letter regarding the delay in the delivery of your sofa. I am very sorry that it arrived nine days later than {{1}}. After looking into the matter, we found that the delay was caused by an error in our scheduling system. {{2}}\n\nTo make up for the inconvenience, we have {{3}} $50 to your credit card. We have also included a coupon for 15 percent off your next purchase. We value your business and hope you will {{4}} to shop with us.\n\nSincerely,\nPaul Adeyemi\nCustomer Service Manager, Linden Home",
+     "trans": [
+      "Benson様",
+      "ソファの配送の遅れに関するお手紙をいただき、ありがとうございます。ソファが{{1|お約束した}}日より9日遅れて届きましたことを、深くおわび申し上げます。本件を調査しましたところ、遅延の原因は弊社のスケジュール管理システムのエラーであることが判明しました。{{2|この問題はすでに修正されております。}}",
+      "ご不便をおかけしたおわびとして、お客様のクレジットカードに50ドルを{{3|返金いたしました}}。また、次回のお買い物で使える15パーセント割引のクーポンを同封いたしました。私どもはお客様とのお取引を大切にしており、今後も当店でのお買い物を{{4|続けて}}いただければ幸いです。",
+      "敬具\nPaul Adeyemi\nLinden Home カスタマーサービスマネージャー"
+     ]
     }
    ],
    "questions": [
@@ -1470,7 +1544,11 @@
     {
      "kind": "article",
      "title": "Article",
-     "text": "LAKESIDE (April 2) — The 180-room Mariner Hotel, which has been under construction for two years, will open to guests on May 15. The hotel, {{1}} on the waterfront, features a rooftop restaurant and a conference center that can hold up to 500 people. {{2}}\n\nSo far, the hotel {{3}} more than 120 local residents, and it plans to hire another 40 before opening day, according to general manager Sofia Ruiz. Reservations can be made through the hotel's Web site, and guests who book before May 1 will receive free breakfast {{4}} their stay."
+     "text": "LAKESIDE (April 2) — The 180-room Mariner Hotel, which has been under construction for two years, will open to guests on May 15. The hotel, {{1}} on the waterfront, features a rooftop restaurant and a conference center that can hold up to 500 people. {{2}}\n\nSo far, the hotel {{3}} more than 120 local residents, and it plans to hire another 40 before opening day, according to general manager Sofia Ruiz. Reservations can be made through the hotel's Web site, and guests who book before May 1 will receive free breakfast {{4}} their stay.",
+     "trans": [
+      "LAKESIDE（4月2日）— 2年前から建設が進められてきた客室数180室のMariner Hotelが、5月15日に開業し、宿泊客の受け入れを始める。ウォーターフロントに{{1|位置する}}同ホテルには、屋上レストランと、最大500人を収容できる会議センターがある。{{2|すでに数社が、この夏のイベントのために同センターを予約している。}}",
+      "総支配人のSofia Ruizによると、同ホテルはこれまでに120人を超える地元住民を{{3|雇用しており}}、開業前にさらに40人を雇う予定だという。予約はホテルのウェブサイトから行うことができ、5月1日より前に予約した客は、滞在{{4|中}}の朝食が無料になる。"
+     ]
     }
    ],
    "questions": [
@@ -1582,7 +1660,12 @@
     {
      "kind": "memo",
      "title": "Memo",
-     "text": "To: All employees\nFrom: Daniel Moreau, Operations Director\nRe: Remote work policy\n\nStarting in September, employees may work from home up to two days per week with their manager's approval. {{1}}, all staff must be in the office on Tuesdays, when team meetings are held. Employees who work remotely are expected to be {{2}} by phone and e-mail during regular business hours. {{3}}\n\nRequests should be submitted through the HR portal at least one week in {{4}}."
+     "text": "To: All employees\nFrom: Daniel Moreau, Operations Director\nRe: Remote work policy\n\nStarting in September, employees may work from home up to two days per week with their manager's approval. {{1}}, all staff must be in the office on Tuesdays, when team meetings are held. Employees who work remotely are expected to be {{2}} by phone and e-mail during regular business hours. {{3}}\n\nRequests should be submitted through the HR portal at least one week in {{4}}.",
+     "trans": [
+      "宛先：全従業員\n差出人：Daniel Moreau（オペレーション部長）\n件名：リモートワーク制度",
+      "9月から、従業員はマネージャーの承認を得れば、週2日まで在宅勤務ができるようになります。{{1|ただし}}、チーム会議が開かれる火曜日には、全スタッフが出社しなければなりません。リモートで勤務する従業員は、通常の勤務時間中、電話とメールで{{2|連絡が取れる}}状態でいることが求められます。{{3|マネージャーは、チームのニーズに基づいて各申請を審査します。}}",
+      "申請は、少なくとも1週間{{4|前}}までに人事ポータルから提出してください。"
+     ]
     }
    ],
    "questions": [
@@ -1691,7 +1774,14 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: Viktor Petrov\nFrom: Ana Silva, Bright Bag Co.\nSubject: Your order #5520\n\nDear Mr. Petrov,\n\nThank you for your order of 200 custom-printed tote bags. Our design team {{1}} your logo file and found that its resolution is too low for printing. {{2}} Could you please send us a higher-quality version of the file, preferably in PDF format?\n\nOnce we receive it, we will send you a digital proof for your {{3}}. Please note that production will begin only after you approve the proof. {{4}}, your order may not arrive by the June 20 date you requested.\n\nKind regards,\nAna Silva"
+     "text": "To: Viktor Petrov\nFrom: Ana Silva, Bright Bag Co.\nSubject: Your order #5520\n\nDear Mr. Petrov,\n\nThank you for your order of 200 custom-printed tote bags. Our design team {{1}} your logo file and found that its resolution is too low for printing. {{2}} Could you please send us a higher-quality version of the file, preferably in PDF format?\n\nOnce we receive it, we will send you a digital proof for your {{3}}. Please note that production will begin only after you approve the proof. {{4}}, your order may not arrive by the June 20 date you requested.\n\nKind regards,\nAna Silva",
+     "trans": [
+      "宛先：Viktor Petrov\n差出人：Ana Silva（Bright Bag Co.）\n件名：ご注文#5520について",
+      "Petrov様",
+      "オリジナルプリントのトートバッグ200枚をご注文いただき、ありがとうございます。弊社のデザインチームがお客様のロゴファイルを{{1|確認した}}ところ、解像度が低すぎて印刷に使用できないことが分かりました。{{2|その結果、印刷されたロゴはぼやけて見えてしまいます。}}より高画質のファイルを、できればPDF形式でお送りいただけますでしょうか。",
+      "ファイルを受け取り次第、{{3|ご承認}}いただくためのデジタル校正見本をお送りします。なお、生産は校正見本をご承認いただいた後にのみ開始されますので、ご了承ください。{{4|その結果}}、ご注文の品がご希望の6月20日までに届かない可能性があります。",
+      "よろしくお願いいたします。\nAna Silva"
+     ]
     }
    ],
    "questions": [
@@ -1800,7 +1890,12 @@
     {
      "kind": "notice",
      "title": "Notice",
-     "text": "Riverside Job Fair\n\nMore than 60 employers will take part in the Riverside Job Fair on Saturday, October 18, at the Civic Center. The event is free and open to the public. Job seekers should bring several copies of their résumé and be {{1}} to speak with recruiters on the spot. {{2}} Free workshops on interview skills will also be offered throughout the day.\n\n{{3}} attendance is expected to be high, we recommend arriving early. Parking is available in the Civic Center garage, but space is {{4}}."
+     "text": "Riverside Job Fair\n\nMore than 60 employers will take part in the Riverside Job Fair on Saturday, October 18, at the Civic Center. The event is free and open to the public. Job seekers should bring several copies of their résumé and be {{1}} to speak with recruiters on the spot. {{2}} Free workshops on interview skills will also be offered throughout the day.\n\n{{3}} attendance is expected to be high, we recommend arriving early. Parking is available in the Civic Center garage, but space is {{4}}.",
+     "trans": [
+      "Riverside Job Fair",
+      "10月18日（土）にCivic Centerで開催されるRiverside Job Fairには、60を超える企業が参加します。このイベントは入場無料で、どなたでもご参加いただけます。求職者の方は履歴書を数部持参し、その場で採用担当者と話せるよう{{1|準備して}}おいてください。{{2|自社のブースで面接まで行う企業もあります。}}また、面接スキルに関する無料のワークショップも一日を通して開かれます。",
+      "来場者が多くなると予想される{{3|ため}}、早めのご来場をお勧めします。Civic Centerの駐車場をご利用いただけますが、スペースには{{4|限りがあります}}。"
+     ]
     }
    ],
    "questions": [

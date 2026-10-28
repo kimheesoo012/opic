@@ -8,7 +8,7 @@ const KV_KEYS = ['profile', 'settings', 'reviews', 'wrongNote', 'vocab', 'scoreH
 export function defaultState() {
   return {
     profile: { goal: 730, rcScore: 300, lcBase: 350, onboarded: false, createdAt: Date.now() },
-    settings: { theme: 'auto', course: 20, sound: true },
+    settings: { theme: 'auto', course: 20, sound: true, passageTrans: false },
     attempts: [],
     reviews: {},
     wrongNote: {},

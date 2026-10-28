@@ -7,7 +7,12 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: All staff\nFrom: Facilities Team\nSubject: Office move\n\nAs you know, our Seoul office will move to Jongno Tower on June 3. To ensure a smooth transition, all employees are asked to pack their personal belongings by May 30. Boxes and labels {{1}} at the reception desk starting next Monday. {{2}} Please mark each box with your name and new desk number.\n\nThe moving company will {{3}} all furniture and equipment starting on the morning of Friday, May 31. {{4}}, the office will be closed that day, and staff are encouraged to work from home."
+     "text": "To: All staff\nFrom: Facilities Team\nSubject: Office move\n\nAs you know, our Seoul office will move to Jongno Tower on June 3. To ensure a smooth transition, all employees are asked to pack their personal belongings by May 30. Boxes and labels {{1}} at the reception desk starting next Monday. {{2}} Please mark each box with your name and new desk number.\n\nThe moving company will {{3}} all furniture and equipment starting on the morning of Friday, May 31. {{4}}, the office will be closed that day, and staff are encouraged to work from home.",
+     "trans": [
+      "宛先：全スタッフ\n差出人：施設管理チーム\n件名：オフィスの移転",
+      "ご存じのとおり、ソウルオフィスは6月3日にJongno Towerへ移転します。円滑に移転できるよう、全従業員の皆さんは5月30日までに私物を梱包してください。箱とラベルは来週の月曜日から受付で{{1|配布されます}}。{{2|従業員1人につき、箱を5個まで持っていくことができます。}}各箱には、ご自分の名前と新しいデスク番号を記入してください。",
+      "引っ越し業者は、5月31日（金）の朝からすべての家具と機器を{{3|運搬します}}。{{4|このため}}、当日はオフィスが閉鎖されますので、スタッフの皆さんには在宅勤務をお勧めします。"
+     ]
     }
    ],
    "questions": [
@@ -128,7 +133,13 @@
     {
      "kind": "letter",
      "title": "Letter",
-     "text": "Dear Mr. Lindqvist,\n\nThank you for your recent order of twelve ergonomic office chairs. Unfortunately, our supplier has informed us that the fabric you selected is temporarily {{1}}. We expect new stock to arrive within two weeks. {{2}}\n\nIn the meantime, we would be happy to send you chairs in a similar gray fabric at no extra charge. If you {{3}} to wait for the original fabric, no action is needed on your part. {{4}} for any inconvenience this may cause.\n\nSincerely,\nHana Seo\nCustomer Care, Brightline Furniture"
+     "text": "Dear Mr. Lindqvist,\n\nThank you for your recent order of twelve ergonomic office chairs. Unfortunately, our supplier has informed us that the fabric you selected is temporarily {{1}}. We expect new stock to arrive within two weeks. {{2}}\n\nIn the meantime, we would be happy to send you chairs in a similar gray fabric at no extra charge. If you {{3}} to wait for the original fabric, no action is needed on your part. {{4}} for any inconvenience this may cause.\n\nSincerely,\nHana Seo\nCustomer Care, Brightline Furniture",
+     "trans": [
+      "Lindqvist様",
+      "先日は人間工学に基づいたオフィスチェア12脚をご注文いただき、ありがとうございます。残念ながら、お選びいただいた生地が一時的に{{1|入手できない}}との連絡が納入業者からありました。新しい在庫は2週間以内に入荷する見込みです。{{2|入荷し次第、お知らせいたします。}}",
+      "それまでの間、似たグレーの生地のチェアを追加料金なしでお送りすることも喜んで承ります。元の生地をお待ちになることを{{3|ご希望の}}場合は、お客様の側で特に手続きは必要ございません。これによりご不便をおかけすることを{{4|おわび申し上げます}}。",
+      "敬具\nHana Seo\nBrightline Furniture カスタマーケア"
+     ]
     }
    ],
    "questions": [
@@ -249,7 +260,11 @@
     {
      "kind": "article",
      "title": "Article",
-     "text": "GREENFIELD (May 12) — Harlow Foods announced on Monday that it will open a second processing plant in Greenfield next spring. The facility is expected to create about 150 jobs, {{1}} of which will be in packaging and quality control.\n\nHarlow Foods, which {{2}} frozen vegetables to supermarkets across the region since 1998, has seen demand rise steadily over the past five years. {{3}}, the company's current plant is operating at full capacity. {{4}} Construction will begin in August, pending final approval from the city council."
+     "text": "GREENFIELD (May 12) — Harlow Foods announced on Monday that it will open a second processing plant in Greenfield next spring. The facility is expected to create about 150 jobs, {{1}} of which will be in packaging and quality control.\n\nHarlow Foods, which {{2}} frozen vegetables to supermarkets across the region since 1998, has seen demand rise steadily over the past five years. {{3}}, the company's current plant is operating at full capacity. {{4}} Construction will begin in August, pending final approval from the city council.",
+     "trans": [
+      "GREENFIELD（5月12日）— Harlow Foodsは月曜日、来春Greenfieldに2つ目の加工工場を開設すると発表した。この施設は約150人の雇用を生み出す見込みで、その{{1|大部分}}は包装と品質管理の仕事となる。",
+      "1998年から地域一帯のスーパーマーケットに冷凍野菜を{{2|供給してきた}}Harlow Foodsでは、過去5年間で需要が着実に増加している。{{3|その結果}}、同社の現在の工場はフル稼働の状態にある。{{4|新工場により、Harlowは生産量を40パーセント増やせるようになる。}}建設は、市議会の最終承認を条件として、8月に開始される予定だ。"
+     ]
     }
    ],
    "questions": [
@@ -377,7 +392,12 @@
     {
      "kind": "memo",
      "title": "Memo",
-     "text": "To: All Department Heads\nFrom: Priya Nair, Finance\nRe: New expense reporting system\n\nStarting October 1, all expense reports must be submitted through ExpensePoint, our new online system. The old paper forms will no longer be {{1}}. ExpensePoint allows employees to upload photos of receipts directly from their phones, which should {{2}} the time it takes to process reimbursements. {{3}}, managers will be able to approve requests from any device.\n\nTraining sessions will be held in Conference Room B on September 24 and 25. {{4}} Please make sure that everyone in your department attends one of them."
+     "text": "To: All Department Heads\nFrom: Priya Nair, Finance\nRe: New expense reporting system\n\nStarting October 1, all expense reports must be submitted through ExpensePoint, our new online system. The old paper forms will no longer be {{1}}. ExpensePoint allows employees to upload photos of receipts directly from their phones, which should {{2}} the time it takes to process reimbursements. {{3}}, managers will be able to approve requests from any device.\n\nTraining sessions will be held in Conference Room B on September 24 and 25. {{4}} Please make sure that everyone in your department attends one of them.",
+     "trans": [
+      "宛先：全部門長\n差出人：Priya Nair（財務部）\n件名：新しい経費報告システム",
+      "10月1日から、すべての経費報告書は、新しいオンラインシステムであるExpensePointを通じて提出しなければなりません。従来の紙の書式は、今後{{1|受け付けられなくなります}}。ExpensePointでは、従業員がスマートフォンから領収書の写真を直接アップロードできるため、経費の払い戻し処理にかかる時間が{{2|短縮される}}はずです。{{3|さらに}}、管理者はどの端末からでも申請を承認できるようになります。",
+      "研修は9月24日と25日に会議室Bで行われます。{{4|各回の所要時間は約90分です。}}部署の全員が、いずれかの回に必ず参加するようにしてください。"
+     ]
     }
    ],
    "questions": [
@@ -493,7 +513,12 @@
     {
      "kind": "notice",
      "title": "Notice",
-     "text": "Notice to Guests\n\nThe Seaview Hotel's indoor pool will be closed from November 4 to November 18 while new tiles {{1}}. During this period, guests may use the pool at our sister property, the Bayside Inn, {{2}} is located just two blocks away. Simply show your room key at the Bayside Inn's front desk. {{3}}\n\nWe apologize for the inconvenience and look forward to welcoming you to our {{4}} pool later this month."
+     "text": "Notice to Guests\n\nThe Seaview Hotel's indoor pool will be closed from November 4 to November 18 while new tiles {{1}}. During this period, guests may use the pool at our sister property, the Bayside Inn, {{2}} is located just two blocks away. Simply show your room key at the Bayside Inn's front desk. {{3}}\n\nWe apologize for the inconvenience and look forward to welcoming you to our {{4}} pool later this month.",
+     "trans": [
+      "宿泊客の皆様へのお知らせ",
+      "Seaview Hotelの屋内プールは、新しいタイルが{{1|設置されている}}間、11月4日から11月18日まで閉鎖いたします。この期間中、宿泊客の皆様は、わずか2ブロック先に{{2|ある}}系列ホテルのBayside Innのプールをご利用いただけます。Bayside Innのフロントで客室の鍵をご提示いただくだけで結構です。{{3|タオルはそちらで無料でご用意しております。}}",
+      "ご不便をおかけしますことをおわびするとともに、今月後半に{{4|改装した}}プールで皆様をお迎えできることを楽しみにしております。"
+     ]
     }
    ],
    "questions": [
@@ -609,7 +634,12 @@
     {
      "kind": "advertisement",
      "title": "Job Advertisement",
-     "text": "Pinecrest Logistics is seeking an experienced warehouse supervisor for its distribution center in Incheon. The successful candidate will oversee a team of fifteen employees and {{1}} that all shipments are processed accurately and on time.\n\nApplicants should have at least three years of supervisory experience in a warehouse setting. {{2}} with inventory management software is also required. {{3}}\n\nWe offer a competitive salary, health insurance, and opportunities for advancement. To apply, please send your résumé and a cover letter to hr@pinecrest.example by March 15. Only candidates selected for an interview {{4}}."
+     "text": "Pinecrest Logistics is seeking an experienced warehouse supervisor for its distribution center in Incheon. The successful candidate will oversee a team of fifteen employees and {{1}} that all shipments are processed accurately and on time.\n\nApplicants should have at least three years of supervisory experience in a warehouse setting. {{2}} with inventory management software is also required. {{3}}\n\nWe offer a competitive salary, health insurance, and opportunities for advancement. To apply, please send your résumé and a cover letter to hr@pinecrest.example by March 15. Only candidates selected for an interview {{4}}.",
+     "trans": [
+      "Pinecrest Logisticsは、Incheonの物流センターで勤務する経験豊富な倉庫スーパーバイザーを募集しています。採用された方には、15人の従業員からなるチームを監督し、すべての出荷が正確かつ期日どおりに処理されることを{{1|確実にして}}いただきます。",
+      "応募者には、倉庫での監督業務の経験が3年以上必要です。在庫管理ソフトウェアに{{2|精通していること}}も必須です。{{3|フォークリフトの運転経験があれば望ましいですが、必須ではありません。}}",
+      "当社は、競争力のある給与、健康保険、昇進の機会をご用意しています。ご応募の際は、3月15日までに履歴書とカバーレターをhr@pinecrest.exampleまでお送りください。面接に選ばれた方にのみ、{{4|ご連絡を差し上げます}}。"
+     ]
     }
    ],
    "questions": [
@@ -732,7 +762,13 @@
     {
      "kind": "letter",
      "title": "Letter",
-     "text": "Dear Ms. Moreau,\n\nYour membership at the Eastside Public Library will {{1}} on April 30. To continue borrowing books and using our online databases, please renew your membership before that date.\n\nRenewal is free for residents of Eastside County. {{2}}, non-residents are charged an annual fee of $25. You can renew online, by phone, or in person at any branch. {{3}} If you renew online, your new card will be mailed to you within five business days.\n\nThank you for being a valued member of our library. We hope you will continue to {{4}} our services."
+     "text": "Dear Ms. Moreau,\n\nYour membership at the Eastside Public Library will {{1}} on April 30. To continue borrowing books and using our online databases, please renew your membership before that date.\n\nRenewal is free for residents of Eastside County. {{2}}, non-residents are charged an annual fee of $25. You can renew online, by phone, or in person at any branch. {{3}} If you renew online, your new card will be mailed to you within five business days.\n\nThank you for being a valued member of our library. We hope you will continue to {{4}} our services.",
+     "trans": [
+      "Moreau様",
+      "Eastside Public Libraryの会員資格は、4月30日に{{1|期限切れとなります}}。引き続き本を借りたり、オンラインデータベースを利用したりするには、その日より前に会員資格を更新してください。",
+      "Eastside Countyにお住まいの方は、無料で更新できます。{{2|ただし}}、郡外にお住まいの方には年会費25ドルがかかります。更新は、オンライン、電話、またはいずれかの分館の窓口で行うことができます。{{3|窓口で更新される場合は、写真付きの身分証明書と住所を証明する書類が必要です。}}オンラインで更新された場合、新しいカードは5営業日以内に郵送されます。",
+      "当館の大切な会員でいてくださり、ありがとうございます。今後も当館のサービスを{{4|ご活用}}いただければ幸いです。"
+     ]
     }
    ],
    "questions": [
@@ -855,7 +891,11 @@
     {
      "kind": "web page",
      "title": "Web Page",
-     "text": "Thank you for purchasing the Nordic Breeze air purifier. To activate your two-year warranty, please register your product within 30 days of purchase. Registration takes only a few minutes and can be completed on our Web site. You will need the serial number, which is printed on a label {{1}} the bottom of the unit. {{2}}\n\nOnce your product is registered, you will receive an e-mail confirming your warranty period. Please keep this e-mail {{3}} you need to request a repair in the future. Note that the warranty does not cover damage {{4}} by improper use."
+     "text": "Thank you for purchasing the Nordic Breeze air purifier. To activate your two-year warranty, please register your product within 30 days of purchase. Registration takes only a few minutes and can be completed on our Web site. You will need the serial number, which is printed on a label {{1}} the bottom of the unit. {{2}}\n\nOnce your product is registered, you will receive an e-mail confirming your warranty period. Please keep this e-mail {{3}} you need to request a repair in the future. Note that the warranty does not cover damage {{4}} by improper use.",
+     "trans": [
+      "Nordic Breeze空気清浄機をお買い上げいただき、ありがとうございます。2年間の保証を有効にするには、購入から30日以内に製品を登録してください。登録はわずか数分で済み、当社ウェブサイトで行うことができます。本体の底面{{1|に}}貼られたラベルに印刷されているシリアル番号が必要です。{{2|購入日と購入場所の入力も求められます。}}",
+      "製品の登録が完了すると、保証期間をお知らせする確認メールが届きます。将来修理を依頼する必要がある{{3|場合に備えて}}、このメールを保管してください。なお、不適切な使用{{4|によって生じた}}損傷は保証の対象外となりますのでご注意ください。"
+     ]
     }
    ],
    "questions": [

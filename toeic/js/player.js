@@ -213,26 +213,46 @@ export function evidenceIn(p, evidence) {
   return false;
 }
 
-function oneProse(p, q, vocab, evidence) {
-  const cellHit = (x) => evidence && evidence.some((e) => normT(e) === normT(x)); // 표는 칸 전체가 근거와 같을 때만
+// 지문 해석: 문단마다 원문 바로 아래에 번역. {{n|…}}는 정답을 넣은 빈칸의 번역
+const PARA = /\n\s*\n/;
+export const hasTrans = (p) => Array.isArray(p.trans) && p.trans.length === p.text.split(PARA).length;
+function trLine(t, q) {
+  return h(t).replace(/\{\{(\d)\|([^{}]+)\}\}/g, (m, n, x) => `<b class="bkt${Number(n) === q.blank ? ' on' : ''}">(${n}) ${x}</b>`)
+    .replace(/— \[(\d)\] —/g, (m, n) => `<span class="mk">[${n}]</span>`);
+}
+function tableHtml(tb, hit, cls = '') {
+  return `<div class="tbl ${cls}"><table><thead><tr>${tb.header.map((x) => `<th>${h(x)}</th>`).join('')}</tr></thead><tbody>${tb.rows.map((r, ri) => `<tr>${r.map((x, ci) => `<td class="${hit(ri, ci) ? 'ev' : ''}">${h(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+
+function oneProse(p, q, vocab, evidence, showTr = false) {
+  const cellHit = (ri, ci) => evidence && evidence.some((e) => normT(e) === normT(p.table.rows[ri][ci])); // 표는 칸 전체가 근거와 같을 때만
   let t = linkVocab(evidence ? markEvidence(p.text, evidence) : p.text, vocab).replace(/\u0001/g, '<mark class="ev">').replace(/\u0002/g, '</mark>');
   t = t.replace(/\{\{(\d)\}\}/g, (m, n) => `<span class="bk ${Number(n) === q.blank ? 'on' : ''}">(${n})</span>`);
   t = t.replace(/— \[(\d)\] —/g, (m, n) => `<span class="mk">[${n}]</span>`);
-  let table = '';
-  if (p.table) {
-    table = `<div class="tbl"><table><thead><tr>${p.table.header.map((x) => `<th>${h(x)}</th>`).join('')}</tr></thead><tbody>${p.table.rows.map((r) => `<tr>${r.map((x) => `<td class="${cellHit(x) ? 'ev' : ''}">${h(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
-  }
-  return `<div class="passage"><div class="ptitle">${h(p.title || p.kind || '')}</div>${t}${table}</div>`;
+  const table = p.table ? tableHtml(p.table, cellHit) : '';
+  const head = `<div class="ptitle">${h(p.title || p.kind || '')}</div>`;
+  const paras = t.split(PARA);
+  if (!showTr || !hasTrans(p) || paras.length !== p.trans.length) return `<div class="passage">${head}${t}${table}</div>`;
+  const src = p.text.split(PARA);
+  // 이름·제목만 있는 줄처럼 번역이 원문과 같으면 되풀이하지 않는다
+  const body = paras.map((x, i) => `<div class="pp">${x}</div>${p.trans[i].trim() === src[i].trim() ? '' : `<div class="ptr">${trLine(p.trans[i], q)}</div>`}`).join('');
+  const ttab = p.table && p.transTable ? tableHtml(p.transTable, cellHit, 'trt') : '';
+  return `<div class="passage tr-on">${head}${body}${table}${ttab}</div>`;
 }
 
-function passageHtml(unit, q, showVocab) {
+function passageHtml(unit, q, showVocab, showTr) {
   const vocab = showVocab ? allVocab(unit) : null;
   const ev = showVocab ? q.evidence : null; // 해설을 볼 때만 근거 문장 강조
   const ps = unit.passages || [];
-  if (ps.length < 2) return ps.map((p) => oneProse(p, q, vocab, ev)).join('');
+  if (ps.length < 2) return ps.map((p) => oneProse(p, q, vocab, ev, showTr)).join('');
   const tab = Math.min(P.tab, ps.length - 1);
   return `<div class="ptabs" role="tablist">${ps.map((p, i) => `<button role="tab" data-act="ptab" data-i="${i}" aria-selected="${i === tab}">${i + 1}. ${h(p.title || p.kind)}</button>`).join('')}</div>
-    ${oneProse(ps[tab], q, vocab, ev)}`;
+    ${oneProse(ps[tab], q, vocab, ev, showTr)}`;
+}
+
+// 결과 화면용: 지문 전체를 문단별 해석과 함께, 그 문항의 근거·빈칸을 강조해서
+export function passageStudyHtml(unit, q) {
+  return (unit.passages || []).map((p) => oneProse(p, q, null, q.evidence, true)).join('');
 }
 
 function renderUnit(s, it, unit, q, qs) {
@@ -244,7 +264,11 @@ function renderUnit(s, it, unit, q, qs) {
   if (it.focus) head.push(`복습 ${it.stage}단계 · ${STAGES[it.stage].label}${it.isNew === false ? ' · 같은 문제' : ''}`);
   const tgt = unit.part === 5 ? `목표 ${targetSec(C.bank, q, unit)}초` : `지문 목표 ${fmtSec(unitTarget(unit))} · 경과 <span data-set-elapsed>${fmtSec(s.setElapsed[unit.id] || 0)}</span>`;
   main += `<div class="qhead">${head.map((x, i) => `<span class="tag ${i === 2 ? 'accent' : ''}">${h(x)}</span>`).join('')}<span class="target-time">${tgt}</span></div>`;
-  if (unit.part >= 6) main += passageHtml(unit, q, fb);
+  // 지문 해석은 세트의 문제를 모두 푼 뒤에만 연다 (뒤 문제의 답이 보이지 않게)
+  const trReady = fb && unit.part >= 6 && qs.every((x) => s.answers[x.id]) && unit.passages.some(hasTrans);
+  const trOn = trReady && !!C.state.settings.passageTrans;
+  if (trReady) main += `<div class="ptr-bar"><button class="btn sm ${trOn ? '' : 'ghost'}" data-act="ptrans" aria-pressed="${trOn}">${trOn ? '해석 숨기기' : '해석 보기'}</button></div>`;
+  if (unit.part >= 6) main += passageHtml(unit, q, fb, trOn);
   if (unit.part === 5) {
     const text = fb ? linkVocab(q.question, q.vocab) : h(q.question);
     main += `<div class="qtext">${text.replace(/-{7}/, '<span class="blank"></span>')}</div>`;
@@ -262,7 +286,7 @@ function renderUnit(s, it, unit, q, qs) {
   const multiQ = qs.length > 1 ? `<div class="qnav">${qs.map((x, i) => `<span class="${i === s.qIdx ? 'on' : s.answers[x.id] ? 'done' : ''}">${i + 1}</span>`).join('')}${unit.part >= 6 ? `<button class="btn sm ghost" data-act="wide">${P.wide ? '문제 크게' : '지문 크게'}</button>` : ''}</div>` : '';
   let foot = multiQ + qline + `<div class="choices">${choiceBtns}</div>`;
   if (fb) {
-    main += explainHtml(q, unit, ans, { causeFor: lastAttempt(s, q) });
+    main += explainHtml(q, unit, ans, { causeFor: lastAttempt(s, q), trReady });
     foot += `<div class="foot-actions"><button class="btn primary" data-act="next">${isLast(s, qs) ? '결과 보기' : '다음'}</button></div>`;
   } else if (s.feedback === 'end' && !s.autoNext) {
     foot += `<div class="foot-actions"><button class="btn primary" data-act="next" ${P.chosen == null ? 'disabled' : ''}>${isLast(s, qs) ? '제출' : '다음'}</button></div>`;
@@ -288,7 +312,7 @@ function boldAnswer(text, answer) {
 }
 const sec = (label, body, cls = '') => `<div class="sec ${cls}"><div class="lbl">${label}</div>${body}</div>`;
 
-export function explainHtml(q, unit, ans, { causeFor = null, inPlay = true } = {}) {
+export function explainHtml(q, unit, ans, { causeFor = null, inPlay = true, trReady = false } = {}) {
   const ok = ans && ans.choice === q.answer;
   const tgt = targetSec(C.bank, q, unit);
   const ex = q.explanation;
@@ -305,6 +329,7 @@ export function explainHtml(q, unit, ans, { causeFor = null, inPlay = true } = {
   if (unit.part === 5 && q.trans) out += sec('해석', `<p class="en">${h(q.question).replace(/-{7}/, `<b>${h(answer)}</b>`)}</p><p class="tr">${h(q.trans)}</p>`, 'trans');
   if (unit.part === 6 && q.trans) out += sec(q.type === 'insert' ? '삽입 문장 해석' : '빈칸 문장 해석', `${q.type === 'insert' ? `<p class="en">${h(answer)}</p>` : ''}<p class="tr">${h(q.trans)}</p>`, 'trans');
   if (unit.part === 7 && q.evidence && q.evidence.length) out += sec('근거 문장', `${q.evidence.map((e) => `<p class="en">“${h(e)}”</p>`).join('')}${inPlay ? '<button class="btn sm ghost" data-act="scrollEv">지문에서 보기</button>' : ''}`, 'ev');
+  if (unit.part >= 6 && inPlay) out += trReady ? '<button class="btn sm ghost ptr-go" data-act="ptransGo">지문 전체 해석 보기</button>' : '<p class="xs muted ptr-lock">세트의 마지막 문제까지 풀면 지문 전체 해석이 열립니다.</p>';
   if (concept && concept.tip) out += `<p class="tip"><b>핵심</b> ${h(concept.tip)}</p>`;
   out += `<div class="lbl">선택지</div><ul class="traps">`;
   q.choices.forEach((c, i) => {
@@ -433,6 +458,21 @@ on('ptab', (el) => {
   if (m && tabs) m.scrollTop = Math.min(keep, tabs.offsetTop);
 });
 on('wide', () => { P.wide = !P.wide; render(); });
+on('ptrans', () => {
+  C.state.settings.passageTrans = !C.state.settings.passageTrans;
+  C.save(['settings']);
+  const keep = document.querySelector('.sess-main')?.scrollTop || 0;
+  render();
+  const m = document.querySelector('.sess-main');
+  if (m) m.scrollTop = keep;
+});
+on('ptransGo', () => {
+  if (!C.state.settings.passageTrans) { C.state.settings.passageTrans = true; C.save(['settings']); }
+  render();
+  const m = document.querySelector('.sess-main');
+  const bar = document.querySelector('.sess-main .ptr-bar');
+  if (m && bar) m.scrollTop += bar.getBoundingClientRect().top - m.getBoundingClientRect().top - 8;
+});
 on('scrollEv', () => {
   const m = document.querySelector('.sess-main mark.ev, .sess-main td.ev');
   if (!m) { toast('이 지문에는 강조할 문장이 없습니다.'); return; }

@@ -34,8 +34,18 @@ async function answerLoop(p, { maxSteps = 500, wrongRate = 0.4, causeRate = 0.7,
   }
   return answered;
 }
+// Part 6 화면의 세트를 데이터에서 찾는다(정답을 알고 일부러 틀리기 위해)
+const DATA = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../toeic/data');
+const P6U = ['p6.json', 'p6-2.json'].flatMap((f) => JSON.parse(fs.readFileSync(path.join(DATA, f))).units);
+const flatT = (x) => x.replace(/\{\{(\d)\}\}/g, '($1)').replace(/\s+/g, ' ').trim();
+async function curP6(p) {
+  const t = flatT(await p.evaluate(() => document.querySelector('.passage').innerText));
+  return P6U.find((u) => t.includes(flatT(u.passages[0].text).slice(0, 60)));
+}
 const total = (p) => p.evaluate(() => Number((document.querySelector('.prog .xs').textContent.split('/')[1] || '0').trim()));
 const appText = (p) => p.textContent('#app');
+// 화면 문구 검사용: 문제 지문(영어 원문과 해석, 리뷰 별점 ★ 등)은 빼고 본다
+const uiText = (p) => p.evaluate(() => { const c = document.querySelector('#app').cloneNode(true); c.querySelectorAll('.passage').forEach((x) => x.remove()); return c.textContent; });
 
 // 화면 문구 규칙: 안내 말투·이모지 금지, LC 흔적 없음
 const BAD_COPY = /해 보세요|보세요|하세요!|[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
@@ -46,7 +56,7 @@ const browser = await chromium.launch();
 const errors = [];
 const copyIssues = [];
 async function checkCopy(p, where) {
-  const t = await appText(p);
+  const t = await uiText(p);
   if (BAD_COPY.test(t)) copyIssues.push(`${where}: ${t.match(BAD_COPY)[0]}`);
   if (LC_WORDS.test(t)) copyIssues.push(`${where}: LC 흔적 "${t.match(LC_WORDS)[0]}"`);
 }
@@ -128,13 +138,48 @@ try {
   ok('앱을 닫았다 열어도 이어서 풀기', before.split('·')[1].trim() === after.split('·')[1].trim(), `${before} → ${after}`);
   await answerLoop(p);
 
-  // 4. Part 6: 빈칸 강조, 문장 삽입
+  // 4. Part 6: 빈칸 강조, 문장 삽입, 세트를 다 푼 뒤에만 열리는 지문 해석
   await p.goto(BASE + '#learn');
   await p.click('[data-act="startPart"][data-p="6"]');
   await p.waitForSelector('.passage');
   ok('Part 6 현재 빈칸 강조', !!(await p.$('.passage .bk.on')));
   await shot(p, '07-p6');
-  await answerLoop(p);
+  const u6 = await curP6(p);
+  ok('Part 6 세트를 데이터에서 찾음', !!u6);
+  for (let i = 0; i < 4 && u6; i++) {
+    const q = u6.questions[i];
+    await (await p.$$('.choice[data-act="choose"]'))[i === 0 ? (q.answer + 1) % 4 : q.answer].click(); // 첫 문항만 일부러 틀림
+    await p.waitForSelector('.exp');
+    if (i === 0) ok('세트를 다 풀기 전에는 지문 해석이 잠김', !!(await p.$('.exp .ptr-lock')) && !(await p.$('.ptr-bar')) && !(await p.$('.passage .ptr')));
+    if (i < 3) await p.click('[data-act="next"]');
+  }
+  ok('마지막 문제를 풀면 해석 버튼이 열림', !!(await p.$('.ptr-bar [data-act="ptrans"]')) && !!(await p.$('.exp [data-act="ptransGo"]')));
+  await p.click('[data-act="ptransGo"]');
+  await p.waitForSelector('.passage.tr-on');
+  const tr6 = await p.evaluate(() => {
+    const ptr = [...document.querySelectorAll('.passage .ptr')];
+    const bar = document.querySelector('.ptr-bar').getBoundingClientRect();
+    const m = document.querySelector('.sess-main').getBoundingClientRect();
+    return { n: ptr.length, pp: document.querySelectorAll('.passage .pp').length, bkt: document.querySelectorAll('.passage .ptr .bkt').length, on: document.querySelectorAll('.passage .ptr .bkt.on').length, ko: ptr.every((e) => /[가-힣]/.test(e.textContent) || !/\b[a-z]{3,}\b/.test(e.textContent)), braces: ptr.some((e) => /[{}|]/.test(e.textContent)), inView: bar.top >= m.top - 2 && bar.bottom <= m.bottom };
+  });
+  ok('지문 해석: 문단마다 번역, 빈칸 4곳에 정답 번역, 해석 위치로 이동', tr6.n <= tr6.pp && tr6.n >= 2 && tr6.bkt === 4 && tr6.on === 1 && tr6.ko && !tr6.braces && tr6.inView, JSON.stringify(tr6));
+  await shot(p, '07b-p6-trans');
+  await p.click('[data-act="ptrans"]');
+  const offAfter = !(await p.$('.passage.tr-on')) && !(await p.$('.passage .ptr'));
+  await p.click('[data-act="ptrans"]');
+  ok('해석 숨기기/보기 전환', offAfter && !!(await p.$('.passage.tr-on')));
+  await p.click('[data-act="exitAsk"]');
+  await p.click('[data-act="exitFinish"]');
+  await p.waitForSelector('.pt-det', { state: 'attached' });
+  const det = await p.evaluate(() => {
+    const d = document.querySelector('.pt-det');
+    d.closest('details.card').open = true;
+    d.open = true;
+    const ptr = [...d.querySelectorAll('.ptr')];
+    return { n: ptr.length, pp: d.querySelectorAll('.pp').length, on: d.querySelectorAll('.ptr .bkt.on').length, ko: ptr.some((e) => /[가-힣]/.test(e.textContent)), cards: document.querySelectorAll('details.card').length, dets: document.querySelectorAll('.pt-det').length };
+  });
+  ok('결과 화면: 틀린 Part 6 문항에 지문과 해석', det.n > 0 && det.n <= det.pp && det.on === 1 && det.ko, JSON.stringify(det));
+  await shot(p, '07c-result-trans', true);
 
   // 5. Part 7 이중·삼중 지문: 탭 전환, 긴 지문 스크롤, 선택지 고정
   await p.goto(BASE + '#learn');
@@ -147,29 +192,29 @@ try {
   const title2 = await p.textContent('.passage .ptitle');
   ok('다중 지문 탭 전환', tabs.length >= 2 && title1 !== title2, `${tabs.length}개 탭: ${title1} → ${title2}`);
   await shot(p, '08-p7-multi-tab2');
-  // 지문이 화면보다 긴 탭을 찾는다(세트가 무작위라 짧은 탭일 수 있음)
+  // 가장 긴 탭을 고른다(세트가 무작위라 화면을 겨우 넘는 탭이면 탭이 위에 붙을 만큼 스크롤되지 않음)
+  const over = [];
   for (let i = 0; i < tabs.length; i++) {
-    const long = await p.evaluate(() => { const mm = document.querySelector('.sess-main'); return mm.scrollHeight > mm.clientHeight; });
-    if (long) break;
-    const tb = await p.$$('[data-act="ptab"]');
-    if (tb[i]) await tb[i].click();
+    await (await p.$$('[data-act="ptab"]'))[i].click();
+    over.push(await p.evaluate(() => { const mm = document.querySelector('.sess-main'); return mm.scrollHeight - mm.clientHeight; }));
   }
+  await (await p.$$('[data-act="ptab"]'))[over.indexOf(Math.max(...over))].click();
   const geo = await p.evaluate(() => {
     const main = document.querySelector('.sess-main');
     const foot = document.querySelector('.sess-foot');
     main.scrollTop = main.scrollHeight;
     const tabsBox = document.querySelector('.ptabs').getBoundingClientRect();
-    return { scrollable: main.scrollHeight > main.clientHeight, footBottom: foot.getBoundingClientRect().bottom, vh: innerHeight, tabsTop: tabsBox.top, mainTop: main.getBoundingClientRect().top };
+    return { overflow: main.scrollHeight - main.clientHeight, footBottom: foot.getBoundingClientRect().bottom, vh: innerHeight, tabsTop: tabsBox.top, mainTop: main.getBoundingClientRect().top };
   });
   ok('긴 지문은 본문만 스크롤, 선택지는 화면 아래에 고정', geo.footBottom <= geo.vh + 1, JSON.stringify(geo));
-  ok('스크롤해도 지문 탭이 위에 붙어 있음', geo.tabsTop <= geo.mainTop + 2 && geo.tabsTop >= geo.mainTop - 14, JSON.stringify(geo));
+  if (geo.overflow >= 80) ok('스크롤해도 지문 탭이 위에 붙어 있음', geo.tabsTop <= geo.mainTop + 2 && geo.tabsTop >= geo.mainTop - 14, JSON.stringify(geo));
+  else console.log(`SKIP 탭 고정 검사: 이 세트는 가장 긴 탭도 ${geo.overflow}px만 넘침`);
   await shot(p, '09-p7-scrolled');
   const fh1 = await p.evaluate(() => document.querySelector('.sess-foot').getBoundingClientRect().height);
   await p.click('[data-act="wide"]');
   const fh2 = await p.evaluate(() => document.querySelector('.sess-foot').getBoundingClientRect().height);
   ok('지문 크게: 선택지 영역 축소', fh2 <= fh1, `${Math.round(fh1)} → ${Math.round(fh2)}`);
   await p.click('[data-act="wide"]');
-  const keptTitle = await p.evaluate(() => document.querySelector('[data-act="ptab"][aria-selected="true"]').textContent);
   await (await p.$$('.choice[data-act="choose"]'))[0].click();
   await p.waitForSelector('.exp');
   const ev7 = await p.evaluate(() => ({ marks: document.querySelectorAll('.passage mark.ev, .passage td.ev').length, ev: (document.querySelector('.exp .ev') || {}).textContent || '', q: (document.querySelector('.exp .qtr') || {}).textContent || '' }));
@@ -178,8 +223,25 @@ try {
   await p.waitForTimeout(400);
   const vis = await p.evaluate(() => { const m = document.querySelector('.sess-main mark.ev, .sess-main td.ev'); const r = m.getBoundingClientRect(); const c = document.querySelector('.sess-main').getBoundingClientRect(); return r.top >= c.top - 2 && r.bottom <= c.bottom + 2; });
   ok('지문에서 보기 → 근거 문장이 화면 안에 들어옴', vis);
+  // 해설에서 근거가 있는 탭으로 바뀔 수 있으므로, 다음으로 넘어가는 순간의 탭을 기준으로 본다
+  const keptTitle = await p.evaluate(() => document.querySelector('[data-act="ptab"][aria-selected="true"]').textContent);
   await p.click('[data-act="next"]');
   ok('다음 문항에서도 선택한 지문 탭 유지', (await p.evaluate(() => document.querySelector('[data-act="ptab"][aria-selected="true"]').textContent)) === keptTitle, keptTitle);
+  for (let i = 0; i < 6; i++) {
+    if (!(await p.$('.exp'))) { await (await p.$$('.choice[data-act="choose"]'))[0].click(); await p.waitForSelector('.exp'); }
+    if (await p.$('.ptr-bar')) break;
+    await p.click('[data-act="next"]');
+  }
+  const tr7 = [];
+  for (let i = 0; i < 3; i++) {
+    const tb = await p.$$('[data-act="ptab"]');
+    if (!tb[i]) break;
+    await tb[i].click();
+    await p.waitForTimeout(30);
+    tr7.push(await p.evaluate(() => ({ on: !!document.querySelector('.passage.tr-on'), n: document.querySelectorAll('.passage .ptr').length, pp: document.querySelectorAll('.passage .pp').length, t: document.querySelectorAll('.passage .tbl:not(.trt)').length, tt: document.querySelectorAll('.passage .tbl.trt').length, mk: document.querySelectorAll('.passage .pp .mk').length, mkt: document.querySelectorAll('.passage .ptr .mk').length })));
+  }
+  ok('이중·삼중 지문 세트 끝: 해석 설정 유지, 탭마다 문단·표·삽입 위치 해석', tr7.length >= 2 && tr7.every((x) => x.on && x.n > 0 && x.n <= x.pp && x.t === x.tt && x.mk === x.mkt), JSON.stringify(tr7));
+  await shot(p, '09b-p7-trans');
   await answerLoop(p);
   ok('이중·삼중 지문 세션 완료', (await p.evaluate(() => location.hash)) === '#result');
 

@@ -56,6 +56,57 @@ console.log(`해석 ${bank.units.reduce((n, u) => n + questionsOf(u).filter((q) 
 // 짧은 해설(한국어: 정답 이유 45자·오답 해설 16자 미만, 일본어는 글자가 촘촘해 28자·10자)
 const JA = /ja$/.test(process.env.TT_APP || '');
 const [minWhy, minTrap] = JA ? [28, 10] : [45, 16];
+// 지문 해석: Part 6·7 모든 지문에 문단 수만큼 있어야 하고, 줄 수·빈칸 표시·삽입 위치·숫자·이메일 주소를 보존해야 한다
+const PARA = /\n\s*\n/;
+const digitRuns = (x) => (x.match(/\d+/g) || []).filter((d) => !/^0+$/.test(d));
+let ptN = 0;
+for (const u of bank.units) {
+  if (u.part < 6) continue;
+  u.passages.forEach((p, pi) => {
+    const paras = p.text.split(PARA);
+    const where = `${u.id} 지문${pi + 1}`;
+    if (!Array.isArray(p.trans)) { fails.push(`${where}: 해석(trans) 없음`); return; }
+    if (p.trans.length !== paras.length) { fails.push(`${where}: 해석 문단 수 ${p.trans.length} ≠ 원문 ${paras.length}`); return; }
+    paras.forEach((en, i) => {
+      const tr = p.trans[i];
+      const w = `${where} 문단${i + 1}`;
+      ptN++;
+      if (typeof tr !== 'string' || !tr.trim()) { fails.push(`${w}: 해석 비어 있음`); return; }
+      if (en.split('\n').length !== tr.split('\n').length) fails.push(`${w}: 줄 수가 원문과 다름`);
+      const bk = [...en.matchAll(/\{\{(\d)\}\}/g)].map((m) => m[1]).join();
+      const bt = [...tr.matchAll(/\{\{(\d)\|[^{}]+\}\}/g)].map((m) => m[1]).join();
+      if (bk !== bt) fails.push(`${w}: 빈칸 표시 ${bt || '없음'} ≠ 원문 ${bk || '없음'}`);
+      if (/[{}]/.test(tr.replace(/\{\{\d\|[^{}]+\}\}/g, ''))) fails.push(`${w}: 빈칸 표시 형식 오류`);
+      const mk = (x) => (x.match(/— \[\d\] —/g) || []).join();
+      if (mk(en) !== mk(tr)) fails.push(`${w}: 삽입 위치 표시가 원문과 다름`);
+      const have = digitRuns(tr);
+      const lost = digitRuns(en).filter((d) => { const k = have.indexOf(d); if (k < 0) return true; have.splice(k, 1); return false; });
+      if (lost.length) fails.push(`${w}: 숫자 누락 ${lost.join(',')}`);
+      for (const m of en.match(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g) || []) if (!tr.includes(m)) fails.push(`${w}: 이메일 주소 누락 ${m}`);
+      if (JA ? /[가-힣]/.test(tr) : /[぀-ヿ]/.test(tr)) fails.push(`${w}: 다른 언어 문자가 섞임`);
+      if (/\b[a-z]{3,}\b/.test(en) && !(JA ? /[぀-ヿ一-鿿]/ : /[가-힣]/).test(tr)) fails.push(`${w}: 번역되지 않음`);
+    });
+    if (p.table) {
+      const t = p.transTable;
+      if (!t || t.header.length !== p.table.header.length || t.rows.length !== p.table.rows.length || t.rows.some((r, i) => r.length !== p.table.rows[i].length)) { fails.push(`${where}: 표 해석(transTable) 모양이 원문과 다름`); return; }
+      [p.table.header, ...p.table.rows].forEach((row, ri) => row.forEach((en, ci) => {
+        const tr = [t.header, ...t.rows][ri][ci];
+        const w = `${where} 표 ${ri}행 ${ci}칸`;
+        if (!en.trim()) { if (tr !== '') fails.push(`${w}: 원문이 빈 칸인데 해석이 있음`); return; }
+        if (typeof tr !== 'string' || !tr.trim()) { fails.push(`${w}: 해석 비어 있음`); return; }
+        const have = digitRuns(tr);
+        if (digitRuns(en).some((d) => { const k = have.indexOf(d); if (k < 0) return true; have.splice(k, 1); return false; })) fails.push(`${w}: 숫자 누락`);
+        if (JA ? /[가-힣]/.test(tr) : /[\u3040-\u30ff]/.test(tr)) fails.push(`${w}: 다른 언어 문자가 섞임`);
+        if (/\b[a-z]{3,}\b/.test(en) && !(JA ? /[\u3040-\u30ff\u4e00-\u9fff]/ : /[가-힣]/).test(tr)) fails.push(`${w}: 번역되지 않음`);
+      }));
+    } else if (p.transTable) fails.push(`${where}: 원문에 없는 표 해석`);
+  });
+  // 근거 문장은 한 문단(또는 표 한 칸) 안에 있어야 문단별 해석 화면에서 강조가 깨지지 않는다
+  const units1 = u.passages.flatMap((p) => [...p.text.split(PARA), ...(p.table ? [...p.table.header, ...p.table.rows.flat()] : [])].map(normT));
+  for (const q of questionsOf(u)) for (const e of q.evidence || []) if (!units1.some((x) => x.includes(normT(e)))) fails.push(`${q.id}: 근거가 한 문단 안에 있지 않음 "${e.slice(0, 40)}"`);
+}
+console.log(`지문 해석 ${ptN}문단`);
+
 for (const u of bank.units) for (const q of questionsOf(u)) {
   if (q.explanation.why.length < minWhy) fails.push(`${q.id}: 정답 해설이 짧음(${q.explanation.why.length}자)`);
   q.explanation.traps.forEach((t, i) => { if (t && t.length < minTrap) fails.push(`${q.id}: 오답 ${'ABCD'[i]} 해설이 짧음(${t.length}자)`); });

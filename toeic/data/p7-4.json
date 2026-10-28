@@ -7,7 +7,13 @@
     {
      "kind": "email",
      "title": "E-mail 1",
-     "text": "To: orders@supplyhub.example\nFrom: Jin Park, Corvus Design\nDate: October 2\nSubject: New order\n\nHello,\n\nPlease process the attached order for our new office on Bay Street. As a returning customer, we would like to use the loyalty discount mentioned in your September newsletter. We need all items delivered by October 10, which is when our staff will move in.\n\nThank you,\nJin Park, Office Manager"
+     "text": "To: orders@supplyhub.example\nFrom: Jin Park, Corvus Design\nDate: October 2\nSubject: New order\n\nHello,\n\nPlease process the attached order for our new office on Bay Street. As a returning customer, we would like to use the loyalty discount mentioned in your September newsletter. We need all items delivered by October 10, which is when our staff will move in.\n\nThank you,\nJin Park, Office Manager",
+     "trans": [
+      "받는 사람: orders@supplyhub.example\n보낸 사람: Jin Park, Corvus Design\n날짜: 10월 2일\n제목: 신규 주문",
+      "안녕하세요.",
+      "Bay Street에 있는 저희 새 사무실용 주문서를 첨부하오니 처리해 주십시오. 기존에 거래한 고객으로서, 귀사의 9월 소식지에 언급된 단골 고객 할인을 적용받고 싶습니다. 저희 직원들이 10월 10일에 입주하므로, 모든 물품이 그날까지 배송되어야 합니다.",
+      "감사합니다.\nJin Park, 사무실 관리자"
+     ]
     },
     {
      "kind": "invoice",
@@ -40,12 +46,51 @@
         "$280"
        ]
       ]
+     },
+     "trans": [
+      "Supply Hub — 청구서 #7781\n날짜: 10월 3일\n고객: Corvus Design",
+      "소계: 3,160.00달러\n단골 고객 할인 (5%): −158.00달러\n합계: 3,002.00달러\n배송 예정일: 10월 9일"
+     ],
+     "transTable": {
+      "header": [
+       "품목",
+       "수량",
+       "단가",
+       "금액"
+      ],
+      "rows": [
+       [
+        "인체공학 의자",
+        "8",
+        "150달러",
+        "1,200달러"
+       ],
+       [
+        "스탠딩 책상",
+        "4",
+        "420달러",
+        "1,680달러"
+       ],
+       [
+        "탁상 램프",
+        "8",
+        "35달러",
+        "280달러"
+       ]
+      ]
      }
     },
     {
      "kind": "email",
      "title": "E-mail 2",
-     "text": "To: orders@supplyhub.example\nFrom: Jin Park, Corvus Design\nDate: October 9\nSubject: Invoice #7781\n\nHello,\n\nThe delivery arrived this morning. Thank you for the quick service. However, we received eight standing desks rather than the four we ordered and paid for. Could you arrange for the extra desks to be picked up?\n\nAlso, one of the lamps has a cracked base. If possible, please send a replacement before our staff arrive tomorrow.\n\nJin Park"
+     "text": "To: orders@supplyhub.example\nFrom: Jin Park, Corvus Design\nDate: October 9\nSubject: Invoice #7781\n\nHello,\n\nThe delivery arrived this morning. Thank you for the quick service. However, we received eight standing desks rather than the four we ordered and paid for. Could you arrange for the extra desks to be picked up?\n\nAlso, one of the lamps has a cracked base. If possible, please send a replacement before our staff arrive tomorrow.\n\nJin Park",
+     "trans": [
+      "받는 사람: orders@supplyhub.example\n보낸 사람: Jin Park, Corvus Design\n날짜: 10월 9일\n제목: 청구서 #7781",
+      "안녕하세요.",
+      "오늘 아침에 배송품이 도착했습니다. 신속하게 처리해 주셔서 감사합니다. 그런데 저희가 주문하고 대금을 지불한 4개가 아니라 8개의 스탠딩 책상을 받았습니다. 추가로 온 책상들을 수거해 가도록 조치해 주시겠습니까?",
+      "또한 램프 중 하나는 받침대에 금이 가 있습니다. 가능하다면 내일 저희 직원들이 도착하기 전에 교체품을 보내 주십시오.",
+      "Jin Park"
+     ]
     }
    ],
    "questions": [
@@ -206,7 +251,12 @@
     {
      "kind": "article",
      "title": "Article",
-     "text": "Danfield Film Festival Returns\n\nThe Danfield Film Festival will hold its tenth annual event from June 5 to 8. This year's festival will feature 45 films from 12 countries, including several documentaries about environmental issues.\n\nTickets for individual screenings cost $12, while a festival pass, which allows entry to all screenings, costs $80. Passes are available only until May 31. For the first time, the festival will also offer outdoor screenings in Riverside Park, which will be free to the public."
+     "text": "Danfield Film Festival Returns\n\nThe Danfield Film Festival will hold its tenth annual event from June 5 to 8. This year's festival will feature 45 films from 12 countries, including several documentaries about environmental issues.\n\nTickets for individual screenings cost $12, while a festival pass, which allows entry to all screenings, costs $80. Passes are available only until May 31. For the first time, the festival will also offer outdoor screenings in Riverside Park, which will be free to the public.",
+     "trans": [
+      "Danfield Film Festival이 돌아온다",
+      "Danfield Film Festival이 6월 5일부터 8일까지 제10회 연례 행사를 개최한다. 올해 영화제에서는 12개국의 영화 45편이 상영되며, 여기에는 환경 문제를 다룬 다큐멘터리 여러 편이 포함된다.",
+      "개별 상영 티켓은 12달러이며, 모든 상영에 입장할 수 있는 영화제 패스는 80달러이다. 패스는 5월 31일까지만 구입할 수 있다. 또한 영화제는 처음으로 Riverside Park에서 야외 상영을 진행하며, 이 야외 상영은 일반인에게 무료로 제공된다."
+     ]
     },
     {
      "kind": "schedule",
@@ -240,12 +290,51 @@
         "Arcadia Cinema"
        ]
       ]
+     },
+     "trans": [
+      "Danfield Film Festival — 6월 7일 토요일"
+     ],
+     "transTable": {
+      "header": [
+       "시간",
+       "영화",
+       "장소"
+      ],
+      "rows": [
+       [
+        "오후 1:00",
+        "Ocean Voices (다큐멘터리)",
+        "Regal Theater"
+       ],
+       [
+        "오후 4:00",
+        "The Last Orchard",
+        "Regal Theater"
+       ],
+       [
+        "오후 7:00",
+        "Northern Lights (다큐멘터리)",
+        "Riverside Park"
+       ],
+       [
+        "오후 9:30",
+        "City of Glass",
+        "Arcadia Cinema"
+       ]
+      ]
      }
     },
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: Dana Kim\nFrom: Sam Whitfield\nDate: June 2\nSubject: Festival plans\n\nHi Dana,\n\nI just tried to buy festival passes for both of us, but they're no longer being sold. I'll buy tickets for individual screenings instead.\n\nOn Saturday, I'd really like to see the two documentaries, since they're both about the environment. The later one is free, so I'll only need to buy tickets for the first one. Do you want to get dinner between the two films?\n\nSam"
+     "text": "To: Dana Kim\nFrom: Sam Whitfield\nDate: June 2\nSubject: Festival plans\n\nHi Dana,\n\nI just tried to buy festival passes for both of us, but they're no longer being sold. I'll buy tickets for individual screenings instead.\n\nOn Saturday, I'd really like to see the two documentaries, since they're both about the environment. The later one is free, so I'll only need to buy tickets for the first one. Do you want to get dinner between the two films?\n\nSam",
+     "trans": [
+      "받는 사람: Dana Kim\n보낸 사람: Sam Whitfield\n날짜: 6월 2일\n제목: 영화제 계획",
+      "안녕하세요, Dana 씨.",
+      "방금 우리 둘의 영화제 패스를 사려고 했는데, 이제 더 이상 판매하지 않네요. 대신 개별 상영 티켓을 살게요.",
+      "토요일에는 다큐멘터리 두 편을 꼭 보고 싶어요. 둘 다 환경에 관한 영화거든요. 나중에 상영하는 영화는 무료라서, 첫 번째 영화 티켓만 사면 돼요. 두 영화 사이에 같이 저녁 먹을래요?",
+      "Sam"
+     ]
     }
    ],
    "questions": [
@@ -411,17 +500,33 @@
     {
      "kind": "memo",
      "title": "Memo",
-     "text": "To: All Halvorsen Engineering staff\nFrom: Human Resources\nDate: January 10\nSubject: Mentorship program\n\nHalvorsen Engineering is launching a mentorship program that pairs junior engineers with senior staff. Participation is voluntary. Mentors and mentees will meet for one hour every two weeks for six months.\n\nSenior staff with at least eight years at the company are eligible to serve as mentors. Interested employees should complete the registration form on the HR portal by January 24. Pairs will be announced on February 3."
+     "text": "To: All Halvorsen Engineering staff\nFrom: Human Resources\nDate: January 10\nSubject: Mentorship program\n\nHalvorsen Engineering is launching a mentorship program that pairs junior engineers with senior staff. Participation is voluntary. Mentors and mentees will meet for one hour every two weeks for six months.\n\nSenior staff with at least eight years at the company are eligible to serve as mentors. Interested employees should complete the registration form on the HR portal by January 24. Pairs will be announced on February 3.",
+     "trans": [
+      "받는 사람: Halvorsen Engineering 전 직원\n보낸 사람: 인사부\n날짜: 1월 10일\n제목: 멘토링 프로그램",
+      "Halvorsen Engineering은 주니어 엔지니어와 선임 직원을 짝지어 주는 멘토링 프로그램을 시작합니다. 참여는 자율입니다. 멘토와 멘티는 6개월 동안 2주마다 1시간씩 만나게 됩니다.",
+      "회사에서 최소 8년 이상 근무한 선임 직원은 멘토로 활동할 자격이 있습니다. 관심 있는 직원은 1월 24일까지 HR 포털에서 등록 양식을 작성해 주십시오. 멘토와 멘티 짝은 2월 3일에 발표됩니다."
+     ]
     },
     {
      "kind": "form",
      "title": "Registration Form",
-     "text": "Mentorship Program Registration\n\nName: Diego Navarro\nDepartment: Structural Design\nYears with Halvorsen: 9\nRole requested: Mentor\nAreas of expertise: bridge design, project scheduling\nPreferred meeting day: Wednesday\nSubmitted: January 21"
+     "text": "Mentorship Program Registration\n\nName: Diego Navarro\nDepartment: Structural Design\nYears with Halvorsen: 9\nRole requested: Mentor\nAreas of expertise: bridge design, project scheduling\nPreferred meeting day: Wednesday\nSubmitted: January 21",
+     "trans": [
+      "멘토링 프로그램 등록",
+      "이름: Diego Navarro\n부서: 구조 설계\nHalvorsen 근무 연수: 9년\n신청 역할: 멘토\n전문 분야: 교량 설계, 프로젝트 일정 관리\n희망 만남 요일: 수요일\n제출일: 1월 21일"
+     ]
     },
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: Diego Navarro\nFrom: Ama Mensah, HR Coordinator\nDate: February 3\nSubject: Your mentee\n\nDear Mr. Navarro,\n\nThank you for volunteering. You have been paired with Hannah Ito, who joined the Structural Design department last fall. Ms. Ito has mentioned that she is especially interested in learning about project scheduling.\n\nBecause she attends a training course on Wednesdays until March, your first few meetings will need to take place on Thursdays. Please contact her to arrange your first session.\n\nAma Mensah"
+     "text": "To: Diego Navarro\nFrom: Ama Mensah, HR Coordinator\nDate: February 3\nSubject: Your mentee\n\nDear Mr. Navarro,\n\nThank you for volunteering. You have been paired with Hannah Ito, who joined the Structural Design department last fall. Ms. Ito has mentioned that she is especially interested in learning about project scheduling.\n\nBecause she attends a training course on Wednesdays until March, your first few meetings will need to take place on Thursdays. Please contact her to arrange your first session.\n\nAma Mensah",
+     "trans": [
+      "받는 사람: Diego Navarro\n보낸 사람: Ama Mensah, 인사 코디네이터\n날짜: 2월 3일\n제목: 귀하의 멘티",
+      "Navarro 씨께,",
+      "자원해 주셔서 감사합니다. 귀하는 작년 가을 구조 설계 부서에 합류한 Hannah Ito 씨와 짝이 되었습니다. Ito 씨는 특히 프로젝트 일정 관리에 대해 배우는 데 관심이 있다고 말했습니다.",
+      "Ito 씨가 3월까지 매주 수요일에 교육 과정을 수강하기 때문에, 처음 몇 차례의 만남은 목요일에 해야 합니다. Ito 씨에게 연락하셔서 첫 번째 만남 일정을 잡아 주십시오.",
+      "Ama Mensah"
+     ]
     }
    ],
    "questions": [

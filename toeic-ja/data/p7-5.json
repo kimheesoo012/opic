@@ -7,7 +7,14 @@
     {
      "kind": "text message chain",
      "title": "Text-message chain",
-     "text": "Nadia Ruiz [8:47 A.M.]\nI'm stuck in traffic on the bridge. Could you set up the projector for the 9:30 client meeting?\n\nBen Park [8:49 A.M.]\nSure. Which room are you in?\n\nNadia Ruiz [8:50 A.M.]\nRoom 6B. The slides are on the shared drive in the \"Harlow\" folder.\n\nBen Park [8:52 A.M.]\nGot it. Should I order coffee for the clients too?\n\nNadia Ruiz [8:53 A.M.]\nThat's taken care of. Ms. Liu ordered it yesterday."
+     "text": "Nadia Ruiz [8:47 A.M.]\nI'm stuck in traffic on the bridge. Could you set up the projector for the 9:30 client meeting?\n\nBen Park [8:49 A.M.]\nSure. Which room are you in?\n\nNadia Ruiz [8:50 A.M.]\nRoom 6B. The slides are on the shared drive in the \"Harlow\" folder.\n\nBen Park [8:52 A.M.]\nGot it. Should I order coffee for the clients too?\n\nNadia Ruiz [8:53 A.M.]\nThat's taken care of. Ms. Liu ordered it yesterday.",
+     "trans": [
+      "Nadia Ruiz [午前8:47]\n橋の上で渋滞にはまっています。9:30からのクライアントとの会議に向けて、プロジェクターの準備をしてもらえますか。",
+      "Ben Park [午前8:49]\nいいですよ。どの部屋ですか。",
+      "Nadia Ruiz [午前8:50]\n6B号室です。スライドは共有ドライブの「Harlow」フォルダに入っています。",
+      "Ben Park [午前8:52]\nわかりました。クライアント用のコーヒーも注文しておきましょうか。",
+      "Nadia Ruiz [午前8:53]\nそれはもう手配済みです。Liuさんが昨日注文してくれました。"
+     ]
     }
    ],
    "questions": [
@@ -81,7 +88,15 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: Marco Bianchi <mbianchi@bianchipack.example>\nFrom: Grace Owusu <gowusu@tellismfg.example>\nDate: March 2\nSubject: Supplier registration\n\nDear Mr. Bianchi,\n\nThank you for agreeing to supply packaging materials to Tellis Manufacturing. Before we can process your first invoice, we need you to complete our supplier registration. Please send us the following by March 14: a completed supplier information form (attached), a copy of your business registration certificate, and your bank account details for direct deposit.\n\nPlease note that every invoice must include a Tellis purchase order number. Invoices without this number will be returned to the sender. Payments are made within 30 days of receiving a valid invoice.\n\nIf you have any questions, you can reach me at extension 4417.\n\nGrace Owusu\nAccounts Payable, Tellis Manufacturing"
+     "text": "To: Marco Bianchi <mbianchi@bianchipack.example>\nFrom: Grace Owusu <gowusu@tellismfg.example>\nDate: March 2\nSubject: Supplier registration\n\nDear Mr. Bianchi,\n\nThank you for agreeing to supply packaging materials to Tellis Manufacturing. Before we can process your first invoice, we need you to complete our supplier registration. Please send us the following by March 14: a completed supplier information form (attached), a copy of your business registration certificate, and your bank account details for direct deposit.\n\nPlease note that every invoice must include a Tellis purchase order number. Invoices without this number will be returned to the sender. Payments are made within 30 days of receiving a valid invoice.\n\nIf you have any questions, you can reach me at extension 4417.\n\nGrace Owusu\nAccounts Payable, Tellis Manufacturing",
+     "trans": [
+      "宛先：Marco Bianchi <mbianchi@bianchipack.example>\n差出人：Grace Owusu <gowusu@tellismfg.example>\n日付：3月2日\n件名：仕入先登録",
+      "Bianchi様",
+      "Tellis Manufacturingへの梱包資材の供給をご承諾いただき、ありがとうございます。初回の請求書を処理する前に、当社の仕入先登録を完了していただく必要があります。3月14日までに、以下のものをお送りください：記入済みの仕入先情報フォーム（添付）、事業登録証明書のコピー、口座振込用の銀行口座情報。",
+      "すべての請求書には、Tellisの発注書番号を記載する必要がありますので、ご注意ください。この番号が記載されていない請求書は、送付元に返送されます。お支払いは、有効な請求書を受領してから30日以内に行います。",
+      "ご質問がございましたら、内線4417で私までご連絡ください。",
+      "Grace Owusu\nTellis Manufacturing 買掛金担当"
+     ]
     }
    ],
    "questions": [
@@ -181,7 +196,13 @@
     {
      "kind": "notice",
      "title": "Notice",
-     "text": "FIRE DRILL NOTICE — Corden Tower\n\nA building-wide fire drill will take place on Wednesday, May 7, at 10:00 A.M. — [1] — When the alarm sounds, all occupants must leave the building using the nearest stairway. Elevators must not be used. — [2] —\n\nOnce outside, please go to your floor's assigned meeting point in Corden Plaza and report to your floor warden. — [3] — The drill should take about 20 minutes, after which an announcement will let everyone know it is safe to return.\n\nVisitors in the building at the time of the drill must also take part. — [4] — Questions may be sent to facilities@cordentower.example."
+     "text": "FIRE DRILL NOTICE — Corden Tower\n\nA building-wide fire drill will take place on Wednesday, May 7, at 10:00 A.M. — [1] — When the alarm sounds, all occupants must leave the building using the nearest stairway. Elevators must not be used. — [2] —\n\nOnce outside, please go to your floor's assigned meeting point in Corden Plaza and report to your floor warden. — [3] — The drill should take about 20 minutes, after which an announcement will let everyone know it is safe to return.\n\nVisitors in the building at the time of the drill must also take part. — [4] — Questions may be sent to facilities@cordentower.example.",
+     "trans": [
+      "消防訓練のお知らせ — Corden Tower",
+      "5月7日（水）午前10:00に、ビル全体で消防訓練を実施します。 — [1] — 警報が鳴ったら、ビル内にいる全員が最寄りの階段を使って建物の外に出なければなりません。エレベーターは使用してはいけません。 — [2] —",
+      "屋外に出たら、Corden Plazaにある、ご自分の階に割り当てられた集合場所に行き、その階の避難誘導責任者に報告してください。 — [3] — 訓練は約20分かかる見込みで、その後、建物に戻っても安全であることを全員にお知らせするアナウンスがあります。",
+      "訓練の時間にビル内にいる来訪者も、訓練に参加しなければなりません。 — [4] — ご質問はfacilities@cordentower.exampleまでお送りください。"
+     ]
     }
    ],
    "questions": [
@@ -288,7 +309,14 @@
     {
      "kind": "article",
      "title": "Article",
-     "text": "Kiro Robotics to Open Research Center in Daejeon\n\nDAEJEON (June 12) — Kiro Robotics, a maker of warehouse robots, announced yesterday that it will open a research center in Daejeon next spring. The center will employ about 80 engineers and will focus on developing robots that can safely work alongside people.\n\nKiro chose Daejeon because of its strong universities and many research institutes, said chief executive Min-jae Oh. “We want to be close to the talent,” he said. The company has already signed agreements with two local universities that will allow graduate students to complete internships at the center.\n\nKiro currently employs 350 people at its headquarters in Seoul, where its robots are designed and assembled. Sales of the company's robots have tripled over the past three years, driven largely by demand from online retailers.\n\nThe new center will occupy two floors of the Daejeon Innovation Tower, which is still under construction. Hiring is expected to begin in the fall."
+     "text": "Kiro Robotics to Open Research Center in Daejeon\n\nDAEJEON (June 12) — Kiro Robotics, a maker of warehouse robots, announced yesterday that it will open a research center in Daejeon next spring. The center will employ about 80 engineers and will focus on developing robots that can safely work alongside people.\n\nKiro chose Daejeon because of its strong universities and many research institutes, said chief executive Min-jae Oh. “We want to be close to the talent,” he said. The company has already signed agreements with two local universities that will allow graduate students to complete internships at the center.\n\nKiro currently employs 350 people at its headquarters in Seoul, where its robots are designed and assembled. Sales of the company's robots have tripled over the past three years, driven largely by demand from online retailers.\n\nThe new center will occupy two floors of the Daejeon Innovation Tower, which is still under construction. Hiring is expected to begin in the fall.",
+     "trans": [
+      "Kiro Robotics、テジョンに研究センターを開設へ",
+      "テジョン（6月12日）— 倉庫用ロボットのメーカーであるKiro Roboticsは昨日、来年の春にテジョンに研究センターを開設すると発表した。同センターでは約80人のエンジニアを雇用し、人と並んで安全に作業できるロボットの開発に重点的に取り組む。",
+      "Kiroがテジョンを選んだのは、優れた大学と多くの研究機関があるからだと、最高経営責任者のMin-jae Oh氏は述べた。「優秀な人材の近くにいたいのです」と同氏は語った。同社はすでに地元の2つの大学と協定を結んでおり、これにより大学院生が同センターでインターンシップを修了できるようになる。",
+      "Kiroは現在、ソウルの本社で350人を雇用しており、同社のロボットはそこで設計・組み立てが行われている。同社のロボットの売上は過去3年間で3倍に増えており、これは主にオンライン小売業者からの需要によってもたらされたものである。",
+      "新しいセンターは、現在まだ建設中のDaejeon Innovation Towerの2フロアに入る予定だ。採用は秋に始まる見込みである。"
+     ]
     }
    ],
    "questions": [
@@ -419,7 +447,16 @@
     {
      "kind": "online chat discussion",
      "title": "Online chat discussion",
-     "text": "Sarah Kim [3:02 P.M.]\nThe caterer just told me they can't deliver before 11:30 on Friday.\n\nLuis Ortega [3:03 P.M.]\nThe workshop lunch starts at 11:45, right?\n\nSarah Kim [3:04 P.M.]\nRight. So it should be fine, but it'll be tight.\n\nDana Wells [3:06 P.M.]\nI can come in early and set up the tables and plates beforehand. That way they'll just need to bring the food in.\n\nSarah Kim [3:07 P.M.]\nThat would help a lot.\n\nLuis Ortega [3:09 P.M.]\nI'll ask the speaker to finish her morning session a few minutes early, just in case.\n\nDana Wells [3:10 P.M.]\nGood idea. I'll also put up signs pointing to the dining room."
+     "text": "Sarah Kim [3:02 P.M.]\nThe caterer just told me they can't deliver before 11:30 on Friday.\n\nLuis Ortega [3:03 P.M.]\nThe workshop lunch starts at 11:45, right?\n\nSarah Kim [3:04 P.M.]\nRight. So it should be fine, but it'll be tight.\n\nDana Wells [3:06 P.M.]\nI can come in early and set up the tables and plates beforehand. That way they'll just need to bring the food in.\n\nSarah Kim [3:07 P.M.]\nThat would help a lot.\n\nLuis Ortega [3:09 P.M.]\nI'll ask the speaker to finish her morning session a few minutes early, just in case.\n\nDana Wells [3:10 P.M.]\nGood idea. I'll also put up signs pointing to the dining room.",
+     "trans": [
+      "Sarah Kim [午後3:02]\nケータリング業者から、金曜日は11:30より前には配達できないと今言われました。",
+      "Luis Ortega [午後3:03]\nワークショップの昼食は11:45開始ですよね？",
+      "Sarah Kim [午後3:04]\nそうです。だから大丈夫なはずですが、時間的にはぎりぎりになりそうです。",
+      "Dana Wells [午後3:06]\n私が早めに来て、テーブルとお皿を事前に準備しておけますよ。そうすれば、業者は料理を運び込むだけで済みます。",
+      "Sarah Kim [午後3:07]\nそれはとても助かります。",
+      "Luis Ortega [午後3:09]\n念のため、講演者に午前のセッションを数分早めに終えてもらうよう頼んでおきます。",
+      "Dana Wells [午後3:10]\nいい考えですね。私はダイニングルームへの案内表示も貼っておきます。"
+     ]
     }
    ],
    "questions": [
@@ -561,7 +598,13 @@
     {
      "kind": "advertisement",
      "title": "Advertisement",
-     "text": "Ledgerly Small Business Accounting\n\nSpend less time on bookkeeping and more time growing your business. Ledgerly automatically sorts your expenses, sends invoices to your customers, and prepares reports for tax season. You can connect your bank account in minutes, and our mobile app lets you photograph receipts wherever you are.\n\nPlans start at $12 per month for a single user. Our Team plan, at $30 per month, includes up to five users and priority phone support.\n\nTry Ledgerly free for 30 days. No credit card is required to start your trial. Sign up at www.ledgerly.example."
+     "text": "Ledgerly Small Business Accounting\n\nSpend less time on bookkeeping and more time growing your business. Ledgerly automatically sorts your expenses, sends invoices to your customers, and prepares reports for tax season. You can connect your bank account in minutes, and our mobile app lets you photograph receipts wherever you are.\n\nPlans start at $12 per month for a single user. Our Team plan, at $30 per month, includes up to five users and priority phone support.\n\nTry Ledgerly free for 30 days. No credit card is required to start your trial. Sign up at www.ledgerly.example.",
+     "trans": [
+      "Ledgerly 小規模事業者向け会計サービス",
+      "帳簿付けにかける時間を減らして、事業の成長にもっと時間を使いましょう。Ledgerlyは、経費の分類、顧客への請求書の送付、そして税務申告の時期に向けた報告書の作成を自動で行います。銀行口座は数分で連携でき、当社のモバイルアプリを使えば、どこにいても領収書を撮影できます。",
+      "プランは、ユーザー1名で月額12ドルからご用意しています。月額30ドルのTeamプランには、最大5名までのユーザー利用と優先電話サポートが含まれます。",
+      "Ledgerlyを30日間無料でお試しください。お試しの開始にクレジットカードは必要ありません。www.ledgerly.exampleでご登録ください。"
+     ]
     }
    ],
    "questions": [
@@ -701,6 +744,44 @@
         "$571.50"
        ]
       ]
+     },
+     "trans": [
+      "Coastline Marketing Conference — 登録確認書\n参加者：Hye-jin Cho（Tidewater Hotels）\n確認番号：CMC-2291",
+      "注意：バッジは、10月13日午前8:00から受付デスクで受け取ることができます。写真付きの身分証明書をお持ちください。9月30日より前にキャンセルされた場合は、手数料25ドルを差し引いた全額が返金されます。"
+     ],
+     "transTable": {
+      "header": [
+       "項目",
+       "日付",
+       "料金"
+      ],
+      "rows": [
+       [
+        "カンファレンス全日程パス",
+        "10月14日～15日",
+        "480.00ドル"
+       ],
+       [
+        "ワークショップ：ソーシャルメディア分析",
+        "10月13日",
+        "95.00ドル"
+       ],
+       [
+        "ネットワーキングディナー",
+        "10月14日",
+        "60.00ドル"
+       ],
+       [
+        "早期登録割引（10%）",
+        "",
+        "−63.50ドル"
+       ],
+       [
+        "支払総額",
+        "",
+        "571.50ドル"
+       ]
+      ]
      }
     }
    ],
@@ -797,7 +878,14 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: sales@pinpointprint.example\nFrom: Tomas Varga\nDate: February 3\nSubject: Quote request\n\nHello,\n\nI manage the gift shop at the Harmon History Museum. — [1] — We are planning to sell a set of six postcards featuring photographs from our new exhibit, which opens on April 10. — [2] —\n\nWe would like 2,000 sets printed on heavy, glossy card stock. Could you send me a price quote, along with samples of the paper you would recommend? — [3] — Our board must approve all purchases over $1,000, and it next meets on February 24, so I would need your quote before then.\n\n— [4] — Thank you,\nTomas Varga"
+     "text": "To: sales@pinpointprint.example\nFrom: Tomas Varga\nDate: February 3\nSubject: Quote request\n\nHello,\n\nI manage the gift shop at the Harmon History Museum. — [1] — We are planning to sell a set of six postcards featuring photographs from our new exhibit, which opens on April 10. — [2] —\n\nWe would like 2,000 sets printed on heavy, glossy card stock. Could you send me a price quote, along with samples of the paper you would recommend? — [3] — Our board must approve all purchases over $1,000, and it next meets on February 24, so I would need your quote before then.\n\n— [4] — Thank you,\nTomas Varga",
+     "trans": [
+      "宛先：sales@pinpointprint.example\n差出人：Tomas Varga\n日付：2月3日\n件名：見積もりのご依頼",
+      "こんにちは。",
+      "私はHarmon History Museumのギフトショップを管理しております。 — [1] — 当館では、4月10日に始まる新しい展示の写真を使った、6枚1組のポストカードセットを販売する予定です。 — [2] —",
+      "厚手で光沢のあるカード用紙に、2,000セットを印刷していただきたいと考えています。お見積もりを、おすすめの用紙のサンプルと一緒に送っていただけますか。 — [3] — 1,000ドルを超える購入はすべて当館の理事会の承認が必要で、次回の理事会は2月24日に開かれるため、それまでにお見積もりをいただく必要があります。",
+      "— [4] — よろしくお願いいたします。\nTomas Varga"
+     ]
     }
    ],
    "questions": [
@@ -904,7 +992,13 @@
     {
      "kind": "notice",
      "title": "Notice",
-     "text": "Notice to Customers\n\nMartel Hardware will be closed on Sunday, January 12, so that our staff can complete our annual inventory count. We will reopen at our regular time, 8:00 A.M., on Monday, January 13.\n\nOnline orders can still be placed during this time, but they will not be processed until Monday. Customers who need to pick up special orders that weekend are asked to do so by 6:00 P.M. on Saturday, January 11.\n\nWe thank you for your patience."
+     "text": "Notice to Customers\n\nMartel Hardware will be closed on Sunday, January 12, so that our staff can complete our annual inventory count. We will reopen at our regular time, 8:00 A.M., on Monday, January 13.\n\nOnline orders can still be placed during this time, but they will not be processed until Monday. Customers who need to pick up special orders that weekend are asked to do so by 6:00 P.M. on Saturday, January 11.\n\nWe thank you for your patience.",
+     "trans": [
+      "お客様へのお知らせ",
+      "Martel Hardwareは、スタッフが年に一度の在庫の棚卸しを完了できるよう、1月12日（日）は休業いたします。1月13日（月）は、通常どおり午前8:00に営業を再開いたします。",
+      "この期間中もオンラインでのご注文は可能ですが、ご注文の処理は月曜日からとなります。その週末に特別注文品を受け取る必要があるお客様は、1月11日（土）午後6:00までにお受け取りくださいますようお願いいたします。",
+      "皆様のご理解に感謝いたします。"
+     ]
     }
    ],
    "questions": [
@@ -983,7 +1077,14 @@
     {
      "kind": "text message chain",
      "title": "Text-message chain",
-     "text": "Paolo Greco [1:15 P.M.]\nHi Amina, the delivery van broke down on Route 9. I won't make it to the Linwood store by 2.\n\nAmina Osei [1:17 P.M.]\nOh no. Is the truck from the north depot free?\n\nPaolo Greco [1:18 P.M.]\nIt's out until 4.\n\nAmina Osei [1:19 P.M.]\nThen I'll call Linwood and move the delivery to tomorrow morning. Can you get the van towed?\n\nPaolo Greco [1:20 P.M.]\nAlready on it. The tow company says 30 minutes."
+     "text": "Paolo Greco [1:15 P.M.]\nHi Amina, the delivery van broke down on Route 9. I won't make it to the Linwood store by 2.\n\nAmina Osei [1:17 P.M.]\nOh no. Is the truck from the north depot free?\n\nPaolo Greco [1:18 P.M.]\nIt's out until 4.\n\nAmina Osei [1:19 P.M.]\nThen I'll call Linwood and move the delivery to tomorrow morning. Can you get the van towed?\n\nPaolo Greco [1:20 P.M.]\nAlready on it. The tow company says 30 minutes.",
+     "trans": [
+      "Paolo Greco [午後1:15]\nAminaさん、配達用のバンがRoute 9で故障してしまいました。2時までにLinwood店には着けません。",
+      "Amina Osei [午後1:17]\nそれは困りましたね。北の配送拠点のトラックは空いていますか。",
+      "Paolo Greco [午後1:18]\nそのトラックは4時まで出払っています。",
+      "Amina Osei [午後1:19]\nそれなら、私がLinwood店に電話して、配達を明日の朝に変更します。バンのレッカー移動を手配してもらえますか。",
+      "Paolo Greco [午後1:20]\nもう手配しています。レッカー会社によると、30分かかるそうです。"
+     ]
     }
    ],
    "questions": [
@@ -1057,7 +1158,13 @@
     {
      "kind": "article",
      "title": "Article",
-     "text": "Local Bakery Wins Regional Award\n\nGLENWOOD (May 20) — Rosewood Bakery has been named Small Business of the Year by the Glenwood Regional Business Council. The award recognizes companies that have shown strong growth, community involvement, and excellent customer service.\n\nFounded six years ago by Elena Park, Rosewood started as a stand at the weekend farmers market. It now operates two shops and supplies bread to more than 20 restaurants. Last year, the bakery launched a training program that teaches baking skills to young adults looking for work. Eight graduates have since been hired by local businesses, including three by Rosewood itself.\n\nMs. Park will accept the award at the council's annual dinner on June 3. “This award belongs to my whole team,” she said."
+     "text": "Local Bakery Wins Regional Award\n\nGLENWOOD (May 20) — Rosewood Bakery has been named Small Business of the Year by the Glenwood Regional Business Council. The award recognizes companies that have shown strong growth, community involvement, and excellent customer service.\n\nFounded six years ago by Elena Park, Rosewood started as a stand at the weekend farmers market. It now operates two shops and supplies bread to more than 20 restaurants. Last year, the bakery launched a training program that teaches baking skills to young adults looking for work. Eight graduates have since been hired by local businesses, including three by Rosewood itself.\n\nMs. Park will accept the award at the council's annual dinner on June 3. “This award belongs to my whole team,” she said.",
+     "trans": [
+      "地元のベーカリーが地域の賞を受賞",
+      "GLENWOOD（5月20日）— Rosewood Bakeryが、Glenwood Regional Business Councilにより「年間最優秀小規模企業（Small Business of the Year）」に選ばれた。この賞は、力強い成長、地域社会への貢献、そして優れた顧客サービスを示した企業を表彰するものである。",
+      "6年前にElena Parkが創業したRosewoodは、週末のファーマーズマーケットの屋台から始まった。現在は2店舗を経営し、20を超えるレストランにパンを供給している。昨年、同ベーカリーは、仕事を探している若者にパン作りの技術を教える研修プログラムを立ち上げた。それ以来、8人の修了生が地元の企業に採用されており、そのうち3人はRosewood自身が採用した。",
+      "Parkさんは、6月3日に開かれる同協議会の年次夕食会で賞を受け取る予定だ。「この賞は私のチーム全員のものです」と彼女は語った。"
+     ]
     }
    ],
    "questions": [
@@ -1162,7 +1269,13 @@
     {
      "kind": "web page",
      "title": "Web Page",
-     "text": "Frequently Asked Questions — CityWheels Car Sharing\n\nHow do I reserve a car?\nUse the CityWheels app to see available cars near you. You can reserve a car up to 14 days in advance or start a trip right away.\n\nWhat if I return a car late?\nLate returns are charged at $1 per minute, up to a maximum of $50, because another member may be waiting for the car. If you know you will be late, you can extend your trip in the app as long as the car has not been reserved by someone else.\n\nIs fuel included?\nYes. Each car contains a fuel card that members can use at any major gas station. Please refill the tank if it is less than one-quarter full at the end of your trip."
+     "text": "Frequently Asked Questions — CityWheels Car Sharing\n\nHow do I reserve a car?\nUse the CityWheels app to see available cars near you. You can reserve a car up to 14 days in advance or start a trip right away.\n\nWhat if I return a car late?\nLate returns are charged at $1 per minute, up to a maximum of $50, because another member may be waiting for the car. If you know you will be late, you can extend your trip in the app as long as the car has not been reserved by someone else.\n\nIs fuel included?\nYes. Each car contains a fuel card that members can use at any major gas station. Please refill the tank if it is less than one-quarter full at the end of your trip.",
+     "trans": [
+      "よくあるご質問 — CityWheels Car Sharing",
+      "車を予約するにはどうすればよいですか？\nCityWheelsアプリを使って、お近くで利用できる車をご確認ください。車は最大14日前から予約できるほか、すぐに利用を開始することもできます。",
+      "車の返却が遅れた場合はどうなりますか？\nほかの会員がその車を待っている可能性があるため、返却が遅れた場合は1分あたり1ドル（上限50ドル）の料金がかかります。遅れることがわかっている場合は、その車がほかの人に予約されていない限り、アプリで利用時間を延長することができます。",
+      "燃料代は含まれていますか？\nはい。各車には、会員が主要なガソリンスタンドならどこでも使える給油カードが備え付けられています。利用終了時に燃料の残量が4分の1未満の場合は、給油をお願いします。"
+     ]
     }
    ],
    "questions": [
@@ -1268,7 +1381,15 @@
     {
      "kind": "letter",
      "title": "Letter",
-     "text": "Dear Ms. Alvarez,\n\nI am writing to invite Seaview Logistics to take part in the Westbrook University Spring Career Fair, which will be held on March 18 in the Student Center. Last year, more than 1,500 students attended, and 85 employers participated.\n\nBooths are available to employers free of charge. Each booth comes with a table, two chairs, and access to electricity. If you would like to offer on-site interviews, we can also reserve a private room near the main hall for $50.\n\nStudents attending the fair will come mainly from our business, engineering, and computer science programs. Many of them are looking for summer internships as well as full-time positions after graduation.\n\nTo reserve a booth, please complete the online form at careers.westbrook.example by February 20. Booth locations are assigned in the order in which registrations are received.\n\nSincerely,\nMichael Osei\nDirector of Career Services"
+     "text": "Dear Ms. Alvarez,\n\nI am writing to invite Seaview Logistics to take part in the Westbrook University Spring Career Fair, which will be held on March 18 in the Student Center. Last year, more than 1,500 students attended, and 85 employers participated.\n\nBooths are available to employers free of charge. Each booth comes with a table, two chairs, and access to electricity. If you would like to offer on-site interviews, we can also reserve a private room near the main hall for $50.\n\nStudents attending the fair will come mainly from our business, engineering, and computer science programs. Many of them are looking for summer internships as well as full-time positions after graduation.\n\nTo reserve a booth, please complete the online form at careers.westbrook.example by February 20. Booth locations are assigned in the order in which registrations are received.\n\nSincerely,\nMichael Osei\nDirector of Career Services",
+     "trans": [
+      "Alvarez様",
+      "3月18日にStudent Centerで開催されるWestbrook University Spring Career Fairに、Seaview Logisticsをご招待したく、お手紙を差し上げました。昨年は1,500人を超える学生が来場し、85の企業が参加しました。",
+      "ブースは、企業の皆様に無料でご利用いただけます。各ブースには、テーブル1台、椅子2脚、電源が備わっています。会場での面接の実施をご希望の場合は、50ドルでメインホール近くの個室をお取りすることもできます。",
+      "フェアに参加する学生は、主に本学のビジネス、工学、コンピューターサイエンスの各課程の学生です。その多くが、卒業後の正社員の職に加えて、夏のインターンシップも探しています。",
+      "ブースのご予約は、2月20日までにcareers.westbrook.exampleのオンラインフォームにご記入ください。ブースの場所は、登録を受け付けた順に割り当てられます。",
+      "敬具\nMichael Osei\nキャリアサービス部長"
+     ]
     }
    ],
    "questions": [
@@ -1401,7 +1522,13 @@
     {
      "kind": "memo",
      "title": "Memo",
-     "text": "MEMO\nTo: All Finance Department staff\nFrom: Helen Wu, Finance Director\nDate: August 18\nSubject: Move to the fifth floor\n\nAs you know, the Finance Department will move from the second floor to the fifth floor over the weekend of August 30. — [1] — Movers will transport all furniture and files, but you are responsible for packing the items in your own desk. — [2] —\n\nBoxes and labels will be delivered to the department on August 26. Please label each box with your name and new desk number, which you will find on the seating chart posted in the break room. — [3] —\n\nOur phone numbers and e-mail addresses will stay the same. — [4] — Thank you for your cooperation."
+     "text": "MEMO\nTo: All Finance Department staff\nFrom: Helen Wu, Finance Director\nDate: August 18\nSubject: Move to the fifth floor\n\nAs you know, the Finance Department will move from the second floor to the fifth floor over the weekend of August 30. — [1] — Movers will transport all furniture and files, but you are responsible for packing the items in your own desk. — [2] —\n\nBoxes and labels will be delivered to the department on August 26. Please label each box with your name and new desk number, which you will find on the seating chart posted in the break room. — [3] —\n\nOur phone numbers and e-mail addresses will stay the same. — [4] — Thank you for your cooperation.",
+     "trans": [
+      "社内連絡\n宛先：財務部 全スタッフ\n差出人：Helen Wu、財務部長\n日付：8月18日\n件名：5階への移転",
+      "ご存じのとおり、財務部は8月30日の週末に2階から5階へ移転します。 — [1] — 引っ越し業者がすべての家具と書類を運びますが、ご自分の机の中の物は各自で荷造りしていただく必要があります。 — [2] —",
+      "8月26日に、段ボール箱とラベルが部署に届けられます。各箱には、ご自分の名前と新しいデスク番号を書いたラベルを貼ってください。新しいデスク番号は、休憩室に掲示されている座席表で確認できます。 — [3] —",
+      "電話番号とメールアドレスは変わりません。 — [4] — ご協力ありがとうございます。"
+     ]
     }
    ],
    "questions": [
@@ -1502,7 +1629,15 @@
     {
      "kind": "email",
      "title": "E-mail",
-     "text": "To: billing@harborviewhotel.example\nFrom: Kenji Watanabe\nDate: November 4\nSubject: Charges for stay, October 28–30\n\nDear Billing Department,\n\nI stayed at the Harborview Hotel from October 28 to 30 while attending a conference. When I reviewed my credit card statement, I noticed two charges that I believe were made in error.\n\nFirst, I was charged $35 for parking each night. However, when I booked my room, I was told that parking was included in the conference rate, and this is stated in my booking confirmation, which I have attached. Second, there is a $22 charge for the minibar, but I did not use anything from it during my stay.\n\nI would appreciate it if you could look into these charges and refund the correct amount. I can be reached at this e-mail address or at 555-0193.\n\nSincerely,\nKenji Watanabe"
+     "text": "To: billing@harborviewhotel.example\nFrom: Kenji Watanabe\nDate: November 4\nSubject: Charges for stay, October 28–30\n\nDear Billing Department,\n\nI stayed at the Harborview Hotel from October 28 to 30 while attending a conference. When I reviewed my credit card statement, I noticed two charges that I believe were made in error.\n\nFirst, I was charged $35 for parking each night. However, when I booked my room, I was told that parking was included in the conference rate, and this is stated in my booking confirmation, which I have attached. Second, there is a $22 charge for the minibar, but I did not use anything from it during my stay.\n\nI would appreciate it if you could look into these charges and refund the correct amount. I can be reached at this e-mail address or at 555-0193.\n\nSincerely,\nKenji Watanabe",
+     "trans": [
+      "宛先：billing@harborviewhotel.example\n差出人：Kenji Watanabe\n日付：11月4日\n件名：10月28日～30日の宿泊に関する請求について",
+      "請求担当部署御中",
+      "私は会議に出席するため、10月28日から30日までHarborview Hotelに宿泊しました。クレジットカードの利用明細を確認したところ、誤って請求されたと思われる料金が2件ありました。",
+      "まず、駐車料金として1泊ごとに35ドルが請求されていました。しかし、部屋を予約した際、駐車料金は会議参加者向け料金に含まれていると説明を受けており、その旨は添付した予約確認書にも記載されています。次に、ミニバーの料金として22ドルが請求されていますが、滞在中にミニバーの品は一切利用していません。",
+      "これらの請求について調査し、正しい金額を返金していただけますと幸いです。このメールアドレスか、555-0193までご連絡ください。",
+      "よろしくお願いいたします。\nKenji Watanabe"
+     ]
     }
    ],
    "questions": [

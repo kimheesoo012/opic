@@ -41,7 +41,8 @@ const copyIssues = [];
 async function checkText(p, where) {
   const t = await pageText(p);
   if (HANGUL.test(t)) copyIssues.push(`${where}: 한글 "${t.match(/.{0,12}[가-힣].{0,12}/)[0]}"`);
-  if (BAD_COPY.test(t)) copyIssues.push(`${where}: ${t.match(BAD_COPY)[0]}`);
+  const ui = await p.evaluate(() => { const c = document.body.cloneNode(true); c.querySelectorAll('.passage').forEach((x) => x.remove()); return c.innerText; }); // 지문(리뷰 별점 ★ 등)은 문구 규칙 대상이 아님
+  if (BAD_COPY.test(ui)) copyIssues.push(`${where}: ${ui.match(BAD_COPY)[0]}`);
   const ox = await overflowX(p);
   if (ox > 1) copyIssues.push(`${where}: 가로 넘침 ${ox}px`);
 }
@@ -128,7 +129,25 @@ try {
   const ev7 = await p.evaluate(() => ({ marks: document.querySelectorAll('.passage mark.ev, .passage td.ev').length, ev: (document.querySelector('.exp .ev') || {}).textContent || '', q: (document.querySelector('.exp .qtr') || {}).textContent || '' }));
   ok('Part 7 해설: 根拠の文 + 지문 강조 + 設問 일본어', ev7.marks >= 1 && ev7.ev.includes('根拠の文') && KANA.test(ev7.q) && !HANGUL.test(ev7.q), JSON.stringify(ev7).slice(0, 100));
   await checkText(p, 'Part 7 解説');
-  await answerLoop(p);
+  ok('세트를 다 풀기 전: 本文の訳は잠김', (await p.textContent('.exp .ptr-lock')).includes('本文全体の訳') && !(await p.$('.ptr-bar')));
+  for (let i = 0; i < 6; i++) {
+    if (!(await p.$('.exp'))) { await (await p.$$('.choice[data-act="choose"]'))[0].click(); await p.waitForSelector('.exp'); }
+    if (await p.$('.ptr-bar')) break;
+    await p.click('[data-act="next"]');
+  }
+  ok('세트 끝: 訳を表示 버튼', (await p.textContent('.ptr-bar [data-act="ptrans"]')) === '訳を表示' && (await p.textContent('.exp [data-act="ptransGo"]')) === '本文全体の訳を見る');
+  await p.click('[data-act="ptransGo"]');
+  await p.waitForSelector('.passage.tr-on');
+  const tr7 = await p.evaluate(() => { const ptr = [...document.querySelectorAll('.passage .ptr')]; return { n: ptr.length, pp: document.querySelectorAll('.passage .pp').length, txt: ptr.map((e) => e.textContent).join(' ') }; });
+  ok('Part 7 지문 해석 일본어, 문단마다', tr7.n > 0 && tr7.n <= tr7.pp && KANA.test(tr7.txt) && !HANGUL.test(tr7.txt) && (await p.textContent('[data-act="ptrans"]')) === '訳を隠す', `${tr7.n}/${tr7.pp} ${tr7.txt.slice(0, 60)}`);
+  await checkText(p, 'Part 7 本文の訳');
+  await shot(p, '05b-p7-trans');
+  await p.click('[data-act="exitAsk"]');
+  await p.click('[data-act="exitFinish"]');
+  await p.waitForSelector('.pt-det', { state: 'attached' });
+  const det = await p.evaluate(() => { const d = document.querySelector('.pt-det'); return { sum: d.querySelector('summary').textContent, txt: [...d.querySelectorAll('.ptr')].map((e) => e.textContent).join(' ') }; });
+  ok('결과 화면: 本文と訳', det.sum === '本文と訳' && KANA.test(det.txt) && !HANGUL.test(det.txt), det.sum);
+  await checkText(p, '結果 本文と訳');
 
   // 6. 나머지 화면 문구
   for (const r of ['home', 'review', 'stats', 'prefs', 'about', 'train-para', 'train-vocab']) {
