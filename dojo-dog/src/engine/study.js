@@ -388,14 +388,14 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
     if (wrong.length < 3) return makeQuestion(id, seed, rec, { ...ctx, kind: 'meaning' });
     const options = shuffle(h, [key, ...wrong.map((w) => w.k)]);
     const why = options.map((o) => vShort(o));
-    return { id, kind, prompt: it.m, options, answer: options.indexOf(key), explain: `${it.m} → 「${key}（${it.r}）」. 오답: ${wrong.map((w) => `${w.k}（${VOCAB[w.k].r}）= ${w.m}`).join(' · ')}.`, why, ex: vocabEx(key), more: vocabMore(key), label: key, sub: it.r };
+    return { id, kind, prompt: it.m, options, answer: options.indexOf(key), explain: `${it.m} → 「${key}（${it.r}）」. 오답: ${wrong.map((w) => `${w.k}（${VOCAB[w.k].r}）= ${w.m}`).join(' · ')}.`, why, ex: vocabEx(key), more: vocabMore(key), vkey: key, label: key, sub: it.r };
   }
   if (kind === 'reading') {
     const wrong = readingOptions(key, seed);
     if (wrong.length < 3) return makeQuestion(id, seed, rec, { ...ctx, kind: 'meaning' });
     const options = shuffle(h, [it.r, ...wrong]);
     const why = options.map((o) => (o === it.r ? `${key}${pt(it.r, '은는')} ${it.r}라고 읽어요. 뜻은 「${it.m}」${pt(it.m, '이에요예요')}.` : readingDiff(it.r, o)));
-    return { id, kind, prompt: key, options, answer: options.indexOf(it.r), explain: `「${key}」의 읽기는 「${it.r}」(${it.m}). 장음(う)·탁음·촉음(っ)·요음(ゃゅょ)이 하나만 달라도 다른 말이 된다.`, why, ex: vocabEx(key), more: vocabMore(key), label: key, sub: it.r };
+    return { id, kind, prompt: key, options, answer: options.indexOf(it.r), explain: `「${key}」의 읽기는 「${it.r}」(${it.m}). 장음(う)·탁음·촉음(っ)·요음(ゃゅょ)이 하나만 달라도 다른 말이 된다.`, why, ex: vocabEx(key), more: vocabMore(key), vkey: key, label: key, sub: it.r };
   }
   // 같은 품사·비슷한 길이를 먼저 고른다 (품사가 드물면 다른 품사도)
   const pool = Object.entries(VOCAB)
@@ -414,9 +414,9 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
   const why = options.map((o) => {
     if (o === it.m) return `${withReading(key)}${pt(it.r, '은는')} 「${it.m}」${pt(it.m, '이라는라는')} 뜻이에요.`;
     const w = wrong.find((x) => x.m === o);
-    return w ? `그건 ${withReading(w.k)}의 뜻이에요.` : '';
+    return w ? `${withReading(w.k)}${pt(w.k, '이가')} 「${w.m}」${pt(w.m, '이에요예요')}. 다른 말이에요.` : '';
   });
-  return { id, kind, prompt: key, options, answer: options.indexOf(it.m), explain: `「${key}（${it.r}）」 = ${it.m}. 오답: ${wrongNote}.`, why, ex: vocabEx(key), more: vocabMore(key), label: key, sub: it.r, context: kind === 'context' };
+  return { id, kind, prompt: key, options, answer: options.indexOf(it.m), explain: `「${key}（${it.r}）」 = ${it.m}. 오답: ${wrongNote}.`, why, ex: vocabEx(key), more: vocabMore(key), vkey: key, label: key, sub: it.r, context: kind === 'context' };
 }
 
 // hasScene(id): 그 말이 게임 속 장면을 갖고 있는지 / blankFor(id): 문장 빈칸 정보 (없으면 null)

@@ -496,6 +496,16 @@ button.delta { background: none; font: inherit; font-size: 16px; cursor: pointer
 .ex-others li b { font-weight: 600; font-size: 16.5px; }
 .ex-others li span { color: var(--ink2); }
 .ex-others li span .jw { color: var(--ink); }
+.ex-rows { margin-top: 8px; display: flex; flex-direction: column; gap: 5px; }
+.ex-row { display: flex; gap: 8px; align-items: baseline; font-size: 14.5px; line-height: 1.55; word-break: keep-all; }
+.ex-row-t { flex: none; font-size: 11.5px; color: var(--ink2); border: 1px solid var(--line); border-radius: 5px; padding: 0 5px; min-width: 52px; text-align: center; }
+.ex-row-v { color: var(--ink); }
+.ex-kj { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
+.ex-kj-one { display: inline-flex; align-items: baseline; gap: 3px; padding: 1px 6px; border-radius: 7px; background: var(--bg2); white-space: nowrap; }
+.ex-kj-one b { font-size: 17px; font-weight: 600; }
+.ex-kj-r { font-size: 13px; color: var(--ink); }
+.ex-kj-ko { font-size: 12px; color: var(--ink2); margin-left: 1px; }
+.ex-kj-plus { color: var(--ink2); font-size: 13px; }
 .ex-more { margin-top: 6px; }
 .ex-more summary { cursor: pointer; color: var(--accent); font-size: 15px; padding: 6px 0; }
 .ex-more p { margin: 4px 0; font-size: 14px; line-height: 1.6; color: var(--ink2); }

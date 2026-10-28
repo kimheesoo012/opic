@@ -8,6 +8,9 @@ for (const q of BANK) {
   for (const id of q.ref || []) (BANK_BY_REF[id] = BANK_BY_REF[id] || []).push(q);
 }
 
+// 문항이 다루는 어휘 키 (해설의 한자 분해·비슷한 말 줄에 쓴다): ref의 v:○○, 표기 문제는 정답 글자
+export const bankVkey = (item) => (item.type === 'hyoki' ? item.opts[item.a] : (item.ref || []).filter((r) => r.startsWith('v:')).map((r) => r.slice(2))[0] || null);
+
 // 문제은행 문항 → 확인 문제 모양
 export function bankQuestion(id, item) {
   return {
@@ -20,6 +23,7 @@ export function bankQuestion(id, item) {
     answer: item.a,
     why: item.why,
     ko: item.ko,
+    vkey: bankVkey(item),
     explain: item.why[item.a],
     label: BANK_TYPES[item.type][0],
     sub: '',
