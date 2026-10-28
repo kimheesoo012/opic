@@ -256,7 +256,7 @@ T['js/app.js'] = [
     ('<h2>다시 볼 문제 ${wrongQs.length}</h2>', '<h2>見直す問題 ${wrongQs.length}</h2>'),
     ("slow ? ['warn', '시간 초과'] : !a ? ['bad', '미응답'] : a.choice === -1 ? ['bad', '시간 초과'] : ['bad', '오답']", "slow ? ['warn', '時間オーバー'] : !a ? ['bad', '未回答'] : a.choice === -1 ? ['bad', '時間切れ'] : ['bad', '不正解']"),
     ('`빈칸 (${q.blank})` : q.question;\n      html', '`空所(${q.blank})` : q.question;\n      html'),
-    ('<p class="xs muted">지문은 오답노트에서 다시 풀며 볼 수 있습니다.</p>', '<p class="xs muted">本文は間違いノートで解き直すときに見られます。</p>'),
+    ('<summary class="small">지문과 해석</summary>', '<summary class="small">本文と訳</summary>'),
     ('>틀린 유형 단계별 복습 · ${concepts.length}개</button>', '>間違えたタイプをステップ復習・${concepts.length}タイプ</button>'),
     ('<p class="muted">틀린 문제가 없습니다.</p>', '<p class="muted">間違えた問題はありません。</p>'),
     ('<a class="btn block" href="#home">홈으로</a>', '<a class="btn block" href="#home">ホームへ</a>'),
@@ -449,6 +449,13 @@ T['js/player.js'] += [
     ('data-act="scrollEv">지문에서 보기</button>', 'data-act="scrollEv">本文で見る</button>'),
     ('<div class="lbl">선택지</div><ul class="traps">', '<div class="lbl">選択肢</div><ul class="traps">'),
     ("toast('이 지문에는 강조할 문장이 없습니다.');", "toast('この文書には強調する文がありません。');"),
+]
+
+# ---- 지문 해석 (2.3) ----
+T['js/player.js'] += [
+    ("${trOn ? '해석 숨기기' : '해석 보기'}", "${trOn ? '訳を隠す' : '訳を表示'}"),
+    ('data-act="ptransGo">지문 전체 해석 보기</button>', 'data-act="ptransGo">本文全体の訳を見る</button>'),
+    ('세트의 마지막 문제까지 풀면 지문 전체 해석이 열립니다.', 'セットの最後の問題まで解くと、本文全体の訳が表示されます。'),
 ]
 
 HANGUL = re.compile(r'[가-힣]')

@@ -11,10 +11,10 @@ import { makeRng, dayKey, pct, fmtSec, fmtMin, PART_NAMES, TARGETS, DAY, RC_PART
 import { h, on, toast, sheet, closeSheet, installDispatcher, icons } from './ui.js';
 import { addXp, streakInfo, settle, levelOf, backfill, masteryMap, MASTERY_LABELS, BADGES, shiftDay } from './game.js';
 import { play } from './sound.js';
-import { initPlayer, startSession, render as renderPlayer, leavePlayer, explainHtml } from './player.js';
+import { initPlayer, startSession, render as renderPlayer, leavePlayer, explainHtml, passageStudyHtml } from './player.js';
 import { renderReview, renderStats, renderSettings, renderTrain, renderAbout } from './screens.js';
 
-export const APP_VERSION = '2.2.0';
+export const APP_VERSION = '2.3.0';
 
 // ---------- 공용 ----------
 C.save = (keys) => { for (const k of keys) C.store.save(k).catch((e) => console.warn('save', k, e)); };
@@ -369,7 +369,7 @@ function renderResult() {
       const tag = slow ? ['warn', '時間オーバー'] : !a ? ['bad', '未回答'] : a.choice === -1 ? ['bad', '時間切れ'] : ['bad', '不正解'];
       const label = unit.part === 6 ? `空所(${q.blank})` : q.question;
       html += `<details class="card"><summary><span class="tag ${tag[0]}">${tag[1]}</span> <span class="small">Part ${unit.part} · ${h(String(label || '').replace(/-{7}/, '___').slice(0, 70))}</span></summary>
-        ${unit.part >= 6 ? `<p class="xs muted">本文は間違いノートで解き直すときに見られます。</p>` : ''}
+        ${unit.part >= 6 ? `<details class="pt-det"><summary class="small">本文と訳</summary>${passageStudyHtml(unit, q)}</details>` : ''}
         ${explainHtml(q, unit, a, { causeFor: att, inPlay: false })}</details>`;
     }
     const concepts = [...new Set(wrongQs.filter((w) => !w.a || w.a.choice !== w.q.answer).map((w) => w.q.concept))];

@@ -46,9 +46,18 @@ def main(folder, check_only):
             if c.get(k) and f"c|{c['id']}|{k}" in tr: c[k] = tr[f"c|{c['id']}|{k}"]
     (DST / 'data/concepts.json').write_text(json.dumps(cj, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     idx = json.load(open(SRC / 'data/index.json'))
+    # Part 6·7 지문 해석: {unit id: [{paras: [...], table: {header, rows} | null}, ...]} (지문 순서대로)
+    ptr = json.load(open(Path(__file__).parent / 'passage-trans-ja.json', encoding='utf-8'))
     for f in idx['files']:
         d = json.load(open(SRC / 'data' / f))
         for u in d['units']:
+            if u.get('passages'):
+                tp = ptr.get(u['id'])
+                if not tp or len(tp) != len(u['passages']): sys.exit(f"지문 해석 없음 또는 지문 수 불일치: {u['id']}")
+                for ps, x in zip(u['passages'], tp):
+                    ps['trans'] = x['paras']
+                    if x.get('table'): ps['transTable'] = x['table']
+                    else: ps.pop('transTable', None)
             for q in u.get('questions') or [u]:
                 if q.get('trans'): q['trans'] = t(f"{q['id']}|trans")
                 ex = q['explanation']
