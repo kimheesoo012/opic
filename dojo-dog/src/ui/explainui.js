@@ -5,7 +5,7 @@ const JA = /[ぁ-んァ-ン一-龯]/;
 const esc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 // 해설이 선택지 글자로 시작하면(「にわたって는 …」) 그 부분은 화면이 이미 보여 주므로 뺀다
 function trimHead(text, opt) {
-  let t = String(text || '').replace(/^정답[.。]\s*/, '').trim();
+  let t = String(text || '').replace(/^정답[.。]\s*/, '').replace(/^정답\s*\(([^)]*)\)[.。]?\s*/, '$1. ').trim();
   const bare = String(opt).replace(/^～/, '').replace(/^\d+\.\s*/, '');
   if (bare) t = t.replace(new RegExp(`^「?～?${esc(bare)}」?\\s*(는|은|이|가|를|을|의)?\\s+`), '');
   return t;
