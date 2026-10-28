@@ -88,7 +88,17 @@ for (const u of bank.units) {
     });
     if (p.table) {
       const t = p.transTable;
-      if (!t || t.header.length !== p.table.header.length || t.rows.length !== p.table.rows.length || t.rows.some((r, i) => r.length !== p.table.rows[i].length)) fails.push(`${where}: 표 해석(transTable) 모양이 원문과 다름`);
+      if (!t || t.header.length !== p.table.header.length || t.rows.length !== p.table.rows.length || t.rows.some((r, i) => r.length !== p.table.rows[i].length)) { fails.push(`${where}: 표 해석(transTable) 모양이 원문과 다름`); return; }
+      [p.table.header, ...p.table.rows].forEach((row, ri) => row.forEach((en, ci) => {
+        const tr = [t.header, ...t.rows][ri][ci];
+        const w = `${where} 표 ${ri}행 ${ci}칸`;
+        if (!en.trim()) { if (tr !== '') fails.push(`${w}: 원문이 빈 칸인데 해석이 있음`); return; }
+        if (typeof tr !== 'string' || !tr.trim()) { fails.push(`${w}: 해석 비어 있음`); return; }
+        const have = digitRuns(tr);
+        if (digitRuns(en).some((d) => { const k = have.indexOf(d); if (k < 0) return true; have.splice(k, 1); return false; })) fails.push(`${w}: 숫자 누락`);
+        if (JA ? /[가-힣]/.test(tr) : /[\u3040-\u30ff]/.test(tr)) fails.push(`${w}: 다른 언어 문자가 섞임`);
+        if (/\b[a-z]{3,}\b/.test(en) && !(JA ? /[\u3040-\u30ff\u4e00-\u9fff]/ : /[가-힣]/).test(tr)) fails.push(`${w}: 번역되지 않음`);
+      }));
     } else if (p.transTable) fails.push(`${where}: 원문에 없는 표 해석`);
   });
   // 근거 문장은 한 문단(또는 표 한 칸) 안에 있어야 문단별 해석 화면에서 강조가 깨지지 않는다

@@ -311,7 +311,11 @@ details > summary { cursor: pointer; padding: 8px 0; list-style-position: inside
 .ptr-bar { display: flex; justify-content: flex-end; margin: 0 0 6px; }
 .passage .ptr { margin: 4px 0 12px; padding: 6px 10px; font-size: 14.5px; line-height: 1.6; background: var(--surface-2); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; }
 .passage .ptr:last-child { margin-bottom: 0; }
-html[lang="ko"] .passage .ptr { word-break: keep-all; overflow-wrap: anywhere; }
+html[lang="ko"] .passage .ptr { word-break: keep-all; overflow-wrap: break-word; }
+.passage.tr-on .pp + .pp { margin-top: 12px; }
+/* 표 칸은 단어 중간에서 끊지 않고, 넓으면 표만 가로로 밀어 본다 */
+.passage table { word-break: normal; }
+html[lang="ko"] .passage table { word-break: keep-all; }
 .passage .ptr .bkt { color: var(--accent); }
 .passage .ptr .bkt.on { background: var(--accent); color: var(--accent-ink); border-radius: 4px; padding: 0 4px; }
 .passage .tbl.trt table { background: var(--surface-2); }
