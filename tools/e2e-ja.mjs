@@ -41,7 +41,8 @@ const copyIssues = [];
 async function checkText(p, where) {
   const t = await pageText(p);
   if (HANGUL.test(t)) copyIssues.push(`${where}: 한글 "${t.match(/.{0,12}[가-힣].{0,12}/)[0]}"`);
-  if (BAD_COPY.test(t)) copyIssues.push(`${where}: ${t.match(BAD_COPY)[0]}`);
+  const ui = await p.evaluate(() => { const c = document.body.cloneNode(true); c.querySelectorAll('.passage').forEach((x) => x.remove()); return c.innerText; }); // 지문(리뷰 별점 ★ 등)은 문구 규칙 대상이 아님
+  if (BAD_COPY.test(ui)) copyIssues.push(`${where}: ${ui.match(BAD_COPY)[0]}`);
   const ox = await overflowX(p);
   if (ox > 1) copyIssues.push(`${where}: 가로 넘침 ${ox}px`);
 }

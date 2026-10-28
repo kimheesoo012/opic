@@ -44,6 +44,8 @@ async function curP6(p) {
 }
 const total = (p) => p.evaluate(() => Number((document.querySelector('.prog .xs').textContent.split('/')[1] || '0').trim()));
 const appText = (p) => p.textContent('#app');
+// 화면 문구 검사용: 문제 지문(영어 원문과 해석, 리뷰 별점 ★ 등)은 빼고 본다
+const uiText = (p) => p.evaluate(() => { const c = document.querySelector('#app').cloneNode(true); c.querySelectorAll('.passage').forEach((x) => x.remove()); return c.textContent; });
 
 // 화면 문구 규칙: 안내 말투·이모지 금지, LC 흔적 없음
 const BAD_COPY = /해 보세요|보세요|하세요!|[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
@@ -54,7 +56,7 @@ const browser = await chromium.launch();
 const errors = [];
 const copyIssues = [];
 async function checkCopy(p, where) {
-  const t = await appText(p);
+  const t = await uiText(p);
   if (BAD_COPY.test(t)) copyIssues.push(`${where}: ${t.match(BAD_COPY)[0]}`);
   if (LC_WORDS.test(t)) copyIssues.push(`${where}: LC 흔적 "${t.match(LC_WORDS)[0]}"`);
 }
@@ -190,22 +192,23 @@ try {
   const title2 = await p.textContent('.passage .ptitle');
   ok('다중 지문 탭 전환', tabs.length >= 2 && title1 !== title2, `${tabs.length}개 탭: ${title1} → ${title2}`);
   await shot(p, '08-p7-multi-tab2');
-  // 지문이 화면보다 긴 탭을 찾는다(세트가 무작위라 짧은 탭일 수 있음)
+  // 가장 긴 탭을 고른다(세트가 무작위라 화면을 겨우 넘는 탭이면 탭이 위에 붙을 만큼 스크롤되지 않음)
+  const over = [];
   for (let i = 0; i < tabs.length; i++) {
-    const long = await p.evaluate(() => { const mm = document.querySelector('.sess-main'); return mm.scrollHeight > mm.clientHeight; });
-    if (long) break;
-    const tb = await p.$$('[data-act="ptab"]');
-    if (tb[i]) await tb[i].click();
+    await (await p.$$('[data-act="ptab"]'))[i].click();
+    over.push(await p.evaluate(() => { const mm = document.querySelector('.sess-main'); return mm.scrollHeight - mm.clientHeight; }));
   }
+  await (await p.$$('[data-act="ptab"]'))[over.indexOf(Math.max(...over))].click();
   const geo = await p.evaluate(() => {
     const main = document.querySelector('.sess-main');
     const foot = document.querySelector('.sess-foot');
     main.scrollTop = main.scrollHeight;
     const tabsBox = document.querySelector('.ptabs').getBoundingClientRect();
-    return { scrollable: main.scrollHeight > main.clientHeight, footBottom: foot.getBoundingClientRect().bottom, vh: innerHeight, tabsTop: tabsBox.top, mainTop: main.getBoundingClientRect().top };
+    return { overflow: main.scrollHeight - main.clientHeight, footBottom: foot.getBoundingClientRect().bottom, vh: innerHeight, tabsTop: tabsBox.top, mainTop: main.getBoundingClientRect().top };
   });
   ok('긴 지문은 본문만 스크롤, 선택지는 화면 아래에 고정', geo.footBottom <= geo.vh + 1, JSON.stringify(geo));
-  ok('스크롤해도 지문 탭이 위에 붙어 있음', geo.tabsTop <= geo.mainTop + 2 && geo.tabsTop >= geo.mainTop - 14, JSON.stringify(geo));
+  if (geo.overflow >= 80) ok('스크롤해도 지문 탭이 위에 붙어 있음', geo.tabsTop <= geo.mainTop + 2 && geo.tabsTop >= geo.mainTop - 14, JSON.stringify(geo));
+  else console.log(`SKIP 탭 고정 검사: 이 세트는 가장 긴 탭도 ${geo.overflow}px만 넘침`);
   await shot(p, '09-p7-scrolled');
   const fh1 = await p.evaluate(() => document.querySelector('.sess-foot').getBoundingClientRect().height);
   await p.click('[data-act="wide"]');

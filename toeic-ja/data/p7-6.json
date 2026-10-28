@@ -87,7 +87,7 @@
      "text": "Posted by Rachel Dunn, owner, Cornerstone Café ★★★★☆\n\nWe bought two machines for our café last month. We serve about 90 coffees a day, many with steamed milk, so we chose the model that could handle that volume without paying for the largest one. Shipping was free and fast. My only complaint is that we had to install the machines ourselves, which took most of an afternoon. The coffee has been excellent, and our customers have noticed.",
      "trans": [
       "投稿者：Rachel Dunn、Cornerstone Caféオーナー ★★★★☆",
-      "先月、当店のカフェ用にマシンを2台購入しました。当店では1日に約90杯のコーヒーを提供していて、その多くがスチームミルク入りなので、いちばん大きなモデルの代金を払わずに、その量に対応できるモデルを選びました。配送は無料で、しかも早かったです。唯一の不満は、マシンを自分たちで設置しなければならなかったことで、午後のほとんどがそれにかかってしまいました。コーヒーの味はすばらしく、お客様もそれに気づいてくれています。"
+      "先月、当店用にマシンを2台購入しました。当店では1日に約90杯のコーヒーを提供していて、その多くがスチームミルク入りなので、いちばん大きなモデルの代金を払わずに、その量に対応できるモデルを選びました。配送は無料で、しかも早かったです。唯一の不満は、マシンを自分たちで設置しなければならなかったことで、午後のほとんどがそれにかかってしまいました。コーヒーの味はすばらしく、お客様もそれに気づいてくれています。"
      ]
     }
    ],
@@ -714,7 +714,7 @@
      "trans": [
       "市、シェアサイクル事業を拡大へ",
       "LEXFORD（3月5日）— Lexford市は今夏、シェアサイクルのステーションを新たに40か所設置し、総数を120か所にする。新しいステーションは主に、市東部のBrookside地区とMillbrae地区に設置される予定で、両地区には現在ステーションが1か所もない。",
-      "年会費は60ドルに据え置かれるが、拡大の費用の一部を賄うため、1回の乗車料金は7月1日に2.00ドルから2.50ドルに値上げされる。ステーションの設置場所は、4月2日に市役所で開かれる公開会議の後に最終決定される。"
+      "年間会員プランの料金は60ドルに据え置かれるが、拡大の費用の一部を賄うため、1回の乗車料金は7月1日に2.00ドルから2.50ドルに値上げされる。ステーションの設置場所は、4月2日に市役所で開かれる公開会議の後に最終決定される。"
      ]
     },
     {
@@ -724,7 +724,7 @@
      "trans": [
       "宛先：Lexford Transportation Office\n差出人：Ana Duarte\n日付：3月9日\n件名：シェアサイクルの拡大について",
       "交通局御中",
-      "私はMillbraeに住んでおり、私たちの地区にようやくシェアサイクルのステーションができることをうれしく思っています。私は週に4回ほど自転車に乗っており、主に駅との行き来に利用しています。4月2日の会議に出席し、多くの通勤者が利用すると思われるMillbrae Stationの近くにステーションを設置するよう提案するつもりです。",
+      "私はMillbraeに住んでおり、私たちの地区にようやくシェアサイクルのステーションができることをうれしく思っています。私は週に4回ほど自転車に乗っており、主に駅との行き来に利用しています。4月2日の会議に出席して、Millbrae Stationの近くにステーションを設置するよう提案するつもりです。そこなら多くの通勤者が利用するでしょう。",
       "また、料金の変更が、私のように1回ごとに料金を支払っている利用者に影響するかどうかもお尋ねしたいと思います。もし影響するのであれば、会員プランに切り替えるかもしれません。",
       "よろしくお願いいたします。\nAna Duarte"
      ]
@@ -899,7 +899,7 @@
      "trans": [
       "宛先：jobs@haldenmuseum.example\n差出人：Priya Shah\n日付：5月6日\n件名：教育コーディネーター職への応募",
       "採用委員会御中",
-      "教育コーディネーター職に応募いたします。私は生物学の学位を持っており、過去3年間、Crestview Elementary Schoolで理科を教えてまいりました。また、2度の夏にRiverside Aquariumでボランティアをし、来館したご家族向けのツアーを案内しました。",
+      "教育コーディネーター職に応募いたします。私は生物学の学位を持っており、過去3年間、Crestview Elementary Schoolで理科を教えてまいりました。また、2年間、夏の期間にRiverside Aquariumでボランティアを務め、来館したご家族向けのツアーを案内しました。",
       "週末も勤務可能で、土曜日の勤務も喜んでお引き受けいたします。履歴書を添付いたします。",
       "Priya Shah"
      ]
@@ -1626,7 +1626,7 @@
      "title": "Text-message chain",
      "text": "Jun Takeda [10:12 A.M.]\nHi Dana, the tracking page says your business cards might not arrive until the 11th.\n\nDana Cole [10:15 A.M.]\nThat's cutting it close. The conference starts on the 14th.\n\nJun Takeda [10:16 A.M.]\nI can have them sent to your home address instead if that's easier.\n\nDana Cole [10:18 A.M.]\nNo need. I'll pick them up at the office on the 13th, my first day.",
      "trans": [
-      "Jun Takeda [午前10:12]\nDanaさん、追跡ページによると、名刺は11日まで届かないかもしれないそうです。",
+      "Jun Takeda [午前10:12]\nDanaさん、追跡ページによると、名刺は11日にならないと届かないかもしれないそうです。",
       "Dana Cole [午前10:15]\nぎりぎりですね。会議は14日に始まるので。",
       "Jun Takeda [午前10:16]\nそのほうが都合がよければ、代わりにご自宅の住所に送ってもらうこともできますよ。",
       "Dana Cole [午前10:18]\nその必要はありません。初出勤日の13日に、オフィスで受け取ります。"
