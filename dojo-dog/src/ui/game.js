@@ -4,7 +4,7 @@ import { SEASON_MS, SPEEDS, FIRST_EVENT_MS, AUTO_WORD_MS, eventShowMs, resultSho
 import { SEASON_JA, SEASON_KO, STAT_KO, STAT_JA, STAGES, ROLE_KO, ROLE_JA, ROLES, personFor } from '../engine/world.js';
 import { SUB_TITLES } from '../data/index.js';
 import { resolveKo, plainKo, plainJa, splitSentJa, splitSentKo } from '../engine/text.js';
-import { h, renderJa, renderKo, renderSpeaker, plainSegs, sceneTargets, LINES } from './render.js';
+import { h, renderJa, renderKo, renderSpeaker, plainSegs, sceneTargets, markLead, LINES } from './render.js';
 import { itemOf } from '../engine/study.js';
 import { LCD } from './pixel/lcd.js';
 import { idlePlan, eventPlan, lookFor } from './pixel/director.js';
@@ -15,10 +15,12 @@ import { planQuiz, renderQuiz } from './playquiz.js';
 
 const CAT = { daily: '日常', kendo: '稽古', sub: 'サブストーリー', iincho: '委員長', cast: '道場の人々', milestone: '節目', hub: '日常' };
 const STAT_ORDER = ['hap', 'hea', 'back', 'soc', 'brave', 'mis'];
+const RUBY_SCENES = 4; // 확인 문제가 고르는 범위(최근 네 장면, quizplan RECENT_SCENES)와 같게
+// 이름은 줄바꿈할 자리(<wbr>)를 넣어 둘로 나눈다 (작은 창에서 두 줄로)
 const AUTO_MODES = [
-  ['major', '大事な場面だけ止まる'],
-  ['all', '全部おまかせ'],
-  ['off', 'オートを切る'],
+  ['major', ['大事な場面だけ', '止まる']],
+  ['all', ['全部', 'おまかせ']],
+  ['off', ['オートを', '切る']],
 ];
 
 export class GameView {
@@ -31,6 +33,8 @@ export class GameView {
     this.last = 0;
     this.seenWords = new Set(state.seenWords || []);
     this.seenTerms = store.seenTerms();
+    // 최근 장면들(최대 RUBY_SCENES개)에서 후리가나를 달아 보여 준 단어·문법 id. 확인 문제가 방금 본 읽기를 묻지 않게 넘긴다.
+    this.rubyRecent = (state.rubyRecent || []).map((x) => new Set(x));
   }
 
   get set() {
@@ -49,11 +53,11 @@ export class GameView {
     this.autoBtn = h('button', { class: 'ctl auto', type: 'button', 'aria-expanded': 'false', onclick: () => this.toggleAutoPanel() }, 'オート');
     this.modeCap = h('div', { class: 'auto-cap' });
     const menuBtn = h('button', { class: 'ctl', type: 'button', 'aria-label': '메뉴', onclick: () => this.menu() }, icon('menu', 18));
-    this.autoPanel = h('div', { class: 'auto-panel', hidden: true }, AUTO_MODES.map(([m, label]) => h('button', { class: 'btn center', type: 'button', 'data-mode': m, onclick: () => this.setAuto(m) }, label)));
+    // オート 방식 고르기: 조작 줄 위에 겹치는 작은 창. 도트 창과 이야기는 가리지 않는다. 고르거나 바깥을 누르면 닫힌다.
+    this.autoPanel = h('div', { class: 'auto-panel', hidden: true, role: 'group', 'aria-label': 'オート' }, AUTO_MODES.map(([m, parts]) => h('button', { class: 'btn center', type: 'button', 'data-mode': m, onclick: () => this.setAuto(m) }, parts[0], h('wbr'), parts[1])));
     const top = h('div', { class: 'topbar pad' },
       this.modeCap,
-      h('div', { class: 'ctrl' }, this.pauseBtn, h('div', { class: 'seg speeds', role: 'group', 'aria-label': '배속' }, this.speedBtns), this.autoBtn, menuBtn),
-      this.autoPanel);
+      h('div', { class: 'ctrl' }, this.pauseBtn, h('div', { class: 'seg speeds', role: 'group', 'aria-label': '배속' }, this.speedBtns), this.autoBtn, menuBtn, this.autoPanel));
     // ── LCD
     this.whenEl = h('span', { class: 'when' });
     this.stageBtn = h('button', { class: 'stage-chip', type: 'button', onclick: () => this.glossStage() });
@@ -97,6 +101,7 @@ export class GameView {
   unmount() {
     clearInterval(this.timer);
     window.removeEventListener('resize', this.onResize);
+    this.closeAutoPanel();
     this.lcd && this.lcd.stop();
   }
 
@@ -226,7 +231,7 @@ export class GameView {
   // 플레이 중 학습: src 'scene'(장면 뒤 확인 문제) | 'card'(복습 카드). 문제가 없으면 아무것도 하지 않는다.
   openQuiz(src) {
     const log = quizLog(this.s);
-    const plan = planQuiz(log, src, Date.now(), this.ja);
+    const plan = planQuiz(log, src, Date.now(), this.ja, this.rubySeenRecent());
     if (src === 'scene') reschedule(log, this.set);
     if (!plan) return false;
     if (src === 'card') log.lastCard = this.s.t;
@@ -266,9 +271,51 @@ export class GameView {
   }
   toggleAutoPanel(force) {
     const open = force ?? this.autoPanel.hidden;
-    this.autoPanel.hidden = !open;
-    this.autoBtn.setAttribute('aria-expanded', String(open));
-    if (open) this.renderMode();
+    if (!open) return this.closeAutoPanel();
+    this.autoPanel.hidden = false;
+    this.autoBtn.setAttribute('aria-expanded', 'true');
+    this.renderMode();
+    if (!this.onOutside) {
+      // 바깥을 누르면 닫기만 한다: 그 탭이 도트 창(건너뛰기)이나 대사를 함께 누르지 않게 뒤따르는 click을 삼킨다
+      this.onOutside = (e) => {
+        if (this.autoPanel.contains(e.target)) return;
+        this.swallowUntil = performance.now() + 800;
+        this.closeAutoPanel();
+      };
+      this.onSwallow = (e) => {
+        if (!this.swallowUntil) return;
+        const hit = performance.now() < this.swallowUntil;
+        this.swallowUntil = 0;
+        if (hit) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      };
+      this.onAutoKey = (e) => {
+        if (e.key !== 'Escape') return;
+        this.closeAutoPanel();
+        this.autoBtn.focus();
+      };
+    }
+    document.addEventListener('pointerdown', this.onOutside, true);
+    document.addEventListener('click', this.onSwallow, true);
+    document.addEventListener('keydown', this.onAutoKey, true);
+    const cur = this.autoPanel.querySelector('[aria-pressed="true"]');
+    if (cur) cur.focus({ preventScroll: true });
+  }
+  closeAutoPanel() {
+    if (!this.autoPanel) return;
+    this.autoPanel.hidden = true;
+    this.autoBtn.setAttribute('aria-expanded', 'false');
+    if (!this.onOutside) return;
+    document.removeEventListener('pointerdown', this.onOutside, true);
+    document.removeEventListener('keydown', this.onAutoKey, true);
+    // click 삼키기는 바로 뒤따르는 click 하나에만 쓰고 스스로 풀린다
+    setTimeout(() => {
+      if (!this.autoPanel.hidden) return;
+      this.swallowUntil = 0;
+      document.removeEventListener('click', this.onSwallow, true);
+    }, 900);
   }
   setAuto(m) {
     if (m === 'off') this.set.auto = false;
@@ -278,7 +325,7 @@ export class GameView {
     }
     this.app.saveSettings();
     this.wait = 0;
-    this.toggleAutoPanel(false);
+    this.closeAutoPanel();
     this.renderMode();
   }
   renderMode() {
@@ -288,8 +335,16 @@ export class GameView {
     for (const b of this.autoPanel.children) b.setAttribute('aria-pressed', String(b.dataset.mode === cur));
   }
 
+  // 최근 장면들에서 후리가나를 보여 준 id 전체 (진행 중인 장면 포함)
+  rubySeenRecent() {
+    const all = new Set();
+    for (const set of [...this.rubyRecent, this.bag && this.bag.ruby]) if (set) for (const id of set) all.add(id);
+    return all;
+  }
+
   save() {
     this.s.seenWords = [...this.seenWords].slice(-800);
+    this.s.rubyRecent = this.rubyRecent.map((x) => [...x]);
     if (this.seenNames) this.s.seenNames = [...this.seenNames];
     this.app.saveGame(this.s);
   }
@@ -381,6 +436,7 @@ export class GameView {
       seenNames: this.seenNames,
       onName: (base, reading) => this.app.toast(`${base}（${reading}）`),
       newTerms: [],
+      rubySeen: this.bag ? this.bag.ruby : null,
       saved: new Set(Object.keys(store.wordbook())),
     };
   }
@@ -401,13 +457,32 @@ export class GameView {
   }
 
   // 일본어 서술: 문장마다 탭하면 그 문장의 한국어가 아래에 나온다 (낱말 밑줄을 탭하면 해설 창)
+  // 대사 칸처럼 오른쪽 위에 「訳」: 누르면 서술 전체의 한국어를 문장마다 한 줄씩, 다시 누르면(閉じる) 닫는다
   narrBlock(ja, ko, title, targets, cls = 'ev-text jp') {
     const jaS = splitSentJa(ja);
     const koS = splitSentKo(resolveKo(ko || '', { s: this.s }));
     const aligned = jaS.length === koS.length;
     const p = h('p', { class: cls, lang: 'ja' });
     const koBox = h('div', { class: 'sent-ko', hidden: true, lang: 'ko' });
-    let open = -1;
+    const btn = h('button', { class: 'mini-btn line-ko narr-ko', type: 'button', 'aria-pressed': 'false', 'aria-label': '서술 번역' }, '訳');
+    let open = -1; // -1 닫힘 · i 그 문장만 · 'all' 전부
+    const show = (which) => {
+      open = which;
+      spans.forEach((x, j) => x.classList.toggle('on', which === j));
+      if (which === -1) koBox.hidden = true;
+      else {
+        const rows = which === 'all' ? (aligned ? koS : [koS.join(' ')]) : [aligned ? koS[which] : koS.join(' ')];
+        koBox.replaceChildren(...rows.map((t) => h('div', null, t)));
+        koBox.hidden = false;
+        for (const t of which === 'all' ? jaS : [jaS[which]]) this.app.noteTranslate(t);
+      }
+      btn.textContent = which === -1 ? '訳' : '閉じる';
+      btn.setAttribute('aria-pressed', String(which !== -1));
+    };
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      show(open === -1 ? 'all' : -1);
+    });
     const spans = jaS.map((sent, i) => {
       const ctx = this.ctxFor(null);
       ctx.targets = targets;
@@ -415,25 +490,14 @@ export class GameView {
       ctx.onWord = (key) => this.app.openWord(key, scene());
       ctx.onGrammar = (key) => this.app.openGrammar(key, scene());
       const span = h('span', { class: 'sent', role: 'button', tabindex: '0', 'aria-label': '이 문장 번역' }, renderJa(sent, ctx));
-      const toggle = () => {
-        spans.forEach((x) => x.classList.remove('on'));
-        if (open === i) {
-          koBox.hidden = true;
-          open = -1;
-          return;
-        }
-        open = i;
-        span.classList.add('on');
-        koBox.textContent = aligned ? koS[i] : koS.join(' ');
-        koBox.hidden = false;
-        this.app.noteTranslate(sent);
-      };
+      const toggle = () => show(open === i ? -1 : i);
       span.addEventListener('click', toggle);
       span.addEventListener('keydown', (e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), toggle()));
       return span;
     });
-    spans.forEach((x, i) => p.append(x, i < spans.length - 1 ? '' : ''));
-    return h('div', { class: 'narr' }, p, koBox);
+    p.append(...spans);
+    markLead(p);
+    return h('div', { class: 'narr' }, koS.length ? btn : null, p, koBox);
   }
 
   renderLines(lines, title, ids = null) {
@@ -455,7 +519,7 @@ export class GameView {
       ctx.onGrammar = (key) => this.app.openGrammar(key, scene());
       // 학습 집중 모드: 대사마다 번역 버튼
       const lineTool = focus && this.ja ? h('button', { class: 'mini-btn line-ko', type: 'button', onclick: (e) => { koEl.hidden = !koEl.hidden; e.currentTarget.textContent = koEl.hidden ? '訳' : '閉じる'; if (!koEl.hidden) this.app.noteTranslate(ja); } }, '訳') : null;
-      box.append(h('div', { class: 'line' }, h('div', { class: 'sp' }, renderSpeaker(sp, this.s, this.set.furigana, ctx), lineTool), h('div', { class: 'ja' }, renderJa(ja, ctx)), koEl));
+      box.append(h('div', { class: 'line' }, h('div', { class: 'sp' }, renderSpeaker(sp, this.s, this.set.furigana, ctx), lineTool), h('div', { class: 'ja' }, markLead(renderJa(ja, ctx))), koEl));
     }
     if (kos.length && !focus && this.ja) {
       let on = false;
@@ -477,7 +541,7 @@ export class GameView {
   titleEl(ja, ko) {
     if (!ja) return h('h3', { class: 'ev-title' }, resolveKo(ko || '', { s: this.s }));
     const koEl = h('span', { class: 'title-ko', hidden: true, lang: 'ko' }, ko);
-    const el = h('h3', { class: 'ev-title jp', lang: 'ja', role: 'button', tabindex: '0', onclick: () => (koEl.hidden = !koEl.hidden) }, renderJa(ja, { ...this.ctxFor(null), targets: new Set() }), koEl);
+    const el = h('h3', { class: 'ev-title jp', lang: 'ja', role: 'button', tabindex: '0', onclick: () => (koEl.hidden = !koEl.hidden) }, markLead(renderJa(ja, { ...this.ctxFor(null), targets: new Set() })), koEl);
     return el;
   }
 
@@ -550,7 +614,7 @@ export class GameView {
     // 오토 선택은 장면마다 한 번만 정한다 (설정을 바꿔 다시 그려도 그대로)
     if (!again || this.autoIdx === undefined) this.autoIdx = G.autoChoice(this.s);
     const ev = G.EV.get(v.id);
-    if (!again) this.bag = { ids: new Set(), where: {}, lines: 0 };
+    if (!again) this.bag = { ids: new Set(), where: {}, lines: 0, ruby: new Set() };
     if (!again) {
       const plan = eventPlan(this.s, v, this.elapsed / SEASON_MS);
       this.lcd.setPlan(plan, this.s);
@@ -584,10 +648,10 @@ export class GameView {
     if (dogActs) {
       btns.push(h('div', { class: 'dog-acts' },
         h('button', { class: 'btn primary', type: 'button', onclick: () => this.doChoose(this.autoIdx, true) }, 'つぎへ'),
-        h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { e.currentTarget.parentNode.remove(); for (const [, b] of this.choiceBtns) b.hidden = false; } }, this.ja ? '自分で選ぶ' : '직접 고르기')));
+        h('button', { class: 'mini-btn', type: 'button', onclick: (e) => { e.currentTarget.parentNode.remove(); this.revealChoices(); } }, this.ja ? '自分で選ぶ' : '직접 고르기')));
     }
     if (askFirst) {
-      btns.push(h('button', { class: 'btn primary open-choices', type: 'button', onclick: (e) => { e.currentTarget.remove(); for (const [, b] of this.choiceBtns) b.hidden = false; } }, this.ja ? 'どうする？' : '행동 고르기'));
+      btns.push(h('button', { class: 'btn primary open-choices', type: 'button', onclick: (e) => { e.currentTarget.remove(); this.revealChoices(); } }, this.ja ? 'どうする？' : '행동 고르기'));
     }
     if (v.mini && !this.autoActive()) btns.push(this.tambourine(v));
     else if (v.choices.length) {
@@ -595,14 +659,17 @@ export class GameView {
         const jp = this.ja && c.tJa;
         const why = !c.ok && (jp && c.whyJa ? c.whyJa : c.why);
         const ko = jp ? h('span', { class: 'choice-ko', hidden: true, lang: 'ko' }, c.t) : null;
-        const label = jp ? renderJa(c.tJa, { ...this.ctxFor(null), targets: new Set() }) : c.t;
+        const label = jp ? markLead(renderJa(c.tJa, { ...this.ctxFor(null), targets: new Set() })) : c.t;
         const b = h('button', { class: 'btn' + (c.ok ? '' : ' off'), type: 'button', disabled: !c.ok, lang: jp ? 'ja' : null, onclick: () => this.doChoose(c.i, false) }, h('span', null, label, ko, why ? h('div', { class: 'why' }, jp && c.whyJa ? plainJa(c.whyJa, { s: this.s }) : why) : null));
         // 번역은 선택과 따로: 「訳」을 눌러도 고르지 않는다
         const tr = jp ? h('button', { class: 'tr-btn', type: 'button', 'aria-label': '이 선택지 번역', 'aria-pressed': 'false', onclick: (e) => {
           e.stopPropagation();
+          // 선택지 칸이 번역만큼 커져도, 보이던 마지막 대사는 계속 보이게
+          const keep = this.lastLineVisible();
           ko.hidden = !ko.hidden;
           tr.setAttribute('aria-pressed', String(!ko.hidden));
           if (!ko.hidden) this.app.noteTranslate(c.tJa);
+          if (keep) this.showLastLine();
         } }, '訳') : null;
         const row = h('div', { class: 'choice-row', hidden: calm || dogActs || askFirst }, b, tr);
         this.choiceBtns.push([c.i, row, b, jp ? plainJa(c.tJa, { s: this.s }) : c.t]);
@@ -615,9 +682,49 @@ export class GameView {
   // 오토 장면에서 「직접 고르기」: 이번 장면만 오토를 멈추고 선택지를 펼친다
   takeOver() {
     this.manualOnce = true;
-    for (const [, b] of this.choiceBtns) b.hidden = false;
     const line = this.foot.querySelector('.auto-line');
     if (line) line.remove();
+    this.revealChoices();
+  }
+
+  // 선택지를 펼친다. 아래 칸이 커져도 마지막 대사가 선택지 바로 위에 보이도록 이야기 칸을 내린다 (무엇에 답하는지 다시 읽을 수 있게)
+  revealChoices() {
+    for (const [, b] of this.choiceBtns) b.hidden = false;
+    this.showLastLine();
+    requestAnimationFrame(() => this.showLastLine());
+  }
+  // 마지막 대사(없으면 서술). 대사 아래 「訳」 줄이 함께 들어가면 그것까지
+  lastLineBox() {
+    const p = this.panel;
+    const lines = p.querySelectorAll('.lines > .line');
+    const last = lines[lines.length - 1] || p.querySelector('.narr');
+    if (!last) return null;
+    const r = last.getBoundingClientRect();
+    const tools = lines.length ? p.querySelector('.lines > .tools') : null;
+    const tb = tools && tools.getBoundingClientRect();
+    // 서술만 있는 장면: 서술의 끝(마지막 두 줄 남짓)을 맞춘다
+    const top = lines.length ? r.top : r.bottom - Math.min(r.height, 72);
+    return { top, bottom: tb && tb.height ? Math.max(r.bottom, tb.bottom) : r.bottom, lineBottom: r.bottom };
+  }
+  showLastLine() {
+    const box = this.lastLineBox();
+    if (!box) return;
+    const p = this.panel;
+    const pr = p.getBoundingClientRect();
+    const pad = 8;
+    // 「訳」 줄까지 들어가지 않으면 대사만
+    const bottom = box.bottom - box.top + pad * 2 <= pr.height ? box.bottom : box.lineBottom;
+    let d = Math.max(0, bottom - (pr.bottom - pad));
+    // 대사가 칸보다 길면 그 대사의 처음부터
+    if (box.top - d < pr.top + pad) d = box.top - (pr.top + pad);
+    if (Math.abs(d) >= 1) p.scrollTop += d;
+  }
+  // 마지막 대사의 끝이 지금 이야기 칸 안에 보이는가
+  lastLineVisible() {
+    const box = this.lastLineBox();
+    if (!box) return false;
+    const pr = this.panel.getBoundingClientRect();
+    return box.lineBottom <= pr.bottom + 1 && box.lineBottom >= pr.top;
   }
 
   showAutoPick() {
@@ -724,6 +831,10 @@ export class GameView {
     this.bag = null;
     const log = quizLog(this.s);
     if (bag && bag.lines) noteScene(log, [...bag.ids], bag.where, this.set);
+    if (bag && (bag.lines || bag.ruby.size)) {
+      this.rubyRecent.unshift(bag.ruby);
+      this.rubyRecent.length = Math.min(this.rubyRecent.length, RUBY_SCENES);
+    }
     this.save();
     this.renderHud();
     if (bag && bag.lines && sceneQuizDue(log, this.set) && this.openQuiz('scene')) return;

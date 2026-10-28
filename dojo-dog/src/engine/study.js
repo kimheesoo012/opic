@@ -2,9 +2,10 @@
 // 항목 id: 'v:단어' 또는 'g:문법키'. 기록: { met, box, due, streak, ok, ng, last, iv, ef, tr }
 // 간격: 처음 세 번은 1·3·7일, 그다음부터는 지난 간격 × 쉬움 계수(ef). 맞히면 ef가 조금 오르고, 틀리면 내려가며 다음 날부터 다시.
 // 「번역 보기」(tr)는 틀린 것으로 치지 않는다. 복습 순서를 정할 때만 참고한다.
-import { readingDiff, withReading, grammarByForm, gShort, vShort, vocabMore, grammarMore, shortConnOf, vocabEx, grammarEx, pt } from './explain.js';
+import { readingDiff, withReading, grammarByForm, gShort, vShort, vocabMore, grammarMore, shortConnOf, vocabEx, grammarEx, pt, josa, kanjiSplit } from './explain.js';
 import { VOCAB } from '../data/vocab.js';
 import { GRAMMAR } from '../data/grammar.js';
+import { KANJI } from '../data/kanji.js';
 import { hashSeed, rand, shuffle } from './rng.js';
 
 export const DAY = 24 * 3600 * 1000;
@@ -109,18 +110,20 @@ const SMALL = { ゃ: 'や', ゅ: 'ゆ', ょ: 'よ' };
 const GEMINATE_BEFORE = 'かきくけこさしすせそたちつてとぱぴぷぺぽ';
 
 // 시험에 나오는 함정: 장음·탁음·촉음·요음
-export function readingTraps(r) {
+// ins=false: 장음·촉음을 끼워 넣는 규칙은 쓰지 않는다 (훈독어에는 그런 함정이 거의 없다)
+// big=false: 작은 ゃゅょ를 큰 글자로 바꾸는 함정은 쓰지 않는다 (가나 규칙만 알면 지워지는 오답)
+export function readingTraps(r, { ins = true, big = true } = {}) {
   const out = new Set();
   const chars = [...r];
   chars.forEach((c, i) => {
     const next = chars[i + 1];
     if (c === 'う' && i > 0 && (O_ROW.includes(chars[i - 1]) || U_ROW.includes(chars[i - 1]))) out.add(r.slice(0, i) + r.slice(i + 1));
-    if ((O_ROW.includes(c) || U_ROW.includes(c)) && next !== 'う' && next !== 'ゃ' && next !== 'ゅ' && next !== 'ょ' && i < chars.length - 1) out.add(chars.slice(0, i + 1).join('') + 'う' + chars.slice(i + 1).join(''));
+    if (ins && (O_ROW.includes(c) || U_ROW.includes(c)) && next !== 'う' && next !== 'ゃ' && next !== 'ゅ' && next !== 'ょ' && i < chars.length - 1) out.add(chars.slice(0, i + 1).join('') + 'う' + chars.slice(i + 1).join(''));
     if (i > 0 && VOICE[c]) out.add(chars.slice(0, i).join('') + VOICE[c] + chars.slice(i + 1).join(''));
     if (UNVOICE[c]) out.add(chars.slice(0, i).join('') + UNVOICE[c] + chars.slice(i + 1).join(''));
     if (c === 'っ') out.add(chars.slice(0, i).join('') + chars.slice(i + 1).join(''));
-    if (i > 0 && GEMINATE_BEFORE.includes(c) && !'っんーうい'.includes(chars[i - 1])) out.add(chars.slice(0, i).join('') + 'っ' + chars.slice(i).join(''));
-    if (SMALL[c]) out.add(chars.slice(0, i).join('') + SMALL[c] + chars.slice(i + 1).join(''));
+    if (ins && i > 0 && GEMINATE_BEFORE.includes(c) && !'っんーうい'.includes(chars[i - 1])) out.add(chars.slice(0, i).join('') + 'っ' + chars.slice(i).join(''));
+    if (big && SMALL[c]) out.add(chars.slice(0, i).join('') + SMALL[c] + chars.slice(i + 1).join(''));
     if (c === 'ん' && i > 0) out.add(chars.slice(0, i).join('') + chars.slice(i + 1).join(''));
     if (c === 'い' && i > 0 && 'えけせてねへめれげぜでべ'.includes(chars[i - 1])) out.add(chars.slice(0, i).join('') + chars.slice(i + 1).join(''));
   });
@@ -137,7 +140,7 @@ function meaningClash(a, b) {
   return pa.some((x) => pb.some((y) => x === y || (x.length > 1 && y.includes(x)) || (y.length > 1 && x.includes(y))));
 }
 
-const KANJI = /[一-鿿々]/;
+const HAS_KANJI = /[一-鿿々]/;
 // 비슷해서 서로 오답이 될 수 없는 문법 묶음 (「문법 표현 구별」 문제에서 같은 묶음은 오답으로 쓰지 않는다)
 export const CONFUSABLE = [
   ['ざるを得ない', 'ずにはいられない', 'ないことには', 'てからでないと'],
@@ -169,11 +172,26 @@ const BLANK_NEAR = [
   ['ようがない', 'かねない'], ['ものの', 'からには'], ['に沿って', 'どおり'], ['に先立って', 'からこそ'],
 ];
 const inSame = (groups, a, b) => groups.some((g) => g.includes(a) && g.includes(b));
+// 뜻이 같은 문법 묶음: 한 문제에 둘이 나오면 정답이 둘이 된다 (어느 유형에서든 서로 오답이 될 수 없다)
+export const SAME_MEANING = [
+  ['に限らず', 'ばかりか', 'のみならず', 'に加えて', 'はもとより', 'をはじめ'], ['以上', 'からには'], ['に際して', 'にあたって'],
+  ['につれて', 'に伴って', 'にしたがって', 'とともに'], ['てたまらない', 'てしょうがない'], ['かねない', '恐れがある'], ['わけがない', 'っこない'],
+  ['せいか', 'ばかりに', 'ものだから'], ['末に', 'あげく'], ['まみれ', 'だらけ'], ['たとたん', 'かと思うと'], ['かわりに', 'に代わって'],
+  ['をもとに', 'に基づいて'], ['を問わず', 'にかかわらず'], ['一方だ', 'ばかりだ'], ['ざるを得ない', 'しかない'], ['に違いない', 'に決まっている'],
+  ['わけではない', 'とは限らない'], ['に越したことはない', 'に限る'], ['ないことには', 'てからでないと'], ['だけに', 'だけあって'], ['わりに', 'にしては'],
+  ['ことだ', 'べき'], ['ずにはいられない', 'てたまらない'], ['からこそ', 'だけに'], ['といっても', 'からといって'],
+];
+export const sameGroup = (a, b) => a === b || inSame(SAME_MEANING, a, b);
+export const sameMeaning = (a, b) => a === b || inSame(SAME_MEANING, a, b) || meaningClash(GRAMMAR[a].m, GRAMMAR[b].m);
+// 데이터의 near(헷갈리는 문법) 표시: 자동으로 고르는 오답에서는 뺀다 (뜻이 같지는 않아도 문제 안에서 정답처럼 보일 수 있다)
+const nearField = (a, b) => (GRAMMAR[a].near || []).includes(b) || (GRAMMAR[b].near || []).includes(a);
 // 두 문법이 서로 오답이 될 수 없을 만큼 가까운가
 export function nearG(a, b) {
   if (a === b) return true;
-  return meaningClash(GRAMMAR[a].m, GRAMMAR[b].m) || inSame(NEAR, a, b);
+  return sameMeaning(a, b) || inSame(NEAR, a, b);
 }
+// 자동으로 오답을 고르는 유형(뜻→형태·비슷한 표현 구별·문맥 속 뜻)에서 오답으로 쓸 수 없는가
+const badDistractor = (a, b) => nearG(a, b) || nearField(a, b) || inSame(CONFUSABLE, a, b) && sameMeaning(a, b);
 const blankNear = (a, b) => nearG(a, b) || inSame(CONFUSABLE, a, b) || inSame(BLANK_NEAR, a, b);
 
 // 문법이 무엇에 붙는가 (빈칸 오답을 같은 접속 형태로 골라 형태만 보고 지울 수 없게)
@@ -252,23 +270,131 @@ export function blankDistractors(key, cls, h) {
 }
 export const blankNearCheck = blankNear;
 // 비슷한 표현 구별: 같은 묶음 안에서 뜻이 분명히 다른 것
-const diffMates = (key) => groupOf(key).filter((k) => k !== key && !nearG(key, k));
+const diffMates = (key) => groupOf(key).filter((k) => k !== key && !nearG(key, k) && !nearField(key, k));
 
-// 읽기 오답은 시험에 나오는 함정(장음·탁음·촉음·요음)만 쓴다. 세 개를 못 만들면 읽기 문제를 내지 않는다.
-export function readingOptions(key, seed = 'r') {
+// ───── 읽기 오답 ─────
+// 한자어는 글자마다 「실제 음독」을 바탕으로 그럴듯한 오답을 만든다: 그 글자의 다른 음독(力 りょく↔りき)·첫소리의 청탁(ぼ↔ほ)·
+// 음독 끝의 장단(こ↔こう, しょ↔しょう)·촉음(がく＋こう→がっこう). 가나로 있을 수 없는 꼴(비 い단 뒤의 작은 ゃゅょ, 모음 앞의 っ 등)은 내지 않는다.
+const I_ROW = 'きしちにひみりぎじぢびぴ';
+const KSTP = 'かきくけこさしすせそたちつてとぱぴぷぺぽ';
+const HANDAKU = { は: 'ぱ', ひ: 'ぴ', ふ: 'ぷ', へ: 'ぺ', ほ: 'ぽ' };
+const UNHANDAKU = Object.fromEntries(Object.entries(HANDAKU).map(([a, b]) => [b, a]));
+const E_ROW = 'えけせてねへめれげぜでべぺ';
+const SEION = (t) => [...t].map((c) => UNVOICE[c] || UNHANDAKU[c] || c).join('');
+// 히라가나로 있을 수 있는 꼴인가
+export function validKana(t) {
+  if (!/^[あ-ゖ]+$/.test(t) || /[ぁぃぅぇぉゎゕゖ]/.test(t)) return false;
+  const cs = [...t];
+  for (let i = 0; i < cs.length; i++) {
+    const c = cs[i];
+    if ('ゃゅょ'.includes(c) && !(i > 0 && I_ROW.includes(cs[i - 1]))) return false;
+    if (c === 'っ' && !(i > 0 && i < cs.length - 1 && KSTP.includes(cs[i + 1]))) return false;
+    if (c === 'ん' && i === 0) return false;
+  }
+  return !/[ゃゅょっ][ゃゅょ]|っっ|うう/.test(t);
+}
+// 실제로 쓰이는 음독 조각: 한자 DB의 음독 + 어휘 DB의 한자어를 쪼개 얻은 꼴(연탁·촉음 포함)
+let MORPH = null;
+function morphs() {
+  if (MORPH) return MORPH;
+  MORPH = new Set();
+  for (const k of Object.values(KANJI)) for (const o of k.on) MORPH.add(o);
+  for (const [k, v] of Object.entries(VOCAB)) for (const p of kanjiSplit(k, v.r)) if (p.r) MORPH.add(p.r);
+  return MORPH;
+}
+// strict: 청탁을 맞춘 꼴이 아니라 그 꼴 그대로 쓰인 적이 있어야 한다 (장단 바꾼 꼴 — ぶ→ぶう 같은 가짜 장음을 막는다)
+const isMorph = (m, strict = false) => {
+  const M = morphs();
+  if (M.has(m) || (!strict && M.has(SEION(m)))) return true;
+  // 촉음 꼴(がっ)은 본디 음독(がく·がつ…)이 있으면 된다
+  if (m.endsWith('っ')) return [...'くつちき'].some((e) => M.has(m.slice(0, -1) + e) || M.has(SEION(m.slice(0, -1) + e)));
+  return false;
+};
+let REAL = null;
+const realReadings = () => (REAL = REAL || new Set(Object.values(VOCAB).map((v) => v.r)));
+// 한자 하나의 읽기 조각을 바꾼 후보들: [새 조각, 원인, 다음 조각 바꿈?]
+function morphVariants(part, next) {
+  const r = part.r;
+  const out = [];
+  const on = (KANJI[part.c] && KANJI[part.c].on) || [];
+  const first = r[0];
+  const voiced = VOICE[SEION(first)] === first || UNHANDAKU[first];
+  // 다른 음독 (원래 조각이 연탁이면 같은 탁음을 유지한 꼴도)
+  for (const o of on) {
+    if (SEION(o) === SEION(r)) continue;
+    out.push([o, 'on']);
+    if (voiced && VOICE[o[0]]) out.push([VOICE[o[0]] + o.slice(1), 'on']);
+  }
+  // 첫소리의 청음·탁음·반탁음
+  if (VOICE[first]) out.push([VOICE[first] + r.slice(1), 'voice']);
+  if (UNVOICE[first]) out.push([UNVOICE[first] + r.slice(1), 'voice']);
+  if (HANDAKU[first]) out.push([HANDAKU[first] + r.slice(1), 'voice']);
+  if (UNHANDAKU[first]) out.push([UNHANDAKU[first] + r.slice(1), 'voice']);
+  // 음독 끝의 장단 (こ↔こう, しょ↔しょう, ゆ↔ゆう, け↔けい)
+  const last = r[r.length - 1];
+  const prev = r[r.length - 2] || '';
+  if (r.length >= 2 && last === 'う' && (O_ROW.includes(prev) || U_ROW.includes(prev))) out.push([r.slice(0, -1), 'long']);
+  else if (r.length >= 2 && last === 'い' && E_ROW.includes(prev)) out.push([r.slice(0, -1), 'long']);
+  else if (O_ROW.includes(last) || U_ROW.includes(last)) out.push([r + 'う', 'long']);
+  else if (E_ROW.includes(last)) out.push([r + 'い', 'long']);
+  // 촉음: つ·く·ち·き로 끝나는 음독이 か·さ·た·は(→ぱ)행 앞에서 っ로 줄어드는 것, 또는 그 반대
+  if (next && /[つくちき]$/.test(r)) {
+    const n0 = next.r[0];
+    if (KSTP.includes(n0)) out.push([r.slice(0, -1) + 'っ', 'sokuon']);
+    else if (HANDAKU[n0]) out.push([r.slice(0, -1) + 'っ', 'sokuon', HANDAKU[n0] + next.r.slice(1)]);
+  }
+  if (r.endsWith('っ')) for (const o of on) if (/[つくちき]$/.test(o) && SEION(o.slice(0, -1)) === SEION(r.slice(0, -1))) out.push([(voiced && VOICE[o[0]] ? VOICE[o[0]] + o.slice(1) : o), 'sokuon', next && UNHANDAKU[next.r[0]] ? UNHANDAKU[next.r[0]] + next.r.slice(1) : undefined]);
+  return out.filter(([m, cause]) => m !== r && isMorph(m, cause === 'long'));
+}
+// 한자어의 읽기 오답 후보 전부: [{ r, cause }]
+export function readingCandidates(key) {
   const it = VOCAB[key];
+  if (!it) return [];
+  const parts = kanjiSplit(key, it.r);
+  const out = new Map();
+  const add = (r, cause, w) => {
+    if (r === it.r || out.has(r) || !validKana(r) || realReadings().has(r)) return;
+    out.set(r, { r, cause, w });
+  };
+  if (parts.length && parts.every((p) => p.r) && parts.map((p) => p.r).join('') === it.r) {
+    parts.forEach((p, i) => {
+      for (const [m, cause, nextR] of morphVariants(p, parts[i + 1])) {
+        const rs = parts.map((x) => x.r);
+        rs[i] = m;
+        if (nextR) rs[i + 1] = nextR;
+        add(rs.join(''), cause, 3);
+      }
+    });
+  } else {
+    // 음독으로 쪼개지지 않는 말(훈독어·혼합어): 글자 단위 함정 가운데 청탁·ん·장음·촉음 빠짐만 (끼워 넣기·큰 글자 요음은 쓰지 않는다)
+    for (const t of readingTraps(it.r, { ins: false, big: false })) add(t, 'trap', 1);
+  }
+  return [...out.values()];
+}
+// 읽기 오답 셋: 원인이 겹치지 않게 고른다. 세 개를 못 만들면 읽기 문제를 내지 않는다.
+export function readingOptions(key, seed = 'r') {
+  if (!VOCAB[key]) return [];
   const h = { rng: hashSeed(seed + key) };
-  const real = new Set(Object.values(VOCAB).map((v) => v.r));
-  // 다른 낱말의 실제 읽기와 겹치는 함정은 뺀다 (그것도 정답처럼 보일 수 있으므로)
-  return shuffle(h, readingTraps(it.r).filter((x) => !real.has(x))).slice(0, 3);
+  const cands = shuffle(h, readingCandidates(key)).sort((a, b) => b.w - a.w);
+  const picked = [];
+  const used = new Set();
+  for (const c of cands) {
+    if (picked.length >= 3 || used.has(c.cause)) continue;
+    picked.push(c);
+    used.add(c.cause);
+  }
+  for (const c of cands) if (picked.length < 3 && !picked.includes(c)) picked.push(c);
+  return shuffle(h, picked.map((c) => c.r)).slice(0, 3);
 }
 
 // ctx.hasScene: 게임 속 문장이 있는가 / ctx.blank: blankOf()의 결과 (문장 빈칸을 낼 수 있을 때)
 // 일본어만으로 풀 수 있는 유형 (일본어 몰입 모드: 한국어 뜻을 고르거나 한국어 문제문을 읽는 유형은 내지 않는다)
 export const JA_ONLY_KINDS = new Set(['reading', 'grammar', 'gblank']);
 
+// ctx.rubyShown: 방금 장면에서 그 말의 후리가나를 보여 줬다 → 읽기 문제는 내지 않는다
 export function questionKinds(id, ctx = {}) {
-  const all = questionKindsAll(id, ctx);
+  let all = questionKindsAll(id, ctx);
+  if (ctx.rubyShown) all = all.filter((k) => k !== 'reading');
   return ctx.jaOnly ? all.filter((k) => JA_ONLY_KINDS.has(k)) : all;
 }
 
@@ -284,7 +410,7 @@ function questionKindsAll(id, ctx = {}) {
   }
   const key = id.slice(2);
   const kinds = ['meaning', 'word'];
-  if (KANJI.test(key) && HIRA.test(VOCAB[key].r) && readingOptions(key).length >= 3) kinds.unshift('reading');
+  if (HAS_KANJI.test(key) && HIRA.test(VOCAB[key].r) && readingOptions(key).length >= 3) kinds.unshift('reading');
   if (ctx.hasScene) kinds.push('context');
   return kinds;
 }
@@ -329,12 +455,12 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
     // 오답은 같은 묶음에서 뜻이 분명히 다른 것을 먼저 (쉬운 오답을 피한다), 모자라면 같은 접속의 다른 문법
     const mates = shuffle(h, diffMates(it.key));
     const conn = GCONN[it.key] || [];
-    const rest = shuffle(h, Object.keys(GRAMMAR).filter(CORE).filter((k) => !mates.includes(k) && !nearG(it.key, k) && !inSame(CONFUSABLE, it.key, k) && (GCONN[k] || []).some((c) => conn.includes(c))));
-    const others = shuffle(h, Object.keys(GRAMMAR).filter(CORE).filter((k) => !mates.includes(k) && !rest.includes(k) && !nearG(it.key, k) && !inSame(CONFUSABLE, it.key, k)));
+    const rest = shuffle(h, Object.keys(GRAMMAR).filter(CORE).filter((k) => !mates.includes(k) && !badDistractor(it.key, k) && !inSame(CONFUSABLE, it.key, k) && (GCONN[k] || []).some((c) => conn.includes(c))));
+    const others = shuffle(h, Object.keys(GRAMMAR).filter(CORE).filter((k) => !mates.includes(k) && !rest.includes(k) && !badDistractor(it.key, k) && !inSame(CONFUSABLE, it.key, k)));
     const wrong = [];
     for (const k of [...mates, ...rest, ...others]) {
       if (wrong.length >= 3) break;
-      if (wrong.some((w) => nearG(w, k))) continue;
+      if (badDistractor(it.key, k) || wrong.some((w) => nearG(w, k))) continue;
       wrong.push(k);
     }
     if (kind === 'gcontext') {
@@ -357,7 +483,7 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
   if (kind === 'gform') {
     // 문법 표현 구별: 뜻을 보고 형태를 고른다. 비슷한 묶음의 문법은 오답으로 쓰지 않는다.
     const avoid = new Set([it.key, ...groupOf(it.key)]);
-    const pool = shuffle(h, Object.entries(GRAMMAR).filter(([k, g]) => CORE(k) && !avoid.has(k) && !meaningClash(g.m, it.m)));
+    const pool = shuffle(h, Object.entries(GRAMMAR).filter(([k, g]) => CORE(k) && !avoid.has(k) && !badDistractor(it.key, k)));
     const wrong = [];
     for (const [k, g] of pool) {
       if (wrong.length >= 3) break;
@@ -394,8 +520,8 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
     const wrong = readingOptions(key, seed);
     if (wrong.length < 3) return makeQuestion(id, seed, rec, { ...ctx, kind: 'meaning' });
     const options = shuffle(h, [it.r, ...wrong]);
-    const why = options.map((o) => (o === it.r ? `${key}${pt(it.r, '은는')} ${it.r}라고 읽어요. 뜻은 「${it.m}」${pt(it.m, '이에요예요')}.` : readingDiff(it.r, o)));
-    return { id, kind, prompt: key, options, answer: options.indexOf(it.r), explain: `「${key}」의 읽기는 「${it.r}」(${it.m}). 장음(う)·탁음·촉음(っ)·요음(ゃゅょ)이 하나만 달라도 다른 말이 된다.`, why, ex: vocabEx(key), more: vocabMore(key), vkey: key, label: key, sub: it.r };
+    const why = options.map((o) => (o === it.r ? `${key}${pt(it.r, '은는')} ${josa(it.r, '이라고라고')} 읽어요. 뜻은 「${it.m}」${pt(it.m, '이에요예요')}.` : readingDiff(it.r, o, key)));
+    return { id, kind, prompt: key, options, answer: options.indexOf(it.r), explain: `「${key}」의 읽기는 「${it.r}」(${it.m}). 장음(う)·탁음·촉음(っ)·요음(ゃゅょ)이 하나만 달라도 다른 말이 돼요.`, why, ex: vocabEx(key), more: vocabMore(key), vkey: key, label: key, sub: it.r };
   }
   // 같은 품사·비슷한 길이를 먼저 고른다 (품사가 드물면 다른 품사도)
   const pool = Object.entries(VOCAB)
@@ -420,12 +546,31 @@ export function makeQuestion(id, seed = 'q', rec = null, ctx = {}) {
 }
 
 // hasScene(id): 그 말이 게임 속 장면을 갖고 있는지 / blankFor(id): 문장 빈칸 정보 (없으면 null)
+// 유형은 고르게 섞는다: 한 유형이 묶음의 35%(10문제면 4개)를 넘지 않게, 그 항목에 낼 수 있는 유형 가운데 가장 적게 쓴 것을 고른다
+export const KIND_CAP = (n) => Math.max(2, Math.ceil(n * 0.35));
 export function makeSet(ids, n = 10, seed = 'set', srs = {}, hasScene = () => false, blankFor = () => null, jaOnly = false) {
   const h = { rng: hashSeed(seed) };
-  return shuffle(h, [...new Set(ids)].filter((id) => itemOf(id)))
-    .map((id, i) => makeQuestion(id, seed + i, srs[id], { hasScene: hasScene(id), blank: blankFor(id), jaOnly }))
-    .filter(Boolean)
-    .slice(0, n);
+  const list = shuffle(h, [...new Set(ids)].filter((id) => itemOf(id)));
+  const cap = KIND_CAP(n);
+  const count = {};
+  const out = [];
+  for (let i = 0; i < list.length && out.length < n; i++) {
+    const id = list[i];
+    const ctx = { hasScene: hasScene(id), blank: blankFor(id), jaOnly };
+    const kinds = questionKinds(id, ctx);
+    if (!kinds.length) continue;
+    const rec = srs[id];
+    // 같은 말이 늘 같은 유형으로 나오지 않게 시작점을 돌린다
+    const start = ((rec ? rec.ok + rec.ng : 0) + Math.floor(rand(h) * kinds.length)) % kinds.length;
+    const rotated = kinds.map((_, j) => kinds[(start + j) % kinds.length]);
+    const open = rotated.filter((k) => (count[k] || 0) < cap);
+    const kind = (open.length ? open : rotated).reduce((a, b) => ((count[b] || 0) < (count[a] || 0) ? b : a));
+    const q = makeQuestion(id, seed + i, rec, { ...ctx, kind });
+    if (!q) continue;
+    count[q.kind] = (count[q.kind] || 0) + 1;
+    out.push(q);
+  }
+  return out;
 }
 
 // 복습 화면 묶음: 오늘 단어, 오늘 문법, 최근 틀린 것, 어려운 것

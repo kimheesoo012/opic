@@ -29,23 +29,56 @@ export function h(tag, attrs, ...kids) {
 //  2) 학습 밑줄: 장면의 학습 대상(sceneTargets)인 단어·문법에만. 단어는 실선, 문법은 물결선. → renderJa
 //  3) 고유명사: 점선, 처음 나올 때만 읽기를 달고 그 뒤로는 후리가나 설정을 따른다. 탭하면 읽기. → nameNode
 // it: [표기, 읽기, 수준 코드, N3 밖 한자 여부]. 옛 조각(수준 없음)은 한자 난이도로 판단한다.
-function rubyNode(it, ctx) {
-  const mode = typeof ctx === 'string' ? ctx : ctx && ctx.mode;
+const modeOf = (ctx) => (typeof ctx === 'string' ? ctx : ctx && ctx.mode);
+
+// 이 조각에 후리가나를 다는가. 화면(rubyNode)과 「이 장면에서 읽기를 이미 보여 줬나」(확인 문제)가 같은 판단을 쓴다.
+// 고유명사(P)는 처음 나올 때만 달리므로 여기서는 다루지 않는다 (nameNode).
+export function rubyShows(it, mode) {
   const [base, reading, code, hk] = it;
+  if (!reading || code === 'P') return false;
+  return code ? showRuby(mode, code, { hardKanji: !!hk }) : showRuby(mode, isHardKanji(base) ? '2' : '4', { hardKanji: isHardKanji(base) });
+}
+
+// 루비 요소. 읽기가 표기보다 길 때 낱말이 벌어지지 않도록 rt가 양옆으로 조금 걸칠 수 있게 한다 (styles.css ruby.rb)
+const rubyEl = (base, reading) => h('ruby', { class: 'rb' }, base, h('rt', null, reading));
+
+function rubyNode(it, ctx) {
+  const mode = modeOf(ctx);
+  const [base, reading, code] = it;
   if (code === 'P' && reading) return nameNode(base, reading, typeof ctx === 'object' ? ctx : mode);
-  const show = code ? showRuby(mode, code, { hardKanji: !!hk }) : showRuby(mode, isHardKanji(base) ? '2' : '4', { hardKanji: isHardKanji(base) });
-  if (!show || !reading) return document.createTextNode(base);
-  return h('ruby', null, base, h('rt', null, reading));
+  if (!rubyShows(it, mode)) return document.createTextNode(base);
+  return rubyEl(base, reading);
+}
+
+// 형태소 분석기가 한 낱말을 여러 조각으로 나눈 경우(観客|席, 試合|場, 誕生|日): 이어진 한자 조각에 둘 다 루비를 달 때는
+// 루비 하나로 합친다. 따로 달면 긴 읽기가 표기를 밀어내 「観客 席」처럼 낱말이 갈라져 보인다.
+const KANJI_ONLY = /^[一-鿿々〆ヶ]+$/;
+export function mergeRuby(list, mode) {
+  const out = [];
+  for (const it of list) {
+    const prev = out[out.length - 1];
+    const join = Array.isArray(it) && KANJI_ONLY.test(it[0]) && rubyShows(it, mode);
+    if (join && prev && prev.merge) {
+      prev.base += it[0];
+      prev.reading += it[1];
+    } else if (join) out.push({ merge: true, base: it[0], reading: it[1] });
+    else out.push(it);
+  }
+  return out;
 }
 
 function items(list, ctx) {
   const out = [];
-  for (const it of list) {
+  for (const it of mergeRuby(list, modeOf(ctx))) {
     if (typeof it === 'string') out.push(document.createTextNode(it));
     else if (Array.isArray(it)) out.push(rubyNode(it, ctx));
+    else if (it && it.merge) out.push(rubyEl(it.base, it.reading));
   }
   return out;
 }
+
+// 학습 대상(단어·문법) 조각에 후리가나가 하나라도 달렸는가 (확인 문제에서 방금 본 읽기를 묻지 않기 위해)
+export const segRubyShown = (sg, mode) => !!sg && Array.isArray(sg.s) && sg.s.some((x) => Array.isArray(x) && rubyShows(x, mode));
 
 function nameNode(base, reading, ctx) {
   const mode = typeof ctx === 'string' ? ctx : ctx.mode;
@@ -53,7 +86,7 @@ function nameNode(base, reading, ctx) {
   const first = !!seen && !seen.has(base);
   if (seen) seen.add(base);
   const ruby = showRuby(mode, 'P', { first });
-  const el = h('span', { class: 'pn', role: 'button', tabindex: '0', 'data-r': reading }, ruby ? h('ruby', null, base, h('rt', null, reading)) : base);
+  const el = h('span', { class: 'pn', role: 'button', tabindex: '0', 'data-r': reading }, ruby ? rubyEl(base, reading) : base);
   el.addEventListener('click', (e) => {
     e.stopPropagation();
     const t = typeof ctx === 'object' && ctx.onName;
@@ -62,9 +95,52 @@ function nameNode(base, reading, ctx) {
   return el;
 }
 
+// 이름 조각이 바로 이어지면(坂上|剣道場, 坂上|先生) 한 이름으로 합친다: 루비도 탭도 한 덩어리
+export function joinNames(parts) {
+  const out = [];
+  for (const x of parts) {
+    const prev = out[out.length - 1];
+    if (Array.isArray(x) && Array.isArray(prev)) out[out.length - 1] = [prev[0] + x[0], prev[1] + x[1]];
+    else out.push(x);
+  }
+  return out;
+}
+
 // 인명·지명: 처음 나올 때는 읽기를 보이고, 그 뒤로는 설정을 따른다. 탭하면 읽기를 확인할 수 있다.
 export function nameNodes(str, ctx) {
-  return rubyName(str).map((x) => (typeof x === 'string' ? document.createTextNode(x) : nameNode(x[0], x[1], ctx)));
+  return joinNames(rubyName(str)).map((x) => (typeof x === 'string' ? document.createTextNode(x) : nameNode(x[0], x[1], ctx)));
+}
+
+// 글 덩어리(제목·대사·서술)의 첫 글자를 왼쪽 끝에 맞춘다.
+//  - 첫 글자가 루비이고 읽기가 길면 표기가 가운데로 밀려 들여 쓴 것처럼 보인다 → 그 루비만 앞쪽 정렬(ruby.lead)
+//  - 여는 괄호(「『（)는 글자 칸의 오른쪽 반에 그려져 들여 쓴 것처럼 보인다 → 반 칸 내어 단다(.hang)
+const OPEN_PUNCT = /^[「『（【〈《〔]/;
+export function markLead(el) {
+  let n = el && el.firstChild;
+  while (n) {
+    if (n.nodeType === 3) {
+      if (!n.nodeValue) {
+        n = n.nextSibling;
+        continue;
+      }
+      if (OPEN_PUNCT.test(n.nodeValue)) {
+        const rest = n.nodeValue.slice(1);
+        const hang = h('span', { class: 'hang' }, n.nodeValue[0]);
+        n.parentNode.insertBefore(hang, n);
+        if (rest) n.nodeValue = rest;
+        else n.remove();
+      }
+      return el;
+    }
+    if (n.nodeType !== 1) return el;
+    if (n.tagName === 'RUBY') {
+      n.classList.add('lead');
+      return el;
+    }
+    // 밑줄 단추·이름·문장 덩어리 안으로 들어간다
+    n = n.firstChild;
+  }
+  return el;
 }
 
 // 생성된 조각이 없을 때를 위한 대체 (자리표시자·단어 표시만 처리)
@@ -79,15 +155,28 @@ export function sceneTargets(tpls, set = {}) {
   return pickTargets(tpls.map((t) => LINES.lines[t] || []), set);
 }
 
-// ctx: { s, speaker, mode, onWord(key), onGrammar(key), saved:Set, targets:Set('v:…'|'g:…') }
+// ctx: { s, speaker, mode, onWord(key), onGrammar(key), saved:Set, targets:Set('v:…'|'g:…'),
+//        rubySeen:Set — 후리가나를 달아 보여 준 단어·문법 id를 모은다 (장면 뒤 확인 문제가 그 읽기를 묻지 않게) }
 export function renderJa(tpl, ctx) {
   // 비어 있으면 빈 칸 (데이터 누락으로 화면이 멈추지 않게)
   const segs = ctx.segs || LINES.lines[tpl] || LINES.ex[tpl] || fallbackSegs(tpl || '');
   const span = h('span', { class: 'ja-text', lang: 'ja' });
   const isTarget = (id) => !ctx.targets || ctx.targets.has(id);
+  // 이어진 일반 조각(글자·루비)은 모아서 그린다: 나뉜 한자 조각을 루비 하나로 합치기 위해
+  let plain = [];
+  const flush = () => {
+    if (plain.length) span.append(...items(plain, ctx));
+    plain = [];
+  };
   for (const sg of segs) {
-    if (typeof sg === 'string' || Array.isArray(sg)) span.append(...items([sg], ctx));
-    else if (sg.p) span.append(...nameNodes(lookup(sg.p, sg.q || undefined, ctx, 'ja'), ctx));
+    if (typeof sg === 'string' || Array.isArray(sg)) {
+      plain.push(sg);
+      continue;
+    }
+    flush();
+    if (!sg) continue;
+    if (ctx.rubySeen && (sg.v || (sg.g && ctx.blankG !== sg.g)) && segRubyShown(sg, ctx.mode)) ctx.rubySeen.add(sg.v ? 'v:' + sg.v : 'g:' + sg.g);
+    if (sg.p) span.append(...nameNodes(lookup(sg.p, sg.q || undefined, ctx, 'ja'), ctx));
     else if (sg.g) {
       // 문장 빈칸 문제: 이 문법 자리를 비운다
       if (ctx.blankG === sg.g) {
@@ -116,7 +205,28 @@ export function renderJa(tpl, ctx) {
       ctx.seenWords && ctx.seenWords.add(sg.v);
     }
   }
+  flush();
+  tightRuby(span);
   return span;
+}
+
+// 밑줄 단추·이름 경계 때문에 합치지 못한 루비가 바로 붙어 있으면, 마주 보는 쪽은 rt를 걸치지 않는다 (읽기끼리 겹치지 않게)
+function tightRuby(root) {
+  let prev = null;
+  const walk = (el) => {
+    for (const n of el.childNodes) {
+      if (n.nodeType === 3) {
+        if (n.nodeValue) prev = null;
+      } else if (n.nodeType === 1 && n.tagName === 'RUBY') {
+        if (prev) {
+          prev.classList.add('ne');
+          n.classList.add('ns');
+        }
+        prev = n;
+      } else if (n.nodeType === 1) walk(n);
+    }
+  };
+  walk(root);
 }
 
 export function renderExample(word, mode) {
@@ -146,7 +256,9 @@ export function renderKo(text, ctx) {
       frag.append(seg.v);
       continue;
     }
-    const b = h('button', { class: 'w term', type: 'button', lang: 'ja' }, ctx.mode === 'off' ? seg.v : rubyForWord(seg.v, v.r, ctx.mode));
+    const label = ctx.mode === 'off' ? seg.v : rubyForWord(seg.v, v.r, ctx.mode);
+    if (ctx.rubySeen && typeof label !== 'string') ctx.rubySeen.add('v:' + seg.key);
+    const b = h('button', { class: 'w term', type: 'button', lang: 'ja' }, label);
     b.addEventListener('click', (e) => {
       e.stopPropagation();
       ctx.onWord && ctx.onWord(seg.key);
@@ -165,7 +277,7 @@ function rubyForWord(surface, reading, mode) {
   const v = VOCAB[surface];
   const show = showRuby(mode, lvCode(v && v.lv) || (isHardKanji(surface) ? '2' : '4'), { hardKanji: isHardKanji(surface) });
   if (!show || !/[一-鿿]/.test(surface)) return surface;
-  return h('ruby', null, surface, h('rt', null, reading));
+  return rubyEl(surface, reading);
 }
 
 export { resolveKo };

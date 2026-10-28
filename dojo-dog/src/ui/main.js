@@ -1,18 +1,20 @@
 // 앱 셸: 화면 전환, 설정, 저장, 소리, 학습 기록
 import * as G from '../engine/core.js';
 import { COATS, HAIRS, PERSONALITIES } from '../engine/world.js';
-import { meet as srsMeet, dueIds } from '../engine/study.js';
-import { h, LINES } from './render.js';
+import { h, LINES, sceneTargets } from './render.js';
 import { store } from './store.js';
 import { Sound } from './audio.js';
 import { GameView } from './game.js';
-import { farewellScreen, memorialScreen, resultScreen } from './end.js';
+import { farewellScreen, memorialScreen, resultScreen, ageLabel } from './end.js';
 import { wordPopup, grammarPopup } from './vocabui.js';
-import { studyScreen, quizScreen, dailyIds, progressBox } from './studyui.js';
+import { studyScreen, quizScreen, dailyIds, progressBox, recordMet, engage, reviewCounts } from './studyui.js';
 import { n2Screen, n2SummaryBox } from './n2ui.js';
 import { LCD, fitCanvas } from './pixel/lcd.js';
 import { lookFor } from './pixel/director.js';
 import { icon } from './icons.js';
+
+// 복습 계열 화면: 이 사이를 오가는 동안 「戻る」는 처음 들어온 곳(타이틀·게임·결과)으로
+const STUDY_SCREENS = ['quiz', 'review', 'wordbook', 'metwords'];
 
 class App {
   constructor(root) {
@@ -74,8 +76,10 @@ class App {
       this.view.unmount();
       this.view = null;
     }
-    if (!['quiz', 'review', 'wordbook'].includes(name) || !['quiz', 'review', 'wordbook'].includes(this.cur)) this.prev = this.cur;
+    // 복습 화면들(퀴즈·복습·단어장·만난 말) 사이를 오갈 때는 「戻る」가 돌아갈 곳을 바꾸지 않는다
+    if (!STUDY_SCREENS.includes(name) || !STUDY_SCREENS.includes(this.cur)) this.prev = this.cur;
     this.cur = name;
+    this.curArgs = [arg, arg2];
     if (name !== 'game') delete this.root.dataset.season;
     switch (name) {
       case 'title':
@@ -90,6 +94,8 @@ class App {
         return this.mountScreen(studyScreen(this, 'review'));
       case 'wordbook':
         return this.mountScreen(studyScreen(this, 'book'));
+      case 'metwords':
+        return this.mountScreen(studyScreen(this, 'met'));
       case 'history':
         return this.mountScreen(this.historyScreen());
       case 'n2':
@@ -109,40 +115,31 @@ class App {
     if (p === 'game' && this.state) return this.go('game', this.state);
     return this.go('title');
   }
+  // 만남·복습 등록 규칙은 studyui.js 머리말에 있다: 장면에 나온 말은 「만남」으로만, 직접 건드린 말만 간격 반복(srs)에 넣는다.
+  // 단어 뜻 창: wordPopup이 onWordSaved를 부르므로 거기서 등록한다 (단어장·N2 목록에서 연 창도 같다)
   openWord(key, scene) {
     wordPopup(this, key, scene, this.settings.furigana);
   }
+  // 문법 뜻 창을 열었다 → 간격 반복에 등록
   openGrammar(key, scene) {
+    engage(['g:' + key]);
     grammarPopup(this, key, scene, this.settings.furigana);
   }
+  // 단어 뜻 창이 열렸다(저장 단추도 이 창 안에 있다) → 간격 반복에 등록, 이번 견생의 「본 말」에도
   onWordSaved(key) {
+    engage(['v:' + key]);
     if (this.state && this.state.phase !== 'ended' && !this.state.vocab.includes(key)) this.state.vocab.push(key);
   }
-  // 장면에서 학습 대상을 만났다 → 간격 반복에 등록, 이번 견생 기록에도 남긴다
+  // 장면에서 학습 대상을 만났다 → 만난 기록과 이번 견생의 s.met에만 (간격 반복에는 넣지 않는다)
   meet(ids, s) {
-    if (!ids.length) return;
-    const srs = store.srs();
-    let changed = false;
-    for (const id of ids) changed = srsMeet(srs, id) || changed;
-    if (changed) store.saveSrs(srs);
-    if (s) {
-      s.met = s.met || [];
-      for (const id of ids) if (!s.met.includes(id)) s.met.push(id);
-    }
+    recordMet(ids, s);
   }
-  // 번역을 열었다: 그 문장의 학습 대상에 「번역 확인」을 센다 (오답으로 치지 않는다. 복습 순서에만 쓴다)
+  // 번역을 열었다: 그 문장의 학습 대상을 간격 반복에 등록하고, 문장 속 말에 「번역 확인」을 센다 (오답으로 치지 않는다. 복습 순서에만 쓴다)
   noteTranslate(tpl) {
     const segs = (LINES.lines[tpl] || []).filter((x) => x && (x.v || x.g));
     if (!segs.length) return;
-    const srs = store.srs();
-    let changed = false;
-    for (const sg of segs) {
-      const id = sg.g ? 'g:' + sg.g : 'v:' + sg.v;
-      if (!srs[id]) continue;
-      srs[id].tr = (srs[id].tr || 0) + 1;
-      changed = true;
-    }
-    if (changed) store.saveSrs(srs);
+    const ids = [...new Set(segs.map((sg) => (sg.g ? 'g:' + sg.g : 'v:' + sg.v)))];
+    engage(sceneTargets([tpl], this.settings), { tr: ids });
   }
   // 대사 자리표시자를 채우기 위한 기준 상태 (게임 밖 화면에서 예문을 보여 줄 때)
   refState() {
@@ -185,15 +182,21 @@ class App {
     this.cur = 'result';
     this.mountScreen(resultScreen(this, s));
   }
+  // 퀴즈는 끝나도, 중간에 그만둬도 시작한 화면으로 돌아간다 (복습·단어장·만난 말·N2 화면은 같은 탭으로, 결과 화면은 결과로)
   startQuiz(ids, label) {
     if (this.view) {
       this.view.unmount();
       this.view = null;
     }
-    if (this.cur !== 'quiz') this.prev = ['review', 'wordbook'].includes(this.cur) ? this.cur : this.cur;
-    this.quizFrom = this.cur;
+    const from = this.cur === 'quiz' && this.quizFrom ? this.quizFrom : { name: this.cur, args: this.curArgs || [] };
+    if (!STUDY_SCREENS.includes(this.cur)) this.prev = this.cur;
+    this.quizFrom = from;
     this.cur = 'quiz';
-    this.mountScreen(quizScreen(this, ids, label, { onDone: () => (this.quizFrom === 'review' || this.quizFrom === 'wordbook' ? this.go(this.quizFrom) : this.back()) }));
+    this.mountScreen(quizScreen(this, ids, label, { onDone: () => this.returnFromQuiz(from) }));
+  }
+  returnFromQuiz(from) {
+    if (from && [...STUDY_SCREENS, 'n2'].includes(from.name) && from.name !== 'quiz') return this.go(from.name, ...(from.args || []));
+    return this.back();
   }
   // 게임 시작 전 今日の一問 (풀 것이 있을 때만)
   enterGame(s) {
@@ -300,17 +303,23 @@ class App {
     const dog = has ? save.state.dog : { name: 'コテツ', coat: 'black_tan', hair: 'smooth' };
     const cv = h('canvas', { class: 'lcd-canvas', 'aria-hidden': 'true' });
     const srs = store.srs();
-    const due = dueIds(srs).length;
+    const ja = (this.settings.lang || 'ja') === 'ja';
+    const counts = reviewCounts(srs);
     const soundBtn = h('button', { class: 'btn center', type: 'button', 'aria-pressed': String(this.settings.sound), onclick: () => { this.setSound(!this.settings.sound); soundBtn.replaceChildren(icon(this.settings.sound ? 'snd' : 'mute', 16), this.settings.sound ? this.tx('소리 끄기', '音を消す') : this.tx('소리 켜기', '音を出す')); soundBtn.setAttribute('aria-pressed', String(this.settings.sound)); } }, icon(this.settings.sound ? 'snd' : 'mute', 16), this.settings.sound ? this.tx('소리 끄기', '音を消す') : this.tx('소리 켜기', '音を出す'));
+    // 첫 화면 안에 시작 단추: 로고·도트 창 바로 아래에 つづきから/はじめから, 학습 기록과 다른 메뉴는 그 아래
+    // 나이는 게임 화면·연표와 같은 표기 (1살 전에는 「生後○か月」)
     const el = h('div', { class: 'screen' },
       h('div', { class: 'scroll title-wrap' },
         h('div', null, h('h1', { class: 'logo', lang: 'ja' }, '道場犬'), h('p', { class: 'subtitle', lang: 'ja' }, 'ある道場の、ある犬の一生')),
         h('div', { class: 'device title-device' }, h('div', { class: 'lcd' }, cv)),
-        h('button', { class: 'study-strip', type: 'button', onclick: () => this.go('review') }, h('span', { class: 'due' }, h('b', null, '今日の復習'), h('span', null, String(due))), progressBox(srs, undefined, (this.settings.lang || 'ja') === 'ja')),
+        h('div', { class: 'btns title-main' },
+          has ? h('button', { class: 'btn primary', type: 'button', onclick: () => this.resume(save) }, `つづきから · ${save.state.dog.name} ${ageLabel(save.state.t, true)}`) : null,
+          h('button', { class: has ? 'btn center' : 'btn primary', type: 'button', onclick: () => this.go('birth') }, 'はじめから')),
+        h('button', { class: 'study-strip', type: 'button', onclick: () => this.go('review') },
+          h('span', { class: 'due' }, h('b', null, ja ? '今日の復習' : '오늘의 복습'), h('span', null, String(counts.today)), h('small', { class: 'due-next' }, ja ? `明日から復習 ${counts.tomorrow}` : `내일부터 복습 ${counts.tomorrow}`)),
+          progressBox(srs, undefined, ja)),
         n2SummaryBox(this),
         h('div', { class: 'btns' },
-          has ? h('button', { class: 'btn primary', type: 'button', onclick: () => this.resume(save) }, `つづきから · ${save.state.dog.name} ${Math.floor(save.state.t / 4)}歳`) : null,
-          h('button', { class: has ? 'btn center' : 'btn primary', type: 'button', onclick: () => this.go('birth') }, 'はじめから'),
           h('div', { class: 'row' },
             h('button', { class: 'btn center', type: 'button', onclick: () => this.go('review') }, '復習'),
             h('button', { class: 'btn center', type: 'button', onclick: () => this.go('history') }, '歴史')),

@@ -15,6 +15,7 @@ import { modal, saveWord, wordPopup, grammarPopup, uiJa, jaConn } from './vocabu
 import { explainView } from './explainui.js';
 import { bankVkey } from '../engine/bankq.js';
 import { errorCause, readingCause, CAUSES } from '../engine/explain.js';
+import { metEntries, reviewCounts } from './studyui.js';
 
 const TABS = [
   ['home', 'ホーム'], ['vocab', '語彙'], ['grammar', '文法'], ['drill', '問題演習'], ['read', '読解'], ['listen', '聴解'], ['weak', '弱点克服'], ['review', '復習'],
@@ -145,11 +146,13 @@ export function n2Screen(app, tab = 'home', arg) {
 }
 
 // 홈: 학습 기록 요약 (합격 예측은 하지 않는다)
+// 만난 수는 「出会った語」와 같은 기준(장면에서 만난 것 ∪ 복습 목록), 복습 수는 타이틀·복습 화면과 같은 reviewCounts
 export function n2Summary() {
   const srs = store.srs();
   const words = n2Words();
   const gram = n2Grammar();
-  const met = (ids) => ids.filter((id) => srs[id]).length;
+  const seen = new Set(metEntries(srs).map((x) => x.id));
+  const met = (ids) => ids.filter((id) => seen.has(id)).length;
   const fixed = (ids) => ids.filter((id) => mastered(srs[id])).length;
   const wIds = words.map((k) => 'v:' + k);
   const gIds = gram.map((k) => 'g:' + k);
@@ -157,11 +160,13 @@ export function n2Summary() {
   const all = Object.values(ql);
   const ok = all.reduce((a, r) => a + r.ok, 0);
   const ng = all.reduce((a, r) => a + r.ng, 0);
+  const rc = reviewCounts(srs);
   return {
     words: words.length, wordsMet: met(wIds), wordsFixed: fixed(wIds),
     grammar: gram.length, grammarMet: met(gIds), grammarFixed: fixed(gIds),
     answered: ok + ng, accuracy: ok + ng ? Math.round((ok / (ok + ng)) * 100) : null,
-    review: priorityIds(srs).length,
+    review: rc.today,
+    reviewTomorrow: rc.tomorrow,
   };
 }
 
@@ -174,7 +179,7 @@ export function n2SummaryBox(app) {
       cell('語彙', `${s.wordsMet}/${s.words}`, `定着 ${s.wordsFixed}`),
       cell('文法', `${s.grammarMet}/${s.grammar}`, `定着 ${s.grammarFixed}`),
       cell('問題', String(s.answered), s.accuracy == null ? '—' : `正答 ${s.accuracy}%`),
-      cell('復習', String(s.review), '優先')));
+      cell('今日の復習', String(s.review), `明日から ${s.reviewTomorrow}`)));
 }
 
 function home(app, body) {
@@ -284,7 +289,7 @@ function grammar(app, body) {
 export function grammarDetail(app, key) {
   const g = GRAMMAR[key];
   if (!g) return;
-  if (!g.use && !g.ex) return grammarPopup(app, key, null, app.settings.furigana);
+  if (!g.use && !g.ex) return app.openGrammar ? app.openGrammar(key, null) : grammarPopup(app, key, null, app.settings.furigana);
   const srs = store.srs();
   const r = srs['g:' + key];
   const exs = (g.ex || []).map(([ja, ko]) => {

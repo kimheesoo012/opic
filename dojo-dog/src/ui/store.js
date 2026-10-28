@@ -99,6 +99,14 @@ export const store = {
   saveStudy(st) {
     write('study', st);
   },
+  // 장면에서 만난 학습 대상 { 'v:단어' | 'g:문법': 마지막으로 만난 시각 } — 견생을 넘어 유지.
+  // 만나기만 한 말은 여기에만 남고, 간격 반복(srs)에는 직접 건드린 말(뜻 창·번역·저장·문제)만 들어간다.
+  met() {
+    return read('met', {});
+  },
+  saveMet(x) {
+    write('met', x);
+  },
   // 간격 반복 기록 { 'v:단어' | 'g:문법': { met, box, due, streak, ok, ng, last } } — 견생을 넘어 유지
   srs() {
     return read('srs', {});
@@ -155,6 +163,6 @@ export const store = {
     write('legacy', l);
   },
   resetAll() {
-    for (const k of ['settings', 'save', 'wordbook', 'study', 'terms', 'history', 'legacy', 'srs', 'daily', 'qlog', 'causes']) remove(k);
+    for (const k of ['settings', 'save', 'wordbook', 'study', 'terms', 'history', 'legacy', 'srs', 'met', 'daily', 'qlog', 'causes']) remove(k);
   },
 };
