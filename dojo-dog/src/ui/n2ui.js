@@ -13,6 +13,7 @@ import { h, LINES, renderExample, renderJa } from './render.js';
 import { store } from './store.js';
 import { modal, saveWord, wordPopup, grammarPopup, uiJa, jaConn } from './vocabui.js';
 import { explainView } from './explainui.js';
+import { bankVkey } from '../engine/bankq.js';
 
 const TABS = [
   ['home', 'ホーム'], ['vocab', '語彙'], ['grammar', '文法'], ['drill', '問題演習'], ['read', '読解'], ['listen', '聴解'], ['weak', '弱点克服'], ['review', '復習'],
@@ -369,7 +370,7 @@ export function runDrill(app, body, qs, label, onDone) {
       btns[q.a].classList.add('right');
       if (!ok) btns[oi].classList.add('wrong');
       fb.replaceChildren(); appendAll(fb, h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
-        ...koBlockOpen(!ok, ...explainView({ options: q.opts, answer: q.a, why: q.why }, oi, { numbered: true })),
+        ...koBlockOpen(!ok, ...explainView({ options: q.opts, answer: q.a, why: q.why, ko: q.ko, btype: q.type, vkey: bankVkey(q) }, oi, { numbered: true })),
         (q.ref || []).filter((id) => itemOf(id)).length ? h('div', { class: 'chips' }, h('span', { class: 'chips-label' }, uiJa() ? '関連' : '관련'), q.ref.filter((id) => itemOf(id)).map((id) => h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => (id[0] === 'g' ? grammarDetail(app, id.slice(2)) : vocabDetail(app, id.slice(2))) }, id[0] === 'g' ? GRAMMAR[id.slice(2)].f : id.slice(2)))) : null);
       fb.hidden = false;
       next.hidden = false;

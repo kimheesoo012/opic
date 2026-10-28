@@ -1,6 +1,7 @@
 // 퀴즈 해설: 선택지마다 「그게 무엇이고 왜 아닌지」를 한 줄씩. 어휘·문법 DB에 있는 내용만 쓴다.
 import { VOCAB } from '../data/vocab.js';
 import { GRAMMAR } from '../data/grammar.js';
+import { KANJI } from '../data/kanji.js';
 
 const VOICED = { か: 'が', き: 'ぎ', く: 'ぐ', け: 'げ', こ: 'ご', さ: 'ざ', し: 'じ', す: 'ず', せ: 'ぜ', そ: 'ぞ', た: 'だ', ち: 'ぢ', つ: 'づ', て: 'で', と: 'ど', は: 'ば', ひ: 'び', ふ: 'ぶ', へ: 'べ', ほ: 'ぼ' };
 const HANDAKU = { は: 'ぱ', ひ: 'ぴ', ふ: 'ぷ', へ: 'ぺ', ほ: 'ぽ' };
@@ -110,4 +111,77 @@ export function grammarMore(key) {
     g.err || g.w ? `주의: ${g.err || g.w}` : null,
     ex ? `예문: ${plain(ex[0])} — ${ex[1]}` : null,
   ].filter(Boolean);
+}
+
+// ---- 한자 분해 (읽기·표기 문제의 정답 해설용) ----
+const IS_KANJI = /[一-龯]/;
+const dakuOf = (k) => VOICED[k] || HANDAKU[k] || k;
+// 음독이 word의 reading 안에 어떻게 들어갔는지 찾는다: 연탁(か→が)·촉음(く/つ→っ)·장음 생략까지 허용. 못 찾으면 null
+function matchOn(on, rest) {
+  for (const o of on) {
+    const cands = [o];
+    if (VOICED[o[0]] || HANDAKU[o[0]]) cands.push(VOICED[o[0]] ? VOICED[o[0]] + o.slice(1) : null, HANDAKU[o[0]] ? HANDAKU[o[0]] + o.slice(1) : null);
+    if (/[くつち]$/.test(o)) cands.push(o.slice(0, -1) + 'っ');
+    for (const c of cands.filter(Boolean)) if (rest.startsWith(c)) return c;
+  }
+  return null;
+}
+// kanjiSplit('逮捕', 'たいほ') → [{ c: '逮', r: 'たい', ko: '잡을 체' }, { c: '捕', r: 'ほ', ko: '잡을 포' }]. 음독으로 안 맞으면 r 없이 훈음만.
+export function kanjiSplit(word, reading = '') {
+  const chars = [...String(word)];
+  if (!chars.some((c) => IS_KANJI.test(c))) return [];
+  const rows = chars.map((c) => ({ c, r: '', ko: (KANJI[c] && KANJI[c].ko) || '' })).filter((x) => IS_KANJI.test(x.c) || x.c === '々');
+  if (!rows.every((x) => x.ko)) return rows.filter((x) => x.ko);
+  // 모두 한자인 음독어만 읽기를 쪼갠다 (訓読み나 送り仮名가 섞이면 훈음만)
+  if (chars.every((c) => IS_KANJI.test(c) || c === '々') && reading) {
+    let rest = reading;
+    const rs = [];
+    for (let i = 0; i < chars.length; i++) {
+      const base = chars[i] === '々' ? chars[i - 1] : chars[i];
+      const m = matchOn((KANJI[base] && KANJI[base].on) || [], rest);
+      if (!m) { rs.length = 0; break; }
+      rs.push(m);
+      rest = rest.slice(m.length);
+    }
+    if (rs.length === chars.length && !rest) rs.forEach((r, i) => { rows[i].r = r; });
+  }
+  return rows;
+}
+// 같은 글자를 같은 음으로 읽는 다른 말 (어휘 DB에서), 최대 n개: sameReading('捕', 'ほ', '逮捕') → ['捕獲（ほかく）']
+export function sameReading(c, r, exclude, n = 2) {
+  if (!c || !r) return [];
+  const out = [];
+  for (const [k, v] of Object.entries(VOCAB)) {
+    if (k === exclude || !k.includes(c) || v.k) continue;
+    const parts = kanjiSplit(k, v.r);
+    if (parts.some((p) => p.c === c && p.r === r)) out.push(`${k}（${v.r}）`);
+    if (out.length >= n) break;
+  }
+  return out;
+}
+// 어휘 정답 칸에 덧붙이는 줄들: [{ t: 제목, ja: [...], ko: '' }]
+//  한자: 逮 たい 잡을 체 ＋ 捕 ほ 잡을 포 / 같은 읽기: 捕獲（ほかく） / 비슷한 말·반대말·헷갈리는 말 (DB에 있을 때)
+export function vocabRows(key, { kanji = true, rel = true } = {}) {
+  const v = VOCAB[key];
+  if (!v) return [];
+  const rows = [];
+  if (kanji) {
+    const parts = kanjiSplit(key, v.r);
+    if (parts.length) {
+      rows.push({ t: '한자', parts });
+      const same = [];
+      for (const p of parts) if (p.r) for (const w of sameReading(p.c, p.r, key, 1)) same.push(`${p.c}＝${w}`);
+      if (same.length) rows.push({ t: '같은 읽기', ja: same.slice(0, 3) });
+    }
+  }
+  if (rel) {
+    const line = (ks) => (ks || []).filter((k) => VOCAB[k]).slice(0, 3).map((k) => `${withReading(k)} ${VOCAB[k].m}`);
+    const syn = line(v.syn);
+    const ant = line(v.ant);
+    const conf = line(v.conf);
+    if (syn.length) rows.push({ t: '비슷한 말', ja: syn });
+    if (ant.length) rows.push({ t: '반대말', ja: ant });
+    if (conf.length) rows.push({ t: '헷갈리는 말', ja: conf });
+  }
+  return rows;
 }

@@ -1,5 +1,6 @@
 // 퀴즈 해설 화면 조각: 고른 답(틀렸을 때) → 정답(설명·예문·문장 뜻) → 나머지 선택지(한 줄씩) → 「자세히」(접속·차이·주의, 접혀 있음)
 import { h } from './render.js';
+import { vocabRows } from '../engine/explain.js';
 
 const JA = /[ぁ-んァ-ン一-龯]/;
 // 설명 속 일본어 덩어리(읽기 괄호 포함)를 따로 묶어 글꼴로 구분한다: 「捕는 ほ예요」 → 捕·ほ가 일본어 글꼴
@@ -40,6 +41,14 @@ export function explainView(q, pick, { numbered = false, ko = true } = {}) {
     if (kept.length) ansText = kept.join(' ');
   }
   const extra = [];
+  // 어휘 문제: 한자 분해(읽기·훈음)·같은 읽기·비슷한 말 줄 (DB에서 자동)
+  if (q.vkey) {
+    const readingQ = q.kind === 'reading' || q.btype === 'kanji' || q.btype === 'hyoki';
+    const rows = vocabRows(q.vkey, { kanji: true, rel: true }).filter((r) => r.t !== '같은 읽기' || readingQ);
+    if (rows.length) extra.push(h('div', { class: 'ex-rows' }, rows.map((r) => h('div', { class: 'ex-row' }, h('span', { class: 'ex-row-t' }, r.t), r.parts
+      ? h('span', { class: 'ex-kj' }, r.parts.flatMap((p, i) => [i ? h('span', { class: 'ex-kj-plus' }, '＋') : null, h('span', { class: 'ex-kj-one' }, h('b', { lang: 'ja' }, p.c), p.r ? h('span', { class: 'ex-kj-r', lang: 'ja' }, p.r) : null, h('span', { class: 'ex-kj-ko' }, p.ko))]))
+      : h('span', { class: 'ex-row-v' }, r.ja.map((t, i) => h('span', { lang: 'ja' }, (i ? ' · ' : '') + t)))))));
+  }
   if (q.ex && q.ex[0]) extra.push(h('div', { class: 'ex-ex' }, h('span', { lang: 'ja' }, q.ex[0]), q.ex[1] ? h('span', { class: 'ex-ex-ko' }, q.ex[1]) : null));
   if (ko && q.ko) extra.push(h('p', { class: 'ex-ko' }, h('span', { class: 'ex-ko-tag' }, '문장 뜻'), q.ko));
   out.push(box('ex-ans', '정답', q.answer, ansText, extra));
