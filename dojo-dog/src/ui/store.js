@@ -113,6 +113,20 @@ export const store = {
   saveQlog(x) {
     write('qlog', x);
   },
+  // 틀린 원인 집계 { 원인키: { n 틀린 횟수, last 마지막 시각, ids: 최근 문제 id(최대 20) } }
+  causes() {
+    return read('causes', {});
+  },
+  addCause(cause, qid) {
+    if (!cause) return;
+    const c = read('causes', {});
+    const r = c[cause] || { n: 0, last: 0, ids: [] };
+    r.n++;
+    r.last = Date.now();
+    if (qid) r.ids = [qid, ...r.ids.filter((x) => x !== qid)].slice(0, 20);
+    c[cause] = r;
+    write('causes', c);
+  },
   // 오늘의 한 문제를 푼 날 (YYYY-MM-DD)
   dailyDone() {
     return read('daily', '');
@@ -141,6 +155,6 @@ export const store = {
     write('legacy', l);
   },
   resetAll() {
-    for (const k of ['settings', 'save', 'wordbook', 'study', 'terms', 'history', 'legacy', 'srs', 'daily', 'qlog']) remove(k);
+    for (const k of ['settings', 'save', 'wordbook', 'study', 'terms', 'history', 'legacy', 'srs', 'daily', 'qlog', 'causes']) remove(k);
   },
 };

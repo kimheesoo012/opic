@@ -17,7 +17,7 @@ const readOf = (s) => tok.tokenize(s).map((t) => k2h(t.reading || t.surface_form
 const H = /[가-힣]/;
 const HIRA = /^[ぁ-ゖー]+$/;
 const only = process.argv.slice(2).filter((x) => !x.startsWith('--'));
-const files = only.length ? only : ['bank_vocab_a', 'bank_vocab_b', 'bank_grammar'];
+const files = only.length ? only : ['bank_vocab_a', 'bank_gokei', 'bank_vocab_b', 'bank_grammar'];
 const err = [];
 const warn = [];
 const ids = new Set();
@@ -71,7 +71,7 @@ for (const f of files) {
       }
     }
     if (q.type === 'iikae' && !under) err.push(`${at}: 〔밑줄〕 없음`);
-    if (['bunmyaku', 'bunpo', 'kaiwa'].includes(q.type) && !/（\s*）|（　+）/.test(q.q)) err.push(`${at}: （　） 빈칸 없음`);
+    if (['bunmyaku', 'bunpo', 'kaiwa', 'gokei'].includes(q.type) && !/（\s*）|（　+）/.test(q.q)) err.push(`${at}: （　） 빈칸 없음`);
     if (q.type === 'yoho' && q.opts.some((o) => !/[。？！]$/.test(o))) warn.push(`${at}: 용법 선택지가 문장이 아님`);
     if (q.type === 'narabe') {
       const slots = (q.q.match(/＿＿|★/g) || []);

@@ -14,6 +14,7 @@ import { store } from './store.js';
 import { modal, saveWord, wordPopup, grammarPopup, uiJa, jaConn } from './vocabui.js';
 import { explainView } from './explainui.js';
 import { bankVkey } from '../engine/bankq.js';
+import { errorCause, readingCause, CAUSES } from '../engine/explain.js';
 
 const TABS = [
   ['home', 'ホーム'], ['vocab', '語彙'], ['grammar', '文法'], ['drill', '問題演習'], ['read', '読解'], ['listen', '聴解'], ['weak', '弱点克服'], ['review', '復習'],
@@ -334,22 +335,50 @@ export function grammarDetail(app, key) {
 function drill(app, body, type) {
   if (!type) {
     body.append(h('div', { class: 'n2-types' }, Object.entries(BANK_TYPES).map(([t, [ja, ko]]) => h('button', { class: 'n2-type', type: 'button', onclick: () => app.go('n2', 'drill', t) }, h('span', { lang: 'ja' }, ja), koSmall(ko), h('b', null, `${BANK.filter((q) => q.type === t).length}問`)))));
+    body.append(h('div', { class: 'card mock-card' }, h('b', { lang: 'ja' }, '模擬テスト（言語知識）'),
+      h('p', { class: 'note' }, tt('실제 N2 순서대로 유형마다 몇 문제씩, 시간 제한 있음. 끝나면 유형별 점수.', '本番と同じ順に各形式から数問ずつ。時間制限あり。終わると形式別の点数。')),
+      h('button', { class: 'btn primary', type: 'button', onclick: () => runDrill(app, body, mockSet(), '模擬テスト', null, { limitSec: MOCK_SEC }) }, `${mockSet().length}問 · ${MOCK_SEC / 60}分`)));
     return;
   }
   runDrill(app, body, pickBank(type, 10), BANK_TYPES[type][0]);
 }
 
+// 모의고사: 실제 N2 언어지식 순서·비율을 줄여서 (본시험 언어지식·독해 105분 중 언어지식 문제 수 비율로 시간 배분)
+const MOCK_PLAN = { kanji: 3, hyoki: 3, gokei: 2, bunmyaku: 4, iikae: 3, yoho: 3, bunpo: 6, narabe: 3, kaiwa: 2 };
+const MOCK_SEC = 20 * 60;
+function mockSet() {
+  const out = [];
+  for (const [t, n] of Object.entries(MOCK_PLAN)) if (BANK_TYPES[t]) out.push(...pickBank(t, n));
+  return out;
+}
+
 // 문제 묶음 풀기 (문제은행 형식). 정답 뒤 선택지마다 해설, 문제문 해석은 「訳」.
-export function runDrill(app, body, qs, label, onDone) {
+export function runDrill(app, body, qs, label, onDone, { limitSec = 0 } = {}) {
   let i = 0;
   let okN = 0;
   const wrong = [];
+  const byType = {};
   const box = h('div');
   body.replaceChildren(box);
+  const t0 = Date.now();
+  let timer = null;
+  const left = () => Math.max(0, limitSec - Math.floor((Date.now() - t0) / 1000));
+  const clock = h('span', { class: 'mock-clock' });
+  const tick = () => {
+    if (!box.isConnected) return clearInterval(timer);
+    const l = left();
+    clock.textContent = `残り ${Math.floor(l / 60)}:${String(l % 60).padStart(2, '0')}`;
+    if (l <= 0) { clearInterval(timer); i = qs.length; show(); }
+  };
+  if (limitSec) timer = setInterval(tick, 1000);
   const show = () => {
     box.replaceChildren();
     if (i >= qs.length) {
+      if (timer) clearInterval(timer);
+      const used = Math.round((Date.now() - t0) / 1000);
       appendAll(box, h('h3', { class: 'h' }, '結果'), h('p', { class: 'big-score' }, `${okN} / ${qs.length}`),
+        limitSec ? h('p', { class: 'note' }, `${Math.floor(used / 60)}分${used % 60}秒 / ${limitSec / 60}分 · ${tt('못 푼 문제', '未回答')} ${qs.length - Object.values(byType).reduce((a, x) => a + x.n, 0)}`) : null,
+        limitSec ? h('div', { class: 'list' }, Object.entries(byType).map(([t, x]) => h('div', { class: 'card weak-row' }, h('span', { lang: 'ja' }, typeName(t)), h('b', null, `${x.ok} / ${x.n}`)))) : null,
         wrong.length ? h('div', { class: 'list' }, wrong.map((q) => h('div', { class: 'card', lang: 'ja' }, ...richQ(q.q.replace(/\n/g, ' ')), h('div', { class: 'note' }, `正解: ${q.opts[q.a]}`)))) : null,
         wrong.length ? h('button', { class: 'btn primary', type: 'button', onclick: () => runDrill(app, body, [...wrong], label + '・やり直し', onDone) }, '間違いだけ もう一度') : null,
         h('button', { class: 'btn center', type: 'button', style: 'margin-top:8px', onclick: () => (onDone ? onDone() : app.go('n2', 'drill')) }, '戻る'));
@@ -358,7 +387,7 @@ export function runDrill(app, body, qs, label, onDone) {
     const q = qs[i];
     const ko = h('div', { class: 'ko', hidden: true }, q.ko || '');
     const fb = h('div', { class: 'q-explain', hidden: true });
-    const next = h('button', { class: 'btn primary', type: 'button', hidden: true, onclick: () => { i++; show(); } }, i + 1 < qs.length ? '次へ' : '結果');
+    const next = h('button', { class: 'btn primary drill-next', type: 'button', hidden: true, onclick: () => { i++; show(); } }, i + 1 < qs.length ? '次へ' : '結果');
     let done = false;
     const btns = q.opts.map((o, oi) => h('button', { class: 'btn q-opt', type: 'button', lang: 'ja', onclick: () => {
       if (done) return;
@@ -366,20 +395,24 @@ export function runDrill(app, body, qs, label, onDone) {
       const ok = oi === q.a;
       if (ok) okN++;
       else wrong.push(q);
+      const bt = byType[q.type] || (byType[q.type] = { ok: 0, n: 0 });
+      bt.n++;
+      if (ok) bt.ok++;
       logAnswer(q.id, q.type, ok, q.ref || []);
+      if (!ok) store.addCause(errorCause({ options: q.opts, answer: q.a, btype: q.type }, oi), q.id);
       btns[q.a].classList.add('right');
       if (!ok) btns[oi].classList.add('wrong');
       fb.replaceChildren(); appendAll(fb, h('div', { class: ok ? 'ok-mark' : 'ng-mark' }, ok ? '正解' : '不正解'),
-        ...koBlockOpen(!ok, ...explainView({ options: q.opts, answer: q.a, why: q.why, ko: q.ko, btype: q.type, vkey: bankVkey(q) }, oi, { numbered: true })),
+        ...koBlockOpen(!ok, ...explainView({ options: q.opts, answer: q.a, why: q.why, ko: q.ko, btype: q.type, vkey: bankVkey(q), prompt: q.pid ? '' : q.q, full: q.full }, oi, { numbered: true })),
         (q.ref || []).filter((id) => itemOf(id)).length ? h('div', { class: 'chips' }, h('span', { class: 'chips-label' }, uiJa() ? '関連' : '관련'), q.ref.filter((id) => itemOf(id)).map((id) => h('button', { class: 'chip-btn', type: 'button', lang: 'ja', onclick: () => (id[0] === 'g' ? grammarDetail(app, id.slice(2)) : vocabDetail(app, id.slice(2))) }, id[0] === 'g' ? GRAMMAR[id.slice(2)].f : id.slice(2)))) : null);
       fb.hidden = false;
       next.hidden = false;
-      fb.scrollIntoView({ block: 'nearest' });
+      fb.scrollIntoView({ block: 'start', behavior: 'smooth' });
     } }, `${oi + 1}. ${o}`));
     const passage = q.pid && PASSAGES[q.pid];
     const pko = passage ? h('div', { class: 'ko', hidden: true }, passage.ko) : null;
     appendAll(box,
-      h('div', { class: 'kicker' }, `${label} · ${i + 1} / ${qs.length}`),
+      h('div', { class: 'kicker' }, `${label} · ${i + 1} / ${qs.length}`, limitSec ? clock : null),
       h('div', { class: 'q-kind', lang: 'ja' }, typeName(q.type)),
       passage ? h('div', { class: 'card passage', lang: 'ja' }, passage.text.split('\n').map((p) => h('p', null, p)), pko, h('div', { class: 'tools' }, toggleKo(pko, '本文の訳'))) : null,
       h('div', { class: 'q-prompt long', lang: 'ja' }, q.q.split('\n').map((line) => h('div', null, ...richQ(line)))),
@@ -387,6 +420,7 @@ export function runDrill(app, body, qs, label, onDone) {
       h('div', { class: 'btns' }, btns), fb, next);
   };
   show();
+  if (limitSec) tick();
 }
 
 // ───── 독해 ─────
@@ -487,6 +521,21 @@ function listen(app, body, id) {
   });
 }
 
+// 원인별 연습 묶음: 최근 그 원인으로 틀린 문제 + (한자 읽기 원인이면) 같은 원인의 오답을 가진 다른 문제
+function causeDrill(cause, recent, n = 10) {
+  const seen = new Set();
+  const out = [];
+  const add = (q) => { if (q && !seen.has(q.id) && out.length < n) { seen.add(q.id); out.push(q); } };
+  for (const id of recent) add(BANK.find((q) => q.id === id));
+  const ql = store.qlog();
+  const pool = shuffle({ rng: hashSeed(String(Date.now()) + cause) }, BANK.filter((q) => {
+    if (['long', 'voice', 'sokuon', 'youon', 'on'].includes(cause)) return q.type === 'kanji' && q.opts.some((o, i) => i !== q.a && readingCause(q.opts[q.a], o) === cause);
+    return errorCause({ options: q.opts, answer: q.a, btype: q.type }, (q.a + 1) % 4) === cause;
+  })).sort((a, b) => (ql[a.id] ? 1 : 0) - (ql[b.id] ? 1 : 0));
+  for (const q of pool) add(q);
+  return out;
+}
+
 // ───── 약점 ─────
 function weak(app, body) {
   const st = typeStats();
@@ -496,6 +545,14 @@ function weak(app, body) {
   body.append(h('h3', { class: 'h' }, tt('유형별 정답률', '問題形式別の正答率')),
     rows.length ? h('div', { class: 'list' }, rows.map((r) => h('div', { class: 'card weak-row' }, h('span', { lang: 'ja' }, name(r.t)), h('b', null, `${r.p}%`), h('small', null, `${r.n}問`),
       BANK_TYPES[r.t] ? h('button', { class: 'mini-btn', type: 'button', onclick: () => app.go('n2', 'drill', r.t) }, '練習') : null))) : h('p', { class: 'note' }, tt('3문제 이상 풀면 표시됩니다.', '3問以上解くと表示される。')));
+  // 틀린 원인: 많이 틀린 순서. 한자 읽기 원인은 그 원인을 노리는 문제만 골라 다시 풀 수 있다
+  const causes = Object.entries(store.causes()).filter(([k]) => CAUSES[k]).sort((a, b) => b[1].n - a[1].n);
+  appendAll(body, h('h3', { class: 'h' }, tt('자주 틀리는 원인', 'よく間違える原因')),
+    causes.length ? h('div', { class: 'list' }, causes.map(([k, r]) => {
+      const qs = causeDrill(k, r.ids || []);
+      return h('div', { class: 'card weak-row' }, h('span', null, tt(CAUSES[k][0], CAUSES[k][1])), h('b', null, `${r.n}${tt('회', '回')}`),
+        qs.length ? h('button', { class: 'mini-btn', type: 'button', onclick: () => runDrill(app, body, qs, CAUSES[k][1], () => app.go('n2', 'weak')) }, '練習') : null);
+    })) : h('p', { class: 'note' }, tt('문제를 틀리면 원인(장음·탁음·비슷한 한자 등)이 쌓입니다.', '間違えると原因（長音・濁音・似た漢字など）がたまる。')));
   const ids = priorityIds(srs).slice(0, 30);
   const groups = {};
   for (const id of ids) (groups[priorityOf(srs[id])] = groups[priorityOf(srs[id])] || []).push(id);

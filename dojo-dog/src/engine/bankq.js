@@ -1,7 +1,7 @@
 // 문제은행(오리지널 N2 형식 문제)을 플레이 중 확인 문제로 쓰기 위한 색인. 한 문장으로 끝나는 유형만 쓴다.
 import { BANK, BANK_TYPES } from '../data/n2/bank.js';
 
-const PLAY_TYPES = new Set(['kanji', 'hyoki', 'bunmyaku', 'iikae', 'bunpo', 'kaiwa']);
+const PLAY_TYPES = new Set(['kanji', 'hyoki', 'gokei', 'bunmyaku', 'iikae', 'bunpo', 'kaiwa']);
 export const BANK_BY_REF = {};
 for (const q of BANK) {
   if (!PLAY_TYPES.has(q.type)) continue;
@@ -24,6 +24,7 @@ export function bankQuestion(id, item) {
     why: item.why,
     ko: item.ko,
     vkey: bankVkey(item),
+    full: item.full,
     explain: item.why[item.a],
     label: BANK_TYPES[item.type][0],
     sub: '',

@@ -506,10 +506,20 @@ button.delta { background: none; font: inherit; font-size: 16px; cursor: pointer
 .ex-kj-r { font-size: 13px; color: var(--ink); }
 .ex-kj-ko { font-size: 12px; color: var(--ink2); margin-left: 1px; }
 .ex-kj-plus { color: var(--ink2); font-size: 13px; }
+.ex-cause { margin-left: auto; font-size: 12px; font-weight: 700; color: var(--bad); border: 1.5px solid var(--bad); border-radius: 999px; padding: 0 8px; white-space: nowrap; }
+.ex-sent { margin-top: 8px; font-size: 16px; line-height: 1.7; word-break: normal; }
+.ex-sent mark { background: none; color: var(--good); font-weight: 700; border-bottom: 2px solid var(--good); padding: 0 1px; }
+.ex-sent-ko { font-size: 13.5px; color: var(--ink2); line-height: 1.55; margin-top: 2px; }
 .ex-more { margin-top: 6px; }
+.ex-more[open] { padding-bottom: 4px; }
+.ex-more-p { margin: 4px 0; font-size: 14px; line-height: 1.6; color: var(--ink2); }
+.drill-next { position: sticky; bottom: 8px; z-index: 2; box-shadow: 0 4px 14px rgba(0,0,0,.18); margin-top: 10px; }
 .ex-more summary { cursor: pointer; color: var(--accent); font-size: 15px; padding: 6px 0; }
 .ex-more p { margin: 4px 0; font-size: 14px; line-height: 1.6; color: var(--ink2); }
 
 /* 청해 화면의 단추 줄: 한 줄로 */
 .row.nowrap > .btn { white-space: nowrap; padding-inline: 10px; flex: 1 1 0; }
 .chips-label { align-self: center; font-size: 13px; color: var(--ink2); margin-right: 2px; }
+
+.mock-card { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.mock-clock { float: right; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent); }

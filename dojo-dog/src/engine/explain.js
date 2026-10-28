@@ -185,3 +185,69 @@ export function vocabRows(key, { kanji = true, rel = true } = {}) {
   }
   return rows;
 }
+
+// ---- 틀린 원인 (복습·약점 분석용) ----
+// 원인 키 → [한국어, 일본어]
+export const CAUSES = {
+  long: ['장음 혼동', '長音'],
+  voice: ['탁음 혼동', '清音・濁音'],
+  sokuon: ['촉음 혼동', '促音'],
+  youon: ['요음 혼동', '拗音'],
+  on: ['다른 음독', '音読みの取り違え'],
+  shape: ['비슷한 한자', '似た漢字'],
+  affix: ['접두어·접미어', '接頭語・接尾語'],
+  vocab: ['어휘 뜻·쓰임', '語の意味・使い方'],
+  grammar: ['문법 뜻·접속', '文法の意味・接続'],
+  order: ['어순', '語順'],
+};
+// 읽기 두 개의 차이로 원인을 고른다: readingCause('かじょう', 'かじょ') → 'long'
+export function readingCause(right, wrong) {
+  let p = 0;
+  while (p < right.length && p < wrong.length && right[p] === wrong[p]) p++;
+  let s = 0;
+  while (s < right.length - p && s < wrong.length - p && right[right.length - 1 - s] === wrong[wrong.length - 1 - s]) s++;
+  const a = right.slice(p, right.length - s);
+  const b = wrong.slice(p, wrong.length - s);
+  const one = (x) => x.length === 1;
+  if ((!a && b === 'っ') || (!b && a === 'っ') || (one(a) && one(b) && (a === 'っ' || b === 'っ'))) return 'sokuon';
+  if ((!a && LONG.test(b)) || (!b && LONG.test(a)) || (one(a) && one(b) && (a === 'ー' || b === 'ー'))) return 'long';
+  if (one(a) && one(b)) {
+    if (VOICED[a] === b || VOICED[b] === a || HANDAKU[a] === b || HANDAKU[b] === a) return 'voice';
+    const base = (c) => Object.keys(VOICED).find((k) => VOICED[k] === c) || Object.keys(HANDAKU).find((k) => HANDAKU[k] === c) || c;
+    if (base(a) === base(b)) return 'voice';
+    if (SMALL[a] === b || SMALL[b] === a) return 'youon';
+  }
+  if (/[ゃゅょ]/.test(a) !== /[ゃゅょ]/.test(b) && a.replace(/[ゃゅょ]/g, '').length && Math.abs(a.length - b.length) <= 1) {
+    const strip = (x) => x.replace(/[きしちにひみりぎじびぴ]([ゃゅょ])/g, '$1');
+    if (strip(a) === strip(b) || a.replace(/[ゃゅょ]/g, '') === b.replace(/[ゃゅょ]/g, '')) return 'youon';
+  }
+  return 'on';
+}
+const BTYPE_CAUSE = { hyoki: 'shape', gokei: 'affix', bunmyaku: 'vocab', iikae: 'vocab', yoho: 'vocab', bunpo: 'grammar', kaiwa: 'grammar', bunsho: 'grammar', narabe: 'order' };
+// 문제 하나에서 고른 오답의 원인. q: { options, answer, kind?, btype? }
+export function errorCause(q, pick) {
+  if (pick == null || pick === q.answer) return null;
+  const t = q.btype || q.type;
+  if (t === 'kanji' || q.kind === 'reading') return readingCause(q.options[q.answer], q.options[pick]);
+  if (BTYPE_CAUSE[t]) return BTYPE_CAUSE[t];
+  if (/^g/.test(q.kind || '')) return 'grammar';
+  if (q.kind) return 'vocab';
+  return null;
+}
+// 정답을 채운 문제문: [앞, 정답, 뒤] (빈칸·밑줄이 없으면 null)
+export function filledSentence(q) {
+  const t = q.btype || q.type;
+  const ans = q.options[q.answer];
+  if (t === 'narabe' && q.full) return [q.full, '', ''];
+  if (t === 'yoho') return [ans, '', ''];
+  const src = String(q.prompt || q.q || '').replace(/\n/g, ' ');
+  let m = src.match(/〔([^〕]+)〕/);
+  if (m) {
+    const word = t === 'hyoki' ? ans : m[1];
+    const after = t === 'kanji' ? `（${ans}）` : t === 'iikae' ? ` ≒ ${ans}` : '';
+    return [src.slice(0, m.index), word + after, src.slice(m.index + m[0].length)];
+  }
+  m = src.match(/（[\s　]*）/);
+  if (m) return [src.slice(0, m.index), ans, src.slice(m.index + m[0].length)];
+  return null;
+}

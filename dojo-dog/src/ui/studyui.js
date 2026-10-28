@@ -4,6 +4,7 @@ import { GRAMMAR } from '../data/grammar.js';
 import { dueIds, grade, makeSet, mastered, progress, itemOf, reviewGroups, learningStats, blankOf } from '../engine/study.js';
 import { kindName } from './playquiz.js';
 import { explainView } from './explainui.js';
+import { errorCause } from '../engine/explain.js';
 import { h, LINES } from './render.js';
 import { store } from './store.js';
 import { firstScene, levelLabel, wordPopup, grammarPopup } from './vocabui.js';
@@ -136,7 +137,7 @@ export function quizScreen(app, ids, label, opts = {}) {
     const q = qs[i];
     let answered = false;
     const fb = h('div', { class: 'q-explain', hidden: true });
-    const next = h('button', { class: 'btn primary', type: 'button', hidden: true, onclick: () => { i++; show(); } }, i + 1 < qs.length ? '次へ' : '結果');
+    const next = h('button', { class: 'btn primary drill-next', type: 'button', hidden: true, onclick: () => { i++; show(); } }, i + 1 < qs.length ? '次へ' : '結果');
     const koOpts = q.kind === 'meaning' || q.kind === 'context' || q.kind === 'gcontext';
     const opt = q.options.map((o, oi) => h('button', { class: 'btn q-opt', type: 'button', lang: koOpts ? 'ko' : 'ja', onclick: (e) => {
       if (answered) return;
@@ -146,6 +147,7 @@ export function quizScreen(app, ids, label, opts = {}) {
       store.saveSrs(srs);
       log.push({ q, ok, round, pick: o });
       if (!ok) wrong.push(q.id);
+      if (!ok && q.bankId) store.addCause(errorCause(q, oi), q.bankId);
       e.currentTarget.classList.add(ok ? 'right' : 'wrong');
       opt[q.answer].classList.add('right');
       const scene = q.kind === 'context' || q.kind === 'gcontext' ? null : firstScene(app, q.id, app.settings.furigana);
