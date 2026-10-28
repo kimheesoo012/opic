@@ -139,6 +139,13 @@ export function wordPopup(app, key, scene, mode) {
     saveButton(key, scene));
 }
 
+// 문법 예문 (DB의 첫 예문, 탭하면 번역)
+function exampleBlock(ex, mode) {
+  if (!ex || !ex[0]) return null;
+  const ko = h('div', { class: 'ko', hidden: true }, ex[1] || '');
+  return h('div', { class: 'v-sec' }, h('h4', null, '例文'), h('div', { class: 'line tap', role: 'button', tabindex: '0', onclick: () => (ko.hidden = !ko.hidden) }, h('div', { class: 'ja' }, renderJa(ex[0], { s: null, mode, targets: new Set() })), ko));
+}
+
 export function grammarPopup(app, key, scene, mode) {
   const g = GRAMMAR[key];
   if (!g) return;
@@ -147,6 +154,7 @@ export function grammarPopup(app, key, scene, mode) {
     h('p', { class: 'v-mean' }, g.m),
     h('p', { class: 'v-conn' }, uiJa() ? jaConn(g.c) : shortConn(g.c)),
     sceneBlock(app, scene, 'g:' + key, mode),
+    exampleBlock(g.ex && g.ex[0], mode),
     more(
       g.d ? h('div', { class: 'v-note' }, g.d) : null,
       g.w || g.err ? h('div', { class: 'v-note' }, g.err || g.w) : null),
@@ -157,25 +165,27 @@ export function speakerLabel(sp, s, mode) {
   return renderSpeaker(sp, s, mode);
 }
 
-// 점선 이름을 탭하면 보이는 작은 창: 이름·읽기·종류, 누구(무엇)인지, 이름 속 말의 뜻. 내용은 세계 설정에 있는 것만.
-// 일본어 모드: 일본어 이름·종류(人物·道場…)와 일본어 소개 아래에 한국어 풀이 (다른 창과 같은 방식)
+// 점선 이름을 탭하면 보이는 작은 창: 이름·읽기·종류, 누구(무엇)인지, 이름 속 말의 뜻. 내용은 세계 설정에 있는 것만 (src/engine/text.js nameInfo).
+// 일본어 모드: 일본어 종류(人物·道場…)·역할과 일본어 소개 아래에 한국어 풀이 (다른 창과 같은 방식)
 export function namePopup(app, q, state) {
   const s = state || app.state || app.refState();
   const info = nameInfo(s, q);
   const ja = uiJa();
   const mode = app.settings ? app.settings.furigana : 'always';
-  const jaText = (text) => h('p', { class: 'pn-desc', lang: 'ja' }, splitSentJa(text).map((t) => renderJa(t, { s, mode, targets: new Set() })));
+  // 일본어 문단: 글자는 문장마다 lines.json의 조각(루비)으로, 배열은 이미 조각
+  const jaPara = (items) => h('p', { class: 'pn-desc', lang: 'ja' }, items.flatMap((it) => (Array.isArray(it) ? [renderJa('', { s, mode, targets: new Set(), segs: it })] : splitSentJa(it).map((t) => renderJa(t, { s, mode, targets: new Set() })))));
   const summary = [info.ko, info.roleKo ? (ja && info.roleJa ? `${info.roleKo}(${info.roleJa})` : info.roleKo) : null, info.area, info.label].filter(Boolean).join(' · ');
-  const desc = info.desc ? (info.descThen ? `처음 만났을 때: ${info.desc}` : info.desc) + (info.ageNow ? ` 지금 ${info.ageNow}살.` : '') : null;
   modal(app, info.value,
     h('div', { class: 'v-head' },
       h('span', { class: 'v-word pn-word', lang: 'ja' }, info.value),
       info.reading && info.reading !== info.value ? h('span', { class: 'v-read', lang: 'ja' }, info.reading) : null,
       info.kind ? h('span', { class: 'v-lv', lang: ja ? 'ja' : 'ko' }, ja ? info.kindJa : info.kindKo) : null),
-    info.full ? h('div', { class: 'pn-full', lang: 'ja' }, `${info.full}（${info.fullReading}）`) : null,
+    info.full ? h('div', { class: 'pn-full', lang: 'ja' }, info.fullReading ? `${info.full}（${info.fullReading}）` : info.full) : null,
     summary ? h('p', { class: 'v-mean' }, summary) : null,
-    ja && info.descJa ? jaText(info.descJa) : null,
-    desc ? h('p', { class: 'pn-desc ko' }, desc) : null,
+    ja ? info.jaText.map(jaPara) : null,
+    info.koText ? h('p', { class: 'pn-desc ko' }, info.koText) : null,
+    ja && info.nowJaText ? jaPara(info.nowJaText) : null,
+    info.now ? h('p', { class: 'pn-desc ko' }, info.nowKo) : null,
     info.parts.length ? h('ul', { class: 'pn-parts' }, info.parts.map((x) => h('li', null, h('b', { lang: 'ja' }, x.w), x.r !== x.w ? h('span', { class: 'pn-r', lang: 'ja' }, x.r) : null, h('span', null, x.ko)))) : null,
-    !summary && !desc && !info.parts.length ? h('p', { class: 'v-mean' }, ja ? '名前（固有名詞）' : '이름(고유명사)') : null);
+    !summary && !info.koText && !info.parts.length ? h('p', { class: 'v-mean' }, ja ? '名前（固有名詞）' : '이름(고유명사)') : null);
 }

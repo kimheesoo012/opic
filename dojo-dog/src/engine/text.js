@@ -4,7 +4,7 @@
 //  《표기|어휘키》 또는 《어휘키》 : 한국어 해설 안의 일본어 용어 (검도 용어 등)
 import { personFor, PEOPLE, PROMOTE, ROLES, ROLE_KO, ROLE_JA } from './world.js';
 import { CONTINUED_JA } from '../data/ja/misc.js';
-import { KIND, PARTS, PART_KEYS, PERSON_PARTS, PLACES, CONTINUED_KO } from '../data/proper.js';
+import { KIND, PARTS, PART_KEYS, PERSON_PARTS, PLACES, CONTINUED_KO, JA, KO, KID_STAGE, DOJO_LABEL_CONT } from '../data/proper.js';
 
 const JOSA = {
   은: ['은', '는'], 는: ['은', '는'], 이: ['이', '가'], 가: ['이', '가'], 을: ['을', '를'], 를: ['을', '를'],
@@ -258,27 +258,80 @@ function findKey(s, value) {
   return null;
 }
 
-// 점선 이름의 풀이: { value, reading, kind, kindKo, kindJa, ko(한국어 이름), role/roleKo/roleJa, desc, descJa, area, parts[] }
+// 풀이 창의 일본어 문장 표기(src/data/proper.js JA)를 renderJa 조각으로: 〔표기|읽기〕 → 루비, 〔표기|읽기|P〕 → 점선 이름, {T} → 자리표시자
+export function jaSegs(src, n = null) {
+  const t = n == null ? String(src || '') : String(src || '').replace(/%n/g, String(n));
+  const out = [];
+  const re = /〔([^|〕]+)\|([^|〕]+)(?:\|([^〕]+))?〕|\{([A-Za-z]+)\}/g;
+  let last = 0;
+  let m;
+  while ((m = re.exec(t))) {
+    if (m.index > last) out.push(t.slice(last, m.index));
+    if (m[1]) out.push([m[1], m[2], m[3] || String(kanjiLevel(m[1])), isHardKanji(m[1]) ? 1 : 0]);
+    else out.push({ p: m[4], q: '' });
+    last = re.lastIndex;
+  }
+  if (last < t.length) out.push(t.slice(last));
+  return out;
+}
+const fillKo = (t, n) => t.replace(/%n/g, String(n));
+const hasFlag = (s, k) => !!(s && s.flags && s.flags[k] !== undefined);
+
+// 점선 이름의 풀이: { value, reading, kind, kindKo, kindJa, ko(한국어 이름), full/fullReading, role/roleKo/roleJa, label/labelJa, area,
+//   desc/descJa(원래 소개), koText(창에 쓰는 한국어 풀이), jaText(일본어 모드 문단: [조각들] — 글자는 lines.json에서 문장을 찾고, 배열은 renderJa 조각),
+//   now/nowJa(요즘 근황), parts[] }
 // 사람은 이번 견생의 역할(s.cast)과 인물 소개(PEOPLE), 장소는 세계 설정(s.world)에 있는 사실만 쓴다.
 export function nameInfo(s, q = {}) {
   const value = String(q.value || '');
-  const out = { value, reading: q.reading || nameReading(value), kind: null, ko: null, desc: null, descJa: null, parts: [] };
+  const out = { value, reading: q.reading || nameReading(value), kind: null, ko: null, desc: null, descJa: null, koText: null, jaText: [], parts: [] };
   const found = q.key ? { key: q.key } : findKey(s, value);
   const key = found && found.key;
   const setKind = (k) => Object.assign(out, { kind: k, kindKo: KIND[k][0], kindJa: KIND[k][1] });
+  const para = (...xs) => {
+    const list = xs.filter((x) => x != null && x !== '');
+    if (list.length) out.jaText.push(list);
+  };
   if (key && PLACE_KEYS[key] && s && s.world) {
     const w = s.world;
     const r = w.region || {};
     setKind(PLACE_KEYS[key]);
     out.parts = nameParts(value, key === 'P');
-    if (key === 'D') Object.assign(out, { ko: w.dojoNameKo, label: w.dojo.ko, labelJa: w.dojo.labelJa || null, desc: w.dojo.desc, descJa: w.dojo.descJa || null });
-    else if (key === 'T') Object.assign(out, { ko: r.townKo, area: r.ko, desc: r.desc, descJa: r.descJa || null });
-    else if (key === 'S') Object.assign(out, { ko: r.streetKo, area: r.ko });
-    else if (key === 'SH') Object.assign(out, { ko: r.shrineKo, area: r.ko });
-    else if (key === 'RV') Object.assign(out, { ko: r.riverKo, area: r.ko });
-    else if (key === 'P') {
+    if (key === 'D') {
+      // 이어지는 세계: 사람이 바뀌었으니 옛 사범을 말하는 소개는 「앞 세대 때」로
+      const cont = w.continued ? DOJO_LABEL_CONT[w.dojo.id] : null;
+      const state = hasFlag(s, 'dojo_moved') ? 'moved' : hasFlag(s, 'dojo_kominkan') ? 'kominkan' : w.prevDojoState || null;
+      const note = state === 'moved' ? 'dojoMoved' : state === 'kominkan' ? 'dojoKominkan' : null;
+      Object.assign(out, { ko: w.dojoNameKo, label: cont ? cont[0] : w.dojo.ko, labelJa: cont ? jaSegs(cont[1]) : w.dojo.labelJa || null, desc: w.dojo.desc, descJa: w.dojo.descJa || null });
+      out.koText = (cont ? KO.prevGenDojo : '') + w.dojo.desc + (note ? ' ' + KO[note] : '');
+      para(out.labelJa, out.labelJa ? '。' : null);
+      para(cont ? jaSegs(JA.prevGenDojo) : null, out.descJa, note ? jaSegs(JA[note]) : null);
+    } else if (key === 'T') {
+      Object.assign(out, { ko: r.townKo, area: r.ko, desc: r.desc, descJa: r.descJa || null, koText: r.desc || null });
+      para(out.descJa);
+    } else if (key === 'S') {
+      // 거리 이름은 대개 상점가 (한국어 이름에 「상점가」가 붙은 곳)
+      const arcade = /상점가/.test(r.streetKo || '');
+      setKind(arcade ? 'arcade' : 'street');
+      Object.assign(out, { ko: r.streetKo, area: r.ko });
+      para(jaSegs(arcade ? JA.arcade : JA.street));
+    } else if (key === 'SH') {
+      Object.assign(out, { ko: r.shrineKo, area: r.ko });
+      para(jaSegs(JA.shrine));
+    } else if (key === 'RV') {
+      Object.assign(out, { ko: r.riverKo, area: r.ko });
+      para(jaSegs(JA.river));
+    } else if (key === 'P') {
       const prev = s.prevDog;
-      Object.assign(out, { ko: prev ? prev.nameKo : '선대', desc: prev ? `이 도장에서 전에 살던 개. 무지개다리를 건넌 지 ${w.yearsLater || 0}년.` : '이 도장에서 전에 살던 개.' });
+      // 무지개다리를 건넌 지: 이번 견생이 시작될 때의 햇수 + 그 뒤로 지난 해
+      const years = (w.yearsLater || 0) + Math.floor((s.t || 0) / 4);
+      if (prev) {
+        Object.assign(out, { ko: prev.nameKo, desc: fillKo(KO.prevDog, years), koText: fillKo(KO.prevDog, years) });
+        para(jaSegs(JA.prevDog, years));
+      } else {
+        // 이름 없는 선대: 종류(先代の犬)와 같은 말을 조각 풀이로 또 쓰지 않는다
+        Object.assign(out, { ko: '선대(앞 세대)', desc: KO.prevDogNoName, koText: KO.prevDogNoName, parts: [] });
+        para(jaSegs(JA.prevDogNoName));
+      }
     }
     return out;
   }
@@ -292,25 +345,63 @@ export function nameInfo(s, q = {}) {
     out.full = p.s || p.g ? fullName(p) : null;
     if (out.full === value) out.full = null;
     out.fullReading = out.full ? nameReading(out.full) : null;
+    // 가타카나 이름은 읽기가 표기와 같다 (ハン・ソジン（ハン・ソジン） 꼴을 만들지 않게)
+    if (out.fullReading === out.full) out.fullReading = null;
     out.role = role;
     out.roleKo = role ? ROLE_KO[role] : null;
     out.roleJa = role ? ROLE_JA[role] : null;
     out.desc = continued ? CONTINUED_KO[role] : p.desc || null;
     out.descJa = continued ? CONTINUED_JA[role] || null : p.descJa || null;
-    // 초등부 아이는 자란다: 소개 글은 처음 만났을 때의 것
-    const years = s && typeof s.t === 'number' ? Math.floor(s.t / 4) : 0;
-    if (role === 'kid' && !continued && !promoted && p.age && years >= 1) {
-      out.ageNow = p.age + years;
-      out.descThen = true;
+    let descJa = out.descJa;
+    // 도장 살림(千春さん)의 소개 「사범의 배우자」는 남편(坂上誠)이 사범일 때만 맞다: 노사범이 되었거나 없는 세대에서는 고쳐 쓴다
+    if (role && p.id === 'chiharu' && s.cast) {
+      const mk = ROLES.find((r) => s.cast[r] === 'makoto');
+      if (mk === 'roshi') {
+        out.desc = KO.okamiOfRoshi;
+        descJa = [jaSegs(JA.okamiOfRoshi), jaSegs(JA.okamiWork)];
+      } else if (mk !== 'shihan') {
+        out.desc = KO.okamiWork;
+        descJa = [jaSegs(JA.okamiWork)];
+      }
+    }
+    // 초등부 아이는 자란다: 지금 학년(중학교 3.25년·고등학교 6.25년·졸업 9년)과 나이. 소개 글은 처음 만났을 때의 것
+    const years = s && typeof s.t === 'number' ? s.t / 4 : 0;
+    if (role === 'kid' && !continued && !promoted) {
+      const st = KID_STAGE.find(([until]) => years < until);
+      out.roleKo = st[1];
+      out.roleJa = st[2];
+      if (p.age && years >= 1) {
+        out.ageNow = p.age + Math.floor(years);
+        out.descThen = true;
+      }
+    }
+    // 이번 견생에 없는 사람(이어지는 세계의 도장 소개 속 鷲尾 등)
+    const gone = !role && s && s.world && s.world.continued && s.cast && !Object.values(s.cast).includes(p.id);
+    out.koText = out.desc ? (gone ? KO.prevGen : '') + (out.descThen ? KO.firstMet : '') + out.desc + (out.ageNow ? ' ' + fillKo(KO.ageNow, out.ageNow) : '') : null;
+    if (descJa) para(gone ? jaSegs(JA.prevGen) : null, out.descThen ? jaSegs(JA.firstMet) : null, ...(Array.isArray(descJa) ? descJa : [descJa]), out.ageNow ? jaSegs(JA.ageNow, out.ageNow) : null);
+    // 요즘 근황: 이야기에서 바뀐 소식(처음 소개와 다를 때만)
+    const news = role && s.news ? s.news[role] : null;
+    if (news && news !== out.desc && news !== p.desc && news !== CONTINUED_KO[role]) {
+      out.now = news;
+      out.nowKo = KO.lately + news;
+      out.nowJa = (s.newsJa && s.newsJa[role]) || null;
+      out.nowJaText = out.nowJa ? [jaSegs(JA.lately), out.nowJa] : null;
     }
     out.parts = nameParts(value, true);
     return out;
   }
-  const place = PLACES[value];
+  // 호칭이 붙은 꼴(田中先生)은 호칭을 뗀 이름으로도 찾는다
+  const place = PLACES[value] || PLACES[value.replace(/(先生|さん|ちゃん|くん|様)$/, '')];
   if (place) {
     setKind(place[1] === 'person' ? 'person' : place[1]);
     out.ko = place[0];
   }
   out.parts = nameParts(value, !place || place[1] === 'person');
   return out;
+}
+
+// 점선을 그을 만한 이름인가: 누르면 종류나 이름 속 말의 뜻이 나오는 것만 (형태소 분석기가 잘못 고유명사로 본 「日」 같은 것은 보통 글자로)
+export function nameExplained(s, value) {
+  const info = nameInfo(s, { value });
+  return !!(info.kind || info.parts.length);
 }

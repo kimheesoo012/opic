@@ -271,7 +271,9 @@ class App {
     const sw = (key, label) => {
       const b = h('button', { class: 'switch', type: 'button', role: 'switch', 'aria-checked': String(!!set[key]), 'aria-label': label, onclick: () => { set[key] = !set[key]; b.setAttribute('aria-checked', String(!!set[key])); changed(); } }, h('i'));
       const desc = SETTING_DESC[key];
-      return h('div', { class: 'toggle-block' }, h('div', { class: 'toggle-row' }, h('span', null, label), b), desc ? h('p', { class: 'toggle-desc' }, t(desc[0], desc[1])) : null);
+      // 일본어 표시 모드: 일본어 설명 아래에 한국어 (표시 안내와 같은 방식)
+      const ja = (set.lang || 'ja') === 'ja';
+      return h('div', { class: 'toggle-block' }, h('div', { class: 'toggle-row' }, h('span', null, label), b), desc ? h('p', { class: 'toggle-desc' }, t(desc[0], desc[1]), ja ? h('span', { class: 'legend-ko', lang: 'ko' }, desc[0]) : null) : null);
     };
     const custom = h('div', { class: 'opt-grid checks', hidden: set.studyLevel !== 'custom' },
       [['5', 'N5'], ['4', 'N4'], ['3', 'N3'], ['2', 'N2'], ['1', 'N1'], ['K', t('검도 용어', '剣道用語')]].map(([c, label]) => h('button', { type: 'button', role: 'checkbox', 'aria-checked': String(set.customLevels.includes(c)), onclick: (e) => {

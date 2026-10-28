@@ -2,7 +2,7 @@
 import LINES from '../gen/lines.json';
 import { VOCAB } from '../data/vocab.js';
 import { GRAMMAR } from '../data/grammar.js';
-import { lookup, rubyName, isHardKanji, kanjiLevel, splitJa, splitKo, resolveKo, NAME_PLAIN } from '../engine/text.js';
+import { lookup, rubyName, isHardKanji, kanjiLevel, splitJa, splitKo, resolveKo, NAME_PLAIN, nameExplained } from '../engine/text.js';
 import { showRuby, lvCode, pickTargets } from '../engine/learn.js';
 
 export function h(tag, attrs, ...kids) {
@@ -47,9 +47,27 @@ const rubyEl = (base, reading) => h('ruby', { class: 'rb' }, base, h('rt', null,
 function rubyNode(it, ctx) {
   const mode = modeOf(ctx);
   const [base, reading, code] = it;
-  if (code === 'P' && reading) return nameUnit(base, ctx, { reading });
+  if (code === 'P' && reading) {
+    // 형태소 분석기가 고유명사로 잘못 본 말(日用品의 「日」 등): 눌러도 풀이가 없으니 점선 없이 보통 글자처럼
+    const s = ctx && typeof ctx === 'object' ? ctx.s : null;
+    if (nameExplained(s, base)) return nameUnit(base, ctx, { reading });
+    const lv = String(kanjiLevel(base));
+    return rubyShows([base, reading, lv, isHardKanji(base) ? 1 : 0], mode) ? rubyEl(base, reading) : document.createTextNode(base);
+  }
   if (!rubyShows(it, mode)) return document.createTextNode(base);
   return rubyEl(base, reading);
+}
+
+// 고유명사 바로 뒤의 호칭(鷲尾|先生)은 이름 하나로: 점선·탭이 「鷲尾先生」 한 덩어리
+const HONORIFIC = new Set(['先生', 'さん', 'ちゃん', 'くん', '様']);
+function joinHonorific(list) {
+  const out = [];
+  for (const it of list) {
+    const prev = out[out.length - 1];
+    if (Array.isArray(it) && Array.isArray(prev) && prev[2] === 'P' && prev[1] && HONORIFIC.has(it[0])) out[out.length - 1] = [prev[0] + it[0], prev[1] + (it[1] || it[0]), 'P', prev[3]];
+    else out.push(it);
+  }
+  return out;
 }
 
 // 형태소 분석기가 한 낱말을 여러 조각으로 나눈 경우(観客|席, 試合|場, 誕生|日): 이어진 한자 조각에 둘 다 루비를 달 때는
@@ -71,7 +89,7 @@ export function mergeRuby(list, mode) {
 
 function items(list, ctx) {
   const out = [];
-  for (const it of mergeRuby(list, modeOf(ctx))) {
+  for (const it of mergeRuby(joinHonorific(list), modeOf(ctx))) {
     if (typeof it === 'string') out.push(document.createTextNode(it));
     else if (Array.isArray(it)) out.push(rubyNode(it, ctx));
     else if (it && it.merge) out.push(rubyEl(it.base, it.reading));
@@ -98,6 +116,8 @@ export function nameUnit(value, ctx, meta = {}) {
   const ruby = showRuby(mode, 'P', { first });
   const pieces = meta.reading ? [[value, meta.reading]] : joinNames(rubyName(value));
   const reading = pieces.map((x) => (typeof x === 'string' ? x : x[1])).join('');
+  // 단추 안의 글(선택지 등): 이름을 눌러도 그 단추가 눌려야 하므로 점선·탭 없이 읽기만
+  if (obj && obj.plainNames) return h('span', { class: 'pn-plain' }, pieces.map((x) => (typeof x === 'string' ? x : ruby ? rubyEl(x[0], x[1]) : x[0])));
   const el = h('span', { class: 'pn', role: 'button', tabindex: '0', 'data-r': reading, 'data-key': meta.key || null }, pieces.map((x) => (typeof x === 'string' ? x : ruby ? rubyEl(x[0], x[1]) : x[0])));
   const fire = (e) => {
     const f = (obj && obj.onName) || nameHandler;
@@ -328,4 +348,27 @@ export function plainSegs(tpl, ctx) {
   return segs
     .map((sg) => (typeof sg === 'string' ? sg : Array.isArray(sg) ? sg[0] : sg.p ? lookup(sg.p, sg.q || undefined, ctx, 'ja') : sg.s.map((x) => (Array.isArray(x) ? x[0] : x)).join('')))
     .join('');
+}
+
+// 갈래 이름을 줄바꿈할 수 있는 덩어리로: 한국어는 띄어쓰기, 일본어는 「の」「から来た」「・」 뒤
+export function catChunks(text) {
+  return /[가-힣]/.test(text) ? text.split(' ').filter(Boolean) : text.split(/(?<=の|から来た|・)/).filter(Boolean);
+}
+
+// 문장(span)들 가운데 (x, y)에서 가장 가까운 것 (줄 위·아래 거리를 먼저, 같은 줄이면 옆 거리)
+export function nearestSpan(spans, x, y) {
+  let best = null;
+  let bd = Infinity;
+  for (const sp of spans) {
+    for (const r of sp.getClientRects()) {
+      const dy = y < r.top ? r.top - y : y > r.bottom ? y - r.bottom : 0;
+      const dx = x < r.left ? r.left - x : x > r.right ? x - r.right : 0;
+      const d = dy * 4 + dx;
+      if (d < bd) {
+        bd = d;
+        best = sp;
+      }
+    }
+  }
+  return best;
 }
