@@ -16,9 +16,10 @@ import { explainView } from './explainui.js';
 import { bankVkey } from '../engine/bankq.js';
 import { errorCause, readingCause, CAUSES } from '../engine/explain.js';
 import { metEntries, reviewCounts } from './studyui.js';
+import { kanjiTab } from './kanjiui.js';
 
 const TABS = [
-  ['home', 'ホーム'], ['vocab', '語彙'], ['grammar', '文法'], ['drill', '問題演習'], ['read', '読解'], ['listen', '聴解'], ['weak', '弱点克服'], ['review', '復習'],
+  ['home', 'ホーム'], ['vocab', '語彙'], ['grammar', '文法'], ['kanji', '漢字'], ['drill', '問題演習'], ['read', '読解'], ['listen', '聴解'], ['weak', '弱点克服'], ['review', '復習'],
 ];
 const READ_KIND = { short: ['短文', '단문'], medium: ['中文', '중문'], long: ['長文', '장문'], integ: ['統合理解', '통합 이해'], claim: ['主張理解', '주장 이해'], info: ['情報検索', '정보 검색'], game: ['ゲームの文書', '게임 속 글'] };
 const LISTEN_KIND = { task: ['課題理解', '과제 이해'], point: ['ポイント理解', '포인트 이해'], gist: ['概要理解', '개요 이해'], quick: ['即時応答', '즉시 응답'], integ: ['統合理解', '통합 이해'] };
@@ -138,7 +139,7 @@ export function pickBank(type, n = 10, seed = String(Date.now())) {
 export function n2Screen(app, tab = 'home', arg) {
   const body = h('div', { class: 'n2-body' });
   const tabs = h('div', { class: 'n2-tabs', role: 'tablist' }, TABS.map(([k, label]) => h('button', { type: 'button', role: 'tab', 'aria-pressed': String(k === tab), onclick: () => (k === 'review' ? app.go('review') : app.go('n2', k)) }, label)));
-  const view = { home, vocab, grammar, drill, read, listen, weak }[tab] || home;
+  const view = { home, vocab, grammar, kanji: kanjiTab, drill, read, listen, weak }[tab] || home;
   view(app, body, arg);
   return h('div', { class: 'screen n2' },
     h('div', { class: 'scroll' }, h('h2', { class: 'h', lang: 'ja' }, 'JLPT N2対策'), tabs, body),

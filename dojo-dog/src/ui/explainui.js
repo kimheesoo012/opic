@@ -2,6 +2,16 @@
 import { h } from './render.js';
 import { vocabRows, errorCause, filledSentence, CAUSES } from '../engine/explain.js';
 
+// 해설의 한자 칩을 탭하면 그 한자 풀이를 연다 (kanjiui가 등록한다)
+let onKanji = null;
+export const setKanjiHandler = (f) => { onKanji = f; };
+
+// 한자 칩 하나: 逮 たい 잡을 체 (탭하면 한자 풀이)
+function kjChip(p) {
+  const kids = [h('b', { lang: 'ja' }, p.c), p.r ? h('span', { class: 'ex-kj-r', lang: 'ja' }, p.r) : null, h('span', { class: 'ex-kj-ko' }, p.ko)];
+  return onKanji ? h('button', { class: 'ex-kj-one ex-kj-tap', type: 'button', 'aria-label': `${p.c} ${p.ko}`, onclick: () => onKanji(p.c) }, ...kids) : h('span', { class: 'ex-kj-one' }, ...kids);
+}
+
 const JA = /[ぁ-んァ-ン一-龯]/;
 // 설명 속 일본어 덩어리(읽기 괄호 포함)를 따로 묶어 글꼴로 구분한다: 「捕는 ほ예요」 → 捕·ほ가 일본어 글꼴
 const JA_RUN = /[ぁ-ゖァ-ヺー一-龯々〆〇]+(?:[（(][ぁ-ゖァ-ヺー]+[）)])?/g;
@@ -60,7 +70,7 @@ export function explainView(q, pick, { numbered = false, ko = true } = {}) {
     const readingQ = q.kind === 'reading' || q.btype === 'kanji' || q.btype === 'hyoki';
     const rows = vocabRows(q.vkey, { kanji: true, rel: true }).filter((r) => r.t !== '같은 읽기' || readingQ);
     if (rows.length) more.push(h('div', { class: 'ex-rows' }, rows.map((r) => h('div', { class: 'ex-row' }, h('span', { class: 'ex-row-t' }, r.t), r.parts
-      ? h('span', { class: 'ex-kj' }, r.parts.flatMap((p, i) => [i ? h('span', { class: 'ex-kj-plus' }, '＋') : null, h('span', { class: 'ex-kj-one' }, h('b', { lang: 'ja' }, p.c), p.r ? h('span', { class: 'ex-kj-r', lang: 'ja' }, p.r) : null, h('span', { class: 'ex-kj-ko' }, p.ko))]))
+      ? h('span', { class: 'ex-kj' }, r.parts.flatMap((p, i) => [i ? h('span', { class: 'ex-kj-plus' }, '＋') : null, kjChip(p)]))
       : h('span', { class: 'ex-row-v' }, r.ja.map((t, i) => h('span', { lang: 'ja' }, (i ? ' · ' : '') + t)))))));
   }
   if (q.ex && q.ex[0]) more.push(h('div', { class: 'ex-ex' }, h('span', { lang: 'ja' }, q.ex[0]), q.ex[1] ? h('span', { class: 'ex-ex-ko' }, q.ex[1]) : null));

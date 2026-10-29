@@ -135,6 +135,13 @@ export const store = {
     c[cause] = r;
     write('causes', c);
   },
+  // 한자 연습 기록 { 글자: { ok, ng, last, lastOk } } (간격 반복 srs는 어휘·문법만 다루므로 따로 둔다)
+  kanji() {
+    return read('kanji', {});
+  },
+  saveKanji(x) {
+    write('kanji', x);
+  },
   // 오늘의 한 문제를 푼 날 (YYYY-MM-DD)
   dailyDone() {
     return read('daily', '');
@@ -163,6 +170,6 @@ export const store = {
     write('legacy', l);
   },
   resetAll() {
-    for (const k of ['settings', 'save', 'wordbook', 'study', 'terms', 'history', 'legacy', 'srs', 'met', 'daily', 'qlog', 'causes']) remove(k);
+    for (const k of ['settings', 'save', 'wordbook', 'study', 'terms', 'history', 'legacy', 'srs', 'met', 'daily', 'qlog', 'causes', 'kanji']) remove(k);
   },
 };
