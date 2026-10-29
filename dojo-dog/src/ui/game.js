@@ -634,7 +634,7 @@ export class GameView {
   sceneHead(titleNode, catJa, catKo, shown = catJa) {
     // 갈래 이름은 낱말 덩어리에서만 줄을 바꾼다 (道場の人々 / · 韓国から来た / 門下生, 도장 사람들 / · 사회인 / 수련생): 좁은 칸에서 「全訳」 밑으로 넘치지 않게
     const parts = shown ? shown.split(' · ').map((x, i) => h('span', null, catChunks(x).flatMap((c, j) => [j ? (/[가-힣]/.test(x) ? ' ' : h('wbr')) : null, h('span', { class: 'cat-chunk' }, (i && !j ? '· ' : '') + c)]))) : [];
-    const cat = shown ? h('button', { class: 'ev-cat', type: 'button', lang: 'ja', 'aria-label': `${catJa} (${catKo})`, onclick: () => this.app.toast(`${catJa} — ${catKo}`) }, parts.flatMap((x, i) => (i ? [' ', x] : [x]))) : null;
+    const cat = shown ? h('span', { class: 'ev-cat', lang: 'ja', 'aria-label': `${catJa} (${catKo})` }, parts.flatMap((x, i) => (i ? [' ', x] : [x]))) : null;
     this.allBtn = this.ja ? h('button', { class: 'mini-btn tr-all', type: 'button', 'aria-pressed': 'false', 'aria-label': '장면 전체 번역', hidden: true, onclick: () => this.toggleAll() }, '全訳') : null;
     return h('div', { class: 'ev-head' }, titleNode, cat, this.allBtn);
   }
