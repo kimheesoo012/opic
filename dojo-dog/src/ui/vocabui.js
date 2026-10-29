@@ -5,6 +5,7 @@ import { GRAMMAR } from '../data/grammar.js';
 import { h, renderExample, renderJa, renderSpeaker, LINES } from './render.js';
 import { store } from './store.js';
 import { nameInfo, splitSentJa } from '../engine/text.js';
+import { richKo } from './explainui.js';
 
 
 // 표시 언어 (설정을 직접 읽는다: 팝업은 어느 화면에서나 열린다)
