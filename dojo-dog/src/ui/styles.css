@@ -679,3 +679,43 @@ p.tap, li.tap, .stamp.tap, .note.tap { cursor: pointer; }
 /* 갈래 이름은 낱말 덩어리(.cat-chunk)에서만 줄을 바꾼다 (game.js catChunks): 긴 역할 이름도 「全訳」 밑으로 넘치지 않게 */
 .ev-head .ev-cat > span { display: inline; white-space: normal; }
 .ev-head .ev-cat .cat-chunk { display: inline-block; white-space: nowrap; }
+/* kanji: 漢字 탭 (목록 카드·풀이·연습) · 해설 한자 칩 탭 */
+.kj-practice-row { gap: 8px; margin: 4px 0 10px; }
+.kj-practice-row .btn { flex: 1 1 0; min-width: 0; }
+.kj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; margin-top: 6px; }
+.kj-card { display: grid; justify-items: center; gap: 1px; min-width: 0; padding: 8px 4px 6px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; }
+.kj-card.ng { border-color: var(--bad); }
+.kj-c { font-family: var(--f-ja); font-size: 30px; line-height: 1.15; }
+.kj-ko { font-size: 13px; color: var(--ink2); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kj-on { font-size: 12px; color: var(--mute); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kj-n { font-size: 12px; color: var(--accent); }
+.kj-more { grid-column: 1 / -1; }
+.kj-head { display: flex; gap: 14px; align-items: center; margin: 4px 0 10px; }
+.kj-big { flex: none; width: 88px; height: 88px; display: grid; place-items: center; font-family: var(--f-ja); font-size: 64px; line-height: 1; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.kj-meta { min-width: 0; display: grid; gap: 3px; }
+.kj-hun { font-size: 20px; font-weight: 700; }
+.kj-ons { font-size: 15px; overflow-wrap: anywhere; }
+.kj-tag { display: inline-block; margin-right: 6px; padding: 0 6px; border-radius: 6px; background: var(--bg2); font-size: 12px; color: var(--ink2); }
+.kj-note { margin: 0 0 10px; padding: 8px 12px; border-left: 3px solid var(--accent); background: var(--surface2); border-radius: 0 10px 10px 0; font-size: 14px; }
+.kj-note p { margin: 2px 0; }
+.kj-group { margin-top: 14px; }
+.kj-gh { display: flex; align-items: baseline; gap: 8px; margin: 0 0 6px; }
+.kj-gh small { font-size: 13px; color: var(--mute); font-weight: 400; }
+.kj-words { display: grid; gap: 6px; }
+.kj-word { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: 'w r st' 'm m m'; gap: 0 10px; align-items: baseline; text-align: left; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; min-width: 0; }
+.kj-word.met { border-left: 4px solid var(--good); }
+.kj-ww { grid-area: w; font-family: var(--f-ja); font-size: 18px; }
+.kj-ww mark, .kj-prompt mark { background: none; color: var(--accent); font-weight: 700; }
+.kj-wr { grid-area: r; font-size: 14px; color: var(--ink2); overflow-wrap: anywhere; }
+.kj-wm { grid-area: m; font-size: 14px; color: var(--mute); overflow-wrap: anywhere; }
+.kj-wst { grid-area: st; font-size: 12px; color: var(--mute); white-space: nowrap; }
+.kj-wst.s1 { color: var(--accent); }
+.kj-wst.s2 { color: var(--good); }
+.kj-detail .btn.primary { width: 100%; }
+.kj-prompt { font-size: 30px; text-align: center; margin: 8px 0 12px; }
+.kj-ask { font-size: 15px; color: var(--ink2); margin-top: 4px; }
+.kj-mean { font-size: 20px; font-weight: 700; overflow-wrap: anywhere; }
+.kj-opt { font-size: 26px; }
+.kj-chip { font-family: var(--f-ja); }
+.ex-kj-tap { border: 1px solid var(--line); color: var(--ink); font: inherit; cursor: pointer; min-height: 32px; }
+.ex-kj-tap:hover, .ex-kj-tap:focus-visible { border-color: var(--accent); }
