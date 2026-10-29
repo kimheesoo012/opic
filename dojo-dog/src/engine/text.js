@@ -210,7 +210,7 @@ export function isHardKanji(base) {
 // ───── 고유명사 풀이 (점선을 눌렀을 때) ─────
 // 점선을 긋지 않는 자리표시자: 화자의 1인칭(私·俺·僕…), 숫자, 개 이름, 도장 사범의 이력 문구
 export const NAME_PLAIN = new Set(['I', 'Y', 'N', 'BG']);
-const PLACE_KEYS = { D: 'dojo', T: 'town', S: 'street', SH: 'shrine', RV: 'river', P: 'prevdog' };
+export const PLACE_KEYS = { D: 'dojo', T: 'town', S: 'street', SH: 'shrine', RV: 'river', P: 'prevdog' };
 
 // 이름 전체의 읽기 (한자 조각은 NAME_READ 읽기, 가나는 그대로)
 export function nameReading(str) {
@@ -404,4 +404,11 @@ export function nameInfo(s, q = {}) {
 export function nameExplained(s, value) {
   const info = nameInfo(s, { value });
   return !!(info.kind || info.parts.length);
+}
+
+// 사람 이름인가: 점선·탭 없이 루비만 단다 (사람은 대사마다 나와서 늘 강조할 필요가 없다)
+export function isPersonName(s, value, key = null) {
+  if (key) return !PLACE_KEYS[key];
+  const info = nameInfo(s, { value });
+  return info.kind === 'person';
 }

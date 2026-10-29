@@ -2,7 +2,7 @@
 import LINES from '../gen/lines.json';
 import { VOCAB } from '../data/vocab.js';
 import { GRAMMAR } from '../data/grammar.js';
-import { lookup, rubyName, isHardKanji, kanjiLevel, splitJa, splitKo, resolveKo, NAME_PLAIN, nameExplained } from '../engine/text.js';
+import { lookup, rubyName, isHardKanji, kanjiLevel, splitJa, splitKo, resolveKo, NAME_PLAIN, nameExplained, isPersonName } from '../engine/text.js';
 import { showRuby, lvCode, pickTargets } from '../engine/learn.js';
 
 export function h(tag, attrs, ...kids) {
@@ -117,7 +117,8 @@ export function nameUnit(value, ctx, meta = {}) {
   const pieces = meta.reading ? [[value, meta.reading]] : joinNames(rubyName(value));
   const reading = pieces.map((x) => (typeof x === 'string' ? x : x[1])).join('');
   // 단추 안의 글(선택지 등): 이름을 눌러도 그 단추가 눌려야 하므로 점선·탭 없이 읽기만
-  if (obj && obj.plainNames) return h('span', { class: 'pn-plain' }, pieces.map((x) => (typeof x === 'string' ? x : ruby ? rubyEl(x[0], x[1]) : x[0])));
+  // 사람 이름은 점선·탭 없이 (도장·동네·거리·신사·강·전에 살던 개만 점선)
+  if ((obj && obj.plainNames) || isPersonName(obj ? obj.s : null, value, meta.key || null)) return h('span', { class: 'pn-plain' }, pieces.map((x) => (typeof x === 'string' ? x : ruby ? rubyEl(x[0], x[1]) : x[0])));
   const el = h('span', { class: 'pn', role: 'button', tabindex: '0', 'data-r': reading, 'data-key': meta.key || null }, pieces.map((x) => (typeof x === 'string' ? x : ruby ? rubyEl(x[0], x[1]) : x[0])));
   const fire = (e) => {
     const f = (obj && obj.onName) || nameHandler;

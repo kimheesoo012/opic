@@ -145,10 +145,11 @@ test('T2: 자리표시자 값 하나는 점선 하나 (しらかば町こども�
   assert.equal(pn[0].getAttribute('data-r'), 'しらかばちょうこどもけんゆうかい');
   assert.equal(pn[0].getAttribute('data-key'), 'D');
   assert.deepEqual(rubies(pn[0]), [['町', 'ちょう'], ['剣友会', 'けんゆうかい']]);
-  // 자리표시자가 있는 모든 대사: 사람·장소 자리표시자 하나마다 점선 정확히 하나
+  // 사람 이름은 점선 없이(루비만), 장소 자리표시자 하나마다 점선 정확히 하나
   for (const role of ['okami', 'shihan', 'kid', 'kor']) {
     const e2 = R.renderJa('x', { s, mode: 'n2', segs: [{ p: role }, 'さん、', { p: 'T' }] });
-    assert.equal(e2.all('.pn').length, 2, role);
+    assert.equal(e2.all('.pn').length, 1, role);
+    assert.equal(e2.all('.pn')[0].getAttribute('data-key'), 'T', role);
   }
 });
 
@@ -169,16 +170,13 @@ test('T2: 1인칭(私·俺·僕)·숫자·개 이름에는 점선을 긋지 않�
   assert.equal(rubies(el2).length, 0);
 });
 
-test('T2: 화자 이름도 점선 하나 (역할 키를 달고, 누르면 풀이 창 처리기로)', () => {
+test('T2: 사람 이름(화자 포함)에는 점선·탭이 없다', () => {
   const s = life();
   let got = null;
   const el = R.renderSpeaker('okami', s, 'always', { s, mode: 'always', onName: (q) => (got = q) });
-  const pn = el.all('.pn');
-  assert.equal(pn.length, 1);
-  assert.equal(pn[0].getAttribute('data-key'), 'okami');
-  click(pn[0]);
-  assert.equal(got.key, 'okami');
-  assert.equal(got.value, personFor(s.cast, 'okami').call);
+  assert.equal(el.all('.pn').length, 0);
+  assert.ok(el.textContent.includes(personFor(s.cast, 'okami').call.replace(/[一-鿿]+/g, '')));
+  assert.equal(got, null);
 });
 
 test('T2: 처리기가 없을 때는 기본 처리기(앱의 풀이 창), 그것도 없으면 탭을 문장 쪽으로 넘긴다', () => {
@@ -186,14 +184,14 @@ test('T2: 처리기가 없을 때는 기본 처리기(앱의 풀이 창), 그것
   const wrap = document.createElement('div');
   let toggled = 0;
   wrap.addEventListener('click', () => toggled++);
-  wrap.append(R.renderJa('x', { s, mode: 'always', segs: [{ p: 'shihan' }, 'が来た。'] }));
+  wrap.append(R.renderJa('x', { s, mode: 'always', segs: [{ p: 'D' }, 'に来た。'] }));
   click(wrap.all('.pn')[0]);
   assert.equal(toggled, 1, '처리기가 없으면 번역 쪽으로');
   let seen = null;
   R.setNameHandler((q, st) => (seen = [q.key, st]));
   click(wrap.all('.pn')[0]);
   assert.equal(toggled, 1, '기본 처리기가 있으면 거기서 멈춘다');
-  assert.deepEqual(seen, ['shihan', s]);
+  assert.deepEqual(seen, ['D', s]);
   R.setNameHandler(null);
 });
 
@@ -327,7 +325,7 @@ test('T3: 표시 안내의 보기 글자는 진짜 밑줄 단추 class를 쓰지
     }
   }
   // 점선 안내: 지금 키우는 개 이름에만 점선이 없다 (전에 살던 개는 점선)
-  assert.ok(R.TAPS.some(([ko]) => /지금 키우는 개/.test(ko) && /先代/.test(ko)));
+  assert.ok(R.TAPS.some(([ko]) => /지금 키우는 개/.test(ko) && /사람 이름/.test(ko)));
 });
 
 test('T3: 설정 스위치 설명이 동작과 맞다 (밑줄 수, 「직접 선택」에서는 쉬운 말 끄기를 쓰지 않음)', () => {
@@ -366,11 +364,10 @@ test('T2: 고유명사로 잘못 붙은 한 글자(日用品의 「日」)는 �
   const pn = el.all('.pn');
   assert.deepEqual(pn.map((x) => x.textContent.replace(/かんこく/, '')), ['韓国']);
   assert.ok(rubies(el).some(([b, r]) => b === '日' && r === 'にち'), '「日」은 보통 루비로');
-  // 고유명사 바로 뒤의 호칭은 이름 하나로 (鷲尾|先生 → 점선 하나)
+  // 사람 이름(鷲尾先生)은 점선 없이 읽기만
   const el2 = R.renderJa('x', { s, mode: 'always', segs: [['鷲尾', 'わしお', 'P', 1], ['先生', 'せんせい', '4', 0], 'が'] });
-  const pn2 = el2.all('.pn');
-  assert.equal(pn2.length, 1);
-  assert.equal(pn2[0].getAttribute('data-r'), 'わしおせんせい');
+  assert.equal(el2.all('.pn').length, 0);
+  assert.ok(rubies(el2).some(([b, r]) => b === '鷲尾' || r === 'わしおせんせい'));
   assert.equal(nameInfo(s, { value: '鷲尾先生' }).kind, 'person');
 });
 
