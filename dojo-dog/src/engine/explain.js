@@ -65,40 +65,40 @@ export function readingDiff(right, wrong, word = '') {
     const ko = (KANJI[ch] && KANJI[ch].ko) || '';
     const kpt = (pair) => pt(ko ? ko.slice(-1) : ch, pair);
     const big = (t) => t.replace(/[ゃゅょ]/g, (m) => SMALL[m]);
-    if (seion(w) === seion(r)) return `${ch}${kpt('은는')} ${josa(w, '이가')} 아니라 ${josa(r, '으로로')} 읽어요. 청음·탁음만 달라요.`;
-    if (big(r) === w) return `${ch}${kpt('은는')} ${josa(r, '으로로')} 읽어요. 작은 ${r.match(/[ゃゅょ]/)[0]}라서 한 박자예요. ${w}처럼 크게 읽으면 다른 말이 돼요.`;
-    if (big(w) === r) return `${ch}${kpt('은는')} ${josa(r, '으로로')} 읽어요. ${w}처럼 작게 붙여 읽지 않아요.`;
-    if (r.endsWith('っ') && /[くつちき]$/.test(w) && seion(w.slice(0, -1)) === seion(r.slice(0, -1))) return `${ch}${kpt('은는')} 뒤 글자와 만나 ${josa(r, '으로로')} 줄어들어요. ${w}처럼 끝까지 읽지 않고 한 박자 끊어요.`;
-    if (w.endsWith('っ') && /[くつちき]$/.test(r) && seion(r.slice(0, -1)) === seion(w.slice(0, -1))) return `${ch}${kpt('은는')} ${josa(r, '으로로')} 끝까지 읽어요. 여기서는 촉음 っ로 줄지 않아요.`;
-    if (longOf(w, r)) return `${ch}${kpt('은는')} ${josa(r, '으로로')} 길게 읽어요. ${josa(w, '으로로')} 짧게 끊으면 다른 말이 돼요.`;
-    if (longOf(r, w)) return `${ch}${kpt('은는')} ${josa(r, '으로로')} 짧게 읽어요. ${w}처럼 늘이지 않아요.`;
-    if (on.includes(w) || on.includes(seion(w))) return `${w}도 ${ch}의 음독이지만, 이 말에서는 ${josa(r, '으로로')} 읽어요.`;
-    return `${ch}${kpt('은는')} ${josa(w, '이가')} 아니라 ${josa(r, '으로로')} 읽어요.`;
+    if (seion(w) === seion(r)) return `${ch}${kpt('은는')} ${josa(w, '이가')} 아니라 ${josa(r, '이에요예요')}.`;
+    if (big(r) === w) return `${ch}${kpt('은는')} ${josa(r, '이에요예요')}. 작은 ${r.match(/[ゃゅょ]/)[0]}.`;
+    if (big(w) === r) return `${ch}${kpt('은는')} ${josa(r, '이에요예요')}. 큰 글자로 읽어요.`;
+    if (r.endsWith('っ') && /[くつちき]$/.test(w) && seion(w.slice(0, -1)) === seion(r.slice(0, -1))) return `${ch}${kpt('은는')} 여기서 촉음이 돼 ${josa(r, '이에요예요')}.`;
+    if (w.endsWith('っ') && /[くつちき]$/.test(r) && seion(r.slice(0, -1)) === seion(w.slice(0, -1))) return `${ch}${kpt('은는')} ${josa(r, '이에요예요')}. 촉음으로 줄지 않아요.`;
+    if (longOf(w, r)) return `${ch}${kpt('은는')} 장음 ${josa(r, '이에요예요')}.`;
+    if (longOf(r, w)) return `${ch}${kpt('은는')} 장음 없이 ${josa(r, '이에요예요')}.`;
+    if (on.includes(w) || on.includes(seion(w))) return `${w}도 ${ch}의 음독이지만 이 말에서는 ${josa(r, '이에요예요')}.`;
+    return `${ch}${kpt('은는')} ${josa(r, '이에요예요')}.`;
   };
   if (!a && b) {
-    if (b === 'っ') return `${before ? before + ' 뒤에 ' : ''}촉음 っ가 들어갈 자리가 아니에요. 끊지 않고 이어서 읽어요.`;
-    if (b === 'ん') return atEnd ? `끝에 ん이 붙지 않아요. ${josa(before, '으로로')} 끝나는 ${whole} 읽어요.` : `${before} 뒤에 ん이 들어가지 않아요. ${whole} 이어서 읽어요.`;
-    if (LONG_TAIL.test(b) && b.length === 1) return `${josa(before, '은는')} 길게 늘이지 않고 짧게 읽어요. 장음 ${josa(b, '이가')} 붙지 않아요.`;
-    return byKanji() || `${josa(b, '이가')} 더 들어갔어요. ${whole} 읽어요.`;
+    if (b === 'っ') return `촉음 っ가 없어요. ${whole} 읽어요.`;
+    if (b === 'ん') return atEnd ? `끝에 ん이 없어요. ${whole} 읽어요.` : `ん이 없어요. ${whole} 읽어요.`;
+    if (LONG_TAIL.test(b) && b.length === 1) return `장음 ${josa(b, '이가')} 없어요. ${whole} 읽어요.`;
+    return byKanji() || `${josa(b, '이가')} 더 붙었어요. ${whole} 읽어요.`;
   }
   if (a && !b) {
-    if (a === 'っ') return `${before ? before + ' 뒤에 ' : ''}촉음 っ가 들어가요. 한 박자 끊어서 읽어요.`;
+    if (a === 'っ') return `촉음 っ가 빠졌어요. ${whole} 읽어요.`;
     if (a === 'ん') return atEnd ? `마지막 ん이 빠졌어요. ${whole} ん까지 읽어요.` : `${before} 뒤에 ん이 들어가요. ${whole} 읽어요.`;
-    if (LONG_TAIL.test(a) && a.length === 1) return `${josa(before, '은는')} 장음이라서 ${before}${a}로 길게 읽어요. ${josa(a, '이가')} 빠지면 다른 말이 돼요.`;
+    if (LONG_TAIL.test(a) && a.length === 1) return `장음 ${josa(a, '이가')} 빠졌어요. ${whole} 읽어요.`;
     return byKanji() || `${josa(a, '이가')} 빠졌어요. ${whole} 읽어요.`;
   }
   if (a.length === 1 && b.length === 1) {
     // 한자어는 글자를 짚어 말한다 (같은 종류의 오답이 둘이어도 설명이 달라진다)
     const kj = byKanji();
     if (kj) return kj;
-    if (VOICED[a] === b) return `여기서는 ${a}가 탁음이 되지 않아요. ${b}가 아니라 ${josa(a, '으로로')} 읽어요.`;
-    if (VOICED[b] === a) return `여기서는 ${b}가 탁음이 돼서 ${josa(a, '으로로')} 읽어요.`;
-    if (HANDAKU[a] === b || HANDAKU[b] === a || seion(a) === seion(b)) return `${a}와 ${b}가 헷갈리기 쉬워요. 여기서는 ${a}예요.`;
-    if (SMALL[a] === b) return `작은 ${a}예요. 큰 ${b}로 읽으면 박자가 하나 늘어서 다른 말이 돼요.`;
-    if (SMALL[b] === a) return `큰 ${a}예요. 작은 ${b}로 읽으면 박자가 줄어서 다른 말이 돼요.`;
-    if (LONG_TAIL.test(a)) return `${before}${a}로 길게 늘여 읽는 자리예요. ${b}가 아니에요.`;
+    if (VOICED[a] === b) return `탁음이 아니라 ${a}예요. ${whole} 읽어요.`;
+    if (VOICED[b] === a) return `여기서는 탁음 ${a}예요. ${whole} 읽어요.`;
+    if (HANDAKU[a] === b || HANDAKU[b] === a || seion(a) === seion(b)) return `${b}가 아니라 ${a}예요. ${whole} 읽어요.`;
+    if (SMALL[a] === b) return `작은 ${a}예요. ${whole} 읽어요.`;
+    if (SMALL[b] === a) return `큰 ${a}예요. ${whole} 읽어요.`;
+    if (LONG_TAIL.test(a)) return `장음 ${before}${a}예요. ${whole} 읽어요.`;
   }
-  return byKanji() || `${a} 자리를 ${josa(b, '으로로')} 잘못 읽었어요. ${whole} 읽어요.`;
+  return byKanji() || `${whole} 읽어요.`;
 }
 // right의 [from, to) 구간을 덮는 한자 하나 (kanjiSplit으로 음독을 쪼갤 수 있을 때만)
 function kanjiAt(word, right, from, to) {
