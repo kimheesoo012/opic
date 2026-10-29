@@ -719,3 +719,12 @@ p.tap, li.tap, .stamp.tap, .note.tap { cursor: pointer; }
 .kj-chip { font-family: var(--f-ja); }
 .ex-kj-tap { border: 1px solid var(--line); color: var(--ink); font: inherit; cursor: pointer; min-height: 32px; }
 .ex-kj-tap:hover, .ex-kj-tap:focus-visible { border-color: var(--accent); }
+/* help 2: 한 줄 설명, 일본어는 글자 단위 줄바꿈(넘침 방지) */
+.legend-row { grid-template-columns: 104px 1fr; align-items: baseline; }
+.legend-text { display: block; font-size: 14.5px; line-height: 1.6; word-break: normal; overflow-wrap: anywhere; }
+.toggle-desc { word-break: normal; overflow-wrap: anywhere; margin: -2px 0 6px; }
+.legend-taps li { word-break: normal; overflow-wrap: anywhere; }
+/* v-note: 제목 + 문장마다 한 줄 */
+.v-note .v-note-t { display: block; font-size: 13px; color: var(--accent); margin-bottom: 4px; }
+.v-note p { margin: 0 0 6px; line-height: 1.65; word-break: keep-all; overflow-wrap: anywhere; }
+.v-note p:last-child { margin-bottom: 0; }

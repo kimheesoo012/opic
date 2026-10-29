@@ -5,6 +5,7 @@ import { GRAMMAR } from '../data/grammar.js';
 import { h, renderExample, renderJa, renderSpeaker, LINES } from './render.js';
 import { store } from './store.js';
 import { nameInfo, splitSentJa } from '../engine/text.js';
+import { richKo } from './explainui.js';
 
 
 // 표시 언어 (설정을 직접 읽는다: 팝업은 어느 화면에서나 열린다)
@@ -81,6 +82,13 @@ export function jaConn(c = '') {
   return (keep.length ? keep.join(' / ') : parts[0].replace(/\s*[가-힣][가-힣\s・]*/g, '')).trim();
 }
 
+// 설명 상자: 제목 + 문장마다 한 줄, 일본어 부분은 일본어 글꼴로 (explainui richKo)
+function noteBox(title, text) {
+  if (!text) return null;
+  const sents = String(text).split(/(?<=[.。요다])\s+/).filter(Boolean);
+  return h('div', { class: 'v-note' }, h('b', { class: 'v-note-t' }, title), ...sents.map((t) => h('p', null, richKo(t))));
+}
+
 // 길게 읽을 내용은 접어 둔다
 function more(...kids) {
   const list = kids.filter(Boolean);
@@ -134,7 +142,7 @@ export function wordPopup(app, key, scene, mode) {
     sceneBlock(app, scene, 'v:' + key, mode),
     h('div', { class: 'v-sec' }, h('h4', null, '例文'), h('div', { class: 'line tap', role: 'button', tabindex: '0', onclick: () => (exKo.hidden = !exKo.hidden) }, h('div', { class: 'ja' }, renderExample(key, mode)), exKo)),
     more(
-      v.note ? h('div', { class: 'v-note' }, v.note) : null,
+      noteBox('메모', v.note),
       rel.length ? h('ul', { class: 'rel' }, rel.map((w) => h('li', null, h('span', { lang: 'ja' }, `${w}（${VOCAB[w].r}）`), ` ${VOCAB[w].m}`))) : null),
     saveButton(key, scene));
 }
@@ -156,8 +164,8 @@ export function grammarPopup(app, key, scene, mode) {
     sceneBlock(app, scene, 'g:' + key, mode),
     exampleBlock(g.ex && g.ex[0], mode),
     more(
-      g.d ? h('div', { class: 'v-note' }, g.d) : null,
-      g.w || g.err ? h('div', { class: 'v-note' }, g.err || g.w) : null),
+      noteBox('비슷한 표현과 차이', g.d),
+      noteBox('주의', g.err || g.w)),
     saveButton('g:' + key, scene));
 }
 
