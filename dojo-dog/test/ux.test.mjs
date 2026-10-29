@@ -311,31 +311,23 @@ test('T2: 이름 속 말 풀이 데이터는 읽기와 한국어가 다 있다',
   }
 });
 
-test('T3: 표시 안내의 보기 글자는 진짜 밑줄 단추 class를 쓰지 않는다 (게임 칸 안에서 학습 대상으로 세지 않게)', () => {
+test('T3: 표시 안내는 짧고 한 언어만, 보기 글자는 진짜 밑줄 단추 class를 쓰지 않는다', () => {
   for (const ja of [true, false]) {
     for (const compact of [true, false]) {
       const el = R.legendView(ja, { compact });
       assert.equal(el.all('.w').length + el.all('.gm').length + el.all('.pn').length, 0);
       assert.equal(el.all('.legend-mark').length, R.MARKS.length);
-      assert.equal(el.all('li').length, compact ? (ja ? 1 : 0) : R.tapsFor(ja).length);
-      // 일본어 모드에서도 한국어 설명이 붙는다
-      assert.match(el.textContent, /누르면/);
-      // 한국어 표시 모드에는 「訳」「全訳」 단추가 없으므로 그 안내도 없다
-      if (!ja) assert.doesNotMatch(el.textContent, /「訳」|全訳|대사를 누르면/);
+      assert.doesNotMatch(el.textContent, /사람 이름/);
+      if (ja) assert.doesNotMatch(el.textContent, /[가-힣]/);
+      else assert.doesNotMatch(el.textContent, /「訳」|全訳/);
     }
   }
-  // 점선 안내: 지금 키우는 개 이름에만 점선이 없다 (전에 살던 개는 점선)
-  assert.ok(R.TAPS.some(([ko]) => /지금 키우는 개/.test(ko) && /사람 이름/.test(ko)));
 });
 
-test('T3: 설정 스위치 설명이 동작과 맞다 (밑줄 수, 「직접 선택」에서는 쉬운 말 끄기를 쓰지 않음)', () => {
-  const [focusKo, focusJa] = R.SETTING_DESC.focus;
-  assert.match(focusKo, new RegExp(`최대 ${maxTargets({ focus: true })}개\\(평소 ${maxTargets({})}개\\)`));
-  assert.match(focusJa, new RegExp(`${maxTargets({ focus: true })}つまで（ふだん${maxTargets({})}つ）`));
-  // 목록은 대사 아래에만 생긴다 (game.js renderLines)
-  assert.match(focusKo, /대사 아래/);
-  assert.match(R.SETTING_DESC.hideEasy[0], /직접 선택/);
-  assert.match(R.SETTING_DESC.hideEasy[1], /自分で選ぶ/);
+test('T3: 설정 스위치 설명은 한 줄', () => {
+  for (const [ko, ja] of Object.values(R.SETTING_DESC)) {
+    assert.ok(ko.length <= 40 && ja.length <= 40);
+  }
 });
 
 test('T2: 선택지 단추 안의 이름은 점선·탭 없이 (이름을 눌러도 그 선택지가 골라진다)', () => {
