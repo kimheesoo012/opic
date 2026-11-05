@@ -1,22 +1,22 @@
-p7-t06-5|t2	6월 30일은 할인 마감일이다.
-p7-t06-5|t3	9월 12일은 박람회 시작일이다.
+p7-t06-5|t2	6월 30일(June 30)은 웹페이지의 “Exhibitors who book before June 30 save 15%”에 나오는 조기 예약 할인 마감일이다. 결제 기한과는 관계없으며, 송장은 “Payment due by August 15”라고 했다.
+p7-t06-5|t3	9월 12일(September 12)은 웹페이지의 “September 12–14”, 즉 박람회가 시작되는 날이다. 결제는 그보다 앞선 “Payment due by August 15”까지 해야 한다. 지문에 나오는 날짜를 역할 확인 없이 고르면 빠지는 함정이다.
 p7-t07-1|why	새 직원 Dana Cole의 명함 500장을 주문하는 이메일이다. 인쇄물을 주문하는 것이 목적이다.
-p7-t07-1|t0	배송 지연 걱정은 나중의 문자 대화에 나온다.
-p7-t07-1|t2	주소 변경 요청은 없다. 집 주소로 보내자는 말은 나중 문자 대화에서 Mr. Takeda가 제안한 것이다.
-p7-t07-1|t3	고객에게 소개하는 글이 아니다.
+p7-t07-1|t0	선택지는 배송 지연에 항의하는 이메일이라는 뜻이다. 이메일은 10월 1일에 보낸 주문으로, 아직 배송 전이다. 도착이 늦을까 걱정하는 내용은 나중의 문자 대화(“might not arrive until the 11th”)에 나오고, 그것도 항의가 아니다.
+p7-t07-1|t2	선택지는 배송 주소를 바꾸려는 이메일이라는 뜻이다. 이메일에 주소 이야기는 없다. 집 주소로 보내자는 말은 나중 문자 대화에서 Mr. Takeda가 “I can have them sent to your home address instead”라고 제안한 것이고, Ms. Cole은 No need라며 거절했다.
+p7-t07-1|t3	선택지는 새 직원을 고객에게 소개하는 이메일이라는 뜻이다. Dana Cole이 언급되긴 하지만, 받는 곳은 인쇄 업체(orders@printhaus.example)이고 내용은 “I'd like to order 500 business cards for our new employee”이다. 고객 소개가 아니라 명함 주문이다.
 p7-t07-2|why	'the same design as our last order (#7781)'라고 했으므로 이전에도 주문한 적이 있다.
-p7-t07-2|t0	Brightwater Consulting은 고객사다.
-p7-t07-2|t1	새 직원 한 명의 명함을 주문한다.
-p7-t07-2|t2	같은 디자인을 쓰라고 했으므로 로고 변경은 아니다.
+p7-t07-2|t0	선택지는 Brightwater Consulting이 인쇄 회사라는 뜻이다. 인쇄 회사는 주문을 받는 PrintHaus이고, Brightwater Consulting은 명함을 주문하는 고객이다. 발신자도 “Jun Takeda, Office Manager, Brightwater Consulting”으로, 주문하는 쪽 사람이다.
+p7-t07-2|t1	선택지는 분석가를 여러 명 채용한다는 뜻이다. 이메일은 “our new employee, Dana Cole”이라며 새 직원 한 명의 명함만 주문한다. Senior Analyst는 그녀의 직함일 뿐, 여러 명을 뽑는다는 근거는 없다.
+p7-t07-2|t2	선택지는 최근 로고를 바꿨다는 뜻이다. 이메일은 “Please use the same design as our last order (#7781)”라며 지난번과 같은 디자인을 요청하고, 바꾸는 것은 직함뿐이다. 로고가 바뀌었다면 같은 디자인을 쓰라고 하지 않았을 것이다.
 p7-t07-3|why	그는 10월 10일까지 받기를 원했는데, 배송 예정일은 9~11일이고 추적 페이지는 11일 도착일 수 있다고 한다.
-p7-t07-3|t0	배송 확인서에 직함이 Senior Analyst로 올바르게 나와 있다.
-p7-t07-3|t1	배송 확인서에 회사명(Brightwater Consulting)이 맞게 나와 있다.
-p7-t07-3|t3	파손 이야기는 없다. 걱정하는 것은 도착 날짜뿐이다.
+p7-t07-3|t0	선택지는 직함이 잘못 인쇄되었다는 뜻이다. 배송 확인서에 “title: Senior Analyst”라고 나와 이메일에서 요청한 직함과 일치한다. 문자 대화에서도 직함 문제는 나오지 않고, 걱정은 도착 날짜에 관한 것이다.
+p7-t07-3|t1	선택지는 주문이 다른 회사로 보내졌다는 뜻이다. 배송 확인서에 “Order #8120 — Brightwater Consulting”이라고 회사명이 맞게 적혀 있다. Mr. Takeda가 걱정하는 것은 “might not arrive until the 11th”, 즉 도착 시점이다.
+p7-t07-3|t3	선택지는 명함이 파손되었다는 뜻이다. 명함은 아직 배송 중이며(“Estimated delivery: October 9–11”) 파손 이야기는 어디에도 없다. 그가 걱정하는 이유는 10월 10일까지 필요하다고 했는데 11일에 올 수도 있기 때문이다.
 p7-t07-4|why	11일에 도착할 수 있다는 말에 '아슬아슬하다, 학회가 14일에 시작한다'고 답한다. 필요한 날 직전에 받게 된다는 뜻이다.
-p7-t07-4|t1	집과 사무실 거리 이야기는 없다.
-p7-t07-4|t2	학회 일정을 알고 있다. 학회가 14일에 시작한다고 직접 말한다.
-p7-t07-4|t3	주문 변경 이야기는 없다. 집으로 보내자는 제안도 거절했다.
+p7-t07-4|t1	선택지는 사무실이 집에서 너무 멀다는 뜻이다. 집은 Mr. Takeda가 “I can have them sent to your home address instead”라고 제안할 때 처음 나오고, Ms. Cole은 오히려 “I'll pick them up at the office on the 13th”라며 사무실로 가지러 가겠다고 했다. 거리 문제는 언급되지 않는다.
+p7-t07-4|t2	선택지는 그녀가 학회 이야기를 들은 적이 없다는 뜻이다. 그러나 그녀는 바로 이어서 “The conference starts on the 14th”라고 학회 날짜를 직접 말한다. 학회 일정을 알고 있기 때문에 11일 도착이 빠듯하다고 한 것이다.
+p7-t07-4|t3	선택지는 그녀가 주문을 바꾸고 싶어 한다는 뜻이다. 대화에 주문 변경 이야기는 없고, 집으로 보내 주겠다는 제안에도 No need(필요 없다)라고 답했다. “That's cutting it close”는 시간이 빠듯하다는 뜻일 뿐 변경 요청이 아니다.
 p7-t07-5|why	13일은 그녀의 첫 출근일(my first day)이고, 그날 사무실에서 명함을 찾아가겠다(I'll pick them up at the office on the 13th)고 했다.
-p7-t07-5|t0	학회는 14일에 시작한다. 13일은 첫 출근일이다.
-p7-t07-5|t1	직함 변경 이야기는 없다. 직함(Senior Analyst)은 이미 명함에 맞게 인쇄되었다.
-p7-t07-5|t2	배송 추적은 Mr. Takeda가 확인했다.
+p7-t07-5|t0	선택지는 학회에 참석한다는 뜻이다. Ms. Cole은 “The conference starts on the 14th”라고 했으므로 학회는 다음 날 시작된다. 13일은 “my first day”(첫 출근일)로, 그날 사무실에서 명함을 찾아갈 예정이다.
+p7-t07-5|t1	선택지는 직함을 바꾼다는 뜻이다. 직함은 처음 주문할 때 “Senior Analyst”로 바꿔 달라고 한 것이고, 배송 확인서에도 이미 title: Senior Analyst로 나와 있다. 13일에 직함을 바꾼다는 말은 없다.
+p7-t07-5|t2	선택지는 온라인으로 소포를 추적한다는 뜻이다. 배송 추적 페이지를 확인한 사람은 Mr. Takeda로, 그가 “the tracking page says your business cards might not arrive until the 11th”라고 알렸다. Ms. Cole이 13일에 할 일은 명함을 찾아가는 것이다.

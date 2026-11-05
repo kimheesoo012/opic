@@ -34,10 +34,10 @@
      "explanation": {
       "why": "이메일은 요청대로 귀국 항공편을 4월 19일로 옮겼고 호텔도 1박 연장되었다는 내용이다. 여행 일정 변경 사항을 확인해 주려는 목적이다.",
       "traps": [
-       "Alfama Plaza는 이미 예약된 호텔이고 추천하는 내용이 아니다.",
-       "85달러는 항공 요금 차액이며 이미 법인 카드로 결제되었다. 회의 참가비를 요청하는 것이 아니다.",
+       "이 선택지는 'Lisbon의 호텔을 추천하려고'라는 뜻이다. 지문에 Alfama Plaza가 나오지만 “your hotel, the Alfama Plaza, has also extended your reservation by one night”라고 해서 이미 예약된 호텔의 숙박이 1박 연장되었다고 알릴 뿐이다. 새로 추천하는 것이 아니라 일정 변경의 일부이므로 목적이 될 수 없다.",
+       "이 선택지는 '회의 참가비 결제를 요청하려고'라는 뜻이다. 지문의 금액은 “a fare difference of $85”(85달러의 항공 요금 차액)뿐이고, 이것도 “has been charged to the corporate card on file”(등록된 법인 카드로 이미 청구되었다)라고 했다. 참가비도 아니고 결제를 요청하는 것도 아니어서 틀리다.",
        null,
-       "closing reception은 Ms. Ramirez가 참석하려는 행사일 뿐 Mr. Cho가 초대하는 것이 아니다. 지문 단어를 재활용한 함정."
+       "이 선택지는 'Ms. Ramirez를 리셉션에 초대하려고'라는 뜻이다. 지문의 “so that you can attend the closing reception on the final evening”은 마지막 날 저녁 폐막 리셉션에 참석할 수 있도록 귀국편을 옮겼다는 이유일 뿐이다. Mr. Cho가 초대하는 것이 아니므로 지문 단어 reception을 재활용한 함정이다."
       ]
      },
      "para": [
@@ -76,9 +76,9 @@
       "why": "두 번째 문단에 'extended your reservation by one night at the same conference rate'라고 나온다. 추가 1박도 같은 컨퍼런스 요금이라는 뜻이다.",
       "traps": [
        null,
-       "'Breakfast is included each day'라고 했으므로 조식이 포함된다.",
-       "결제 방법은 항공 요금 차액(법인 카드)에 대해서만 언급되었고, 현금 결제 이야기는 없다.",
-       "같은 호텔(Alfama Plaza)에서 예약이 연장된 것이다."
+       "이 선택지는 '추가 1박에는 조식이 포함되지 않는다'는 뜻이다. 그러나 호텔 연장 안내 바로 뒤에 “Breakfast is included each day”(조식은 매일 포함된다)라고 했으므로 추가된 날에도 조식이 나온다. 지문 내용과 정반대여서 틀리다.",
+       "이 선택지는 '현금으로 결제해야 한다'는 뜻이다. 지문에서 결제 수단이 나오는 것은 항공 요금 차액이 “charged to the corporate card on file”(등록된 법인 카드로 청구되었다)라는 부분뿐이고, 추가 1박은 “at the same conference rate”(같은 회의 요금)라고만 했다. 현금 결제 이야기는 전혀 없다.",
+       "이 선택지는 '다른 호텔에서 묵는다'는 뜻이다. 지문은 “your hotel, the Alfama Plaza, has also extended your reservation by one night”라고 해서 원래 묵는 Alfama Plaza가 예약을 1박 연장했다고 했다. 같은 호텔에서 하루가 늘어난 것이므로 틀리다."
       ]
      },
      "para": [
@@ -108,9 +108,9 @@
      "explanation": {
       "why": "'공항 교통편을 원하면 답장 주세요, 제가 처리하겠습니다'라는 문맥이다. 여기서 take care of는 '(일을) 처리하다'라는 뜻이므로 handle이 가장 가깝다.",
       "traps": [
-       "protect(보호하다)는 take care of가 사람·물건을 돌볼 때의 뜻에 가깝다. 이 문장에서는 일 처리를 말한다.",
-       "watch(지켜보다)는 교통편을 준비한다는 의미가 되지 않는다.",
-       "worry about(걱정하다)은 문맥과 관계없다.",
+       "protect는 '보호하다'라는 뜻으로, take care of가 take care of children(아이를 돌보다)처럼 사람·물건을 돌본다는 뜻일 때 가까운 말이다. 그러나 이 문장의 “I will take care of it”에서 it은 공항 교통편 준비라는 '일'이다. 일을 보호한다는 뜻은 되지 않으므로 '처리하다'의 handle이 맞다.",
+       "watch는 '지켜보다, 주시하다'라는 뜻이다. 문맥은 “If you would like me to arrange airport transportation”(공항 교통편을 준비해 드리길 원하시면) 답장만 주면 Mr. Cho가 알아서 해 주겠다는 것이다. watch를 넣으면 교통편을 '지켜보겠다'가 되어 준비·처리한다는 의미가 사라진다.",
+       "worry about은 '~을 걱정하다'라는 뜻이다. take care of는 걱정하지 말라는 말과 함께 자주 쓰여 연상되기 쉽지만, 뜻 자체는 '처리하다, 돌보다'다. 여기서 Mr. Cho는 공항 교통편 준비를 맡아 처리하겠다고 하는 것이지, 그것을 걱정하겠다는 것이 아니다.",
        null
       ]
      },
@@ -156,10 +156,10 @@
      "explanation": {
       "why": "바로 앞에서 Ms. Ortiz가 '플러그가 꽂혀 있는지 확인했냐'고 묻자 '가장 먼저 해 본 것'이라고 답한다. 즉 전원 연결은 이미 확인했다는 뜻이다.",
       "traps": [
-       "다른 회의실로 옮기자는 말은 대화에 없다. 오히려 휴대용 프로젝터를 가져오기로 한다.",
+       "이 선택지는 '다른 회의실을 쓰고 싶다'는 뜻이다. 그러나 “First thing I tried”는 플러그를 확인했냐는 질문에 대한 답이고, 이어서 Ms. Ortiz가 “There's a portable projector in the supply closet”이라며 휴대용 프로젝터를 가져오기로 한다. 방을 옮기자는 말은 대화 어디에도 없다.",
        null,
-       "First라는 단어를 '가장 먼저 출근했다'로 오해하게 만드는 함정이다.",
-       "청소 직원은 플러그를 뽑기도 한다고 언급되었을 뿐, 고장 냈다는 의미가 아니다."
+       "이 선택지는 '사무실에 가장 먼저 도착했다'는 뜻이다. First라는 단어에서 '첫 번째로 온 사람'을 연상하게 만든 함정이다. 바로 앞의 “Did you check that it's plugged in?”(플러그가 꽂혀 있는지 확인했나요?)에 대한 답이므로 '그건 가장 먼저 해 봤다'는 의미이며, 출근 순서와는 관계없다.",
+       "이 선택지는 '청소 직원이 프로젝터를 고장 냈다고 생각한다'는 뜻이다. 청소 직원은 Ms. Ortiz가 “The cleaning crew sometimes unplugs it”(청소 직원이 가끔 플러그를 뽑는다)이라고 플러그가 빠졌을 가능성을 말할 때 나올 뿐이다. Mr. Park은 그것을 이미 확인했다고 답했고, 고장 냈다는 말은 하지 않는다."
       ]
      },
      "para": [
@@ -191,9 +191,9 @@
       "why": "Ms. Ortiz는 2층 비품실의 휴대용 프로젝터를 가져다주겠다고 하고(I can bring it up), HDMI 케이블도 가져다 달라는 부탁에 'Will do'라고 답한다. 장비를 가져다줄 것이다.",
       "traps": [
        null,
-       "발표 일정을 바꾸자는 이야기는 없다.",
-       "케이블은 '사는' 것이 아니라 가져다주기로 한 것이다.",
-       "청소 직원 이야기는 플러그 문제의 원인으로 언급되었을 뿐이다."
+       "이 선택지는 '고객 발표 일정을 다시 잡는다'는 뜻이다. 발표는 “The client presentation starts at 10”이라고 시작 시간이 언급될 뿐이며, 두 사람은 일정 변경이 아니라 휴대용 프로젝터를 가져와 예정대로 진행할 방법을 찾는다. 일정을 바꾸자는 말은 대화에 없다.",
+       "이 선택지는 '더 긴 케이블을 산다'는 뜻이다. Mr. Park이 “Mine is too short”(내 것은 너무 짧다)라며 HDMI 케이블도 가져와 달라고 하자 Ms. Ortiz는 “Will do.”라고 답한다. 케이블은 새로 사는 것이 아니라 프로젝터와 함께 가져다주는 것이므로 cable과 short라는 단어를 이용한 함정이다.",
+       "이 선택지는 'Room 4를 청소한다'는 뜻이다. 청소는 “The cleaning crew sometimes unplugs it”에서 플러그가 빠진 원인 후보로 나올 뿐이다. Room 4에 대해 Ms. Ortiz가 하겠다고 한 일은 “I'll call IT about the Room 4 projector too”, 즉 프로젝터 문제로 IT 부서에 전화하는 것이지 청소가 아니다."
       ]
      },
      "para": [
@@ -243,10 +243,10 @@
      "explanation": {
       "why": "마지막 문단에서 엘리베이터 작업(The work)이 현대화 프로젝트의 일부이고, 로비 조명과 보안 시스템도 포함된다고 했다. 화장실 개보수는 언급되지 않았다.",
       "traps": [
-       "'The work is part of a building-wide modernization project'에서 The work가 엘리베이터 점검이므로 언급된 항목이다.",
-       "'new lobby lighting'이 그대로 언급되었다.",
+       "이 선택지는 '엘리베이터 점검'이다. 마지막 문단의 “The work is part of a building-wide modernization project”에서 The work는 첫 문단에서 말한 7월 12–13일 엘리베이터 점검을 가리킨다. 즉 엘리베이터 점검 자체가 현대화 프로젝트의 일부라고 언급되었으므로 NOT 문제의 답이 될 수 없다.",
+       "이 선택지는 '새 로비 조명'이다. 지문에 “will also include new lobby lighting”(새 로비 조명도 포함할 것이다)이라고 그대로 나오므로, 현대화 프로젝트에 포함된다고 언급된 항목이다. 언급된 것이므로 NOT 문제의 답이 아니다.",
        null,
-       "'an upgraded security system'이 언급되었다."
+       "이 선택지는 '개선된 보안 시스템'이다. 지문에 “new lobby lighting and an upgraded security system later this year”라고 해서 올해 말에 보안 시스템도 개선된다고 했다. 현대화 프로젝트의 일부로 명시되어 있으므로 NOT 문제의 답이 아니다."
       ]
      },
      "trans": "현대화 프로젝트의 일부로 언급되지 않은 것은?",
@@ -270,9 +270,9 @@
      "explanation": {
       "why": "두 번째 문단에서 그 주말에 배송이 예정된 입주자는 경비실에 미리 알려야(inform the security desk in advance) 한다고 했다.",
       "traps": [
-       "동쪽 출입구에 대한 언급은 없다. 공지에 나오는 장소는 건물 뒤쪽의 화물용 엘리베이터(freight elevator at the rear)뿐이다.",
-       "내선 210은 문의처일 뿐 배송 당일 전화하라는 안내가 아니다.",
-       "배송 일정을 바꾸라는 말은 없다. 경비원이 화물용 엘리베이터까지 안내해 준다.",
+       "이 선택지는 '건물 동쪽 출입구를 이용한다'는 뜻이다. 공지에는 동쪽 출입구가 전혀 나오지 않는다. 위치로 언급되는 것은 “The freight elevator at the rear of the building”(건물 뒤쪽의 화물용 엘리베이터)뿐이고, 배송 기사는 경비원이 그곳까지 안내한다. 언급되지 않은 정보다.",
+       "이 선택지는 '배송 당일 내선 210으로 전화한다'는 뜻이다. 지문의 “Questions may be directed to the management office at extension 210”은 궁금한 점이 있으면 관리 사무소로 연락하라는 일반 안내다. 배송이 있는 입주자는 경비실에 '미리(in advance)' 알려야 하므로 '당일 전화'는 시점도 연락처도 틀리다.",
+       "이 선택지는 '배송을 평일로 다시 잡는다'는 뜻이다. 공지는 주말 배송을 미루라고 하지 않고, 경비실에 미리 알리면 “a guard can escort delivery personnel to the freight elevator”(경비원이 배송 기사를 화물용 엘리베이터까지 안내할 수 있다)라고 했다. 주말에도 배송을 받을 수 있게 해 주므로 틀리다.",
        null
       ]
      },
@@ -304,10 +304,10 @@
      "explanation": {
       "why": "주어진 문장의 this service는 바로 앞에서 설명한 '경비원이 배송 기사를 화물용 엘리베이터까지 안내하는 서비스'를 가리킨다. 그 문장 바로 뒤인 [3]이 알맞다.",
       "traps": [
-       "[1] 앞에는 엘리베이터 운행 중지 내용만 있어 this service가 가리킬 대상이 없다.",
-       "[2] 앞은 화물용 엘리베이터를 이용할 수 있다는 내용이다. 경비원(Guards)이 제공하는 서비스는 아직 나오지 않았다.",
+       "[1]의 앞 문장은 “the building's main passenger elevators will be out of service”(주 승객용 엘리베이터가 운행 중지된다)는 내용이다. 주어진 문장의 this service는 경비원이 제공하는 서비스를 가리켜야 하는데, [1] 앞에는 경비원도 서비스도 아직 나오지 않았다. 운행 중지를 '서비스'로 볼 수도 없어 연결되지 않는다.",
+       "[2]의 앞 문장은 화물용 엘리베이터가 “will remain available for tenants who need to move heavy items”(무거운 물건을 옮겨야 하는 입주자에게 계속 이용 가능하다)는 내용이다. 경비원(Guards)이 배송 기사를 안내하는 서비스는 다음 문단에서야 나오므로, 여기서는 this service가 가리킬 대상이 없다.",
        null,
-       "[4] 앞은 향후 현대화 프로젝트 내용이라 경비 서비스 시간 안내와 흐름이 맞지 않는다."
+       "[4]의 앞 문장은 로비 조명과 보안 시스템을 포함한 현대화 프로젝트가 올해 말에 진행된다는 내용이다. 7월 주말 이틀간(on both days)의 경비원 운영 시간 안내는 이 내용과 관련이 없고, this service가 가리키는 배송 안내 서비스와도 멀리 떨어져 있다. 경비원 안내 문장 바로 뒤인 [3]에 와야 한다."
       ]
      },
      "trans": "[1], [2], [3], [4] 중 다음 문장이 들어가기에 가장 알맞은 곳은?",
@@ -350,9 +350,9 @@
      "explanation": {
       "why": "제목의 'Now serving offices in the downtown area!'(이제 도심 지역 사무실도 서비스합니다)는 최근 서비스 지역을 넓혔다는 것을 암시한다.",
       "traps": [
-       "'businesses of all sizes'라고 했으므로 규모와 관계없이 서비스한다.",
-       "마지막 문장에서 견적은 무료(free on-site estimate)라고 했다.",
-       "'eco-friendly products'만 사용한다고 했다.",
+       "이 선택지는 '대기업하고만 일한다'는 뜻이다. 지문은 “Brightway offers daily, weekly, and monthly cleaning plans for businesses of all sizes”라고 해서 규모에 관계없이 모든 업체에 서비스를 제공한다고 했다. only라는 제한이 지문과 정반대여서 틀리다.",
+       "이 선택지는 '견적에 요금을 받는다'는 뜻이다. 그러나 마지막 문장에서 “request a free on-site estimate”(무료 현장 견적을 요청하라)라고 했다. 추가 요금이 붙는 것은 창문·카펫 청소(“available for an additional fee”)이지 견적이 아니므로 지문과 반대다.",
+       "이 선택지는 '강한 화학 제품을 쓴다'는 뜻이다. 지문은 “Our trained staff use only eco-friendly products”(교육받은 직원들은 친환경 제품만 사용한다)라고 했다. only eco-friendly는 강한 화학 제품과 반대되는 내용이므로 틀리다.",
        null
       ]
      },
@@ -384,9 +384,9 @@
       "why": "9월 30일 전에 6개월 계약을 하는 신규 고객은 첫 달 요금이 반값이라고 했다.",
       "traps": [
        null,
-       "창문 청소는 할인 대상이 아니라 추가 요금이 붙는 서비스다.",
-       "온라인 견적 요청은 할인 조건이 아니다.",
-       "다른 업체 소개에 대한 언급은 없다."
+       "이 선택지는 '창문 청소를 주문하면 할인받는다'는 뜻이다. 지문에서 창문 청소는 “Window washing and carpet cleaning are available for an additional fee”라고 해서 오히려 추가 요금이 드는 서비스다. 할인 조건은 9월 30일 전 6개월 계약이므로 틀리다.",
+       "이 선택지는 '온라인으로 견적을 요청하면 할인받는다'는 뜻이다. 웹사이트(www.brightway.example)에서 “request a free on-site estimate”할 수 있다고는 했지만, 이는 무료 견적 신청 방법일 뿐 할인 조건이 아니다. 할인은 9월 30일 전에 6개월 계약을 맺는 신규 고객에게만 주어진다.",
+       "이 선택지는 '다른 업체를 소개하면 할인받는다'는 뜻이다. 지문에 추천·소개(referral)에 관한 내용은 전혀 없다. 할인은 “New customers who sign a six-month contract before September 30”(9월 30일 전에 6개월 계약을 맺는 신규 고객)에게만 해당한다."
       ]
      },
      "para": [
@@ -420,10 +420,10 @@
      "explanation": {
       "why": "'Window washing and carpet cleaning are available for an additional fee'라고 했으므로 카펫 청소가 추가 요금 서비스다.",
       "traps": [
-       "월간 청소 플랜은 기본 플랜 중 하나다.",
+       "이 선택지는 '월간 청소 플랜'이다. 지문은 “Brightway offers daily, weekly, and monthly cleaning plans”라고 해서 월간 플랜을 일간·주간 플랜과 함께 기본으로 제공하는 상품으로 소개한다. 추가 요금이 붙는다고 한 것은 창문 청소와 카펫 청소뿐이다.",
        null,
-       "현장 견적은 무료(free on-site estimate)라고 마지막 문장에 나온다. 추가 요금이 아니다.",
-       "직원 보험은 회사가 갖추고 있다는 설명일 뿐 고객이 따로 사는 서비스가 아니다."
+       "이 선택지는 '현장 견적'이다. 마지막 문장에서 “request a free on-site estimate”라고 해서 현장 견적은 무료(free)라고 했다. 추가 요금(additional fee)이 드는 서비스와 정반대이므로 틀리다.",
+       "이 선택지는 '직원 보험'이다. 지문의 “all of our employees are fully insured”(모든 직원이 보험에 가입되어 있다)는 회사를 믿을 수 있다는 설명이지, 고객이 돈을 더 내고 사는 서비스가 아니다. 추가 요금은 창문·카펫 청소에만 붙는다."
       ]
      },
      "para": [
@@ -473,9 +473,9 @@
      "explanation": {
       "why": "첫 문단에서 도서관이 소상공인을 위한 비즈니스 자료 센터를 열었다고 소개하고, 나머지 문단도 그 센터의 서비스와 배경을 다룬다.",
       "traps": [
-       "센터가 2층에 문을 열었다는 내용이지 건물을 개보수했다는 기사가 아니다.",
-       "재원은 재단의 보조금(grant)이며 상공회의소 모금 행사 이야기는 없다.",
-       "Martha Quinn은 인터뷰한 관장일 뿐 은퇴 이야기는 없다.",
+       "이 선택지는 '도서관 건물 개보수'다. 지문은 “opened its Business Resource Center last Tuesday on the second floor of its main branch”라고 해서 본관 2층에 새 센터를 열었다고 할 뿐, 건물을 고치거나 새로 단장했다는 내용은 없다. 장소(2층) 정보를 개보수로 오해하게 만든 함정이다.",
+       "이 선택지는 '경제 단체의 모금 행사'다. 상공회의소(Riverton Chamber of Commerce)는 목요일 저녁 상담을 맡는 자원봉사자의 소속으로 나오고, 자금은 “funded by a grant from the Hollis Foundation”(Hollis 재단의 보조금으로 마련되었다)이라고 했다. 모금 행사 이야기는 없다.",
+       "이 선택지는 '사서의 은퇴'다. 지문에 나오는 사서는 “head librarian Martha Quinn”으로, 센터를 만든 취지를 설명하는 인터뷰 대상일 뿐이다. 은퇴에 관한 언급은 전혀 없으므로 기사의 주제가 될 수 없다.",
        null
       ]
      },
@@ -500,10 +500,10 @@
      "explanation": {
       "why": "상공회의소 자원봉사자들이 매주 목요일 저녁 'one-on-one advising sessions'를 연다고 했다. 일대일 상담 = 개별 조언이다.",
       "traps": [
-       "회의실이 목요일에 닫힌다는 말은 없다.",
-       "신간 추가에 대한 언급은 없다.",
+       "이 선택지는 '목요일 저녁에 회의실이 문을 닫는다'는 뜻이다. 회의실에 대해서는 “four private meeting rooms that can be reserved for up to three hours at a time”(한 번에 최대 3시간까지 예약 가능한 개인 회의실 4개)이라고만 했다. 목요일에 닫는다는 말은 없다.",
+       "이 선택지는 '새 책이 소장 자료에 추가된다'는 뜻이다. 책에 대해서는 “a collection of more than 600 books on management and finance”(경영·재무 도서 600권 이상)가 있다고만 했고, 목요일에 신간이 들어온다는 내용은 없다. 목요일 저녁에 있는 것은 일대일 상담이다.",
        null,
-       "상담은 그룹이 아니라 일대일(one-on-one)이다. finance라는 지문 단어를 재활용한 함정."
+       "이 선택지는 '재무에 관한 그룹 워크숍이 열린다'는 뜻이다. 목요일 저녁 행사는 “one-on-one advising sessions”(일대일 상담)이므로 그룹 형식이 아니다. finance는 도서 분야(books on management and finance)에서 나온 단어를 재활용한 함정이다."
       ]
      },
      "para": [
@@ -534,9 +534,9 @@
       "why": "'비싼 컨설턴트 없이 믿을 수 있는 정보를 찾을 곳'이라는 문맥에서 reliable은 '신뢰할 수 있는'이므로 trustworthy가 가장 가깝다.",
       "traps": [
        null,
-       "recent(최신의)는 정보의 시점을 말하며 신뢰성과 다르다.",
-       "detailed(상세한)는 정보의 양을 말한다.",
-       "dependent(의존하는)는 rely(의존하다)와 어원이 비슷해 고르기 쉽지만 뜻이 다르다."
+       "recent는 '최근의, 최신의'라는 뜻으로 정보가 언제 나왔는지를 말한다. 문맥 “a place to find reliable information without cost”는 비싼 컨설턴트 없이도 '믿을 만한' 정보를 찾을 곳이라는 뜻이다. 정보가 새롭다는 것과 믿을 수 있다는 것은 다른 성질이므로 reliable의 뜻이 될 수 없다.",
+       "detailed는 '상세한, 자세한'이라는 뜻으로 정보의 양이나 깊이를 말한다. 비싼 컨설턴트를 쓸 수 없는 사람들에게 “reliable information”을 주겠다는 문맥에서 핵심은 정보를 '믿을 수 있는지'다. 자세한 정보라도 믿을 만하지 않을 수 있으므로 reliable과 같은 뜻이 아니다.",
+       "dependent는 '의존하는, ~에 달려 있는'이라는 뜻이다. reliable이 rely(의지하다)에서 나와 depend(의존하다)를 떠올리게 하므로 고르기 쉬운 함정이다. 그러나 dependent는 '남에게 의존하는' 쪽을 말하므로 '믿을 만한 정보'가 되지 않는다. '믿을 만한'이라는 뜻의 단어는 dependable이다."
       ]
      },
      "trans": "세 번째 문단의 \"reliable\"과 뜻이 가장 가까운 것은?",
@@ -560,10 +560,10 @@
      "explanation": {
       "why": "마지막 문장에서 센터가 인기를 얻으면 내년에 동부 분관에도 비슷한 공간을 열고 싶다고 했다. 앞으로 비즈니스 센터가 생길 가능성이 있다.",
       "traps": [
-       "분관과 본관의 크기 비교는 없다.",
+       "이 선택지는 '동부 분관이 본관보다 크다'는 뜻이다. 동부 분관은 마지막 문장 “they hope to open a similar space at the library's east branch next year”에만 나오며 크기에 대한 정보는 없다. 본관(main branch)과의 크기 비교는 지문 어디에도 없으므로 추론할 수 없다.",
        null,
-       "보조금은 이번 본관 센터 프로젝트에 대한 것이다.",
-       "회의실은 본관 센터의 시설이며, 동부 분관에 대해서는 언급이 없다."
+       "이 선택지는 '동부 분관이 Hollis 재단의 보조금을 받았다'는 뜻이다. 지문의 “The project was funded by a grant from the Hollis Foundation”에서 The project는 이번에 본관 2층에 문을 연 비즈니스 자료 센터다. 동부 분관은 아직 계획 단계이므로 보조금을 받은 대상이 아니다.",
+       "이 선택지는 '동부 분관에 이미 개인 회의실이 있다'는 뜻이다. “four private meeting rooms”는 본관(main branch) 2층에 새로 연 센터의 시설이다. 동부 분관에는 앞으로 비슷한 공간을 열고 싶다고 했을 뿐 현재 시설에 대한 언급이 없으므로 already는 근거가 없다."
       ]
      },
      "para": [
@@ -668,9 +668,9 @@
       "why": "'Shipping: FREE (orders over $250)'이고 주문 합계가 312달러이므로 무료 배송 조건을 충족했다.",
       "traps": [
        null,
-       "주문 방법에 대한 정보는 없다.",
-       "할인 항목은 없다. 소계와 합계가 같다.",
-       "데스크 정리함은 품절이라 10월 14일에 따로 발송된다. 즉 두 번에 나뉘어 온다."
+       "이 선택지는 '주문이 전화로 이루어졌다'는 뜻이다. 주문 확인서에는 주문 번호, 주문일(October 6), 고객 정보, 품목과 금액만 있고 주문 방법은 나오지 않는다. 전화 주문인지 온라인 주문인지 알 수 없으므로 언급되지 않은 정보다.",
+       "이 선택지는 '할인이 포함되어 있다'는 뜻이다. 확인서를 보면 “Subtotal: $312.00”과 “Total: $312.00”이 같아 빠진 할인 금액이 없다. 무료인 것은 배송비(“Shipping: FREE (orders over $250)”)이며, 이를 할인으로 착각하게 만든 함정이다.",
+       "이 선택지는 '한 번에 배송된다'는 뜻이다. 그러나 메모에 “Desk organizers are currently out of stock and will be shipped separately on October 14”라고 했다. 나머지 물품은 10월 9일 도착 예정이고 정리함은 따로 발송되므로 배송은 두 번에 나뉜다."
       ]
      },
      "para": [
@@ -701,10 +701,10 @@
      "explanation": {
       "why": "정리함은 10월 14일에 따로 '발송'된다고 했으므로 받는 날은 14일이거나 그 이후다.",
       "traps": [
-       "10월 6일은 주문일(Order date)이다. 물건을 받는 날이 아니다.",
-       "10월 9일은 나머지 물품의 예상 도착일이다. 날짜를 잘못 연결하게 하는 함정.",
+       "10월 6일은 확인서 맨 위의 “Order date: October 6”, 즉 주문한 날이다. 정리함은 품절이라 “will be shipped separately on October 14”라고 했으므로 주문일에 받을 수는 없다. 문서에 나오는 날짜를 그대로 고르게 만드는 함정이다.",
+       "10월 9일은 “Estimated delivery: October 9”, 즉 정리함을 뺀 나머지 물품(복사 용지, 토너)의 예상 도착일이다. 정리함은 품절이어서 10월 14일에 따로 발송되므로 9일에 함께 받을 수 없다. 날짜를 잘못 연결하게 만드는 함정이다.",
        null,
-       "정리함은 품절이라 9일 전에 받을 수 없다."
+       "이 선택지는 '10월 9일 이전'이다. 정리함은 “currently out of stock”(현재 품절)이고 10월 14일에야 발송되므로, 그보다 앞선 9일 이전에 받는 것은 불가능하다. 9일은 나머지 물품의 예상 도착일일 뿐이다."
       ]
      },
      "para": [
@@ -753,9 +753,9 @@
      "explanation": {
       "why": "다음 주 월요일부터 층마다 재활용 프로그램을 도입하며 종이·플라스틱·캔을 색깔별 수거함에 분리하라고 안내한다. 새 분리배출 방식 설명이 목적이다.",
       "traps": [
-       "청소 직원은 수거함을 비운다는 정보로만 나오고, 인력 변경 이야기는 없다.",
-       "자원봉사자 모집 내용은 없다.",
-       "30퍼센트는 설문 결과가 아니라 예상치(estimate)다.",
+       "이 선택지는 '청소 직원 변경을 알리려고'라는 뜻이다. 청소 직원은 “The building's cleaning staff will empty the bins every evening”(건물 청소 직원이 매일 저녁 수거함을 비운다)에만 나온다. 수거함 관리 방법을 설명할 뿐 인력이 바뀐다는 내용은 없다.",
+       "이 선택지는 '행사 자원봉사자를 모집하려고'라는 뜻이다. 메모는 수거함 위치와 넣으면 안 되는 물건을 안내하고 “Thank you for your cooperation”(협조에 감사한다)으로 끝난다. 협조를 부탁할 뿐 자원봉사자나 행사에 관한 내용은 전혀 없다.",
+       "이 선택지는 '설문 조사 결과를 보고하려고'라는 뜻이다. 지문의 30 percent는 “We estimate that the program will reduce the amount of waste”에서 보듯 프로그램이 줄일 것으로 '예상하는' 수치다. 이미 조사한 결과가 아니라 앞으로의 추정치이므로 틀리다.",
        null
       ]
      },
@@ -786,10 +786,10 @@
      "explanation": {
       "why": "'Blue bins will be placed next to each printer'라고 했다. next to = beside.",
       "traps": [
-       "부엌에는 초록색 수거함이 놓인다. 색깔을 바꿔 묻는 함정.",
+       "이 선택지는 '부엌에'라는 뜻이다. 지문에서 부엌에 놓이는 것은 “green bins will be placed in the kitchens for plastic bottles and cans”, 즉 플라스틱 병·캔용 초록색 수거함이다. 파란색 수거함은 프린터 옆에 놓이므로, 두 색깔의 위치를 바꿔 묻는 함정이다.",
        null,
-       "로비에 대한 언급은 없다. 수거함이 놓이는 곳은 프린터 옆(파란색)과 부엌(초록색)뿐이다.",
-       "엘리베이터에 대한 언급은 없다."
+       "이 선택지는 '로비에'라는 뜻이다. 메모에 로비는 나오지 않는다. 수거함 위치로 언급된 것은 “next to each printer”(각 프린터 옆, 파란색)와 “in the kitchens”(부엌, 초록색) 두 곳뿐이므로 근거가 없다.",
+       "이 선택지는 '엘리베이터 근처에'라는 뜻이다. 메모에는 엘리베이터에 대한 언급이 전혀 없다. 파란색 수거함은 “Blue bins will be placed next to each printer”라고 해서 프린터 옆에 놓이며, 이 next to를 beside로 바꿔 말한 것이 정답이다."
       ]
      },
      "para": [
@@ -820,10 +820,10 @@
      "explanation": {
       "why": "these items는 바로 앞 문장의 '음식물 쓰레기와 커피 컵'을 가리키고, Instead는 '재활용함에 넣지 말고 대신'이라는 뜻이다. 그 문장 바로 뒤인 [3]이 알맞다.",
       "traps": [
-       "[1] 앞에는 프로그램 도입 소식만 있어 these items가 가리킬 대상이 없다.",
-       "[2] 앞은 재활용할 물품(종이, 병, 캔)이다. 이것들을 일반 쓰레기통에 넣으라는 말이 되어 모순이다.",
+       "[1]의 앞 문장은 “will introduce a new recycling program on every floor”라는 프로그램 도입 소식뿐이다. 주어진 문장의 these items(이 물건들)가 가리킬 물건이 아직 나오지 않았고, Instead(그 대신)가 받을 '넣지 말라'는 내용도 없다. 그래서 [1]에는 들어갈 수 없다.",
+       "[2]의 앞 문장은 파란색 수거함에 종이, 초록색 수거함에 플라스틱 병과 캔을 넣는다는 내용이다. 여기에 넣으면 these items가 재활용품을 가리켜 '재활용품을 일반 쓰레기통에 넣으라'는 말이 되므로 프로그램 취지와 모순된다. Instead는 금지 내용 뒤에 와야 한다.",
        null,
-       "[4] 앞은 폐기물 감소 예상치라 these items와 연결되지 않는다."
+       "[4]의 앞 문장은 프로그램으로 매립 쓰레기가 약 30퍼센트 줄 것으로 예상한다는 내용이다. these items가 가리킬 구체적인 물건이 없고, Instead로 이어 받을 금지 내용도 없다. 음식물 쓰레기와 커피 컵을 넣지 말라는 문장 바로 뒤인 [3]이어야 흐름이 맞다."
       ]
      },
      "trans": "[1], [2], [3], [4] 중 다음 문장이 들어가기에 가장 알맞은 곳은?",
@@ -870,9 +870,9 @@
       "why": "바로 앞에서 케이터링 업체의 채식 메뉴가 8인분으로 제한된다고 하자 '채식주의자가 최소 12명'이라고 답한다. 8인분으로는 부족하다는 뜻이다.",
       "traps": [
        null,
-       "주문을 취소하자는 것이 아니라 부족분을 채우는 방향으로 대화가 이어진다.",
-       "참석자 명단을 요청하는 말이 아니다.",
-       "오히려 채식 메뉴가 필요한 인원이 더 많다는 뜻이다."
+       "이 선택지는 '케이터링 주문을 취소하고 싶다'는 뜻이다. Ms. Bello의 말 뒤에 Ms. Lin이 빵집에서 랩을 사 오겠다고 하고, Mr. Reed는 “Then I'll let the caterer know the final count is 40 sandwiches”라고 한다. 주문은 그대로 두고 부족한 채식 메뉴만 채우는 흐름이므로 취소와는 반대다.",
+       "이 선택지는 '참석자 명단이 필요하다'는 뜻이다. 12라는 숫자는 Ms. Bello가 이미 알고 있는 채식주의자 수이고, 명단을 요청하는 말은 대화에 없다. 앞의 “the vegetarian option is limited to 8”(채식 메뉴는 8인분으로 제한된다)과 비교해 수량이 부족하다는 점을 지적한 것이다.",
+       "이 선택지는 '예상보다 적은 사람이 참석한다'는 뜻이다. 그러나 “at least 12 vegetarians”(최소 12명의 채식주의자)는 채식 메뉴 8인분보다 필요한 인원이 '더 많다'는 뜻이다. at least(최소한)는 숫자가 그보다 늘 수 있다는 말이므로 방향이 정반대다."
       ]
      },
      "para": [
@@ -903,9 +903,9 @@
      "explanation": {
       "why": "Ms. Lin은 Fifth Street의 빵집에서 채소 랩을 사 오겠다고(I could pick some up) 제안한다.",
       "traps": [
-       "케이터링 업체에 연락하겠다는 사람은 Mr. Reed다.",
-       "인원을 세겠다는 제안은 없다.",
-       "장소나 방 크기에 대한 이야기는 없다. 대화의 문제는 채식 메뉴 수량이다.",
+       "이 선택지는 '케이터링 업체에 다시 전화한다'는 뜻이다. 업체 연락과 관련된 사람은 Mr. Reed로, 처음에 “They called this morning”이라고 업체 소식을 전했고 마지막에 “Then I'll let the caterer know”라고 했다. Ms. Lin이 제안한 일이 아니라 다른 사람의 행동이다.",
+       "이 선택지는 '참석자 수를 센다'는 뜻이다. 대화의 숫자 40, 8, 12, 6은 샌드위치·채식 메뉴·채식주의자·랩의 수량이며, 누군가 인원을 세겠다고 제안하지 않는다. Ms. Lin의 제안은 “I could pick some up Friday morning”, 즉 금요일 아침에 랩을 사 오는 것이다.",
+       "이 선택지는 '더 큰 방을 예약한다'는 뜻이다. 대화에는 장소나 방 크기에 관한 이야기가 전혀 없다. 문제는 채식 메뉴가 8인분뿐이라는 수량이고, Ms. Lin은 “a bakery on Fifth Street that makes great vegetable wraps”에서 랩을 사 오겠다고 제안한다.",
        null
       ]
      },
@@ -936,10 +936,10 @@
      "explanation": {
       "why": "Ms. Lin이 랩을 사 오겠다고 하자 '그러면 해결되겠다'며 6개를 사 달라고 한다. 제안에 찬성한다는 뜻이다.",
       "traps": [
-       "다른 업체를 찾았다는 내용은 없다.",
+       "이 선택지는 '다른 케이터링 업체를 찾았다'는 뜻이다. That은 바로 앞에서 Ms. Lin이 Fifth Street의 빵집에서 랩을 사 오겠다고 한 제안을 가리킨다. 빵집은 부족분만 보충하는 것이고, 기존 업체에는 “the final count is 40 sandwiches”라고 그대로 주문하므로 업체를 바꾼 것이 아니다.",
        null,
-       "Mr. Reed를 탓하는 말이 아니다.",
-       "설명을 요구하지 않고 바로 수량(6개)을 정한다."
+       "이 선택지는 'Mr. Reed가 문제를 일으켰다고 생각한다'는 뜻이다. Mr. Reed는 업체의 채식 메뉴가 8인분으로 제한된다는 소식을 전했을 뿐이고, “That would solve it”은 Ms. Lin의 제안에 대한 반응이다. 누군가를 탓하는 말은 대화에 없다.",
+       "이 선택지는 'Ms. Lin에게 아이디어를 설명해 달라고 한다'는 뜻이다. Ms. Bello는 설명을 요구하지 않고 곧바로 “Can you get 6?”(6개 사다 줄 수 있어요?)라고 수량을 정한다. 제안을 이미 이해하고 받아들였다는 뜻이므로 틀리다."
       ]
      },
      "trans": "오후 2시 9분에 Bello 씨가 \"That would solve it\"이라고 쓴 것은 무슨 뜻인가?",
@@ -964,9 +964,9 @@
       "why": "마지막 메시지에서 Mr. Reed는 케이터링 업체에 최종 수량을 알리겠다고(I'll let the caterer know) 했다.",
       "traps": [
        null,
-       "빵집에 가는 사람은 Ms. Lin이다.",
-       "영수증을 보관하는 사람도 Ms. Lin이다.",
-       "케이터링 업체의 채식 메뉴는 8인분이 한도이고 부족분은 랩으로 채운다."
+       "이 선택지는 'Fifth Street의 빵집에 간다'는 뜻이다. 빵집 이야기를 꺼내고 “I could pick some up Friday morning”이라며 직접 사 오겠다고 한 사람은 Ms. Lin이다. Mr. Reed의 마지막 말은 업체에 최종 수량을 알리겠다는 것이므로, 다른 사람의 행동을 연결한 함정이다.",
+       "이 선택지는 '영수증을 제출한다'는 뜻이다. 영수증은 Ms. Lin이 “I'll keep the receipt for reimbursement”(환급받기 위해 영수증을 보관하겠다)라고 한 말에 나온다. 영수증을 챙기는 사람은 Ms. Lin이고 Mr. Reed가 아니다.",
+       "이 선택지는 '채식 샌드위치 12개를 주문한다'는 뜻이다. 업체의 채식 메뉴는 “limited to 8”(8인분 한정)이라 12개는 주문할 수 없고, 부족분은 Ms. Lin이 랩 6개로 채운다. Mr. Reed가 알릴 수량은 “the final count is 40 sandwiches”이므로 12는 채식주의자 수를 재활용한 함정이다."
       ]
      },
      "para": [

@@ -32,10 +32,10 @@
      "explanation": {
       "why": "교통 체증으로 늦는 Ms. Ruiz가 9시 30분 회의용 프로젝터 설치를 부탁하며 대화를 시작한다.",
       "traps": [
-       "회의 시간을 바꾸자는 말은 없다.",
+       "선택지는 '고객 회의 일정을 바꾸기 위해'이다. Ms. Ruiz는 “Could you set up the projector for the 9:30 client meeting?”(9:30 고객 회의용 프로젝터를 설치해 줄 수 있나요?)이라고 하며 회의를 예정대로 하기 위한 준비를 부탁한다. 시간이나 날짜를 바꾸자는 말은 없다.",
        null,
-       "고객사 위치를 묻지 않는다. 회의실은 6B로 이미 정해져 있다.",
-       "프로젝터가 고장 났다는 말이 아니라 설치를 부탁한 것이다."
+       "선택지는 '고객 사무실로 가는 길을 묻기 위해'이다. Ms. Ruiz는 “I'm stuck in traffic on the bridge.”(다리 위에서 차가 막혀 있다)라고 늦는 이유를 말했을 뿐 길을 묻지 않았다. 회의 장소도 Room 6B로 정해져 있고, 장소를 물은 쪽은 오히려 Ben Park이다.",
+       "선택지는 '프로젝터 고장을 알리기 위해'이다. 첫 메시지의 projector는 “set up the projector”(프로젝터를 설치하다)라는 부탁에 나온 말이다. broken(고장 난)이라는 말은 없고, 단어만 겹치게 만든 함정이다."
       ]
      },
      "question": "Why did Ms. Ruiz send the first message?",
@@ -65,9 +65,9 @@
      "explanation": {
       "why": "커피를 주문할지 묻자 '그건 해결됐다, Ms. Liu가 어제 주문했다'고 답한다. 이미 준비되었다는 뜻이다.",
       "traps": [
-       "주문할 필요가 없다는 뜻이라 반대다.",
-       "회의 취소 이야기는 없다. 9시 30분 회의를 준비하는 중이다.",
-       "Ms. Liu는 커피를 주문한 사람이다. 프로젝터는 Mr. Park이 설치한다.",
+       "선택지는 'Mr. Park이 커피를 주문하기를 원한다'는 뜻이다. 그러나 “Should I order coffee for the clients too?”라는 질문에 Ms. Ruiz는 “That's taken care of.”(그건 처리됐다)라고 답하고 “Ms. Liu ordered it yesterday.”라고 덧붙였다. 주문할 필요가 없다는 뜻이므로 정반대다.",
+       "선택지는 '회의가 취소되었다'는 뜻이다. That은 바로 앞에서 Ben Park이 물은 coffee(커피) 주문을 가리킨다. 대화 내내 두 사람은 9:30 고객 회의를 위해 프로젝터와 자료를 준비하고 있으므로 회의 취소와는 관계없다.",
+       "선택지는 'Ms. Liu가 프로젝터를 설치할 것이다'라는 뜻이다. Ms. Liu는 “Ms. Liu ordered it yesterday.”(Ms. Liu가 어제 주문했다)에서 커피를 주문한 사람으로 나온다. 프로젝터 설치는 Ms. Ruiz가 Ben Park에게 부탁했고 그가 Sure라고 받아들였다.",
        null
       ]
      },
@@ -115,9 +115,9 @@
       "why": "첫 대금 처리 전에 공급업체 등록을 마쳐야 한다며 제출 서류와 청구서 규칙을 안내한다.",
       "traps": [
        null,
-       "Mr. Bianchi가 이미 공급하기로 했고, 이 이메일은 주문서가 아니다.",
-       "오히려 Tellis가 대금을 지급하는 쪽이며 연체 이야기는 없다.",
-       "결제 조건(30일 이내)을 안내할 뿐 변경했다는 말은 없다."
+       "선택지는 '포장재를 주문하기 위해'이다. 이메일은 “Thank you for agreeing to supply packaging materials”(포장재 공급에 동의해 주어 감사하다)로 시작하므로 공급 계약은 이미 정해진 상태다. 이후 내용은 등록 서류와 청구서 규칙 안내이며, 품목이나 수량을 주문하는 내용은 없다.",
+       "선택지는 '연체된 청구서의 대금을 요청하기 위해'이다. 보낸 사람 Grace Owusu는 Accounts Payable(지급 담당) 소속으로 Tellis가 돈을 내는 쪽이다. 또 “Before we can process your first invoice”(첫 청구서를 처리하기 전에)라고 했으므로 아직 처리된 청구서도 없고 overdue(연체) 이야기는 없다.",
+       "선택지는 '지급 조건 변경을 알리기 위해'이다. 이메일은 “Payments are made within 30 days of receiving a valid invoice.”(유효한 청구서를 받은 후 30일 이내 지급)라고 조건을 안내할 뿐, 이전 조건과 달라졌다는 말은 없다. 새 공급업체에게 처음 설명하는 내용이다."
       ]
      },
      "question": "What is the purpose of the e-mail?",
@@ -141,10 +141,10 @@
      "explanation": {
       "why": "요청한 것은 공급업체 정보 양식, 사업자 등록증 사본, 은행 계좌 정보 세 가지다. 제품 카탈로그는 없다.",
       "traps": [
-       "'a completed supplier information form'을 요청했다.",
-       "'a copy of your business registration certificate'를 요청했다.",
+       "선택지는 '작성한 양식'이다. 이메일은 보낼 것으로 “a completed supplier information form (attached)”(작성한 공급업체 정보 양식)를 가장 먼저 들었다. 요청된 서류이므로 NOT 문제의 정답이 될 수 없다.",
+       "선택지는 '사업 증명서'이다. 이메일의 “a copy of your business registration certificate”(사업자 등록증 사본)를 짧게 바꾼 표현이다. 요청 목록에 있으므로 NOT 문제의 정답이 아니다.",
        null,
-       "'your bank account details for direct deposit'을 요청했다."
+       "선택지는 '은행 정보'이다. 이메일의 “your bank account details for direct deposit”(계좌 입금용 은행 계좌 정보)를 banking information으로 바꿔 말한 것이다. 요청된 항목이므로 NOT 문제의 정답이 아니다."
       ]
      },
      "question": "What is Mr. Bianchi NOT asked to send?",
@@ -168,10 +168,10 @@
      "explanation": {
       "why": "'Invoices without this number will be returned to the sender'라고 했다. returned = sent back.",
       "traps": [
-       "늦게 지급된다는 말이 아니라 아예 반송된다.",
+       "선택지는 '늦게 지급된다'는 내용이다. 이메일은 “Invoices without this number will be returned to the sender.”(이 번호가 없는 청구서는 보낸 사람에게 반송된다)라고 했다. 늦게라도 지급되는 것이 아니라 돌려보내지며, 30일 이내 지급은 유효한 청구서에 해당하는 조건이다.",
        null,
-       "현금 지급 이야기는 없다. 지급은 계좌 입금(direct deposit)으로 한다고 했다.",
-       "관리자에게 전달된다는 말은 없다."
+       "선택지는 '현금으로 지급된다'는 내용이다. 이메일이 “your bank account details for direct deposit”(계좌 입금용 계좌 정보)를 요청한 것을 보면 지급 방법은 계좌 입금이다. cash(현금)라는 말은 없고, 번호 없는 청구서는 반송된다.",
+       "선택지는 '관리자에게 전달된다'는 내용이다. 번호 없는 청구서는 “returned to the sender”(보낸 사람에게 반송)된다고 했을 뿐, manager(관리자)에게 넘긴다는 말은 없다. 이메일에 나오는 담당자는 문의를 받는 Grace Owusu(extension 4417)뿐이다."
       ]
      },
      "question": "According to the e-mail, what will happen to an invoice that lacks a purchase order number?",
@@ -220,9 +220,9 @@
      "explanation": {
       "why": "밖으로 나간 뒤 층별 집결지로 가서 floor warden(층 안전 담당자)에게 보고하라고 했다.",
       "traps": [
-       "안전하다는 안내 방송이 나온 뒤에야 돌아갈 수 있다.",
-       "facilities 이메일은 문의처일 뿐이다.",
-       "엘리베이터는 사용하지 말라고 했고 집결지는 건물 밖 광장이다.",
+       "선택지는 '자리로 돌아간다'는 내용이다. 공지는 훈련이 약 20분 걸리고 “after which an announcement will let everyone know it is safe to return”(그 후 안내 방송으로 돌아가도 안전하다고 알린다)이라고 했다. 밖에 나가자마자 돌아가는 것이 아니라 방송이 나온 뒤에야 돌아갈 수 있다.",
+       "선택지는 '시설 관리실에 전화한다'는 내용이다. 공지 끝의 facilities@cordentower.example은 “Questions may be sent to”(문의는 ~로 보내면 된다)에 나오는 문의용 이메일 주소일 뿐이다. 밖에 나간 뒤 할 일은 집결지에 가서 floor warden(층 안전 담당자)에게 보고하는 것이다.",
+       "선택지는 '엘리베이터 근처에서 기다린다'는 내용이다. 공지는 “Elevators must not be used.”(엘리베이터를 사용해서는 안 된다)라고 했고, 밖에 나간 뒤에는 Corden Plaza의 층별 집결지로 가라고 했다. 건물 안 엘리베이터 근처에 머무는 것은 지시와 반대다.",
        null
       ]
      },
@@ -254,9 +254,9 @@
       "why": "'Visitors in the building at the time of the drill must also take part'라고 했다. 훈련에 참여한다는 것은 다른 사람들처럼 건물에서 나가야 한다는 뜻이다.",
       "traps": [
        null,
-       "엘리베이터는 누구도 사용할 수 없다.",
-       "사전 등록 이야기는 없다. 방문객에게 요구되는 것은 훈련 참여(take part)뿐이다.",
-       "방문객에게 별도 공지를 보낸다는 말은 없다."
+       "선택지는 '방문객은 엘리베이터를 써도 된다'는 내용이다. 공지는 모든 occupants(건물 안에 있는 사람)에게 “Elevators must not be used.”(엘리베이터를 사용해서는 안 된다)라고 했고, 방문객도 “must also take part”(훈련에 함께 참여해야 한다)라고 했다. 방문객만 예외라는 말은 없다.",
+       "선택지는 '미리 등록해야 한다'는 내용이다. 방문객에 대해 공지가 말한 것은 “Visitors in the building at the time of the drill must also take part.”(훈련 시간에 건물에 있는 방문객도 참여해야 한다) 한 문장뿐이다. register(등록)에 관한 내용은 없다.",
+       "선택지는 '별도 공지를 받는다'는 내용이다. 방문객도 이 공지의 “must also take part”(함께 참여해야 한다)라는 문장으로 안내될 뿐, 따로 알림을 보낸다는 말은 없다. 공지에 추가로 나오는 것은 문의용 이메일 주소뿐이다."
       ]
      },
      "question": "What is indicated about visitors?",
@@ -286,10 +286,10 @@
      "explanation": {
       "why": "주어진 문장의 Each meeting point는 바로 앞 문장의 assigned meeting point를 받는다. 집결지 안내 직후인 [3]이 알맞다.",
       "traps": [
-       "[1] 앞에는 훈련 일시만 있어 집결지가 아직 언급되지 않았다.",
-       "[2] 앞은 계단 이용·엘리베이터 금지 내용이라 집결지 표지판과 연결되지 않는다.",
+       "[1]은 “A building-wide fire drill will take place on Wednesday, May 7, at 10:00 A.M.”(5월 7일 수요일 오전 10시 훈련) 바로 뒤다. 이 시점에는 집결지가 아직 나오지 않아 주어진 문장의 Each meeting point(각 집결지)가 가리킬 대상이 없다. 뒤 문장도 경보가 울리면 계단으로 나가라는 내용이라 흐름이 끊긴다.",
+       "[2] 앞은 “Elevators must not be used.”(엘리베이터를 사용하면 안 된다)로, 건물을 나가는 방법을 말하는 부분이다. 집결지는 다음 문단의 “assigned meeting point in Corden Plaza”에서 처음 나오므로, [2]에 Each meeting point 문장을 넣으면 아직 소개되지 않은 집결지를 먼저 설명하게 된다.",
        null,
-       "[4] 앞은 방문객 참여 내용이라 흐름이 맞지 않는다."
+       "[4] 앞은 “Visitors in the building at the time of the drill must also take part.”(방문객도 참여해야 한다)이고 뒤는 문의처 안내다. 집결지 이야기는 이미 앞 문단에서 끝났으므로, 방문객과 문의처 사이에 집결지 표지판 문장을 넣으면 흐름이 맞지 않는다."
       ]
      },
      "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
@@ -334,9 +334,9 @@
      "explanation": {
       "why": "기사는 Kiro Robotics가 대전에 연구 센터를 열 계획과 그 이유, 규모, 일정을 다룬다.",
       "traps": [
-       "로봇 제품 평가(review)가 아니다. 로봇은 회사가 만드는 제품으로 소개될 뿐이다.",
-       "대학 두 곳과 협약을 맺었을 뿐 합병 이야기는 없다.",
-       "온라인 소매업은 매출 증가 이유로만 언급된다.",
+       "선택지는 '새로운 종류의 로봇을 평가하는 것'이다. 로봇은 “a maker of warehouse robots”(창고용 로봇 제조사)처럼 회사를 소개할 때와 센터의 연구 목표를 말할 때 나올 뿐, 특정 제품의 성능을 review(평가)하는 내용은 없다. 기사의 중심은 대전 연구 센터 개설 계획이다.",
+       "선택지는 '두 대학의 합병을 발표하는 것'이다. 기사의 “signed agreements with two local universities”(지역 대학 두 곳과 협약을 맺었다)는 대학원생 인턴십을 위한 협약이지 대학끼리 합치는 merger(합병)가 아니다. 이 내용도 연구 센터 계획의 일부로 언급된다.",
+       "선택지는 '온라인 소매업의 역사를 설명하는 것'이다. 온라인 소매업체는 “driven largely by demand from online retailers”(주로 온라인 소매업체의 수요 덕분에)처럼 매출 증가의 이유로 한 번 나올 뿐이다. 업계의 history(역사)를 다루는 내용은 없다.",
        null
       ]
      },
@@ -361,10 +361,10 @@
      "explanation": {
       "why": "대학과 연구소가 많아서 대전을 골랐고 'We want to be close to the talent'라고 했다. 인재 확보가 이유다.",
       "traps": [
-       "임대료 이야기는 없다. 대전을 고른 이유는 대학과 연구소, 즉 인재다.",
+       "선택지는 '더 낮은 사무실 임대료'이다. 기사가 밝힌 이유는 “because of its strong universities and many research institutes”(우수한 대학과 많은 연구소 때문에)이고, 대표는 “We want to be close to the talent”(인재 가까이에 있고 싶다)라고 했다. rent(임대료)에 대한 언급은 없다.",
        null,
-       "주요 고객은 온라인 소매업체라고만 했고 위치 이야기는 없다.",
-       "세금 혜택은 언급되지 않았다."
+       "선택지는 '주요 고객과 가까운 위치'이다. 고객에 관한 정보는 매출이 “driven largely by demand from online retailers”(주로 온라인 소매업체 수요 덕분)라는 것뿐이고, 그 고객들이 대전 근처에 있다는 말은 없다. 대표가 가까이 있고 싶다고 한 대상은 고객이 아니라 the talent(인재)다.",
+       "선택지는 '시의 세금 혜택'이다. 기사에 tax(세금)나 시의 지원에 관한 언급은 전혀 없다. 대전을 고른 이유는 대학과 연구소가 많기 때문이며, 대표는 “We want to be close to the talent”(인재 가까이에 있고 싶다)라고 설명했다."
       ]
      },
      "question": "Why did Kiro Robotics choose Daejeon?",
@@ -396,9 +396,9 @@
       "why": "'매출이 세 배가 되었는데 주로 온라인 소매업체 수요 때문'이라는 뜻이다. driven by = caused by.",
       "traps": [
        null,
-       "operated(운영된)는 drive의 '기계를 움직이다' 뜻에서 온 함정이다.",
-       "steered(조종된)는 drive의 '운전하다' 뜻이다.",
-       "delivered(배달된)는 문맥과 맞지 않는다."
+       "operated는 '운영된, (기계가) 작동된'이라는 뜻으로, drive가 '기계를 움직이다'라는 의미일 때와 연결된다. 그러나 “driven largely by demand from online retailers”는 '주로 온라인 소매업체의 수요로 인해 (매출이 늘었다)'라는 원인을 나타낸다. 매출이 수요에 의해 운영된다는 뜻은 성립하지 않는다.",
+       "steered는 '(차·배가) 조종된, 이끌린'이라는 뜻으로 drive의 '운전하다'라는 의미에서 떠올리기 쉬운 말이다. 여기서 driven by는 매출이 세 배가 된 원인을 말하므로 '~에 의해 생긴'이라는 caused가 맞다. 로봇 회사 기사라서 기계 조종을 연상하게 하는 함정이다.",
+       "delivered는 '배달된, 전달된'이라는 뜻이다. online retailers(온라인 소매업체)에서 배송을 떠올리기 쉽지만, “driven largely by demand”는 매출 증가가 '수요 때문에 일어났다'는 뜻이다. '수요에 의해 배달되었다'로는 문장이 통하지 않는다."
       ]
      },
      "question": "The word “driven” in paragraph 3 is closest in meaning to",
@@ -423,9 +423,9 @@
       "why": "센터는 아직 공사 중인 Daejeon Innovation Tower 두 개 층을 쓸 예정이고, 내년 봄에 문을 연다. 건물이 완공되어야 문을 열 수 있다.",
       "traps": [
        null,
-       "조립은 서울 본사에서 한다. 센터는 연구 개발용이다.",
-       "센터는 대전(Daejeon)에 생긴다. 서울은 현재 본사가 있는 곳이다.",
-       "채용은 가을에 시작될 예정이다."
+       "선택지는 '센터의 엔지니어들이 그곳에서 로봇을 조립할 것이다'라는 내용이다. 기사에 따르면 로봇을 설계·조립하는 곳은 “its headquarters in Seoul, where its robots are designed and assembled”(로봇을 설계하고 조립하는 서울 본사)이다. 대전 센터는 사람과 안전하게 일하는 로봇을 developing(개발)하는 연구 시설이다.",
+       "선택지는 '센터가 서울에 생긴다'는 내용이다. 기사 제목부터 “Kiro Robotics to Open Research Center in Daejeon”이고, 센터는 Daejeon Innovation Tower에 들어선다. Seoul은 현재 350명이 일하는 본사가 있는 곳이다.",
+       "선택지는 '이미 엔지니어 80명을 채용했다'는 내용이다. 기사의 “will employ about 80 engineers”(약 80명을 고용할 것이다)는 미래 계획이고, “Hiring is expected to begin in the fall.”(채용은 가을에 시작될 예정)이라고 했다. 아직 채용이 시작되지도 않았으므로 시점이 틀렸다."
       ]
      },
      "question": "What is suggested about the research center?",
@@ -474,10 +474,10 @@
      "explanation": {
       "why": "첫 메시지에서 케이터링 업체가 금요일 11시 30분 전에는 배달할 수 없다고 했다. 즉 배달을 일찍 받을 수 없다는 것이 문제다.",
       "traps": [
-       "주문 취소가 아니라 배달 시간 제약이다.",
+       "선택지는 '케이터링 업체가 주문을 취소했다'는 내용이다. Ms. Kim의 말은 “they can't deliver before 11:30 on Friday”(금요일 11:30 전에는 배달할 수 없다)이므로, 배달은 하되 시간이 늦다는 것이다. 대화도 업체가 가져올 음식을 받을 준비를 하는 내용이라 취소와는 맞지 않는다.",
        null,
-       "워크숍 날짜 변경 이야기는 없다.",
-       "식당 크기 이야기는 없다. 식당(dining room)은 표지판을 붙일 장소로만 나온다."
+       "선택지는 '워크숍이 다른 날로 옮겨졌다'는 내용이다. Luis Ortega가 “The workshop lunch starts at 11:45, right?”(워크숍 점심은 11:45에 시작하죠?)라고 묻자 Ms. Kim은 Right라고 답했다. 일정은 그대로이며 날짜 변경 이야기는 없다.",
+       "선택지는 '식당이 너무 좁다'는 내용이다. dining room(식당)은 Ms. Wells가 마지막에 “I'll also put up signs pointing to the dining room.”(식당을 가리키는 표지판도 붙이겠다)이라고 할 때만 나온다. 크기에 대한 말은 없고, 문제는 배달 시간이다."
       ]
      },
      "question": "What problem does Ms. Kim mention?",
@@ -507,9 +507,9 @@
      "explanation": {
       "why": "배달 11시 30분, 점심 11시 45분이라 '괜찮겠지만 빠듯하다'는 말이다. 여유 시간이 거의 없다는 뜻.",
       "traps": [
-       "tight를 '공간이 좁다'로 오해하게 만드는 함정이다.",
-       "예산 이야기는 없다. tight는 여기서 시간이 빠듯하다는 뜻이다.",
-       "'should be fine'이라고 했으므로 일정을 바꿀 필요는 없다.",
+       "선택지는 '식당이 붐빌 것이다'라는 뜻이다. tight에는 '(공간이) 꽉 끼는, 좁은'이라는 뜻도 있지만, 여기서는 배달 11:30과 점심 11:45 사이가 15분뿐이라는 이야기 다음에 나온다. “So it should be fine, but it'll be tight.”는 시간이 빠듯하다는 뜻이지 공간 이야기가 아니다.",
+       "선택지는 '예산이 한정되어 있다'는 뜻이다. tight budget(빠듯한 예산)처럼 tight가 돈에 쓰이기도 하지만, 이 대화에는 비용이나 budget(예산) 이야기가 전혀 없다. 앞뒤 내용은 배달 시간 11:30과 점심 시간 11:45에 관한 것이다.",
+       "선택지는 '일정을 바꿔야 한다'는 뜻이다. Ms. Kim은 “So it should be fine”(그러니 괜찮을 것이다)이라고 먼저 말했으므로 일정 변경이 필요하다고 보지 않는다. 동료들도 점심 시간을 옮기지 않고, 미리 준비하거나 오전 세션을 조금 일찍 끝내는 방법을 제안한다.",
        null
       ]
      },
@@ -537,10 +537,10 @@
      "explanation": {
       "why": "Ms. Wells는 일찍 와서 테이블과 접시를 미리 차려 두겠다고 했다. 음식이 오기 전에 방을 준비한다는 뜻이다.",
       "traps": [
-       "음식을 직접 가져오겠다는 말은 없다.",
-       "오전 세션 진행자는 강연자다.",
+       "선택지는 '음식을 직접 가져온다'는 것이다. Ms. Wells는 “That way they'll just need to bring the food in.”(그러면 업체는 음식만 들여오면 된다)이라고 했으므로 음식을 가져오는 것은 케이터링 업체다. 그녀가 맡겠다고 한 것은 테이블과 접시 준비다.",
+       "선택지는 '오전 세션을 진행한다'는 것이다. Luis Ortega의 “I'll ask the speaker to finish her morning session a few minutes early”에서 알 수 있듯 오전 세션은 강연자(the speaker)가 진행한다. Ms. Wells가 제안한 것은 일찍 와서 방을 준비하고 표지판을 붙이는 일이다.",
        null,
-       "케이터링 업체에 연락하겠다는 말은 없다."
+       "선택지는 '케이터링 업체에 전화한다'는 것이다. 업체와 연락한 사람은 첫 메시지에서 “The caterer just told me”(업체가 방금 알려 주었다)라고 한 Ms. Kim이다. Ms. Wells는 업체에 연락하겠다는 말 없이 테이블·접시 준비와 표지판 부착을 맡겠다고 했다."
       ]
      },
      "question": "What does Ms. Wells offer to do?",
@@ -571,9 +571,9 @@
       "why": "Mr. Ortega는 강연자에게 오전 세션을 몇 분 일찍 끝내 달라고 부탁하겠다고 했다.",
       "traps": [
        null,
-       "음식 추가 주문 이야기는 없다.",
-       "다른 장소를 예약하겠다는 말은 없다.",
-       "안내 표지판은 Ms. Wells가 붙이겠다고 했다."
+       "선택지는 '음식을 더 주문한다'는 것이다. 대화의 문제는 음식의 양이 아니라 배달 시간이 빠듯하다는 것이고, 추가 주문 이야기는 누구도 하지 않았다. Mr. Ortega가 하겠다고 한 일은 “I'll ask the speaker to finish her morning session a few minutes early”(강연자에게 오전 세션을 몇 분 일찍 끝내 달라고 부탁하겠다)이다.",
+       "선택지는 '다른 방을 예약한다'는 것이다. 장소를 바꾸자는 말은 없고, Ms. Wells는 오히려 기존 dining room(식당)을 가리키는 표지판을 붙이겠다고 했다. Mr. Ortega의 다음 행동은 강연자에게 연락해 오전 세션을 일찍 끝내 달라고 부탁하는 것이다.",
+       "선택지는 '표지판을 붙인다'는 것이다. “I'll also put up signs pointing to the dining room.”은 Mr. Ortega가 아니라 Dana Wells가 한 말이다. 말한 사람을 혼동하게 만드는 함정이며, Mr. Ortega가 맡은 일은 강연자(the speaker)에게 부탁하는 것이다."
       ]
      },
      "question": "What will Mr. Ortega most likely do next?",
@@ -622,9 +622,9 @@
      "explanation": {
       "why": "지출 분류(sorts your expenses), 청구서 발송(sends invoices), 세금 보고서 작성(prepares reports for tax season)은 언급되지만 급여 처리(payroll)는 없다.",
       "traps": [
-       "'automatically sorts your expenses'에 나온다.",
-       "'sends invoices to your customers'에 나온다.",
-       "'prepares reports for tax season'에 나온다.",
+       "선택지는 '지출 분류'이다. 광고에 “Ledgerly automatically sorts your expenses”(Ledgerly는 지출을 자동으로 분류한다)라고 기능이 그대로 나온다. 본문에 있는 기능이므로 NOT 문제의 정답이 아니다.",
+       "선택지는 '청구서 발송'이다. 광고의 “sends invoices to your customers”(고객에게 청구서를 보낸다)에 해당하는 기능이다. 본문에 언급되었으므로 NOT 문제의 정답이 될 수 없다.",
+       "선택지는 '세금 보고서 작성'이다. 광고의 “prepares reports for tax season”(세금 신고철에 맞춰 보고서를 준비한다)을 tax reports로 바꿔 말한 것이다. 언급된 기능이므로 NOT 문제의 정답이 아니다.",
        null
       ]
      },
@@ -649,10 +649,10 @@
      "explanation": {
       "why": "Team 플랜에는 최대 5명 사용과 priority phone support(우선 전화 지원)가 포함된다.",
       "traps": [
-       "사용자는 최대 5명(up to five users)이다. 무제한이 아니다.",
+       "선택지는 '사용자 수 무제한'이다. 광고는 Team plan이 “includes up to five users”(최대 5명까지 포함한다)라고 했으므로 사용자 수에 상한이 있다. up to(최대 ~까지)를 놓치면 고르기 쉬운 함정이다.",
        null,
-       "모바일 기기 제공 이야기는 없다. 앱이 있을 뿐이다.",
-       "대면 교육은 언급되지 않았다."
+       "선택지는 '무료 모바일 기기'이다. 광고의 “our mobile app lets you photograph receipts”(모바일 앱으로 영수증을 촬영할 수 있다)는 앱의 기능을 말할 뿐 기기를 준다는 뜻이 아니다. 또 이 앱이 Team plan에만 포함된다는 말도 없다.",
+       "선택지는 '대면 교육'이다. Team plan에 포함된 것은 최대 5명 사용과 “priority phone support”(우선 전화 지원)뿐이다. 지원은 전화로 이루어지며 in-person training(대면 교육)은 언급되지 않았다."
       ]
      },
      "question": "What is included in the Team plan?",
@@ -682,10 +682,10 @@
      "explanation": {
       "why": "'No credit card is required to start your trial'이라고 했다.",
       "traps": [
-       "체험 기간은 30일(free for 30 days)이다. 12개월이 아니다.",
-       "플랜 제한 이야기는 없다. 체험은 플랜과 상관없이 안내된다.",
+       "선택지는 '체험이 12개월 동안 이어진다'는 내용이다. 광고는 “Try Ledgerly free for 30 days.”(30일 동안 무료로 써 보라)라고 했다. twelve는 기본 요금 $12의 숫자를 이용한 함정이며, 12는 기간이 아니라 월 요금이다.",
+       "선택지는 'Team plan에서만 체험할 수 있다'는 내용이다. 광고의 무료 체험 안내 “Try Ledgerly free for 30 days.”에는 플랜에 대한 제한이 붙어 있지 않다. Team plan은 바로 앞 문장에서 가격과 내용을 소개할 때만 나온다.",
        null,
-       "웹사이트(www.ledgerly.example)에서 가입한다. 매장 이야기는 없다."
+       "선택지는 '매장에서 시작해야 한다'는 내용이다. 광고는 “Sign up at www.ledgerly.example.”(웹사이트에서 가입하라)이라고 온라인 가입을 안내한다. store(매장)에 대한 언급은 전혀 없다."
       ]
      },
      "question": "What is indicated about the free trial?",
@@ -800,10 +800,10 @@
      "explanation": {
       "why": "워크숍은 10월 13일이고 본 행사 패스는 10월 14~15일이다. 본 행사 전날에 열린다.",
       "traps": [
-       "본 행사 첫날은 10월 14일이다.",
-       "10월 14일 저녁에는 네트워킹 만찬이 있다.",
+       "선택지는 '본 행사 첫날'이다. 표에서 본 행사 패스(Full conference pass)의 날짜는 Oct. 14–15이므로 첫날은 10월 14일이다. 워크숍은 Oct. 13으로 그 하루 전이라 오답이다.",
+       "선택지는 '10월 14일 저녁'이다. 10월 14일에 열리는 것은 Networking dinner(네트워킹 만찬)이고, dinner라서 저녁을 떠올리게 하는 함정이다. 워크숍 “Workshop: Social Media Analytics”의 날짜는 Oct. 13이다.",
        null,
-       "워크숍은 행사 뒤가 아니라 앞이다."
+       "선택지는 '행사가 끝난 뒤'이다. 본 행사는 Oct. 14–15이고 워크숍은 Oct. 13이므로 행사 뒤가 아니라 앞이다. 배지도 10월 13일 오전 8시부터 받을 수 있다고 했으므로 그날부터 일정이 시작된다."
       ]
      },
      "question": "When will the workshop take place?",
@@ -829,10 +829,10 @@
      "explanation": {
       "why": "결제 내역에 조기 등록 할인 10%가 적용되어 있다. 일찍 등록했음을 알 수 있다.",
       "traps": [
-       "연사라는 정보는 없다. 확인서는 참석자(Attendee)용이다.",
+       "선택지는 '행사에서 발표한다'는 내용이다. 확인서에는 “Attendee: Hye-jin Cho, Tidewater Hotels”라고 참석자로 적혀 있고, 결제 항목도 패스·워크숍·만찬뿐이다. speaker(연사)라는 정보는 없다.",
        null,
-       "소속은 Tidewater Hotels다.",
-       "결제 완료 확인서이며 취소 흔적은 없다."
+       "선택지는 '마케팅 회사에서 일한다'는 내용이다. 행사 이름이 Coastline Marketing Conference라서 고르기 쉽지만, 그녀의 소속은 Tidewater Hotels로 적혀 있다. 행사 주제와 참석자의 소속을 혼동하게 만드는 함정이다.",
+       "선택지는 '등록을 취소했다'는 내용이다. 확인서에 취소 규정(“Cancellations made before September 30 will receive a full refund”)이 나오지만 이는 일반 안내일 뿐이다. 문서는 “Total paid”(결제 총액) $571.50이 적힌 등록 확인서이며 취소했다는 흔적은 없다."
       ]
      },
      "question": "What is suggested about Ms. Cho?",
@@ -856,9 +856,9 @@
      "explanation": {
       "why": "안내문에 'Please bring photo identification'(사진이 있는 신분증을 가져오세요)이라고 했다.",
       "traps": [
-       "영수증을 가져오라는 말은 없다.",
-       "명함은 언급되지 않았다. 가져오라고 한 것은 사진이 있는 신분증뿐이다.",
-       "확인 번호를 가져오라는 말은 없다.",
+       "선택지는 '인쇄한 영수증'이다. 확인서에 결제 내역 표가 있어 영수증을 떠올리기 쉽지만, 배지를 받을 때 가져오라고 한 것은 “Please bring photo identification.”(사진이 있는 신분증을 가져오라) 하나뿐이다. receipt(영수증)라는 말은 없다.",
+       "선택지는 '명함'이다. 네트워킹 만찬(Networking dinner)에서 명함을 떠올릴 수 있지만, 확인서에 business card(명함)라는 말은 없다. 배지 수령에 필요한 것은 사진이 있는 신분증(photo identification)이다.",
+       "선택지는 '확인 번호'이다. 확인서에 “Confirmation number: CMC-2291”이 적혀 있어 그럴듯하지만, 배지를 받을 때 이것을 가져오라는 말은 없다. 지시된 것은 “Please bring photo identification.”뿐이다.",
        null
       ]
      },
@@ -904,9 +904,9 @@
       "why": "2,000세트 인쇄 견적(price quote)과 종이 샘플을 보내 달라고 요청하는 이메일이다. 가격 정보를 묻는 것이 목적이다.",
       "traps": [
        null,
-       "인쇄 오류 불만이 아니다. 아직 인쇄를 맡기기 전이라 견적을 묻는 단계다.",
-       "전시는 엽서 사진의 출처로 언급될 뿐 홍보 목적이 아니다.",
-       "구직 이메일이 아니다. Varga 씨는 박물관 기념품점을 운영하는 사람이다."
+       "선택지는 '인쇄 오류에 대해 항의하기 위해'이다. Mr. Varga는 “We would like 2,000 sets printed”(2,000세트를 인쇄하고 싶다)라고 앞으로의 주문을 말하며 견적을 묻는다. 아직 인쇄를 맡기기 전이므로 error(오류)에 대한 불만이 있을 수 없다.",
+       "선택지는 '박물관 전시를 홍보하기 위해'이다. 새 전시는 “photographs from our new exhibit, which opens on April 10”(4월 10일에 개막하는 새 전시의 사진)처럼 엽서에 쓸 사진의 출처로 언급될 뿐이다. 수신자도 인쇄 업체의 sales 주소라서 전시를 홍보하는 글이 아니다.",
+       "선택지는 '일자리에 지원하기 위해'이다. Mr. Varga는 “I manage the gift shop at the Harmon History Museum.”(박물관 기념품점을 운영한다)이라고 자신을 소개한 뒤 업무상 견적을 요청한다. 구직과 관련된 내용은 없다."
       ]
      },
      "question": "Why did Mr. Varga write the e-mail?",
@@ -937,9 +937,9 @@
       "why": "1,000달러가 넘는 구매는 이사회 승인이 필요하고 이사회가 2월 24일에 열린다.",
       "traps": [
        null,
-       "전시는 4월 10일에 열린다.",
-       "기념품점 공사 이야기는 없다.",
-       "휴가 이야기는 없다. 2월 24일은 이사회 회의 날짜다."
+       "선택지는 '그날 전시가 개막한다'는 내용이다. 전시는 “which opens on April 10”(4월 10일에 개막한다)이라고 했으므로 February 24와 날짜가 다르다. 2월 24일은 이사회가 다음에 열리는 날이다.",
+       "선택지는 '기념품점이 수리 때문에 문을 닫는다'는 내용이다. 이메일에 기념품점 공사나 휴업 이야기는 전혀 없다. February 24가 중요한 이유는 “Our board must approve all purchases over $1,000”(1,000달러가 넘는 구매는 이사회 승인이 필요하다)이고 이사회가 그날 열리기 때문이다.",
+       "선택지는 '휴가로 자리를 비운다'는 내용이다. 이메일에 vacation(휴가) 이야기는 없다. 이메일은 이사회가 “it next meets on February 24”(다음 회의가 2월 24일)라서 그 전에 견적이 필요하다고 밝혔다."
       ]
      },
      "question": "Why does Mr. Varga need a quote before February 24?",
@@ -969,10 +969,10 @@
      "explanation": {
       "why": "The images는 바로 앞 문장의 photographs from our new exhibit를 가리킨다. 엽서 사진 소개 직후인 [2]가 알맞다.",
       "traps": [
-       "[1] 앞에는 기념품점을 운영한다는 소개만 있어 The images가 가리킬 대상이 없다.",
+       "[1] 앞은 “I manage the gift shop at the Harmon History Museum.”(박물관 기념품점을 운영한다)이라는 자기소개뿐이다. 아직 사진이 나오지 않았으므로 주어진 문장의 The images(그 사진들)가 가리킬 대상이 없다. 사진은 [1] 뒤 문장의 photographs from our new exhibit에서 처음 나온다.",
        null,
-       "[3] 앞은 견적과 종이 샘플 요청이라 사진 설명이 끼어들 자리가 아니다.",
-       "[4]는 마무리 인사 직전이라 흐름이 맞지 않는다."
+       "[3] 앞은 “Could you send me a price quote, along with samples of the paper you would recommend?”(견적과 추천 용지 샘플을 보내 달라)라는 요청이다. 종이와 견적 이야기 중간에 1920년대 사진의 촬영자 설명이 끼어들면 흐름이 끊긴다. The images는 엽서 사진 소개 바로 뒤에 와야 한다.",
+       "[4]는 마무리 인사 Thank you 바로 앞으로, 그 앞 문장은 이사회 승인과 2월 24일 기한에 관한 내용이다. 여기에 사진 촬영자 설명을 넣으면 The images가 가리키는 사진 이야기와 멀리 떨어지고 흐름도 맞지 않는다."
       ]
      },
      "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
@@ -1016,10 +1016,10 @@
      "explanation": {
       "why": "'so that our staff can complete our annual inventory count'라고 했다. 재고 조사 = 재고 수량 확인.",
       "traps": [
-       "공사 이야기는 없다. 휴무 이유는 연례 재고 조사(annual inventory count)다.",
-       "휴일 이야기는 없다. 1월 12일은 재고 조사를 위해 쉬는 날이다.",
+       "선택지는 '매장을 개조하기 위해'이다. 공지는 휴무 이유를 “so that our staff can complete our annual inventory count”(직원들이 연례 재고 조사를 마칠 수 있도록)라고 밝혔다. renovate(개조하다)나 공사에 관한 언급은 없다.",
+       "선택지는 '휴일을 기념하기 위해'이다. 1월 12일이 일요일이라 휴일을 떠올리기 쉽지만, 공지는 그날 “annual inventory count”(연례 재고 조사)를 하기 위해 쉰다고 했다. holiday(공휴일)에 대한 언급은 없다.",
        null,
-       "직원 교육 이야기는 없다. 직원들은 그날 재고를 센다."
+       "선택지는 '신입 직원을 교육하기 위해'이다. 공지에서 staff(직원)는 “so that our staff can complete our annual inventory count”처럼 재고를 세는 주체로만 나온다. train(교육하다)이나 신입 직원에 관한 내용은 없다."
       ]
      },
      "question": "Why will Martel Hardware be closed on January 12?",
@@ -1049,9 +1049,9 @@
      "explanation": {
       "why": "그 주말에 특별 주문품을 찾아야 하는 고객은 토요일 오후 6시까지 찾아가라고 했다. 휴무 전에 찾아가라는 뜻.",
       "traps": [
-       "월요일은 재개장일이지만 주말에 필요한 고객에게 준 안내가 아니다.",
-       "온라인 재주문을 권하지 않는다.",
-       "일요일에는 문을 닫으므로 전화를 받을 사람이 없다. 안내는 토요일 오후 6시까지 찾아가라는 것이다.",
+       "선택지는 '월요일 오후에 찾아간다'는 것이다. 월요일(January 13)은 오전 8시에 다시 문을 여는 날이지만, 그 주말에 특별 주문품이 필요한 고객에게는 “by 6:00 P.M. on Saturday, January 11”(1월 11일 토요일 오후 6시까지) 찾아가라고 했다. 월요일 오후라는 안내는 없다.",
+       "선택지는 '온라인으로 다시 주문한다'는 것이다. 공지의 “Online orders can still be placed during this time”(이 기간에도 온라인 주문은 할 수 있다)은 일반 주문에 관한 안내이며, 그 주문도 월요일까지 처리되지 않는다. 특별 주문품을 다시 주문하라는 말은 없다.",
+       "선택지는 '일요일에 매장에 전화한다'는 것이다. 일요일(January 12)은 재고 조사로 문을 닫는 날이고, 전화 연락에 관한 안내는 공지에 없다. 특별 주문품 고객에게 요청한 것은 토요일 오후 6시까지 찾아가는 것이다.",
        null
       ]
      },
@@ -1102,10 +1102,10 @@
      "explanation": {
       "why": "북쪽 창고 트럭을 쓸 수 있는지 묻자 '4시까지 나가 있다'고 답한다. 대체 차량을 쓸 수 없다는 뜻이고, 그래서 배송을 내일로 미룬다.",
       "traps": [
-       "매장 영업 시간 이야기가 아니다.",
+       "선택지는 매장이 4시에 문을 닫는다는 뜻이다. 그러나 “It's out until 4”는 바로 앞 Ms. Osei의 질문 “Is the truck from the north depot free?”(북쪽 창고 트럭을 쓸 수 있나?)에 대한 답이므로 It은 매장이 아니라 트럭이다. 매장 영업 시간은 대화에 전혀 나오지 않는다.",
        null,
-       "Mr. Greco가 4시에 도착한다는 말이 아니다.",
-       "밴 수리 시간 이야기가 아니다. 견인 차는 30분 뒤에 온다."
+       "선택지는 Mr. Greco가 4시에 매장에 도착한다는 뜻이다. 하지만 It은 앞 질문의 the truck을 가리키고, “It's out until 4”는 그 트럭이 4시까지 외부에 나가 있다는 말이다. Mr. Greco는 처음에 “I won't make it to the Linwood store by 2”라며 밴 고장으로 매장에 못 간다고 했고, 배송은 내일로 미뤄진다.",
+       "선택지는 밴이 4시까지 수리된다는 뜻이다. 그러나 4시는 북쪽 창고 트럭이 돌아오는 시각이고, 밴은 수리가 아니라 견인(“get the van towed”)하기로 했다. 견인 업체도 “30 minutes”(30분 뒤 도착)라고 했을 뿐 수리 완료 시간은 대화에 나오지 않는다."
       ]
      },
      "question": "At 1:18 P.M., what does Mr. Greco imply when he writes, “It's out until 4”?",
@@ -1131,9 +1131,9 @@
       "why": "Ms. Osei는 Linwood 매장에 전화해 배송을 내일 아침으로 옮기겠다고 했다.",
       "traps": [
        null,
-       "트럭은 4시까지 쓸 수 없다.",
-       "견인 업체에는 Mr. Greco가 이미 연락했다.",
-       "수리 이야기는 없다. 밴은 견인(towed)하기로 했고, 견인 업체 연락은 Mr. Greco가 했다."
+       "선택지는 Ms. Osei가 북쪽 창고 트럭을 운전한다는 뜻이다. 그러나 그 트럭은 “It's out until 4”(4시까지 나가 있다)라서 지금 쓸 수 없고, 그래서 Ms. Osei는 배송을 내일 아침으로 미루기로 했다. 트럭은 대화에 나오지만 그녀가 다음에 할 일이 아니다.",
+       "선택지는 견인 업체에 전화한다는 뜻이다. Ms. Osei가 “Can you get the van towed?”라고 부탁하자 Mr. Greco가 “Already on it”(이미 처리 중)이라고 답하고 견인 업체의 답변까지 전했다. 견인 업체 연락은 Mr. Greco가 이미 한 일이고, Ms. Osei가 전화할 곳은 Linwood 매장이다.",
+       "선택지는 밴을 수리한다는 뜻이다. 대화에 수리 이야기는 없고, 고장 난 밴은 “get the van towed”(견인)하기로 했으며 그 일도 Mr. Greco가 맡았다. Ms. Osei는 “Then I'll call Linwood”라며 매장에 전화해 배송을 옮기겠다고 했다."
       ]
      },
      "question": "What will Ms. Osei most likely do next?",
@@ -1182,9 +1182,9 @@
      "explanation": {
       "why": "식당 공급, 시장 노점에서 시작, 교육 프로그램은 모두 나오지만 세 번째 매장 계획은 없다.",
       "traps": [
-       "'supplies bread to more than 20 restaurants'에 나온다.",
-       "'started as a stand at the weekend farmers market'에 나온다.",
-       "'launched a training program'에 나온다.",
+       "선택지는 빵집이 식당에 빵을 공급한다는 내용이다. 기사 둘째 문단에 “supplies bread to more than 20 restaurants”(20곳이 넘는 식당에 빵을 공급한다)라고 나온다. 지문에 언급된 사실이므로 NOT 문제의 정답이 될 수 없다.",
+       "선택지는 빵집이 시장에서 시작했다는 내용이다. 기사에 “started as a stand at the weekend farmers market”(주말 농산물 시장의 노점으로 시작했다)라고 나온다. began = started, market = farmers market으로 바꿔 말한 것이므로 언급된 내용이다.",
+       "선택지는 빵집이 교육 프로그램을 운영한다는 내용이다. 기사에 “the bakery launched a training program that teaches baking skills to young adults looking for work”(구직 중인 청년에게 제빵 기술을 가르치는 프로그램을 시작했다)라고 나온다. 지문에 있는 사실이므로 정답이 아니다.",
        null
       ]
      },
@@ -1211,10 +1211,10 @@
      "explanation": {
       "why": "상이 '성장·지역 기여·고객 서비스를 보여 준 기업을 기린다'는 뜻이다. recognize = honor.",
       "traps": [
-       "identifies(알아보다)는 recognize의 대표 뜻이지만 시상 문맥에서는 맞지 않는다. 사전 1순위 뜻 함정.",
-       "admits(인정하다, 입장시키다)는 문맥과 맞지 않는다.",
+       "identifies는 '알아보다, 식별하다'라는 뜻으로 recognize a face(얼굴을 알아보다)의 recognize와 같다. 그러나 여기서는 “The award recognizes companies that have shown strong growth”로, 상이 성장한 기업을 '기린다, 표창한다'는 뜻이다. 상이 기업을 식별한다는 말은 어색하며, recognize의 사전 첫째 뜻에 끌린 함정이다.",
+       "admits는 '(잘못을) 인정하다' 또는 '입장시키다'라는 뜻이다(admit a mistake, admit visitors). 이 문장에서 상은 성장·지역 기여·고객 서비스가 뛰어난 기업을 기리는 것이므로, 잘못을 시인하거나 입장을 허락한다는 뜻은 맞지 않는다. recognize도 '인정하다'로 번역되기 때문에 고르기 쉬운 함정이다.",
        null,
-       "remembers(기억하다)도 시상 문맥과 맞지 않는다."
+       "remembers는 '기억하다'라는 뜻으로 recognize의 '(본 적 있는 것을) 알아보다'와 가까워 보여 고르기 쉽다. 하지만 이 상은 강한 성장과 우수한 고객 서비스를 보여 준 기업에 주는 것이므로, 상이 기업을 기억한다는 의미가 되어 문맥에 맞지 않는다. 시상 문맥의 recognize는 '공로를 기리다'이다."
       ]
      },
      "question": "The word “recognizes” in paragraph 1 is closest in meaning to",
@@ -1241,10 +1241,10 @@
      "explanation": {
       "why": "수료생 8명이 지역 업체에 채용되었고 그중 3명은 Rosewood가 직접 채용했다.",
       "traps": [
-       "구직 중인 청년(young adults looking for work) 대상이다. 식당 주인 대상이 아니다.",
+       "선택지는 교육 프로그램이 식당 주인만을 대상으로 한다는 내용이다. 기사에는 “teaches baking skills to young adults looking for work”(구직 중인 청년에게 제빵 기술을 가르친다)라고 나온다. 식당은 빵을 공급받는 거래처로만 나오므로 대상이 틀렸다.",
        null,
-       "작년에 시작했다. 6년 전은 빵집 창업 시점이다.",
-       "재원 이야기는 없다. 상공 협의회(business council)는 상을 준 곳이다."
+       "선택지는 교육 프로그램이 6년 전에 시작됐다는 내용이다. 기사에서 6년 전은 “Founded six years ago by Elena Park”로 빵집 창업 시점이고, 프로그램은 “Last year, the bakery launched a training program”이라고 해서 작년에 시작했다. 두 시점을 섞은 함정이다.",
+       "선택지는 상공 협의회가 프로그램 비용을 댄다는 내용이다. 기사에 자금 이야기는 전혀 없다. Glenwood Regional Business Council은 Rosewood Bakery에 “Small Business of the Year” 상을 준 단체로만 나온다. 지문에 나온 이름을 다른 역할에 연결한 함정이다."
       ]
      },
      "question": "What is indicated about the training program?",
@@ -1293,10 +1293,10 @@
      "explanation": {
       "why": "'up to 14 days in advance'(최대 14일 전까지)라고 했다. 14일 = 2주이므로 Up to two weeks가 정답이다.",
       "traps": [
-       "한 달이라는 말은 없다. 예약 가능 기간은 최대 14일 전까지다.",
-       "당일 바로 이용도 가능하지만 최대 14일 전까지 예약할 수 있다.",
+       "선택지는 최대 한 달 전까지 예약할 수 있다는 뜻이다. 지문은 “You can reserve a car up to 14 days in advance”(최대 14일 전까지 예약할 수 있다)라고 했다. 14일은 2주이므로 한 달은 기간이 너무 길고, 지문에 한 달이라는 말은 없다.",
+       "선택지는 당일에만 예약할 수 있다는 뜻이다. 지문의 “start a trip right away”(바로 이용을 시작할 수 있다)를 보고 고르기 쉽지만, 같은 문장에 “up to 14 days in advance”도 있어 최대 14일 전부터 미리 예약할 수 있다. 당일 이용은 방법 중 하나일 뿐 '당일만'은 틀리다.",
        null,
-       "48시간은 언급되지 않았다. 14일 전까지 예약할 수 있다."
+       "선택지는 최대 48시간(이틀) 전까지 예약할 수 있다는 뜻이다. 지문에 48시간은 나오지 않고, 예약 가능 기간은 “up to 14 days in advance”(최대 14일 전까지)이다. 그럴듯한 숫자로 바꾼 함정으로, 지문의 숫자 14와 직접 비교해야 한다."
       ]
      },
      "question": "How far in advance can members reserve a car?",
@@ -1326,9 +1326,9 @@
      "explanation": {
       "why": "다른 회원이 그 차를 예약하지 않았을 때만(as long as) 연장할 수 있다. 연장이 항상 가능한 것은 아니다.",
       "traps": [
-       "연장 요금 이야기는 없다. 요금이 나오는 것은 늦게 반납할 때(분당 1달러)뿐이다.",
-       "앱에서(in the app) 연장한다. 전화는 필요 없다.",
-       "50달러는 지각 요금 상한이지 연장 시간 제한이 아니다.",
+       "선택지는 이용 연장이 무료라는 뜻이다. 지문은 연장 요금에 대해 아무 말도 하지 않는다. 요금이 나오는 것은 늦게 반납할 때로, “Late returns are charged at $1 per minute”(지연 반납은 분당 1달러)이다. 연장이 무료인지는 알 수 없으므로 고를 수 없다.",
+       "선택지는 연장하려면 전화를 해야 한다는 뜻이다. 지문은 “you can extend your trip in the app”(앱에서 이용을 연장할 수 있다)이라고 했다. 전화 이야기는 전혀 없고, 예약과 연장 모두 CityWheels 앱으로 한다.",
+       "선택지는 연장이 50분까지로 제한된다는 뜻이다. 지문의 50은 “up to a maximum of $50”으로, 지연 반납 요금의 상한(최대 50달러)이다. 시간이 아니라 금액이고 연장과도 관계없다. 숫자만 같고 단위를 바꾼 함정이다.",
        null
       ]
      },
@@ -1354,9 +1354,9 @@
       "why": "반납 시 연료가 4분의 1 미만이면 주유하라고 했다. 연료가 적을 때 채우라는 뜻이다.",
       "traps": [
        null,
-       "주유 카드를 반납하라는 말은 없다. 차 안에 있다.",
-       "주유 카드를 쓰므로 현금 이야기는 없다.",
-       "주요 주유소 어디서나 쓸 수 있다."
+       "선택지는 주유 카드를 사무실에 반납하라는 뜻이다. 지문은 “Each car contains a fuel card”(차마다 주유 카드가 들어 있다)라고만 했고, 카드 반납이나 사무실 이야기는 없다. 이용 종료 시 요청받는 일은 연료가 4분의 1 미만이면 채우는 것이다.",
+       "선택지는 연료비를 현금으로 내라는 뜻이다. 지문은 “Is fuel included?”에 Yes라고 답해 연료비가 포함되어 있다고 했고, 차 안의 주유 카드를 주유소에서 쓰면 된다. 현금 결제 이야기는 전혀 없다.",
+       "선택지는 특정 주유소 한 곳만 이용하라는 뜻이다. 지문은 주유 카드를 “at any major gas station”(주요 주유소 어디서나) 쓸 수 있다고 했다. any(어느 곳이든)와 one specific(특정한 한 곳)은 정반대이므로 지문과 모순된다."
       ]
      },
      "question": "What are members asked to do at the end of a trip?",
@@ -1407,9 +1407,9 @@
      "explanation": {
       "why": "첫 문장에서 Seaview Logistics를 봄 채용 박람회에 초대한다고 밝혔다. 회사를 행사에 초대하는 편지다.",
       "traps": [
-       "부스는 무료이고 기부 요청은 없다.",
-       "학과는 참석 학생들의 전공으로만 언급된다.",
-       "채용 제안 편지가 아니다. Ms. Alvarez는 초대받는 회사(Seaview Logistics) 쪽 사람이다.",
+       "선택지는 기부를 요청하는 편지라는 뜻이다. 편지는 “Booths are available to employers free of charge”(부스는 고용주에게 무료로 제공된다)라고 했고, 돈을 내는 것은 면접실을 원할 때의 50달러뿐이다. 기부 요청은 어디에도 없으며, 목적은 첫 문장의 박람회 초대이다.",
+       "선택지는 새 학위 과정을 알리는 편지라는 뜻이다. 학과는 “our business, engineering, and computer science programs”로, 박람회에 오는 학생들의 전공을 설명할 때만 나온다. 새로 생긴 과정이라는 말도 없고, 편지의 목적은 Seaview Logistics를 박람회에 초대하는 것이다.",
+       "선택지는 Ms. Alvarez에게 일자리를 제안하는 편지라는 뜻이다. 편지는 “I am writing to invite Seaview Logistics to take part in”으로 시작해 그녀의 회사를 고용주로서 박람회에 초대한다. 일자리를 구하는 것은 박람회에 오는 학생들이며, Ms. Alvarez는 채용하는 회사 쪽 사람이다.",
        null
       ]
      },
@@ -1434,10 +1434,10 @@
      "explanation": {
       "why": "부스에는 테이블, 의자 두 개, 전기(table, two chairs, and access to electricity)가 제공된다. 화면(display screen)은 언급되지 않았다.",
       "traps": [
-       "'a table'이 제공된다.",
+       "선택지는 테이블이다. 편지에 “Each booth comes with a table, two chairs, and access to electricity”(각 부스에는 테이블, 의자 두 개, 전기 사용이 제공된다)라고 나오므로 테이블은 제공되는 물품이다. NOT 문제에서 지문에 있는 항목은 정답이 아니다.",
        null,
-       "'two chairs'가 제공된다.",
-       "'access to electricity'가 제공된다."
+       "선택지는 의자이다. 같은 문장 “Each booth comes with a table, two chairs, and access to electricity”에 two chairs(의자 두 개)가 들어 있다. 선택지는 개수를 빼고 Chairs라고만 했지만 제공되는 물품이므로 NOT 문제의 정답이 아니다.",
+       "선택지는 전기이다. 편지에 “access to electricity”(전기 사용)가 테이블, 의자와 함께 부스에 딸려 나온다고 했다. access to electricity를 Electricity로 줄여 말한 것이므로 언급된 항목이고 정답이 아니다."
       ]
      },
      "question": "What is NOT provided with each booth?",
@@ -1462,9 +1462,9 @@
       "why": "현장 면접을 원하면 메인 홀 근처의 별도 방을 50달러에 예약해 준다고 했다. 추가 요금이 붙는 것은 면접용 공간뿐이다.",
       "traps": [
        null,
-       "입구 쪽 부스 요금 이야기는 없다.",
-       "추가 의자 요금은 없다. 부스마다 의자 두 개가 무료로 제공된다.",
-       "이력서 목록 판매 이야기는 없다."
+       "선택지는 입구 근처 부스를 추가 요금으로 받을 수 있다는 뜻이다. 편지에 입구(entrance)라는 말은 없고, 부스 위치는 “assigned in the order in which registrations are received”(등록 접수 순서로 배정된다)라고 했다. 요금이 붙는 것은 면접용 별도 방(50달러)뿐이다.",
+       "선택지는 추가 의자를 돈을 내고 받을 수 있다는 뜻이다. 편지에는 부스마다 “two chairs”가 기본으로 제공된다고만 나오고, 의자를 더 주문하는 이야기는 없다. 부스 자체도 “free of charge”(무료)이며 추가 요금은 면접실에만 붙는다.",
+       "선택지는 학생 이력서(résumé) 목록을 유료로 받을 수 있다는 뜻이다. 편지는 학생들의 전공과 그들이 인턴십·정규직을 찾는다는 점만 설명하고, 이력서 제공은 언급하지 않는다. 50달러를 내고 예약하는 것은 “a private room near the main hall”(메인 홀 근처 별도 방)이다."
       ]
      },
      "question": "What is available for an additional fee?",
@@ -1494,10 +1494,10 @@
      "explanation": {
       "why": "'Booth locations are assigned in the order in which registrations are received'라고 했다. 등록 순서대로 배정된다.",
       "traps": [
-       "학생이 고른다는 말은 없다. 학생은 박람회 참석자로만 나온다.",
-       "업종별 배정 이야기는 없다. 배정 기준은 등록 순서다.",
+       "선택지는 학생들이 부스 위치를 고른다는 뜻이다. 편지는 “Booth locations are assigned in the order in which registrations are received”라고 해 위치는 등록 순서로 배정된다고 했다. 학생은 박람회에 오는 참석자로만 나오고 위치를 정하지 않는다.",
+       "선택지는 업종별로 위치가 배정된다는 뜻이다. assigned라는 단어는 지문과 같지만, 배정 기준은 업종이 아니라 “in the order in which registrations are received”(등록이 접수된 순서)이다. 같은 단어를 넣고 기준만 바꾼 함정이다.",
        null,
-       "부스는 무료이고 위치별 요금 차이는 없다."
+       "선택지는 메인 홀 근처 부스가 더 비싸다는 뜻이다. 부스는 “free of charge”(무료)이고, main hall은 “a private room near the main hall for $50”에서 면접실 위치로만 나온다. 위치에 따른 부스 가격 차이는 없다."
       ]
      },
      "question": "What is indicated about booth locations?",
@@ -1546,10 +1546,10 @@
      "explanation": {
       "why": "이사 업체가 가구와 서류를 옮기지만(Movers will transport all furniture and files) 각자 책상 안 물건은 직접 싸야 한다(you are responsible for packing the items in your own desk).",
       "traps": [
-       "서류(files)는 이사 업체가 옮긴다고 했다. 직원 책임이 아니다.",
+       "선택지는 부서 서류를 옮기는 일이다. 메모에 “Movers will transport all furniture and files”(이사 업체가 모든 가구와 서류를 옮긴다)라고 했으므로 서류 운반은 이사 업체 몫이다. 직원이 맡는 일은 그 뒤 but 이하의 자기 책상 물건 포장이다.",
        null,
-       "상자는 8월 26일에 배달된다.",
-       "자리는 이미 좌석표로 정해져 있다."
+       "선택지는 상자를 배달하는 일이다. 메모는 “Boxes and labels will be delivered to the department on August 26”이라고 수동태로 썼다. 상자는 부서로 배달되어 오는 것이지 직원이 배달하는 것이 아니다.",
+       "선택지는 새 자리를 배정하는 일이다. 새 자리 번호는 “the seating chart posted in the break room”(휴게실에 붙은 좌석표)에 이미 나와 있고, 직원은 그것을 확인해 상자에 적기만 하면 된다. 자리 배정은 직원 책임이 아니다."
       ]
      },
      "question": "What are employees responsible for?",
@@ -1580,9 +1580,9 @@
       "why": "새 자리 번호는 휴게실에 붙은 좌석표(seating chart posted in the break room)에서 확인하라고 했다.",
       "traps": [
        null,
-       "상자에는 직원이 자리 번호를 적는다.",
-       "이메일 이야기는 없다. 이 글 자체가 Ms. Wu가 쓴 메모이고, 자리 번호는 휴게실 좌석표에 있다.",
-       "5층 안내 데스크는 언급되지 않았다."
+       "선택지는 상자에서 자리 번호를 확인한다는 뜻이다. 메모는 “Please label each box with your name and new desk number”라며 직원이 상자에 자리 번호를 적으라고 했다. 상자는 번호를 적는 곳이지 확인하는 곳이 아니며, 번호는 휴게실 좌석표에서 찾는다.",
+       "선택지는 Ms. Wu의 이메일로 자리 번호를 받는다는 뜻이다. 이 글 자체가 Ms. Wu가 보낸 메모이고, 이메일은 “Our phone numbers and e-mail addresses will stay the same”(전화번호와 이메일 주소는 그대로다)에만 나온다. 자리 번호는 휴게실 좌석표에 있다.",
+       "선택지는 5층 안내 데스크에서 확인한다는 뜻이다. 5층은 부서가 옮겨 갈 곳(“Move to the fifth floor”)일 뿐이고, 안내 데스크는 메모에 나오지 않는다. 자리 번호는 “the seating chart posted in the break room”에서 찾으라고 했다."
       ]
      },
      "question": "Where can employees find their new desk numbers?",
@@ -1606,10 +1606,10 @@
      "explanation": {
       "why": "앞 문장이 '상자마다 이름과 새 자리 번호를 적으라'는 지시다. 라벨이 없으면 제자리에 가지 못할 수 있다는 경고가 그 직후 [3]에 들어간다.",
       "traps": [
-       "[1] 앞에서는 상자·라벨이 아직 나오지 않았다.",
-       "[2] 앞에서도 라벨 안내가 나오기 전이다.",
+       "[1]은 이사 날짜(8월 30일 주말)를 알린 문장과 “Movers will transport all furniture and files” 사이다. 이 시점에는 상자나 라벨이 아직 나오지 않아, 라벨 없는 상자가 제자리에 못 갈 수 있다는 경고가 무엇을 받는지 알 수 없다. 라벨 이야기는 둘째 문단에서야 나온다.",
+       "[2]는 “you are responsible for packing the items in your own desk”(각자 책상 물건은 직접 싸야 한다) 바로 뒤로, 포장 책임까지만 말한 상태다. 상자 배달과 라벨 붙이는 방법은 다음 문단에 나오므로, 여기에 라벨 경고를 넣으면 순서가 앞선다.",
        null,
-       "[4] 앞은 전화번호·이메일 유지 내용이라 연결되지 않는다."
+       "[4]는 “Our phone numbers and e-mail addresses will stay the same” 뒤, 감사 인사 앞이다. 앞 문장이 전화번호·이메일 유지에 관한 내용이라 상자 라벨 경고와 연결되지 않는다. 라벨 지시(“Please label each box”) 바로 뒤인 [3]에 와야 자연스럽다."
       ]
      },
      "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
@@ -1655,9 +1655,9 @@
      "explanation": {
       "why": "잘못 청구된 것으로 보이는 두 항목(주차비, 미니바)에 대해 확인과 환불을 요청한다. 청구 내역에 이의를 제기하는 이메일이다.",
       "traps": [
-       "숙박(10월 28~30일)은 이미 끝났다. 예약하는 이메일이 아니다.",
-       "칭찬 내용은 없다. 잘못된 청구 두 건을 지적한다.",
-       "예약 변경 요청이 아니다. 숙박이 끝난 뒤 청구 내역 문제를 제기한다.",
+       "선택지는 컨퍼런스 때문에 객실을 예약하려는 이메일이라는 뜻이다. 그는 “I stayed at the Harborview Hotel from October 28 to 30”이라고 과거형으로 써서 숙박이 이미 끝났다. 예약(booked)은 과거 일로만 언급되고, 지금은 청구 내역을 문제 삼는다.",
+       "선택지는 호텔 직원을 칭찬하려는 이메일이라는 뜻이다. 이메일에 직원을 칭찬하는 내용은 없고, “I noticed two charges that I believe were made in error”(잘못 청구된 것으로 보이는 두 건을 발견했다)라며 문제를 제기한다.",
+       "선택지는 예약을 변경하려는 이메일이라는 뜻이다. 숙박은 10월 28~30일에 이미 끝났고, 그가 바라는 것은 “look into these charges and refund the correct amount”(청구 건을 조사해 맞는 금액을 환불해 달라)이다. 예약은 주차 포함 조건의 근거로만 나온다.",
        null
       ]
      },
@@ -1688,10 +1688,10 @@
      "explanation": {
       "why": "주차 포함 조건이 적힌 예약 확인서(booking confirmation)를 첨부했다(which I have attached)고 했다.",
       "traps": [
-       "카드 명세서를 확인했다고 했을 뿐 첨부하지 않았다.",
-       "미니바 영수증은 언급되지 않았다.",
+       "선택지는 신용카드 명세서이다. 그는 “When I reviewed my credit card statement”라며 명세서를 확인하다 오류를 발견했다고 했을 뿐 첨부했다고 하지 않았다. 첨부한 것은 “my booking confirmation, which I have attached”의 예약 확인서이다.",
+       "선택지는 미니바 영수증이다. 그는 미니바 요금 22달러에 대해 “I did not use anything from it”(아무것도 이용하지 않았다)이라고 했으므로 영수증이 있을 리 없다. 영수증은 언급되지 않으며, 첨부한 것은 예약 확인서이다.",
        null,
-       "컨퍼런스 일정표는 첨부하지 않았다."
+       "선택지는 컨퍼런스 일정표이다. 컨퍼런스는 “while attending a conference”(컨퍼런스 참석 중)라고 숙박 이유로만 나오고, 일정표를 보냈다는 말은 없다. which I have attached가 가리키는 것은 예약 확인서(booking confirmation)이다."
       ]
      },
      "question": "What did Mr. Watanabe include with the e-mail?",
@@ -1715,10 +1715,10 @@
      "explanation": {
       "why": "10월 28일부터 30일까지는 2박이다. 주차비 35달러 × 2박 = 70달러에 미니바 22달러를 더하면 92달러.",
       "traps": [
-       "35달러는 주차비 1박분뿐이다.",
-       "57달러는 주차 1박분과 미니바만 더한 값이다.",
+       "35달러는 “I was charged $35 for parking each night”의 1박 주차비이다. each night(매일 밤)라고 했으므로 10월 28일부터 30일까지 2박이면 주차비만 70달러이고, 여기에 미니바 22달러도 환불 요청 대상이다. 한 건만 본 오답이다.",
+       "57달러는 1박 주차비 35달러에 미니바 22달러를 더한 값이다. 하지만 주차비는 each night(매박) 청구되었고 숙박은 10월 28일부터 30일까지 2박이므로 주차비는 35 × 2 = 70달러이다. 박수를 곱하지 않은 오답이다.",
        null,
-       "127달러는 3박으로 잘못 계산한 값이다. 28·29·30일 세 날짜를 박수로 세면 빠지는 함정."
+       "127달러는 주차비를 3박(35 × 3 = 105달러)으로 계산하고 미니바 22달러를 더한 값이다. 그러나 October 28 to 30은 28일 밤과 29일 밤, 즉 2박이다. 28·29·30일 세 날짜를 그대로 박수로 센 함정이다."
       ]
      },
      "question": "How much does Mr. Watanabe most likely expect to be refunded?",
@@ -1747,9 +1747,9 @@
      "explanation": {
       "why": "'이 청구 내역을 조사해 달라'는 뜻이다. look into = investigate.",
       "traps": [
-       "enter(들어가다)는 look into의 글자 뜻에 끌린 함정이다.",
-       "watch(지켜보다)는 문맥과 맞지 않는다.",
-       "expect(기대하다)는 의미가 다르다.",
+       "enter는 '들어가다'라는 뜻으로 enter a room(방에 들어가다)처럼 장소에 쓴다. look into를 글자 그대로 '안을 들여다보다'로 읽으면 끌리지만, “look into these charges”는 청구 내역 속으로 들어간다는 뜻이 아니라 '조사하다, 살펴보다'이다.",
+       "watch는 '(움직이는 것을) 지켜보다'라는 뜻으로 watch a game처럼 쓴다. 이 문장은 잘못된 청구 건을 조사해 맞는 금액을 환불해 달라는 요청이라, 청구 내역을 지켜본다는 의미는 맞지 않는다. look이 '보다'라서 고르기 쉬운 함정이다.",
+       "expect는 '예상하다, 기대하다'라는 뜻이다. “look into these charges and refund the correct amount”에서 look into를 expect로 바꾸면 '청구 건을 예상하다'가 되어 의미가 통하지 않는다. 고객이 요청하는 것은 청구 건의 조사이다.",
        null
       ]
      },

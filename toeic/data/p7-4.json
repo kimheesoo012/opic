@@ -111,9 +111,9 @@
       "why": "첫 이메일은 새 사무실을 위한 주문서를 처리해 달라는(Please process the attached order) 내용이다. 송장을 보면 의자·책상·조명 등 사무용 가구다.",
       "traps": [
        null,
-       "배송 불만은 두 번째 이메일의 내용이다.",
-       "소식지는 할인 정보의 출처로 언급되었을 뿐이다.",
-       "카탈로그 요청은 없다. 주문서를 첨부했다고 했으므로 이미 품목을 정한 상태다."
+       "선택지는 '배송에 대해 항의하기 위해'이다. 배송 문제(“we received eight standing desks rather than the four we ordered”)는 October 9에 보낸 두 번째 이메일의 내용이다. 첫 번째 이메일은 배송 전인 October 2에 보낸 것이므로 항의할 일이 아직 없었다.",
+       "선택지는 '소식지에 대해 문의하기 위해'이다. 첫 이메일의 newsletter는 “the loyalty discount mentioned in your September newsletter”(9월 소식지에 나온 단골 할인)처럼 할인 정보의 출처로 언급될 뿐이다. 소식지 자체에 대해 묻는 문장은 없고, 목적은 주문 처리 요청이다.",
+       "선택지는 '제품 카탈로그를 요청하기 위해'이다. 첫 이메일은 “Please process the attached order”(첨부한 주문서를 처리해 달라)라고 하므로 이미 살 품목을 정한 상태다. catalog(카탈로그)를 보내 달라는 말은 없다."
       ]
      },
      "trans": "Park 씨는 왜 첫 번째 이메일을 보냈는가?",
@@ -137,10 +137,10 @@
      "explanation": {
       "why": "첫 이메일에서 'As a returning customer'(재구매 고객으로서)라고 했고, 송장에 로열티 할인이 적용되었다. 이전에 Supply Hub에서 구매한 적이 있다.",
       "traps": [
-       "사무실 크기 비교는 없다. 새 사무실(new office on Bay Street)로 옮긴다는 말만 있다.",
+       "선택지는 '더 작은 사무실로 이사한다'는 내용이다. 첫 이메일에는 “our new office on Bay Street”(Bay Street의 새 사무실)라는 말만 있고, 이전 사무실과 크기를 비교하는 내용은 없다. smaller(더 작은)라는 비교의 근거가 없으므로 오답이다.",
        null,
-       "소식지는 Supply Hub가 발행한 것이다.",
-       "송장의 할인율은 5퍼센트(Loyalty discount (5%))다. 10퍼센트가 아니다."
+       "선택지는 'Corvus Design이 월간 소식지를 발행한다'는 내용이다. 첫 이메일의 “your September newsletter”(귀사의 9월 소식지)에서 your는 수신자인 Supply Hub를 가리킨다. 소식지를 내는 쪽은 Supply Hub이고, Corvus Design은 그것을 읽은 고객이다.",
+       "선택지는 '10퍼센트 할인을 받았다'는 내용이다. 송장에는 “Loyalty discount (5%)”라고 할인율이 5%로 적혀 있고, 금액도 3,160달러에서 158달러를 뺀 것이다. 10이라는 숫자는 첫 이메일의 배송 기한 October 10에서 나온 것으로 할인율과는 무관하다."
       ]
      },
      "para": [
@@ -170,9 +170,9 @@
      "explanation": {
       "why": "두 번째 이메일에서 스탠딩 데스크가 4개가 아니라 8개 왔다고 했다. 송장에서 스탠딩 데스크의 단가는 420달러다.",
       "traps": [
-       "150달러는 의자 단가다. 의자는 원래 8개를 주문해 8이라는 숫자가 겹치는 함정.",
-       "35달러는 조명 단가이며, 조명은 수량이 아니라 파손 문제다.",
-       "문제가 된 것은 스탠딩 데스크의 수량뿐이다.",
+       "150달러는 송장에서 Ergonomic chair(인체공학 의자)의 단가다. 의자는 8개를 주문했는데, 두 번째 이메일의 “we received eight standing desks”(스탠딩 데스크 8개를 받았다)의 eight와 숫자가 같아 헷갈리기 쉽다. 수량이 틀린 것은 의자가 아니라 4개를 주문한 스탠딩 데스크다.",
+       "35달러는 송장에서 Desk lamp(책상 조명)의 단가다. 조명은 “one of the lamps has a cracked base”(조명 하나의 받침이 깨졌다)처럼 파손 문제가 있었을 뿐, 수량이 틀렸다는 말은 없다. 수량이 잘못된 것은 스탠딩 데스크다.",
+       "선택지는 '모든 품목'이다. 두 번째 이메일이 수량 문제로 지적한 것은 “eight standing desks rather than the four we ordered”(주문한 4개가 아니라 8개의 스탠딩 데스크) 하나뿐이다. 의자의 수량은 언급되지 않았고 조명은 파손 문제이므로 전부라고 할 수 없다.",
        null
       ]
      },
@@ -198,9 +198,9 @@
      "explanation": {
       "why": "첫 이메일에서 직원들이 10월 10일에 입주한다고 했고, 두 번째 이메일(10월 9일)에서도 '내일 직원들이 도착하기 전'이라고 했다.",
       "traps": [
-       "10월 2일은 첫 이메일을 보낸 날이다.",
-       "10월 3일은 송장 발행일이다.",
-       "10월 9일은 배송일이다. 날짜가 여러 개 나오는 연계 문제의 대표 함정.",
+       "October 2는 Ms. Park이 첫 번째 이메일을 보낸 날짜다. 그 이메일에서 직원 입주일은 “by October 10, which is when our staff will move in”(직원들이 입주하는 10월 10일)이라고 따로 밝혔다. 주문한 날일 뿐 근무 시작일이 아니다.",
+       "October 3은 Supply Hub의 송장(Invoice #7781)이 발행된 날짜다. 직원의 근무 시작과는 관계없는 날짜이며, 직원 입주일은 첫 이메일에서 October 10이라고 밝혔다.",
+       "October 9는 송장의 “Scheduled delivery: October 9”(배송 예정일)이자 두 번째 이메일을 보낸 날이다. 그 이메일에서 “before our staff arrive tomorrow”(내일 직원들이 도착하기 전에)라고 했으므로 직원은 다음 날인 10월 10일부터 일한다. 날짜가 여러 개 나오는 연계 문제의 대표 함정이다.",
        null
       ]
      },
@@ -226,9 +226,9 @@
       "why": "조명 하나의 받침이 깨져 있어 교체품을 보내 달라고 요청했다(also 남는 책상 회수 요청).",
       "traps": [
        null,
-       "의자에 대한 문제 제기는 없다.",
-       "추가 할인 요청은 없다. 할인은 첫 이메일에서 이미 적용을 요청했고 송장에 반영되었다.",
-       "오히려 내일 전에 보내 달라고 했다."
+       "선택지는 '의자 환불'이다. 두 번째 이메일이 요청한 것은 남는 스탠딩 데스크의 회수(“Could you arrange for the extra desks to be picked up?”)와 깨진 조명의 교체다. chairs(의자)에 대한 문제 제기나 refund(환불) 요청은 없다.",
+       "선택지는 '추가 할인'이다. 할인은 첫 이메일에서 단골 할인을 요청해 송장에 “Loyalty discount (5%)”로 이미 반영되었다. 두 번째 이메일은 남는 책상 회수와 조명 교체만 요청하며 추가 할인 이야기는 없다.",
+       "선택지는 '배송일을 늦추는 것'이다. 두 번째 이메일은 오히려 교체품을 “before our staff arrive tomorrow”(내일 직원들이 도착하기 전에) 보내 달라고 했다. 더 빨리 받기를 원하므로 later(더 늦은)와 반대이며, 배송에 대해서도 “Thank you for the quick service.”라고 만족을 표했다."
       ]
      },
      "para": [
@@ -354,10 +354,10 @@
      "explanation": {
       "why": "기사에서 'For the first time'(처음으로) 리버사이드 공원에서 무료 야외 상영을 한다고 했다.",
       "traps": [
-       "올해가 10회째(tenth annual event)다. for the first time을 축제 자체에 잘못 연결한 함정.",
-       "6월 5일부터 8일까지 4일간이다.",
+       "선택지는 '올해 처음 열린다'는 내용이다. 기사는 “will hold its tenth annual event”(10번째 연례 행사를 연다)라고 했으므로 올해가 10회째다. 기사의 “For the first time”은 축제가 아니라 Riverside Park의 무료 야외 상영에 걸리는 말이라서, 이를 축제 전체에 잘못 연결하게 만드는 함정이다.",
+       "선택지는 '2주 동안 열린다'는 내용이다. 기사에 따르면 축제 기간은 “from June 5 to 8”(6월 5일부터 8일까지)로 4일간이다. two weeks(2주)라는 기간은 어디에도 나오지 않는다.",
        null,
-       "45편 중 '여러 편'이 다큐멘터리일 뿐이다."
+       "선택지는 '다큐멘터리만 상영한다'는 내용이다. 기사는 45편의 영화 중 “including several documentaries about environmental issues”(환경 문제에 관한 다큐멘터리 여러 편을 포함해)라고 했으므로 다큐멘터리는 일부다. 일정표에도 The Last Orchard, City of Glass처럼 documentary 표시가 없는 영화가 있다."
       ]
      },
      "para": [
@@ -387,10 +387,10 @@
      "explanation": {
       "why": "기사에서 패스는 5월 31일까지만 판매된다고 했고, Mr. Whitfield는 6월 2일에 이메일을 보냈다. 판매 기한이 지난 것이다.",
       "traps": [
-       "매진되었다는 정보는 없다. 판매 기한이 지났을 뿐이다.",
+       "선택지는 '매진되었다'는 내용이다. 이메일의 “they're no longer being sold”(더 이상 판매되지 않는다)는 매진처럼 들리지만, 기사에 “Passes are available only until May 31.”(패스는 5월 31일까지만 판매)라고 되어 있고 이메일 날짜는 June 2다. 판매 기한이 지난 것이지 sold out(매진)되었다는 정보는 없다.",
        null,
-       "웹사이트 문제는 언급되지 않았다.",
-       "가격 때문이라는 말은 없다. 패스를 못 산 이유는 '더 이상 팔지 않는다(no longer being sold)'는 것이다."
+       "선택지는 '웹사이트가 작동하지 않았다'는 내용이다. 이메일에는 패스를 사려고 했지만 “they're no longer being sold”(더 이상 팔지 않는다)라는 말만 있고, Web site(웹사이트)나 기술적 문제는 언급되지 않았다. 원인은 5월 31일이라는 판매 기한이 지난 것이다.",
+       "선택지는 '너무 비쌌다'는 내용이다. 기사에 “a festival pass, which allows entry to all screenings, costs $80”(모든 상영에 입장 가능한 패스는 80달러)라고 가격이 나오지만, Mr. Whitfield가 가격을 문제 삼은 말은 없다. 그는 패스를 사려고 했으나 판매 기한(5월 31일)이 지나 살 수 없었다."
       ]
      },
      "trans": "Whitfield 씨는 왜 영화제 패스를 살 수 없었는가?",
@@ -418,10 +418,10 @@
      "explanation": {
       "why": "토요일 다큐멘터리는 1시 Ocean Voices(Regal Theater)와 7시 Northern Lights(Riverside Park, 무료)다. 첫 번째 영화만 표를 사면 되므로 2명 × 12달러 = 24달러다.",
       "traps": [
-       "12달러는 한 사람 표값이다. '두 사람 모두'라는 조건을 놓친 함정.",
+       "12달러는 기사의 “Tickets for individual screenings cost $12”(개별 상영 표는 12달러)에 나온 한 사람, 한 편의 가격이다. Mr. Whitfield는 자신과 Ms. Kim 두 사람의 표를 사야 하므로 12달러 × 2 = 24달러가 된다. 두 사람이라는 조건을 놓치면 고르는 함정이다.",
        null,
-       "80달러는 패스 가격인데 패스는 더 이상 팔지 않는다.",
-       "160달러는 패스 두 장 가격이다."
+       "80달러는 기사에 나온 festival pass(축제 패스) 한 장의 가격이다. 그러나 이메일에서 패스는 “they're no longer being sold”(더 이상 판매되지 않는다)라고 했고, 그는 개별 상영 표를 사겠다고 했다. 패스 가격은 계산에 쓰이지 않는다.",
+       "160달러는 80달러짜리 패스 두 장의 가격이다. 처음 계획대로 두 사람의 패스를 샀다면 맞겠지만 패스는 판매가 끝났다. 토요일에는 무료인 Northern Lights를 빼고 Ocean Voices 표 두 장(12달러 × 2)만 사면 된다."
       ]
      },
      "trans": "Whitfield 씨가 자신과 Kim 씨의 토요일 표에 쓸 돈은 얼마이겠는가?",
@@ -447,9 +447,9 @@
       "why": "그가 보려는 두 번째 다큐멘터리 Northern Lights가 7시에 리버사이드 공원에서 상영된다.",
       "traps": [
        null,
-       "Regal Theater는 1시 영화 장소다.",
-       "Arcadia Cinema는 9시 30분 City of Glass 장소이고, 그는 다큐멘터리 두 편을 보려 한다.",
-       "저녁 식사는 두 영화 '사이'에 하자고 했으므로 7시에는 영화를 보고 있다."
+       "Regal Theater는 일정표에서 1:00 P.M.의 Ocean Voices와 4:00 P.M.의 The Last Orchard가 상영되는 곳이다. Mr. Whitfield는 1시 다큐멘터리를 여기서 보지만, 7:00 P.M.에는 두 번째 다큐멘터리 Northern Lights를 보러 Riverside Park에 있을 것이다.",
+       "Arcadia Cinema는 9:30 P.M.에 City of Glass가 상영되는 곳이다. City of Glass는 documentary 표시가 없는 영화이고, Mr. Whitfield는 “I'd really like to see the two documentaries”(두 다큐멘터리를 보고 싶다)라고 했다. 시간도 7시가 아니므로 오답이다.",
+       "선택지는 '식당에 있다'는 내용이다. 이메일에서 저녁은 “between the two films”(두 영화 사이에) 먹자고 했으므로 1시 영화와 7시 영화 사이의 시간이다. 7:00 P.M.에는 Riverside Park에서 Northern Lights가 시작되므로 식당이 아니라 공원에 있을 것이다."
       ]
      },
      "trans": "Whitfield 씨는 토요일 오후 7시에 어디에 있겠는가?",
@@ -474,10 +474,10 @@
      "explanation": {
       "why": "두 영화 사이에 저녁을 먹자고(get dinner between the two films) 제안했다.",
       "traps": [
-       "패스는 더 이상 팔지 않는다.",
-       "그는 다큐멘터리 두 편을 보려 한다.",
+       "선택지는 '온라인으로 패스를 사자'는 것이다. Mr. Whitfield는 이미 패스를 사려다 실패했고 “I'll buy tickets for individual screenings instead.”(대신 개별 상영 표를 사겠다)라고 했다. 패스는 더 이상 팔지 않으며 online(온라인)이라는 말도 없다.",
+       "선택지는 'City of Glass를 보자'는 것이다. City of Glass는 9:30 P.M.에 Arcadia Cinema에서 상영되는 영화로 documentary 표시가 없다. Mr. Whitfield가 보고 싶다고 한 것은 환경에 관한 두 다큐멘터리이므로 이 영화를 제안하지 않았다.",
        null,
-       "Arcadia Cinema에서 만나자는 말은 없다."
+       "선택지는 'Arcadia Cinema에서 만나자'는 것이다. 이메일에 만날 장소에 대한 언급은 없고, 그가 볼 영화는 Regal Theater와 Riverside Park에서 상영된다. Arcadia Cinema는 City of Glass의 상영 장소일 뿐이다."
       ]
      },
      "para": [
@@ -546,9 +546,9 @@
      "explanation": {
       "why": "주니어 엔지니어와 선임 직원을 연결하는 멘토링 프로그램을 새로 시작한다(is launching)고 알리는 메모다.",
       "traps": [
-       "승진 발표 내용은 없다. 멘토링 프로그램 안내다.",
-       "근무 시간 변경 이야기는 없다.",
-       "신규 엔지니어 채용이 아니라 사내 직원 대상 프로그램이다.",
+       "선택지는 '승진을 발표하기 위해'이다. 메모의 senior staff(선임 직원)나 mentor(멘토)라는 말 때문에 승진을 떠올릴 수 있지만, 메모는 “Halvorsen Engineering is launching a mentorship program”(멘토링 프로그램을 시작한다)이라고 새 프로그램을 안내한다. 누가 승진했다는 내용은 없다.",
+       "선택지는 '근무 시간 변경을 설명하기 위해'이다. 메모에 나오는 시간 정보는 “meet for one hour every two weeks for six months”(6개월 동안 2주마다 1시간 만난다)라는 멘토링 모임 일정뿐이다. 근무 시간(working hours)이 바뀐다는 말은 없다.",
+       "선택지는 '새 엔지니어를 채용하기 위해'이다. 메모의 수신자는 “All Halvorsen Engineering staff”(전 직원)이고, 내용은 기존 직원 중 “junior engineers with senior staff”(주니어 엔지니어와 선임 직원)를 짝지어 주는 사내 프로그램이다. 외부 인력 채용과는 관계없다.",
        null
       ]
      },
@@ -580,9 +580,9 @@
       "why": "메모에서 멘토 자격은 근속 8년 이상이고, 신청서에 Mr. Navarro의 근속 연수는 9년이다. 자격을 충족한다.",
       "traps": [
        null,
-       "지난가을 입사한 사람은 멘티 Hannah Ito다.",
-       "마감은 1월 24일이고 그는 1월 21일에 제출했다.",
-       "그의 부서는 Structural Design이다."
+       "선택지는 'Mr. Navarro가 지난가을 입사했다'는 내용이다. 이메일의 “who joined the Structural Design department last fall”(지난가을 Structural Design 부서에 들어온)은 멘티 Hannah Ito에 대한 설명이다. Mr. Navarro는 신청서에 “Years with Halvorsen: 9”(근속 9년)라고 적었으므로, 다른 사람의 정보를 연결한 함정이다.",
+       "선택지는 '마감 후에 신청서를 냈다'는 내용이다. 메모의 마감은 “by January 24”(1월 24일까지)이고, 신청서의 제출일은 “Submitted: January 21”(1월 21일)이다. 마감 3일 전에 냈으므로 늦지 않았다.",
+       "선택지는 '인사부에서 일한다'는 내용이다. 메모를 보낸 곳이 Human Resources이고 이메일도 HR Coordinator가 보냈지만, Mr. Navarro의 부서는 신청서에 “Department: Structural Design”이라고 적혀 있다. 인사부는 프로그램을 운영하는 쪽이다."
       ]
      },
      "trans": "Navarro 씨에 대해 무엇이 언급되어 있는가?",
@@ -607,10 +607,10 @@
      "explanation": {
       "why": "Ms. Ito는 프로젝트 일정 관리를 특히 배우고 싶어 하고, 신청서에 Mr. Navarro의 전문 분야로 project scheduling이 적혀 있다.",
       "traps": [
-       "근무 층에 대한 정보는 없다.",
-       "이름으로 지명했다는 내용은 없다. 관심 분야를 말했을 뿐이다.",
+       "선택지는 '같은 층에서 일한다'는 내용이다. 두 사람이 같은 Structural Design 부서라는 것은 알 수 있지만, floor(층)에 대한 정보는 세 지문 어디에도 없다. 짝을 지은 근거로 이메일이 언급한 것은 Ms. Ito의 관심 분야인 project scheduling이다.",
+       "선택지는 'Ms. Ito가 그를 이름으로 지명했다'는 내용이다. 이메일은 “she is especially interested in learning about project scheduling”(프로젝트 일정 관리를 특히 배우고 싶어 한다)이라고 그녀가 관심 분야를 말했다고만 전한다. Mr. Navarro를 직접 요청했다는 내용은 없다.",
        null,
-       "현재 상사라는 정보는 없다. 같은 부서(Structural Design)라는 점만 알 수 있다."
+       "선택지는 '그가 현재 그녀의 상사다'라는 내용이다. 두 사람이 같은 부서(Structural Design)라는 것만 알 수 있을 뿐, supervisor(상사) 관계라는 정보는 없다. 짝지은 이유로 볼 수 있는 것은 신청서의 “Areas of expertise: bridge design, project scheduling”과 Ms. Ito의 관심 분야가 일치한다는 점이다."
       ]
      },
      "trans": "Ito 씨는 왜 Navarro 씨와 짝이 되었겠는가?",
@@ -635,10 +635,10 @@
      "explanation": {
       "why": "신청서의 희망 요일은 수요일인데, 이메일에서 Ms. Ito가 3월까지 수요일마다 교육 과정을 듣는다고 했다.",
       "traps": [
-       "출장 이야기는 없다. 수요일에 안 되는 이유는 Ms. Ito의 교육 과정이다.",
+       "선택지는 'Mr. Navarro가 출장을 간다'는 내용이다. 신청서와 이메일 어디에도 traveling(출장, 여행) 이야기는 없다. 이메일은 “Because she attends a training course on Wednesdays until March”(그녀가 3월까지 수요일마다 교육 과정을 듣기 때문에)라고 하여 이유가 Ms. Ito 쪽에 있다고 밝혔다.",
        null,
-       "회의실 예약 문제는 언급되지 않았다.",
-       "March는 Ms. Ito의 교육이 끝나는 시점이지 프로그램 시작 시점이 아니다."
+       "선택지는 '회의실이 이미 예약되었다'는 내용이다. meeting rooms(회의실)에 대한 언급은 전혀 없다. 수요일 대신 목요일에 만나야 하는 이유는 Ms. Ito가 “attends a training course on Wednesdays until March”(3월까지 수요일마다 교육 과정을 듣는다)이기 때문이다.",
+       "선택지는 '프로그램이 3월에야 시작한다'는 내용이다. March(3월)는 Ms. Ito의 교육 과정이 끝나는 시점이다. 메모에 따르면 짝은 “Pairs will be announced on February 3.”(2월 3일에 발표)이고, 이메일도 첫 모임을 잡으라고 하므로 프로그램은 3월 전에 시작된다."
       ]
      },
      "para": [
@@ -669,10 +669,10 @@
      "explanation": {
       "why": "메모에서 멘토와 멘티는 6개월 동안 2주마다 1시간씩(one hour every two weeks) 만난다고 했다.",
       "traps": [
-       "매주(every week)가 아니라 2주마다(every two weeks)다.",
+       "선택지는 '매주'이다. 메모는 “one hour every two weeks”(2주마다 1시간)라고 했다. every week와 every two weeks를 혼동하게 만드는 함정이며, 만나는 요일이 수요일에서 목요일로 바뀌어도 간격은 그대로다.",
        null,
-       "한 달에 한 번이라는 말은 없다.",
-       "6개월 동안 정기적으로 만난다."
+       "선택지는 '한 달에 한 번'이다. 메모의 모임 간격은 “every two weeks”(2주마다)이므로 한 달에 두 번 정도 만나게 된다. once a month(한 달에 한 번)라는 말은 지문에 없다.",
+       "선택지는 '단 한 번'이다. 메모는 “for six months”(6개월 동안) 정기적으로 만난다고 했다. 이메일의 “your first session”(첫 모임)이나 “first few meetings”(처음 몇 번의 모임)라는 표현에서도 여러 번 만난다는 것을 알 수 있다."
       ]
      },
      "trans": "Navarro 씨와 Ito 씨는 얼마나 자주 만나는가?",

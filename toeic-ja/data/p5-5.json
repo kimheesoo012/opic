@@ -17,10 +17,10 @@
    "explanation": {
     "why": "定冠詞Theの後ろで、前置詞句of the new branchに修飾される主語の位置なので名詞が必要。openingは「開店」という名詞として使われる。",
     "traps": [
-     "openは動詞・形容詞なので、冠詞の後ろの主語の位置で「開店」という名詞にはならない。",
-     "openedは動詞の過去形・過去分詞なので主語になれない。",
+     "openは「開ける」という動詞や「開いている」という形容詞として使われる。冠詞Theの後ろでof the new branchに修飾される主語の位置には名詞が必要だが、openは「開店」という意味の名詞としては使わない。「開店、開業」は-ingが付いた名詞openingで、openはThe store is openのように補語として使う。",
+     "openedは動詞の過去形・過去分詞なので、Theの後ろの主語の位置には入らない。The opened of the new branchは冠詞の後ろに名詞がない文になる。過去形はThe branch opened in Marchのように動詞の位置で使い、主語の位置には名詞openingが必要だ。",
      null,
-     "opensは動詞の3人称単数形なので冠詞の後ろには入らない。"
+     "opensは動詞の3人称単数現在形なので、冠詞Theのすぐ後ろには入らない。この文の動詞はすでにis scheduledなので、空所は動詞の位置ではなく主語になる名詞の位置だ。opensはThe branch opens in Marchのように主語の後ろの動詞の位置で使う。"
     ]
    },
    "vocab": [
@@ -49,9 +49,9 @@
    "explanation": {
     "why": "readの目的語の位置で、safetyと一緒に複合名詞safety instructions（安全上の指示）を作る。",
     "traps": [
-     "instructは動詞の原形なので、the safetyの後ろの目的語の位置には入らない。",
-     "instructive（ためになる）は形容詞なので名詞の位置を埋められない。",
-     "instructedは過去形・過去分詞なので目的語になれない。",
+     "instructは「指示する、教える」という動詞の原形で、instruct staff to wear glovesのように使う。readの目的語であるthe safety ___の位置には名詞が必要なので、動詞は入らない。safetyと一緒に複合名詞safety instructions（安全上の指示）を作るのは名詞形のinstructionsだ。",
+     "instructiveは「ためになる、教育的な」という形容詞で、an instructive lectureのように名詞の前や補語の位置で使う。the safety instructiveと言うと冠詞の後ろが形容詞で終わり、readの目的語になる名詞がない。読む対象になる名詞はinstructionsだ。",
+     "instructedは動詞の過去形・過去分詞なので、名詞の位置を埋められない。the safety instructedは読む対象がない形になり、過去分詞はas instructed（指示された通りに）やbe instructed to doのように使う。readの目的語として複合名詞を作るのはinstructionsだ。",
      null
     ]
    },
@@ -74,9 +74,9 @@
    "explanation": {
     "why": "receivedの目的語の位置に名詞が必要。recognition（評価、表彰）は不可算名詞なので冠詞なしで使える。",
     "traps": [
-     "recognizeは動詞の原形なので、動詞receivedの目的語になれない。",
-     "recognizable（見分けがつく）は形容詞なので目的語の位置には入らない。",
-     "recognizedは過去分詞なので目的語の名詞の位置を埋められない。",
+     "recognizeは「見分ける、認める」という動詞の原形なので、動詞receivedのすぐ後ろの目的語の位置には入らない。receivedは何を受け取ったかを表す名詞を目的語にとる。動詞を使うなら、The company recognized Ms. Ruiz for her workのように文の形を変える必要がある。",
+     "recognizableは「見分けがつく」という形容詞で、a recognizable logo（見分けやすいロゴ）のように使う。receivedの目的語の位置には名詞が必要なので、形容詞は入らない。優れた成果に対して「受けたもの」は、評価・表彰を表す名詞recognitionだ。",
+     "recognizedは過去形・過去分詞で、received recognizedと言うと動詞が続いて目的語の名詞がない。過去分詞はa recognized expert（認められた専門家）のように名詞の前で修飾するか、She was recognized for her workのように受動態で使う。receivedの後ろには名詞recognitionが必要だ。",
      null
     ]
    },
@@ -111,10 +111,10 @@
    "explanation": {
     "why": "「〜する上で積んだ経験、経歴」という意味のexperienceは不可算名詞。extensive experience in -ing（〜における幅広い経験）が決まった表現。",
     "traps": [
-     "experiencesは可算名詞として使うと「個々の体験」という意味になり、仕事の経歴を言うextensive 〜 in -ingと合わない。名詞の位置だということだけを見て選びやすいひっかけ。",
-     "experienced（熟練した）は形容詞なので、extensiveの後ろの名詞の位置を埋められない。",
+     "experiencesは可算名詞の複数形で、「個々の体験」という意味だ（memorable travel experiences）。仕事を通して積んだ経歴・ノウハウを言うときexperienceは不可算名詞として使い、extensive experience in -ing（〜について幅広い経験がある）が決まった表現だ。名詞の位置だということだけを見て選びやすいひっかけだ。",
+     "experiencedは「熟練した、経験豊富な」という形容詞で、an experienced negotiatorのように名詞の前で使う。形容詞extensiveの後ろでhasの目的語になる位置には名詞が必要なので、形容詞が続けて来ることはできない。形容詞として使うなら、Mr. Lee is experienced in negotiatingのように文を変える必要がある。",
      null,
-     "experiencingは動名詞として使うと「経験すること」になり、extensiveが修飾するのは不自然で意味も合わない。"
+     "experiencingは動名詞・現在分詞で、動名詞と見ると「経験すること」という行為になり、形容詞extensiveが修飾するのは不自然で、「幅広い経歴」という意味にならない。動名詞はふつう形容詞より副詞に修飾される。experiencingはWe are experiencing delaysのように進行形で使う。"
     ]
    },
    "vocab": [
@@ -147,9 +147,9 @@
     "why": "動詞offersと名詞roomsの間は名詞を修飾する形容詞の位置。comfortable（快適な）が正解。",
     "traps": [
      null,
-     "comfortは名詞・動詞なのでroomsを修飾できない。",
-     "comfortablyは副詞なので名詞を修飾できない。",
-     "comfortsは動詞・複数名詞なので形容詞の位置に合わない。"
+     "comfortは「快適さ、慰め」という名詞か「慰める」という動詞だ。空所はoffersの目的語roomsを前から修飾する形容詞の位置なので、名詞comfortを入れるとcomfort roomsという不自然な名詞の並びになる。名詞としてはprovide comfort（快適さを提供する）のように使う。",
+     "comfortablyは「快適に」という副詞で、動詞や形容詞を修飾する。空所の直後が名詞roomsなので、副詞はこの名詞を修飾できない。副詞はsleep comfortably（快適に眠る）のように動詞の後で使う。",
+     "comfortsは名詞comfortの複数形（快適な設備）か3人称単数の動詞（慰める）だ。名詞roomsの前で修飾する形容詞の位置なのでどちらも合わず、offers comforts roomsは名詞が重なるか動詞が2つになる。名詞としてはhome comforts（家庭の快適さ）のように使う。"
     ]
    },
    "trans": "Harbor Innは手頃な価格で快適な客室を提供している。"
@@ -171,10 +171,10 @@
    "explanation": {
     "why": "becomeは形容詞の補語をとる。become effectiveは「（規則が）施行される」という意味。",
     "traps": [
-     "effectは名詞なので、becomeの後ろでは「方針 = 効果」となり不自然。take effectと混同しやすい。",
-     "effectivelyは副詞なのでbecomeの補語になれない。",
+     "effectは「効果、影響」という名詞だ。becomeの後に名詞を置くと「方針が効果（というもの）になる」という妙な意味になる。「施行される」はbecome effectiveまたはtake effectで表すが、effectを選んでしまうのはtake effectと混同するためだ。",
+     "effectivelyは「効果的に、事実上」という副詞だ。becomeは「〜になる」という連結動詞なので後に補語（形容詞か名詞）が必要で、副詞は補語になれない。副詞はwork effectively（効果的に働く）のように一般動詞を修飾するときに使う。",
      null,
-     "effectiveness（効果）は名詞なので、補語にすると意味が通じない。"
+     "effectivenessは「有効性、効果の高さ」という名詞だ。becomeの補語にすると「方針が有効性になる」となり意味が通らない。施行の時期（on July 1）を述べる文なので形容詞が必要だ。名詞としてはthe effectiveness of the campaign（キャンペーンの効果）のように使う。"
     ]
    },
    "trans": "改定された出張規定は7月1日に発効する。"
@@ -196,10 +196,10 @@
    "explanation": {
     "why": "has beenの後ろの補語の位置。largelyは補語を修飾する副詞なので、その後ろには形容詞positive（肯定的な）が来る。",
     "traps": [
-     "positivelyは副詞なのでbe動詞の補語になれない。largelyの後ろなので副詞を選びやすいひっかけ。",
+     "positivelyは「肯定的に」という副詞だ。has beenの後は主語feedbackの状態を述べる補語の位置なので形容詞が来る。直前のlargely（おおむね）が副詞なので副詞を続けて選びやすいが、largelyは補語を修飾しているだけだ。副詞はrespond positively（好意的に反応する）のように動詞を修飾するときに使う。",
      null,
-     "positivityは名詞なので「フィードバック = 前向きさ」となり不自然。",
-     "positivesは複数名詞なので、補語にすると「フィードバックが長所たちだ」となり意味が合わない。"
+     "positivityは「前向きさ、楽観的な態度」という名詞だ。補語にすると「フィードバックはおおむね前向きさだ」となり主語と意味が合わない。フィードバックがどうであるかを述べる位置なので形容詞が必要だ。名詞としてはhis positivity（彼の前向きな態度）のように人の性格を言うときに使う。",
+     "positivesは「長所、良い点」という複数名詞だ。補語にすると「フィードバックはおおむね長所たちだ」となり主語と意味が合わない。フィードバックの性質を述べる形容詞の位置だ。名詞としてはthe positives and negatives（長所と短所）のように使う。"
     ]
    },
    "trans": "再設計したアプリへの顧客の反応はおおむね好意的だった。"
@@ -221,9 +221,9 @@
    "explanation": {
     "why": "consider + 目的語 + 補語の形にtoo 〜 to doが組み合わさっている。目的格補語の位置でtooの後ろなので、形容詞traditionalが必要。",
     "traps": [
-     "traditionは名詞なので、tooに修飾される補語の位置に合わない。",
-     "traditionallyは副詞。tooの後ろなので副詞を選びやすいが、目的格補語は形容詞でなければならない。",
-     "traditionalism（伝統主義）は名詞なので補語には不自然。",
+     "traditionは「伝統」という名詞だ。tooは形容詞・副詞を修飾する語なのでtoo traditionは成り立たず、considerの目的格補語にすると「スローガンを伝統と見なす」となり意味もおかしい。名詞としてはa long tradition（長い伝統）のように使う。",
+     "traditionallyは「伝統的に」という副詞だ。tooの後なので副詞を選びやすいが、ここはconsider＋目的語（the proposed slogan）＋補語の構文の補語の位置で、スローガンの性質を表す形容詞が必要だ。副詞はTraditionally, 〜（伝統的に〜してきた）のように文全体を修飾するときに使う。",
+     "traditionalismは「伝統主義」という名詞だ。too traditionalismは形の上で不可能で、「スローガンを伝統主義と見なす」という意味も通らない。主に思想や文化的な態度を表す抽象名詞で、語根traditionが同じなので引っかかりやすい。",
      null
     ]
    },
@@ -257,9 +257,9 @@
     "why": "be動詞と過去分詞の間（was ___ delivered）は副詞の位置。mistakenly（誤って）が正解。",
     "traps": [
      null,
-     "mistakeは名詞・動詞なので受動態の間には入らない。",
-     "mistakenは形容詞・過去分詞なので、was mistaken deliveredのように動詞が重なる。",
-     "mistakesは名詞の複数形・動詞なので副詞の位置に合わない。"
+     "mistakeは「間違い」という名詞か「誤解する、取り違える」という動詞だ。wasとdeliveredの間は受動態を修飾する副詞の位置なので、名詞や動詞の原形は入らない。名詞としてはmake a mistake（間違える）のように使うことが多い。",
+     "mistakenは「誤解した、間違った」という形容詞（またはmistakeの過去分詞）だ。was mistaken deliveredのように過去分詞が2つ続き、文が成り立たない。形容詞としてはI was mistaken（私の思い違いだった）、a mistaken belief（誤った思い込み）のように使う。",
+     "mistakesは名詞mistakeの複数形か3人称単数の動詞だ。was ___ deliveredは「どのように配達されたか」を表す副詞の位置なので、名詞・動詞の形は入らない。名詞としてはseveral mistakes in the report（報告書のいくつかの誤り）のように使う。"
     ]
    },
    "trans": "荷物は誤って違う住所に配達された。"
@@ -282,9 +282,9 @@
     "why": "speaksは自動詞なので、後ろは動詞を修飾する副詞の位置。confidently（自信を持って）が正解。",
     "traps": [
      null,
-     "confidentは形容詞なので動詞speaksを修飾できない。",
-     "confidenceは名詞なので、自動詞の後ろに目的語のようには置けない。",
-     "confideは動詞の原形なのでspeaksの後ろには入らない。"
+     "confidentは「自信のある」という形容詞だ。speaksはここでは目的語のない自動詞なので、後には話し方を表す副詞が来る必要がある。形容詞はbe confident（自信がある）、a confident speaker（自信に満ちた話し手）のようにbe動詞の後や名詞の前で使う。",
+     "confidenceは「自信、信頼」という名詞だ。speaks confidenceは「自信を話す」という変な意味になり、話し方を表すには副詞が必要だ。名詞は前置詞withと組み合わせてspeak with confidence（自信を持って話す）とすれば同じ意味になる。",
+     "confideは「（秘密を）打ち明ける」という動詞の原形だ。すでに動詞speaksがあるので、動詞をもう1つ入れると動詞が2つになり、意味も「自信を持って」とまったく違う。confide in a friend（友人に打ち明ける）のように使う。つづりが似ているので選びやすいわなだ。"
     ]
    },
    "trans": "Chenさんは海外の顧客に発表するとき、自信を持って話す。"
@@ -306,10 +306,10 @@
    "explanation": {
     "why": "shortly afterは「〜の直後に」という副詞の表現。自動詞endedを修飾する副詞shortlyが正解。",
     "traps": [
-     "shortも副詞として使われるが「急に、不足して」という意味で、short afterでは「直後に」という意味にならない。",
+     "shortは形容詞「短い」のほかに副詞としても使うが、副詞のshortはstop short（急に止まる）、fall short（足りない）のように「急に、不足して」という意味だ。short afterという表現はないので「予算承認の直後に」という意味にならない。「直後に」はshortly afterで表す。",
      null,
-     "shortenは動詞なのでendedの後ろには入らない。",
-     "shortnessは名詞なので副詞の位置に合わない。"
+     "shortenは「短くする、短縮する」という動詞だ。endedがすでに本動詞なので、ended shortenは動詞が連続する誤った形だ。shorten the meeting（会議を短縮する）のように目的語をとる動詞として使う。",
+     "shortnessは「短さ、不足」という名詞だ。自動詞endedの後でafter以下の時点を修飾して「〜の直後に」を作るのは副詞でなければならず、名詞は合わない。名詞としてはshortness of breath（息切れ）のように使う。"
     ]
    },
    "trans": "取締役会は予算が承認された直後に終わった。"
@@ -331,10 +331,10 @@
    "explanation": {
     "why": "are notと過去分詞completedの間は副詞の位置。fully completedは「すべて記入された」。",
     "traps": [
-     "fullは形容詞なので過去分詞を修飾できない。「完全な」という訳語につられやすいひっかけ。",
-     "fullnessは名詞なので受動態の間には入らない。",
+     "fullは「いっぱいの、完全な」という形容詞だ。are notと過去分詞completedの間はcompletedを修飾する副詞の位置なので、形容詞は入らない。「完全」という訳語につられて選びやすいわなだ。形容詞としてはa full refund（全額返金）のように名詞の前で使う。",
+     "fullnessは「満ちていること、豊かさ」という名詞だ。受動態are not completedの間の副詞の位置に名詞は入らず、意味も「書類が完全に記入される」とつながらない。名詞としてはthe fullness of the flavor（味の豊かさ）のように使う。",
      null,
-     "fullerは形容詞の比較級なので副詞の位置に合わない。"
+     "fullerは形容詞fullの比較級（よりいっぱいの）だ。比較の対象（than）もなく、completedを修飾する副詞の位置に形容詞の比較級は入らない。比較級はThe bus was fuller than usual（バスはいつもより混んでいた）のように使う。"
     ]
    },
    "tags": [
@@ -359,9 +359,9 @@
    "explanation": {
     "why": "yesterday afternoonは終わった過去の時点なので、単純過去submittedが正解。",
     "traps": [
-     "submitsは現在時制なのでyesterdayと合わない。",
-     "will submitは未来なので過去の時点と矛盾する。",
-     "has submittedのような現在完了は、yesterdayのように明確な過去の時点を表す語とは一緒に使わない。",
+     "submitsは現在形で、習慣や繰り返しの行為を表す。文末のyesterday afternoon（昨日の午後）はすでに終わった過去の時点なので、現在形とぶつかる。現在形はShe submits a report every Monday（毎週月曜に報告書を出す）のように繰り返しの行為に使う。",
+     "will submitはこれからのことを表す未来形だ。yesterday afternoonという過去の時点と一緒に使うと「昨日の午後に提出するだろう」となり矛盾する。未来形はtomorrowやnext weekのような未来の時を表す語句と一緒に使う。",
+     "has submittedは現在完了で、過去のことが現在とつながっているときに使う。現在完了はyesterday、last weekのように終わった過去の時点をはっきり示す語句とは一緒に使わない。already、justのように現在とつながる語と相性がよい（She has already submitted the report）。",
      null
     ]
    },
@@ -384,10 +384,10 @@
    "explanation": {
     "why": "停電（went out）が起きた瞬間に進行中だった動作は、過去進行形was repairingで表す。",
     "traps": [
-     "repairsは現在なので、過去の出来事（went out）と時制が合わない。",
-     "will repairは未来なので過去の瞬間と合わない。",
+     "repairsは現在形だ。whenの後のwent out（停電した）は過去の出来事で、その瞬間に修理している最中だったという意味にする必要があるので、現在形では時制が合わない。現在形はHe repairs copiers for a living（コピー機の修理が仕事だ）のように現在の習慣・職業に使う。",
+     "will repairは未来形だ。停電が起きた過去の瞬間（went out）に何をしていたかを述べる文なので、未来形は使えない。未来形はHe will repair the copier tomorrow（明日修理する予定だ）のようにこれからのことに使う。",
      null,
-     "has repairedは現在を基準にした完了なので、when + 過去の時点とは一緒に使わない。"
+     "has repairedは現在を基準にした完了を表す現在完了だ。when＋過去の時点（the power suddenly went out）とは一緒に使わず、「停電の瞬間に進行中だった動作」も表せない。過去のある瞬間に進行中だったことは過去進行形で表す。"
     ]
    },
    "trans": "突然停電したとき、技術者はコピー機を修理しているところだった。"
@@ -409,9 +409,9 @@
    "explanation": {
     "why": "As soon asは時の副詞節を導く接続詞なので、未来のことでも現在時制arrivesを使う。主節はwill meet。",
     "traps": [
-     "主節が未来なのでwill arriveを選びやすいが、時の副詞節にはwillを使わない。",
-     "arrivedは過去なので、これからのこと（will meet）と合わない。",
-     "arrivingは分詞なので、副詞節に動詞がなくなる。",
+     "will arriveは未来形だ。主節がwill meetなので未来形を選びやすいが、as soon as、when、beforeのような時を表す副詞節では、未来のことでも現在形を使いwillは使わない。主節ならShe will arrive tomorrowのように使える。",
+     "arrivedは過去形だ。主節のshe will meetはこれからのことなので、「到着したらすぐ会う」の到着も未来のことだ。過去形では時制が合わない。主節も過去のAs soon as she arrived, she met 〜なら正しい。",
+     "arrivingは現在分詞・動名詞なので、単独では動詞の働きができない。接続詞As soon asの後には主語（the new manager）と動詞のある節が必要だが、arrivingを入れると節に動詞がなくなる。Upon arriving（到着するとすぐ）のように前置詞の後なら使える。",
      null
     ]
    },
@@ -438,9 +438,9 @@
     "why": "昇進した過去の時点（was promoted）までの2か月間働いたので、過去完了had workedが正解。",
     "traps": [
      null,
-     "has workedは現在を基準にするので、過去の時点までの期間を表せない。",
-     "worksは現在なので過去の話と合わない。",
-     "will have workedは未来を基準にするので、過去の出来事と矛盾する。"
+     "has workedは現在完了で「今まで〜してきた」を表す。この文はwas promoted（昇進した）という過去の時点までの期間（for only two months）を述べているので、基準点は現在ではなく過去だ。基準が過去のときは過去完了を使う。現在完了はShe has worked here since 2020のように現在までの期間に使う。",
+     "worksは現在形なので、現在の事実や習慣を表す。when she was promotedという過去の話と合わず、for only two months（わずか2か月）という「その時点までの期間」も表せない。現在形はShe works at a bank（銀行で働いている）のように使う。",
+     "will have workedは未来完了で、未来のある時点までに完了・継続することを表す。was promotedという過去の出来事とぶつかる。未来完了はBy next year, she will have worked here for 10 years（来年で10年働いたことになる）のように未来の基準点と一緒に使う。"
     ]
    },
    "vocab": [
@@ -472,10 +472,10 @@
    "explanation": {
     "why": "会議室は掃除「される」側で、by + 動作主が続く。every evening（繰り返し）なので、現在の受動態is cleaned。",
     "traps": [
-     "cleansは能動態なので「会議室が掃除する」となり、目的語もない。",
+     "cleansは能動態の現在形なので「会議室が（何かを）掃除する」という意味になる。会議室は掃除される対象で、後に目的語がなくby the cleaning staff（清掃スタッフによって）が続くので受動態が必要だ。能動はThe staff cleans the roomのように人が主語のときに使う。",
      null,
-     "cleaningは分詞なので述語動詞になれない。",
-     "has cleanedは能動態なので目的語が必要。"
+     "cleaningは現在分詞・動名詞なので、単独では本動詞になれない。主語The conference roomの後に動詞がなく、文が完成しない。is cleaningのようにbe動詞があれば進行形になるが、それでも能動なので会議室が掃除する主体になり意味が合わない。",
+     "has cleanedは能動態の現在完了だ。能動なので目的語が必要だが空所の後に目的語がなく、会議室が掃除する主体になってしまう。またevery evening（毎晩）は繰り返しの習慣なので単純現在が自然だ。受動にするとhas been cleanedになる。"
     ]
    },
    "trans": "会議室は毎晩、清掃スタッフによって掃除される。"
@@ -498,9 +498,9 @@
     "why": "方針は説明「される」側で、後ろに目的語がない。last weekなので過去の受動態was explained。",
     "traps": [
      null,
-     "explainedは能動の過去なので「方針が説明した」になる。",
-     "explainingは分詞なので述語動詞がなくなる。",
-     "has explainedは能動態で、先週という過去の時点とも合わない。"
+     "explainedは能動態の過去形なので「方針が（何かを）説明した」という意味になる。方針は説明される対象で、空所の後に目的語がなくto all employeesが続くので受動態が必要だ。能動はThe manager explained the policy（部長が方針を説明した）のように人が主語のときに使う。",
+     "explainingは現在分詞・動名詞なので本動詞になれない。主語The new overtime policyの後に動詞がなく、文が成り立たない。分詞としてはa video explaining the policy（方針を説明する動画）のように名詞を後ろから修飾するときに使う。",
+     "has explainedは能動態の現在完了なので、方針が説明する主体になり目的語もない。またat last week's meeting（先週の会議で）は終わった過去の時点なので、現在完了とは一緒に使わない。受動態でかつ過去形のwas explainedが両方の条件を満たす。"
     ]
    },
    "trans": "新しい残業規定は先週の会議で全従業員に説明された。"
@@ -522,10 +522,10 @@
    "explanation": {
     "why": "空所の後ろに目的語several new clientsがあるので能動態で、since Januaryと合う現在完了has attractedが正解。",
     "traps": [
-     "has been attractedは受動態なので、後ろに目的語が来られない。",
-     "was attractedも受動態で、sinceと過去時制が合わない。",
+     "has been attractedは現在完了の受動態なので「営業チームが引きつけられた」という意味になる。受動態の後には目的語が来ないが、空所の後にseveral new clients（数社の新規顧客）という目的語がある。時制（since January）は合っているが態が誤っているわなだ。",
+     "was attractedは過去の受動態だ。後に目的語several new clientsがあるので受動態にはならず、since January（1月以来）は現在まで続く期間なので単純過去とも合わない。受動態はwas attracted to the design（デザインに引かれた）のようにtoと一緒に使う。",
      null,
-     "attractingは分詞なので述語動詞になれない。"
+     "attractingは現在分詞・動名詞なので本動詞になれない。主語Our sales teamの後に動詞がなく、文が完成しない。has been attractingなら現在完了進行形として可能だが、attracting単独では使えない。"
     ]
    },
    "trans": "当社の営業チームは1月以降、新規顧客を何社も獲得した。"
@@ -547,9 +547,9 @@
    "explanation": {
     "why": "結果は役員会に発表「される」側で、after節の後の未来のこと。未来の受動態will be presented。",
     "traps": [
-     "presentは能動態なので結果が発表する主体になり、目的語もない。",
-     "are presentingは能動の進行形なので目的語が必要。",
-     "have presentedは能動の完了なので、意味も形も合わない。",
+     "presentは「提示する、発表する」という能動態の現在形だ。能動だと結果が発表する主体になり、空所の後に目的語がなくto the boardが続くので構造も合わない。またafter they are reviewed（検討された後）はこれからのことなので未来形が必要だ。能動はThe analysts present the resultsのように人が主語のときに使う。",
+     "are presentingは能動の現在進行形なので「結果が（何かを）発表している」という意味になる。能動には目的語が必要だが、空所の後に目的語がない。結果は役員会に提出される対象なので受動態が必要だ。進行形はWe are presenting the results tomorrow（明日結果を発表する）のように人が主語のときに使う。",
+     "have presentedは能動の現在完了だ。結果が発表する主体になり目的語もないので構造が合わず、after節が示す未来のことも表せない。受動態にしても未来のことなのでwill be presentedでなければならない。",
      null
     ]
    },
@@ -575,10 +575,10 @@
    "explanation": {
     "why": "A and Bが主語なら複数。attendingと一緒に進行形を作る複数のbe動詞areが正解。",
     "traps": [
-     "isは単数の動詞なので、2人が主語の文と合わない。",
+     "isは3人称単数のbe動詞だ。主語The manager and her assistantはA and Bの形で2人、つまり複数だ。直前のher assistantだけを見て単数を選びやすいが、andで結ばれた主語には複数の動詞を使う。The manager is attendingのように主語が1人なら正しい。",
      null,
-     "wasは単数の過去形。主語が2人（A and B）なので複数形でなければならず、attendingと一緒に今進行中のことを言う文。",
-     "hasはattendingと組み合わせられない。"
+     "wasは単数の過去形だ。主語The manager and her assistantはA and Bなので複数で、単数の動詞は合わない。attendingと進行形を作ることはできるが、過去進行形にするとしても複数の主語にはwereを使う必要がある。",
+     "hasは単数の動詞で、後に-ing形のattendingが来るとhas attendingという誤った形になる。進行形はbe動詞＋-ing、完了形はhave＋過去分詞（has attended）で作る。しかも主語がA and Bで複数なので、完了形にしてもhaveを使う必要がある。"
     ]
    },
    "trans": "マネージャーとそのアシスタントはベルリンの見本市に参加している。"
@@ -600,10 +600,10 @@
    "explanation": {
     "why": "One of + 複数名詞の主語はOne（単数）。単数動詞needsが正解。",
     "traps": [
-     "needはprintersに合わせた複数形。本当の主語はOne。",
-     "needingは分詞なので述語動詞になれない。",
+     "needは複数の主語に合わせた動詞の形だ。直前のprinters（複数）につられて選びやすいが、One of the printersの本当の主語はOne（1台）なので単数の動詞が必要だ。All of the printers need repairsのように主語が複数のときに使う。",
+     "needingは現在分詞・動名詞なので本動詞になれない。主語One of the printers on the third floorの後に動詞がなく、文が完成しない。分詞としてはa printer needing repairs（修理が必要なプリンター）のように名詞を後ろから修飾するときに使う。",
      null,
-     "have neededは複数の動詞の形。"
+     "have neededは複数の主語に合わせた現在完了形だ。主語One（1台）は単数なのでhaveは使えず、修理が必要な今の状態を述べているので単純現在が自然だ。printersが複数なのでhaveにつられやすいわなだ。"
     ]
    },
    "trans": "3階のプリンターのうち1台は修理が必要だ。"
@@ -625,9 +625,9 @@
    "explanation": {
     "why": "neither A nor Bは動詞をBに合わせる。Bのthe managersが複数なのでwereが正解。",
     "traps": [
-     "wasは単数なので、近い方の主語managersと合わない。",
-     "isも単数。neither A nor Bの動詞はB（the managers、複数）に合わせるので、単数形は使えない。",
-     "has beenは単数の動詞の形。",
+     "wasは単数の過去形だ。neither A nor Bの構文では、動詞は動詞に近いBに合わせるが、Bのthe managersが複数なので単数の動詞は合わない。Neither the managers nor the director was awareのようにBが単数のときにwasを使う。",
+     "isも単数の現在形だ。neither A nor Bの動詞はB（the managers、複数）に合わせるので、単数形は使えない。前のthe directorだけを見て単数を選びやすいわなだ。複数の現在形ならareになる。",
+     "has beenは単数の主語に合わせた現在完了形だ。動詞を合わせるべきBが複数のthe managersなので、hasではなくhaveを使う必要がある。時制に関係なく単数形なので合わない。Neither the managers nor the director has been informedのようにBが単数なら使える。",
      null
     ]
    },
@@ -650,10 +650,10 @@
    "explanation": {
     "why": "Every + 単数名詞は単数扱い。in the newly renovated hotelは修飾語なので、単数動詞offers。",
     "traps": [
-     "offerは複数の動詞の形。修飾語が長いので主語を見失いやすい。",
+     "offerは複数の主語に合わせた動詞の形だ。主語Every roomはevery＋単数名詞なので単数扱いで、3人称単数形が必要だ。in the newly renovated hotelという修飾語が長いので主語を見失いやすい。All rooms offer a viewのように主語が複数のときに使う。",
      null,
-     "offeringは分詞なので述語動詞になれない。",
-     "have offeredは複数の動詞の形。"
+     "offeringは現在分詞・動名詞なので本動詞になれない。主語Every roomの後に修飾語だけがあって動詞がなく、文が完成しない。分詞としてはa hotel offering free breakfast（無料の朝食を提供するホテル）のように名詞を後ろから修飾するときに使う。",
+     "have offeredは複数の主語に合わせた現在完了形だ。Every roomは単数扱いなのでhaveは使えず、部屋から港が見えるという変わらない事実は単純現在で表す。主語の後の修飾語in the newly renovated hotelに隠れて主語の数を見失いやすい。"
     ]
    },
    "tags": [
@@ -679,9 +679,9 @@
     "why": "decideはto不定詞を目的語にとるので（decide to do）、to moveが正解。",
     "traps": [
      null,
-     "moveは動詞の原形なので、decidedの直後には入らない。",
-     "movingは動名詞で、decideは動名詞を目的語にとらない。",
-     "movedは過去形なので、decided movedのように動詞が重なる。decideの後ろにはto不定詞が来る。"
+     "moveは動詞の原形だ。decidedがすでに本動詞なので、decided moveのように原形をそのまま続けることはできない。原形はwill moveのように助動詞の後や、let them moveのように使役動詞の目的格補語として使う。decideはdecide to doの形で目的語をとる。",
+     "movingは動名詞だ。decideはto不定詞を目的語にとる動詞なので、decided movingは誤った形だ。動名詞の目的語はconsider moving（移転を検討する）のようにconsider、enjoyなどの動詞の後で使う。意味が似ているconsiderと混同して選びやすい。",
+     "movedは過去形なので、decided movedのように過去の動詞が2つ重なる。時制がdecidedと同じに見えて選びやすいが、decideの目的語はto不定詞（decide to do）でなければならない。The company moved its headquarters（本社を移した）のように本動詞として使うなら正しい。"
     ]
    },
    "vocab": [
@@ -710,9 +710,9 @@
    "explanation": {
     "why": "enjoyは動名詞を目的語にとるので（enjoy doing）、workingが正解。",
     "traps": [
-     "workは動詞の原形なので、enjoysの後ろには入らない。",
-     "to work: enjoyはto不定詞を目的語にとらない。",
-     "workedだと動詞が重なる。",
+     "workは動詞の原形だ。動詞としては、すでに本動詞enjoysがあるのでその直後には置けない。enjoyは「〜することを楽しむ」を動名詞で表すので（enjoy doing）、-ing形が必要だ。原形workはwill work、can workのように助動詞の後で使う。",
+     "to workはto不定詞だ。enjoyは動名詞だけを目的語にとり、to不定詞はとらないので、enjoys to workは誤った形だ。want、hope、decideのような動詞がto不定詞をとるので（want to work）、これらと混同して選びやすい。",
+     "workedは過去形・過去分詞だ。enjoysの後に入れるとenjoys workedのように動詞が重なり、文が成り立たない。He worked with clients（顧客と仕事をした）のように本動詞として使うか、has workedのように完了形で使う。",
      null
     ]
    },
@@ -736,9 +736,9 @@
     "why": "remember to doは「（これから）〜することを覚えておく」、remember -ingは「（過去に）〜したことを覚えている」。今夜することなのでto turn off。",
     "traps": [
      null,
-     "remember turning offは「電気を消した覚えがある」という過去の意味なので文脈と合わない。",
-     "turn offは動詞の原形なので、rememberの直後には入らない。",
-     "turned offだと動詞が重なる。"
+     "turning offは動名詞だ。remember -ingは「（過去に）〜したことを覚えている」という意味なので、remember turning offは「明かりを消した記憶がある」になる。この文はwhen you leave the office tonight（今夜退社するとき）にすることを念押ししているので、未来のことを表すremember to doが必要だ。",
+     "turn offは動詞の原形だ。rememberの後に原形をそのまま続ける形はなく、目的語にはto不定詞か動名詞が来る。命令文Please turn off the lights（明かりを消してください）のようにrememberなしなら原形が正しいので、混同しやすい。",
+     "turned offは過去形・過去分詞だ。remember turned offは動詞が重なる誤った形で、今夜することを述べる文とも合わない。The lights were turned off（明かりが消された）のように受動態で使うか、過去の動詞として使う。"
     ]
    },
    "tags": [
@@ -763,10 +763,10 @@
    "explanation": {
     "why": "enable + 目的語 + to do（〜が…できるようにする）の形なので、to recordが正解。",
     "traps": [
-     "recordは動詞の原形なので、enableの目的格補語になれない（使役動詞let・makeではない）。",
-     "recordingはenableの目的格補語の形ではない。",
+     "recordは動詞の原形（記録する）か名詞（記録）だ。enableはenable＋目的語＋to doの構文をとるので、enables employees recordは誤った形だ。目的語の後に原形が来るのはlet、makeのような使役動詞の場合だ（let employees record）。",
+     "recordingは動名詞・現在分詞だ。enableの目的格補語はto不定詞なので、enables employees recordingは形が合わない。目的語＋-ingはsaw employees recording（社員が記録しているのを見た）のようにseeなどの知覚動詞の後で使う。",
      null,
-     "recordedは「記録された」という受動の意味で、従業員が記録する能動の関係と合わない。"
+     "recordedは過去分詞で「記録された」という受動の意味だ。社員が勤務時間を記録するという能動の関係なので合わず、enable＋目的語の後にはto不定詞が必要だ。過去分詞はthe recorded hours（記録された勤務時間）のように名詞を修飾するときに使う。"
     ]
    },
    "tags": [
@@ -791,10 +791,10 @@
    "explanation": {
     "why": "価格は「提示された（見積もられた）」側なので、受動の意味の過去分詞quotedがpriceを修飾する。",
     "traps": [
-     "quoteは動詞・名詞なので、冠詞と名詞の間の修飾の位置に合わない。",
+     "quoteは「見積もる、引用する」という動詞か「見積もり」という名詞だ。冠詞Theと名詞priceの間はpriceを修飾する形容詞（分詞）の位置なので動詞の原形は入らず、名詞と見るとThe quote priceという不自然な名詞の並びになる。名詞としてはget a quote（見積もりをもらう）のように使う。",
      null,
-     "quotingは「見積もりを出す」という能動なので、価格が見積もりを出すことになる。",
-     "quotesは名詞の複数形・動詞なので形容詞の位置には入らない。"
+     "quotingは現在分詞で「見積もりを出す」という能動の意味だ。priceを修飾すると「価格が見積もりを出す」となり関係が逆になる。価格は業者が提示した対象なので、受動の意味の過去分詞が必要だ。現在分詞はthe company quoting the price（価格を提示する会社）のように行為者を修飾するときに使う。",
+     "quotesは名詞quoteの複数形（見積もり）か3人称単数の動詞だ。The quotes priceは名詞が重なる誤った形で、後にincludesという本動詞がすでにあるので動詞としても入らない。名詞としてはcompare quotes（見積もりを比較する）のように使う。"
     ]
    },
    "vocab": [
@@ -823,10 +823,10 @@
    "explanation": {
     "why": "主語Employees（人）が知らせによって「わくわくした」。人が感じる感情は-ed形のexcited。",
     "traps": [
-     "exciteは動詞の原形なのでwereの後ろには入らない。",
-     "excitingは「わくわくさせる」なので従業員が他人をわくわくさせることになり、後ろのbyとも合わない。",
+     "exciteは「興奮させる」という動詞の原形だ。wereの後に原形は来ず、形容詞の補語か過去分詞が必要だ。原形はThe news will excite employees（その知らせは社員をわくわくさせるだろう）のように助動詞の後で使う。",
+     "excitingは「わくわくさせる」という能動の意味の形容詞だ。Employees were excitingは「社員が（人を）わくわくさせた」という意味になり、後に続くby the news（知らせによって）とも合わない。感情を引き起こす物事について言うときにThe news was excitingのように使う。",
      null,
-     "excitementは名詞なので「従業員 = 興奮」となり不自然。"
+     "excitementは「興奮、高揚」という名詞だ。wereの補語にすると「社員＝興奮」となり不自然で、後のby the newsともつながらない。名詞としてはa lot of excitement about the expansion（拡大への大きな期待）のように使う。"
     ]
    },
    "trans": "従業員は会社の事業拡大の知らせにわくわくした。"
@@ -848,10 +848,10 @@
    "explanation": {
     "why": "Ordersを後ろから修飾する分詞の位置。注文は「受け付けられる」側なので過去分詞received。述語動詞はwill be shipped。",
     "traps": [
-     "receivingは能動なので、注文が何かを受け取るという意味になる。",
+     "receivingは現在分詞で「受け取る」という能動の意味だ。Orders receiving after 3 P.M.は「注文が（何かを）受け取る」という意味になり関係が逆になる。注文は会社が受け付ける対象なので過去分詞を使う。現在分詞はstaff receiving orders（注文を受けるスタッフ）のように行為者を修飾するときに使う。",
      null,
-     "receiveは動詞の原形なので、述語動詞が重なる。",
-     "receivesも動詞なので、will be shippedと述語動詞が2つになる。"
+     "receiveは動詞の原形だ。この文の本動詞はwill be shippedなので、空所に動詞を入れると1つの文に動詞が2つになる。空所はOrdersを後ろから修飾する分詞の位置だ。動詞としてはWe receive orders online（オンラインで注文を受ける）のように本動詞で使う。",
+     "receivesは3人称単数の動詞だ。本動詞will be shippedがすでにあるので動詞が2つになり、複数の主語Ordersとも数が合わない。The office receives many orders（事務所は多くの注文を受ける）のように単数主語の本動詞として使う。"
     ]
    },
    "trans": "午後3時以降に受け付けた注文は翌営業日に発送される。"
@@ -874,9 +874,9 @@
     "why": "分詞構文の主語は主節のMr. Itoで、彼が説明書に「従った」能動の関係。後ろに目的語the instructionsもあるので、現在分詞Following。",
     "traps": [
      null,
-     "Followedは受動なので、Mr. Itoが説明書に従われたという意味になり、目的語もとれない。",
-     "Followsは動詞なので、接続詞なしで2つの節がつながってしまう。",
-     "Followerは名詞なので文の形が成り立たない。"
+     "Followedは過去分詞で受動の意味だ。分詞構文の意味上の主語は主節のMr. Itoだが、受動だと「Ito氏が（誰かに）従われた」となり不自然で、後の目的語the instructionsもとれない。過去分詞の構文はFollowed by a short break（その後に短い休憩があり）のように後にbyが来るときに使う。",
+     "Followsは3人称単数の動詞だ。Follows the instructions carefully, Mr. Ito assembled 〜とすると、主語のない動詞と主節の動詞が接続詞なしで並び、文が成り立たない。He follows the instructionsのように主語のある節の本動詞として使う。",
+     "Followerは「信奉者、フォロワー」という名詞だ。名詞を入れると後の目的語the instructionsとcarefullyをつなぐ動詞がなくなり、文の構造が崩れる。名詞としてはa follower of the brand（ブランドのフォロワー）のように使う。"
     ]
    },
    "tags": [
@@ -901,9 +901,9 @@
    "explanation": {
     "why": "空所の後ろの名詞lawyerを修飾する所有格herが必要。主語Ms. Garciaを受けて「自分の弁護士」という意味になる。",
     "traps": [
-     "sheは主格なので名詞の前には入らない。",
-     "hersは所有代名詞なので後ろに名詞は来ない。",
-     "herselfは再帰代名詞なので名詞を修飾できない。",
+     "sheは主格の代名詞なので、文の主語の位置で使う。空所は前置詞toの後、名詞lawyerの前なので名詞を修飾する所有格が必要で、she lawyerは誤った形だ。She sent the contract（彼女が契約書を送った）のように主語として使う。",
+     "hersは「彼女のもの」という所有代名詞で、「所有格＋名詞」を1語で表す。後に名詞lawyerがすでにあるので、hers lawyerは誤った形だ。所有代名詞はThe pen is hers（そのペンは彼女のものだ）のように名詞なしで使う。",
+     "herselfは再帰代名詞で、主語自身を指す目的語や強調に使い、名詞を修飾できない。主語Ms. Garciaと同じ人物なので選びやすいが、ここでは「自分の弁護士」という所有の関係が必要だ。再帰代名詞はShe reviewed it herself（自分で確認した）のように使う。",
      null
     ]
    },
@@ -926,9 +926,9 @@
    "explanation": {
     "why": "soの後ろの節の主語の位置なので、主格theyが正解。前の節のThe clientsを受けて「だから彼らはすぐに契約書に署名した」という意味。",
     "traps": [
-     "themは目的格なので主語になれない。",
-     "theirは所有格なので後ろに名詞が必要。",
-     "themselvesは主語の位置には使わない。",
+     "themは目的格の代名詞なので、動詞や前置詞の目的語として使う。空所はsoの後の節でsignedの主語の位置なので、目的格は入らない。目的格はWe thanked them（私たちは彼らに感謝した）のように目的語として使う。",
+     "theirは所有格なので後に名詞が必要だ（their contract）。空所の直後が動詞signedなので所有格は入らず、signedの主語がなくなる。前の節のThe clientsを受ける語なので所有格につられやすいが、必要なのは主語だ。",
+     "themselvesは再帰代名詞で、動詞・前置詞の目的語や強調に使う。文の主語の位置には使えないので、so themselves signedは誤った形だ。強調ならthey signed it themselves（彼ら自身が署名した）のように主語theyを置いて後ろに付ける。",
      null
     ]
    },
@@ -951,10 +951,10 @@
    "explanation": {
     "why": "by oneselfは「自分たちだけで、自力で」という意味。主語The staff membersと同じものなのでthemselves。",
     "traps": [
-     "theyは主格なので前置詞の後ろには入らない。",
+     "theyは主格の代名詞なので、文の主語の位置で使う。前置詞byの後には目的格か再帰代名詞が来るので、by theyは誤った形だ。主格はThey organized the party（彼らがパーティーを準備した）のように主語として使う。",
      null,
-     "by themは「彼ら（ほかの人たち）によって」という意味になり、主語とは別の人を指す。",
-     "theirは所有格なので後ろに名詞が必要。"
+     "themは目的格なので前置詞の後に置くことはできる。しかしby themは「彼ら（ほかの人たち）によって」という意味になり、主語The staff membersとは別の人を指す。社員が自分たちで準備したという意味はby themselvesで表す。by themはThe party was organized by themのように受動態の行為者を言うときに使う。",
+     "theirは所有格なので後に名詞が必要だ（by their own effort）。空所の後に名詞がなく文が終わるので、by theirは不完全だ。「自分たちだけで、自力で」という意味はby themselvesまたはon their ownで表す。"
     ]
    },
    "vocab": [
@@ -983,10 +983,10 @@
    "explanation": {
     "why": "比べる対象は「昨年の同じ期間の販売数値」。前の複数名詞figuresの代わりになる代名詞はthose。",
     "traps": [
-     "thatは単数名詞の代わりになる。figuresは複数なので合わない。",
-     "themは目的格なので、thanの後ろで修飾語for 〜を伴って名詞の代わりにはなれない。",
+     "thatは前に出た単数名詞（または不可算名詞）の代わりをする代名詞だ。比較の対象は複数名詞The sales figuresなので数が合わない。thatはThe price this year is higher than that of last yearのように単数名詞を受けるときに使う。",
+     "themは目的格の代名詞で、thanの後でfor the same period last yearという修飾語を伴って前の名詞の代わりをする用法はない。修飾語を伴って前の名詞の繰り返しを避けるときはthatかthoseを使う。themはWe checked them（それらを確認した）のように目的語として使う。",
      null,
-     "itは単数で、修飾語に修飾される代名詞としては使わない。"
+     "itは単数の代名詞なので複数のfiguresを受けられず、後に修飾語（for the same period）を伴って前の名詞の代わりをする用法もない。itはThe report is ready, so please read itのように、前に出た特定のものをそのまま指すときに使う。"
     ]
    },
    "tags": [
@@ -1012,9 +1012,9 @@
     "why": "先行詞が人で、関係詞節の主語が抜けている（___ won）。主格の関係代名詞who。",
     "traps": [
      null,
-     "whichは先行詞が物のときに使う。",
-     "whoseの後ろには名詞が来る必要がある。",
-     "whomは目的格なので主語の位置には使えない。"
+     "whichは物や動物の先行詞に使う関係代名詞だ。先行詞The employeeは人で、賞を受けた（won）主体なので、人に使う主格の関係代名詞が必要だ。whichはthe award which he won（彼が受けた賞）のように物の先行詞に使う。",
+     "whoseは所有格の関係代名詞なので、直後に名詞が必要だ（the employee whose team won、チームが受賞した社員）。空所の後が動詞wonなので、whoseは入らない。関係節に主語が欠けているので主格が必要だ。",
+     "whomは目的格の関係代名詞なので、関係節の目的語が欠けた位置に使う（the employee whom we hired）。この文は___ wonで主語が欠けているので、目的格は合わない。主語の位置は主格のwhoが埋める。"
     ]
    },
    "trans": "今年の功労賞を受賞した従業員は、ここで10年働いている。"
@@ -1036,10 +1036,10 @@
    "explanation": {
     "why": "先行詞が物（printer）で、関係詞節we bought ___ では目的語が抜けている。whichが正解。",
     "traps": [
-     "whoは先行詞が人のときに使う。",
-     "whoseの後ろにはすぐ名詞が来る必要がある。",
+     "whoは人の先行詞に使う関係代名詞だ。先行詞The printerは物なので合わない。関係節we bought ___で目的語が欠けている構造は同じだが、物にはwhoを使わない。whoはthe technician who visited us（私たちを訪ねた技術者）のように人の先行詞の後で使う。",
+     "whoseは所有格の関係代名詞なので、直後に名詞が必要だ（the printer whose cover is broken、カバーが壊れたプリンター）。空所の後が主語weで始まる節なので、whoseが修飾する名詞がない。関係節で欠けているのはboughtの目的語なので、目的格の働きをする関係代名詞が必要だ。",
      null,
-     "whatは先行詞を含むので、The printerの後ろには使えない。"
+     "whatは先行詞を含む関係代名詞で「〜すること・もの」を表す。すでに先行詞The printerが前にあるので、The printer what we boughtは先行詞が二重になる。whatはWhat we bought last month（先月買ったもの）のように先行詞なしで使う。"
     ]
    },
    "trans": "私たちが先月買ったプリンターはもう故障してしまった。"
@@ -1061,9 +1061,9 @@
    "explanation": {
     "why": "関係詞節our kitchen appliances are assembledは完全な受動態の文。場所の先行詞の後ろで完全な節には関係副詞where。",
     "traps": [
-     "whichの後ろには不完全な節が来る。in whichなら可能。",
-     "whatは先行詞がないときに使う。",
-     "whoは先行詞が人のときに使う。",
+     "whichは関係節の中で主語や目的語の働きをするので、後にはその要素が欠けた不完全な節が来る。our kitchen appliances are assembledは主語と動詞がそろった完全な受動態の節なので、whichの入る場所がない。前置詞を付けたin whichならwhereと同じ意味で使える。",
+     "whatは先行詞を含む関係代名詞（〜すること・もの）なので、前に先行詞があると使えない。すでにthe factoryという先行詞があり、後の節も欠けた要素のない完全な節だ。whatはThis is what we make（これが私たちの作っているものだ）のように先行詞なしで使う。",
+     "whoは人の先行詞に使う関係代名詞だ。先行詞the factoryは場所で、後の節も主語が欠けていない完全な節なので、whoは入らない。whoはthe workers who assemble our appliances（家電を組み立てる従業員）のように人の先行詞の後で使う。",
      null
     ]
    },
@@ -1094,9 +1094,9 @@
     "why": "前置詞toの目的語になる名詞節が必要で、節の中ではisの主語が抜けている。先行詞なしで「〜する人は誰でも」を表す主格whoever。",
     "traps": [
      null,
-     "whomeverは目的格なので、isの主語の位置を埋められない。前置詞toの後ろなので目的格を選びやすいひっかけ。",
-     "whoは先行詞が必要な関係代名詞か疑問詞として使われる。この位置には先行詞がない。",
-     "whomも目的格なので主語の位置に合わない。"
+     "whomeverは「〜する人は誰でも」の目的格だ。前置詞toの後なので目的格を選びやすいが、複合関係代名詞の格は節の中での働きで決まる。空所の後のis in charge ofの主語が欠けているので主格が必要だ。whomeverはYou may invite whomever you likeのように節の中で目的語のときに使う。",
+     "whoは関係代名詞として使うには前に先行詞が必要だ（the person who 〜）。toの直後に先行詞がないので、「〜する人は誰でも」という名詞節を作れない。to the person who is in chargeのように先行詞を入れれば似た意味になる。",
+     "whomは目的格なのでis in charge ofの主語の位置を埋められず、前に先行詞もない。toの後なので目的格につられやすいが、欠けているのは主語だ。whomはthe person to whom you spoke（あなたが話した人）のように先行詞があり目的語が欠けているときに使う。"
     ]
    },
    "tags": [
@@ -1121,10 +1121,10 @@
    "explanation": {
     "why": "空所の後ろは名詞句（a power outage）で、「停電のために」という理由。前置詞because of。",
     "traps": [
-     "becauseは接続詞なので、後ろに節が必要。",
+     "becauseは「〜なので」という接続詞なので、後に主語と動詞のある節が必要だ。空所の後のa power outage（停電）は動詞のない名詞句なので、接続詞はとれない。意味は合うので選びやすいわなだ。becauseはbecause the power went outのように節をとるときに使う。",
      null,
-     "althoughは接続詞で、意味も譲歩。",
-     "despiteは前置詞だが「〜にもかかわらず」なので、理由の関係と合わない。"
+     "althoughは「〜だけれども」という譲歩の接続詞だ。後に節ではなく名詞句a power outageが来るので構造が合わず、停電は閉店の理由なので「〜だけれども」という意味もおかしい。althoughはAlthough it rained, the event was heldのように節をとって反対の内容をつなぐときに使う。",
+     "despiteは前置詞なので名詞句a power outageをとることはできる。しかし意味が「〜にもかかわらず」なので「停電にもかかわらず2時間閉店した」となり、理由の関係と合わない。despiteはdespite the rain（雨にもかかわらず）のように予想と反対の結果を言うときに使う。"
     ]
    },
    "vocab": [
@@ -1153,9 +1153,9 @@
    "explanation": {
     "why": "後ろに節（your name is called）が来て、「名前が呼ばれるまで」待つという意味。接続詞until。",
     "traps": [
-     "duringは前置詞なので節を受けられない。",
-     "byは接続詞として使われない（by the timeは可能）。",
-     "withinは「〜以内に」という前置詞なので節を受けられない。",
+     "duringは「〜の間」という前置詞なので、後には名詞（句）だけが来る（during the meeting）。空所の後のyour name is calledは主語と動詞のある節なので、前置詞はとれない。意味の面でも「待つ動作がいつ終わるか」を表せない。",
+     "byは「〜までに（完了）」という前置詞でby noonのように名詞をとり、単独では接続詞として使わない。節をとるにはby the timeが必要で、それでも「〜するまでに終えよ」という完了の期限の意味なので「ずっと待て」とは合わない。継続する動作の終点はuntilで表す。",
+     "withinは「〜以内に」という前置詞なので、within ten minutesのように名詞（句）をとる。空所の後が節（your name is called）なので構造が合わず、待つ動作がいつ終わるかも表せない。期間内に終えることを言うときにwithinを使う。",
      null
     ]
    },
@@ -1179,9 +1179,9 @@
     "why": "後ろに節が来て、「天気が悪かったが予定どおり開かれた」という譲歩の関係。Even though。",
     "traps": [
      null,
-     "In spite ofは前置詞なので節を受けられない。",
-     "Becauseは理由なので「天気が悪かったから予定どおり開かれた」となり不自然。",
-     "Unless（〜しない限り）は条件なので意味が合わない。"
+     "In spite ofは「〜にもかかわらず」という前置詞句なので意味は合うが、後には名詞（句）しかとらない。空所の後のthe weather was poorは主語と動詞のある節なので使えない。In spite of the poor weatherのように名詞句にすれば使える。",
+     "Becauseは理由を表す接続詞なので節をとることはできる。しかし「天気が悪かったので野外コンサートが予定どおり開かれた」となり、原因と結果が合わない。悪天候と予定どおりの開催は逆の方向なので譲歩が必要だ。Because the weather was poor, the concert was canceledのように使う。",
+     "Unlessは「〜しない限り」という条件の接続詞だ。「天気が悪くなければ予定どおり開かれた」は、すでに起きた過去の事実（was held）に条件を付ける形になり不自然だ。Unless it rains, the concert will be held（雨が降らなければ開かれる）のようにこれからの条件に使う。"
     ]
    },
    "trans": "天気は悪かったが、野外コンサートは予定どおり開催された。"
@@ -1203,10 +1203,10 @@
    "explanation": {
     "why": "後ろに主語（the speaker's flight）と動詞（had been canceled）のある節が来て、延期の理由を表す。接続詞because。",
     "traps": [
-     "due toは意味は合うが前置詞なので節を受けられない。",
+     "due toは「〜のために」という意味は合うが、前置詞なので後に名詞（句）が必要だ。空所の後のthe speaker's flight had been canceledは主語と動詞のある節なので、とれない。due toはdue to the flight cancellation（便の欠航のため）のように名詞句をとるときに使う。",
      null,
-     "owingはowing toの形でなければならず、その場合も名詞しか受けない。",
-     "althoughは譲歩なので理由の関係と合わない。"
+     "owingは単独では接続詞や前置詞として使わず、owing to（〜のために）の形にする必要がある。owing toも前置詞なので名詞句しかとらず、後の節とつながらない。owing to bad weather（悪天候のため）のように使う。",
+     "althoughは「〜だけれども」という譲歩の接続詞なので節をとることはできる。しかし「講演者の便が欠航したけれどもセミナーが延期された」となり不自然だ。欠航は延期の原因なので理由の接続詞が必要だ。althoughはalthough the flight was delayed, the seminar started on timeのように予想と反対のときに使う。"
     ]
    },
    "tags": [
@@ -1231,10 +1231,10 @@
    "explanation": {
     "why": "from A to Bは「〜から…まで」という範囲の表現。午前9時から午後6時まで開いているという意味で、後ろのtoと組になるのはfrom。",
     "traps": [
-     "atは1つの時点（at 9 A.M.）に使い、toとは組にならない。",
-     "inは時刻の前には使わない。",
+     "atはat 9 A.M.のように1つの時点を表す前置詞だ。後にto 6 P.M.があり「9時から6時まで」という範囲を表す必要があるが、atはtoと対にならない。atはThe museum opens at 9 A.M.（9時に開館する）のように開始時刻だけを言うときに使う。",
+     "inはin the morning、in Julyのように午前・午後や月・年の前に使い、9 A.M.のような正確な時刻の前には使わない。また後のtoと範囲を作る組み合わせでもない。始まりと終わりの範囲はfrom A to Bで表す。",
      null,
-     "onは曜日・日付の前に使う。"
+     "onはon Monday、on May 5のように曜日・日付の前に使う前置詞だ。9 A.M.のような時刻の前には使わず、toと対になって範囲を作ることもできない。毎日の開館時間帯はfrom 9 A.M. to 6 P.M.のように表す。"
     ]
    },
    "trans": "博物館は毎日午前9時から午後6時まで開いている。"

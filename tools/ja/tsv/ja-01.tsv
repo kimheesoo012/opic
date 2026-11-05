@@ -101,10 +101,10 @@ c|p7.link|name	Part 7 クロスリファレンス
 c|p7.link|summary	ある文書の情報（例: 注文番号、日付、割引条件）を別の文書の表・日程とつなげて初めて答えが出る。設問が聞いている対象がどの文書にあるか、つなぐ手がかりが何かを先に決める。
 c|p7.link|tip	ある文書の条件と別の文書の表・日程をつなげて答えを出す。つなぐ手がかりを先に決める。
 p5-001|why	空所は所有格Ms. Okafor'sの直後で、動詞helpedの主語の位置。所有格の後ろで 'of the quarterly budget' に修飾される名詞analysis（分析）が入って文が完成する。
-p5-001|t0	analyzeは動詞の原形なので、所有格の後ろの主語の位置には入らない。
-p5-001|t2	analytical（分析的な）は形容詞。所有格の後ろに形容詞だけがあって名詞がなければ主語が成り立たない。
-p5-001|t3	analyzedは過去形・過去分詞。文の動詞はすでにhelpedで、所有格の後ろには名詞が必要。
+p5-001|t0	analyzeは「分析する」という動詞の原形だ。空所は所有格Ms. Okafor'sの直後で、動詞helpedの主語の位置なので名詞が必要だが、動詞は所有格の後ろに置けない。analyzeはWe will analyze the dataのように主語の後ろの動詞の位置で使う。
+p5-001|t2	analyticalは「分析的な」という形容詞で、analytical skills（分析能力）のように名詞の前で名詞を修飾する。この文では所有格Ms. Okafor'sの後ろに修飾される名詞がないので、helpedの主語が成り立たない。形容詞を入れるならMs. Okafor's analytical reviewのように後ろに名詞が必要だ。
+p5-001|t3	analyzedはanalyzeの過去形・過去分詞だ。文の動詞はすでにhelpedなので、過去形の動詞を入れると動詞が重なり、所有格Ms. Okafor'sの後ろには名詞が必要だ。analyzedはThe data was analyzed carefully（データが丁寧に分析された）のように動詞や受動態で使う。
 p5-002|why	前置詞ofの後ろは名詞の位置で、'proof of employment' は「在職証明」という意味の自然な表現。employmentは不可算名詞なので冠詞なしで使える。
-p5-002|t1	employは動詞なので前置詞ofの目的語にはなれない。
-p5-002|t2	employer（雇用主）も名詞だが可算名詞なので冠詞なしの単数では使えず、「雇用主の証明」では意味も不自然。人を表す名詞と行為を表す名詞のひっかけ。
-p5-002|t3	employedは形容詞・過去分詞で、前置詞の後ろの名詞の位置に単独では入らない。
+p5-002|t1	employは「雇う」という動詞だ。前置詞ofの後ろは名詞（または動名詞）の位置なので、動詞の原形は入らない。employはThe firm plans to employ ten new workersのように動詞の位置で使い、「在職証明」はproof of employmentと表す。
+p5-002|t2	employerは「雇用主」という人を表す名詞で、名詞の位置には合うが、可算名詞なので冠詞なしの単数では使えない。また、proof of employerは「雇用主の証明」となり、応募者が出す書類として意味が通らない。employerはa previous employer（以前の雇用主）のように冠詞とともに人を指すときに使う。
+p5-002|t3	employedは「雇われた」という過去分詞・形容詞だ。前置詞ofの後ろの名詞の位置に形容詞だけを置くことはできず、proof of employedは誤りだ。employedはShe is currently employed by a bank（現在銀行に勤めている）のようにbe動詞の後ろの補語として使う。

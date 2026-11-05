@@ -14,7 +14,7 @@ import { play } from './sound.js';
 import { initPlayer, startSession, render as renderPlayer, leavePlayer, explainHtml, passageStudyHtml } from './player.js';
 import { renderReview, renderStats, renderSettings, renderTrain, renderAbout } from './screens.js';
 
-export const APP_VERSION = '2.3.0';
+export const APP_VERSION = '2.4.0';
 
 // ---------- 공용 ----------
 C.save = (keys) => { for (const k of keys) C.store.save(k).catch((e) => console.warn('save', k, e)); };

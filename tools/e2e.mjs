@@ -113,6 +113,8 @@ try {
   ok('즉시 해설: 정답 이유 + 핵심 + 선택지별 함정', (await p.$('.exp .why')) && (await p.$('.exp .tip')) && (await p.$$('.exp ul.traps li')).length === 4);
   const tr5 = await p.evaluate(() => ({ en: !!document.querySelector('.exp .trans .en b'), tr: (document.querySelector('.exp .trans .tr') || {}).textContent || '', lbl: [...document.querySelectorAll('.exp .lbl')].map((x) => x.textContent) }));
   ok('Part 5 해설: 정답을 넣은 문장과 우리말 해석, 구역 이름표', tr5.en && /[가-힣]/.test(tr5.tr) && tr5.lbl.includes('정답 이유') && tr5.lbl.includes('해석') && tr5.lbl.includes('선택지'), tr5.lbl.join('/'));
+  const fbLay = await p.evaluate(() => ({ footChoices: document.querySelectorAll('.sess-foot .choice').length, footH: Math.round(document.querySelector('.sess-foot').getBoundingClientRect().height), next: !!document.querySelector('.sess-foot [data-act="next"]'), wrong: !document.querySelector('.exp .verdict.ok'), mine: document.querySelectorAll('.exp ul.traps li.mine').length }));
+  ok('해설을 볼 때 아래 선택지 버튼을 접고 다음 버튼만, 고른 오답은 「내 답」', fbLay.footChoices === 0 && fbLay.next && fbLay.footH < 140 && fbLay.mine === (fbLay.wrong ? 1 : 0), JSON.stringify(fbLay));
   if (await p.$('[data-act="cause"]')) {
     await p.click('[data-act="cause"][data-c="grammar"]');
     ok('오답 원인 탭 한 번으로 선택', !!(await p.$('[data-act="cause"][data-c="grammar"][aria-pressed="true"]')));

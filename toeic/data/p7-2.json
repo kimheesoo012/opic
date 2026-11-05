@@ -35,10 +35,10 @@
      "explanation": {
       "why": "'the left earpiece stopped working after only two weeks'라고 했다. 헤드폰의 일부(왼쪽 이어피스)가 작동을 멈춘 것이다.",
       "traps": [
-       "이중 결제에 대한 언급은 없다.",
+       "이 선택지는 '한 상품에 대해 두 번 결제되었다'는 뜻이다. 편지에 결제 문제는 전혀 나오지 않으며, 오히려 보증 덕분에 “we will replace them at no cost”(무료로 교환해 주겠다)라고 했다. Mr. Mills가 알린 문제는 왼쪽 이어피스가 작동을 멈춘 것이다.",
        null,
-       "배송 지연 이야기는 없다. 5월 28일에 산 헤드폰이 2주 만에 고장 난 것이 문제다.",
-       "액세서리는 '반송할 때 함께 넣으라'는 안내에 나올 뿐, 빠져 있었다는 불만이 아니다."
+       "이 선택지는 '주문품이 약속보다 늦게 도착했다'는 뜻이다. 편지에는 “purchased on May 28”(5월 28일 구매)이라는 날짜만 나오고 배송 지연 이야기는 없다. 문제는 “the left earpiece stopped working after only two weeks”, 즉 2주 만에 왼쪽 이어피스가 고장 난 것이다.",
+       "이 선택지는 '포장에서 액세서리 일부가 빠져 있었다'는 뜻이다. 액세서리는 “Be sure to include all accessories”(모든 액세서리를 꼭 넣으라)라는 반송 안내에서 나올 뿐이다. 빠져 있었다는 불만이 아니라 헤드폰을 보낼 때 충전 케이블과 케이스를 함께 넣으라는 요청이다."
       ]
      },
      "para": [
@@ -68,10 +68,10 @@
      "explanation": {
       "why": "보증 기간이라 'at no cost'(무료)로 교환해 준다고 했다. 수리비를 내라는 요청은 없다.",
       "traps": [
-       "'please print the attached prepaid shipping label'이라고 요청했다.",
-       "'Be sure to include all accessories, such as the charging cable'이라고 했다.",
+       "이 선택지는 '배송 라벨을 인쇄한다'는 뜻이다. 편지에 “please print the attached prepaid shipping label”(첨부된 선불 배송 라벨을 인쇄하라)이라고 분명히 요청되어 있다. 요청받은 일이므로 NOT 문제의 답이 아니다.",
+       "이 선택지는 '충전 케이블을 함께 넣는다'는 뜻이다. 편지에 “Be sure to include all accessories, such as the charging cable and carrying case”라고 했으므로 충전 케이블을 넣으라고 요청받았다. NOT 문제에서 언급된 항목이므로 답이 아니다.",
        null,
-       "'send the headphones to our service center'라고 요청했다."
+       "이 선택지는 '서비스 센터로 헤드폰을 보낸다'는 뜻이다. 편지에 “send the headphones to our service center, in their original packaging if possible”이라고 요청했으므로 언급된 항목이다. 따라서 NOT 문제의 답이 될 수 없다."
       ]
      },
      "trans": "Mills 씨가 요청받지 않은 것은?",
@@ -95,9 +95,9 @@
      "explanation": {
       "why": "5월 28일에 샀고 1년 보증이 적용된다고 했으므로 구매한 지 1년이 안 되었다는 것을 알 수 있다.",
       "traps": [
-       "할인 구매 여부는 나오지 않는다.",
-       "단종 여부는 언급되지 않는다. 교체품을 보내 준다고 했다.",
-       "2주 사용 후 고장 난 것이며 배송 중 파손 이야기는 없다.",
+       "이 선택지는 '할인가로 샀다'는 뜻이다. 편지에는 “the wireless headphones you purchased on May 28”이라고 구매 날짜만 나오고 가격이나 할인에 관한 정보는 없다. 근거가 없으므로 추론할 수 없다.",
+       "이 선택지는 '더 이상 생산되지 않는다'는 뜻이다. 단종에 대한 언급은 없으며, 오히려 “Your replacement will be shipped within three business days”(교체품은 3영업일 안에 발송된다)라고 해서 같은 제품을 교체해 줄 수 있다. 단종되었다고 볼 근거가 없다.",
+       "이 선택지는 '배송 중에 파손되었다'는 뜻이다. 문제는 “the left earpiece stopped working after only two weeks”로, 사용하다가 2주 만에 고장 난 것이다. 배송 중 파손 이야기는 없고, 편지의 배송(shipping) 관련 내용은 반송 라벨과 교체품 발송뿐이다.",
        null
       ]
      },
@@ -147,10 +147,10 @@
      "explanation": {
       "why": "수요를 감당하지 못하게 되자(could not keep up with demand) 더 큰 건물(a larger building)로 옮기고 직원을 고용했다. 수요를 맞추려고 공간이 더 필요했던 것이다.",
       "traps": [
-       "임대료 이야기는 없다. 이전 이유로 나오는 것은 수요를 감당하지 못했다는 점뿐이다.",
-       "식당을 열려고 했다는 내용은 없다. 식당에는 빵을 공급할 뿐이다.",
+       "이 선택지는 'Maple Avenue의 임대료가 올랐다'는 뜻이다. 지문에 임대료 이야기는 없다. 이전 직전에 나오는 이유는 “the couple soon could not keep up with demand”(부부는 곧 수요를 감당할 수 없게 되었다)뿐이므로 근거 없는 추론이다.",
+       "이 선택지는 '식당을 열고 싶었다'는 뜻이다. 지문의 restaurants는 “supplies bread to more than 40 restaurants”(40곳이 넘는 식당에 빵을 공급한다)라는 현재 사업 내용에 나올 뿐이다. 식당을 직접 열려고 했다는 내용은 없고, 이전한 뒤에는 직원을 고용해 빵집을 키웠다.",
        null,
-       "건물 매각에 대한 언급은 없다."
+       "이 선택지는 '원래 건물이 팔렸다'는 뜻이다. 건물 매각에 대한 언급은 없다. 지문은 입소문으로 수요가 늘어 감당할 수 없게 되자 “they moved to a larger building on Grant Street”(Grant Street의 더 큰 건물로 옮겼다)라고 했으므로, 이전 이유는 공간 부족이다."
       ]
      },
      "para": [
@@ -182,9 +182,9 @@
       "why": "'40곳이 넘는 식당에 빵을 공급한다'는 뜻이므로 provides(제공하다)가 가장 가깝다. supply A to B = provide A to B.",
       "traps": [
        null,
-       "stores(보관하다)는 공급과 다르다.",
-       "orders(주문하다)는 방향이 반대다(식당이 주문하는 쪽).",
-       "equips(장비를 갖추게 하다)는 equip A with B 형태로 쓰며, 빵을 식당에 equip할 수 없다."
+       "stores는 '보관하다, 저장하다'라는 뜻이다. “supplies bread to more than 40 restaurants”는 빵을 식당에 '공급한다'는 뜻으로, 빵이 Sunfield에서 식당으로 넘어가는 것이다. stores를 넣으면 빵을 식당에 보관한다는 이상한 뜻이 되며, 공급과 보관은 다른 행위다.",
+       "orders는 '주문하다'라는 뜻이다. 빵을 주문하는 쪽은 식당이고 Sunfield는 공급하는 쪽이므로, orders를 넣으면 행위의 방향이 반대가 된다. supply bread to restaurants는 provide bread to restaurants로 바꿔 쓸 수 있으므로 provides가 맞다.",
+       "equips는 '(장비를) 갖추게 하다'라는 뜻으로 equip a kitchen with ovens(주방에 오븐을 갖추다)처럼 equip A with B 형태로 쓴다. 빵은 장비가 아니고 equip bread to restaurants라는 구조도 쓰지 않는다. supply A to B(A를 B에 공급하다)와 같은 뜻은 provide A to B다."
       ]
      },
      "trans": "두 번째 문단의 \"supplies\"와 뜻이 가장 가까운 것은?",
@@ -209,10 +209,10 @@
      "explanation": {
       "why": "주어진 문장은 수요가 너무 많았다는 구체적인 예다. '입소문이 나서 수요를 감당하지 못했다' 바로 뒤, '더 큰 건물로 이전했다' 앞인 [2]에 들어가면 원인 → 사례 → 결과 흐름이 완성된다.",
       "traps": [
-       "[1]은 가게를 막 시작한 시점이라, 입소문이 나기 전에 손님이 한 시간씩 줄을 섰다는 것은 흐름에 맞지 않는다.",
+       "[1]의 앞 문장은 1987년에 Rosa와 Hector Diaz가 Maple Avenue에서 작은 가게를 시작했다는 내용이다. 아직 사워도우 빵에 대한 입소문(word spread)이 나기 전이므로, 여기에 손님이 한 시간 넘게 줄을 섰다는 문장이 오면 '인기 → 수요 초과' 순서가 뒤집힌다. 수요를 감당하지 못했다는 문장 뒤인 [2]가 맞다.",
        null,
-       "[3]은 현재 6개 매장 이야기라 과거 시제 waited와 시점이 맞지 않는다.",
-       "[4] 앞은 수제 방식 유지 이야기로 줄 서는 손님과 연결되지 않는다."
+       "[3]의 앞 문장은 “Today, Sunfield operates six locations across the city”라는 현재 상황이다. 주어진 문장의 waited는 과거 시제라 현재 이야기와 시점이 맞지 않고, 매장 6곳·식당 40곳 공급이라는 성장 내용과도 이어지지 않는다. 줄을 선 이야기는 이전하기 전 과거의 사례다.",
+       "[4]의 앞 문장은 성장했어도 처음과 같은 레시피로 모든 빵을 손으로 굽는다는 내용이고, 뒤는 딸 Elena Diaz가 2016년에 대표가 되었다는 내용이다. 과거에 손님이 줄을 섰다는 문장은 수제 방식이나 경영 승계와 연결되지 않는다. 수요를 감당하지 못했다는 문장 바로 뒤에 와야 한다."
       ]
      },
      "trans": "[1], [2], [3], [4] 중 다음 문장이 들어가기에 가장 알맞은 곳은?",
@@ -236,9 +236,9 @@
      "explanation": {
       "why": "마지막 문장에서 딸 Elena Diaz가 2016년에 회사 대표(president)가 되었다고 했다.",
       "traps": [
-       "1987년 창업자는 부모인 Rosa와 Hector Diaz다.",
-       "한 매장만 관리한다는 내용은 없다.",
-       "오히려 처음부터 쓰던 같은 레시피를 따른다고 했다.",
+       "이 선택지는 'Elena Diaz가 1987년에 빵집을 세웠다'는 뜻이다. 지문은 1987년에 가게를 운영한 사람이 “Rosa and Hector Diaz”라고 했고, Elena는 “Their daughter”(그들의 딸)다. 창업자는 부모이므로 같은 성(Diaz)을 이용한 함정이다.",
+       "이 선택지는 '한 매장만 관리한다'는 뜻이다. 지문은 “Elena Diaz, became president of the company in 2016”이라고 해서 회사 전체의 대표가 되었다고 했다. 회사는 도시 전역에 매장 6곳을 운영하므로 한 매장만 맡는다는 것은 근거가 없다.",
+       "이 선택지는 '새 빵 레시피를 만들었다'는 뜻이다. 지문은 오히려 “following the same recipes the Diaz family has used from the beginning”(Diaz 가족이 처음부터 써 온 같은 레시피를 따른다)이라고 했다. 새 레시피 이야기는 없고 지문과 반대되는 내용이다.",
        null
       ]
      },
@@ -290,9 +290,9 @@
       "why": "본사(Halifax), 이름(Coastal Air), 취항 도시 수(38)는 모두 기사에 나오지만 항공권 가격 인하에 대한 언급은 없다.",
       "traps": [
        null,
-       "'will be based at Coastal's current headquarters in Halifax'라고 나온다.",
-       "'Together, they will serve 38 cities'라고 나온다.",
-       "'will keep the Coastal Air name'이라고 나온다."
+       "이 선택지는 '본사가 Halifax에 있다'는 뜻이다. 첫 문단에 “will be based at Coastal's current headquarters in Halifax”(Coastal의 현재 Halifax 본사에 기반을 둔다)라고 나온다. 기사에 언급된 내용이므로 NOT 문제의 답이 아니다.",
+       "이 선택지는 '38개 도시를 운항한다'는 뜻이다. 두 번째 문단 끝에 “Together, they will serve 38 cities”라고 나온다. 두 항공사의 노선을 합쳐 38개 도시가 되므로 언급된 내용이며, NOT 문제의 답이 아니다.",
+       "이 선택지는 'Coastal Air라는 이름을 쓴다'는 뜻이다. 첫 문단에 “The combined airline will keep the Coastal Air name”(합병 항공사는 Coastal Air라는 이름을 유지한다)이라고 나온다. 언급된 내용이므로 NOT 문제의 답이 아니다."
       ]
      },
      "trans": "합병된 항공사에 대해 언급되지 않은 것은?",
@@ -320,9 +320,9 @@
      "explanation": {
       "why": "'기존 Skyline Express 항공권은 모두 honored될 것'이라는 문맥에서 honor는 '(표·계약 등을) 유효한 것으로 인정하다, 받아 주다'라는 뜻이다. accepted가 가장 가깝다.",
       "traps": [
-       "respected(존경받는)는 honor의 대표 뜻이지만 항공권에는 맞지 않는다. 사전적 1순위 뜻 함정.",
-       "praised(칭찬받는)도 사람·업적에 쓰는 뜻이다.",
-       "awarded(수여된)는 상을 줄 때의 뜻이다.",
+       "respected는 '존경받는'이라는 뜻으로 honor의 가장 대표적인 뜻 '존경하다'에서 나온 말이다. 그러나 “all current Skyline Express tickets would be honored”의 주어는 사람이 아닌 항공권이며, 합병 후에도 기존 항공권을 '유효한 것으로 받아 준다'는 뜻이다. 항공권을 존경한다는 뜻은 되지 않으므로 사전 1순위 뜻 함정이다.",
+       "praised는 '칭찬받는'이라는 뜻으로 사람이나 업적에 쓴다. 이 문장은 합병으로 취소되는 항공편이 없고 기존 Skyline Express 항공권도 그대로 '인정해 사용할 수 있게 한다'는 내용이다. praised를 넣으면 항공권을 칭찬한다는 뜻이 되어 문맥에 맞지 않는다.",
+       "awarded는 '(상 등이) 수여된'이라는 뜻으로, honor가 '상을 주어 기리다'라는 뜻일 때 연상되기 쉽다. 그러나 여기서는 이미 판매된 항공권을 합병 후에도 유효하게 '받아 준다'는 뜻이다. 항공권이 상으로 주어진다는 의미가 아니므로 accepted가 맞다.",
        null
       ]
      },
@@ -347,10 +347,10 @@
      "explanation": {
       "why": "두 항공사가 'largely different routes'(대체로 다른 노선)를 운항한다고 했다. 즉 겹치는 노선이 거의 없다.",
       "traps": [
-       "두 항공사의 설립 연도는 나오지 않는다. 기사에 나오는 시점은 합병 시기(연말)와 포인트 통합(1월)뿐이다.",
-       "Halifax는 Coastal Air의 본사다.",
+       "이 선택지는 '두 항공사가 같은 해에 설립되었다'는 뜻이다. 기사에는 두 항공사의 설립 연도가 전혀 나오지 않는다. 시점으로 나오는 것은 합병 시기(“by the end of the year”), 포인트 통합(1월), 승인 결정(3개월 안)뿐이므로 근거가 없다.",
+       "이 선택지는 '두 항공사 모두 본사가 Halifax에 있다'는 뜻이다. 기사는 “Coastal's current headquarters in Halifax”라고 해서 Halifax가 Coastal Air의 본사라고만 했다. Skyline Express의 본사 위치는 나오지 않으므로 both(둘 다)는 근거가 없다.",
        null,
-       "마지막 문단에서 아직 정부 기관의 승인이 필요하다고 했다."
+       "이 선택지는 '이미 정부 승인을 받았다'는 뜻이다. 마지막 문단은 “The agreement still requires approval from the national transportation authority”(합의는 아직 국가 교통 당국의 승인이 필요하다)라고 했고, 결정은 3개월 안에 나올 예정이다. still requires와 already received는 정반대이므로 틀리다."
       ]
      },
      "para": [
@@ -380,10 +380,10 @@
      "explanation": {
       "why": "'Frequent-flyer points … will be combined into a single account … beginning in January'라고 했다. 마일리지 포인트 통합 = 로열티 프로그램 포인트 합병.",
       "traps": [
-       "승인 결정은 3개월 안에 나올 예정이라고만 했다.",
+       "이 선택지는 '1월에 합병이 최종 승인을 받는다'는 뜻이다. 승인에 대해서는 교통 당국이 “is expected to issue its decision within three months”(3개월 안에 결정을 내릴 것으로 예상된다)라고만 했다. 1월이라는 시점은 포인트 통합에 대한 것이므로 내용을 잘못 연결한 함정이다.",
        null,
-       "취소되는 항공편은 없다고 했다.",
-       "신규 노선 개설 이야기는 없다."
+       "이 선택지는 '일부 Skyline Express 항공편이 취소된다'는 뜻이다. 기사는 “no flights would be canceled as a result of the merger”(합병으로 취소되는 항공편은 없다)라고 했다. 시점과 관계없이 지문 내용과 정반대이므로 틀리다.",
+       "이 선택지는 '중부 지역으로 가는 새 노선이 시작된다'는 뜻이다. 기사의 “Skyline Express focuses on routes to the central provinces”는 Skyline Express가 이미 운항 중인 노선을 설명한 것이다. 1월에 새 노선이 생긴다는 내용은 없고, 1월에 일어나는 일은 포인트 통합이다."
       ]
      },
      "para": [
@@ -435,9 +435,9 @@
       "why": "새 디자이너가 Mr. Malhotra의 팀과 제품 카탈로그 작업을 긴밀히 하게 될 것이기 때문(since the new designer will work closely with your team)이라고 이유를 밝혔다.",
       "traps": [
        null,
-       "마케팅 부서 사람은 대신 들어갈 수 있는 Carla다.",
-       "카탈로그를 디자인했다는 언급은 없다. 앞으로 함께 작업한다는 것이다.",
-       "후보 추천 이야기는 없다. 후보 세 명은 Ms. Benson이 추렸다(We have narrowed the list)."
+       "이 선택지는 'Mr. Malhotra가 마케팅 부서장이다'라는 뜻이다. 마케팅 부서는 “I can ask Carla from the marketing department to take your place”에서 Mr. Malhotra 대신 들어갈 수 있는 Carla의 소속으로 나온다. 그의 직책은 언급되지 않으므로 다른 사람의 정보를 연결한 함정이다.",
+       "이 선택지는 '현재 제품 카탈로그를 디자인했다'는 뜻이다. 지문은 “the new designer will work closely with your team on the product catalog”라고 해서 새 디자이너가 앞으로 그의 팀과 카탈로그 작업을 함께 한다고 했을 뿐이다. 그가 기존 카탈로그를 만들었다는 내용은 없다.",
+       "이 선택지는 '후보 한 명을 추천했다'는 뜻이다. 추천 이야기는 없으며, “We have narrowed the list of candidates for the graphic designer position to three”라고 해서 후보를 세 명으로 줄인 것은 Ms. Benson 쪽이다. 그를 부르는 이유는 새 디자이너와 함께 일하게 되기 때문이다."
       ]
      },
      "para": [
@@ -467,9 +467,9 @@
      "explanation": {
       "why": "목요일 오후에 업체 미팅이 있어 '마지막 면접'에 못 있을 수도 있다고 했다. 마지막이자 오후 면접은 2시다.",
       "traps": [
-       "10시는 오전 면접이라 업체 미팅(오후)과 겹치지 않는다.",
-       "11시 30분 면접은 약 1시간이라 오후 일정 전에 끝난다.",
-       "Ms. Benson이 오후 미팅 때문에 대체 인원(Carla)까지 제안했으므로 모두 참석하기 어렵다는 것을 알 수 있다.",
+       "10시 면접은 오전 첫 번째 면접이다. Mr. Malhotra의 일정 문제는 “a vendor meeting on Thursday afternoon”(목요일 오후 업체 미팅)이고, Ms. Benson도 “if you can't stay for the last interview”라며 마지막 면접만 걱정했다. 오전 면접은 오후 미팅과 겹치지 않으므로 참석할 수 있다.",
+       "11시 30분 면접은 오전 면접으로, 각 면접이 “about an hour”(약 1시간) 걸리므로 12시 30분쯤 끝난다. 업체 미팅은 목요일 오후이고 Ms. Benson이 걱정한 것은 “the last interview”(마지막 면접)뿐이다. 따라서 11시 30분 면접은 참석할 수 있다.",
+       "이 선택지는 '모든 면접에 참석할 수 있다'는 뜻이다. 그러나 Ms. Benson은 목요일 오후 업체 미팅 때문에 마지막 면접에 못 있을 수 있다며 “I can ask Carla from the marketing department to take your place”라고 대신할 사람까지 제안했다. 오후 2시 면접은 참석이 어려울 가능성이 높다.",
        null
       ]
      },
@@ -494,10 +494,10 @@
      "explanation": {
       "why": "이메일 날짜가 화요일이고 '내일 아침까지 후보들의 포트폴리오를 보내겠다'고 했다. 포트폴리오 = 작업 샘플.",
       "traps": [
-       "면접 질문 목록은 언급되지 않았다.",
+       "이 선택지는 '면접 질문 목록'이다. 이메일에 면접 질문 목록은 전혀 나오지 않는다. 내일(수요일) 아침까지 보내겠다고 한 것은 “I'll send you the candidates' portfolios by tomorrow morning”, 즉 후보들의 포트폴리오다.",
        null,
-       "카탈로그는 앞으로 작업할 대상일 뿐 보내 준다는 말이 없다.",
-       "업체(vendor)는 Mr. Malhotra의 미팅 상대로만 나온다."
+       "이 선택지는 '제품 카탈로그 사본'이다. 카탈로그는 새 디자이너가 “will work closely with your team on the product catalog”에서 앞으로 함께 작업할 대상으로 나올 뿐, 보내 준다는 말은 없다. 보낼 것은 후보들의 포트폴리오(작업 샘플)다.",
+       "이 선택지는 '업체의 계약서'다. 업체(vendor)는 “I know you have a vendor meeting on Thursday afternoon”에서 Mr. Malhotra의 오후 미팅 상대로 나올 뿐이고, 계약서 이야기는 없다. vendor라는 지문 단어를 재활용한 함정이다."
       ]
      },
      "para": [
@@ -550,10 +550,10 @@
      "explanation": {
       "why": "평일 운영 시간 연장, 수업 예약 가능 기간 확대 등 클럽 서비스의 변경 사항을 알리는 공지다.",
       "traps": [
-       "강사 소개 내용은 없다. 공지에 사람 이름은 나오지 않는다.",
-       "월 회비는 변하지 않는다(will not change)고 했다. 반대 내용 함정.",
+       "이 선택지는 '새 피트니스 강사를 소개하려고'라는 뜻이다. 공지에는 사람 이름이나 강사 소개가 전혀 없다. group exercise classes가 나오지만 “reserve group exercise classes up to seven days in advance”처럼 수업 예약 규칙이 바뀐다는 내용이다.",
+       "이 선택지는 '요금 인상을 설명하려고'라는 뜻이다. 마지막 문단에 “Monthly membership fees will not change”(월 회비는 변하지 않는다)라고 분명히 나온다. 지문 단어 fees를 쓰면서 내용을 반대로 바꾼 함정이다.",
        null,
-       "새 지점 이야기는 없다. 공지는 기존 클럽의 운영 시간과 예약 규칙 변경에 관한 것이다."
+       "이 선택지는 '새 지점을 광고하려고'라는 뜻이다. 공지는 기존 Westgate Fitness Club의 평일 운영 시간(“will extend its weekday hours”)과 예약 규칙이 바뀐다는 내용이다. 새 지점에 관한 이야기는 전혀 없다."
       ]
      },
      "trans": "공지의 주된 목적은?",
@@ -578,10 +578,10 @@
      "explanation": {
       "why": "'Weekend hours will remain unchanged'라고 했으므로 주말 운영 시간 연장은 변경 사항이 아니다.",
       "traps": [
-       "평일 개장이 6시 → 5시 30분으로 앞당겨진다.",
+       "이 선택지는 '평일 개장 시간이 앞당겨진다'는 뜻이다. 공지에 “The club will open at 5:30 A.M. instead of 6:00 A.M.”이라고 해서 6시에서 5시 30분으로 앞당겨진다고 했다. 언급된 변경 사항이므로 NOT 문제의 답이 아니다.",
        null,
-       "평일 폐장이 10시 → 11시로 늦춰진다.",
-       "예약 가능 기간이 2일 → 7일 전으로 늘었다."
+       "이 선택지는 '평일 폐장 시간이 늦춰진다'는 뜻이다. 공지에 “close at 11:00 P.M. instead of 10:00 P.M.”이라고 해서 밤 10시에서 11시로 늦춰진다고 했다. 언급된 변경 사항이므로 NOT 문제의 답이 아니다.",
+       "이 선택지는 '수업을 더 일찍부터 예약할 수 있다'는 뜻이다. 공지에 “up to seven days in advance”(최대 7일 전까지)로 바뀌었고 “Previously, reservations could be made only two days ahead”(이전에는 2일 전까지만 가능했다)라고 했다. 언급된 변경 사항이므로 답이 아니다."
       ]
      },
      "trans": "변경 사항으로 언급되지 않은 것은?",
@@ -606,9 +606,9 @@
       "why": "예약 후 미리 취소하지 않고 불참하면 '일주일 동안 수업을 예약할 수 없다'고 했다. 일시적인 예약 제한이다.",
       "traps": [
        null,
-       "벌금 이야기는 없다. 회비와 관련된 언급은 '변하지 않는다'뿐이다.",
-       "회원 자격 취소는 언급되지 않았다.",
-       "이메일 경고에 대한 언급은 없다."
+       "이 선택지는 '벌금을 부과받는다'는 뜻이다. 공지에 벌금 이야기는 없고, 요금에 관한 언급은 “Monthly membership fees will not change”뿐이다. 불참 시 조치는 “will not be able to book classes for one week”(일주일 동안 수업을 예약할 수 없다)이다.",
+       "이 선택지는 '회원 자격이 취소된다'는 뜻이다. 공지의 조치는 “will not be able to book classes for one week”로, 일주일 동안 예약만 막히는 일시적인 제한이다. 회원 자격 자체가 취소된다는 내용은 없으며, canceling이라는 지문 단어를 이용한 함정이다.",
+       "이 선택지는 '이메일로 경고를 받는다'는 뜻이다. 공지에 이메일이나 경고에 관한 언급은 없다. 예약은 “through our mobile app”(모바일 앱으로) 한다고 했고, 불참자에 대한 조치는 일주일간 예약 금지뿐이다."
       ]
      },
      "para": [
@@ -657,9 +657,9 @@
      "explanation": {
       "why": "'to celebrate the completion of a major project'라고 목적을 밝혔다. 프로젝트 완료 = 업무 프로젝트의 끝.",
       "traps": [
-       "함께 간 사람은 동료(colleagues)이고 고객이 아니다.",
-       "면접 이야기는 없다. 함께 간 열두 명은 채용 후보가 아니라 동료(colleagues)다.",
-       "요리 수업 이야기는 없다. 음식(salmon, risotto)이 나오지만 먹은 것이지 배운 것이 아니다.",
+       "이 선택지는 '새 고객을 만나려고'라는 뜻이다. 지문은 “I hosted a dinner for twelve colleagues”라고 해서 함께한 사람이 동료 열두 명이라고 했다. 고객과의 만남이 아니라 큰 프로젝트 완료를 축하하는 동료들과의 저녁 식사다.",
+       "이 선택지는 '채용 후보자를 면접하려고'라는 뜻이다. 면접 이야기는 없고, 함께한 열두 명은 채용 후보가 아니라 동료(colleagues)다. 방문 목적은 “to celebrate the completion of a major project”(큰 프로젝트 완료를 축하하려고)라고 분명히 나온다.",
+       "이 선택지는 '요리 수업에 참석하려고'라는 뜻이다. 지문에 grilled salmon, mushroom risotto 같은 음식이 나오지만 “The food was excellent”라는 식사 평가일 뿐 요리를 배운 것이 아니다. 방문 목적은 프로젝트 완료를 축하하는 저녁 식사다.",
        null
       ]
      },
@@ -690,10 +690,10 @@
      "explanation": {
       "why": "'여러 특별 식단 요청을 손쉽게 처리했다'는 뜻이므로 dealt with(처리했다)가 가장 가깝다.",
       "traps": [
-       "touched(만졌다)는 handle의 '손으로 다루다'라는 물리적 뜻이라 요청에는 맞지 않는다.",
-       "carried(운반했다)는 요청을 처리한다는 의미가 되지 않는다.",
+       "touched는 '만졌다'라는 뜻으로, handle의 '손으로 만지다, 다루다'라는 물리적 의미(예: handle with care)에 가깝다. 그러나 “handled several special dietary requests with ease”의 목적어는 손으로 만질 수 없는 '특별 식단 요청'이다. 요청은 '처리하는' 것이므로 dealt with가 맞다.",
+       "carried는 '운반했다, 날랐다'라는 뜻이다. 서버 Priya가 음식을 날랐을 것이라는 연상 때문에 고르기 쉽지만, 목적어는 음식이 아니라 “several special dietary requests”(여러 특별 식단 요청)다. 요청을 운반한다는 뜻은 되지 않으므로 '처리했다'의 dealt with가 맞다.",
        null,
-       "sold(팔았다)는 문맥과 관계없다."
+       "sold는 '팔았다'라는 뜻이다. 문장 “handled several special dietary requests with ease”는 서버가 특별 식단 요청을 손쉽게 처리했다는 칭찬이다. 요청을 팔았다는 뜻은 문맥과 관계없으며, 식당이라는 상황에서 '판매'를 연상하게 만든 오답이다."
       ]
      },
      "trans": "두 번째 문단의 \"handled\"와 뜻이 가장 가까운 것은?",
@@ -717,9 +717,9 @@
      "explanation": {
       "why": "유일한 불만(My only complaint)은 전채 후 메인 요리가 나오기까지 거의 40분이 걸렸다는 점이다. 메인 요리를 오래 기다렸다는 내용이 정답과 일치한다.",
       "traps": [
-       "방은 '딱 맞는 크기(perfect size)'였다고 했다.",
-       "예약이 누락되었다는 말은 없다. 오히려 요청대로 테이블이 준비되어 있었다.",
-       "디저트는 무료(complimentary)로 제공되었다.",
+       "이 선택지는 '개인 룸이 너무 작았다'는 뜻이다. 지문은 “The private dining room was the perfect size”(개인 식사 공간은 딱 알맞은 크기였다)라고 했으므로 정반대다. 불만은 메인 요리가 늦게 나온 것 하나뿐이었다.",
+       "이 선택지는 '예약을 찾을 수 없었다'는 뜻이다. 오히려 “the staff had arranged the tables exactly as I had requested over the phone”(전화로 요청한 그대로 직원이 테이블을 준비해 두었다)이라고 했다. 예약이 잘 처리되어 있었으므로 지문과 반대다.",
+       "이 선택지는 '디저트가 너무 비쌌다'는 뜻이다. 지문은 매니저가 “offered complimentary desserts for the entire table”(테이블 전체에 무료 디저트를 제공했다)이라고 했다. complimentary는 '무료의'라는 뜻이므로 디저트 가격 불만은 있을 수 없다.",
        null
       ]
      },
@@ -751,9 +751,9 @@
       "why": "직원들이 '내가 전화로 요청한 대로(as I had requested over the phone)' 테이블을 배치했다고 했으므로 전화로 예약·요청했음을 알 수 있다.",
       "traps": [
        null,
-       "단골이라는 근거는 없다. '다시 예약하겠다'는 앞으로의 계획이다.",
-       "요식업 종사자라는 근거는 없다.",
-       "음식은 훌륭했다(excellent)고 했다."
+       "이 선택지는 '그 식당의 단골손님이다'라는 뜻이다. 지문에 전에 와 본 적이 있다는 내용은 없다. 마지막의 “I would definitely book Juniper Bistro again”은 앞으로 또 예약하겠다는 계획이지 이미 여러 번 왔다는 근거가 아니다.",
+       "이 선택지는 '요식업계에서 일한다'는 뜻이다. 그는 동료들과 프로젝트 완료를 축하했고 “for a work event”(업무 행사로) 다시 예약하겠다고 했지만, 그 업무가 요식업이라는 정보는 없다. 음식을 자세히 평가했다는 것만으로는 직업을 추론할 수 없다.",
+       "이 선택지는 '음식 대부분이 마음에 들지 않았다'는 뜻이다. 지문은 “The food was excellent, especially the grilled salmon and the mushroom risotto”라고 음식을 칭찬했다. 유일한 불만(My only complaint)은 메인 요리가 늦게 나온 것이므로 지문과 반대다."
       ]
      },
      "para": [
@@ -804,10 +804,10 @@
      "explanation": {
       "why": "첫 문장에서 기조연설자로의 참여를 확정한다고 하고, 이후 발표 시간·장소·자료 제출·숙박 등 세부 사항을 안내한다.",
       "traps": [
-       "논문 제출 요청은 없다. 슬라이드 제출을 요청한다.",
+       "이 선택지는 '연구 논문을 제출해 달라고 초청하려고'라는 뜻이다. 편지는 이미 기조연설자로 참여가 정해진 것을 확인하며, 제출을 요청하는 것은 논문이 아니라 “Please send your presentation slides”(발표 슬라이드를 보내 달라)다. 이것도 편지의 여러 세부 사항 중 하나일 뿐이다.",
        null,
-       "오히려 위원회가 항공료와 숙박을 부담한다.",
-       "장소 변경 이야기는 없다. Carlton Convention Center는 처음부터 정해진 장소로 소개된다."
+       "이 선택지는 '여행 경비 지불을 요청하려고'라는 뜻이다. 편지는 반대로 “the committee will cover your round-trip airfare and two nights at the Carlton Hotel”이라고 해서 위원회가 왕복 항공료와 2박 숙박을 부담한다고 했다. 돈을 요구하는 내용은 없다.",
+       "이 선택지는 '장소 변경을 알리려고'라는 뜻이다. 장소는 “to be held on November 14 at the Carlton Convention Center”라고 처음부터 정해진 곳으로 소개될 뿐, 바뀌었다는 말은 없다. 발표 장소 Grand Hall도 안내일 뿐 변경이 아니다."
       ]
      },
      "trans": "편지의 목적은?",
@@ -831,10 +831,10 @@
      "explanation": {
       "why": "11월 7일까지 발표 슬라이드를 기술 담당자에게 보내 달라고 했다. 슬라이드 = 발표 자료.",
       "traps": [
-       "숙박은 위원회가 제공하므로 직접 예약할 필요가 없다.",
-       "항공편 확정 요청은 이 날짜와 연결되지 않는다.",
+       "이 선택지는 '호텔 방을 예약한다'는 뜻이다. 숙박은 “two nights at the Carlton Hotel”을 위원회가 제공한다고 했으므로 Dr. Achebe가 직접 예약할 필요가 없다. 11월 7일까지 요청받은 일은 발표 슬라이드 제출이다.",
+       "이 선택지는 '귀국 항공편을 확정한다'는 뜻이다. 편지의 항공 관련 내용은 위원회가 “round-trip airfare”(왕복 항공료)를 부담한다는 것뿐이고, 11월 7일이라는 기한은 “Please send your presentation slides”에 붙은 것이다. 귀국편을 확정하라는 요청은 없다.",
        null,
-       "Mr. Kang에게는 슬라이드를 '보내는' 것이지 직접 만나는 것이 아니다."
+       "이 선택지는 'Mr. Kang을 직접 만난다'는 뜻이다. Mr. Lewis Kang은 기술 담당자로, 그에게 슬라이드를 '보내서' “so that they can be tested on our equipment”(장비에서 시험해 볼 수 있도록) 하라는 것이다. 직접 만나라는 요청은 없다."
       ]
      },
      "para": [
@@ -864,9 +864,9 @@
      "explanation": {
       "why": "항공료(round-trip airfare), 숙박(two nights at the Carlton Hotel), 공항 픽업(A car will meet you)은 언급되었지만 식사 제공은 나오지 않는다.",
       "traps": [
-       "'cover your round-trip airfare'라고 했다.",
-       "'two nights at the Carlton Hotel'은 숙박 제공이다.",
-       "'A car will meet you at the airport'는 공항 교통편 제공이다.",
+       "이 선택지는 '항공료'다. 편지에 “the committee will cover your round-trip airfare”(위원회가 왕복 항공료를 부담한다)라고 나오므로 제공한다고 언급된 항목이다. NOT 문제의 답이 아니다.",
+       "이 선택지는 '숙박'이다. 편지에 “two nights at the Carlton Hotel, which is connected to the convention center”라고 해서 컨벤션 센터와 연결된 호텔의 2박 숙박을 제공한다고 했다. accommodation은 이를 바꿔 말한 것이므로 NOT 문제의 답이 아니다.",
+       "이 선택지는 '공항에서의 교통편'이다. 편지에 “A car will meet you at the airport when you arrive”(도착하면 공항에 차가 마중 나간다)라고 했으므로 공항 교통편을 제공한다고 언급되었다. NOT 문제의 답이 아니다.",
        null
       ]
      },
@@ -893,10 +893,10 @@
      "explanation": {
       "why": "the driver는 바로 앞 문장의 '공항으로 마중 나갈 차량'의 운전기사를 가리킨다. 공항 픽업 안내 직후인 [3]이 알맞다.",
       "traps": [
-       "[1]은 참여 확정 인사 직후라 운전기사(the driver)가 아직 등장하지 않았다.",
-       "[2]는 발표 시간 안내 직후라 항공편 정보와 연결되지 않는다.",
+       "[1]의 앞 문장은 11월 14일 포럼의 기조연설자로 참여가 확정되었다는 인사다. 주어진 문장의 the driver(그 운전기사)는 앞에서 차량 마중이 언급되어야 가리킬 대상이 생기는데, [1]까지는 공항 픽업 이야기가 없다. 그래서 항공편 정보를 보내라는 요청이 갑자기 나오게 된다.",
+       "[2]의 앞 문장은 발표가 9시 30분에 Grand Hall에서 약 45분간 진행되고 15분 질의응답이 이어진다는 내용이다. 발표 일정과 항공편 정보 요청은 관련이 없고, the driver가 가리킬 차량도 아직 나오지 않았다. 차량 마중 문장은 세 번째 문단에 있다.",
        null,
-       "[4]는 마무리 인사 뒤라, 공항 픽업 문장과 떨어져 the driver가 가리키는 대상이 멀어진다."
+       "[4]의 앞 문장은 “We are honored to have you join us”라는 마무리 인사다. 공항 픽업 문장과 사이가 끊겨 the driver가 가리키는 대상이 멀어지고, 마무리 인사 뒤에 다시 실무 요청을 하는 것도 어색하다. 차량 마중 안내 바로 뒤인 [3]에 와야 흐름이 자연스럽다."
       ]
      },
      "trans": "[1], [2], [3], [4] 중 다음 문장이 들어가기에 가장 알맞은 곳은?",

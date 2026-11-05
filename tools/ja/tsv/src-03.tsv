@@ -1,110 +1,110 @@
-p5-030|t1	having은 분사라 본동사가 되지 못한다.
-p5-030|t2	is는 been과 결합할 수 없다(is been 불가).
+p5-030|t1	having은 현재분사·동명사라 시제가 없어 본동사가 될 수 없다. having been received를 넣으면 주어 A number of complaints 뒤에 본동사가 없어 문장이 완성되지 않는다. having은 Having received many complaints, the manager revised the policy처럼 분사구문에 쓴다.
+p5-030|t2	is는 단수 be동사라 복수 주어 complaints와 수가 맞지 않고, 무엇보다 is는 뒤의 been과 결합할 수 없다. been은 have/has 뒤에서 완료형을 만들 때만 쓰이므로 is been은 불가능하다. 현재 수동태라면 Complaints are received daily처럼 be동사 + 과거분사로 쓴다.
 p5-031|why	plan은 to부정사를 목적어로 취하는 동사다(plan to do). 따라서 to open이 정답이다.
-p5-031|t0	open은 동사원형이라 plans 뒤에 바로 올 수 없다(동사 두 개 연속).
-p5-031|t2	opening은 동명사다. plan은 동명사를 목적어로 취하지 않는다.
-p5-031|t3	opened는 과거형·과거분사로 plans 뒤 목적어 자리에 맞지 않는다.
+p5-031|t0	open은 '열다'라는 동사원형이다. plans가 이미 본동사라 plans open처럼 동사를 접속사 없이 연달아 쓸 수 없다. plan은 plan to do 형태로 목적어를 취하므로 to open이 되어야 하고, open은 We will open a new center처럼 조동사 뒤에서 쓴다.
+p5-031|t2	opening은 동명사로 '여는 것'이라는 뜻이다. plan은 앞으로의 계획을 말하는 동사라 to부정사를 목적어로 취하며, plan opening은 쓰지 않는다. 동명사를 목적어로 취하는 동사는 consider, finish, avoid 등이며 The company is considering opening a center처럼 쓴다.
+p5-031|t3	opened는 과거형·과거분사다. plans 뒤에 넣으면 plans opened처럼 동사가 두 개 겹치고, next year(내년)라는 미래 계획과도 맞지 않는다. opened는 The company opened a new center last year처럼 과거의 일에 쓴다.
 p5-032|why	recommend는 동명사를 목적어로 취한다(recommend doing). '최종 수치가 나올 때까지 미팅을 미루자고 권했다'는 뜻으로 postponing이 정답이다.
-p5-032|t1	postpone은 동사원형이라 recommended 바로 뒤에 올 수 없다.
-p5-032|t2	to postpone은 recommend 뒤에 바로 쓰지 않는다. recommend 사람 to do 형태와 혼동시키는 함정.
-p5-032|t3	postponed는 과거형이라 동사가 겹친다.
+p5-032|t1	postpone은 '연기하다'라는 동사원형이다. recommended가 이미 본동사라 recommended postpone처럼 동사원형을 바로 이어 쓸 수 없다. 동사원형을 쓰려면 recommended that we postpone the meeting처럼 that절 안에 넣어야 한다.
+p5-032|t2	to postpone은 to부정사다. recommend는 동명사를 바로 목적어로 취하는 동사라 recommended to postpone은 쓰지 않는다. to부정사는 recommended the team to postpone the meeting처럼 recommend + 사람 + to do 형태일 때 쓸 수 있어 혼동하기 쉽다.
+p5-032|t3	postponed는 과거형·과거분사다. recommended postponed가 되면 동사가 두 개 겹치고, the client meeting을 이끄는 목적어 자리도 채우지 못한다. postponed는 The meeting was postponed until Friday처럼 수동태나 과거 동사로 쓴다.
 p5-033|why	look forward to에서 to는 전치사라 뒤에 명사나 동명사가 온다. collaborating(협력하는 것)이 정답이다.
-p5-033|t0	collaborate(동사원형)는 to를 to부정사로 착각하게 만드는 대표 함정이다. look forward to의 to는 전치사라 동사원형이 올 수 없다.
-p5-033|t1	be collaborated는 동사원형 형태이고, collaborate는 자동사라 수동태도 어색하다.
-p5-033|t2	have collaborated도 동사원형으로 시작하는 형태라 전치사 to 뒤에 올 수 없다.
+p5-033|t0	collaborate는 '협력하다'라는 동사원형이다. to 뒤라 to부정사로 착각하게 만드는 대표 함정인데, look forward to의 to는 전치사라 뒤에 명사나 동명사가 와야 한다. 동사원형은 plan to collaborate처럼 진짜 to부정사의 to 뒤에 쓴다.
+p5-033|t1	be collaborated는 동사원형 be로 시작하는 수동형이라 전치사 to 뒤에 올 수 없다. 또 collaborate는 collaborate with처럼 쓰는 자동사라 수동태 자체가 어색하다. 수동 의미가 필요하다면 look forward to being invited처럼 being + 과거분사를 쓴다.
+p5-033|t2	have collaborated도 동사원형 have로 시작하는 완료형이라 전치사 to 뒤에 올 수 없다. 의미상으로도 look forward to(~을 고대하다)는 앞으로의 일을 말하는데 완료형은 이미 끝난 일을 나타내 어울리지 않는다. have collaborated는 We have collaborated with them before처럼 쓴다.
 p5-034|why	콤마 뒤에 완전한 문장이 있으므로 앞부분은 수식어다. '대기 시간을 줄이기 위해'라는 목적을 나타내는 to부정사 To reduce가 정답이다.
-p5-034|t0	Reduce로 시작하면 명령문이 되어 뒤의 절과 접속사 없이 연결될 수 없다.
-p5-034|t1	Reduced는 과거분사로 '줄어든'이라는 수동 의미인데, 은행이 대기 시간을 줄이는 능동 관계라 맞지 않는다.
-p5-034|t3	Reduction은 명사라 뒤에 목적어 customer wait times를 바로 취할 수 없다.
+p5-034|t0	Reduce는 동사원형이라 문장 맨 앞에 오면 '대기 시간을 줄여라'라는 명령문이 된다. 명령문 뒤에 콤마만 찍고 the bank has added라는 다른 절을 접속사 없이 이을 수 없다. 명령문으로 쓰려면 Reduce wait times by adding tellers.처럼 하나의 문장으로 끝내야 한다.
+p5-034|t1	Reduced는 과거분사로 '줄어든'이라는 수동 의미다. 분사구문의 의미상 주어는 주절의 the bank인데, 은행이 줄어드는 것이 아니라 은행이 대기 시간을 줄이는 능동 관계이고, 뒤에 목적어 customer wait times도 있다. Reduced는 reduced prices(인하된 가격)처럼 명사를 꾸밀 때 쓴다.
+p5-034|t3	Reduction은 '감소'라는 명사다. 명사는 뒤에 목적어를 바로 취할 수 없어 Reduction customer wait times는 비문이며, 콤마 앞이 '~하기 위해'라는 목적의 수식어가 되지도 못한다. 명사를 쓰려면 For the reduction of customer wait times처럼 전치사와 of가 필요하다.
 p5-035|why	be committed to(~에 전념하다)의 to는 전치사다. 뒤에 목적어(the environmental impact)를 취하면서 전치사 뒤에 올 수 있는 동명사 minimizing이 정답이다.
-p5-035|t0	minimize(동사원형)는 be committed to 뒤를 to부정사로 착각할 때 고르는 함정이다. 이 to는 전치사.
-p5-035|t2	be minimized는 수동형이라 뒤의 목적어와 맞지 않고, 전치사 뒤에 올 수도 없다.
-p5-035|t3	minimal(최소한의)은 형용사라 전치사의 목적어가 될 수 없고 뒤 명사구와도 연결되지 않는다.
+p5-035|t0	minimize는 '최소화하다'라는 동사원형이다. to 뒤라 to부정사로 착각하기 쉽지만, be committed to(~에 전념하다)의 to는 전치사라 뒤에 동명사가 와야 한다. 같은 함정이 look forward to, be dedicated to에도 있으며, 동사원형은 plan to minimize처럼 진짜 to부정사 뒤에 쓴다.
+p5-035|t2	be minimized는 동사원형 be로 시작하는 수동형이라 전치사 to 뒤에 올 수 없다. 또 수동형 뒤에는 목적어가 올 수 없는데 빈칸 뒤에 목적어 the environmental impact가 있다. 수동은 The impact will be minimized처럼 영향이 주어일 때 쓴다.
+p5-035|t3	minimal은 '최소한의'라는 형용사다. 전치사 to의 목적어가 될 수 없고, minimal the environmental impact처럼 관사 the 앞에서 명사구를 꾸밀 수도 없다. minimal은 minimal impact(최소한의 영향)처럼 명사 바로 앞에 쓴다.
 p5-036|why	문서는 '첨부된' 대상이므로 수동 의미의 과거분사 attached가 명사 documents를 꾸민다.
-p5-036|t0	attach는 동사원형이라 관사와 명사 사이 수식 자리에 올 수 없다.
-p5-036|t1	attaching은 '첨부하는'이라는 능동 의미라 문서가 스스로 첨부하는 꼴이 된다.
-p5-036|t2	attachment documents는 명사+명사로 쓰지 않는 표현이다.
+p5-036|t0	attach는 '첨부하다'라는 동사원형이다. 관사 the와 명사 documents 사이는 명사를 꾸미는 형용사(분사) 자리라 동사원형이 올 수 없다. attach는 Please attach the documents to your e-mail처럼 동사로 쓴다.
+p5-036|t1	attaching은 현재분사로 '첨부하는'이라는 능동 의미다. 문서는 스스로 무언가를 첨부하는 주체가 아니라 첨부되는 대상이므로 수동의 과거분사가 맞다. attaching은 Before attaching the file, check its size처럼 동명사로 목적어를 취할 때 쓴다.
+p5-036|t2	attachment는 '첨부 파일'이라는 명사다. 명사+명사 복합명사로 보아도 attachment documents라는 표현은 쓰지 않으며, '첨부 문서'는 attached documents라고 한다. attachment는 Please open the attachment(첨부 파일을 열어 달라)처럼 단독 명사로 쓴다.
 p5-037|why	주어는 사물인 results(결과)이고, 결과가 팀을 '고무시키는' 쪽이다. 감정을 일으키는 사물에는 -ing 형태 encouraging을 쓴다.
-p5-037|t1	encourage는 동사원형이라 were 뒤에 올 수 없다.
-p5-037|t2	encouraged는 '사람이 고무된' 상태를 나타낸다. 주어가 사물(results)이므로 맞지 않는 감정 분사 함정.
-p5-037|t3	encouragement는 명사라 '결과=격려'가 되어 to the team과 어색하게 연결된다.
+p5-037|t1	encourage는 '격려하다'라는 동사원형이다. were 뒤에 동사원형이 바로 올 수 없고, 빈칸은 주어 results의 상태를 말하는 보어 자리다. encourage는 The results encourage the team(결과가 팀에게 힘을 준다)처럼 본동사로 쓴다.
+p5-037|t2	encouraged는 '고무된, 용기를 얻은'이라는 뜻으로 감정을 느끼는 사람에게 쓴다. 주어 results(결과)는 감정을 느끼는 쪽이 아니라 팀에게 감정을 일으키는 쪽이므로 -ing 형태가 맞다. encouraged는 The team was encouraged by the results처럼 사람이 주어일 때 쓴다.
+p5-037|t3	encouragement는 '격려'라는 명사다. 보어 자리에 명사를 넣으면 '결과 = 격려'가 되어 어색하고, 관사 없는 were encouragement to the team도 자연스러운 표현이 아니다. encouragement는 The results gave the team encouragement처럼 동사의 목적어로 쓴다.
 p5-038|why	Participants를 뒤에서 꾸미는 분사 자리다. 참가자(사람)가 '관심을 느끼는' 것이므로 interested (in)가 정답이다.
-p5-038|t0	interesting은 '흥미를 일으키는'이라는 뜻으로 사람이 주어일 때는 '흥미로운 참가자'가 되어 의미가 달라진다.
-p5-038|t1	interest는 명사·동사원형이라 이 위치에서 Participants를 수식할 수 없다.
-p5-038|t3	interests는 동사로 보면 본동사가 should register와 겹치고, 수도 맞지 않는다.
+p5-038|t0	interesting은 '흥미를 일으키는'이라는 뜻으로 감정을 주는 대상에 쓴다. Participants interesting in the workshop은 '워크숍에 흥미를 일으키는 참가자'가 되어 의미가 맞지 않고, interested in(~에 관심 있는)처럼 in과 짝을 이루는 것도 -ed형이다. interesting은 an interesting workshop(흥미로운 워크숍)처럼 사물에 쓴다.
+p5-038|t1	interest는 '관심'이라는 명사 또는 '관심을 끌다'라는 동사원형이다. 명사로 보면 Participants interest라는 어색한 명사 나열이 되고, 동사로 보면 should register와 본동사가 둘이 된다. interest는 show interest in the workshop(워크숍에 관심을 보이다)처럼 명사로 쓴다.
+p5-038|t3	interests는 복수 명사이거나 3인칭 단수 동사다. 동사로 보면 should register와 본동사가 겹치고 복수 주어 Participants와 수도 맞지 않으며, 명사로 보아도 Participants를 꾸미지 못한다. interests는 The workshop interests many staff(그 워크숍은 많은 직원의 관심을 끈다)처럼 단수 주어의 동사로 쓴다.
 p5-039|why	분사구문의 의미상 주어는 주절 주어 the manufacturer다. 제조업체가 높은 수요에 '고무된' 것이고 뒤에 by가 있으므로 과거분사 Encouraged가 정답이다.
-p5-039|t0	Encouraging은 능동이라 '제조업체가 수요를 고무시키며'가 되고, 뒤의 by와도 맞지 않는다.
-p5-039|t1	Encourage로 시작하면 명령문이 되어 주절과 연결이 안 된다.
-p5-039|t2	To encourage는 '고무시키기 위해'라는 목적이라 뒤의 by the strong demand와 어울리지 않는다.
+p5-039|t0	Encouraging은 능동의 현재분사라 '제조업체가 (무언가를) 고무시키며'라는 뜻이 된다. 제조업체는 높은 수요에 의해 고무된 쪽이고, 빈칸 뒤 by the strong demand(강한 수요에 의해)는 수동 관계를 보여 준다. Encouraging은 Encouraging its staff, the manager praised their work처럼 뒤에 목적어가 있을 때 쓴다.
+p5-039|t1	Encourage는 동사원형이라 문장 맨 앞에 오면 명령문이 된다. 명령문 뒤에 콤마만 두고 the manufacturer increased라는 다른 절을 접속사 없이 이을 수 없고, 동사원형 뒤에 바로 by가 오는 것도 어색하다. Encourage는 Encourage your team to share ideas.처럼 명령문으로 쓴다.
+p5-039|t2	To encourage는 '고무시키기 위해'라는 목적의 to부정사다. To encourage by the strong demand는 '강한 수요에 의해 고무시키기 위해'가 되어 뜻이 통하지 않고, encourage는 타동사인데 목적어도 없다. To encourage는 To encourage sales, the company lowered prices처럼 목적어와 함께 쓴다.
 p5-040|why	Anyone을 뒤에서 꾸미는 분사가 필요하고, 뒤에 목적어 a parking permit이 있으므로 능동의 현재분사 requesting(~을 요청하는)이 정답이다. 본동사는 must apply.
-p5-040|t0	requested는 수동이라 뒤에 목적어를 취할 수 없고 '요청받은 사람'이 되어 뜻이 바뀐다.
-p5-040|t2	requests는 동사로 보면 must apply와 본동사가 두 개가 된다.
-p5-040|t3	request는 동사원형·명사라 Anyone을 수식하는 자리에 올 수 없다.
+p5-040|t0	requested는 과거분사로 '요청받은'이라는 수동 의미다. Anyone requested a parking permit은 '주차 허가증을 요청받은 사람'이 되어 뜻이 바뀌고, 수동 분사 뒤에 목적어 a parking permit이 올 수도 없다. requested는 the requested documents(요청된 서류)처럼 요청되는 대상을 꾸밀 때 쓴다.
+p5-040|t2	requests는 3인칭 단수 동사(또는 복수 명사)다. 동사로 보면 Anyone requests ... must apply처럼 접속사 없이 본동사가 두 개가 된다. requests를 쓰려면 Anyone who requests a parking permit처럼 관계대명사 who가 필요하다.
+p5-040|t3	request는 '요청하다'라는 동사원형 또는 '요청'이라는 명사다. 동사원형으로는 Anyone을 뒤에서 꾸밀 수 없고, 명사로 보면 Anyone request a parking permit이라는 명사 나열이 되어 성립하지 않는다. request는 submit a request for a permit(허가증을 신청하다)처럼 명사로 쓴다.
 p5-041|why	전치사 to 뒤는 목적격 자리이므로 him이 정답이다. forward의 주어는 assistant라서 재귀대명사가 아니라 목적격을 쓴다.
-p5-041|t1	he는 주격이라 전치사 뒤에 올 수 없다.
-p5-041|t2	his는 소유격이라 뒤에 명사가 필요하다.
-p5-041|t3	himself는 동작의 주체와 대상이 같을 때 쓴다. forward의 주체는 assistant, 받는 사람은 Mr. Castillo라 재귀대명사가 아니다.
+p5-041|t1	he는 주격 대명사라 주어 자리에만 쓴다. 빈칸은 전치사 to 뒤 목적어 자리라 목적격 him이 필요하며, to he는 비문이다. he는 He will review the invoice처럼 동사 앞 주어로 쓴다.
+p5-041|t2	his는 소유격(그의)이라 뒤에 명사가 와야 하는데, 빈칸 뒤에는 by the end of the day라는 전치사구가 이어질 뿐 명사가 없다. 소유대명사(그의 것)로 보더라도 '송장을 그의 것에게 보내다'가 되어 뜻이 통하지 않는다. his는 forward the invoice to his office처럼 명사 앞에 쓴다.
+p5-041|t3	himself는 재귀대명사로, 같은 절에서 동작의 주체와 대상이 같을 때 쓴다. forward의 주체는 his assistant이고 송장을 받는 사람은 Mr. Castillo라 서로 다르므로 재귀대명사를 쓸 수 없다. himself는 Mr. Castillo forwarded the invoice to himself처럼 주어가 자기 자신에게 할 때 쓴다.
 p5-042|why	빈칸 뒤에 명사 findings가 있으므로 명사 앞 소유격 their가 정답이다.
-p5-042|t0	they는 주격이라 명사 앞에 올 수 없다.
-p5-042|t1	them은 목적격이라 명사를 꾸밀 수 없다.
-p5-042|t3	theirs는 소유대명사(그들의 것)로 뒤에 명사가 오지 않는다.
+p5-042|t0	they는 주격 대명사라 동사 앞 주어 자리에 쓴다. 빈칸은 presented의 목적어인 명사 findings 앞이라 명사를 꾸미는 소유격이 필요하고, presented they findings는 비문이다. they는 They presented the findings처럼 주어로 쓴다.
+p5-042|t1	them은 목적격이라 presented 뒤 목적어 자리처럼 보여 고르기 쉽다. 하지만 빈칸 뒤에 명사 findings가 있어 목적어는 findings이고, 목적격은 명사를 꾸밀 수 없다. them은 The interns presented them to the staff처럼 단독 목적어로 쓴다.
+p5-042|t3	theirs는 소유대명사로 '그들의 것'이라는 뜻이며 그 자체가 명사 역할을 한다. 따라서 뒤에 명사 findings를 둘 수 없다. theirs는 The best findings were theirs(가장 좋은 결과는 그들의 것이었다)처럼 명사 없이 단독으로 쓴다.
 p5-043|why	문장이 이미 완전하고, 빈칸은 '직접, 몸소'라는 강조 용법의 재귀대명사 자리다. 주어 Ms. Patel에 맞춘 herself가 정답이다.
-p5-043|t0	her는 목적어·소유격 역할인데 answered의 목적어 the phones가 이미 있다.
-p5-043|t1	hers(그녀의 것)는 '그녀의 것 전화를 받았다'로 오해할 수 있지만 the phones 뒤에 붙는 자리가 아니다.
-p5-043|t2	she는 주격이라 문장 끝에 올 수 없다.
+p5-043|t0	her는 목적격 또는 소유격이다. answered의 목적어 the phones가 이미 있어 목적격이 들어갈 자리가 없고, 소유격으로 보면 뒤에 명사가 없다. her는 answered her phone(그녀의 전화를 받았다)처럼 명사 앞에 쓰거나 called her처럼 목적어로 쓴다.
+p5-043|t1	hers는 '그녀의 것'이라는 소유대명사다. 문장 끝에 붙이면 answered the phones hers가 되어 목적어 뒤에 또 다른 명사가 놓이는 꼴이라 성립하지 않는다. hers는 The phone on the desk is hers처럼 보어나 주어 자리에 단독으로 쓴다.
+p5-043|t2	she는 주격이라 동사 앞 주어 자리에 쓴다. 주어 Ms. Patel과 동사 answered, 목적어 the phones가 모두 갖춰진 문장 끝에 주격을 덧붙일 수 없다. '직접, 몸소'라는 강조는 재귀대명사 herself로 나타낸다.
 p5-044|why	found + 목적어 + 보어(more detailed) 구조에서 목적어가 필요하다. 앞 문장과 비교 대상이 '제안서'이므로 '우리의 제안서'를 가리키는 소유대명사 ours가 정답이다.
-p5-044|t0	our는 소유격이라 뒤에 명사가 있어야 한다.
-p5-044|t1	ourselves는 주어가 we일 때만 목적어로 쓸 수 있는데 주어는 the client다.
-p5-044|t3	we는 주격이라 found의 목적어 자리에 올 수 없다.
+p5-044|t0	our는 소유격(우리의)이라 our proposal처럼 뒤에 명사가 와야 한다. 빈칸 뒤에는 보어 more detailed가 바로 이어져 our가 꾸밀 명사가 없다. 명사를 반복하면 the client found our proposal more detailed가 되고, 이를 한 단어로 줄인 것이 ours다.
+p5-044|t1	ourselves는 재귀대명사라 주어가 we일 때 목적어로 쓴다. found의 주어는 the client이므로 '고객이 우리 자신을 더 상세하다고 여겼다'가 되어 문법·의미 모두 맞지 않는다. ourselves는 We found ourselves short of time처럼 주어 we와 목적어가 같을 때 쓴다.
+p5-044|t3	we는 주격이라 found 뒤 목적어 자리에 올 수 없다. found + 목적어 + 보어(more detailed) 구조에서 목적어는 '우리 제안서'를 가리켜야 하므로 소유대명사가 필요하다. we는 We submitted a shorter proposal처럼 주어로 쓴다.
 p5-045|why	familiarize oneself with(~에 익숙해지다)는 목적어가 주어 자신이어야 하는 표현이다. 주어 New employees에 맞춘 재귀대명사 themselves가 정답이다.
-p5-045|t0	they는 주격이라 동사 familiarize의 목적어가 될 수 없다.
-p5-045|t2	their는 소유격이라 뒤에 명사가 필요하다.
-p5-045|t3	theirs는 '그들의 것'이라 자신을 익숙하게 한다는 의미가 되지 않는다.
+p5-045|t0	they는 주격이라 동사 familiarize의 목적어 자리에 올 수 없다. familiarize oneself with(~에 익숙해지다)는 목적어가 주어 자신이어야 하는 표현이라 재귀대명사가 필요하다. they는 They must learn the procedures처럼 주어로 쓴다.
+p5-045|t2	their는 소유격이라 their procedures처럼 뒤에 명사가 와야 하는데, 빈칸 뒤에는 전치사 with가 바로 이어진다. familiarize their with는 비문이며, 이 표현은 familiarize themselves with로 쓴다. their는 before their first shift처럼 명사 앞에 쓴다.
+p5-045|t3	theirs는 '그들의 것'이라는 소유대명사다. familiarize theirs with는 '그들의 것을 익숙하게 하다'가 되어 의미가 통하지 않고, 이 표현은 목적어 자리에 주어 자신을 가리키는 재귀대명사를 요구한다. theirs는 The choice is theirs(선택은 그들의 몫이다)처럼 단독으로 쓴다.
 p5-046|why	선행사가 사람(The consultant)이고, 관계절 we hired ___ 에서 hired의 목적어가 빠져 있다. 사람 목적격 관계대명사 whom이 정답이다.
-p5-046|t1	which는 사물 선행사에 쓴다.
-p5-046|t2	whose는 뒤에 명사가 바로 와야 한다(whose + 명사).
-p5-046|t3	what은 선행사를 포함한 관계대명사라 앞에 선행사 The consultant가 있으면 쓸 수 없다.
+p5-046|t1	which는 사물이나 동물 선행사에 쓰는 관계대명사다. 관계절 we hired의 목적어가 빠진 구조는 맞지만, 선행사 The consultant(컨설턴트)는 사람이라 which를 쓸 수 없다. which는 The software which we purchased처럼 사물 선행사 뒤에 쓴다.
+p5-046|t2	whose는 소유격 관계대명사라 뒤에 명사가 바로 와야 한다(whose + 명사). 빈칸 뒤에는 명사가 아니라 주어 we와 동사 hired가 이어지고, 빠진 것은 hired의 목적어다. whose는 The consultant whose report we read처럼 쓴다.
+p5-046|t3	what은 '~하는 것'이라는 뜻으로 선행사를 이미 포함한 관계대명사다. 앞에 선행사 The consultant가 있으면 쓸 수 없다. what은 What we need is a consultant(우리에게 필요한 것은 컨설턴트다)처럼 앞에 명사가 없을 때 쓴다.
 p5-047|why	빈칸 뒤에 명사 résumés가 바로 오고 '지원자들의 이력서'라는 소유 관계다. 소유격 관계대명사 whose가 정답이다.
-p5-047|t1	who 뒤에는 동사가 와야 한다(who arrive). 여기서는 명사가 바로 이어진다.
-p5-047|t2	which는 사물 선행사에 쓰고, 뒤에 명사가 바로 오는 구조에도 맞지 않는다.
-p5-047|t3	whom은 목적격이라 뒤에 '주어+동사'가 와야 하고 소유 관계를 나타내지 못한다.
+p5-047|t1	who는 사람 선행사 뒤 주격 관계대명사로, 뒤에 바로 동사가 와야 한다(who arrive late). 여기서는 빈칸 뒤에 명사 résumés가 오고 '지원자들의 이력서'라는 소유 관계라 who로는 연결되지 않는다. who는 Applicants who apply late will not be considered처럼 쓴다.
+p5-047|t2	which는 사물 선행사에 쓰는데 선행사 Applicants는 사람이다. 또 관계대명사 which는 뒤에 명사 résumés를 바로 붙여 '~의 이력서'라는 소유 관계를 나타내지 못한다. which는 The résumés which arrived late were rejected처럼 사물 선행사 뒤에 쓴다.
+p5-047|t3	whom은 목적격 관계대명사라 뒤에 '주어 + 동사'가 오고 그 동사의 목적어가 빠져 있어야 한다. 여기서는 résumés arrive가 주어와 자동사를 갖춘 완전한 절이고, 필요한 것은 소유 관계다. whom은 Applicants whom we interviewed처럼 쓴다.
 p5-048|why	관계절 the annual sales conference will be held는 주어와 수동태 동사를 갖춘 완전한 문장이다. 장소 선행사(The hotel) 뒤 완전한 절을 이끄는 관계부사 where가 정답이다.
-p5-048|t0	which 뒤에는 주어나 목적어가 빠진 불완전한 절이 와야 한다. 'in which'였다면 가능.
-p5-048|t1	what은 선행사를 포함하므로 The hotel 뒤에 올 수 없다.
-p5-048|t2	whose 뒤에는 무관사 명사가 와야 하고, 소유 관계도 성립하지 않는다.
+p5-048|t0	which는 관계절 안에서 주어나 목적어 역할을 하는 관계대명사라 뒤에 무언가가 빠진 불완전한 절이 와야 한다. the annual sales conference will be held는 주어와 수동태 동사를 갖춘 완전한 절이라 which가 들어갈 자리가 없다. 전치사를 붙인 in which였다면 where와 같은 뜻으로 가능하다.
+p5-048|t1	what은 선행사를 포함한 관계대명사라 앞에 선행사 The hotel이 있으면 쓸 수 없고, 뒤에도 불완전한 절이 와야 한다. 이 문장은 선행사가 있고 뒤 절도 완전하므로 두 조건 모두 맞지 않는다. what은 What the hotel offers is free parking처럼 선행사 없이 쓴다.
+p5-048|t2	whose는 소유격 관계대명사라 뒤에 관사 없는 명사가 바로 와야 하고 '호텔의 ~'라는 소유 관계가 성립해야 한다. 빈칸 뒤 the annual sales conference는 관사 the로 시작하고, 호텔이 회의를 소유하는 관계도 아니다. whose는 The hotel whose lobby was renovated처럼 쓴다.
 p5-049|why	explains의 목적어 자리에 선행사 없이 명사절이 와야 하고, 절 안에서 do의 목적어가 빠져 있다. '~하는 것'이라는 뜻의 what이 정답이다.
-p5-049|t0	that 명사절은 뒤에 완전한 절이 와야 하는데 do의 목적어가 빠져 있다.
-p5-049|t1	whose 뒤에는 무관사 명사가 와서 '누구의 ~'가 되어야 하는데 의미가 통하지 않는다.
-p5-049|t3	who는 사람을 묻는 말로, 뒤에 이미 주어 new staff members가 있어 'who + 주어 + should do'는 성립하지 않는다.
+p5-049|t0	that은 명사절 접속사로 쓰일 때 뒤에 완전한 절이 와야 한다(explains that staff should be polite). 이 문장은 should do의 목적어가 빠진 불완전한 절이라 that으로는 연결되지 않는다. '무엇을 해야 하는지'처럼 빠진 목적어를 채우는 말이 필요하다.
+p5-049|t1	whose는 '누구의 ~'라는 뜻으로 뒤에 관사 없는 명사가 바로 와야 한다. whose new staff members should do는 '누구의 신입 직원이 해야 하는지'가 되어 do의 목적어가 여전히 빠져 있고 의미도 통하지 않는다. whose는 explains whose approval is needed처럼 쓴다.
+p5-049|t3	who는 '누가'라는 뜻으로 절 안에서 주어나 목적어(사람) 역할을 한다. 빈칸 뒤에 이미 주어 new staff members가 있고 빠진 것은 do의 목적어(해야 할 일)라 사람을 가리키는 who와 맞지 않는다. who는 explains who should handle refunds(누가 환불을 처리해야 하는지)처럼 주어가 빠진 절에 쓴다.
 p5-050|why	콤마 뒤에 접속사 없이 새 동사 contained가 나오므로 두 절을 잇는 관계대명사가 필요하다. 사물 선행사 blueprints를 받는 '수량어 + of + which' 구조의 which가 정답이다.
-p5-050|t0	them은 대명사라 접속 기능이 없다. 'several of them'을 쓰려면 and가 필요하다.
-p5-050|t2	whom은 사람 선행사에 쓴다. 선행사 blueprints는 사물.
-p5-050|t3	that은 전치사 of 뒤나 콤마 뒤(계속적 용법)에 쓸 수 없다.
+p5-050|t0	them은 일반 대명사라 두 절을 잇는 접속 기능이 없다. several of them contained errors를 쓰면 콤마만으로 두 문장을 이은 꼴이 되어 비문이다. them을 쓰려면 and several of them contained errors처럼 접속사 and가 필요하다.
+p5-050|t2	whom은 사람 선행사에 쓰는 관계대명사다. several of whom이라는 구조 자체는 가능하지만, 선행사 blueprints(설계도)는 사물이라 which를 써야 한다. whom은 the engineers, several of whom were new처럼 사람 선행사 뒤에 쓴다.
+p5-050|t3	that은 관계대명사로 쓰일 때 전치사 바로 뒤나 콤마 뒤(계속적 용법)에 올 수 없다. 이 문장은 콤마 뒤 several of 다음 자리라 두 조건에 모두 걸린다. that은 the blueprints that contained errors처럼 콤마 없이 선행사 바로 뒤에 쓴다.
 p5-051|why	빈칸 뒤에 주어(the train)와 동사(was delayed)가 있는 절이 오므로 접속사가 필요하다. '지연됐지만 제시간에 도착했다'는 양보 관계라 Although가 정답이다.
-p5-051|t0	Despite는 전치사라 뒤에 명사(구)만 올 수 있다. 의미는 맞지만 품사가 틀린 대표 함정.
-p5-051|t2	However는 접속부사라 두 절을 하나의 문장으로 연결하지 못한다.
-p5-051|t3	Because of는 전치사이고 의미도 '때문에'라 대조 관계와 맞지 않는다.
+p5-051|t0	Despite는 '~에도 불구하고'라는 전치사라 뒤에 명사(구)만 올 수 있다. 빈칸 뒤에는 주어 the train과 동사 was delayed가 있는 절이 오므로 접속사가 필요하다. 의미는 맞지만 품사가 틀린 대표 함정이며, Despite를 쓰려면 Despite the forty-minute delay처럼 명사구로 바꿔야 한다.
+p5-051|t2	However는 '그러나'라는 접속부사라 두 절을 하나의 문장으로 연결하는 접속사 역할을 하지 못한다. However the train was delayed, most passengers arrived는 콤마만으로 두 절을 이은 꼴이 된다. However는 The train was delayed. However, most passengers arrived in time.처럼 앞 문장을 끝낸 뒤 새 문장 앞에 쓴다.
+p5-051|t3	Because of는 '~ 때문에'라는 전치사구라 뒤에 절이 올 수 없다. 의미도 '지연 때문에 제시간에 도착했다'가 되어 '지연됐지만 제시간에 도착했다'는 양보 관계와 맞지 않는다. Because of는 Because of the delay, the meeting started late처럼 원인과 결과가 이어질 때 명사구와 함께 쓴다.
 p5-052|why	빈칸 뒤가 명사구(the holiday shopping season)뿐이므로 전치사가 필요하다. '~ 동안'이라는 의미의 전치사 during이 정답이다.
-p5-052|t0	while은 '~하는 동안'이라는 뜻은 같지만 접속사라 뒤에 절이 와야 한다.
-p5-052|t1	when은 접속사로 뒤에 주어+동사가 필요하다.
-p5-052|t3	as long as(~하는 한)는 조건 접속사라 명사구만 받을 수 없다.
+p5-052|t0	while은 '~하는 동안'이라는 뜻으로 during과 의미는 같지만 접속사라 뒤에 주어와 동사가 있는 절이 와야 한다. 빈칸 뒤 the holiday shopping season은 명사구뿐이라 전치사가 필요하다. while은 while the holiday season lasts처럼 절 앞에 쓴다.
+p5-052|t1	when은 '~할 때'라는 접속사(또는 의문사)라 뒤에 주어 + 동사가 필요하다. 명사구 the holiday shopping season만으로는 when 뒤를 채울 수 없고, 기간 내내 연장 영업한다는 '~ 동안'의 의미도 when보다 during이 정확하다. when은 when the holiday season begins처럼 절 앞에 쓴다.
+p5-052|t3	as long as는 '~하는 한'이라는 조건 접속사라 뒤에 절이 와야 하고 명사구만 받을 수 없다. 또 '쇼핑 시즌이 계속되는 한'이라는 조건보다 '쇼핑 시즌 동안'이라는 기간이 문맥에 맞는다. as long as는 as long as demand remains high(수요가 높은 한)처럼 절 앞에 쓴다.
 p5-053|why	뒤에 절(the original receipt is presented)이 오므로 접속사 자리다. '영수증을 제시하지 않으면 환불하지 않는다'는 조건이라 unless(~하지 않는 한)가 정답이다.
-p5-053|t1	otherwise는 부사(그렇지 않으면)라 절과 절을 접속사처럼 연결할 수 없다.
-p5-053|t2	without은 전치사라 뒤에 절이 올 수 없다.
-p5-053|t3	in case of는 전치사구라 명사만 받는다.
+p5-053|t1	otherwise는 '그렇지 않으면'이라는 부사라 절과 절을 접속사처럼 연결할 수 없다. 의미상으로도 '영수증을 제시하지 않으면'이 아니라 '그렇지 않으면 영수증을 제시한다'처럼 앞뒤가 뒤틀린다. otherwise는 Please keep your receipt; otherwise, refunds cannot be issued.처럼 세미콜론이나 새 문장 뒤에 쓴다.
+p5-053|t2	without은 '~ 없이'라는 전치사라 뒤에 명사(구)만 올 수 있다. 빈칸 뒤에는 주어 the original receipt와 동사 is presented가 있는 절이 이어지므로 접속사가 필요하다. without은 Refunds will not be issued without the original receipt처럼 명사구와 함께 쓰면 같은 뜻이 된다.
+p5-053|t3	in case of는 '~의 경우에'라는 전치사구라 명사만 받고 절은 받을 수 없다. 의미도 '영수증을 제시하는 경우에 환불하지 않는다'가 되어 문맥과 반대가 된다. in case of는 in case of fire(화재 시에)처럼 명사와 함께 쓴다.
 p5-054|why	빈칸 뒤가 명사구(its higher price)뿐이라 전치사가 필요하다. Notwithstanding은 '~에도 불구하고'라는 뜻의 전치사로 쓸 수 있어 정답이다.
-p5-054|t0	Even though는 뜻은 맞지만 접속사라 뒤에 절이 와야 한다.
-p5-054|t1	Whereas(반면에)는 접속사라 명사구를 받을 수 없고 의미도 대조 비교다.
-p5-054|t2	Nevertheless는 접속부사로 명사구 앞에서 전치사 역할을 하지 못한다.
+p5-054|t0	Even though는 '~에도 불구하고'라는 뜻은 맞지만 접속사라 뒤에 주어와 동사가 있는 절이 와야 한다. 빈칸 뒤 its higher price는 명사구뿐이라 연결되지 않는다. Even though는 Even though its price is higher처럼 절 앞에 쓴다.
+p5-054|t1	Whereas는 '~인 반면에'라는 접속사라 명사구 its higher price를 받을 수 없다. 의미도 두 대상을 나란히 비교하는 대조라 '가격이 비싼데도 더 많이 팔렸다'는 양보 관계와 다르다. Whereas는 Whereas the standard model is cheap, the premium model is not처럼 두 절을 비교할 때 쓴다.
+p5-054|t2	Nevertheless는 '그럼에도 불구하고'라는 접속부사라 명사구 앞에서 전치사 역할을 하지 못한다. 뜻이 비슷해 고르기 쉽지만, Nevertheless its higher price처럼 쓸 수는 없다. Nevertheless는 Its price is higher. Nevertheless, it has outsold the standard version.처럼 앞 문장을 받아 새 문장 앞에 쓴다.
 p5-055|why	뒤에 절(the total cost stays …)이 이어지고, '예산 안이라면 승인하겠다'는 조건 관계다. 조건 접속사 provided that(~라면)이 정답이다.
-p5-055|t0	in spite of는 전치사라 절을 받을 수 없고, 의미도 양보라 조건 관계와 맞지 않는다.
-p5-055|t1	in addition to는 전치사구(~에 더하여)라 절이 올 수 없다.
-p5-055|t3	regardless는 부사로, regardless of(~와 상관없이) 형태로 써도 명사만 받는다.
+p5-055|t0	in spite of는 '~에도 불구하고'라는 전치사구라 뒤에 절 the total cost stays ...를 받을 수 없다. 의미도 양보라 '비용이 예산 안에 있는데도 승인하겠다'가 되어, '예산 안이라면 승인하겠다'는 조건 관계와 맞지 않는다. in spite of는 in spite of the high cost처럼 명사구와 함께 쓴다.
+p5-055|t1	in addition to는 '~에 더하여'라는 전치사구라 뒤에 명사나 동명사만 오고 절은 올 수 없다. 의미도 추가라 '비용이 예산 안에 있는 것에 더해 승인한다'가 되어 조건 관계를 나타내지 못한다. in addition to는 in addition to the travel request처럼 명사구와 함께 쓴다.
+p5-055|t3	regardless는 '개의치 않고'라는 부사다. regardless of(~와 상관없이) 형태로 써도 명사만 받으며, 의미도 '비용과 상관없이'가 되어 예산 안이라는 조건이 무의미해진다. regardless는 regardless of the cost처럼 of와 명사를 함께 쓴다.
 p5-056|why	제출은 한 번에 끝나는 동작이고 '3월 14일 금요일까지 (완료)'라는 마감 기한이므로 by가 정답이다.
-p5-056|t0	until은 '~까지 계속'이라 동작이 그때까지 이어질 때 쓴다(stay until). 제출 마감에는 by.
-p5-056|t1	since는 '~ 이후로'라 마감 기한을 나타내지 않는다.
-p5-056|t2	within은 '~ 이내에'로 기간(within three days)과 쓰며 날짜 앞에는 쓰지 않는다.
+p5-056|t0	until은 '~까지 (계속)'라는 뜻으로 그 시점까지 동작이나 상태가 이어질 때 쓴다(stay until 5 P.M.). submit(제출하다)는 한 번에 끝나는 동작이라 '금요일까지 계속 제출한다'는 어색하며, 마감 기한에는 by를 쓴다. until과 by는 우리말로 모두 '~까지'라 혼동하기 쉬운 대표 함정이다.
+p5-056|t1	since는 '~ 이후로'라는 뜻으로 과거 시점부터 지금까지를 나타내며 보통 현재완료와 함께 쓴다. must be submitted는 앞으로의 의무를 말하므로 since Friday와 시제·의미 모두 맞지 않는다. since는 We have received ten forms since Monday처럼 쓴다.
+p5-056|t2	within은 '~ 이내에'라는 뜻으로 within three days(3일 이내에)처럼 기간 앞에 쓴다. Friday, March 14는 기간이 아니라 특정 날짜라 within과 어울리지 않는다. 날짜를 마감으로 정할 때는 by를, 기간으로 정할 때는 within을 쓴다.
 p5-057|why	on behalf of는 '~을 대표하여'라는 뜻으로, 영업부 전체를 대표해 연설한다는 문맥에 맞는다.
-p5-057|t0	in spite of(~에도 불구하고)는 '영업부 전체에도 불구하고 연설한다'가 되어 의미가 통하지 않는다.
-p5-057|t2	in front는 뒤에 of가 있어야 명사를 받을 수 있다(in front of).
-p5-057|t3	instead는 부사라 뒤에 바로 명사가 올 수 없다(instead of 필요).
+p5-057|t0	in spite of는 '~에도 불구하고'라는 전치사구라 뒤에 명사구가 오는 형태는 맞다. 하지만 '영업부 전체에도 불구하고 연설할 것이다'가 되어 의미가 통하지 않는다. in spite of는 He will speak in spite of his busy schedule처럼 장애가 되는 상황과 함께 쓴다.
+p5-057|t2	in front는 '앞에'라는 부사구라 뒤에 명사를 바로 받을 수 없고, 명사를 받으려면 in front of가 되어야 한다. in front of the entire sales department라면 '영업부 전체 앞에서'라는 뜻은 되지만, 주어진 형태에는 of가 없다. in front는 Please sit in front처럼 단독으로 쓴다.
+p5-057|t3	instead는 '대신에'라는 부사라 뒤에 바로 명사를 둘 수 없고, 명사를 받으려면 instead of가 필요하다. 의미상으로도 instead of the department는 '영업부 대신'이 되어 '영업부를 대표해서'와는 다르다. instead는 He could not attend, so his manager spoke instead처럼 문장 끝에 단독으로 쓴다.

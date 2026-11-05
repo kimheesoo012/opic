@@ -101,10 +101,10 @@ c|p7.link|name	Part 7 연계
 c|p7.link|summary	한 지문의 정보(예: 주문 번호, 날짜, 할인 조건)를 다른 지문의 표·일정과 연결해야 답이 나온다. 문제에서 묻는 대상이 어느 지문에 있는지, 연결 고리가 무엇인지 먼저 정한다.
 c|p7.link|tip	한 지문의 조건과 다른 지문의 표·일정을 연결해야 답이 나온다. 연결 고리를 먼저 정한다.
 p5-001|why	빈칸은 소유격 Ms. Okafor's 바로 뒤이면서 동사 helped의 주어 자리다. 소유격 뒤에서 'of the quarterly budget'의 수식을 받는 명사 analysis(분석)가 와야 문장이 완성된다.
-p5-001|t0	analyze는 동사원형이라 소유격 뒤 주어 자리에 올 수 없다.
-p5-001|t2	analytical(분석적인)은 형용사다. 소유격 뒤에 형용사만 있고 명사가 없으면 주어가 성립하지 않는다.
-p5-001|t3	analyzed는 과거형·과거분사다. 이미 문장의 동사는 helped이고, 소유격 뒤에는 명사가 필요하다.
+p5-001|t0	analyze는 '분석하다'라는 동사원형이다. 빈칸은 소유격 Ms. Okafor's 바로 뒤이자 동사 helped의 주어 자리라 명사가 와야 하는데, 동사는 소유격 뒤에 올 수 없다. analyze는 We will analyze the data처럼 주어 뒤 동사 자리에 쓴다.
+p5-001|t2	analytical은 '분석적인'이라는 형용사로 analytical skills(분석 능력)처럼 명사 앞에서 명사를 꾸민다. 이 문장에서는 소유격 Ms. Okafor's 뒤에 꾸밈을 받을 명사가 없어 helped의 주어가 성립하지 않는다. 형용사를 넣으려면 Ms. Okafor's analytical review처럼 뒤에 명사가 필요하다.
+p5-001|t3	analyzed는 analyze의 과거형·과거분사다. 문장의 동사는 이미 helped라서 과거형 동사를 또 넣으면 동사가 겹치고, 소유격 Ms. Okafor's 뒤에는 명사가 와야 한다. analyzed는 The data was analyzed carefully(데이터가 꼼꼼히 분석되었다)처럼 동사나 수동태로 쓴다.
 p5-002|why	전치사 of 뒤는 명사 자리이고, 'proof of employment'는 '재직 증명'이라는 뜻의 자연스러운 표현이다. employment는 불가산 명사라 관사 없이 쓸 수 있다.
-p5-002|t1	employ는 동사라 전치사 of의 목적어가 될 수 없다.
-p5-002|t2	employer(고용주)도 명사지만 가산 명사여서 관사 없이 단수로 쓸 수 없고, '고용주의 증명'은 의미도 어색하다. 사람 명사 vs 행위 명사 함정.
-p5-002|t3	employed는 형용사·과거분사로, 전치사 뒤 명사 자리에 홀로 올 수 없다.
+p5-002|t1	employ는 '고용하다'라는 동사다. 전치사 of 뒤는 명사(또는 동명사) 자리라 동사원형은 올 수 없다. employ는 The firm plans to employ ten new workers처럼 동사 자리에 쓰며, '재직 증명'은 proof of employment로 표현한다.
+p5-002|t2	employer는 '고용주'라는 사람 명사로 명사 자리에는 맞지만, 가산 명사라 관사 없이 단수로 쓸 수 없다. 또 proof of employer는 '고용주의 증명'이 되어 지원자가 제출할 서류로 의미가 통하지 않는다. employer는 a previous employer(이전 고용주)처럼 관사와 함께 사람을 가리킬 때 쓴다.
+p5-002|t3	employed는 '고용된'이라는 과거분사·형용사다. 전치사 of 뒤 명사 자리에 형용사만 홀로 올 수 없어 proof of employed는 비문이다. employed는 She is currently employed by a bank(현재 은행에 고용되어 있다)처럼 be동사 뒤 보어로 쓴다.

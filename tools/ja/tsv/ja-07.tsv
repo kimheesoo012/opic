@@ -1,110 +1,110 @@
-p5-140|t2	movingは動名詞で、decideは動名詞を目的語にとらない。
-p5-140|t3	movedは過去形なので、decided movedのように動詞が重なる。decideの後ろにはto不定詞が来る。
+p5-140|t2	movingは動名詞だ。decideはto不定詞を目的語にとる動詞なので、decided movingは誤った形だ。動名詞の目的語はconsider moving（移転を検討する）のようにconsider、enjoyなどの動詞の後で使う。意味が似ているconsiderと混同して選びやすい。
+p5-140|t3	movedは過去形なので、decided movedのように過去の動詞が2つ重なる。時制がdecidedと同じに見えて選びやすいが、decideの目的語はto不定詞（decide to do）でなければならない。The company moved its headquarters（本社を移した）のように本動詞として使うなら正しい。
 p5-141|why	enjoyは動名詞を目的語にとるので（enjoy doing）、workingが正解。
-p5-141|t0	workは動詞の原形なので、enjoysの後ろには入らない。
-p5-141|t1	to work: enjoyはto不定詞を目的語にとらない。
-p5-141|t2	workedだと動詞が重なる。
+p5-141|t0	workは動詞の原形だ。動詞としては、すでに本動詞enjoysがあるのでその直後には置けない。enjoyは「〜することを楽しむ」を動名詞で表すので（enjoy doing）、-ing形が必要だ。原形workはwill work、can workのように助動詞の後で使う。
+p5-141|t1	to workはto不定詞だ。enjoyは動名詞だけを目的語にとり、to不定詞はとらないので、enjoys to workは誤った形だ。want、hope、decideのような動詞がto不定詞をとるので（want to work）、これらと混同して選びやすい。
+p5-141|t2	workedは過去形・過去分詞だ。enjoysの後に入れるとenjoys workedのように動詞が重なり、文が成り立たない。He worked with clients（顧客と仕事をした）のように本動詞として使うか、has workedのように完了形で使う。
 p5-142|why	remember to doは「（これから）〜することを覚えておく」、remember -ingは「（過去に）〜したことを覚えている」。今夜することなのでto turn off。
-p5-142|t1	remember turning offは「電気を消した覚えがある」という過去の意味なので文脈と合わない。
-p5-142|t2	turn offは動詞の原形なので、rememberの直後には入らない。
-p5-142|t3	turned offだと動詞が重なる。
+p5-142|t1	turning offは動名詞だ。remember -ingは「（過去に）〜したことを覚えている」という意味なので、remember turning offは「明かりを消した記憶がある」になる。この文はwhen you leave the office tonight（今夜退社するとき）にすることを念押ししているので、未来のことを表すremember to doが必要だ。
+p5-142|t2	turn offは動詞の原形だ。rememberの後に原形をそのまま続ける形はなく、目的語にはto不定詞か動名詞が来る。命令文Please turn off the lights（明かりを消してください）のようにrememberなしなら原形が正しいので、混同しやすい。
+p5-142|t3	turned offは過去形・過去分詞だ。remember turned offは動詞が重なる誤った形で、今夜することを述べる文とも合わない。The lights were turned off（明かりが消された）のように受動態で使うか、過去の動詞として使う。
 p5-143|why	enable + 目的語 + to do（〜が…できるようにする）の形なので、to recordが正解。
-p5-143|t0	recordは動詞の原形なので、enableの目的格補語になれない（使役動詞let・makeではない）。
-p5-143|t1	recordingはenableの目的格補語の形ではない。
-p5-143|t3	recordedは「記録された」という受動の意味で、従業員が記録する能動の関係と合わない。
+p5-143|t0	recordは動詞の原形（記録する）か名詞（記録）だ。enableはenable＋目的語＋to doの構文をとるので、enables employees recordは誤った形だ。目的語の後に原形が来るのはlet、makeのような使役動詞の場合だ（let employees record）。
+p5-143|t1	recordingは動名詞・現在分詞だ。enableの目的格補語はto不定詞なので、enables employees recordingは形が合わない。目的語＋-ingはsaw employees recording（社員が記録しているのを見た）のようにseeなどの知覚動詞の後で使う。
+p5-143|t3	recordedは過去分詞で「記録された」という受動の意味だ。社員が勤務時間を記録するという能動の関係なので合わず、enable＋目的語の後にはto不定詞が必要だ。過去分詞はthe recorded hours（記録された勤務時間）のように名詞を修飾するときに使う。
 p5-144|why	価格は「提示された（見積もられた）」側なので、受動の意味の過去分詞quotedがpriceを修飾する。
-p5-144|t0	quoteは動詞・名詞なので、冠詞と名詞の間の修飾の位置に合わない。
-p5-144|t2	quotingは「見積もりを出す」という能動なので、価格が見積もりを出すことになる。
-p5-144|t3	quotesは名詞の複数形・動詞なので形容詞の位置には入らない。
+p5-144|t0	quoteは「見積もる、引用する」という動詞か「見積もり」という名詞だ。冠詞Theと名詞priceの間はpriceを修飾する形容詞（分詞）の位置なので動詞の原形は入らず、名詞と見るとThe quote priceという不自然な名詞の並びになる。名詞としてはget a quote（見積もりをもらう）のように使う。
+p5-144|t2	quotingは現在分詞で「見積もりを出す」という能動の意味だ。priceを修飾すると「価格が見積もりを出す」となり関係が逆になる。価格は業者が提示した対象なので、受動の意味の過去分詞が必要だ。現在分詞はthe company quoting the price（価格を提示する会社）のように行為者を修飾するときに使う。
+p5-144|t3	quotesは名詞quoteの複数形（見積もり）か3人称単数の動詞だ。The quotes priceは名詞が重なる誤った形で、後にincludesという本動詞がすでにあるので動詞としても入らない。名詞としてはcompare quotes（見積もりを比較する）のように使う。
 p5-145|why	主語Employees（人）が知らせによって「わくわくした」。人が感じる感情は-ed形のexcited。
-p5-145|t0	exciteは動詞の原形なのでwereの後ろには入らない。
-p5-145|t1	excitingは「わくわくさせる」なので従業員が他人をわくわくさせることになり、後ろのbyとも合わない。
-p5-145|t3	excitementは名詞なので「従業員 = 興奮」となり不自然。
+p5-145|t0	exciteは「興奮させる」という動詞の原形だ。wereの後に原形は来ず、形容詞の補語か過去分詞が必要だ。原形はThe news will excite employees（その知らせは社員をわくわくさせるだろう）のように助動詞の後で使う。
+p5-145|t1	excitingは「わくわくさせる」という能動の意味の形容詞だ。Employees were excitingは「社員が（人を）わくわくさせた」という意味になり、後に続くby the news（知らせによって）とも合わない。感情を引き起こす物事について言うときにThe news was excitingのように使う。
+p5-145|t3	excitementは「興奮、高揚」という名詞だ。wereの補語にすると「社員＝興奮」となり不自然で、後のby the newsともつながらない。名詞としてはa lot of excitement about the expansion（拡大への大きな期待）のように使う。
 p5-146|why	Ordersを後ろから修飾する分詞の位置。注文は「受け付けられる」側なので過去分詞received。述語動詞はwill be shipped。
-p5-146|t0	receivingは能動なので、注文が何かを受け取るという意味になる。
-p5-146|t2	receiveは動詞の原形なので、述語動詞が重なる。
-p5-146|t3	receivesも動詞なので、will be shippedと述語動詞が2つになる。
+p5-146|t0	receivingは現在分詞で「受け取る」という能動の意味だ。Orders receiving after 3 P.M.は「注文が（何かを）受け取る」という意味になり関係が逆になる。注文は会社が受け付ける対象なので過去分詞を使う。現在分詞はstaff receiving orders（注文を受けるスタッフ）のように行為者を修飾するときに使う。
+p5-146|t2	receiveは動詞の原形だ。この文の本動詞はwill be shippedなので、空所に動詞を入れると1つの文に動詞が2つになる。空所はOrdersを後ろから修飾する分詞の位置だ。動詞としてはWe receive orders online（オンラインで注文を受ける）のように本動詞で使う。
+p5-146|t3	receivesは3人称単数の動詞だ。本動詞will be shippedがすでにあるので動詞が2つになり、複数の主語Ordersとも数が合わない。The office receives many orders（事務所は多くの注文を受ける）のように単数主語の本動詞として使う。
 p5-147|why	分詞構文の主語は主節のMr. Itoで、彼が説明書に「従った」能動の関係。後ろに目的語the instructionsもあるので、現在分詞Following。
-p5-147|t1	Followedは受動なので、Mr. Itoが説明書に従われたという意味になり、目的語もとれない。
-p5-147|t2	Followsは動詞なので、接続詞なしで2つの節がつながってしまう。
-p5-147|t3	Followerは名詞なので文の形が成り立たない。
+p5-147|t1	Followedは過去分詞で受動の意味だ。分詞構文の意味上の主語は主節のMr. Itoだが、受動だと「Ito氏が（誰かに）従われた」となり不自然で、後の目的語the instructionsもとれない。過去分詞の構文はFollowed by a short break（その後に短い休憩があり）のように後にbyが来るときに使う。
+p5-147|t2	Followsは3人称単数の動詞だ。Follows the instructions carefully, Mr. Ito assembled 〜とすると、主語のない動詞と主節の動詞が接続詞なしで並び、文が成り立たない。He follows the instructionsのように主語のある節の本動詞として使う。
+p5-147|t3	Followerは「信奉者、フォロワー」という名詞だ。名詞を入れると後の目的語the instructionsとcarefullyをつなぐ動詞がなくなり、文の構造が崩れる。名詞としてはa follower of the brand（ブランドのフォロワー）のように使う。
 p5-148|why	空所の後ろの名詞lawyerを修飾する所有格herが必要。主語Ms. Garciaを受けて「自分の弁護士」という意味になる。
-p5-148|t0	sheは主格なので名詞の前には入らない。
-p5-148|t1	hersは所有代名詞なので後ろに名詞は来ない。
-p5-148|t2	herselfは再帰代名詞なので名詞を修飾できない。
+p5-148|t0	sheは主格の代名詞なので、文の主語の位置で使う。空所は前置詞toの後、名詞lawyerの前なので名詞を修飾する所有格が必要で、she lawyerは誤った形だ。She sent the contract（彼女が契約書を送った）のように主語として使う。
+p5-148|t1	hersは「彼女のもの」という所有代名詞で、「所有格＋名詞」を1語で表す。後に名詞lawyerがすでにあるので、hers lawyerは誤った形だ。所有代名詞はThe pen is hers（そのペンは彼女のものだ）のように名詞なしで使う。
+p5-148|t2	herselfは再帰代名詞で、主語自身を指す目的語や強調に使い、名詞を修飾できない。主語Ms. Garciaと同じ人物なので選びやすいが、ここでは「自分の弁護士」という所有の関係が必要だ。再帰代名詞はShe reviewed it herself（自分で確認した）のように使う。
 p5-149|why	soの後ろの節の主語の位置なので、主格theyが正解。前の節のThe clientsを受けて「だから彼らはすぐに契約書に署名した」という意味。
-p5-149|t0	themは目的格なので主語になれない。
-p5-149|t1	theirは所有格なので後ろに名詞が必要。
-p5-149|t2	themselvesは主語の位置には使わない。
+p5-149|t0	themは目的格の代名詞なので、動詞や前置詞の目的語として使う。空所はsoの後の節でsignedの主語の位置なので、目的格は入らない。目的格はWe thanked them（私たちは彼らに感謝した）のように目的語として使う。
+p5-149|t1	theirは所有格なので後に名詞が必要だ（their contract）。空所の直後が動詞signedなので所有格は入らず、signedの主語がなくなる。前の節のThe clientsを受ける語なので所有格につられやすいが、必要なのは主語だ。
+p5-149|t2	themselvesは再帰代名詞で、動詞・前置詞の目的語や強調に使う。文の主語の位置には使えないので、so themselves signedは誤った形だ。強調ならthey signed it themselves（彼ら自身が署名した）のように主語theyを置いて後ろに付ける。
 p5-150|why	by oneselfは「自分たちだけで、自力で」という意味。主語The staff membersと同じものなのでthemselves。
-p5-150|t0	theyは主格なので前置詞の後ろには入らない。
-p5-150|t2	by themは「彼ら（ほかの人たち）によって」という意味になり、主語とは別の人を指す。
-p5-150|t3	theirは所有格なので後ろに名詞が必要。
+p5-150|t0	theyは主格の代名詞なので、文の主語の位置で使う。前置詞byの後には目的格か再帰代名詞が来るので、by theyは誤った形だ。主格はThey organized the party（彼らがパーティーを準備した）のように主語として使う。
+p5-150|t2	themは目的格なので前置詞の後に置くことはできる。しかしby themは「彼ら（ほかの人たち）によって」という意味になり、主語The staff membersとは別の人を指す。社員が自分たちで準備したという意味はby themselvesで表す。by themはThe party was organized by themのように受動態の行為者を言うときに使う。
+p5-150|t3	theirは所有格なので後に名詞が必要だ（by their own effort）。空所の後に名詞がなく文が終わるので、by theirは不完全だ。「自分たちだけで、自力で」という意味はby themselvesまたはon their ownで表す。
 p5-151|why	比べる対象は「昨年の同じ期間の販売数値」。前の複数名詞figuresの代わりになる代名詞はthose。
-p5-151|t0	thatは単数名詞の代わりになる。figuresは複数なので合わない。
-p5-151|t1	themは目的格なので、thanの後ろで修飾語for 〜を伴って名詞の代わりにはなれない。
-p5-151|t3	itは単数で、修飾語に修飾される代名詞としては使わない。
+p5-151|t0	thatは前に出た単数名詞（または不可算名詞）の代わりをする代名詞だ。比較の対象は複数名詞The sales figuresなので数が合わない。thatはThe price this year is higher than that of last yearのように単数名詞を受けるときに使う。
+p5-151|t1	themは目的格の代名詞で、thanの後でfor the same period last yearという修飾語を伴って前の名詞の代わりをする用法はない。修飾語を伴って前の名詞の繰り返しを避けるときはthatかthoseを使う。themはWe checked them（それらを確認した）のように目的語として使う。
+p5-151|t3	itは単数の代名詞なので複数のfiguresを受けられず、後に修飾語（for the same period）を伴って前の名詞の代わりをする用法もない。itはThe report is ready, so please read itのように、前に出た特定のものをそのまま指すときに使う。
 p5-152|why	先行詞が人で、関係詞節の主語が抜けている（___ won）。主格の関係代名詞who。
-p5-152|t1	whichは先行詞が物のときに使う。
-p5-152|t2	whoseの後ろには名詞が来る必要がある。
-p5-152|t3	whomは目的格なので主語の位置には使えない。
+p5-152|t1	whichは物や動物の先行詞に使う関係代名詞だ。先行詞The employeeは人で、賞を受けた（won）主体なので、人に使う主格の関係代名詞が必要だ。whichはthe award which he won（彼が受けた賞）のように物の先行詞に使う。
+p5-152|t2	whoseは所有格の関係代名詞なので、直後に名詞が必要だ（the employee whose team won、チームが受賞した社員）。空所の後が動詞wonなので、whoseは入らない。関係節に主語が欠けているので主格が必要だ。
+p5-152|t3	whomは目的格の関係代名詞なので、関係節の目的語が欠けた位置に使う（the employee whom we hired）。この文は___ wonで主語が欠けているので、目的格は合わない。主語の位置は主格のwhoが埋める。
 p5-153|why	先行詞が物（printer）で、関係詞節we bought ___ では目的語が抜けている。whichが正解。
-p5-153|t0	whoは先行詞が人のときに使う。
-p5-153|t1	whoseの後ろにはすぐ名詞が来る必要がある。
-p5-153|t3	whatは先行詞を含むので、The printerの後ろには使えない。
+p5-153|t0	whoは人の先行詞に使う関係代名詞だ。先行詞The printerは物なので合わない。関係節we bought ___で目的語が欠けている構造は同じだが、物にはwhoを使わない。whoはthe technician who visited us（私たちを訪ねた技術者）のように人の先行詞の後で使う。
+p5-153|t1	whoseは所有格の関係代名詞なので、直後に名詞が必要だ（the printer whose cover is broken、カバーが壊れたプリンター）。空所の後が主語weで始まる節なので、whoseが修飾する名詞がない。関係節で欠けているのはboughtの目的語なので、目的格の働きをする関係代名詞が必要だ。
+p5-153|t3	whatは先行詞を含む関係代名詞で「〜すること・もの」を表す。すでに先行詞The printerが前にあるので、The printer what we boughtは先行詞が二重になる。whatはWhat we bought last month（先月買ったもの）のように先行詞なしで使う。
 p5-154|why	関係詞節our kitchen appliances are assembledは完全な受動態の文。場所の先行詞の後ろで完全な節には関係副詞where。
-p5-154|t0	whichの後ろには不完全な節が来る。in whichなら可能。
-p5-154|t1	whatは先行詞がないときに使う。
-p5-154|t2	whoは先行詞が人のときに使う。
+p5-154|t0	whichは関係節の中で主語や目的語の働きをするので、後にはその要素が欠けた不完全な節が来る。our kitchen appliances are assembledは主語と動詞がそろった完全な受動態の節なので、whichの入る場所がない。前置詞を付けたin whichならwhereと同じ意味で使える。
+p5-154|t1	whatは先行詞を含む関係代名詞（〜すること・もの）なので、前に先行詞があると使えない。すでにthe factoryという先行詞があり、後の節も欠けた要素のない完全な節だ。whatはThis is what we make（これが私たちの作っているものだ）のように先行詞なしで使う。
+p5-154|t2	whoは人の先行詞に使う関係代名詞だ。先行詞the factoryは場所で、後の節も主語が欠けていない完全な節なので、whoは入らない。whoはthe workers who assemble our appliances（家電を組み立てる従業員）のように人の先行詞の後で使う。
 p5-155|why	前置詞toの目的語になる名詞節が必要で、節の中ではisの主語が抜けている。先行詞なしで「〜する人は誰でも」を表す主格whoever。
-p5-155|t1	whomeverは目的格なので、isの主語の位置を埋められない。前置詞toの後ろなので目的格を選びやすいひっかけ。
-p5-155|t2	whoは先行詞が必要な関係代名詞か疑問詞として使われる。この位置には先行詞がない。
-p5-155|t3	whomも目的格なので主語の位置に合わない。
+p5-155|t1	whomeverは「〜する人は誰でも」の目的格だ。前置詞toの後なので目的格を選びやすいが、複合関係代名詞の格は節の中での働きで決まる。空所の後のis in charge ofの主語が欠けているので主格が必要だ。whomeverはYou may invite whomever you likeのように節の中で目的語のときに使う。
+p5-155|t2	whoは関係代名詞として使うには前に先行詞が必要だ（the person who 〜）。toの直後に先行詞がないので、「〜する人は誰でも」という名詞節を作れない。to the person who is in chargeのように先行詞を入れれば似た意味になる。
+p5-155|t3	whomは目的格なのでis in charge ofの主語の位置を埋められず、前に先行詞もない。toの後なので目的格につられやすいが、欠けているのは主語だ。whomはthe person to whom you spoke（あなたが話した人）のように先行詞があり目的語が欠けているときに使う。
 p5-156|why	空所の後ろは名詞句（a power outage）で、「停電のために」という理由。前置詞because of。
-p5-156|t0	becauseは接続詞なので、後ろに節が必要。
-p5-156|t2	althoughは接続詞で、意味も譲歩。
-p5-156|t3	despiteは前置詞だが「〜にもかかわらず」なので、理由の関係と合わない。
+p5-156|t0	becauseは「〜なので」という接続詞なので、後に主語と動詞のある節が必要だ。空所の後のa power outage（停電）は動詞のない名詞句なので、接続詞はとれない。意味は合うので選びやすいわなだ。becauseはbecause the power went outのように節をとるときに使う。
+p5-156|t2	althoughは「〜だけれども」という譲歩の接続詞だ。後に節ではなく名詞句a power outageが来るので構造が合わず、停電は閉店の理由なので「〜だけれども」という意味もおかしい。althoughはAlthough it rained, the event was heldのように節をとって反対の内容をつなぐときに使う。
+p5-156|t3	despiteは前置詞なので名詞句a power outageをとることはできる。しかし意味が「〜にもかかわらず」なので「停電にもかかわらず2時間閉店した」となり、理由の関係と合わない。despiteはdespite the rain（雨にもかかわらず）のように予想と反対の結果を言うときに使う。
 p5-157|why	後ろに節（your name is called）が来て、「名前が呼ばれるまで」待つという意味。接続詞until。
-p5-157|t0	duringは前置詞なので節を受けられない。
-p5-157|t1	byは接続詞として使われない（by the timeは可能）。
-p5-157|t2	withinは「〜以内に」という前置詞なので節を受けられない。
+p5-157|t0	duringは「〜の間」という前置詞なので、後には名詞（句）だけが来る（during the meeting）。空所の後のyour name is calledは主語と動詞のある節なので、前置詞はとれない。意味の面でも「待つ動作がいつ終わるか」を表せない。
+p5-157|t1	byは「〜までに（完了）」という前置詞でby noonのように名詞をとり、単独では接続詞として使わない。節をとるにはby the timeが必要で、それでも「〜するまでに終えよ」という完了の期限の意味なので「ずっと待て」とは合わない。継続する動作の終点はuntilで表す。
+p5-157|t2	withinは「〜以内に」という前置詞なので、within ten minutesのように名詞（句）をとる。空所の後が節（your name is called）なので構造が合わず、待つ動作がいつ終わるかも表せない。期間内に終えることを言うときにwithinを使う。
 p5-158|why	後ろに節が来て、「天気が悪かったが予定どおり開かれた」という譲歩の関係。Even though。
-p5-158|t1	In spite ofは前置詞なので節を受けられない。
-p5-158|t2	Becauseは理由なので「天気が悪かったから予定どおり開かれた」となり不自然。
-p5-158|t3	Unless（〜しない限り）は条件なので意味が合わない。
+p5-158|t1	In spite ofは「〜にもかかわらず」という前置詞句なので意味は合うが、後には名詞（句）しかとらない。空所の後のthe weather was poorは主語と動詞のある節なので使えない。In spite of the poor weatherのように名詞句にすれば使える。
+p5-158|t2	Becauseは理由を表す接続詞なので節をとることはできる。しかし「天気が悪かったので野外コンサートが予定どおり開かれた」となり、原因と結果が合わない。悪天候と予定どおりの開催は逆の方向なので譲歩が必要だ。Because the weather was poor, the concert was canceledのように使う。
+p5-158|t3	Unlessは「〜しない限り」という条件の接続詞だ。「天気が悪くなければ予定どおり開かれた」は、すでに起きた過去の事実（was held）に条件を付ける形になり不自然だ。Unless it rains, the concert will be held（雨が降らなければ開かれる）のようにこれからの条件に使う。
 p5-159|why	後ろに主語（the speaker's flight）と動詞（had been canceled）のある節が来て、延期の理由を表す。接続詞because。
-p5-159|t0	due toは意味は合うが前置詞なので節を受けられない。
-p5-159|t2	owingはowing toの形でなければならず、その場合も名詞しか受けない。
-p5-159|t3	althoughは譲歩なので理由の関係と合わない。
+p5-159|t0	due toは「〜のために」という意味は合うが、前置詞なので後に名詞（句）が必要だ。空所の後のthe speaker's flight had been canceledは主語と動詞のある節なので、とれない。due toはdue to the flight cancellation（便の欠航のため）のように名詞句をとるときに使う。
+p5-159|t2	owingは単独では接続詞や前置詞として使わず、owing to（〜のために）の形にする必要がある。owing toも前置詞なので名詞句しかとらず、後の節とつながらない。owing to bad weather（悪天候のため）のように使う。
+p5-159|t3	althoughは「〜だけれども」という譲歩の接続詞なので節をとることはできる。しかし「講演者の便が欠航したけれどもセミナーが延期された」となり不自然だ。欠航は延期の原因なので理由の接続詞が必要だ。althoughはalthough the flight was delayed, the seminar started on timeのように予想と反対のときに使う。
 p5-160|why	from A to Bは「〜から…まで」という範囲の表現。午前9時から午後6時まで開いているという意味で、後ろのtoと組になるのはfrom。
-p5-160|t0	atは1つの時点（at 9 A.M.）に使い、toとは組にならない。
-p5-160|t1	inは時刻の前には使わない。
-p5-160|t3	onは曜日・日付の前に使う。
+p5-160|t0	atはat 9 A.M.のように1つの時点を表す前置詞だ。後にto 6 P.M.があり「9時から6時まで」という範囲を表す必要があるが、atはtoと対にならない。atはThe museum opens at 9 A.M.（9時に開館する）のように開始時刻だけを言うときに使う。
+p5-160|t1	inはin the morning、in Julyのように午前・午後や月・年の前に使い、9 A.M.のような正確な時刻の前には使わない。また後のtoと範囲を作る組み合わせでもない。始まりと終わりの範囲はfrom A to Bで表す。
+p5-160|t3	onはon Monday、on May 5のように曜日・日付の前に使う前置詞だ。9 A.M.のような時刻の前には使わず、toと対になって範囲を作ることもできない。毎日の開館時間帯はfrom 9 A.M. to 6 P.M.のように表す。
 p5-161|why	曜日の入った時（Friday afternoon）の前にはonを使う。曜日・日付にはon、月・年や単独のafternoonにはin、時刻にはatを使うという規則。
-p5-161|t1	inはthe afternoonのように曜日のない1日の時間帯や、月・年の前に使う。
-p5-161|t2	atは時刻（at 3 P.M.）の前に使う。
-p5-161|t3	toは方向を表し、時は表さない。
+p5-161|t1	inはin the afternoonのように曜日なしで1日のうちの時間帯を言うときや、in May、in 2025のように月・年の前に使う。ここではFriday afternoonのように曜日が付いて特定の日の時間帯になっているのでonを使う。afternoonだけを見てinを選びやすいわなだ。
+p5-161|t2	atはat 3 P.M.、at noonのように時刻や1つの時点の前に使う。Friday afternoonは曜日の入った特定の日の時間帯なので、atではなくonを使う。会議の時刻まで言うならat 2 P.M. on Fridayのようにatとonを一緒に使える。
+p5-161|t3	toは「〜へ、〜まで」という方向や到達点を表す前置詞で、行事が開かれる時を表さない。be held to Friday afternoonは成り立たない。toはfrom Monday to Friday（月曜から金曜まで）のように範囲の終わりを言うときに使う。
 p5-162|why	more than ten yearsは数字で表した期間。期間の前にはforを使う。
-p5-162|t0	sinceの後ろには始まりの時点（since 2015）が来る。
-p5-162|t1	duringの後ろには出来事・特定の期間（during the meeting）が来る。
-p5-162|t2	whileは接続詞なので名詞句を受けられない。
+p5-162|t0	sinceは「〜以来」という意味で、後には期間ではなく始まりの時点が来る（since 2015、since last year）。more than ten years（10年以上）は長さを表す期間なのでsinceと合わない。現在完了has workedを見てsinceを選びやすいわなだ。
+p5-162|t1	duringは「〜の間」という前置詞だが、during the meeting、during the summerのように出来事や特定の期間の名前が後に来る。more than ten yearsのように数字で表した期間の長さの前にはforを使う。how long（どのくらいの間）に対する答えがforだ。
+p5-162|t2	whileは「〜している間」という接続詞なので、後に主語と動詞のある節が来る（while he was in Seoul）。空所の後のmore than ten yearsは名詞句なので接続詞はとれない。意味がduringと似ているので混同しやすい。
 p5-163|why	in the absence of（〜がない状況で）は決まった前置詞の表現。部長の不在中にKimさんが会議の議長を務めたという意味。
-p5-163|t0	on the absence ofという表現は使わない。
-p5-163|t1	at the absence ofという表現はない。
-p5-163|t3	by the absence ofは「不在によって」と手段のように読めて文脈と合わず、慣用表現でもない。
+p5-163|t0	Onはon Friday、on the tableのように日付や表面を表す前置詞だ。absenceと組み合わせたon the absence ofという表現は使わない。「〜がいない状況で」はin the absence ofという決まった表現だ。on behalf of（〜の代わりに）と混同して選びやすい。
+p5-163|t1	Atはat noon、at the officeのように1つの時点や地点を表す前置詞だ。at the absence ofという表現はなく、absenceはinと組み合わせてin the absence of（〜がいないときに）として使う。at the request of（〜の依頼で）のような別の慣用表現と混同しやすい。
+p5-163|t3	Byは「〜によって、〜で」という行為者・手段の前置詞だ。by the absence ofは「不在によって」という不自然な意味になり、慣用表現でもない。部長がいない間にKim氏が会議の議長を務めたという状況なので、in the absence ofが必要だ。byはby means of（〜を使って）のように手段を言うときに使う。
 p5-164|why	主節がwould + 動詞の原形なので、現在の事実の反対を仮定する仮定法過去。be動詞は主語に関係なくwere。
-p5-164|t0	amはふつうの条件文の形なので、主節のwouldと合わない。
-p5-164|t2	if節にはwillを使わない。
-p5-164|t3	hadは後ろに過去分詞が必要で、in your positionとは組み合わない。
+p5-164|t0	amは現在形で、If I am 〜は実際に起こり得る条件を表す。しかし主節がwould accept（would＋原形）で、「私があなたの立場なら」は現在の事実に反する仮定なので仮定法過去が必要だ。amはIf I am late, I will call youのように主節がwillのときに使う。
+p5-164|t2	will beは未来形だ。if節では未来のことでもwillを使わず、主節のwould acceptと対になるのは仮定法過去のbe動詞wereだ。willはIf I am free, I will goのように主節で使う。
+p5-164|t3	hadはhad＋過去分詞（仮定法過去完了）か「持っていた」という動詞だ。had in your positionは過去分詞も目的語もないので成り立たない。仮定法過去完了ならIf I had been in your position, I would have acceptedのように主節もwould have＋過去分詞にする必要がある。
 p5-165|why	if節がhad left（仮定法過去完了）なので、主節はwould have + p.p.になる。
-p5-165|t0	would catchは仮定法過去の主節の形。
-p5-165|t1	will catchはふつうの未来の条件文の形。
-p5-165|t2	caughtは単純過去なので、仮定の結果を表せない。
+p5-165|t0	would catchは仮定法過去の主節の形で、現在の事実の反対を表す。if節がhad left（仮定法過去完了）なので「あのとき早く出ていたら終電に乗れただろう」という過去の事実の反対であり、主節もwould have＋過去分詞が必要だ。would catchはIf we left now, we would catch the trainのようにif節が過去形のときに使う。
+p5-165|t1	will catchは実際に起こり得る未来の条件文の主節の形だ（If we leave now, we will catch the train）。if節のhad leftは過去の事実に反する仮定なので、willとは組み合わない。終電はすでに逃した状況だ。
+p5-165|t2	caughtは単純過去形なので「終電に乗った」という実際の事実になる。しかしif節のhad leftは実際には早く出なかったという仮定なので、結果も「乗れただろう」という仮定でなければならない。単純過去はWe left early and caught the trainのように実際に起きたことに使う。
 p5-166|why	If it had not been for（〜がなかったら）のIfを省略するとHad it not been forになる。主節もwould have closed。
-p5-166|t0	Were it not forは可能だが、後ろにbeenは来ない。
-p5-166|t1	Shouldの後ろには動詞の原形が来る必要がある。
-p5-166|t3	Ifを使うならIf it had not beenとなり、If it not beenは誤った形。
+p5-166|t0	Were it not for 〜（〜がなければ）はIf it were not forからIfを省略した仮定法過去の倒置形で、実際に使われる。しかし空所の後にbeenがあり、Were it not been forとなると成り立たない。主節would have closedも過去のことなので、had beenを使う仮定法過去完了が必要だ。
+p5-166|t1	Shouldを文頭に置く倒置はIf 〜 should（万一〜なら）からIfを省略したもので、後に動詞の原形が来る（Should you need help, 〜）。空所の後のit not beenは過去分詞beenなので、Shouldとは結びつかない。過去の事実の反対なのでHadが必要だ。
+p5-166|t3	Ifを使うならIf it had not been for 〜としなければならず、hadのないIf it not been forは動詞のない誤った形だ。空所の後にhadがないことこそ、Ifが省略されてHadが前に出た倒置構造だという手がかりだ。
 p5-167|why	request, require, recommendの後ろのthat節には（should +）動詞の原形を使う。予算は提出「される」側なのでbe submitted。
-p5-167|t1	is submittedは数を一致させた現在形。要求の動詞の後ろのthat節では原形を使う。
-p5-167|t2	was submittedは過去なので、これからすることと合わない。
-p5-167|t3	submitsは能動態なので、予算が提出する主体になる。
+p5-167|t1	is submittedは主語the revised budgetに数を合わせた現在の受動態だ。request、require、recommendのように要求・提案を表す動詞の後のthat節には（should）＋原形を使うので、isではなくbeが来る。主語が単数なのでisにつられやすいわなだ。
+p5-167|t2	was submittedは過去の受動態だ。主節のrequestedが過去なので時制をそろえて選びやすいが、要求動詞の後のthat節には時制に関係なく（should）＋原形を使う。しかもby noon on Thursday（木曜の正午までに）は依頼した時点から見てこれからすることだ。
+p5-167|t3	submitsは能動態の3人称単数現在形だ。予算が提出する主体になって意味が合わず、目的語もなく、要求動詞の後のthat節では原形を使うという規則にも反する。予算は提出される対象なので、受動の原形be submittedが必要だ。
