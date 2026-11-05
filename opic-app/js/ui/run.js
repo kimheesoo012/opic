@@ -3,7 +3,7 @@
    #/run?ids=…&mode=practice|daily */
 (function (root) {
   'use strict';
-  const { util, bank, picker, store, ui, C } = root.OPIC;
+  const { util, bank, picker, store, ui, C, ai } = root.OPIC;
   const esc = util.escapeHtml;
 
   root.OPIC.screens.practice = {
@@ -64,9 +64,11 @@
             const a = rec.audioStats || {};
             ui.$('#after', el).innerHTML = `<div class="card saved"><p><b>저장했습니다</b> · ${util.fmtDur(rec.durationSec)} · 말한 비율 ${Math.round((a.speechRatio || 0) * 100)}%</p>
               ${C.playerHtml(rec)}
+              <div class="ai-box" data-rec="${esc(rec.id)}"></div>
               <div class="row"><button class="btn primary" id="nextQ">${i + 1 < ids.length ? '다음 문제 ›' : '결과 보기'}</button><button class="btn" id="redo">다시 녹음</button></div>
-              <p class="muted small">받아쓰기 수정·AI 첨삭·재답변은 결과 화면의 「첨삭 흐름」에서 이어서 할 수 있어요.</p></div>`;
+              <p class="muted small">${ai.enabled() ? 'AI 첨삭은 다음 문제를 푸는 동안 계속 진행됩니다.' : '받아쓰기 수정·AI 첨삭·재답변은 결과 화면의 「첨삭 흐름」에서 이어서 할 수 있어요.'}</p></div>`;
             C.mountPlayers(ui.$('#after', el));
+            C.mountAiBox(ui.$('#after .ai-box', el), rec);
             ui.$('#nextQ', el).onclick = () => { i++; if (i < ids.length) show(); else finish(); };
             ui.$('#redo', el).onclick = () => { ui.$('#after', el).innerHTML = ''; panel.start(); };
             ui.$('#after', el).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -93,7 +95,8 @@
     const total = sesRecs.reduce((a, r) => a + (r.durationSec || 0), 0);
     el.innerHTML = `<section class="card"><h2>${session.mode === 'exam' ? '모의고사 결과' : '연습 결과'}</h2>
       <p class="muted">${util.fmtDate(session.startedAt)} · 답변 ${sesRecs.length}개 · 총 ${util.fmtDur(total)}${session.summary ? ' · ' + esc(session.summary) : ''}</p>
-      <p class="small">각 문제의 「첨삭 흐름」에서 받아쓰기 확인 → AI 첨삭용 복사 → 개선 답변 저장 → 다시 녹음 → 비교를 이어서 하세요.</p></section>
+      <p class="small">각 문제의 「첨삭 흐름」에서 받아쓰기 확인 → AI 첨삭 → 다시 녹음 → 비교를 이어서 하세요.</p>
+      ${ai.enabled() && sesRecs.some(r => !r.aiFeedback) ? `<button class="btn primary block" id="aiAll">답변 ${sesRecs.filter(r => !r.aiFeedback).length}개 모두 AI 첨삭 받기</button><p class="muted small">하나씩 차례로 보냅니다 (무료 한도 보호).</p>` : ''}</section>
       ${session.questions.map((qid, n) => {
         const q = bank.byId[qid]; if (!q) return '';
         const its = sesRecs.filter(r => r.questionId === qid);
@@ -102,11 +105,14 @@
           <div class="card-head"><b>Q${n + 1}</b><span class="chips"><span class="chip type">${esc(bank.TYPE_LABELS[q.type])}</span><span class="chip">${esc(bank.topicById[q.topic].label)}</span></span>
             <button class="star ${s && s.review ? 'on' : ''}" data-q="${esc(qid)}" aria-label="복습 지정">★</button></div>
           <details><summary>문제 보기</summary><p class="qtext small" lang="en">${esc(q.text)}</p></details>
-          ${its.length ? its.map(r => `${C.playerHtml(r)}<p class="tr small" lang="en">${r.transcript ? esc(r.transcript) : '<span class="muted">받아쓴 글 없음</span>'}</p>`).join('') : '<p class="muted">답변 없음</p>'}
+          ${its.length ? its.map(r => `${C.playerHtml(r)}<p class="tr small" lang="en">${r.transcript ? esc(r.transcript) : '<span class="muted">받아쓴 글 없음</span>'}</p><div class="ai-box" data-rec="${esc(r.id)}"></div>`).join('') : '<p class="muted">답변 없음</p>'}
           <a class="btn primary block" href="#/q/${encodeURIComponent(qid)}${its.length ? '?rec=' + its[its.length - 1].id : ''}">첨삭 흐름 이어 가기 ›</a></section>`;
       }).join('')}
       <div class="row center"><a class="btn" href="#/">홈</a><a class="btn" href="#/practice">다른 연습</a></div>`;
     C.mountPlayers(el);
+    ui.$$('.ai-box', el).forEach(b => { const r = store.S.recs.find(x => x.id === b.dataset.rec); if (r) C.mountAiBox(b, r); });
+    const all = ui.$('#aiAll', el);
+    if (all) all.onclick = () => { all.disabled = true; all.textContent = '첨삭 요청 중… (화면을 떠나도 계속됩니다)'; sesRecs.filter(r => !r.aiFeedback).forEach(r => ai.review(r.id)); };
     ui.$$('.star', el).forEach(b => b.onclick = async () => {
       const s = store.q(b.dataset.q); s.review = !s.review; await store.saveQ(s);
       b.classList.toggle('on', s.review);

@@ -3,7 +3,7 @@
    → ⑤ 다시 답변(이번에 써 볼 표현) → ⑥ 나란히 비교 → ⑦ 3일·7일 뒤 재도전 */
 (function (root) {
   'use strict';
-  const { util, bank, drills, analysis, prompt, picker, store, ui, C } = root.OPIC;
+  const { util, bank, drills, analysis, prompt, picker, store, ui, C, ai } = root.OPIC;
   const esc = util.escapeHtml;
 
   /* 캘린더 알림 파일(.ics): 서버 없이 휴대폰 캘린더에 재도전 알림을 넣는 방법 */
@@ -45,7 +45,7 @@
         return [
           !!first,
           !!(first && first.transcript),
-          !!s.copiedAt,
+          !!s.copiedAt || list.some(r => r.aiFeedback),
           !!(s.feedback && (s.feedback.improved || (s.feedback.expressions || []).length)),
           list.some(r => r.kind === 'after' || r.kind === 'later'),
           !!s.comparedAt,
@@ -58,7 +58,7 @@
         const list = recs();
         if (!selId || !list.find(r => r.id === selId)) selId = list.length ? list[list.length - 1].id : null;
         const steps = stepState();
-        const labels = ['첫 답변', '받아쓰기', '첨삭 복사', '첨삭 저장', '다시 답변', '비교', '재도전'];
+        const labels = ['첫 답변', '받아쓰기', '첨삭 요청', '첨삭 저장', '다시 답변', '비교', '재도전'];
         const fb = s.feedback;
         const groups = Object.keys(picker.KIND_LABELS).map(k => ({ k, items: list.filter(r => r.kind === k) }));
         const retries = s.retries || [];
@@ -81,7 +81,7 @@
               <div class="row"><button class="btn small" id="speakImp">▶ 개선 답변 듣기</button><button class="btn small" id="toScript">스크립트로 저장</button></div>` : ''}
             ${fb.memo ? `<details><summary>첨삭 메모</summary><p class="small">${esc(fb.memo).replace(/\n/g, '<br>')}</p></details>` : ''}
             <button class="btn small" id="editFb">수정</button>`
-          : `<p class="muted small">AI에게 받은 첨삭에서 「다음 녹음에서 꼭 써 볼 표현」과 「개선 답변」을 붙여 넣으세요. 저장하면 3일·7일 뒤 재도전이 예약됩니다.</p>
+          : `${ai.enabled() ? '<p class="small">AI 첨삭이 켜져 있어 녹음하면 이 칸이 자동으로 채워집니다. 다른 AI에서 받은 첨삭을 직접 넣을 때만 쓰세요.</p>' : ''}<p class="muted small">AI에게 받은 첨삭에서 「다음 녹음에서 꼭 써 볼 표현」과 「개선 답변」을 붙여 넣으세요. 저장하면 3일·7일 뒤 재도전이 예약됩니다.</p>
             <label class="lbl">다음에 써 볼 표현 <span class="muted small">(한 줄에 하나)</span></label>
             <textarea id="fbExpr" rows="3" lang="en" placeholder="I ended up ...&#10;It turned out that ...&#10;Looking back, ...">${esc(fb ? (fb.expressions || []).join('\n') : '')}</textarea>
             <label class="lbl">개선 답변</label>
@@ -208,12 +208,15 @@
           selId = rec.id;
           /* 노트 표현을 제안한 횟수 기록 (덜 써 본 표현을 다음에 먼저 제안) */
           rec.targets.forEach(t => { if (t.source && t.source.startsWith('note:')) { const n = store.S.notes.find(x => x.id === t.source.slice(5)); if (n) { n.suggested = (n.suggested || 0) + 1; store.saveNote(n); } } });
-          ui.toast(rec.targets.length ? '저장했습니다. 아래에서 쓰려던 표현을 실제로 썼는지 체크하세요.' : '저장했습니다. 받아쓴 글을 확인하고 「AI 첨삭용 복사」를 눌러 보세요.', 3500);
+          ui.toast(ai.shouldAuto(rec) ? '저장했습니다. AI가 받아쓰고 첨삭하는 중이에요 (보통 10~30초).'
+            : rec.targets.length ? '저장했습니다. 아래에서 쓰려던 표현을 실제로 썼는지 체크하세요.' : '저장했습니다. 받아쓴 글을 확인하고 「AI 첨삭용 복사」를 눌러 보세요.', 3500);
           render();
           ui.$('#recsCard', el).scrollIntoView({ behavior: 'smooth' });
         }
       });
-      return async () => { if (qb) qb.destroy(); if (panel) await panel.destroy(); };
+      /* AI 첨삭이 끝나면 첨삭·표현 칸까지 다시 그린다 */
+      const offAi = ai.onJob((id, job) => { if (job && job.state === 'done' && recs().some(r => r.id === id)) { selId = id; render(); } });
+      return async () => { offAi(); if (qb) qb.destroy(); if (panel) await panel.destroy(); };
     }
   };
 })(window);

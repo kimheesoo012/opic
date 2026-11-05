@@ -268,7 +268,8 @@
     return new Blob([arr], { type: type || '' });
   }
   async function exportJSON(includeAudio, onProgress) {
-    const kv = (await db.all('kv'));
+    /* AI 키는 백업 파일에 넣지 않는다 */
+    const kv = (await db.all('kv')).map(x => x.k === 'settings' && x.v && x.v.ai ? { k: x.k, v: Object.assign({}, x.v, { ai: Object.assign({}, x.v.ai, { key: '' }) }) } : x);
     const data = { recordings: S.recs, qstate: Object.values(S.qs), notes: S.notes, scripts: S.scripts, sessions: S.sessions, kv };
     if (includeAudio) {
       data.audio = [];

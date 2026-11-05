@@ -154,7 +154,7 @@
           });
           if (!panel) {
             panel = C.recorderPanel({
-              label: '녹음 시작',
+              label: '녹음 시작', autoAI: false, /* 시험 중에는 흐름을 끊지 않고, 끝난 뒤 한 번에 첨삭 */
               getMeta: () => ({ questionId: ses.questions[ses.cur], mode: 'exam', sessionId: ses.id }),
               onSaved: async rec => {
                 if (qb) qb.stopReplayWindow();

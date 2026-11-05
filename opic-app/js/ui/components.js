@@ -1,7 +1,7 @@
 /* 재사용 부품: 질문 듣기, 녹음 버튼(하단 고정), 재생기, 녹음 상세(받아쓰기·분석·자가 체크·표현 체크), 비교표 */
 (function (root) {
   'use strict';
-  const { util, bank, drills, analysis, prompt, picker, recorder, tts, stt, store, db, ui } = root.OPIC;
+  const { util, bank, drills, analysis, prompt, picker, recorder, tts, stt, store, db, ui, ai } = root.OPIC;
   const esc = util.escapeHtml;
   const C = {};
 
@@ -76,7 +76,8 @@
       <div class="countdown" hidden></div>
       <div class="rec-row"><span class="rec-timer">00:00</span><div class="meter" aria-hidden="true"><i></i></div><span class="rec-state">대기</span></div>
       <button class="rec-btn" type="button"><span class="dot"></span><span class="lbl">${esc(o.label || '녹음 시작')}</span></button>
-      <div class="rec-hint">${S.stt ? '자동 받아쓰기 켜짐 (설정에서 끄기)' : '자동 받아쓰기 꺼짐 — 받아쓴 글은 녹음 뒤 직접 입력할 수 있어요'}</div>
+      <div class="rec-hint">${ai.enabled() && (S.ai || {}).auto !== false && o.autoAI !== false ? 'AI 첨삭 켜짐 — 녹음이 끝나면 받아쓰기·첨삭이 자동으로 와요'
+        : S.stt ? '자동 받아쓰기 켜짐 (설정에서 끄기)' : '자동 받아쓰기 꺼짐 — 받아쓴 글은 녹음 뒤 직접 입력할 수 있어요'}</div>
     </div>`);
     const btn = ui.$('.rec-btn', d), timer = ui.$('.rec-timer', d), meter = ui.$('.meter i', d), stateEl = ui.$('.rec-state', d),
       live = ui.$('.live-text', d), cd = ui.$('.countdown', d), hint = ui.$('.rec-hint', d);
@@ -111,6 +112,8 @@
         await db.clearDraft(res.recId).catch(() => {});
         if (res.interruptedMsg) ui.modal({ title: '녹음이 중단되었습니다', html: `<p>${esc(res.interruptedMsg)}</p><p class="muted">녹음 길이: ${util.fmtDur(res.durationSec)} — 손상 없이 저장되었습니다.</p>` });
         set('idle');
+        /* AI 첨삭 키가 있으면 녹음 직후 자동으로 받아쓰기 + 첨삭 */
+        if (o.autoAI !== false && ai.shouldAuto(rec)) ai.review(rec.id);
         if (!destroyed) o.onSaved && o.onSaved(rec, res);
       } catch (e) {
         set('idle');
@@ -296,16 +299,19 @@
     const q = bank.byId[rec.questionId];
     const items = C.selfCheckItems(q);
     const sc = rec.selfCheck || {};
-    const srcLabel = { auto: '자동 받아쓰기', manual: '직접 입력', edited: '자동 + 직접 수정', none: '없음' }[rec.transcriptSource || 'none'];
+    const srcLabel = { auto: '자동 받아쓰기', ai: 'AI 받아쓰기', manual: '직접 입력', edited: '자동 + 직접 수정', none: '없음' }[rec.transcriptSource || 'none'];
+    el.dataset.detailRec = rec.id;
+    el._render = () => C.recordingDetail(el, store.S.recs.find(r => r.id === rec.id) || rec, o);
     const kindSel = q ? `<select class="kind-sel" aria-label="녹음 구분">${Object.keys(picker.KIND_LABELS).map(k => `<option value="${k}" ${rec.kind === k ? 'selected' : ''}>${picker.KIND_LABELS[k]}</option>`).join('')}</select>` : '';
     el.innerHTML = `<div class="rec-detail">
       <div class="rd-head">${kindSel}<span class="muted">${util.fmtDate(rec.createdAt)} · ${util.fmtBytes(rec.size)}</span></div>
       ${rec.interrupted ? `<p class="note">${rec.recovered ? '앱이 종료되기 전 녹음을 복구했습니다.' : '녹음이 중간에 끊겨 그때까지 저장했습니다.'}</p>` : ''}
       ${o.showPrompt && rec.promptText ? `<p class="qtext small" lang="en">${esc(rec.promptText)}</p>` : ''}
       ${C.playerHtml(rec)}
+      <div class="ai-box" data-rec="${esc(rec.id)}"></div>
       <section><h3>녹음 분석 <span class="badge">항상</span></h3>${C.audioStatsHtml(rec)}</section>
       <section><h3>받아쓴 글 <span class="badge">${srcLabel}</span></h3>
-        ${rec.transcriptSource === 'auto' || rec.transcriptSource === 'edited' ? '<p class="muted small">자동 받아쓰기는 실제로 한 말과 다를 수 있어요. 녹음을 들으며 고친 뒤 복사하세요.</p>' : ''}
+        ${['auto', 'edited', 'ai'].includes(rec.transcriptSource) ? '<p class="muted small">자동·AI 받아쓰기는 실제로 한 말과 다를 수 있어요. 녹음을 들으며 고칠 수 있어요.</p>' : ''}
         <textarea class="tr-edit" lang="en" rows="5" placeholder="받아쓴 글이 없습니다. 녹음을 들으며 직접 입력하거나, 다른 앱에서 만든 받아쓴 글을 붙여 넣으세요. (없어도 녹음·재생·자가 체크·복습은 그대로 됩니다)">${esc(rec.transcript || '')}</textarea>
         <div class="row"><button class="btn small save-tr" type="button">받아쓴 글 저장</button><span class="muted small tr-msg"></span></div>
       </section>
@@ -319,17 +325,18 @@
       <section><h3>자가 체크 <span class="badge">자가 평가</span></h3><ul class="checks">${items.map(it =>
         `<li><label><input type="checkbox" data-id="${it.id}" ${sc[it.id] ? 'checked' : ''}> ${esc(it.t)}</label></li>`).join('')}</ul></section>
       <div class="actions">
-        <button class="btn primary copy-ai" type="button">AI 첨삭용 복사</button>
+        <button class="btn ${ai.enabled() ? '' : 'primary'} copy-ai" type="button">${ai.enabled() ? '첨삭 요청문 복사 (다른 AI에 직접)' : 'AI 첨삭용 복사'}</button>
         <button class="btn export" type="button">오디오 내보내기</button>
         <button class="btn danger del" type="button">삭제</button>
       </div></div>`;
     C.mountPlayers(el);
+    C.mountAiBox(ui.$('.ai-box', el), rec);
     const ta = ui.$('.tr-edit', el), msg = ui.$('.tr-msg', el);
     let saveT = null;
     const saveTr = async () => {
       const v = ta.value.trim();
       if (v === (rec.transcript || '')) return;
-      const src = !v ? 'none' : (rec.transcriptSource === 'auto' || rec.transcriptSource === 'edited') ? 'edited' : 'manual';
+      const src = !v ? 'none' : ['auto', 'edited', 'ai'].includes(rec.transcriptSource) ? 'edited' : 'manual';
       await store.updateRecording(rec.id, { transcript: v, transcriptSource: src });
       msg.textContent = '저장됨';
       ui.$('.rule-box', el).innerHTML = C.ruleAnalysisHtml(rec, q);
@@ -381,6 +388,47 @@
       o.onDelete && o.onDelete(rec);
     };
   };
+
+  /* ───────── AI 첨삭 상자 ───────── */
+  C.aiResultHtml = function (f) {
+    const li = a => a.map(x => `<li>${x}</li>`).join('');
+    return `${f.answered ? `<p><b>질문에 답했나</b> ${esc(f.answered)}</p>` : ''}
+      ${f.top3.length ? `<h4>가장 중요한 개선점</h4><ol class="small">${li(f.top3.map(esc))}</ol>` : ''}
+      ${f.corrections.length ? `<h4>고칠 문장</h4><ul class="corr-list">${li(f.corrections.map(c => `<span class="orig" lang="en">${esc(c.original)}</span> → <b lang="en">${esc(c.corrected)}</b>${c.reason ? `<br><span class="muted small">${esc(c.reason)}</span>` : ''}`))}</ul>` : ''}
+      ${f.flow ? `<p><b>이야기 흐름</b> ${esc(f.flow)}</p>` : ''}
+      ${f.suggestions.length ? `<h4>자연스러운 표현</h4><ul class="small">${li(f.suggestions.map(x => `<b lang="en">${esc(x.expression)}</b>${x.meaning ? ` — ${esc(x.meaning)}` : ''}`))}</ul>` : ''}
+      ${f.nextExpressions.length ? `<h4>다음 녹음에서 써 볼 표현</h4><ul class="exprs">${li(f.nextExpressions.map(x => `<span lang="en">${esc(x)}</span> <button class="link add-note-ai" data-x="${esc(x)}">노트에 추가</button>`))}</ul>` : ''}
+      ${f.improved ? `<h4>개선 답변</h4><p class="improved" lang="en">${esc(f.improved).replace(/\n/g, '<br>')}</p><button class="btn small say-imp" type="button">▶ 개선 답변 듣기</button>` : ''}
+      <p class="muted small">${esc(f.model || 'AI')} · ${util.fmtDate(f.at)} · 공식 등급 판정이 아닌 연습용 피드백</p>`;
+  };
+  C.mountAiBox = function (box, rec0) {
+    if (!box) return;
+    const rec = store.S.recs.find(r => r.id === rec0.id) || rec0;
+    const job = ai.job(rec.id);
+    const f = rec.aiFeedback;
+    const canRun = !!(rec.promptText || bank.byId[rec.questionId]);
+    let html;
+    if (job && job.state === 'running') html = `<div class="ai-run"><span class="spin" aria-hidden="true"></span>${esc(job.msg)}</div>`;
+    else if (!ai.enabled()) html = f ? '' : `<p class="small">🔑 <a href="#/settings?go=ai">설정에서 AI 첨삭 키</a>를 넣으면 녹음만 하면 받아쓰기와 첨삭이 바로 와요.</p>`;
+    else if (job && job.state === 'error') html = `<p class="warn small">${esc(job.msg)}</p><button class="btn small primary ai-go" type="button">다시 시도</button>${job.code === 'key' ? ' <a class="btn small" href="#/settings?go=ai">키 확인</a>' : ''}`;
+    else if (!f) html = canRun ? '<button class="btn primary block ai-go" type="button">AI 첨삭 받기 (받아쓰기 포함)</button>' : '';
+    else html = '';
+    box.innerHTML = (html ? `<div class="ai-head">${html}</div>` : '') + (f ? `<details class="ai-result" ${(job && job.state === 'done') || box.dataset.open === '1' ? 'open' : ''}><summary><b>AI 첨삭</b> <span class="badge">${f.top3.length ? '개선점 ' + f.top3.length : '결과'}</span></summary>${C.aiResultHtml(f)}
+      ${ai.enabled() && canRun ? '<button class="link small ai-go" type="button">다시 첨삭 받기</button>' : ''}</details>` : '');
+    box.hidden = !box.innerHTML;
+    ui.$$('.ai-go', box).forEach(b => b.onclick = () => { box.dataset.open = '1'; ai.review(rec.id); });
+    const si = ui.$('.say-imp', box);
+    if (si) si.onclick = () => tts.speak(f.improved, { voiceName: store.S.settings.voiceName, rate: store.S.settings.rate });
+    ui.$$('.add-note-ai', box).forEach(b => b.onclick = async () => {
+      await store.saveNote({ original: '', corrected: b.dataset.x, memo: 'AI 첨삭에서 추가' });
+      b.disabled = true; b.textContent = '추가됨';
+    });
+  };
+  /* 첨삭 상태가 바뀌면 화면에 있는 해당 녹음의 상자·상세를 다시 그린다 */
+  ai.onJob((id, job) => {
+    if (job && job.state === 'done') document.querySelectorAll(`[data-detail-rec="${CSS.escape(id)}"]`).forEach(d => { if (d._render) d._render(); });
+    document.querySelectorAll(`.ai-box[data-rec="${CSS.escape(id)}"]`).forEach(b => { const r = store.S.recs.find(x => x.id === id); if (r) C.mountAiBox(b, r); });
+  });
 
   /* ───────── 두 녹음 비교 ───────── */
   C.compareHtml = function (a, b) {

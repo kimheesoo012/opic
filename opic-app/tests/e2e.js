@@ -387,6 +387,74 @@ function assert(c, m) { if (!c) throw new Error(m || 'assertion failed'); }
     assert((await q.locator('.hero2').textContent()).includes('보호권으로'), '보호권 안내');
   });
 
+  await step('AI 첨삭(Gemini 모의 서버): 키 저장 → 녹음 즉시 받아쓰기·첨삭 자동 저장 → 재답변 표현 사용 자동 판정 → 한도 초과 안내', async () => {
+    const calls = [];
+    let mode = 'ok';
+    await q.route('https://generativelanguage.googleapis.com/**', async route => {
+      const req = route.request();
+      if (req.method() === 'GET') {
+        return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ models: [
+          { name: 'models/gemini-2.5-flash', supportedGenerationMethods: ['generateContent'] },
+          { name: 'models/gemini-2.5-flash-lite', supportedGenerationMethods: ['generateContent'] }] }) });
+      }
+      const body = JSON.parse(req.postData());
+      calls.push({ url: req.url(), key: req.headers()['x-goog-api-key'], body });
+      if (mode === 'quota') return route.fulfill({ status: 429, contentType: 'application/json', body: JSON.stringify({ error: { code: 429, message: 'Resource exhausted' } }) });
+      const second = calls.length > 1;
+      const out = { transcript: second ? 'Last summer I ended up going to the beach.' : 'Um, last summer I go to beach with my friend.',
+        answered: '질문에 답했지만 짧아요.', corrections: [{ original: 'I go to beach', corrected: 'I went to the beach', reason: '과거 시제·관사' }],
+        flow: '감정과 결과가 빠졌어요.', suggestions: [{ expression: 'It was packed', meaning: '사람이 많았다' }], top3: ['과거 시제', '관사', '결과 말하기'],
+        improved: 'Last summer, I went to the beach with my friend, and it turned out to be the best day of the year.',
+        nextExpressions: ['I ended up ...', 'It turned out to be ...', 'Looking back, ...'],
+        targetsUsed: second ? [{ expression: 'I ended up ...', used: true }, { expression: 'It turned out to be ...', used: false }] : [] };
+      return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ candidates: [{ content: { parts: [{ text: JSON.stringify(out) }] } }] }) });
+    });
+    await q.goto(base + '#/settings?go=ai');
+    await q.waitForSelector('#aiKey');
+    await q.locator('#aiKey').fill('test-key-123');
+    await q.locator('#aiSave').click();
+    await q.waitForFunction(() => document.querySelector('#aiCard .badge') && document.querySelector('#aiCard .badge').textContent.includes('켜짐'));
+    assert((await q.locator('#aiCard').textContent()).includes('gemini-2.5-flash'), '모델 자동 선택');
+    await q.screenshot({ path: path.join(SHOTS, '17-ai-settings.png') });
+
+    await q.goto(base + '#/q/beach.p1');
+    await q.waitForSelector('#dock .rec-btn');
+    await q.locator('#dock .rec-btn').click();
+    await q.waitForFunction(() => document.querySelector('#dock').dataset.state === 'recording');
+    await q.waitForTimeout(3600);
+    await q.locator('#dock .rec-btn').click();
+    await q.waitForSelector('.ai-result', { timeout: 20000 });
+    assert(calls.length === 1, '요청 1회 ' + calls.length);
+    const part = calls[0].body.contents[0].parts[0].inlineData;
+    assert(part.mimeType === 'audio/wav' && part.data.startsWith('UklGR'), '녹음을 WAV로 변환해 전송');
+    assert(calls[0].key === 'test-key-123' && /models\/gemini-2\.5-flash:generateContent/.test(calls[0].url), '키·모델');
+    assert(calls[0].body.contents[0].parts[1].text.includes('[질문]'), '질문 포함 요청문');
+    assert((await q.locator('.tr-edit').inputValue()).startsWith('Um, last summer I go'), 'AI 받아쓰기 자동 입력');
+    assert((await q.locator('.rec-detail').textContent()).includes('AI 받아쓰기'), '받아쓰기 출처 표시');
+    assert((await q.locator('#fbCard').textContent()).includes('I ended up'), '첨삭 결과 자동 저장');
+    assert(await q.locator('.retries li').count() === 2, '3·7일 재도전 예약');
+    assert(await q.locator('.stepper li.done').count() >= 4, '진행 단계');
+    await q.locator('.ai-result').scrollIntoViewIfNeeded();
+    await q.screenshot({ path: path.join(SHOTS, '18-ai-result.png') });
+
+    await q.locator('#dock .rec-btn').click();
+    await q.waitForFunction(() => document.querySelector('#dock').dataset.state === 'recording');
+    await q.waitForTimeout(3400);
+    await q.locator('#dock .rec-btn').click();
+    await q.waitForFunction(() => { const r = OPIC.store.S.recs.find(x => x.questionId === 'beach.p1' && x.kind === 'after'); return r && r.aiFeedback; }, null, { timeout: 20000 });
+    assert(calls[1].body.contents[0].parts[1].text.includes('"I ended up ..."'), '쓰려던 표현을 AI에 함께 전달');
+    const t = await q.evaluate(() => OPIC.store.S.recs.find(x => x.questionId === 'beach.p1' && x.kind === 'after').targets);
+    assert(t[0].used === true && t[0].by === 'ai' && t[1].used === false, '표현 사용 자동 판정 ' + JSON.stringify(t));
+
+    mode = 'quota';
+    await q.locator('.ai-result .ai-go').first().click();
+    await q.waitForSelector('.ai-box .warn', { timeout: 20000 });
+    assert((await q.locator('.ai-box .warn').first().textContent()).includes('무료 사용 한도'), '한도 초과 안내');
+    const exported = await q.evaluate(async () => JSON.stringify(await OPIC.store.exportJSON(false)));
+    assert(!exported.includes('test-key-123'), '백업 파일에 키 없음');
+    await q.unroute('https://generativelanguage.googleapis.com/**');
+  });
+
   await step('기록 화면: 통계·저장 공간·선택 삭제 UI', async () => {
     await q.goto(base + '#/records');
     await q.waitForSelector('.hbars');
@@ -481,7 +549,7 @@ function assert(c, m) { if (!c) throw new Error(m || 'assertion failed'); }
   });
 
   await step('콘솔·페이지 오류 없음', async () => {
-    const real = errors.filter(e => !/favicon|ERR_INTERNET_DISCONNECTED|net::ERR/.test(e));
+    const real = errors.filter(e => !/favicon|ERR_INTERNET_DISCONNECTED|net::ERR|status of 429/.test(e));
     assert(!real.length, real.join('\n'));
   });
 

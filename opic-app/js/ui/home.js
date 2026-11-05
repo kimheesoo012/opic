@@ -26,6 +26,7 @@
       el.innerHTML = `
       ${root.OPIC.P.heroHtml()}
       ${inProg ? `<a class="card link-card warn-card" href="#/exam?resume=${esc(inProg.id)}"><b>진행 중인 모의고사</b><span>${inProg.cur + 1}번 문제부터 이어서 하기 ›</span></a>` : ''}
+      ${root.OPIC.ai.enabled() ? '' : `<a class="card link-card accent-card" href="#/settings?go=ai"><b>🔑 AI 첨삭 켜기 (무료 키 1분)</b><span>녹음만 하면 받아쓰기·첨삭·다음에 써 볼 표현이 바로 와요. 복사·붙여 넣기 없이 ›</span></a>`}
       ${needBackup ? `<a class="card link-card warn-card" href="#/records?go=backup"><b>백업할 때가 되었어요</b><span>아이폰 Safari는 오래 쓰지 않은 사이트의 데이터를 지울 수 있어요. 기록을 내보내 두세요 ›</span></a>` : ''}
       <section class="card">
         <div class="card-head"><h2>오늘의 3문제</h2><span class="muted small">약한 유형 위주 자동 추천</span></div>

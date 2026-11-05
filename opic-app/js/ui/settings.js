@@ -1,17 +1,34 @@
 /* 설정(음성·속도·받아쓰기·목표 등급·화면) + 시험 구성·등급 체크리스트 안내 */
 (function (root) {
   'use strict';
-  const { util, bank, drills, recorder, tts, stt, store, ui, xp } = root.OPIC;
+  const { util, bank, drills, recorder, tts, stt, store, ui, xp, ai } = root.OPIC;
   const esc = util.escapeHtml;
 
   root.OPIC.screens.settings = {
     title: '설정', tab: 'settings',
-    render(el) {
+    render(el, params, query) {
       const S = store.S.settings;
+      const A = S.ai || {};
       const env = recorder.environment();
       const sttSt = stt.status();
       const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
       el.innerHTML = `
+      <section class="card" id="aiCard"><h2>AI 첨삭 <span class="badge">${A.key ? '켜짐' : '꺼짐'}</span></h2>
+        <p class="small">녹음이 끝나면 녹음 파일을 Google Gemini로 보내 <b>받아쓰기 + 첨삭 + 다음에 써 볼 표현</b>을 바로 받아 저장합니다. 복사·붙여 넣기와 앱 전환이 필요 없어요.</p>
+        ${A.key ? `<p class="small">모델: <b>${esc(A.model || '-')}</b>${A.checkedAt ? ` · 확인 ${util.fmtDate(A.checkedAt)}` : ''}</p>
+          ${(A.models || []).length > 1 ? `<label class="lbl">모델 바꾸기</label><select id="aiModel" class="full">${A.models.map(m => `<option ${m === A.model ? 'selected' : ''}>${esc(m)}</option>`).join('')}</select>` : ''}
+          <label class="opt"><input type="checkbox" id="aiAuto" ${A.auto !== false ? 'checked' : ''}> 녹음이 끝나면 자동으로 첨삭 (모의고사는 끝난 뒤 한 번에)</label>
+          <div class="row"><button class="btn" id="aiRecheck">키·모델 다시 확인</button><button class="btn danger" id="aiDel">키 지우기</button></div>`
+        : `<ol class="small"><li><b>aistudio.google.com</b>에 Google 계정으로 로그인</li><li>「Get API key」 → 「Create API key」</li><li>만든 키를 복사해 아래에 붙여 넣고 「확인 후 저장」</li></ol>
+          <div class="row"><input type="password" id="aiKey" class="grow" placeholder="API 키 붙여 넣기" autocomplete="off" spellcheck="false"><button class="btn primary" id="aiSave">확인 후 저장</button></div>`}
+        <p class="small muted" id="aiMsg"></p>
+        <details><summary>알아 둘 점</summary><ul class="small">
+          <li>키는 이 기기에만 저장되고, 기록 백업(JSON)에도 들어가지 않습니다.</li>
+          <li>무료 사용 범위 안에서는 비용이 들지 않습니다. 한도(분당·하루 요청 수)를 넘으면 잠시 뒤 다시 시도하라는 안내가 나옵니다. 결제를 연결하지 않았다면 요금이 나가지 않습니다.</li>
+          <li>녹음과 질문이 Google 서버로 전송됩니다. 무료 사용분은 Google이 서비스 개선에 쓸 수 있으니, 이름·주소 같은 개인정보는 녹음에서 말하지 마세요.</li>
+          <li>인터넷이 필요합니다. 키가 없거나 실패해도 「AI 첨삭용 복사」 방식은 그대로 쓸 수 있어요.</li>
+          <li>AI 받아쓰기·첨삭도 틀릴 수 있고, 공식 등급 판정이 아닙니다.</li></ul></details></section>
+
       <section class="card"><h2>목표</h2>
         <label class="lbl">목표 등급</label>
         <div class="seg wide" id="tgt">${['IH', 'AL'].map(l => `<button class="${S.targetLevel === l ? 'on' : ''}" data-v="${l}">${l}</button>`).join('')}</div>
@@ -57,6 +74,29 @@
 
       const seg = (id, fn) => ui.$$(`#${id} button`, el).forEach(b => b.onclick = async () => { ui.$$(`#${id} button`, el).forEach(x => x.classList.toggle('on', x === b)); await fn(b.dataset.v); });
       seg('tgt', v => store.setSettings({ targetLevel: v }));
+      /* AI 첨삭 키 */
+      const aiMsg = ui.$('#aiMsg', el);
+      const saveKey = async key => {
+        aiMsg.textContent = '키 확인 중…';
+        try {
+          const pick = await ai.checkKey(key);
+          const model = pick.best || ai.FALLBACK_MODELS[0];
+          await store.setSettings({ ai: Object.assign({}, store.S.settings.ai || {}, { key, model, models: pick.candidates.slice(0, 8), auto: (store.S.settings.ai || {}).auto !== false, checkedAt: Date.now() }) });
+          ui.toast('AI 첨삭을 켰습니다. 이제 녹음하면 바로 첨삭이 와요.');
+          root.OPIC.refresh();
+        } catch (e) { aiMsg.textContent = e.message || String(e); aiMsg.classList.add('warn'); }
+      };
+      const ks = ui.$('#aiSave', el);
+      if (ks) ks.onclick = () => { const k = ui.$('#aiKey', el).value.trim(); if (!k) return ui.toast('키를 붙여 넣어 주세요.'); saveKey(k); };
+      const rc = ui.$('#aiRecheck', el);
+      if (rc) rc.onclick = () => saveKey((store.S.settings.ai || {}).key);
+      const dk = ui.$('#aiDel', el);
+      if (dk) dk.onclick = async () => { if (await ui.confirmDlg('이 기기에서 AI 첨삭 키를 지울까요?', '지우기', true)) { await store.setSettings({ ai: { auto: true } }); root.OPIC.refresh(); } };
+      const am = ui.$('#aiModel', el);
+      if (am) am.onchange = () => store.setSettings({ ai: Object.assign({}, store.S.settings.ai, { model: am.value }) });
+      const aa = ui.$('#aiAuto', el);
+      if (aa) aa.onchange = () => store.setSettings({ ai: Object.assign({}, store.S.settings.ai, { auto: aa.checked }) });
+      if (query && query.go === 'ai') setTimeout(() => ui.$('#aiCard', el).scrollIntoView(), 50);
       seg('goal', v => store.setSettings({ dailyGoal: +v }));
       ui.$('#remBtn', el).onclick = async () => {
         const t = ui.$('#remT', el).value || '20:00';
