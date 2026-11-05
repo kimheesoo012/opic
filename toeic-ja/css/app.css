@@ -324,3 +324,7 @@ html[lang="ko"] .passage table { word-break: keep-all; }
 .pt-det { margin: 4px 0 8px; }
 .pt-det > summary { color: var(--accent); font-weight: 600; }
 .pt-det .passage { font-size: 15px; }
+
+/* 해설: 내가 고른 오답 */
+.exp ul.traps li.mine { background: var(--bad-soft); border-radius: 8px; padding-left: 8px; padding-right: 8px; }
+.sess-main > .qtext.qq, .sess-main > .xs.muted, .sess-main > .sentence { margin-top: 10px; }

@@ -286,8 +286,9 @@ function renderUnit(s, it, unit, q, qs) {
   const multiQ = qs.length > 1 ? `<div class="qnav">${qs.map((x, i) => `<span class="${i === s.qIdx ? 'on' : s.answers[x.id] ? 'done' : ''}">${i + 1}</span>`).join('')}${unit.part >= 6 ? `<button class="btn sm ghost" data-act="wide">${P.wide ? '問題を大きく' : '本文を大きく'}</button>` : ''}</div>` : '';
   let foot = multiQ + qline + `<div class="choices">${choiceBtns}</div>`;
   if (fb) {
-    main += explainHtml(q, unit, ans, { causeFor: lastAttempt(s, q), trReady });
-    foot += `<div class="foot-actions"><button class="btn primary" data-act="next">${isLast(s, qs) ? '結果を見る' : '次へ'}</button></div>`;
+    // 해설을 볼 때는 선택지 버튼을 접는다(선택지와 내 답은 해설 목록에 있음)
+    main += qline + explainHtml(q, unit, ans, { causeFor: lastAttempt(s, q), trReady });
+    foot = multiQ + `<div class="foot-actions"><button class="btn primary" data-act="next">${isLast(s, qs) ? '結果を見る' : '次へ'}</button></div>`;
   } else if (s.feedback === 'end' && !s.autoNext) {
     foot += `<div class="foot-actions"><button class="btn primary" data-act="next" ${P.chosen == null ? 'disabled' : ''}>${isLast(s, qs) ? '提出' : '次へ'}</button></div>`;
   }
@@ -333,7 +334,8 @@ export function explainHtml(q, unit, ans, { causeFor = null, inPlay = true, trRe
   if (concept && concept.tip) out += `<p class="tip"><b>ポイント</b> ${h(concept.tip)}</p>`;
   out += `<div class="lbl">選択肢</div><ul class="traps">`;
   q.choices.forEach((c, i) => {
-    out += `<li><b class="${i === q.answer ? 'done-mark' : ''}">${LETTERS[i]}</b>${i === q.answer ? '<span class="tag ok">正解</span> ' : ''}<span class="ch">${h(c)}</span>${i !== q.answer ? `<div class="small muted">${h(ex.traps[i])}</div>` : ''}</li>`;
+    const mine = ans && ans.choice === i && i !== q.answer;
+    out += `<li class="${mine ? 'mine' : ''}"><b class="${i === q.answer ? 'done-mark' : ''}">${LETTERS[i]}</b>${i === q.answer ? '<span class="tag ok">正解</span> ' : ''}${mine ? '<span class="tag bad">自分の答え</span> ' : ''}<span class="ch">${h(c)}</span>${i !== q.answer ? `<div class="small muted">${h(ex.traps[i])}</div>` : ''}</li>`;
   });
   out += `</ul>`;
   if (q.para && q.para.length) {

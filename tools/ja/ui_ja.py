@@ -458,6 +458,11 @@ T['js/player.js'] += [
     ('세트의 마지막 문제까지 풀면 지문 전체 해석이 열립니다.', 'セットの最後の問題まで解くと、本文全体の訳が表示されます。'),
 ]
 
+# ---- 해설 화면 (2.4) ----
+T['js/player.js'] += [
+    ("${mine ? '<span class=\"tag bad\">내 답</span> ' : ''}", "${mine ? '<span class=\"tag bad\">自分の答え</span> ' : ''}"),
+]
+
 HANGUL = re.compile(r'[가-힣]')
 
 
