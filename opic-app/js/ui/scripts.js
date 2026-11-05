@@ -88,7 +88,7 @@
           setTimeout(() => { peek.delete(i); if (document.body.dataset.screen === 'script' && !ui.$('#after .cmp-script', el)) practice(); }, 2500);
         });
         if (!panel) panel = C.recorderPanel({
-          label: '외워서 말하기 녹음',
+          label: '외워서 말하기 녹음', autoAI: false,
           getMeta: () => ({ questionId: sc.questionId || null, promptText: sc.questionId ? '' : '스크립트: ' + sc.title, mode: 'script', scriptId: sc.id, kind: 'first' }),
           onSaved: rec => showResult(rec)
         });

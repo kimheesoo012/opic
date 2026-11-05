@@ -1,7 +1,7 @@
 /* 오프라인 실행용 서비스 워커: 앱 파일을 미리 저장하고, 오프라인이면 저장본으로 연다.
    온라인이면 항상 최신 파일을 먼저 받아(네트워크 우선) 저장본을 갱신하므로, 앱을 고치면 휴대폰에도 바로 반영된다.
    VERSION은 미리 저장할 파일 목록이 바뀔 때 올린다. */
-const VERSION = 'opic-app-v2';
+const VERSION = 'opic-app-v3';
 const ASSETS = [
     './',
     './css/app.css',
@@ -11,6 +11,7 @@ const ASSETS = [
     './icons/icon-maskable-512.png',
     './index.html',
     './js/app.js',
+    './js/core/ai.js',
     './js/core/analysis.js',
     './js/core/backup.js',
     './js/core/db.js',

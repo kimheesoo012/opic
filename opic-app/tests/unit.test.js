@@ -267,3 +267,54 @@ test('기존 기록으로 XP 처음 계산', () => {
   assert.equal(s.total, 14 + 3 + 10 + 2);
   assert.equal(Object.values(s.days)[0], s.total);
 });
+
+const aiPure = require('../js/core/ai.js');
+
+test('AI 첨삭: 모델 고르기 (Flash 정식 최신, lite·tts·미리보기 제외 우선)', () => {
+  const m = n => ({ name: 'models/' + n, supportedGenerationMethods: ['generateContent'] });
+  const r = aiPure.pickModel([m('gemini-2.0-flash'), m('gemini-2.5-flash'), m('gemini-2.5-flash-lite'), m('gemini-2.5-flash-preview-tts'),
+    m('gemini-3.0-flash-preview'), m('gemini-2.5-pro'), { name: 'models/text-embedding-004', supportedGenerationMethods: ['embedContent'] }]);
+  assert.equal(r.best, 'gemini-2.5-flash');
+  assert.ok(r.candidates.includes('gemini-3.0-flash-preview'));
+  assert.ok(!r.candidates.some(c => /lite|tts|pro|embedding/.test(c)));
+  assert.equal(aiPure.pickModel([]).best, null);
+});
+
+test('AI 첨삭: 요청문은 사용자가 정한 첨삭 형식 + 받아쓰기·JSON 지시', () => {
+  const p = aiPure.buildPrompt({ targetLevel: 'IH', question: 'Tell me about a trip.', durationSec: 75, targets: [{ text: 'I ended up ...' }] });
+  assert.ok(p.startsWith('당신은 영어 OPIc 말하기 코치입니다.'));
+  assert.ok(p.includes('[질문] Tell me about a trip.'));
+  assert.ok(p.includes('[답변 시간] 1분 15초'));
+  assert.ok(p.includes('들리는 그대로'));
+  assert.ok(p.includes('"I ended up ..."'));
+  assert.ok(p.includes('"nextExpressions"'));
+  const body = aiPure.buildBody(p, 'QUJD', 'audio/wav', true);
+  assert.equal(body.contents[0].parts[0].inlineData.mimeType, 'audio/wav');
+  assert.equal(body.generationConfig.responseMimeType, 'application/json');
+  assert.ok(body.generationConfig.responseSchema);
+  assert.ok(!aiPure.buildBody(p, 'QUJD', 'audio/wav', false).generationConfig.responseSchema);
+});
+
+test('AI 첨삭: 응답 해석 (코드 블록·빈 값·잘못된 형식)', () => {
+  const r = aiPure.parseResult('```json\n{"transcript":"Um I go to Busan last year.","answered":"네","corrections":[{"original":"I go","corrected":"I went","reason":"과거"}],"top3":["a","b","c","d"],"improved":"Last year I went to Busan.","nextExpressions":["I ended up","Looking back,","It turned out"],"targetsUsed":[{"expression":"I ended up","used":false}]}\n```');
+  assert.equal(r.transcript, 'Um I go to Busan last year.');
+  assert.equal(r.top3.length, 3);
+  assert.equal(r.corrections[0].corrected, 'I went');
+  assert.deepEqual(r.suggestions, []);
+  assert.equal(r.targetsUsed[0].used, false);
+  assert.throws(() => aiPure.parseResult('죄송합니다'));
+  assert.throws(() => aiPure.parseResult('{"answered":"x"}'));
+});
+
+test('AI 첨삭: WAV 인코딩과 오류 안내', () => {
+  const buf = aiPure.encodeWav(new Float32Array([0, 1, -1, 0.5]), 16000);
+  const v = new DataView(buf);
+  assert.equal(buf.byteLength, 44 + 8);
+  assert.equal(String.fromCharCode(v.getUint8(0), v.getUint8(1), v.getUint8(2), v.getUint8(3)), 'RIFF');
+  assert.equal(v.getUint32(24, true), 16000);
+  assert.equal(v.getInt16(46, true), 32767);
+  assert.equal(v.getInt16(48, true), -32768);
+  assert.equal(aiPure.errorMessage(429, {}).code, 'quota');
+  assert.equal(aiPure.errorMessage(400, { error: { message: 'API key not valid' } }).code, 'key');
+  assert.equal(aiPure.errorMessage(404, {}).code, 'model');
+});
