@@ -1,110 +1,110 @@
 p6-s19-1|why	next week(다음 주)에 있을 일이므로 미래 시제 will hold가 정답이다. IT 부서가 교육을 세 차례 열 예정이라는 뜻이다.
-p6-s19-1|t0	held는 과거라 next week와 맞지 않는다.
-p6-s19-1|t1	has held는 현재완료라 미래 시점과 함께 쓰지 않는다.
-p6-s19-1|t3	holding은 분사라 본동사가 없어진다.
+p6-s19-1|t0	held는 과거형이다. 문장 끝의 next week(다음 주)는 미래 시점이라 과거형과 충돌한다. 새 데이터베이스가 November 1에 가동되기 전에 준비하려고 앞으로 여는 교육이다. held는 held a meeting last week처럼 과거 시점 표현과 쓴다.
+p6-s19-1|t1	has held는 현재완료로 과거부터 지금까지의 경험이나 완료를 나타내므로 next week 같은 미래 시점 표현과 함께 쓰지 않는다. has held는 The IT department has held three sessions so far처럼 지금까지의 일에 쓴다.
+p6-s19-1|t3	holding은 분사·동명사라 주어 the IT department 뒤에 본동사가 없어져 문장이 완성되지 않는다. is holding이라면 진행형으로 가까운 미래의 예정을 나타낼 수 있지만, be동사 없이 holding만으로는 불가하다.
 p6-s19-2|why	다음 문단이 '좌석이 한정되어 있으니 빨리 등록하라'이므로, 그 앞에 등록 방법 안내가 오는 것이 자연스럽다.
-p6-s19-2|t1	새 데이터베이스가 11월 1일에 가동된다고 했으므로 모순이다.
-p6-s19-2|t2	송년회 이야기는 교육 안내와 관계없다.
-p6-s19-2|t3	고객 미팅 준비물은 교육 안내 흐름과 관계없다.
+p6-s19-2|t1	기존 데이터베이스를 1년 더 쓴다는 문장이다. 첫 문장에서 새 데이터베이스가 November 1에 가동되고 그에 대비해 교육을 한다고 했으므로 맞지 않는다. 또 다음 문단은 좌석이 한정되어 있으니 빨리 등록하라는 내용이라 등록 안내가 앞에 와야 자연스럽다.
+p6-s19-2|t2	지난달 송년 파티가 대성공이었다는 문장이다. 빈칸 앞은 교육 세션의 시간과 내용, 뒤 문단은 좌석 한정과 등록 안내라 교육 안내가 이어지는데 지난 행사 이야기는 흐름과 관계없다.
+p6-s19-2|t3	고객 미팅에 노트북을 가져오라는 문장이다. 노트북 지참이 교육 준비물처럼 보여 끌리기 쉽지만 대상이 교육 세션이 아니라 client meeting이다. 다음 문단의 '빨리 등록하라'와도 연결되지 않는다.
 p6-s19-3|why	부정문 cannot attend 뒤에서 '어느 세션에도'라는 뜻의 any session이 필요하다.
-p6-s19-3|t0	some은 부정문에서 이 뜻으로 쓰지 않고, some session은 '어떤 특정 세션'처럼 읽힌다.
-p6-s19-3|t2	cannot attend every session은 '모든 세션에 참석할 수는 없다'라 한 번만 들으면 된다는 앞 내용과 맞지 않는다.
-p6-s19-3|t3	all 뒤에는 복수 명사가 와야 한다(all sessions).
+p6-s19-3|t0	some은 주로 긍정문에 쓰고, 단수 명사와 함께 some session이라 하면 '어떤 (특정하지 않은) 세션'이라는 뜻이 된다. cannot attend 뒤에서 '어느 세션에도'라는 뜻을 만들지 못한다. some은 some questions처럼 복수 명사와 긍정문에 쓴다.
+p6-s19-3|t2	every는 '모든'이라는 뜻이다. cannot attend every session은 '모든 세션에 다 참석할 수는 없다'는 부분 부정이 되는데, 앞 문단에서 “you only need to attend one”(하나만 참석하면 된다)이라고 했으므로 이런 사람에게 따로 연락하라는 것은 맞지 않는다.
+p6-s19-3|t3	all은 뒤에 복수 명사(all sessions)가 와야 하므로 단수 session과 함께 쓸 수 없다. all sessions로 고쳐도 '모든 세션에 다 참석할 수는 없다'는 부분 부정이 되어, 하나만 들으면 된다는 앞 내용과 맞지 않는다.
 p6-s19-4|why	전치사 for 뒤 목적격 자리다. them은 앞의 Employees who cannot attend를 가리킨다.
-p6-s19-4|t0	they는 주격이라 전치사 뒤에 올 수 없다.
-p6-s19-4|t1	their는 소유격이라 뒤에 명사가 필요하다.
-p6-s19-4|t2	theirs는 '그들의 것'이라 의미가 맞지 않는다.
+p6-s19-4|t0	they는 주격이라 전치사 for 뒤의 목적격 자리에 올 수 없다. 앞의 Employees who cannot attend를 가리킨다는 점만 보고 주격을 고르기 쉬운 함정이다. they는 They should contact me처럼 주어 자리에 쓴다.
+p6-s19-4|t1	their는 소유격이라 뒤에 명사가 와야 한다(for their team). 빈칸 바로 뒤는 마침표라 꾸밀 명사가 없다. 대명사 자리에는 형태를 먼저 따져야 한다.
+p6-s19-4|t2	theirs는 소유대명사로 '그들의 것'이라는 뜻이다. for theirs는 '그들의 것을 위해'가 되어 무엇을 가리키는지 알 수 없다. 온라인 세션은 참석하지 못하는 직원들(사람)을 위해 마련하는 것이라 사람을 가리키는 목적격이 필요하다.
 p6-s20-1|why	online marketing, hiring, and ___ cash flow는 Topics include의 목적어로 병렬된 명사 상당어구다. 목적어 cash flow를 받으면서 명사 역할을 하는 동명사 managing.
-p6-s20-1|t0	manage는 동사원형이라 병렬된 명사 자리에 올 수 없다.
-p6-s20-1|t2	managed cash flow는 '관리된 현금 흐름'이 되어 주제 목록의 다른 항목(-ing 활동)과 병렬이 맞지 않는다.
-p6-s20-1|t3	manager cash flow는 명사+명사로 성립하지 않는다.
+p6-s20-1|t0	manage는 동사원형이다. 빈칸은 Topics include의 목적어로 online marketing, hiring과 and로 나란히 연결된 명사 자리라 동사원형은 올 수 없다. manage는 how to manage cash flow처럼 to 뒤에서 쓴다.
+p6-s20-1|t2	managed는 과거분사다. managed cash flow는 '관리된 현금 흐름'이라는 명사구가 되어 '현금 흐름 관리'라는 활동 주제가 되지 못하고, 함께 나열된 hiring(채용)처럼 활동을 나타내는 -ing 형태와도 맞지 않는다.
+p6-s20-1|t3	manager는 '관리자'라는 사람 명사다. manager cash flow는 명사+명사 복합어로 성립하지 않고, 사람 명사는 cash flow를 목적어로 받을 수도 없다. manager는 a store manager처럼 쓴다.
 p6-s20-2|why	앞 문장이 워크숍 주제 소개다. 강사 소개가 이어지면 프로그램 안내 흐름이 자연스럽다.
-p6-s20-2|t0	워크숍 장소가 Pine Street 사무실이라고 했으므로 모순이다.
-p6-s20-2|t1	목요일 저녁에 열린다고 했으므로 모순이다.
-p6-s20-2|t3	연례 만찬 이야기는 워크숍 안내와 관계없다.
+p6-s20-2|t0	Pine Street 사무실이 2019년에 문을 닫았다는 문장이다. 바로 앞에서 워크숍이 Pine Street에 있는 상공회의소 사무실에서 열린다고 했으므로 모순이다.
+p6-s20-2|t1	워크숍이 매주 월요일 아침에 열린다는 문장이다. 앞에서 워크숍은 Thursday evenings, 즉 목요일 저녁에 열린다고 했으므로 요일과 시간 모두 모순이다.
+p6-s20-2|t3	연례 만찬에서 다과가 제공되지 않는다는 문장이다. 빈칸 앞은 가을 워크숍의 주제 소개, 뒤 문단은 참가비 안내라 워크숍 시리즈 이야기가 이어지는데 다른 행사(annual gala) 이야기는 관계없다. 행사 안내처럼 보여 끌리는 함정이다.
 p6-s20-3|why	회원·비회원 요금 안내 뒤에 네 개 모두 등록하면 할인된다는 정보를 덧붙인다. In addition.
-p6-s20-3|t1	Nevertheless는 반대되는 결과에 쓴다.
-p6-s20-3|t2	Otherwise는 '그렇지 않으면'이라 의미가 맞지 않는다.
-p6-s20-3|t3	In other words는 같은 내용을 바꿔 말할 때 쓴다.
+p6-s20-3|t1	Nevertheless는 '그럼에도 불구하고'라는 뜻으로 예상과 반대되는 결과에 쓴다. 앞 문장(회원 20달러, 비회원 35달러)과 네 개 모두 등록하면 25 percent 할인이라는 내용은 같은 방향의 요금 정보를 덧붙이는 것이라 대조가 아니다.
+p6-s20-3|t2	Otherwise는 '그렇지 않으면'이라는 뜻으로 앞 내용이 일어나지 않을 경우를 가정한다. Otherwise를 쓰면 '이 요금이 아니라면 할인을 받는다'처럼 뜻이 통하지 않는다. 앞 요금 안내에 할인 정보를 추가하는 흐름이다.
+p6-s20-3|t3	In other words는 '다시 말해'라는 뜻으로 앞 내용을 바꿔 말할 때 쓴다. 네 개 모두 등록 시 할인은 회원·비회원 요금을 바꿔 말한 것이 아니라 새로 덧붙인 정보라 맞지 않는다.
 p6-s20-4|why	자리가 한정되어 있으니 조기 등록을 '강력히' 권한다. strongly recommended.
-p6-s20-4|t0	hardly(거의 ~않다)는 부정 의미라 앞 내용과 반대다.
-p6-s20-4|t1	nearly recommended는 '거의 권장된다'라 어색하다.
-p6-s20-4|t2	barely(간신히)도 부정에 가까운 의미다.
+p6-s20-4|t0	hardly는 '거의 ~않다'라는 부정 의미의 부사다. is hardly recommended는 '거의 권장되지 않는다'가 되어 Space is limited(자리가 한정되어 있다)이니 빨리 등록하라는 흐름과 반대다. hard(열심히)의 부사로 착각하는 함정이다. hardly는 I could hardly hear처럼 쓴다.
+p6-s20-4|t1	nearly는 '거의'라는 뜻으로 nearly full(거의 찬), nearly 100 people처럼 수량이나 상태가 어떤 기준에 가까울 때 쓴다. nearly recommended는 '거의 권장된다'라는 어색한 말이 되어 조기 등록을 강하게 권하는 뜻을 나타내지 못한다.
+p6-s20-4|t2	barely는 '간신히, 겨우'라는 뜻으로 부정에 가까운 의미다. barely recommended는 '겨우 권장된다'가 되어 자리가 한정되어 있으니 서두르라는 강한 권유와 반대다. barely는 barely enough time(겨우 빠듯한 시간)처럼 쓴다.
 p6-s21-1|why	later than promised는 later than (it was) promised의 축약이다. 배송일은 '약속된' 것이라 과거분사.
-p6-s21-1|t0	promising(유망한)은 의미가 맞지 않는다.
-p6-s21-1|t2	promise는 동사원형·명사라 than 뒤에서 이 생략 구문을 만들지 못한다.
-p6-s21-1|t3	promises도 같은 이유로 맞지 않는다.
+p6-s21-1|t0	promising은 '유망한'이라는 형용사 또는 '약속하는'이라는 현재분사다. later than promising은 than (it was) promised의 생략 구문을 만들지 못하고, 배송일은 회사가 '약속한' 것(수동)이라 능동 -ing도 맞지 않는다. promising은 a promising candidate처럼 쓴다.
+p6-s21-1|t2	promise는 동사원형이나 명사다. later than promise로는 than (it was) promised의 생략 구문을 만들 수 없고, 명사로 쓰려면 관사와 함께 써야 한다. 명사 표현이라면 later than the promised date처럼 쓴다.
+p6-s21-1|t3	promises는 3인칭 단수 동사이거나 복수 명사다. later than promises는 주어 없이 동사만 남거나 '약속들보다 늦게'가 되어 뜻이 통하지 않는다. promises는 keep our promises(약속을 지키다)처럼 쓴다.
 p6-s21-2|why	앞 문장이 지연 원인(일정 시스템 오류)이다. This problem이 그 오류를 가리키며 해결됐다는 문장이 이어진다.
-p6-s21-2|t0	소파는 이미 도착했다(arrived)고 했으므로 모순이다.
-p6-s21-2|t1	소파 배송 지연에 대한 편지이므로 모순이다.
-p6-s21-2|t3	쿠폰은 다음 구매용으로 '동봉한' 것이라 반납 요청은 맞지 않는다.
+p6-s21-2|t0	소파가 다음 달에 배송될 것이라는 문장이다. 첫 문단에서 소파가 약속보다 9일 늦게 arrived(도착했다)고 했으므로 이미 받은 소파를 다시 배송한다는 말은 모순이다.
+p6-s21-2|t1	우리는 소파를 팔지 않는다는 문장이다. 이 편지는 Linden Home이 고객의 소파 배송 지연에 사과하는 내용이므로 소파를 팔지 않는다는 말은 정면으로 모순이다.
+p6-s21-2|t3	쿠폰을 매장에 돌려 달라는 문장이다. 쿠폰은 다음 문단에서 다음 구매용으로 동봉했다고 나오므로 반납 요청은 그 의도와 반대다. 또 빈칸 앞은 지연 원인(scheduling system 오류)이라 그 문제가 해결됐다는 내용이 와야 한다.
 p6-s21-3|why	불편을 보상하려고(To make up for) 50달러를 카드로 '돌려준' 것이다. credit A to(~에 입금하다).
-p6-s21-3|t1	charged는 '청구했다'라 보상이 아니라 반대 의미다. 같은 카드 문맥이라 고르기 쉬운 함정.
-p6-s21-3|t2	borrowed(빌렸다)는 의미가 맞지 않는다.
-p6-s21-3|t3	owed(빚졌다)는 to your credit card와 결합해 보상을 나타내지 못한다.
+p6-s21-3|t1	charged는 '청구했다'라는 뜻이다. To make up for the inconvenience(불편을 보상하기 위해)라고 했는데 카드에 50달러를 청구하면 고객에게서 돈을 더 받는 것이 되어 정반대다. credit card와 같은 카드 문맥이라 고르기 쉬운 함정이다. charge는 We will charge your card처럼 쓴다.
+p6-s21-3|t2	borrowed는 '빌렸다'라는 뜻이다. 회사가 고객의 카드에 50달러를 빌렸다는 말이 되어 보상과 관계없고, borrow는 borrow money from a bank처럼 from과 쓰며 to와 결합하지 않는다.
+p6-s21-3|t3	owed는 '빚지고 있었다'라는 뜻으로 owe A to B 구조로 '~에게 갚을 것이 있다'를 나타낸다. we have owed $50 to your credit card는 실제로 돈을 돌려줬다는 보상 행위를 나타내지 못한다. owe는 We owe you an apology(사과드려야 한다)처럼 쓴다.
 p6-s21-4|why	'앞으로도 계속 이용해 주시길 바란다'는 뜻이다. continue to shop.
-p6-s21-4|t1	stop to shop은 '쇼핑하려고 멈추다'라 뜻이 맞지 않는다.
-p6-s21-4|t2	avoid는 to부정사를 쓰지 않고 의미도 반대다.
-p6-s21-4|t3	finish도 to부정사를 쓰지 않는다.
+p6-s21-4|t1	stop + to부정사는 '~하기 위해 멈추다'라는 뜻이라(stop to rest) stop to shop은 '쇼핑하려고 멈추다'가 되어 뜻이 통하지 않는다. stop shopping으로 보아도 '쇼핑을 그만두다'라 We value your business(거래를 소중히 여긴다)와 정반대다.
+p6-s21-4|t2	avoid는 '피하다'라는 뜻으로 목적어로 동명사(avoid shopping)를 쓰고 to부정사를 쓰지 않는다. 의미도 '우리 가게에서 쇼핑하기를 피하길 바란다'가 되어 단골을 지키려는 사과 편지와 정반대다.
+p6-s21-4|t3	finish는 '끝내다'라는 뜻으로 목적어로 동명사(finish shopping)를 쓰고 to부정사는 받지 않는다. 의미도 '쇼핑을 마치길 바란다'가 되어, 앞으로도 계속 이용해 달라는 편지의 마무리와 맞지 않는다.
 p6-s22-1|why	The hotel을 꾸미는 삽입 분사구다. 호텔은 해변에 '위치한' 것이므로 과거분사 located.
-p6-s22-1|t0	locating은 '위치를 찾아내는'이라는 능동 의미다.
-p6-s22-1|t1	locate는 동사원형이라 삽입구를 만들지 못한다.
-p6-s22-1|t3	location은 명사라 콤마 사이에서 호텔을 설명하는 구조가 되지 않는다.
+p6-s22-1|t0	locating은 현재분사다. locate는 '~의 위치를 찾아내다'라는 타동사라 locating on the waterfront는 호텔이 무언가의 위치를 찾아낸다는 능동 의미가 된다. '~에 위치하다'는 be located처럼 수동형으로 나타낸다.
+p6-s22-1|t1	locate는 동사원형이다. 콤마 사이에서 The hotel을 설명하는 삽입구 자리에는 원형이 올 수 없고, 이 문장의 본동사는 features라 동사가 겹친다. locate는 locate the problem(문제의 위치를 찾다)처럼 쓴다.
+p6-s22-1|t3	location은 '위치'라는 명사다. The hotel, location on the waterfront,는 관사도 없어 호텔을 설명하는 동격 명사구가 되지 못한다. 위치를 명사로 말하려면 an ideal location처럼 관사와 함께 쓴다.
 p6-s22-2|why	앞 문장이 컨퍼런스 센터 소개다. the center가 그것을 가리키며 이미 행사 예약이 들어왔다는 내용이 이어진다.
-p6-s22-2|t0	5월에 처음 문을 연다고 했으므로 50년 운영 후 폐업은 모순이다.
-p6-s22-2|t2	Ms. Ruiz는 총지배인이라고 소개된다.
-p6-s22-2|t3	2년째 공사 중이라고 했으므로 내년에 착공한다는 말은 모순이다.
+p6-s22-2|t0	호텔이 50년 영업 후 2019년에 문을 닫았다는 문장이다. 첫 문장에서 이 호텔은 2년째 공사 중이며 May 15에 처음 손님을 받는다고 했으므로 모순이다.
+p6-s22-2|t2	Ms. Ruiz가 Lakeside의 유명 요리사라는 문장이다. 다음 문단에서 Sofia Ruiz는 general manager(총지배인)로 소개되므로 맞지 않고, 빈칸 앞은 컨퍼런스 센터 소개라 갑작스러운 인물 소개는 흐름에도 맞지 않는다.
+p6-s22-2|t3	내년에 공사가 시작된다는 문장이다. 첫 문장에서 호텔이 “under construction for two years”(2년째 공사 중)이며 May 15에 개장한다고 했으므로 모순이다.
 p6-s22-3|why	So far(지금까지)와 함께 현재까지 완료된 일을 말하므로 현재완료 has hired.
-p6-s22-3|t0	will hire는 미래라 So far와 맞지 않는다. 앞으로 뽑을 40명과 구분해야 한다.
-p6-s22-3|t1	hires는 현재 습관을 나타내 So far와 맞지 않는다.
-p6-s22-3|t2	had hired는 과거 기준 시점이 있어야 하는데 이 문장에는 없다.
+p6-s22-3|t0	will hire는 미래다. So far(지금까지)는 지금까지 이루어진 일과 함께 쓰므로 미래와 충돌한다. 앞으로 뽑을 인원은 뒤의 plans to hire another 40(40명을 더 뽑을 계획)가 따로 말하고 있으니 120명과 구분해야 한다.
+p6-s22-3|t1	hires는 현재 시제로 반복·습관이나 일반적 사실을 나타낸다. So far와 함께 지금까지 누적된 결과(120명 이상 채용)를 말하지 못한다. 현재 시제는 The hotel hires students every summer처럼 쓴다.
+p6-s22-3|t2	had hired는 과거완료라 과거의 기준 시점(예: by the time it opened)이 있어야 한다. 이 기사는 개장 전인 지금을 기준으로 지금까지의 채용 인원을 말하므로 과거 기준 시점이 없다. So far는 현재완료와 짝을 이룬다.
 p6-s22-4|why	명사구 their stay 앞이므로 전치사가 필요하고, '숙박하는 동안'이라는 뜻이라 during(~ 동안)이 정답이다.
-p6-s22-4|t0	while은 접속사라 절을 받아야 한다.
-p6-s22-4|t1	among은 셋 이상의 대상 사이를 말한다.
-p6-s22-4|t2	between은 두 대상 사이를 말한다.
+p6-s22-4|t0	while은 '~하는 동안'이라는 접속사라 뒤에 주어와 동사를 갖춘 절이 와야 한다(while they stay at the hotel). 빈칸 뒤 their stay는 명사구라 전치사가 필요하다. 뜻이 during과 같아 고르기 쉬운 함정이다.
+p6-s22-4|t1	among은 '(셋 이상) 사이에서'라는 뜻으로 among the guests처럼 복수 명사와 쓴다. their stay는 숙박이라는 하나의 기간이라 '~ 동안'이라는 의미가 필요하며, among은 기간을 나타내지 못한다.
+p6-s22-4|t2	between은 두 대상이나 두 시점 사이를 말하며 between May 1 and May 15처럼 쓴다. their stay는 하나의 기간이라 between이 올 수 없다. 기간 전체에 걸쳐 무료 조식을 제공한다는 뜻에는 during이 필요하다.
 p6-s23-1|why	주 2일 재택을 허용한다는 앞 문장과, 화요일에는 반드시 출근해야 한다는 제한이 대조된다. However.
-p6-s23-1|t1	Therefore는 결과를 나타내지만 화요일 출근은 재택 허용의 결과가 아니다.
-p6-s23-1|t2	For example은 예시인데 빈칸 문장은 앞 문장의 예가 아니다.
-p6-s23-1|t3	Similarly는 비슷한 내용을 이어 갈 때 쓴다.
+p6-s23-1|t1	Therefore는 '그러므로'라는 결과 연결어다. 주 2일까지 재택근무를 허용한다는 앞 문장의 결과로 화요일 출근 의무가 생기는 것이 아니다. 화요일 출근은 재택 허용에 붙는 제한이라 대조의 However가 필요하다.
+p6-s23-1|t2	For example은 예시를 들 때 쓴다. 화요일에 전원 출근해야 한다는 것은 재택근무 허용의 예가 아니라 반대 방향의 조건이다. 예시라면 재택이 가능한 요일 같은 내용이 와야 한다.
+p6-s23-1|t3	Similarly는 '마찬가지로'라는 뜻으로 비슷한 내용을 이어 붙일 때 쓴다. 앞은 허용(재택 가능), 빈칸 문장은 의무(must be in the office)라 방향이 반대다.
 p6-s23-2|why	be동사의 보어 자리이므로 형용사 available(연락 가능한)이 정답이다. 재택근무 중에도 전화와 이메일로 연락이 되어야 한다는 뜻이다.
-p6-s23-2|t0	availability는 명사라 '직원=가용성'이 되어 어색하다.
-p6-s23-2|t1	avail은 동사·명사로 be 뒤 보어가 되지 않는다.
-p6-s23-2|t3	availably는 쓰지 않는 형태이고 부사는 보어가 될 수 없다.
+p6-s23-2|t0	availability는 '이용 가능성, 시간 여유'라는 명사다. be동사의 보어로 명사가 오면 주어와 같은 것을 뜻해 '직원 = 가용성'이 되어 어색하다. 뒤의 by phone and e-mail과 함께 '연락이 되는' 상태를 나타내려면 형용사가 필요하다. availability는 check the availability of rooms처럼 쓴다.
+p6-s23-2|t1	avail은 avail oneself of(~을 이용하다)처럼 동사로, to no avail(헛되이)처럼 명사로 쓰는 단어다. be동사 뒤에서 '연락 가능한'이라는 형용사 보어가 될 수 없다. available과 앞부분이 같아 고르기 쉬운 함정이다.
+p6-s23-2|t3	availably는 거의 쓰이지 않는 형태이고, 부사는 be동사의 보어가 될 수 없다. 빈칸 뒤 by phone and e-mail을 보고 동사를 꾸미는 부사를 고르기 쉽지만, be expected to be 뒤는 주어의 상태를 말하는 형용사 자리다.
 p6-s23-3|why	재택 근무 조건 설명 뒤, 다음 문장이 신청 방법(Requests should be submitted)이다. 관리자가 신청을 검토한다는 문장이 그 사이에 자연스럽다.
-p6-s23-3|t0	화요일 출근 규정이 있으므로 사무실 영구 폐쇄는 모순이다.
-p6-s23-3|t2	팀 회의는 화요일에 열린다고 했다.
-p6-s23-3|t3	재택 근무자는 이메일로 연락이 되어야 한다고 했으므로 모순이다.
+p6-s23-3|t0	9월에 사무실이 영구히 문을 닫는다는 문장이다. 앞에서 화요일에는 모든 직원이 사무실에 출근해야 한다고 했으므로 모순이다. September는 재택근무 정책이 시작되는 달일 뿐이다.
+p6-s23-3|t2	팀 회의가 금요일로 옮겨졌다는 문장이다. 앞에서 화요일에 출근해야 하는 이유를 “when team meetings are held”(팀 회의가 열리는 때)라고 했으므로 화요일 회의 규정과 모순이다.
+p6-s23-3|t3	직원은 집에서 이메일을 쓰면 안 된다는 문장이다. 바로 앞 문장에서 재택근무자는 근무 시간 중 by phone and e-mail 연락이 가능해야 한다고 했으므로 정면으로 모순이다.
 p6-s23-4|why	in advance(미리)는 고정 표현이다. 최소 일주일 전에 신청하라는 뜻이다.
-p6-s23-4|t0	in progress는 '진행 중인'이라 뜻이 맞지 않는다.
-p6-s23-4|t2	in front는 위치를 말한다.
-p6-s23-4|t3	ahead는 in 없이 쓰는 부사다(ahead of time).
+p6-s23-4|t0	in progress는 '진행 중인'이라는 뜻으로 The meeting is in progress처럼 쓴다. at least one week in progress는 '최소 일주일 진행 중'이 되어, 일주일 전에 미리 신청하라는 뜻을 나타내지 못한다.
+p6-s23-4|t2	in front는 in front of the building처럼 '앞에'라는 공간상의 위치를 나타낸다. 시간상 '미리'를 나타내지 못하므로 one week in front라고 하지 않는다. 시간 표현에는 in advance를 쓴다.
+p6-s23-4|t3	ahead는 '앞서, 미리'라는 뜻은 맞지만 in 없이 쓰는 부사라 in ahead라고 하지 않는다. one week ahead, ahead of time처럼 쓴다. 뜻이 비슷해 고르기 쉬운 함정으로, 빈칸 앞의 in과 맞는 것은 advance다.
 p6-s24-1|why	이미 파일을 검토했고(found) 문제가 있음을 알리는 내용이다. 현재까지 완료된 일을 나타내는 has reviewed.
-p6-s24-1|t0	will review는 미래라 '해상도가 낮음을 발견했다(found)'는 내용과 맞지 않는다.
-p6-s24-1|t1	is reviewed는 수동이라 디자인팀이 검토되는 대상이 되고 목적어도 받을 수 없다.
-p6-s24-1|t2	reviewing은 분사라 본동사가 없어진다.
+p6-s24-1|t0	will review는 미래 시제로 '검토할 것이다'라는 뜻이다. 그러나 같은 문장의 and found(발견했다)는 과거이고, 이어서 더 좋은 파일을 보내 달라고 하므로 검토는 이미 끝난 일이다. will review를 넣으면 아직 보지 않은 파일의 문제를 벌써 발견했다는 모순이 생긴다. will review는 앞으로 할 일을 알릴 때 쓴다.
+p6-s24-1|t1	is reviewed는 현재 시제 수동태로 '검토된다'라는 뜻이다. 주어 Our design team은 검토를 '하는' 쪽인데 수동태를 쓰면 디자인팀이 검토를 '받는' 대상이 되고, 뒤의 목적어 your logo file도 받을 수 없다. 수동태는 Your file is reviewed처럼 검토 대상이 주어일 때 쓴다.
+p6-s24-1|t2	reviewing은 현재분사·동명사라 혼자서는 문장의 본동사가 될 수 없다. 주어 Our design team 뒤에 시제를 가진 동사가 필요한데 reviewing을 넣으면 동사가 없어 문장이 성립하지 않고, and found와 나란히 이어질 동사도 사라진다. reviewing은 is reviewing처럼 be동사와 함께 쓰거나 after reviewing your file처럼 전치사 뒤에 쓴다.
 p6-s24-2|why	앞 문장이 '해상도가 너무 낮다'이다. 그 결과 인쇄된 로고가 흐리게 나올 것이라는 설명이 이어진다.
-p6-s24-2|t0	인쇄 전 파일 문제를 알리는 중이므로 이미 배송했다는 말은 모순이다.
-p6-s24-2|t1	맞춤 인쇄 주문을 처리하는 중이므로 모순이다.
-p6-s24-2|t3	시안은 아직 보내지도 않았으므로 승인 감사는 맞지 않는다.
+p6-s24-2|t0	이 문장은 '가방이 이미 발송되었다'는 내용이다. 그러나 빈칸 앞 문장은 로고 파일의 해상도가 너무 낮아 인쇄할 수 없다는 내용이고, 뒤 문장은 더 좋은 파일을 보내 달라는 요청이다. 아직 인쇄도 못 한 상태이므로 이미 발송했다는 말은 앞뒤와 모순되며, 생산은 시안 승인 후에야 시작된다는 뒤 내용과도 맞지 않는다.
+p6-s24-2|t1	이 문장은 '더 이상 맞춤 인쇄를 하지 않는다'는 내용이다. 하지만 이메일은 200개의 custom-printed 가방 주문에 감사하고, 인쇄를 위해 더 좋은 로고 파일을 보내 달라고 요청한다. 맞춤 인쇄를 진행하려는 흐름이므로 서비스를 중단했다는 문장은 앞뒤 내용과 정면으로 모순된다.
+p6-s24-2|t3	이 문장은 '시안을 승인해 주셔서 감사하다'는 내용이다. 그러나 시안(proof)은 고화질 파일을 받은 뒤에야 보낼 예정이고, 생산은 고객이 시안을 승인한 후에 시작된다고 뒤에서 말한다. 아직 보내지도 않은 시안의 승인에 감사하는 것은 시점이 맞지 않으며, 빈칸 앞의 '해상도가 낮다'는 문제 제기와도 이어지지 않는다.
 p6-s24-3|why	소유격 your 뒤 명사 자리다. for your approval(승인을 위해).
-p6-s24-3|t1	approve는 동사라 소유격 뒤에 올 수 없다.
-p6-s24-3|t2	approved는 과거분사라 명사 자리에 맞지 않는다.
-p6-s24-3|t3	approving은 동명사로 쓸 수는 있지만 for your approving은 쓰지 않는 표현이다.
+p6-s24-3|t1	approve는 '승인하다'라는 동사원형이다. 빈칸은 전치사 for의 목적어이면서 소유격 your 바로 뒤라 명사가 와야 하는데, 동사는 소유격 뒤에 올 수 없다. approve는 바로 다음 문장의 after you approve the proof처럼 주어 뒤 동사 자리에 쓴다.
+p6-s24-3|t2	approved는 approve의 과거형·과거분사로 '승인된'이라는 뜻이다. 소유격 your 뒤에는 명사가 와야 하므로 for your approved는 명사가 빠진 불완전한 구조가 된다. approved는 the approved proof(승인된 시안)처럼 명사 앞에서 꾸미거나 the proof is approved처럼 수동태로 쓴다.
+p6-s24-3|t3	approving은 동명사라 명사 역할을 할 수 있어 문법만 보고 고르기 쉽다. 그러나 동명사는 동사 성질이 남아 뒤에 목적어가 오는 것이 자연스럽고, '귀하의 승인을 위해'는 관용적으로 for your approval이라고 쓴다. approving은 for approving the proof(시안을 승인해 준 것에 대해)처럼 목적어와 함께 쓴다.
 p6-s24-4|why	고화질 파일을 받고 시안 승인을 받은 뒤에야 생산이 시작되므로, 그 결과 요청 날짜까지 도착하지 못할 수 있다. As a result.
-p6-s24-4|t0	In contrast는 서로 다른 대상을 대조할 때 쓴다.
-p6-s24-4|t2	For example은 예시를 들 때 쓴다.
-p6-s24-4|t3	Instead는 앞 내용을 대신할 때 쓴다.
+p6-s24-4|t0	In contrast는 '그와 대조적으로'라는 뜻으로 두 대상의 차이를 대비할 때 쓴다. 앞 문장은 '시안을 승인해야 생산이 시작된다'이고 뒤 문장은 '요청한 6월 20일까지 도착하지 못할 수 있다'이므로 원인과 결과 관계다. 대조할 두 대상이 없으므로 맞지 않고, 결과를 이끄는 As a result가 필요하다.
+p6-s24-4|t2	For example은 '예를 들어'라는 뜻으로 앞 내용의 구체적인 예를 들 때 쓴다. 그런데 '6월 20일까지 도착하지 못할 수 있다'는 앞 문장(승인 후에야 생산 시작)의 예가 아니라 그 조건 때문에 생기는 결과다. 이 흐름에는 결과를 나타내는 As a result가 맞는다.
+p6-s24-4|t3	Instead는 '그 대신에'라는 뜻으로 앞에서 말한 것을 하지 않고 다른 것을 할 때 쓴다(예: 회의를 취소하고 대신 전화로 이야기하다). 여기서는 생산이 승인 후에 시작된다는 조건 때문에 배송이 늦어질 수 있다는 결과를 말하므로 '대신'의 관계가 아니다. 결과를 나타내는 As a result가 필요하다.
 p6-s25-1|why	be prepared to do는 '~할 준비가 되어 있다'라는 표현이다. be동사 뒤 보어로 과거분사형 형용사 prepared.
-p6-s25-1|t1	preparation은 명사라 be preparation to speak는 성립하지 않는다.
-p6-s25-1|t2	prepare는 동사원형이라 be 뒤에 올 수 없다.
-p6-s25-1|t3	preparatory(준비의)는 명사 앞에 쓰며 be preparatory to speak로 쓰지 않는다.
+p6-s25-1|t1	preparation은 '준비'라는 명사다. be 뒤 보어 자리에 넣으면 '구직자 = 준비'라는 이상한 관계가 되고, 뒤의 to speak와도 이어지지 않는다. '~할 준비가 되어 있다'는 be prepared to do로 쓰며, preparation은 in preparation for the interview(면접 준비로)처럼 명사 자리에 쓴다.
+p6-s25-1|t2	prepare는 '준비하다'라는 동사원형이다. 빈칸 앞에 이미 be가 있으므로 be prepare처럼 동사원형을 이어 쓸 수 없다. prepare는 should prepare questions처럼 조동사 바로 뒤에 쓰고, be 뒤에는 형용사 prepared를 써서 be prepared to speak(이야기할 준비가 되어 있다)로 만든다.
+p6-s25-1|t3	preparatory는 '준비의, 예비의'라는 형용사라 품사만 보면 be 뒤에 올 수 있어 헷갈린다. 그러나 주로 preparatory meeting(사전 회의)처럼 명사 앞에서 쓰며, 사람이 주어일 때 be preparatory to speak라는 표현은 쓰지 않는다. 사람이 '~할 준비가 되어 있다'는 be prepared to do다.
 p6-s25-2|why	앞 문장이 '현장에서 채용 담당자와 이야기할 준비를 하라'다. 일부 기업은 부스에서 면접까지 본다는 문장이 그 이유를 보강한다.
-p6-s25-2|t0	행사는 무료(Free)라고 광고 첫 부분에 나오므로 입장권이 10달러라는 문장은 모순된다.
-p6-s25-2|t1	10월 18일에 열린다고 안내하는 중이므로 모순이다.
-p6-s25-2|t2	이력서를 여러 부 가져오라고 했으므로 모순이다.
+p6-s25-2|t0	이 문장은 '입장권이 현장에서 10달러'라는 내용이다. 그러나 첫 문단에서 이미 “The event is free and open to the public”이라며 행사가 무료라고 했으므로 정면으로 모순된다. 또 빈칸 앞은 현장에서 채용 담당자와 이야기할 준비를 하라는 내용이라 요금 이야기는 흐름에서도 벗어난다.
+p6-s25-2|t1	이 문장은 '박람회가 내년으로 연기되었다'는 내용이다. 그러나 안내문은 10월 18일 토요일에 Civic Center에서 열린다고 알리고, 빈칸 뒤에서도 면접 기술 워크숍이 하루 종일 열린다고 이어진다. 행사가 예정대로 열린다는 전제와 모순되므로 들어갈 수 없다.
+p6-s25-2|t2	이 문장은 '행사장에서 이력서를 받지 않는다'는 내용이다. 하지만 빈칸 바로 앞에서 구직자들에게 “several copies of their résumé”(이력서 여러 부)를 가져오라고 했으므로 모순이다. 이력서를 들고 와 현장에서 채용 담당자와 이야기하라는 흐름과 정반대되는 문장이다.
 p6-s25-3|why	뒤에 절(attendance is expected to be high)이 오고, 일찍 오라는 권고의 이유다. 접속사 Because.
-p6-s25-3|t0	Despite는 전치사이고 양보 의미다.
-p6-s25-3|t1	Due to는 이유를 나타내지만 전치사라 절을 받을 수 없다.
-p6-s25-3|t3	Unless는 조건 접속사라 '많지 않다면 일찍 오라'가 되어 뜻이 맞지 않는다.
+p6-s25-3|t0	Despite는 '~에도 불구하고'라는 양보의 전치사라 뒤에 명사(구)만 오는데, 빈칸 뒤에는 attendance is expected to be high라는 절이 온다. 뜻으로도 '참석자가 많을 텐데도 일찍 오라'가 되어 이유와 권고로 이어지는 흐름과 맞지 않는다. Despite는 Despite the rain(비에도 불구하고)처럼 명사 앞에 쓴다.
+p6-s25-3|t1	Due to는 '~때문에'라는 이유를 나타내서 뜻만 보면 맞아 보이는 함정이다. 그러나 Due to는 전치사라 명사(구)만 받을 수 있고, 빈칸 뒤 attendance is expected to be high는 주어와 동사를 갖춘 절이다. Due to high attendance처럼 명사구가 와야 쓸 수 있다.
+p6-s25-3|t3	Unless는 '~하지 않는다면'이라는 조건 접속사로 절을 받을 수 있어 문법상으로는 들어간다. 하지만 넣으면 '참석자가 많을 것으로 예상되지 않는다면 일찍 오기를 권한다'가 되어 뜻이 거꾸로다. 많이 올 것이기 때문에 일찍 오라는 이유 관계이므로 Because가 맞다.
 p6-s25-4|why	but 뒤에서 주차 공간이 '제한적이다'라는 제약을 말한다. be limited.
-p6-s25-4|t0	limiting은 '제한하는'이라는 능동 의미라 공간에 맞지 않는다.
+p6-s25-4|t0	limiting은 '제한하는'이라는 능동의 현재분사·형용사다. 주어 space는 제한을 '받는' 쪽이므로 space is limiting이라 하면 '공간이 무언가를 제한한다'는 엉뚱한 뜻이 된다. 사물이 제한된 상태는 과거분사 limited로 나타내며, limiting은 a limiting factor(제한 요인)처럼 무언가를 제한하는 것을 꾸민다.

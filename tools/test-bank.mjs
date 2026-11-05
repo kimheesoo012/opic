@@ -55,7 +55,7 @@ for (const u of bank.units) {
 console.log(`해석 ${bank.units.reduce((n, u) => n + questionsOf(u).filter((q) => q.trans).length, 0)}개, Part 7 근거 ${evN}개`);
 // 짧은 해설(한국어: 정답 이유 45자·오답 해설 16자 미만, 일본어는 글자가 촘촘해 28자·10자)
 const JA = /ja$/.test(process.env.TT_APP || '');
-const [minWhy, minTrap] = JA ? [28, 10] : [45, 16];
+const [minWhy, minTrap] = JA ? [28, 45] : [45, 65];
 // 지문 해석: Part 6·7 모든 지문에 문단 수만큼 있어야 하고, 줄 수·빈칸 표시·삽입 위치·숫자·이메일 주소를 보존해야 한다
 const PARA = /\n\s*\n/;
 const digitRuns = (x) => (x.match(/\d+/g) || []).filter((d) => !/^0+$/.test(d));

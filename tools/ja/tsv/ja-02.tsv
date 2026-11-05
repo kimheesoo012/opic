@@ -1,110 +1,110 @@
 p5-003|why	Severalの後ろには複数名詞が来て、面接に「招かれた（were invited）」のは人でなければならない。したがって人を表す複数名詞applicants（応募者たち）が正解。
-p5-003|t0	applicantは単数なのでSeveralと一緒に使えない。
-p5-003|t2	applications（応募書類）も複数名詞だが、書類は面接に招かれない。形だけ合って意味が違う代表的なひっかけ。
-p5-003|t3	applyingは動名詞で、Severalに修飾される複数名詞の位置に合わない。
+p5-003|t0	applicantは「応募者」という意味で内容は合うが単数形だ。Several（いくつかの）は複数名詞とともに使い、動詞も複数形のwereなので、単数のapplicantでは数が合わない。単数ならOne applicant was invitedのように言う。
+p5-003|t2	applicationsは「応募書類」という複数名詞で、Severalの後ろの形は合う。しかし、were invited to a second interview（2次面接に招かれた）の主語は人でなければならず、書類は面接に招かれない。applicationsはSeveral applications were received（複数の応募書類が届いた）のように書類について言うときに使う。
+p5-003|t3	applyingはapply（応募する）の動名詞・現在分詞だ。Severalは数えられる複数名詞を修飾する語なので動名詞とは使わず、面接に招かれた「人」も表せない。applyingはThose applying for the position（その職に応募する人々）のように分詞として名詞を後ろから修飾するときに使う。
 p5-004|why	completeの目的語の位置に名詞が必要。safety training（安全研修）は「名詞 + 名詞」の複合名詞で、trainingは不可算なので冠詞なしで使える。
-p5-004|t0	trainは動詞（または「列車」）で、意味も形も合わない。
-p5-004|t1	trainedは過去分詞なので、completeの目的語になる名詞の位置を埋められない。
-p5-004|t2	trainer（講師）は可算名詞なので冠詞が必要で、「安全講師を完了する」では意味も成り立たない。
+p5-004|t0	trainは動詞なら「訓練する」、名詞なら「列車」という意味だ。completeの目的語としてsafetyの後ろに名詞が必要だが、動詞の原形は名詞の位置に入らず、「列車」と考えるとsafety train（安全列車）となり意味が通らない。動詞のtrainはWe train new staff every monthのように使う。
+p5-004|t1	trainedは「訓練を受けた」という過去分詞で、trained staff（熟練した職員）のように名詞の前で修飾する語だ。この文ではcompleteの目的語になる名詞が必要だが、safety trainedの後ろには修飾される名詞がない。trainedを使うならEmployees must be trainedのように受動態にする。
+p5-004|t2	trainerは「講師」という人を表す名詞で、名詞の位置には合うが、可算名詞なので冠詞なしの単数では使えない。また、complete safety trainerは「安全講師を完了する」となり意味が成り立たない。complete（完了する）の対象は研修であるtrainingで、trainerはa safety trainerのように人を言うときに使う。
 p5-005|why	receivedの目的語の位置に名詞が必要。complaintは可算名詞なので、冠詞なしで使うには複数形complaintsにする必要がある。several clientsから複数の苦情という点も合う。
-p5-005|t0	complaintは可算名詞の単数形なので、a/theなしで単独では使えない。品詞だけ見て選ぶと引っかかる。
-p5-005|t1	complainは動詞なのでreceivedの目的語になれない。
-p5-005|t3	complainedは動詞の過去形で、すでに動詞receivedがある文にもう1つは入らない。
+p5-005|t0	complaintは「不満、苦情」という名詞で品詞は合うが、可算名詞の単数形だ。可算名詞の単数形はa/theなどの冠詞なしでは使えないのでreceived complaintは誤りで、from several clients（複数の顧客から）なので複数の苦情という点でも複数形が自然だ。単数ならreceived a complaintとする。
+p5-005|t1	complainは「不満を言う」という自動詞だ。空所は動詞receivedの目的語となる名詞の位置なので、動詞の原形は入らない。complainはSeveral clients complained about the delaysのように主語の後ろでaboutとともに使う。
+p5-005|t3	complainedはcomplain（不満を言う）の過去形・過去分詞だ。この文にはすでに動詞receivedがあり、空所はその目的語となる名詞の位置なので、動詞をもう一つ入れることはできない。「顧客が不満を言った」ならSeveral clients complainedのように主語を前に置く。
 p5-006|why	make + 目的語（the archive）+ 目的格補語の形。補語の位置には形容詞が入るので、moreと比較級を作るaccessible（利用しやすい）が正解。
-p5-006|t1	accessは名詞・動詞で、much more access toでは「より多くの利用権」という意味になり、目的語the archiveを説明する補語の形が崩れる。
-p5-006|t2	accessiblyは副詞なので目的格補語の位置に入らない。
-p5-006|t3	accessibilityは名詞で、補語の位置で形容詞の代わりには使えない。
+p5-006|t1	accessは「アクセス、利用（権）」という名詞、または「アクセスする」という動詞だ。make + 目的語（the archive）+ 補語の構造で、補語は目的語の状態を表す形容詞でなければならないが、名詞accessを入れると「保管庫＝アクセス」となり不自然だ。accessはStaff members have access to the archive（職員は保管庫を利用できる）のように使う。
+p5-006|t2	accessiblyは「利用しやすく」という副詞だ。made the archive moreの後の空所は、目的語the archiveがどんな状態になったかを表す補語の位置なので、副詞は入らない。「より使いやすく」という訳につられて選びやすいが、makeの目的語の後ろの補語には形容詞しか入らない。
+p5-006|t3	accessibilityは「利用しやすさ」という名詞だ。補語の位置に名詞を入れると「保管庫＝利用しやすさ」となって意味が合わず、much moreの後ろでto staff membersともつながらない。accessibilityはimprove the accessibility of the archive（保管庫の利用しやすさを高める）のように名詞として使う。
 p5-007|why	所有格itsと名詞serviceの間は、名詞を修飾する形容詞の位置。reliable（信頼できる）がand の後ろのreasonable pricesとも「形容詞 + 名詞」で並列になる。
-p5-007|t0	relyは動詞で、名詞の前の修飾の位置には入らない。
-p5-007|t1	reliablyは副詞なので名詞serviceを修飾できない。
-p5-007|t2	reliability serviceは「名詞 + 名詞」の複合名詞として成り立たない。
+p5-007|t0	relyは「頼る」という自動詞で、rely on（～に頼る）の形で使う。所有格itsと名詞serviceの間は名詞を修飾する形容詞の位置なので、動詞は入らない。relyはMany clients rely on Lakeside Cateringのように動詞の位置で使う。
+p5-007|t1	reliablyは「確実に」という副詞だ。副詞は動詞・形容詞・ほかの副詞を修飾し、名詞serviceは修飾できない。itsとserviceの間は形容詞の位置で、reliablyはThe van runs reliably（そのバンは故障なくよく走る）のように動詞を修飾するときに使う。
+p5-007|t2	reliabilityは「信頼性」という名詞だ。名詞+名詞の複合名詞と考えてもreliability service（信頼性サービス）という表現は使わず、andの後ろのreasonable prices（形容詞+名詞）との並列も合わない。reliabilityはknown for its reliability（信頼性で知られる）のように名詞単独で使う。
 p5-008|why	be動詞wereの補語の位置で、as 〜 asの原級比較の間。be動詞の後ろの補語は形容詞なのでclear（明確な）が正解。
-p5-008|t0	clearlyは副詞なのでbe動詞の補語になれない。as 〜 asの間という点だけに注目すると選びやすいひっかけ。
-p5-008|t2	clarityは名詞。主語instructionsを説明する補語に「明確さ」が来ると「説明書 = 明確さ」となり不自然。
-p5-008|t3	clarifyは動詞の原形なのでwereの後ろには入らない。
+p5-008|t0	clearlyは「はっきりと」という副詞だ。as ~ asの間という点だけを見て選びやすいが、空所はbe動詞wereの補語の位置なので、主語instructionsの状態を表す形容詞が必要だ。副詞がas ~ asの間に入るのは、explain as clearly as possibleのように前に一般動詞がある場合だ。
+p5-008|t2	clarityは「明確さ」という名詞だ。be動詞の後ろの補語に名詞を入れると「説明書＝明確さ」となって不自然で、not as clarity asという表現も使わない。clarityはThe instructions lacked clarity（説明書は明確さに欠けていた）のように使う。
+p5-008|t3	clarifyは「明確にする」という動詞の原形だ。wereの後ろに動詞の原形は直接置けず、空所はas ~ asの間の形容詞の補語の位置だ。clarifyはPlease clarify the instructions（説明をはっきりさせてほしい）のように目的語をとる動詞として使う。
 p5-009|why	seemは後ろに形容詞の補語をとる。企画書が「有望に見えた」という意味なので、「見込みのある」という意味の形容詞promisingが正解。Although（〜だが）とrejectedの対比も自然。
-p5-009|t1	promiseは名詞・動詞で、第2文型の動詞seemedの補語になる形容詞の位置に合わない。
-p5-009|t2	promisedは「約束された」という受動の意味で、「企画書が約束されたように見えた」となり意味が通じない。
-p5-009|t3	promisinglyは副詞なのでseemの補語になれない。
+p5-009|t1	promiseは「約束、見込み」という名詞、または「約束する」という動詞だ。seemは後ろに形容詞の補語をとる第2文型の動詞なので、動詞の原形は入らず、冠詞のない名詞promiseもseemedの補語には使わない。名詞ならThe proposal showed promise（その提案は見込みを示した）のように使う。
+p5-009|t2	promisedは「約束された」という受動の意味の過去分詞だ。seemed promisedは「提案書が約束されたように見えた」となり意味が通らず、Althoughでつながる「最初はよく見えたが結局却下した」という対比も生きない。promisedはthe promised discount（約束された割引）のように名詞を修飾するときに使う。
+p5-009|t3	promisinglyは「有望に」という副詞だ。seemは「～に見える」という意味で、主語の状態を表す形容詞の補語が必要であり、副詞は補語になれない。promisinglyはThe project started promisingly（プロジェクトは順調に始まった）のように一般動詞を修飾するときに使う。
 p5-010|why	find + 目的語（the revised budget）+ 形容詞の補語の形で、「改訂予算が長期目標と一致していると判断した」という意味。be consistent with（〜と一致している）がそのまま補語として使われている。
-p5-010|t0	consistは動詞（consist of: 〜から成る）で、目的格補語の位置に合わない。
-p5-010|t1	consistentlyは副詞。findの後ろの目的格補語に副詞は入らないが、「一貫して」という訳につられて選びやすい。
-p5-010|t3	consistencyは名詞なので「予算 = 一貫性」となり、補語として不自然。
+p5-010|t0	consistは「構成される」という自動詞で、consist of（～から成る）の形で使う。find + 目的語（the revised budget）+ 補語の構造の補語の位置に動詞の原形は入らず、withとも組み合わない。consistはThe committee consists of five membersのように動詞として使う。
+p5-010|t1	consistentlyは「一貫して」という副詞だ。findの後ろの補語は、目的語the revised budgetを「どうだ」と判断したかを表す位置なので形容詞が必要で、副詞は入らない。「一貫して」という訳につられやすいが、consistentlyはShe consistently meets deadlinesのように動詞を修飾するときに使う。
+p5-010|t3	consistencyは「一貫性」という名詞だ。補語の位置に名詞を入れると「修正予算＝一貫性」となって不自然で、be consistent with（～と一致している）のようにwithと結びつくのも形容詞のconsistentだ。consistencyはmaintain consistency（一貫性を保つ）のように名詞として使う。
 p5-011|why	workedは自動詞で、文はすでに完全。空所は動詞を修飾する副詞の位置なので、tirelessly（疲れを知らずに）が正解。
-p5-011|t1	tirelessは形容詞なので動詞workedを修飾できない。
-p5-011|t2	tiredness（疲労）は名詞なので、自動詞workedの後ろに目的語のようには置けない。
-p5-011|t3	tireは動詞・名詞でこの位置に合わない。
+p5-011|t1	tirelessは「疲れを知らない」という形容詞で、tireless effort（粘り強い努力）のように名詞を修飾する。workedは目的語なしで完結する自動詞なので、空所は動詞を修飾する副詞の位置で、形容詞は動詞を修飾できない。workedの直後なので補語のように感じやすいが、workは形容詞の補語をとる動詞ではない。
+p5-011|t2	tirednessは「疲労」という名詞だ。workedは自動詞なので後ろに目的語は不要で、worked tiredness（疲労を働いた）は意味も通らない。tirednessはMany staff complained of tiredness（多くの職員が疲労を訴えた）のように名詞の位置で使う。
+p5-011|t3	tireは「疲れさせる、疲れる」という動詞か、「タイヤ」という名詞だ。workedの後ろに動詞の原形をもう一つ置くことはできず、「タイヤ」と考えると文脈にまったく合わない。tireはLong meetings tire the staff（長い会議は職員を疲れさせる）のように動詞として使う。
 p5-012|why	increaseはここでは自動詞で、'Sales have increased' だけで文が完全。動詞を修飾する副詞steadily（着実に）が入る。
-p5-012|t0	steadyは形容詞なので動詞increasedを修飾できない。
-p5-012|t1	steadinessは名詞で、自動詞の後ろの目的語の位置のようには使えない。
-p5-012|t2	steadiedは過去形・過去分詞で、すでに動詞（have increased）がある文に合わない。
+p5-012|t0	steadyは「着実な」という形容詞で、steady growth（着実な成長）のように名詞を修飾する。Sales have increasedは自動詞ですでに完全な文なので、空所は動詞increasedを修飾する副詞の位置で、形容詞は動詞を修飾できない。同じ意味を形容詞で言うならSales have shown steady growthのように名詞の前に置く。
+p5-012|t1	steadinessは「安定性、着実さ」という名詞だ。increaseはここでは目的語のない自動詞なので後ろに名詞が入る場所はなく、have increased steadinessは「安定性を高めた」となり主語Salesとも合わない。steadinessはthe steadiness of demand（需要の安定性）のように名詞として使う。
+p5-012|t2	steadiedはsteady（安定させる、安定する）の過去形・過去分詞だ。文にはすでに動詞have increasedがあるので、動詞をもう一つ入れることはできない。steadiedはPrices steadied in April（4月に価格が安定した）のように文の本動詞として使う。
 p5-013|why	be動詞と過去分詞の間（is ___ reserved）は副詞の位置。typically（通常、一般的に）が受動態の動詞を修飾する。
-p5-013|t0	typicalは形容詞なのでbeとp.p.の間に入らない。
-p5-013|t1	typicalityは名詞なので受動態の間には入らない。
-p5-013|t3	typifyは動詞の原形なので、isの後ろ、p.p.の前には入らない。
+p5-013|t0	typicalは「典型的な、ふつうの」という形容詞だ。is reservedは受動態の動詞で、be動詞と過去分詞の間は動詞を修飾する副詞の位置なので、形容詞は入らない。typicalはa typical day（ふつうの一日）のように名詞の前や、It is typicalのようにbe動詞の後ろの補語として使う。
+p5-013|t1	typicalityは「典型性」という名詞で、-ityで終わる名詞形だ。isとreservedの間は受動態の動詞を修飾する副詞の位置で、ここに名詞が入るとis reservedという動詞のまとまりが切れて文が成り立たない。名詞は主語や目的語の位置に置く。
+p5-013|t3	typifyは「～の典型である、代表する」という動詞の原形だ。isの後ろに動詞の原形は置けず、すでにis reservedという動詞があるので動詞が重なる。typifyはThis design typifies the brand's style（このデザインはそのブランドのスタイルをよく表している）のように本動詞として使う。
 p5-014|why	空所は副詞wellを修飾する位置。副詞を修飾するのは副詞なので、exceptionally（並外れて、とても）が正解。'exceptionally well received' は「非常に好評だった」という意味。
-p5-014|t0	exceptionは名詞で、副詞wellの前には入らない。
-p5-014|t2	exceptionalは形容詞なので副詞wellを修飾できない。「wasの後ろの補語 = 形容詞」と思わせるひっかけ。
-p5-014|t3	exceptedは「除外された」という過去分詞で、意味も合わずwellも修飾できない。
+p5-014|t0	exceptionは「例外」という名詞だ。空所は副詞wellを修飾する位置だが、名詞は副詞を修飾できず、was exception well receivedは文の構造が崩れる。exceptionはwith the exception of Ms. Duval（Duvalさんを除いて）のように名詞として使う。
+p5-014|t2	exceptionalは「優れた、並外れた」という形容詞だ。wasの後ろなので補語の形容詞の位置と勘違いしやすいが、空所の後ろにwell receivedが続くので、空所は副詞wellを修飾する位置で、形容詞は副詞を修飾できない。exceptionalはan exceptional presentation（優れた発表）のように名詞を修飾するときに使う。
+p5-014|t3	exceptedはexcept（除外する）の過去分詞で「除外された」という意味だ。空所は副詞wellを修飾する副詞の位置なので過去分詞は入らず、「発表が除外されて好評だった」となり意味も通らない。「～を除いて」と言うときはふつう前置詞exceptを使う（everyone except Ms. Duval）。
 p5-015|why	haveと過去分詞completedの間は副詞の位置。successfully（うまく、成功裏に）が現在完了の動詞を修飾する。
-p5-015|t0	successは名詞で、haveとp.p.の間には入らない。
-p5-015|t2	successfulは形容詞なので動詞を修飾できない。
-p5-015|t3	succeedは動詞の原形。have succeeded completedのように動詞が重なってしまう。
+p5-015|t0	successは「成功」という名詞だ。haveと過去分詞completedの間は現在完了の動詞を修飾する副詞の位置なので、名詞は入らない。successはThe event was a success（イベントは成功だった）のように名詞の位置で使う。
+p5-015|t2	successfulは「成功した」という形容詞で、successful candidates（合格した候補者）のように名詞を修飾する。have completedの間で動詞を修飾するには副詞が必要で、形容詞は動詞を修飾できない。意味が近いので選びやすいが、-fulで終わる形容詞形なのでこの位置には合わない。
+p5-015|t3	succeedは「成功する」という動詞の原形だ。haveの後ろに入れるとhave succeed completedのように動詞が連続し、haveの後ろなら過去分詞succeededでなければならないので形も誤りだ。succeedはsucceed in completing the assessment（評価を無事に終える）のようにin + 動名詞とともに使う。
 p5-016|why	since + 過去の時点（he joined … in 2019）は過去から今まで続くことを表すので、現在完了has workedが正解。
-p5-016|t1	worksは単純現在で、sinceと一緒に「そのときから今まで」を表せない。
-p5-016|t2	will workは未来なので、過去の時点からの継続を表せない。
-p5-016|t3	is workingは現在進行形なので、sinceの構文と合わない。
+p5-016|t1	worksは単純現在で、「（ふだん）働いている」という現在の事実や習慣を表す。since he joined the firm in 2019（2019年の入社以来）は過去から今まで続く期間を表すので現在完了が必要で、単純現在はsinceとともに使わない。worksはHe works in accounting nowのように現在の状態だけを言うときに使う。
+p5-016|t2	will workは未来時制で、これからのことを表す。since he joined the firm in 2019は過去の時点から今までの継続を表すので、未来とは合わない。will workはHe will work in accounting from next monthのように未来の時点を表す語句とともに使う。
+p5-016|t3	is workingは現在進行形で、「今働いているところだ」という一時的な動作を表す。since + 過去の時点は2019年から今まで続く期間なので現在完了（進行形）が必要で、単純な現在進行形はsinceとともに使えない。is workingはHe is working on a report right nowのように今この瞬間のことを言うときに使う。
 p5-017|why	By the time + 過去（arrived）は「出荷品が届いたときにはすでに」という意味なので、それより前に終わったことは過去完了had soldで表す。sell out ofは「〜を売り切る」。
-p5-017|t0	sellsは現在時制なので、過去の時点（arrived）を基準にした話と合わない。
-p5-017|t1	has soldは現在を基準にした完了で、過去の時点より前のことを表せない。
-p5-017|t3	will have soldは未来完了。By the timeの後ろが現在時制なら可能だが、arrivedは過去。
+p5-017|t0	sellsは単純現在で、現在の事実や習慣を表す。By the time the new shipment arrivedは「新しい荷物が届いたとき（過去）」を基準に、それより前に終わったことを述べるので、現在時制とは合わない。sellsはThe store sells blenders（その店はミキサーを売っている）のようにふだんのことを言うときに使う。
+p5-017|t1	has soldは現在完了で、「今までに～した」のように現在が基準だ。この文の基準は過去のarrivedで、それより前に終わったことなので過去完了had soldが必要だ。has soldはThe store has sold out of blenders this weekのように現在を基準に言うときに使う。
+p5-017|t3	will have soldは未来完了で、「未来のある時点までに～しているだろう」を表す。By the timeの後ろが現在時制（By the time the shipment arrives）なら使えるが、ここでは過去のarrivedなので時点が合わない。
 p5-018|why	Once（いったん〜すれば）は時・条件の副詞節を作る接続詞なので、未来のことでも現在時制で書く。改装は「完了される」側なので、受動態の現在is completedが正解。
-p5-018|t0	主節が未来（will offer）なのでwill be completedを選びやすいが、時の副詞節では未来の代わりに現在時制を使う。
-p5-018|t1	completesは能動態。renovationは自分で完了させる主体ではなく、完了される側。
-p5-018|t2	was completedは過去なので、これから起こること（will offer）と時点が合わない。
+p5-018|t0	will be completedは未来の受動態だ。主節がwill offerなので未来形を選びやすいが、Once（いったん～すれば）が導く時・条件の副詞節では、未来のことも現在時制で表す。will be completedはThe renovation will be completed next monthのように副詞節ではなく主節で使う。
+p5-018|t1	completesは現在時制なので副詞節の時制は合うが、能動態だ。renovation（改装工事）は自分で何かを完了させる主体ではなく完了される対象で、completeは他動詞なのに後ろに目的語もない。能動ならOnce the workers complete the renovationのように人を主語にする。
+p5-018|t2	was completedは過去の受動態で、すでに終わったことを表す。主節のwill offerはこれからのことなので、「工事が完了した、そうしたら提供する」となり時点がずれる。was completedはThe renovation was completed last Mayのように過去のことを言うときに使う。
 p5-019|why	next Fridayは未来の時点で、報告書は「送られる」側。未来の受動態will be sentが正解。
-p5-019|t0	sentは過去の能動で「報告書が送った」になり、時点も合わない。
-p5-019|t1	was sentは過去時制なのでnext Fridayと矛盾する。
-p5-019|t2	has been sentは現在完了で、未来の時点next Fridayと一緒には使えない。
+p5-019|t0	sentはsendの過去形（または過去分詞）だ。過去の能動とみると「報告書が（何かを）送った」となって主語と合わず、next Friday（来週の金曜日）という未来の時点とも合わない。sentはWe sent the report last Fridayのように人が主語の過去の文で使う。
+p5-019|t1	was sentは過去の受動態で、「報告書が送られた」という受動の関係は合う。しかしnext Fridayはこれからの時点なので過去時制とは合わない。was sentはThe report was sent last Fridayのように過去の時点を表す語句とともに使う。
+p5-019|t2	has been sentは現在完了の受動態で、「すでに送られた」という今までの完了を表す。現在完了はnext Fridayのような特定の未来（または過去）の時点を表す語句とともに使えない。has been sentはThe report has already been sentのように時点なしで完了を言うときに使う。
 p5-020|why	By + 未来の時点（the end of next month）と期間（for twenty years）が一緒に使われると、「そのときには〜してきたことになる」という未来完了will have servedが正解。
-p5-020|t0	has servedは現在までの完了で、基準の時点が未来（next month）なので合わない。
-p5-020|t1	will serveは単純未来で、「by 未来の時点 + for 期間」の積み重ねの意味を表せない。最もよくあるひっかけ。
-p5-020|t3	had servedは過去を基準にした完了なのでnext monthと矛盾する。
+p5-020|t0	has servedは現在完了で、今を基準に「今まで～してきた」を表す。この文の基準はBy the end of next month（来月末までに）という未来なので、その時点までの積み重ねは未来完了で表す。has servedはShe has served the company for nineteen years so farのように現在が基準のときに使う。
+p5-020|t1	will serveは単純未来で「これから勤める」という意味だ。By + 未来の時点とfor exactly twenty years（ちょうど20年間）が一緒に使われると「その時点で20年に達する」という積み重ねの意味になるので、未来完了が必要だ。未来の表現だけを見て選ぶ、最もよくある落とし穴だ。
+p5-020|t3	had servedは過去完了で、過去のある時点までの完了を表す。基準の時点はnext monthという未来なので、過去を基準とするhad servedとは合わない。had servedはBy the end of last year, she had served the company for nineteen yearsのように過去の時点が基準のときに使う。
 p5-021|why	来訪者は記帳するよう「求められる」側で、空所の後ろに目的語がなくto不定詞が続く。be required to do（〜しなければならない）の受動態が正解。
-p5-021|t0	requireは能動態なので「来訪者が記帳を求める」となって意味が逆になり、後ろに目的語もない。
-p5-021|t2	requiringは分詞で、文に述語動詞がなくなる。
-p5-021|t3	have requiredは能動の現在完了で、requireの後ろに必要な目的語がない。
+p5-021|t0	requireは「求める」という能動の動詞だ。All visitors require to sign inは「訪問者が記帳することを求める」となって意味が逆になり、requireは他動詞なので目的語が必要なのに、すぐto不定詞が続いている。能動で使うならThe building requires all visitors to sign inのように目的語（人）を入れる。
+p5-021|t2	requiringは現在分詞・動名詞だ。All visitors requiring to sign inとなると、文に時制を持つ本動詞が一つもなく文が完成しない。requiringはVisitors requiring assistance should call the front desk（手助けが必要な訪問者は受付に連絡すること）のように名詞を後ろから修飾するときに使う。
+p5-021|t3	have requiredは能動の現在完了で、「訪問者が（何かを）求めてきた」となる。requireは目的語が必要な他動詞なのに空所の後ろに目的語がなく、訪問者は記帳を求める側ではなく求められる側だ。能動ならMany visitors have required assistanceのように目的語を置く。
 p5-022|why	授賞式は「出席される」側で、by + 動作主（more than 300 employees）が続く。Last year'sから過去なので、過去の受動態was attendedが正解。
-p5-022|t1	attendedは能動の過去で「授賞式が出席した」となり、attendの後ろに必要な目的語もない。
-p5-022|t2	has attendedは能動態なので目的語が必要で、時点（last year）も現在完了と合わない。
-p5-022|t3	attendingは分詞で、述語動詞の役割を果たせない。
+p5-022|t1	attendedはattend（出席する）の能動の過去形だ。すると「授賞式が出席した」となって主語と合わず、attendは他動詞なので目的語が必要なのに、by more than 300 employeesがすぐ続いている。能動で使うならMore than 300 employees attended the ceremonyのように人を主語にする。
+p5-022|t2	has attendedは能動の現在完了なので、attendedと同じく目的語が必要で、「授賞式が出席してきた」となる。さらにLast year's（昨年の）という終わった過去の時点と現在完了は一緒に使わない。has attendedはShe has attended every ceremony since 2020のように今までの経験を言うときに使う。
+p5-022|t3	attendingは現在分詞・動名詞なので、時制を持つ本動詞の役割はできない。この文にはほかに動詞がないので、attendingを入れると文が完成しない。attendingはEmployees attending the ceremony received gifts（授賞式に出席した社員は贈り物を受け取った）のように名詞を後ろから修飾するときに使う。
 p5-023|why	空所の後ろに目的語several new slogansがあり、チームがスローガンを「提案する」主体なので、能動態has proposedが正解。
-p5-023|t0	has been proposedは受動態なので後ろに目的語が来られず、「チームが提案された」という意味になる。
-p5-023|t1	was proposedも受動態なので、目的語slogansと一緒に使えない。
-p5-023|t2	proposingは分詞で、述語動詞のない文になる。
+p5-023|t0	has been proposedは現在完了の受動態で、「チームが提案された」という意味になる。チームはスローガンを提案する主体で、受動態の後ろには目的語を置けないのに、空所の後ろに目的語several new slogansがある。受動態はSeveral new slogans have been proposed by the teamのようにスローガンが主語のときに使う。
+p5-023|t1	was proposedも過去の受動態なので「チームが提案された」となり、後ろの目的語several new slogansとは一緒に使えない。時制が過去であることより、能動・受動が違うことがポイントだ。was proposedはA new slogan was proposed at the meetingのように提案された物が主語のときに使う。
+p5-023|t2	proposingは現在分詞・動名詞なので、時制を持つ本動詞にはなれない。The marketing team proposing several new slogansだけでは「いくつかのスローガンを提案するマーケティングチーム」という名詞のまとまりにすぎず、文にならない。proposingはThe team is proposing new slogansのようにbe動詞とともに進行形で使う。
 p5-024|why	occur（起こる）は目的語をとらない自動詞なので受動態がない。last weekから過去なので、occurredが正解。
-p5-024|t0	日本語の「発生させられた」のような発想で受動態を選びやすいが、自動詞occurは受動態にできない。
-p5-024|t1	have been occurredも自動詞の受動態なので不可能で、last weekと現在完了も合わない。
-p5-024|t3	occurringは分詞で、文の述語動詞になれない。
+p5-024|t0	were occurredはoccurの過去の受動態の形だ。「遅れが発生された」のような訳につられて選びやすいが、occur（起こる）は目的語をとらない自動詞なので受動態にはできない。happen、take place、ariseなどの自動詞も同じ理由で受動態がない。
+p5-024|t1	have been occurredは現在完了の受動態の形だが、自動詞occurはそもそも受動態にできない。また、last week（先週）という終わった過去の時点は現在完了と一緒に使わないので、時制も合わない。現在完了ならSeveral delays have occurred this weekのように能動で、今につながる期間とともに使う。
+p5-024|t3	occurringは現在分詞・動名詞なので、時制を持つ本動詞にはなれない。この文にはほかに動詞がないので、occurringを入れると文が完成しない。occurringはDelays occurring during installation must be reported（設置中に起きた遅れは報告すること）のように名詞を後ろから修飾するときに使う。
 p5-025|why	契約書は署名「される」側で、後ろにby both partiesがある。助動詞willの後ろに受動態の原形be signedが入る。
-p5-025|t0	signは能動態なので契約書が署名する主体になり、目的語もない。
-p5-025|t2	have signedは能動の完了で、「契約書が署名しただろう」となり成り立たない。
-p5-025|t3	signingはwillの後ろには入らない（will + 動詞の原形）。
+p5-025|t0	signは能動の動詞の原形なので、will signだと「契約書が署名するだろう」となり主語と合わない。signは他動詞なのに後ろに目的語もなく、by both parties（双方によって）が続くので受動態が必要だ。能動ならBoth parties will sign the agreementのように人が主語になる。
+p5-025|t2	have signedは能動の完了形なので、will have signedだと「契約書が（何かに）署名し終えているだろう」となり成り立たない。目的語もなく、by both partiesとも合わない。未来完了の能動はBoth parties will have signed the agreement by Fridayのように人が主語のときに使う。
+p5-025|t3	signingは-ing形なので、助動詞willの直後には置けない（will + 動詞の原形）。will be signingなら進行形になるが、それでも能動なので契約書が署名することになる。signingはthe signing of the agreement（契約の締結）のように名詞としても使う。
 p5-026|why	主語の中心は単数名詞The listで、of approved vendorsは修飾語。every six monthsは繰り返されることなので、現在の単数isが正解。
-p5-026|t1	areは直前のvendors（複数）に数を合わせたひっかけ。本当の主語はlist。
-p5-026|t2	wereは複数かつ過去なので、主語list、繰り返しの意味のどちらとも合わない。
-p5-026|t3	beは動詞の原形なので、主語の後ろの述語動詞の位置には入らない。
+p5-026|t1	areは複数の主語に使うbe動詞だ。空所の直前のvendors（複数）に数を合わせると選んでしまう落とし穴で、of approved vendorsは修飾語であり、本当の主語は単数名詞のThe listだ。areはThe vendors are listed alphabetically（業者はアルファベット順に載っている）のように複数名詞が主語のときに使う。
+p5-026|t2	wereは複数形かつ過去形だ。主語The listは単数なので数が合わず、every six months（6か月ごとに）は今も繰り返されることなので過去時制も合わない。wereはThe lists were updated last yearのように複数の主語の過去のことに使う。
+p5-026|t3	beは動詞の原形で時制がないので、主語The listの直後の本動詞の位置に単独では置けない。繰り返される現在のことを受動態で言うには、時制のあるisが必要だ。beはThe list must be updatedのように助動詞の後ろで使う。
 p5-027|why	Each of + 複数名詞は「それぞれ」という意味で単数扱い。したがって単数動詞isが正解。
-p5-027|t0	areはmanagersに数を合わせたもので、主語Eachは単数。
-p5-027|t1	beingは分詞なので述語動詞になれない。
-p5-027|t3	have beenは複数の動詞の形なので、単数の主語Eachと合わない。
+p5-027|t0	areは直前のmanagers（複数）に数を合わせた落とし穴だ。Each of + 複数名詞は「～のそれぞれ」という意味で、主語の中心はEachなので単数扱いになり、単数の動詞が必要だ。areはAll of the regional managers are expectedのようにAllが主語のときに使う。
+p5-027|t1	beingは現在分詞・動名詞で時制がないので、本動詞にはなれない。Each of the regional managers being expectedだけでは文が完成しない。beingはThe report is being reviewed（報告書が検討されている）のように進行形の受動態でbe動詞の後ろに使う。
+p5-027|t3	have beenは複数の主語（またはI、you）に使う現在完了形だ。主語Eachは単数なのでhas beenでなければならず、haveはmanagersに数を合わせた形だ。have beenはThe managers have been asked to submit reportsのように複数の主語のときに使う。
 p5-028|why	The number of + 複数名詞は「〜の数」という1つの数値なので単数扱い。over the past yearと合う現在完了の単数has doubledが正解。
-p5-028|t1	haveはcustomersに合わせた複数形。複数動詞を使うのはa number of（多くの）のときだけ。
-p5-028|t2	havingは分詞なので述語動詞になれない。
-p5-028|t3	to haveはto不定詞なので述語動詞の位置に入らない。
+p5-028|t1	haveは空所の前のcustomersなどの複数名詞に数を合わせた形だ。The number of + 複数名詞は「～の数」という一つの数値なので単数の動詞が必要だ。複数の動詞はA number of customers have complained（多くの顧客が苦情を言った）のようにa number of（多くの）のときに使う。
+p5-028|t2	havingは現在分詞・動名詞で時制がないので、本動詞にはなれない。主語The number of customersの後ろにhaving doubledを入れると、文に本動詞がなくなる。havingはHaving doubled its sales, the company hired more staffのように分詞構文で使う。
+p5-028|t3	to haveはto不定詞なので、時制を持つ本動詞の位置には入らない。The number ... to have doubledでは文にならない。to haveはThe number is expected to have doubled by next yearのように動詞の後ろでto不定詞として使う。
 p5-029|why	主語はEmployees（複数）で、who wish to attend the leadership seminarは主語を修飾する関係詞節。複数の主語に合うneedが正解。
-p5-029|t0	needsは直前のseminar（単数）に数を合わせたひっかけ。
-p5-029|t2	needingは分詞なので述語動詞になれない。
-p5-029|t3	has neededは単数の動詞の形なので、複数の主語Employeesと合わない。
+p5-029|t0	needsは3人称単数の動詞だ。直前のseminar（単数）に数を合わせると選んでしまう落とし穴で、who wish to attend the leadership seminarは主語を修飾する関係詞節であり、本当の主語は複数のEmployeesだ。needsはEach employee needs approvalのように単数の主語のときに使う。
+p5-029|t2	needingは現在分詞・動名詞で時制がないので、本動詞にはなれない。この文のwishは関係詞節の中の動詞にすぎないので、needingを入れると主節の本動詞がなくなる。needingはEmployees needing approval should contact HRのように名詞を後ろから修飾するときに使う。
+p5-029|t3	has neededは単数の主語に使う現在完了形なので、複数の主語Employeesと数が合わない。また、in advance（前もって）とともにこれから守るべき決まりを述べる文なので、現在完了の意味（「今まで必要としてきた」）も合わない。has neededはThe department has needed more staff for monthsのように使う。
 p5-030|why	A number of + 複数名詞は「多くの〜」という意味で複数扱い。後ろのbeen receivedと一緒に現在完了の受動態を作る複数形haveが正解。
-p5-030|t0	hasはpolicy（単数）や 'number' だけを見て選んだひっかけ。A number ofは複数。
+p5-030|t0	hasはpolicy（単数）やnumberという単語だけを見て選んでしまう落とし穴だ。A number of + 複数名詞は「多くの～」という意味で、実際の主語はcomplaints（複数）なので複数の動詞haveが必要だ。hasはThe number of complaints has risen（苦情の件数が増えた）のようにThe number ofのときに使う。

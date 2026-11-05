@@ -32,10 +32,10 @@
      "explanation": {
       "why": "渋滞で遅れているMs. Ruizが、9時30分の会議用にプロジェクターの設置を頼むところから会話が始まる。",
       "traps": [
-       "会議の時間を変えようという話はない。",
+       "選択肢は「顧客との会議の日程を変えるため」だ。Ms. Ruizは“Could you set up the projector for the 9:30 client meeting?”（9:30の顧客会議用にプロジェクターを準備してくれる？）と、会議を予定どおり行うための準備を頼んでいる。時間や日付を変えようという話はない。",
        null,
-       "顧客の会社の場所は尋ねていない。会議室は6Bにすでに決まっている。",
-       "プロジェクターが壊れたのではなく、設置を頼んでいる。"
+       "選択肢は「顧客のオフィスへの道を尋ねるため」だ。Ms. Ruizは“I'm stuck in traffic on the bridge.”（橋の上で渋滞に巻き込まれている）と遅れる理由を言っただけで、道は尋ねていない。会議の場所もRoom 6Bと決まっており、場所を尋ねたのはむしろBen Parkだ。",
+       "選択肢は「プロジェクターの故障を知らせるため」だ。最初のメッセージのprojectorは“set up the projector”（プロジェクターを準備する）という依頼に出てくる語だ。broken（故障した）という語はなく、単語だけを重ねたひっかけだ。"
       ]
      },
      "question": "Why did Ms. Ruiz send the first message?",
@@ -65,9 +65,9 @@
      "explanation": {
       "why": "コーヒーを注文するかと聞かれ、「それは済んでいる、Ms. Liuが昨日注文した」と答えている。すでに用意してあるという意味。",
       "traps": [
-       "注文する必要がないという意味なので逆。",
-       "会議の中止の話はない。9時30分の会議を準備しているところ。",
-       "Ms. Liuはコーヒーを注文した人。プロジェクターはMr. Parkが設置する。",
+       "選択肢は「Mr. Parkにコーヒーを注文してほしい」という意味だ。しかし“Should I order coffee for the clients too?”という質問にMs. Ruizは“That's taken care of.”（それは手配済み）と答え、“Ms. Liu ordered it yesterday.”と付け加えている。注文する必要はないという意味なので正反対だ。",
+       "選択肢は「会議が中止になった」という意味だ。Thatは直前にBen Parkが尋ねたcoffee（コーヒー）の注文を指す。会話の間ずっと2人は9:30の顧客会議のためにプロジェクターや資料を準備しているので、会議の中止とは関係ない。",
+       "選択肢は「Ms. Liuがプロジェクターを準備する」という意味だ。Ms. Liuは“Ms. Liu ordered it yesterday.”（Ms. Liuが昨日注文した）で、コーヒーを注文した人として出てくる。プロジェクターの準備はMs. RuizがBen Parkに頼み、彼がSureと引き受けた。",
        null
       ]
      },
@@ -115,9 +115,9 @@
       "why": "最初の支払い処理の前に取引先登録を済ませる必要があるとして、提出書類と請求書のルールを案内している。",
       "traps": [
        null,
-       "Mr. Bianchiはすでに納入することになっていて、このメールは注文書ではない。",
-       "むしろTellisが代金を支払う側で、支払いの遅れの話はない。",
-       "支払い条件（30日以内）を案内しているだけで、変更したとは言っていない。"
+       "選択肢は「包装資材を注文するため」だ。メールは“Thank you for agreeing to supply packaging materials”（包装資材の供給に同意してくれてありがとう）で始まるので、供給の取り決めはすでにできている。その後は登録書類と請求書のルールの案内で、品目や数量を注文する内容はない。",
+       "選択肢は「支払いの遅れている請求書の支払いを求めるため」だ。送り主のGrace OwusuはAccounts Payable（支払担当）の所属で、Tellisはお金を払う側だ。また“Before we can process your first invoice”（最初の請求書を処理する前に）とあるので、処理済みの請求書もまだなく、overdue（延滞）の話はない。",
+       "選択肢は「支払条件の変更を知らせるため」だ。メールは“Payments are made within 30 days of receiving a valid invoice.”（有効な請求書を受け取ってから30日以内に支払う）と条件を案内しているだけで、以前の条件から変わったという話はない。新しい取引先に初めて説明する内容だ。"
       ]
      },
      "question": "What is the purpose of the e-mail?",
@@ -141,10 +141,10 @@
      "explanation": {
       "why": "求めているのは取引先情報の用紙、事業者登録証の写し、銀行口座の情報の3つ。製品カタログはない。",
       "traps": [
-       "'a completed supplier information form' を求めている。",
-       "'a copy of your business registration certificate' を求めている。",
+       "選択肢は「記入済みの用紙」だ。メールは送るものとして“a completed supplier information form (attached)”（記入済みの取引先情報用紙）を最初に挙げている。求められている書類なので、NOT問題の正解にはならない。",
+       "選択肢は「事業の証明書」だ。メールの“a copy of your business registration certificate”（事業登録証明書のコピー）を短く言い換えたものだ。依頼の一覧にあるので、NOT問題の正解ではない。",
        null,
-       "'your bank account details for direct deposit' を求めている。"
+       "選択肢は「銀行の情報」だ。メールの“your bank account details for direct deposit”（口座振込用の銀行口座の詳細）をbanking informationと言い換えたものだ。求められている項目なので、NOT問題の正解ではない。"
       ]
      },
      "question": "What is Mr. Bianchi NOT asked to send?",
@@ -168,10 +168,10 @@
      "explanation": {
       "why": "'Invoices without this number will be returned to the sender' と言っている。returned = sent back。",
       "traps": [
-       "支払いが遅れるのではなく、そもそも返送される。",
+       "選択肢は「支払いが遅れる」という内容だ。メールは“Invoices without this number will be returned to the sender.”（この番号のない請求書は送り主に返送される）と言っている。遅れて支払われるのではなく送り返されるのであり、30日以内の支払いは有効な請求書の場合の条件だ。",
        null,
-       "現金払いの話はない。支払いは口座振込（direct deposit）で行うと言っている。",
-       "管理者に回されるとは言っていない。"
+       "選択肢は「現金で支払われる」という内容だ。メールが“your bank account details for direct deposit”（口座振込用の口座情報）を求めていることから、支払方法は口座振込だ。cash（現金）という語はなく、番号のない請求書は返送される。",
+       "選択肢は「管理者に転送される」という内容だ。番号のない請求書は“returned to the sender”（送り主に返送）されると言っているだけで、manager（管理者）に回すという話はない。メールに出てくる担当者は、問い合わせを受けるGrace Owusu（extension 4417）だけだ。"
       ]
      },
      "question": "According to the e-mail, what will happen to an invoice that lacks a purchase order number?",
@@ -220,9 +220,9 @@
      "explanation": {
       "why": "外に出た後、階ごとの集合場所に行ってfloor warden（階の安全担当者）に報告するよう言っている。",
       "traps": [
-       "安全だという放送があってから戻れる。",
-       "facilitiesのメールは問い合わせ先にすぎない。",
-       "エレベーターは使わないように言っていて、集合場所は建物の外の広場。",
+       "選択肢は「自分の席に戻る」という内容だ。お知らせは訓練が約20分かかり、“after which an announcement will let everyone know it is safe to return”（その後、戻っても安全だと放送で知らせる）と述べている。外に出てすぐ戻るのではなく、放送があってから戻ることができる。",
+       "選択肢は「施設管理室に電話する」という内容だ。お知らせの最後のfacilities@cordentower.exampleは“Questions may be sent to”（質問は～に送ってよい）に出てくる問い合わせ用のメールアドレスにすぎない。外に出た後にすることは、集合場所に行ってfloor warden（階の防災担当者）に報告することだ。",
+       "選択肢は「エレベーターの近くで待つ」という内容だ。お知らせは“Elevators must not be used.”（エレベーターを使ってはならない）と述べ、外に出た後はCorden Plazaの階ごとの集合場所に行くよう指示している。建物内のエレベーターの近くにとどまるのは指示と逆だ。",
        null
       ]
      },
@@ -254,9 +254,9 @@
       "why": "'Visitors in the building at the time of the drill must also take part' と言っている。訓練に参加するということは、ほかの人と同じように建物から出る必要があるという意味。",
       "traps": [
        null,
-       "エレベーターは誰も使えない。",
-       "事前登録の話はない。来訪者に求められているのは訓練への参加（take part）だけ。",
-       "来訪者に別のお知らせを送るとは言っていない。"
+       "選択肢は「訪問者はエレベーターを使ってよい」という内容だ。お知らせはすべてのoccupants（建物内にいる人）に“Elevators must not be used.”（エレベーターを使ってはならない）と述べ、訪問者も“must also take part”（訓練に参加しなければならない）としている。訪問者だけ例外だという話はない。",
+       "選択肢は「事前に登録しなければならない」という内容だ。訪問者についてお知らせが述べているのは“Visitors in the building at the time of the drill must also take part.”（訓練の時間に建物にいる訪問者も参加しなければならない）の1文だけだ。register（登録）についての内容はない。",
+       "選択肢は「別のお知らせを受け取る」という内容だ。訪問者もこのお知らせの“must also take part”（一緒に参加しなければならない）という文で案内されているだけで、別に知らせを送るという話はない。お知らせに追加で出てくるのは問い合わせ用のメールアドレスだけだ。"
       ]
      },
      "question": "What is indicated about visitors?",
@@ -286,10 +286,10 @@
      "explanation": {
       "why": "与えられた文のEach meeting pointは、直前の文のassigned meeting pointを受けている。集合場所の案内の直後の[3]が適切。",
       "traps": [
-       "[1]の前には訓練の日時しかなく、集合場所はまだ出てきていない。",
-       "[2]の前は階段の利用・エレベーター禁止の内容なので、集合場所の標識とつながらない。",
+       "[1]は“A building-wide fire drill will take place on Wednesday, May 7, at 10:00 A.M.”（5月7日水曜日午前10時の訓練）の直後だ。この時点では集合場所がまだ出ておらず、挿入文のEach meeting point（各集合場所）が指すものがない。後ろの文も警報が鳴ったら階段で出るという内容なので、流れが切れる。",
+       "[2]の前は“Elevators must not be used.”（エレベーターを使ってはならない）で、建物から出る方法を述べる部分だ。集合場所は次の段落の“assigned meeting point in Corden Plaza”で初めて出てくるので、[2]にEach meeting pointの文を入れると、まだ紹介されていない集合場所を先に説明することになる。",
        null,
-       "[4]の前は来訪者の参加の内容なので、流れが合わない。"
+       "[4]の前は“Visitors in the building at the time of the drill must also take part.”（訪問者も参加しなければならない）で、後ろは問い合わせ先の案内だ。集合場所の話は前の段落ですでに終わっているので、訪問者と問い合わせ先の間に集合場所の標識の文を入れると流れが合わない。"
       ]
      },
      "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
@@ -334,9 +334,9 @@
      "explanation": {
       "why": "記事は、Kiro RoboticsがDaejeonに研究センターを開く計画と、その理由・規模・日程を扱っている。",
       "traps": [
-       "ロボット製品の評価（review）ではない。ロボットは会社が作る製品として紹介されているだけ。",
-       "2つの大学と協定を結んだだけで、合併の話はない。",
-       "オンライン小売は売上増加の理由として触れられているだけ。",
+       "選択肢は「新しい種類のロボットを評価すること」だ。ロボットは“a maker of warehouse robots”（倉庫用ロボットのメーカー）のように会社の紹介やセンターの研究目標で出てくるだけで、特定の製品の性能をreview（評価）する内容はない。記事の中心は大田の研究センター開設の計画だ。",
+       "選択肢は「2つの大学の合併を発表すること」だ。記事の“signed agreements with two local universities”（地元の2つの大学と協定を結んだ）は大学院生のインターンシップのための協定で、大学同士が一つになるmerger（合併）ではない。これも研究センター計画の一部として出てくる。",
+       "選択肢は「オンライン小売業の歴史を説明すること」だ。オンライン小売業者は“driven largely by demand from online retailers”（主にオンライン小売業者の需要によって）のように売上増加の理由として一度出てくるだけだ。業界のhistory（歴史）を扱う内容はない。",
        null
       ]
      },
@@ -361,10 +361,10 @@
      "explanation": {
       "why": "大学と研究所が多いのでDaejeonを選び、'We want to be close to the talent' と言っている。人材の確保が理由。",
       "traps": [
-       "家賃の話はない。大田を選んだ理由は大学と研究所、つまり人材。",
+       "選択肢は「より安い事務所の賃料」だ。記事が挙げた理由は“because of its strong universities and many research institutes”（優れた大学と多くの研究機関があるから）で、社長は“We want to be close to the talent”（人材の近くにいたい）と述べている。rent（賃料）には触れていない。",
        null,
-       "主な顧客はオンライン小売業者と言っているだけで、場所の話はない。",
-       "税制上の優遇は書かれていない。"
+       "選択肢は「主要な顧客に近い立地」だ。顧客に関する情報は、売上が“driven largely by demand from online retailers”（主にオンライン小売業者の需要による）ということだけで、その顧客が大田の近くにいるという話はない。社長が近くにいたいと言った相手は顧客ではなくthe talent（人材）だ。",
+       "選択肢は「市からの税制優遇」だ。記事にtax（税）や市の支援についての記述は一切ない。大田を選んだ理由は大学と研究機関が多いからで、社長は“We want to be close to the talent”（人材の近くにいたい）と説明している。"
       ]
      },
      "question": "Why did Kiro Robotics choose Daejeon?",
@@ -396,9 +396,9 @@
       "why": "「売上が3倍になったが、主にオンライン小売業者の需要によるもの」という意味。driven by = caused by。",
       "traps": [
        null,
-       "operated（運転された）はdriveの「機械を動かす」という意味からくるひっかけ。",
-       "steered（操縦された）はdriveの「運転する」という意味。",
-       "delivered（配達された）は文脈と合わない。"
+       "operatedは「運営された、（機械が）動かされた」という意味で、driveが「機械を動かす」という意味のときにつながる語だ。しかし“driven largely by demand from online retailers”は「主にオンライン小売業者の需要によって（売上が伸びた）」という原因を表す。売上が需要によって運営されるという意味は成り立たない。",
+       "steeredは「（車・船が）操縦された、導かれた」という意味で、driveの「運転する」という意味から思い浮かべやすい語だ。ここのdriven byは売上が3倍になった原因を言っているので、「～によって引き起こされた」というcausedが合う。ロボット会社の記事なので機械の操縦を連想させるひっかけだ。",
+       "deliveredは「配達された、届けられた」という意味だ。online retailers（オンライン小売業者）から配送を連想しやすいが、“driven largely by demand”は売上の増加が「需要によって起きた」という意味だ。「需要によって配達された」では文が通じない。"
       ]
      },
      "question": "The word “driven” in paragraph 3 is closest in meaning to",
@@ -423,9 +423,9 @@
       "why": "センターはまだ工事中のDaejeon Innovation Towerの2フロアを使う予定で、来年春に開設する。建物が完成しないとオープンできない。",
       "traps": [
        null,
-       "組み立てはソウルの本社で行う。センターは研究開発用。",
-       "センターは大田（Daejeon）にできる。ソウルは現在の本社がある場所。",
-       "採用は秋に始まる予定。"
+       "選択肢は「センターのエンジニアがそこでロボットを組み立てる」という内容だ。記事によると、ロボットを設計・組み立てるのは“its headquarters in Seoul, where its robots are designed and assembled”（ロボットを設計し組み立てているソウルの本社）だ。大田のセンターは人と安全に働けるロボットをdeveloping（開発）する研究施設だ。",
+       "選択肢は「センターはソウルにできる」という内容だ。記事の見出しから“Kiro Robotics to Open Research Center in Daejeon”で、センターはDaejeon Innovation Towerに入る。Seoulは現在350人が働く本社がある場所だ。",
+       "選択肢は「すでにエンジニアを80人採用した」という内容だ。記事の“will employ about 80 engineers”（約80人を雇用する予定だ）は今後の計画で、“Hiring is expected to begin in the fall.”（採用は秋に始まる見込み）とある。まだ採用も始まっていないので、時期が違う。"
       ]
      },
      "question": "What is suggested about the research center?",
@@ -474,10 +474,10 @@
      "explanation": {
       "why": "最初のメッセージで、ケータリング業者が金曜日の11時30分より前には配達できないと言っている。つまり早い時間に配達してもらえないことが問題。",
       "traps": [
-       "注文の取り消しではなく、配達時間の制約。",
+       "選択肢は「仕出し業者が注文を取り消した」という内容だ。Ms. Kimの言葉は“they can't deliver before 11:30 on Friday”（金曜日の11:30より前には配達できない）なので、配達はするが時間が遅いということだ。会話も業者が持ってくる料理を受け取る準備の話なので、取り消しとは合わない。",
        null,
-       "ワークショップの日付の変更の話はない。",
-       "食堂の広さの話はない。食堂（dining room）は案内表示を貼る場所として出てくるだけ。"
+       "選択肢は「ワークショップが別の日に移された」という内容だ。Luis Ortegaが“The workshop lunch starts at 11:45, right?”（ワークショップの昼食は11:45開始だよね？）と尋ね、Ms. KimはRightと答えている。予定はそのままで、日付の変更の話はない。",
+       "選択肢は「食堂が狭すぎる」という内容だ。dining room（食堂）はMs. Wellsが最後に“I'll also put up signs pointing to the dining room.”（食堂への案内表示も貼る）と言うときに出てくるだけだ。広さの話はなく、問題は配達の時間だ。"
       ]
      },
      "question": "What problem does Ms. Kim mention?",
@@ -507,9 +507,9 @@
      "explanation": {
       "why": "配達が11時30分、昼食が11時45分なので、「大丈夫だろうがぎりぎりだ」という意味。時間の余裕がほとんどないということ。",
       "traps": [
-       "tightを「スペースが狭い」と誤解させるひっかけ。",
-       "予算の話はない。ここでのtightは時間がぎりぎりだという意味。",
-       "'should be fine' と言っているので、日程を変える必要はない。",
+       "選択肢は「食堂が混雑する」という意味だ。tightには「（空間が）きつい、狭い」という意味もあるが、ここでは配達の11:30と昼食の11:45の間が15分しかないという話の後に出てくる。“So it should be fine, but it'll be tight.”は時間がぎりぎりだという意味で、空間の話ではない。",
+       "選択肢は「予算が限られている」という意味だ。tight budget（厳しい予算）のようにtightがお金に使われることもあるが、この会話には費用やbudget（予算）の話は一切ない。前後の内容は配達時間の11:30と昼食の時間の11:45についてだ。",
+       "選択肢は「予定を変える必要がある」という意味だ。Ms. Kimはまず“So it should be fine”（だから大丈夫なはず）と言っているので、予定の変更が必要だとは考えていない。同僚たちも昼食の時間は動かさず、事前に準備したり午前のセッションを少し早く終えたりする方法を提案している。",
        null
       ]
      },
@@ -537,10 +537,10 @@
      "explanation": {
       "why": "Ms. Wellsは早めに来てテーブルと皿を前もって並べておくと言っている。料理が届く前に部屋を準備するという意味。",
       "traps": [
-       "料理を自分で持ってくるとは言っていない。",
-       "午前のセッションの進行役は講演者。",
+       "選択肢は「料理を自分で取りに行く」というものだ。Ms. Wellsは“That way they'll just need to bring the food in.”（そうすれば業者は料理を運び込むだけで済む）と言っているので、料理を持ってくるのは仕出し業者だ。彼女が引き受けたのはテーブルと皿の準備だ。",
+       "選択肢は「午前のセッションを進行する」というものだ。Luis Ortegaの“I'll ask the speaker to finish her morning session a few minutes early”からわかるように、午前のセッションは講演者（the speaker）が担当する。Ms. Wellsが申し出たのは、早く来て部屋を準備し、案内表示を貼ることだ。",
        null,
-       "ケータリング業者に連絡するとは言っていない。"
+       "選択肢は「仕出し業者に電話する」というものだ。業者と連絡を取ったのは、最初のメッセージで“The caterer just told me”（業者がたった今言ってきた）と書いたMs. Kimだ。Ms. Wellsは業者に連絡するとは言わず、テーブルと皿の準備と案内表示を引き受けている。"
       ]
      },
      "question": "What does Ms. Wells offer to do?",
@@ -571,9 +571,9 @@
       "why": "Mr. Ortegaは講演者に午前のセッションを数分早く終えてもらうよう頼むと言っている。",
       "traps": [
        null,
-       "料理の追加注文の話はない。",
-       "別の会場を予約するとは言っていない。",
-       "案内表示はMs. Wellsが貼ると言っている。"
+       "選択肢は「料理を追加で注文する」というものだ。会話の問題は料理の量ではなく配達時間がぎりぎりなことで、追加注文の話は誰もしていない。Mr. Ortegaがすると言ったのは“I'll ask the speaker to finish her morning session a few minutes early”（講演者に午前のセッションを数分早く終えるよう頼む）だ。",
+       "選択肢は「別の部屋を予約する」というものだ。場所を変えようという話はなく、Ms. Wellsはむしろ今のdining room（食堂）への案内表示を貼ると言っている。Mr. Ortegaの次の行動は、講演者に連絡して午前のセッションを早めに終えてもらうよう頼むことだ。",
+       "選択肢は「案内表示を貼る」というものだ。“I'll also put up signs pointing to the dining room.”はMr. OrtegaではなくDana Wellsの発言だ。話し手を取り違えさせるひっかけで、Mr. Ortegaが引き受けたのは講演者（the speaker）に頼むことだ。"
       ]
      },
      "question": "What will Mr. Ortega most likely do next?",
@@ -622,9 +622,9 @@
      "explanation": {
       "why": "経費の分類（sorts your expenses）、請求書の送付（sends invoices）、税務報告書の作成（prepares reports for tax season）は書かれているが、給与処理（payroll）はない。",
       "traps": [
-       "'automatically sorts your expenses' に出てくる。",
-       "'sends invoices to your customers' に出てくる。",
-       "'prepares reports for tax season' に出てくる。",
+       "選択肢は「支出の分類」だ。広告に“Ledgerly automatically sorts your expenses”（Ledgerlyは支出を自動で分類する）と機能がそのまま出てくる。本文にある機能なので、NOT問題の正解ではない。",
+       "選択肢は「請求書の送付」だ。広告の“sends invoices to your customers”（顧客に請求書を送る）に当たる機能だ。本文で触れられているので、NOT問題の正解にはならない。",
+       "選択肢は「税務報告書の作成」だ。広告の“prepares reports for tax season”（税申告の時期に向けて報告書を作る）をtax reportsと言い換えたものだ。書かれている機能なので、NOT問題の正解ではない。",
        null
       ]
      },
@@ -649,10 +649,10 @@
      "explanation": {
       "why": "Teamプランには、最大5人までの利用とpriority phone support（優先電話サポート）が含まれる。",
       "traps": [
-       "利用者は最大5人（up to five users）。無制限ではない。",
+       "選択肢は「ユーザー数無制限」だ。広告はTeam planについて“includes up to five users”（最大5人まで含む）と述べているので、ユーザー数には上限がある。up to（最大～まで）を見落とすと選びやすいひっかけだ。",
        null,
-       "モバイル端末の提供の話はない。アプリがあるだけ。",
-       "対面のトレーニングは書かれていない。"
+       "選択肢は「無料のモバイル機器」だ。広告の“our mobile app lets you photograph receipts”（モバイルアプリで領収書を撮影できる）はアプリの機能を言っているだけで、機器をもらえるという意味ではない。また、このアプリがTeam planだけに含まれるという話もない。",
+       "選択肢は「対面での研修」だ。Team planに含まれるのは最大5人の利用と“priority phone support”（優先的な電話サポート）だけだ。サポートは電話で行われ、in-person training（対面研修）には触れていない。"
       ]
      },
      "question": "What is included in the Team plan?",
@@ -682,10 +682,10 @@
      "explanation": {
       "why": "'No credit card is required to start your trial' と言っている。",
       "traps": [
-       "お試し期間は30日（free for 30 days）。12か月ではない。",
-       "プランの制限の話はない。トライアルはプランに関係なく案内されている。",
+       "選択肢は「お試しが12か月続く」という内容だ。広告は“Try Ledgerly free for 30 days.”（30日間無料で試せる）と言っている。twelveは基本料金$12の数字を使ったひっかけで、12は期間ではなく月額料金だ。",
+       "選択肢は「Team planでしかお試しできない」という内容だ。広告の無料お試しの案内“Try Ledgerly free for 30 days.”にはプランの制限がついていない。Team planは直前の文で値段と内容を紹介するときに出てくるだけだ。",
        null,
-       "ウェブサイト（www.ledgerly.example）で申し込む。店舗の話はない。"
+       "選択肢は「店頭で始めなければならない」という内容だ。広告は“Sign up at www.ledgerly.example.”（ウェブサイトで登録を）とオンラインでの登録を案内している。store（店）についての記述は一切ない。"
       ]
      },
      "question": "What is indicated about the free trial?",
@@ -800,10 +800,10 @@
      "explanation": {
       "why": "ワークショップは10月13日で、本イベントのパスは10月14〜15日。本イベントの前日に開かれる。",
       "traps": [
-       "本イベントの初日は10月14日。",
-       "10月14日の夜には交流ディナーがある。",
+       "選択肢は「本会議の初日」だ。表で本会議のパス（Full conference pass）の日付はOct. 14–15なので、初日は10月14日だ。ワークショップはOct. 13でその前日なので誤りだ。",
+       "選択肢は「10月14日の夜」だ。10月14日にあるのはNetworking dinner（交流夕食会）で、dinnerなので夜を連想させるひっかけだ。ワークショップ“Workshop: Social Media Analytics”の日付はOct. 13だ。",
        null,
-       "ワークショップはイベントの後ではなく前。"
+       "選択肢は「会議が終わった後」だ。本会議はOct. 14–15で、ワークショップはOct. 13なので、会議の後ではなく前だ。バッジも10月13日午前8時から受け取れるとあるので、その日から日程が始まる。"
       ]
      },
      "question": "When will the workshop take place?",
@@ -829,10 +829,10 @@
      "explanation": {
       "why": "支払い明細に早期登録割引10%が適用されている。早めに登録したことが分かる。",
       "traps": [
-       "講演者だという情報はない。確認書は参加者（Attendee）用のもの。",
+       "選択肢は「会議で講演する」という内容だ。確認書には“Attendee: Hye-jin Cho, Tidewater Hotels”と参加者として書かれており、支払った項目もパス・ワークショップ・夕食会だけだ。speaker（講演者）だという情報はない。",
        null,
-       "所属はTidewater Hotels。",
-       "支払い完了の確認書で、キャンセルの形跡はない。"
+       "選択肢は「マーケティング会社で働いている」という内容だ。会議の名前がCoastline Marketing Conferenceなので選びやすいが、彼女の所属はTidewater Hotelsと書かれている。会議のテーマと参加者の所属を混同させるひっかけだ。",
+       "選択肢は「登録を取り消した」という内容だ。確認書に取り消しの規定（“Cancellations made before September 30 will receive a full refund”）が出てくるが、これは一般的な案内にすぎない。文書は“Total paid”（支払総額）$571.50が書かれた登録確認書で、取り消した形跡はない。"
       ]
      },
      "question": "What is suggested about Ms. Cho?",
@@ -856,9 +856,9 @@
      "explanation": {
       "why": "案内に 'Please bring photo identification'（写真付きの身分証明書をお持ちください）と書かれている。",
       "traps": [
-       "領収書を持ってくるようにとは言っていない。",
-       "名刺は書かれていない。持ってくるよう言われているのは写真付きの身分証明書だけ。",
-       "確認番号を持ってくるようにとは言っていない。",
+       "選択肢は「印刷した領収書」だ。確認書に支払いの表があるので領収書を連想しやすいが、バッジを受け取るときに持ってくるよう言われたのは“Please bring photo identification.”（写真付きの身分証明書を持参すること）だけだ。receipt（領収書）という語はない。",
+       "選択肢は「名刺」だ。交流夕食会（Networking dinner）から名刺を連想しやすいが、確認書にbusiness card（名刺）という語はない。バッジの受け取りに必要なのは写真付きの身分証明書（photo identification）だ。",
+       "選択肢は「確認番号」だ。確認書に“Confirmation number: CMC-2291”と書かれているのでもっともらしいが、バッジを受け取るときにこれを持ってくるようにとは書かれていない。指示されているのは“Please bring photo identification.”だけだ。",
        null
       ]
      },
@@ -904,9 +904,9 @@
       "why": "2,000セットの印刷の見積もり（price quote）と紙のサンプルを送ってほしいと依頼するメール。価格の情報を尋ねることが目的。",
       "traps": [
        null,
-       "印刷ミスへの苦情ではない。まだ印刷を頼む前で、見積もりを尋ねている段階。",
-       "展示ははがきの写真の出どころとして触れられているだけで、宣伝が目的ではない。",
-       "求職のメールではない。Vargaさんは博物館のギフトショップを運営している人。"
+       "選択肢は「印刷ミスについて苦情を言うため」だ。Mr. Vargaは“We would like 2,000 sets printed”（2,000セット印刷してほしい）とこれからの注文について述べ、見積もりを求めている。まだ印刷を頼む前なので、error（誤り）への苦情はありえない。",
+       "選択肢は「博物館の展示を宣伝するため」だ。新しい展示は“photographs from our new exhibit, which opens on April 10”（4月10日に始まる新しい展示の写真）のように、はがきに使う写真の出どころとして出てくるだけだ。宛先も印刷会社のsalesアドレスで、展示を宣伝する文ではない。",
+       "選択肢は「仕事に応募するため」だ。Mr. Vargaは“I manage the gift shop at the Harmon History Museum.”（博物館のギフトショップを運営している）と自己紹介したうえで、業務として見積もりを頼んでいる。求職に関する内容はない。"
       ]
      },
      "question": "Why did Mr. Varga write the e-mail?",
@@ -937,9 +937,9 @@
       "why": "1,000ドルを超える購入には理事会の承認が必要で、理事会は2月24日に開かれる。",
       "traps": [
        null,
-       "展示は4月10日に開かれる。",
-       "ギフトショップの工事の話はない。",
-       "休暇の話はない。2月24日は理事会の日付。"
+       "選択肢は「その日に展示が始まる」という内容だ。展示は“which opens on April 10”（4月10日に始まる）とあるので、February 24とは日付が違う。2月24日は理事会が次に開かれる日だ。",
+       "選択肢は「ギフトショップが修理のために閉まる」という内容だ。メールにギフトショップの工事や休業の話は一切ない。February 24が大事なのは“Our board must approve all purchases over $1,000”（1,000ドルを超える購入は理事会の承認が必要）で、理事会がその日に開かれるからだ。",
+       "選択肢は「休暇で不在になる」という内容だ。メールにvacation（休暇）の話はない。メールは理事会が“it next meets on February 24”（次の会合は2月24日）なので、その前に見積もりが必要だと述べている。"
       ]
      },
      "question": "Why does Mr. Varga need a quote before February 24?",
@@ -969,10 +969,10 @@
      "explanation": {
       "why": "The imagesは直前の文のphotographs from our new exhibitを指す。はがきの写真の紹介の直後の[2]が適切。",
       "traps": [
-       "[1]の前にはギフトショップを運営しているという紹介しかなく、The imagesが指すものがない。",
+       "[1]の前は“I manage the gift shop at the Harmon History Museum.”（博物館のギフトショップを運営している）という自己紹介だけだ。まだ写真が出てきていないので、挿入文のThe images（それらの写真）が指すものがない。写真は[1]の後の文のphotographs from our new exhibitで初めて出てくる。",
        null,
-       "[3]の前は見積もりと紙のサンプルの依頼なので、写真の説明が入る場所ではない。",
-       "[4]は結びのあいさつの直前なので、流れが合わない。"
+       "[3]の前は“Could you send me a price quote, along with samples of the paper you would recommend?”（見積もりとおすすめの用紙の見本を送ってほしい）という依頼だ。用紙と見積もりの話の途中に1920年代の写真の撮影者の説明が入ると流れが切れる。The imagesは、はがきの写真の紹介の直後に来るべきだ。",
+       "[4]は結びのあいさつThank youの直前で、その前の文は理事会の承認と2月24日の期限についての内容だ。ここに写真の撮影者の説明を入れると、The imagesが指す写真の話から離れてしまい、流れも合わない。"
       ]
      },
      "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
@@ -1016,10 +1016,10 @@
      "explanation": {
       "why": "'so that our staff can complete our annual inventory count' と言っている。棚卸し = 在庫数の確認。",
       "traps": [
-       "工事の話はない。休業の理由は年1回の棚卸し（annual inventory count）。",
-       "祝日の話はない。1月12日は棚卸しのために休む日。",
+       "選択肢は「店を改装するため」だ。お知らせは休業の理由を“so that our staff can complete our annual inventory count”（スタッフが年に一度の棚卸しを終えられるように）と述べている。renovate（改装する）や工事には触れていない。",
+       "選択肢は「祝日を祝うため」だ。1月12日が日曜日なので休日を連想しやすいが、お知らせはその日“annual inventory count”（年に一度の棚卸し）をするために休むと言っている。holiday（祝日）についての記述はない。",
        null,
-       "社員研修の話はない。社員はその日、在庫を数える。"
+       "選択肢は「新しい従業員を研修するため」だ。お知らせでstaff（スタッフ）は“so that our staff can complete our annual inventory count”のように在庫を数える人として出てくるだけだ。train（研修する）や新しい従業員についての内容はない。"
       ]
      },
      "question": "Why will Martel Hardware be closed on January 12?",
@@ -1049,9 +1049,9 @@
      "explanation": {
       "why": "その週末に特別注文品を受け取る必要がある客は、土曜日の午後6時までに受け取るよう言っている。休業の前に受け取るようにという意味。",
       "traps": [
-       "月曜日は営業再開日だが、週末に必要な客への案内ではない。",
-       "オンラインでの再注文は勧めていない。",
-       "日曜日は閉まっているので、電話に出る人がいない。案内は土曜日の午後6時までに受け取るようにというもの。",
+       "選択肢は「月曜日の午後に受け取りに行く」というものだ。月曜日（January 13）は午前8時に営業を再開する日だが、その週末に特別注文品が必要な客には“by 6:00 P.M. on Saturday, January 11”（1月11日土曜日の午後6時までに）受け取るよう求めている。月曜日の午後という案内はない。",
+       "選択肢は「オンラインで注文し直す」というものだ。お知らせの“Online orders can still be placed during this time”（この期間もオンライン注文はできる）は一般の注文についての案内で、その注文も月曜日まで処理されない。特別注文品を注文し直すようにという話はない。",
+       "選択肢は「日曜日に店に電話する」というものだ。日曜日（January 12）は棚卸しのため休業する日で、電話連絡についての案内はお知らせにない。特別注文品の客に求められているのは、土曜日の午後6時までに受け取ることだ。",
        null
       ]
      },
@@ -1102,10 +1102,10 @@
      "explanation": {
       "why": "北倉庫のトラックを使えるか聞かれ、「4時まで出ている」と答えている。代わりの車両は使えないという意味で、そのため配送を明日に延ばす。",
       "traps": [
-       "店の営業時間の話ではない。",
+       "選択肢は店が4時に閉まるという意味だ。しかし“It's out until 4”は直前のMs. Oseiの質問“Is the truck from the north depot free?”（北の倉庫のトラックは空いているか）への返事なので、Itは店ではなくトラックを指す。店の営業時間は会話にまったく出てこない。",
        null,
-       "Mr. Grecoが4時に着くという意味ではない。",
-       "バンの修理時間の話ではない。レッカー車は30分後に来る。"
+       "選択肢はMr. Grecoが4時に店に着くという意味だ。しかしItは直前の質問のthe truckを指し、“It's out until 4”はそのトラックが4時まで出払っているという意味だ。Mr. Grecoは最初に“I won't make it to the Linwood store by 2”とバンの故障で店に行けないと伝えており、配送は明日に延期される。",
+       "選択肢はバンが4時までに修理されるという意味だ。しかし4時は北の倉庫のトラックが戻る時刻で、バンは修理ではなくレッカー移動（“get the van towed”）することになった。レッカー会社も“30 minutes”（30分後に到着）と言っただけで、修理の完了時刻は会話に出てこない。"
       ]
      },
      "question": "At 1:18 P.M., what does Mr. Greco imply when he writes, “It's out until 4”?",
@@ -1131,9 +1131,9 @@
       "why": "Ms. OseiはLinwood店に電話して、配送を明日の朝に移すと言っている。",
       "traps": [
        null,
-       "トラックは4時まで使えない。",
-       "レッカー業者にはMr. Grecoがすでに連絡した。",
-       "修理の話はない。バンはレッカー移動（towed）することになり、レッカー業者への連絡はMr. Grecoがした。"
+       "選択肢はMs. Oseiが北の倉庫のトラックを運転するという意味だ。しかしそのトラックは“It's out until 4”（4時まで出払っている）ので今は使えず、Ms. Oseiは配送を明日の朝に延ばすことにした。トラックは会話に出てくるが、彼女が次にすることではない。",
+       "選択肢はレッカー会社に電話するという意味だ。Ms. Oseiが“Can you get the van towed?”と頼むと、Mr. Grecoが“Already on it”（もう手配中だ）と答え、レッカー会社の返事まで伝えている。レッカー会社への連絡はMr. Grecoがすでにしたことで、Ms. Oseiが電話する相手はLinwoodの店だ。",
+       "選択肢はバンを修理するという意味だ。会話に修理の話はなく、故障したバンは“get the van towed”（レッカー移動）することになり、それもMr. Grecoが引き受けた。Ms. Oseiは“Then I'll call Linwood”と、店に電話して配送を移すと言っている。"
       ]
      },
      "question": "What will Ms. Osei most likely do next?",
@@ -1182,9 +1182,9 @@
      "explanation": {
       "why": "レストランへの納品、朝市の屋台から始めたこと、研修プログラムはすべて出てくるが、3店舗目の計画はない。",
       "traps": [
-       "'supplies bread to more than 20 restaurants' に出てくる。",
-       "'started as a stand at the weekend farmers market' に出てくる。",
-       "'launched a training program' に出てくる。",
+       "選択肢はパン屋がレストランにパンを供給しているという内容だ。記事の第2段落に“supplies bread to more than 20 restaurants”（20を超えるレストランにパンを供給している）とある。本文で述べられている事実なので、NOT問題の正解にはならない。",
+       "選択肢はパン屋が市場で始まったという内容だ。記事に“started as a stand at the weekend farmers market”（週末のファーマーズマーケットの屋台として始まった）とある。began = started、market = farmers marketの言い換えなので、述べられている内容だ。",
+       "選択肢はパン屋が研修プログラムを運営しているという内容だ。記事に“the bakery launched a training program that teaches baking skills to young adults looking for work”（仕事を探す若者にパン作りを教えるプログラムを始めた）とある。本文にある事実なので正解ではない。",
        null
       ]
      },
@@ -1211,10 +1211,10 @@
      "explanation": {
       "why": "賞は「成長・地域への貢献・顧客サービスを示した企業をたたえる」という意味。recognize = honor。",
       "traps": [
-       "identifies（見分ける）はrecognizeの代表的な意味だが、表彰の文脈では合わない。辞書で1番目に載っている意味のひっかけ。",
-       "admits（認める、入場させる）は文脈と合わない。",
+       "identifiesは「見分ける、特定する」という意味で、recognize a face（顔を見分ける）のrecognizeと同じだ。しかしここは“The award recognizes companies that have shown strong growth”で、賞が成長した企業を「たたえる、表彰する」という意味だ。賞が企業を特定するのは不自然で、recognizeの辞書の第一義に引かれたわなだ。",
+       "admitsは「（過ちを）認める」または「入場させる」という意味だ（admit a mistake, admit visitors）。この文で賞は成長・地域貢献・顧客サービスに優れた企業をたたえているので、過ちを認める、入場を許すという意味は合わない。recognizeも「認める」と訳されるため選びやすいわなだ。",
        null,
-       "remembers（覚えている）も表彰の文脈と合わない。"
+       "remembersは「覚えている」という意味で、recognizeの「（見覚えのあるものを）見分ける」に近く見えるので選びやすい。しかしこの賞は力強い成長と優れた顧客サービスを示した企業に贈られるもので、賞が企業を覚えているという意味になり文脈に合わない。表彰の文脈のrecognizeは「功績をたたえる」だ。"
       ]
      },
      "question": "The word “recognizes” in paragraph 1 is closest in meaning to",
@@ -1241,10 +1241,10 @@
      "explanation": {
       "why": "修了生8人が地元の企業に採用され、そのうち3人はRosewoodが直接採用した。",
       "traps": [
-       "仕事を探している若者（young adults looking for work）が対象。レストランのオーナー向けではない。",
+       "選択肢は研修プログラムがレストランのオーナーだけを対象にしているという内容だ。記事には“teaches baking skills to young adults looking for work”（仕事を探している若者にパン作りの技術を教える）とある。レストランはパンの納品先として出てくるだけなので、対象が違う。",
        null,
-       "昨年始めた。6年前はパン屋の創業時期。",
-       "資金の話はない。商業協議会（business council）は賞を与えた団体。"
+       "選択肢は研修プログラムが6年前に始まったという内容だ。記事で6年前とは“Founded six years ago by Elena Park”というパン屋の創業時点で、プログラムは“Last year, the bakery launched a training program”とあり昨年始まった。二つの時点を混ぜたわなだ。",
+       "選択肢は商工協議会がプログラムの資金を出しているという内容だ。記事に資金の話はまったくない。Glenwood Regional Business CouncilはRosewood Bakeryに“Small Business of the Year”の賞を贈った団体として出てくるだけだ。本文の名前を別の役割に結びつけたわなだ。"
       ]
      },
      "question": "What is indicated about the training program?",
@@ -1293,10 +1293,10 @@
      "explanation": {
       "why": "'up to 14 days in advance'（最大14日前まで）と書かれている。14日 = 2週間なので、Up to two weeksが正解。",
       "traps": [
-       "1か月とは言っていない。予約できるのは最大14日前まで。",
-       "当日すぐに使うこともできるが、最大14日前まで予約できる。",
+       "選択肢は最大1か月前まで予約できるという意味だ。本文は“You can reserve a car up to 14 days in advance”（最大14日前まで予約できる）と述べている。14日は2週間なので1か月では長すぎ、本文に1か月という言葉はない。",
+       "選択肢は当日しか予約できないという意味だ。本文の“start a trip right away”（すぐに利用を始められる）を見て選びやすいが、同じ文に“up to 14 days in advance”もあり、最大14日前から予約できる。当日の利用は方法の一つにすぎず、「当日だけ」は誤りだ。",
        null,
-       "48時間は書かれていない。14日前まで予約できる。"
+       "選択肢は最大48時間（2日）前まで予約できるという意味だ。本文に48時間は出てこず、予約できる期間は“up to 14 days in advance”（最大14日前まで）だ。もっともらしい数字に変えたわなで、本文の数字14と直接比べる必要がある。"
       ]
      },
      "question": "How far in advance can members reserve a car?",
@@ -1326,9 +1326,9 @@
      "explanation": {
       "why": "ほかの会員がその車を予約していないときに限り（as long as）延長できる。いつでも延長できるわけではない。",
       "traps": [
-       "延長料金の話はない。料金が出てくるのは返却が遅れたとき（1分1ドル）だけ。",
-       "アプリで（in the app）延長する。電話は必要ない。",
-       "50ドルは延滞料の上限で、延長時間の制限ではない。",
+       "選択肢は利用延長が無料だという意味だ。本文は延長料金について何も述べていない。料金が出てくるのは遅れて返却する場合で、“Late returns are charged at $1 per minute”（遅延返却は1分につき1ドル）だ。延長が無料かどうかは分からないので選べない。",
+       "選択肢は延長するには電話が必要だという意味だ。本文は“you can extend your trip in the app”（アプリで利用を延長できる）と述べている。電話の話はまったくなく、予約も延長もCityWheelsのアプリで行う。",
+       "選択肢は延長が50分までに制限されるという意味だ。本文の50は“up to a maximum of $50”で、遅延返却料金の上限（最大50ドル）だ。時間ではなく金額で、延長とも関係ない。数字だけ同じで単位を変えたわなだ。",
        null
       ]
      },
@@ -1354,9 +1354,9 @@
       "why": "返却時に燃料が4分の1未満なら給油するよう言っている。燃料が少ないときに補充するという意味。",
       "traps": [
        null,
-       "給油カードを返すようにとは言っていない。車の中にある。",
-       "給油カードを使うので、現金の話はない。",
-       "主要なガソリンスタンドならどこでも使える。"
+       "選択肢は給油カードを事務所に返すという意味だ。本文は“Each car contains a fuel card”（各車に給油カードが入っている）と述べるだけで、カードの返却や事務所の話はない。利用終了時に求められるのは、燃料が4分の1未満なら補給することだ。",
+       "選択肢は燃料代を現金で払うという意味だ。本文は“Is fuel included?”にYesと答えて燃料代が含まれていることを示し、車内の給油カードをガソリンスタンドで使えばよい。現金払いの話はまったくない。",
+       "選択肢は特定のガソリンスタンド1か所だけを使うという意味だ。本文は給油カードを“at any major gas station”（主要なガソリンスタンドならどこでも）使えると述べている。any（どこでも）とone specific（特定の1か所）は正反対なので、本文と矛盾する。"
       ]
      },
      "question": "What are members asked to do at the end of a trip?",
@@ -1407,9 +1407,9 @@
      "explanation": {
       "why": "最初の文でSeaview Logisticsを春の就職フェアに招待すると述べている。会社をイベントに招待する手紙。",
       "traps": [
-       "ブースは無料で、寄付の依頼はない。",
-       "学科は参加する学生の専攻として触れられているだけ。",
-       "採用の申し出の手紙ではない。Ms. Alvarezは招待される会社（Seaview Logistics）側の人。",
+       "選択肢は寄付を求める手紙という意味だ。手紙は“Booths are available to employers free of charge”（ブースは雇用主に無料で提供される）と述べ、お金がかかるのは面接室を希望する場合の50ドルだけだ。寄付の依頼はどこにもなく、目的は最初の文にある就職フェアへの招待だ。",
+       "選択肢は新しい学位課程を知らせる手紙という意味だ。学科は“our business, engineering, and computer science programs”として、フェアに来る学生の専攻を説明するときに出てくるだけだ。新設の課程という話もなく、手紙の目的はSeaview Logisticsをフェアに招待することだ。",
+       "選択肢はMs. Alvarezに仕事を提供する手紙という意味だ。手紙は“I am writing to invite Seaview Logistics to take part in”で始まり、彼女の会社を雇用主としてフェアに招待している。仕事を探しているのはフェアに来る学生で、Ms. Alvarezは採用する会社側の人だ。",
        null
       ]
      },
@@ -1434,10 +1434,10 @@
      "explanation": {
       "why": "ブースにはテーブル、いす2脚、電源（table, two chairs, and access to electricity）が用意される。スクリーン（display screen）は書かれていない。",
       "traps": [
-       "'a table' が用意される。",
+       "選択肢はテーブルだ。手紙に“Each booth comes with a table, two chairs, and access to electricity”（各ブースにはテーブル、いす2脚、電気の使用が付く）とあるので、テーブルは提供される品だ。NOT問題では本文にある項目は正解にならない。",
        null,
-       "'two chairs' が用意される。",
-       "'access to electricity' が用意される。"
+       "選択肢はいすだ。同じ文“Each booth comes with a table, two chairs, and access to electricity”にtwo chairs（いす2脚）が含まれている。選択肢は数を省いてChairsとしているだけで、提供される品なのでNOT問題の正解ではない。",
+       "選択肢は電気だ。手紙に“access to electricity”（電気の使用）がテーブルやいすと一緒にブースに付くとある。access to electricityをElectricityと短く言い換えたもので、述べられている項目なので正解ではない。"
       ]
      },
      "question": "What is NOT provided with each booth?",
@@ -1462,9 +1462,9 @@
       "why": "その場で面接をしたい場合は、メインホール近くの別室を50ドルで予約できると言っている。追加料金がかかるのは面接用のスペースだけ。",
       "traps": [
        null,
-       "入口側のブースの料金の話はない。",
-       "いすの追加料金はない。各ブースにいす2脚が無料で用意される。",
-       "履歴書リストの販売の話はない。"
+       "選択肢は入口近くのブースを追加料金で使えるという意味だ。手紙に入口（entrance）という言葉はなく、ブースの場所は“assigned in the order in which registrations are received”（登録の受付順に割り当てられる）とある。料金がかかるのは面接用の個室（50ドル）だけだ。",
+       "選択肢は追加のいすを有料で借りられるという意味だ。手紙には各ブースに“two chairs”が標準で付くとあるだけで、いすを追加注文する話はない。ブース自体も“free of charge”（無料）で、追加料金がかかるのは面接室だけだ。",
+       "選択肢は学生の履歴書（résumé）の一覧を有料でもらえるという意味だ。手紙は学生の専攻と、彼らがインターンシップや正社員の職を探していることを説明するだけで、履歴書の提供には触れていない。50ドルで予約するのは“a private room near the main hall”（メインホール近くの個室）だ。"
       ]
      },
      "question": "What is available for an additional fee?",
@@ -1494,10 +1494,10 @@
      "explanation": {
       "why": "'Booth locations are assigned in the order in which registrations are received' と言っている。登録順に割り当てられる。",
       "traps": [
-       "学生が選ぶとは言っていない。学生はフェアの参加者として出てくるだけ。",
-       "業種別の割り当ての話はない。割り当ての基準は登録順。",
+       "選択肢は学生がブースの場所を選ぶという意味だ。手紙は“Booth locations are assigned in the order in which registrations are received”と述べ、場所は登録順に割り当てられる。学生はフェアに来る参加者として出てくるだけで、場所を決めない。",
+       "選択肢は業種ごとに場所が割り当てられるという意味だ。assignedという語は本文と同じだが、割り当ての基準は業種ではなく“in the order in which registrations are received”（登録を受け付けた順）だ。同じ語を入れて基準だけを変えたわなだ。",
        null,
-       "ブースは無料で、場所による料金の違いはない。"
+       "選択肢はメインホール近くのブースは高いという意味だ。ブースは“free of charge”（無料）で、main hallは“a private room near the main hall for $50”で面接室の場所として出てくるだけだ。場所によるブースの料金差はない。"
       ]
      },
      "question": "What is indicated about booth locations?",
@@ -1546,10 +1546,10 @@
      "explanation": {
       "why": "引っ越し業者が家具と書類を運ぶ（Movers will transport all furniture and files）が、各自の机の中の物は自分で詰める必要がある（you are responsible for packing the items in your own desk）。",
       "traps": [
-       "書類（files）は引っ越し業者が運ぶと言っている。社員の責任ではない。",
+       "選択肢は部署の書類を運ぶことだ。メモに“Movers will transport all furniture and files”（引っ越し業者がすべての家具と書類を運ぶ）とあるので、書類の運搬は業者の担当だ。社員が受け持つのは、その後のbut以下にある自分の机の中の物の梱包だ。",
        null,
-       "箱は8月26日に届く。",
-       "席はすでに座席表で決まっている。"
+       "選択肢は箱を配達することだ。メモは“Boxes and labels will be delivered to the department on August 26”と受け身で書いている。箱は部署に届けられるもので、社員が配達するのではない。",
+       "選択肢は新しい席を割り当てることだ。新しい席番号は“the seating chart posted in the break room”（休憩室に貼られた座席表）にすでに載っており、社員はそれを確認して箱に書くだけだ。席の割り当ては社員の責任ではない。"
       ]
      },
      "question": "What are employees responsible for?",
@@ -1580,9 +1580,9 @@
       "why": "新しい席番号は休憩室に貼られた座席表（seating chart posted in the break room）で確認するよう言っている。",
       "traps": [
        null,
-       "箱には社員が席番号を書く。",
-       "メールの話はない。この文章自体がMs. Wuが書いたメモで、席番号は休憩室の座席表にある。",
-       "5階の受付は書かれていない。"
+       "選択肢は箱で席番号を確認するという意味だ。メモは“Please label each box with your name and new desk number”と、社員が箱に席番号を書くよう指示している。箱は番号を書く場所で確認する場所ではなく、番号は休憩室の座席表で探す。",
+       "選択肢はMs. Wuのメールで席番号を受け取るという意味だ。この文書自体がMs. Wuのメモで、メールは“Our phone numbers and e-mail addresses will stay the same”（電話番号とメールアドレスは変わらない）に出てくるだけだ。席番号は休憩室の座席表にある。",
+       "選択肢は5階の受付で確認するという意味だ。5階は部署の移転先（“Move to the fifth floor”）にすぎず、受付はメモに出てこない。席番号は“the seating chart posted in the break room”で探すように書かれている。"
       ]
      },
      "question": "Where can employees find their new desk numbers?",
@@ -1606,10 +1606,10 @@
      "explanation": {
       "why": "前の文が「箱ごとに名前と新しい席番号を書くように」という指示。ラベルがないと正しい場所に届かないかもしれないという警告が、その直後の[3]に入る。",
       "traps": [
-       "[1]の前では、箱・ラベルがまだ出てきていない。",
-       "[2]の前でも、ラベルの案内が出る前。",
+       "[1]は引っ越しの日程（8月30日の週末）を知らせる文と“Movers will transport all furniture and files”の間だ。この時点では箱もラベルもまだ出てこないので、ラベルのない箱が正しい場所に届かないという警告が何を受けているのか分からない。ラベルの話は第2段落で初めて出る。",
+       "[2]は“you are responsible for packing the items in your own desk”（自分の机の中の物は各自で梱包する）の直後で、梱包の責任までしか述べていない。箱の配達とラベルの貼り方は次の段落に出てくるので、ここにラベルの警告を入れると順序が早すぎる。",
        null,
-       "[4]の前は電話番号・メールアドレスはそのままという内容なので、つながらない。"
+       "[4]は“Our phone numbers and e-mail addresses will stay the same”の後、お礼の前だ。前の文は電話番号・メールが変わらないという内容なので、箱のラベルの警告とつながらない。ラベルの指示（“Please label each box”）の直後の[3]に入れるのが自然だ。"
       ]
      },
      "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?",
@@ -1655,9 +1655,9 @@
      "explanation": {
       "why": "誤って請求されたと思われる2つの項目（駐車場代、ミニバー）について確認と返金を求めている。請求内容に異議を申し立てるメール。",
       "traps": [
-       "宿泊（10月28〜30日）はすでに終わっている。予約するメールではない。",
-       "ほめる内容はない。誤った請求2件を指摘している。",
-       "予約の変更の依頼ではない。宿泊後に請求内容の問題を提起している。",
+       "選択肢は会議のために部屋を予約するメールという意味だ。彼は“I stayed at the Harborview Hotel from October 28 to 30”と過去形で書いており、宿泊はすでに終わっている。予約（booked）は過去のこととして出てくるだけで、今は請求内容を問題にしている。",
+       "選択肢はホテルの従業員をほめるメールという意味だ。メールに従業員をほめる内容はなく、“I noticed two charges that I believe were made in error”（誤って請求されたと思われる2件に気づいた）と問題を指摘している。",
+       "選択肢は予約を変更するメールという意味だ。宿泊は10月28～30日にすでに終わっており、彼が望むのは“look into these charges and refund the correct amount”（請求を調べて正しい金額を返金してほしい）だ。予約は駐車料込みの条件の根拠として出てくるだけだ。",
        null
       ]
      },
@@ -1688,10 +1688,10 @@
      "explanation": {
       "why": "駐車場込みの条件が書かれた予約確認書（booking confirmation）を添付した（which I have attached）と言っている。",
       "traps": [
-       "カードの明細書は確認したと言っているだけで、添付していない。",
-       "ミニバーのレシートは書かれていない。",
+       "選択肢はクレジットカードの明細書だ。彼は“When I reviewed my credit card statement”と、明細書を確認して誤りに気づいたと言っただけで、添付したとは書いていない。添付したのは“my booking confirmation, which I have attached”の予約確認書だ。",
+       "選択肢はミニバーの領収書だ。彼はミニバーの22ドルについて“I did not use anything from it”（何も利用していない）と言っているので、領収書があるはずがない。領収書には触れておらず、添付したのは予約確認書だ。",
        null,
-       "会議の日程表は添付していない。"
+       "選択肢は会議のプログラムだ。会議は“while attending a conference”（会議に出席している間）と宿泊の理由として出てくるだけで、プログラムを送ったという話はない。which I have attachedが指すのは予約確認書（booking confirmation）だ。"
       ]
      },
      "question": "What did Mr. Watanabe include with the e-mail?",
@@ -1715,10 +1715,10 @@
      "explanation": {
       "why": "10月28日から30日までは2泊。駐車場代35ドル × 2泊 = 70ドルにミニバーの22ドルを足すと92ドル。",
       "traps": [
-       "35ドルは駐車場代の1泊分だけ。",
-       "57ドルは駐車場代1泊分とミニバーを足しただけの金額。",
+       "35ドルは“I was charged $35 for parking each night”の1泊分の駐車料だ。each night（毎晩）とあるので10月28日から30日までの2泊なら駐車料だけで70ドルになり、さらにミニバーの22ドルも返金を求めている。1件しか見ていない誤答だ。",
+       "57ドルは1泊分の駐車料35ドルにミニバーの22ドルを足した額だ。しかし駐車料はeach night（1泊ごと）に請求され、宿泊は10月28日から30日までの2泊なので、駐車料は35 × 2 = 70ドルだ。泊数を掛けていない誤答だ。",
        null,
-       "127ドルは3泊として誤って計算した金額。28・29・30日の3つの日付を泊数として数えると引っかかる。"
+       "127ドルは駐車料を3泊分（35 × 3 = 105ドル）で計算し、ミニバーの22ドルを足した額だ。しかしOctober 28 to 30は28日の夜と29日の夜、つまり2泊だ。28・29・30日の三つの日付をそのまま泊数として数えたわなだ。"
       ]
      },
      "question": "How much does Mr. Watanabe most likely expect to be refunded?",
@@ -1747,9 +1747,9 @@
      "explanation": {
       "why": "「この請求内容を調べてほしい」という意味。look into = investigate。",
       "traps": [
-       "enter（入る）はlook intoの字面につられたひっかけ。",
-       "watch（見守る）は文脈と合わない。",
-       "expect（予想する）は意味が違う。",
+       "enterは「入る」という意味で、enter a room（部屋に入る）のように場所に使う。look intoを文字どおり「中をのぞく」と読むと引かれるが、“look into these charges”は請求の中に入るという意味ではなく「調べる、調査する」だ。",
+       "watchは「（動くものを）見守る、じっと見る」という意味で、watch a gameのように使う。この文は誤った請求を調べて正しい金額を返金してほしいという依頼なので、請求を見守るという意味は合わない。lookが「見る」なので選びやすいわなだ。",
+       "expectは「予想する、期待する」という意味だ。“look into these charges and refund the correct amount”のlook intoをexpectに替えると「請求を予想する」となり意味が通らない。客が求めているのは請求の調査だ。",
        null
       ]
      },

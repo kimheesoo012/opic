@@ -17,10 +17,10 @@
    "explanation": {
     "why": "主節がwould have been able to（過去に〜できただろうに）なので、過去の事実の反対を仮定する仮定法過去完了。if節にはhad p.p.のhad arrivedが入る。",
     "traps": [
-     "arrivedは仮定法過去（現在の事実の反対）で、主節がwould + 動詞の原形のときに組み合わせる。",
-     "have arrivedは現在完了で、仮定法の形を作れない。",
+     "arrivedは過去形で、if節に使うと現在の事実の反対を仮定する仮定法過去になる。その場合、主節はwould + 動詞の原形（we would be able to）になるはずだが、この文の主節はwould have been able to（過去に〜できただろうに）なので合わない。過去のことを反対に仮定するときはif節もhad arrivedにする。",
+     "have arrivedは現在完了（到着した、到着している）で、実際に起きたことを言うときに使い、仮定法を作れない。if節に現在完了を使うと「部品がもう届いているなら」という現実の条件になり、事実の反対を言う主節would have been able toとつながらない。仮定法過去完了のif節はhad + 過去分詞（had arrived）だ。",
      null,
-     "if節にはwouldを使わない。wouldは主節に来る。"
+     "would arriveは助動詞would + 動詞の原形で、仮定法では主節の動詞の形だ（we would arrive …）。仮定法の文のif節にはwouldを入れないので、If the parts would arrive earlierは誤りだ。この文のように主節にwould have been able toがあれば、if節はhad arrivedになる。"
     ]
    },
    "vocab": [
@@ -46,7 +46,7 @@
    "question": "If the clinic ------- more nurses, it would be able to extend its weekend hours.",
    "choices": [
     "hires",
-    "had hired",
+    "has hired",
     "will hire",
     "hired"
    ],
@@ -54,9 +54,9 @@
    "explanation": {
     "why": "主節がwould be able to + 動詞の原形で、現在の事実の反対を仮定している。仮定法過去なので、if節の動詞は過去形hired。",
     "traps": [
-     "hiresは現在時制で、ふつうの条件文（will be able to）と組み合わせる。",
-     "had hiredは仮定法過去完了なので、主節はwould have been able toでなければならない。",
-     "if節には未来のwillを使わない。",
+     "hiresは現在時制で、実際に起こりうることを言うふつうの条件文に使う。その場合、主節はwill be able to（延長できるだろう）になる。この文の主節はwould be able toで、「今はそうではないが、もし〜なら」という仮定法過去なので、if節の動詞も過去形hiredに合わせる。",
+     "has hiredは現在完了で、「すでに雇った」という実際の事実を言うときに使う（The clinic has hired two nurses）。主節のwould be able toは事実ではないことを仮定する形なので、if節に実際に終わったことを表すhas hiredを使うと時制の組み合わせが合わない。現在の事実の反対を仮定するときは、if節に過去形hiredを使う。",
+     "will hireは未来時制だ。条件を表すif節では、未来のことでもwillを使わず現在形（hires）で表す。さらに主節がwould be able toで仮定法過去なので、if節は過去形hiredでなければならない。willはif節ではなく主節（it will be able to）に来る形だ。",
      null
     ]
    },
@@ -90,9 +90,9 @@
     "why": "If you should have any questionsでIfを省略するとShouldが文頭に出て、Should you have …となる。後ろの動詞の原形haveと合うのはShouldだけ。",
     "traps": [
      null,
-     "Wereの倒置はWere you to have …のようにto不定詞が続く必要がある。",
-     "Unless（〜しない限り）を入れると「質問がなければ連絡を」となり意味が通じない。",
-     "Hadの倒置は後ろに過去分詞が必要（Had you had …）。"
+     "WereはIfを省略した倒置構文Were you to have …（もし〜するなら）で使うが、そのときは主語の後ろにto不定詞が必要だ。この文ではWere you have any questionsとなり、toが抜けた誤った形になる。Wereの倒置はbe動詞の仮定（Were I you）やwere toの構文に使い、動詞の原形haveとは直接つながらない。",
+     "Unlessは「〜しない限り、〜しなければ」という条件の接続詞で、入れると「注文について質問がなければ、いつでもサポートチームに連絡を」となり、内容が逆になる。Unless you have any questionsという形自体は可能だが、意味が通じない。UnlessはUnless you cancel, the order will shipのように例外の条件に使う。",
+     "HadはIf you had …のIfを省略した倒置（Had you + 過去分詞）で使い、過去の事実の反対を仮定する（Had you called, we would have helped）。この文は後ろに動詞の原形haveがあり、please contactという今後への依頼なので、過去の仮定と合わない。Had you had any questionsのように過去分詞が来て初めて成り立つ。"
     ]
    },
    "vocab": [
@@ -124,10 +124,10 @@
    "explanation": {
     "why": "If the board had approved …のIfを省略した倒置の形。Hadの後ろに主語と過去分詞approvedが続いてHad the board approvedとなる。過去の条件 + 現在の結果（would now be）の混合仮定法。",
     "traps": [
-     "Shouldの後ろには動詞の原形が来る（Should the board approve）。",
-     "Wereの倒置はWere the board to approveのようにto不定詞が必要。",
+     "ShouldはIf … shouldを倒置したShould + 主語 + 動詞の原形（Should the board approve）で、「万一〜なら」という今後の可能性を言う。この文は後ろに過去形approvedとlast spring（昨春）があり、過去のことを仮定しているのでShouldと合わない。ShouldはShould you have any questions（ご質問があれば）のように使う。",
+     "Wereは仮定法過去の倒置で、Were the board to approve …（取締役会が承認するなら）のようにto不定詞が続くか、Were I in chargeのようにbe動詞の文に使う。現在・未来を仮定するのでlast springという過去の時点と合わず、後ろの過去形approvedともつながらない。過去の事実の反対はHad + 主語 + 過去分詞で表す。",
      null,
-     "Didを使うと疑問文になり、後ろのapproved（過去形）とも合わない。"
+     "Didは疑問文や強調に使う助動詞で、後ろには動詞の原形が来る（Did the board approve …?）。空所に入れるとDid the board approvedとなって過去形が重なり、文も疑問文のように始まるので、コンマの後ろの主節とつながらない。DidはIfを省略した仮定法の倒置には使わない。"
     ]
    },
    "vocab": [
@@ -159,9 +159,9 @@
    "explanation": {
     "why": "essential, necessary, importantのような必要・要求を表す形容詞の後ろのthat節では（should +）動詞の原形を使う。主語が単数（every participant）でも動詞の原形attendが正解。",
     "traps": [
-     "attendsはevery participantに数を合わせたひっかけ。この構文では数を一致させず原形を使う。",
-     "attendedは過去形なので、これから守るべき事項と合わない。",
-     "will attendは「出席するだろう」という予測になり、必要事項を表す構文と合わない。",
+     "attendsは3人称単数現在形で、単数の主語every participantに数を合わせたように見えるひっかけだ。しかしessential（必須の）、necessary、importantのような形容詞の後ろのthat節は「〜すべきだ」という要求を表すので、(should) + 動詞の原形を使い、数を一致させない。ふつうの事実を言う文（Every participant attends the briefing）ならattendsが正しい。",
+     "attendedは過去形で、「出席した」というすでに終わったことを言う。この文はbefore entering the laboratory（実験室に入る前に）というこれから守るべき規則で、It is essential thatの後ろには時制に関係なく(should) + 動詞の原形が来る。過去の事実を報告する文（Every participant attended the briefing yesterday）なら使える。",
+     "will attendは「出席するだろう」という未来の予測や予定を表す。It is essential that …は「必ず〜しなければならない」という必要・要求を言う構文なので、that節にはwillではなく(should) + 動詞の原形attendを使う。We expect that every participant will attendのように予想を言う動詞の後ろならwill attendが自然だ。",
      null
     ]
    },
@@ -196,10 +196,10 @@
    "explanation": {
     "why": "否定語Rarelyが文頭に来ると助動詞が主語の前に出る。後ろに過去分詞missedがあり、in his twelve years（期間）があるので、現在完了の助動詞hasが正解。",
     "traps": [
-     "doesの後ろには動詞の原形が来る（does … miss）。",
+     "doesは一般動詞の現在時制の文を倒置するときに使い、後ろには動詞の原形が来る（Rarely does Mr. Ito miss a deadline）。この文は後ろに過去分詞missedがあるのでdoesとつながらない。またin his twelve years at the firm（会社で働いた12年間で）という期間の表現は、現在完了has + 過去分詞と合う。",
      null,
-     "didの後ろにも動詞の原形が来る（did … miss）。missedと合わない。",
-     "is + 過去分詞は受動態になり、「伊藤さんが締め切りを逃された」という意味になる。"
+     "didも一般動詞の過去の文を倒置するときの助動詞なので、後ろに動詞の原形が来る（Rarely did Mr. Ito miss a deadline）。空所の後ろのmissedは過去分詞（過去形）なので、didと重なって誤った形になる。過去の一時点ではなく12年という期間の経験を言うので、現在完了のhasが正しい。",
+     "isはbe動詞なので、後ろに過去分詞が来ると受動態（be + p.p.）になる。Rarely is Mr. Ito missedだと「伊藤さんが（誰かに）恋しく思われることはめったにない」のような的外れな意味になり、目的語a deadlineも余ってしまう。人が締め切りを逃した経験を言う能動の文なので、完了の助動詞hasが必要だ。"
     ]
    },
    "vocab": [
@@ -229,9 +229,9 @@
     "why": "Not onlyが文頭に来ると倒置が起こる。元の文はThe new label printer is fasterなので、be動詞isが主語の前に出たNot only is …が正解。",
     "traps": [
      null,
-     "doesは一般動詞の文の倒置に使う。fasterは形容詞の補語なのでbe動詞が必要。",
-     "hasの後ろには過去分詞が来る必要がある。",
-     "itを入れるとNot only it the new label printerとなり動詞がない。"
+     "doesは一般動詞の文を倒置するときに使い、後ろに動詞の原形が来る（Not only does it print faster）。この文は空所の後ろに一般動詞がなく、faster（より速い）という形容詞の補語しかないので、元の文The printer is fasterのbe動詞isが前に出る必要がある。doesを入れると動詞のない文になる。",
+     "hasは完了の助動詞なら後ろに過去分詞が来る必要があり（Not only has it saved time）、本動詞なら「持っている」という意味だ。空所の後ろには過去分詞がなく形容詞fasterしかないので、Not only has the printer fasterでは文が成り立たない。fasterのような形容詞の補語が来る文はbe動詞で倒置する。",
+     "itは代名詞で、入れるとNot only it the new label printer fasterとなり、主語が2つ重なって動詞がない。後半の節のit（= the printer）を見て選びやすいが、前半の節には倒置された動詞isが必要だ。itはbut it also usesのように後半の節で主語として使われている。"
     ]
    },
    "vocab": [
@@ -263,10 +263,10 @@
    "explanation": {
     "why": "Only + 副詞節が文頭に来ると主節が倒置される。元の文The workers were allowed to return（復帰が許可された）のbe動詞wereが主語の前に出る。",
     "traps": [
-     "didの後ろには動詞の原形が来るが、allowedは過去分詞。",
-     "haveは過去時制（was completed）の文脈と合わず、have allowedなら目的語が必要。",
+     "didは一般動詞の過去の文の倒置に使い、後ろに動詞の原形が来る（Only after … did the workers return）。空所の後ろのallowedは「許可された」という過去分詞として使われているので、didとつながらない。元の文はThe workers were allowed to return（復帰が許可された）という受動態なので、be動詞wereが前に出る。",
+     "haveは現在完了の助動詞だが、前のwas completed（点検が終わった）が過去のことなので時制が合わない。またhave the workers allowed to returnは能動態なので「作業員が（誰かに）許可した」となるが、allowの後ろに許可される人（目的語）がない。作業員は許可を受けた側なので、受動態のwere allowedが必要だ。",
      null,
-     "had the workers allowed to returnは能動態なので、allowの後ろの目的語が抜けた不完全な文になる。"
+     "hadは過去完了の助動詞で、had the workers allowed to returnは能動態なので「作業員が（誰かに）復帰を許可していた」となり、allowの後ろの目的語が抜けている。allowはallow 人 to doの形で目的語が必要だ。作業員は許可を受けた側なので、受動態The workers were allowed …のwereが前に出る必要がある。"
     ]
    },
    "vocab": [
@@ -298,9 +298,9 @@
    "explanation": {
     "why": "元の文A user manual, … are included in this packageで、補語included in this packageが前に出た倒置の形。したがって過去分詞Includedが正解で、動詞areは後ろの複数の主語に合わせたもの。",
     "traps": [
-     "Includeで始めると命令文になり、後ろのareとつながらない。",
-     "Includingは前置詞・現在分詞で、Including in this package are …では文の形が成り立たない。",
-     "Inclusionは単数名詞なので、主語と見ると動詞areと数が合わず、意味も不自然。",
+     "Includeは動詞の原形なので、文頭に来ると「含めなさい」という命令文になる。Include in this package …だと命令文の後ろにまた動詞areが出てきて文の形が崩れる。この文はA user manual … are included in this packageの補語included in this packageを前に出した倒置構文なので、過去分詞Includedが必要だ。",
+     "Includingは「〜を含めて」という前置詞（または現在分詞）で、Including a cableのように後ろにすぐ名詞が来る。空所の後ろがin this packageなので、Including in this package are …では文の形が成り立たない。物が箱に「含まれている」という受動の意味なので、過去分詞Includedが正しい。",
+     "Inclusionは「含めること」という単数名詞なので、主語と見るとInclusion in this package are …となって単数の主語と複数の動詞areが合わず、「含めることが説明書とケーブルだ」という変な意味にもなる。動詞areの本当の主語は後ろのa user manual, a charging cable, and a one-year warranty cardで、空所には補語の過去分詞Includedが入る。",
      null
     ]
    },
@@ -330,10 +330,10 @@
    "explanation": {
     "why": "Hardly had + 主語 + p.p. … when + 過去は「〜するとすぐに…した」という構文。過去（went off）より前に起きたことなので過去完了のhadが正解。",
     "traps": [
-     "hasは現在完了なので、過去の時点（went off）の話と合わない。",
+     "hasは現在完了の助動詞なので後ろの過去分詞begunと形は合うが、whenの後ろのwent off（鳴った）が過去時制なので時が合わない。Hardly had + 主語 + p.p. … when + 過去（〜するとすぐに…した）は、過去より前に起きたことを過去完了で表す決まった構文だ。hasは現在まで続くことを言うときに使う。",
      null,
-     "didの後ろには動詞の原形beginが来る必要がある。",
-     "was begunは受動態で「会議が始められた」という不自然な形になり、この構文の組み合わせでもない。"
+     "didは一般動詞の過去の文を倒置するときに使い、後ろに動詞の原形が来る（Hardly did the meeting begin）。空所の後ろのbegunは過去分詞なのでdidとつながらない。またHardly … whenの構文では「会議の開始」が「警報」より先に起きたことなので、過去完了had begunで時間の順序を示す。",
+     "wasはbe動詞なので、was begunとなると受動態で「会議が（誰かによって）始められた」という意味になる。beginは自動詞としても使え、The meeting had begun（会議が始まった）が自然で、受動態にする理由がない。またHardly … whenの構文はhad + 過去分詞と組になる。"
     ]
    },
    "vocab": [
@@ -362,10 +362,10 @@
    "explanation": {
     "why": "後ろにthanがあるので比較級が必要。1音節の形容詞smallの比較級はsmaller。",
     "traps": [
-     "smallは原級なのでthanと一緒に使えない。",
-     "smallestは最上級なのでthanと組み合わない。",
+     "small（小さい）は原級の形容詞なので、後ろのthan（〜より）と一緒に使えない。thanがあれば2つのものを比べるので、比較級smallerが必要だ。原級はThe van is smallやas small as the old oneのようにas 〜 asの比較で使う。",
+     "smallestは最上級（最も小さい）なので、thanと組にならない。最上級はthe smallest van in the fleetのようにtheと範囲の表現（in, of）と一緒に使う。この文は新しいバンと前のバン（the old one）の2台をthanで比べているので、比較級smallerが正しい。",
      null,
-     "more smallerは比較級を二重にした誤った形。"
+     "more smallerは比較級smallerの前にさらにmoreを付けた二重比較級で、誤った形だ。smallのような1音節の形容詞は-erを付けて比較級を作り、moreはmore expensiveのように長い形容詞の前に使う。両方を一緒に使うことはない。"
     ]
    },
    "vocab": [
@@ -394,10 +394,10 @@
    "explanation": {
     "why": "the + ___ + in the event's history（イベント史上）は、範囲の中で「最も〜な」を表す最上級の形。largestが正解。",
     "traps": [
-     "largeは原級なので「史上」という範囲の表現と合わない。",
+     "large（多い、大きい）は原級なので、the large number of visitorsは「その多くの来場者数」というだけで、「史上最も」という意味にならない。in the event's history（イベント史上）は範囲の中で一番を言う最上級と一緒に使う表現だ。原級はa large number of visitors（多くの来場者）のように使う。",
      null,
-     "largerは比較級なので、thanや比較の対象が必要。",
-     "largeの最上級はlargestで、most largeとは書かない。"
+     "largerは比較級（より多い）なので、than last yearのように比較の対象が一緒に必要だ。この文にはthanがなく、in the event's historyという範囲の表現があるので、「史上最も多い」を表す最上級largestが必要だ。比較級ならa larger number of visitors than last yearのように使う。",
+     "most largeは誤った最上級の形だ。largeは1音節の形容詞なので-estを付けてlargestにし、mostはmost popularのように2音節以上の長い形容詞の前に使う。最上級が必要だという判断は正しいが、形が間違っている選択肢だ。"
     ]
    },
    "vocab": [
@@ -427,9 +427,9 @@
     "why": "as 〜 asの間には原級が来る。twice as fast asは「〜の2倍速く」。fastは形容詞と副詞が同じ形なので、動詞loadsを修飾できる。",
     "traps": [
      null,
-     "fasterは比較級なのでas 〜 asの間には入らない。「twice」の「2倍」という意味につられやすい。",
-     "fastestは最上級なのでas 〜 asの間には入らない。twice as fast asは「2倍速く」という原級の比較。",
-     "fastlyという語は存在しない。fastそのものが副詞として使われる。"
+     "fasterは比較級（より速く）なのでthanと組になり、as 〜 asの間には入らない。「2倍」という意味のtwiceにつられて比較級を選びやすいが、倍数の表現はtwice as fast as（〜の2倍速く）のようにas + 原級 + asの形で使う。比較級を使うならtwo times faster thanのようにthanが必要だ。",
+     "fastestは最上級（最も速く）なので、as 〜 asの間には入らない。最上級はthe fastest in the regionのように範囲の中で1番を言うときに使うが、この文は新しいサイトと前のバージョンの2つを比べ、twice（2倍）という倍数を言っている。したがってtwice as fast asという原級の比較が正しい。",
+     "fastlyは英語に存在しない語だ。fastは形容詞（a fast car）と副詞（run fast）が同じ形なので、そのまま動詞loadsを修飾する。形容詞に-lyを付ければ副詞になるという規則だけを信じて選ばせるひっかけで、hard、late、earlyも同じ形で副詞として使われる。"
     ]
    },
    "vocab": [
@@ -461,9 +461,9 @@
    "explanation": {
     "why": "比較級fasterを強調する副詞が必要。比較級の強調にはmuch, even, far, still, a lotを使うのでmuchが正解。",
     "traps": [
-     "veryは原級を強調する（very fast）。比較級の前には使えない代表的なひっかけ。",
-     "more fasterは比較級の重複。",
-     "most fasterは最上級と比較級を混ぜた誤った形。",
+     "very（とても）は原級の形容詞・副詞を強調する（very fast）。比較級fasterの前には使えないので、very fasterは誤った形で、比較級の前にveryを入れるミスを狙った代表的なひっかけだ。比較級を強調するときはmuch、even、far、still、a lotを使う。",
+     "moreはそれ自体で比較級を作る語（more quickly）なので、すでに-erが付いたfasterの前に使うとmore fasterという二重比較級になる。空所は比較級の程度を強める副詞の位置で、比較級をもう1つ作る位置ではない。moreはgrew more quickly thanのように-erのない副詞の前に使う。",
+     "mostは最上級を作る語（most quickly）なので、比較級fasterと一緒に使うとmost fasterという誤った形になる。文にthan in-store sales（店舗の売上より）という比較の対象があるので、最上級ではなく比較級の強調が必要だ。比較級fasterを修飾する副詞はmuchだ。",
      null
     ]
    },
@@ -496,9 +496,9 @@
    "explanation": {
     "why": "the 比較級 …, the 比較級 …（〜すればするほど…）の構文。後ろの節のthe soonerと組み合わさるよう、比較級earlierが入る。",
     "traps": [
-     "earlyは原級なので、the 〜, the 比較級の構文を完成できない。",
-     "earliestは最上級なので、the earliest an order is placedでは構文が成り立たない。",
-     "earlyの比較級はearlierで、more earlyとは書かない。",
+     "early（早く）は原級なので、The early an order is placedでは構文が成り立たない。「The + 比較級 …, the + 比較級 …（〜すればするほど…）」の構文は前後とも比較級でなければならず、後半がthe sooner（より早く）なので前半も比較級earlierが必要だ。原級earlyはplace an order earlyのように使う。",
+     "earliestは最上級（最も早い）だ。「the + 比較級, the + 比較級」の構文は2つのことが一緒に変化する関係を表すので最上級は入らず、The earliest an order is placedでは文にならない。最上級はthe earliest available date（最も早い可能な日付）のように使う。",
+     "more earlyは誤った比較級の形だ。earlyは-lyで終わるが、もともと形容詞と副詞を兼ねる語なので、比較級はearlier、最上級はearliestにする。比較級の構文が必要だという判断は正しいが、quickly → more quicklyのような-ly副詞の規則を誤って当てはめたひっかけだ。",
      null
     ]
    },
@@ -533,10 +533,10 @@
    "explanation": {
     "why": "空所の後ろのemployeeが単数名詞で、動詞も単数のis。可算名詞の単数形を受けるEveryが正解。",
     "traps": [
-     "Allは複数名詞（All employees are）や不可算名詞と使う。",
+     "All（すべての）は可算名詞の複数形（All employees are required）か不可算名詞（all equipment）と一緒に使う。空所の後ろのemployeeは可算名詞の単数形で、動詞も単数のisなので、All employeeは誤った形だ。「すべての社員」を単数で表すならEvery employee is …を使う。",
      null,
-     "Mostの後ろには複数名詞か不可算名詞が来る。",
-     "Manyは可算名詞の複数形と使う。"
+     "Most（ほとんどの）は後ろに複数名詞か不可算名詞が来る（Most employees are）。空所の後ろが単数名詞employeeと単数動詞isなので形が合わない。意味の上でも、名札の着用は「ほとんど」ではなく社員一人一人に当てはまる規則なので、Everyが自然だ。",
+     "Many（多くの）は可算名詞の複数形と使い、動詞も複数になる（Many employees are）。空所の後ろのemployeeは単数で、動詞もisなので合わない。またManyは「多くの社員」で一部だけに当てはまる感じになるが、この文は建物内の社員全員に当てはまる規則なのでEveryが正しい。"
     ]
    },
    "vocab": [
@@ -566,9 +566,9 @@
     "why": "ここでのroomは「空間、余地」という意味の不可算名詞で、動詞も単数のis。不可算名詞を受けるa little（少しの）が正解。",
     "traps": [
      null,
-     "a fewは可算名詞の複数形と使う。roomを「部屋」（可算）と勘違いさせるひっかけ。",
-     "manyは可算名詞の複数形と使い、動詞isとも合わない。",
-     "severalは可算名詞の複数形と使う。"
+     "a few（いくつかの）は可算名詞の複数形と使う（a few rooms）。ここのroomは「部屋」ではなく「余地、余裕」という不可算名詞で、動詞も単数のisなので、a fewと合わない。roomを可算名詞の「部屋」と勘違いさせるひっかけで、不可算名詞の「少し」はa littleで表す。",
+     "many（多くの）は可算名詞の複数形と使い、動詞も複数のareになる（There are many rooms）。この文は単数動詞isに不可算名詞room（余地）が続くので、manyと合わない。不可算名詞の量が多いと言うときはmuchやa lot ofを使う（much room）。",
+     "several（いくつかの）は3つ以上の可算名詞の複数形と使う（several options）。roomが「余地」という不可算名詞として使われ、動詞も単数のisなので、several roomは誤った形だ。予算に「少し」余裕があるという意味は、不可算名詞をとるa littleで表す。"
     ]
    },
    "vocab": [
@@ -597,10 +597,10 @@
    "explanation": {
     "why": "tipsは可算名詞の複数形なので、複数名詞を受けるseveral（いくつかの）が正解。",
     "traps": [
-     "muchは不可算名詞と使う。",
-     "a great deal ofも不可算名詞専用（a great deal of time）。",
+     "much（多くの）は不可算名詞と使う（much information、much advice）。空所の後ろのtips（ヒント、助言）は-sが付いた可算名詞の複数形なので、much useful tipsは誤った形だ。同じ内容を不可算名詞で言うならmuch useful adviceになる。",
+     "a great deal of（大量の）は不可算名詞専用の表現だ（a great deal of time、a great deal of effort）。tipsは数えられる複数名詞なので使えない。可算名詞の複数形の「多くの」は、a large number of tipsのようにnumberを使って表す。",
      null,
-     "everyは単数名詞と使う（every tip）。"
+     "every（すべての、それぞれの）は可算名詞の単数形と使う（every tip、every manager）。空所の後ろのtipsは複数形なので、every useful tipsは数が合わない。複数名詞の前で「すべての」と言うならall useful tipsを使う。"
     ]
    },
    "vocab": [
@@ -632,9 +632,9 @@
    "explanation": {
     "why": "Most of the + 名詞は名詞に数を合わせる。equipmentは不可算名詞なので単数扱いで、last yearなので過去の単数wasが正解。",
     "traps": [
-     "wereは「Most」を複数と勘違いさせるひっかけ。equipmentは不可算なので単数。",
-     "have beenは複数の動詞で、last yearと現在完了も矛盾する。",
-     "areは複数の現在形なので、数も時制も合わない。",
+     "wereは複数の主語に合わせた過去形だ。Most of the + 名詞はofの後ろの名詞に数を合わせるが、equipment（設備）は不可算名詞で単数扱いなのでwasが正しい。Mostを見て「複数」と考え複数動詞を選ばせるひっかけで、Most of the machines were …のように後ろが複数名詞ならwereが正しい。",
+     "have beenは複数の主語に使う現在完了だ。equipmentは不可算名詞なので複数動詞haveと合わず、文末にlast year（昨年）という過去の時点があるので現在完了とも一緒に使えない。単数の主語で期間を言う文なら、has been replaced since 2020のように使う。",
+     "areは複数の現在形なので、2つの点で合わない。不可算名詞equipmentは単数扱いなので数が違い、last year（昨年）に交換されたことなので現在時制も誤りだ。数の一致と時制を一緒に確認すると、単数の過去形wasが残る。",
      null
     ]
    },
@@ -668,9 +668,9 @@
     "why": "of the + 複数名詞の前に置ける数量の代名詞が必要。all of the offices（すべての事務所）がexcept（〜を除いて）とも自然につながる。",
     "traps": [
      null,
-     "everyは形容詞としてしか使えないので、every ofの形は不可能（every one ofは可能）。",
-     "wholeはthe whole officeのように単数名詞の前に使い、whole of the + 複数名詞とは使わない。",
-     "muchは不可算名詞に使う。officesは可算名詞の複数形。"
+     "everyは形容詞としてしか使えずevery officeのように単数名詞の前に来るので、単独で代名詞として使うevery of the officesは誤った形だ。of the + 複数名詞の前で「それぞれ全部」と言うなら、every one of the officesやeach of the officesを使う。この文はall of the …（〜の全部）がexceptと自然につながる。",
+     "whole（全体の）はthe whole office、the whole of the cityのように単数の「1つのまとまり全体」を言う。12か所の支店を1つずつ数えるこの文では複数名詞officesと合わず、冠詞なしでhas visited whole of …と使うこともできない。複数のものを全部言うときはall of the officesを使う。",
+     "muchは不可算名詞の量を言い、much of the budget（予算のかなりの部分）のように使う。officesは数えられる複数名詞なのでmuch of the officesは誤りで、数を言うならmany of the officesになる。またexcept the one in Perth（パース支店だけを除いて）は「全部」を前提にするので、allが正しい。"
     ]
    },
    "vocab": [
@@ -704,10 +704,10 @@
    "explanation": {
     "why": "後ろのorと組になって「AかBのどちらか」を表すeither A or Bの構文。",
     "traps": [
-     "bothはandと組になる（both A and B）。",
+     "bothはandと組になり、both A and B（AとBの両方）の形で使う。この文は後ろにorがあるので、bothとつながらない。意味の上でも用紙は1回出せばよいので、「オンラインと郵送の両方」ではなく「どちらか一方」を表すeither A or Bが正しい。",
      null,
-     "neitherはnorと組になり、「どちらも〜ない」という否定の意味。",
-     "whether A or Bは「〜かどうか」という名詞節・副詞節を導くので、この位置に合わない。"
+     "neitherはnorと組になり、neither A nor B（AもBも〜ない）という否定の意味を表す。この文は後ろにnorではなくorがあり、「オンラインでも郵送でも提出できない」という意味ではcan submitとも矛盾する。どちらか一方を選ぶ状況はeither A or Bで表す。",
+     "whetherはwhether A or Bの形で「〜かどうか」という名詞節や「〜であれ…であれ」という副詞節を導く接続詞だ。原則として後ろに主語と動詞のある節が来るが、この文はsubmitの方法であるonlineとby mailが並んでいるだけだ。2つの方法のどちらかを選べるという意味は、either A or Bが正しい。"
     ]
    },
    "vocab": [
@@ -736,10 +736,10 @@
    "explanation": {
     "why": "後ろのbut alsoと組になるnot only A but also B（AだけでなくBも）の構文。",
     "traps": [
-     "bothはandと組になる。",
-     "eitherはorと組になる。",
+     "bothはandと組になり、both experienced and approachable（経験豊富で親しみやすい）のように使う。この文は後ろにbut alsoがあるので、bothとつながらない。but alsoの相手はnot onlyで、not only A but also B（AだけでなくBも）になる。",
+     "eitherはorと組になり、either A or B（AかBのどちらか）を作る。後ろにbut alsoがあるので組が合わず、「経験豊富か親しみやすいかのどちらか」という意味も、支店長をほめる文脈と合わない。2つの長所を両方言う文なので、not only A but also Bが正しい。",
      null,
-     "asはas 〜 asの比較構文で使い、but alsoとはつながらない。"
+     "asはas experienced as …（〜と同じくらい経験豊富な）のようにas 〜 asの比較構文で使い、後ろに2つ目のasが必要だ。この文には2つ目のasがなく、but alsoが続いているのでasとつながらない。形容詞experiencedの前なので、比較構文のように見せたひっかけだ。"
     ]
    },
    "vocab": [
@@ -768,10 +768,10 @@
    "explanation": {
     "why": "後ろのnorと組になるneither A nor B（AでもBでもない）の構文。",
     "traps": [
-     "Eitherはorと組になる。",
+     "Eitherはorと組になり、Either A or B（AかBのどちらか）の形で使う。この文は後ろにnorがあるので、Eitherと合わない。norの相手はNeitherで、Neither A nor Bは「営業部長もマーケティングマネージャーも〜しなかった」という否定の意味になる。",
      null,
-     "Bothはandと組になり、動詞も複数（were）になる必要がある。",
-     "Not単独ではnorと組にならない。"
+     "Bothはandと組になってBoth A and Bの形で使い、主語が2人になるので動詞も複数のwereになる（Both … and … were available）。この文はnorと単数動詞wasがあるので、2つの点で合わない。Neither A nor Bは動詞を近いB（the marketing manager）に合わせるので、単数のwasが使われている。",
+     "Notは副詞で、単独ではnorと組にならない。Not the sales director nor the marketing managerは相関接続詞の形ではなく誤った形で、notはnot A but B（AではなくB）のようにbutと組になるときに使う。norと組になるのはNeitherだ。"
     ]
    },
    "vocab": [
@@ -800,9 +800,9 @@
    "explanation": {
     "why": "後ろにandがあるので、both A and B（AとBの両方）の構文。AとBの位置にrecruitment strategiesとemployee retentionという名詞句が並んでいる。",
     "traps": [
-     "eitherはorと組になる。",
-     "between A and Bは「〜の間に」という前置詞の表現で、「戦略と定着の間を扱う」となり意味が合わない。",
-     "neitherはnorと組になる。",
+     "eitherはorと組になり、either A or B（AかBのどちらか）の形で使う。この文は後ろにandがあるので、eitherとつながらない。セミナーが採用戦略と社員の定着を一緒に扱うという内容なので、andと組になるboth A and Bが正しい。",
+     "betweenは前置詞で、between A and B（AとBの間に）のようにandと一緒に使えるので選びやすい。しかしcover between …は「戦略と定着の間を扱う」という意味になって合わず、coverは直接目的語をとる他動詞だ。betweenはthe difference between A and Bやchoose between A and Bのように使う。",
+     "neitherはnorと組になり、neither A nor B（AもBも〜ない）の形で使う。この文は後ろにandがあるので組が合わず、「どちらも扱わない」という否定の意味も、セミナーを紹介する文と合わない。andと組になる相関接続詞はbothだ。",
      null
     ]
    },
@@ -840,10 +840,10 @@
    "explanation": {
     "why": "indicateの目的語として「〜かどうか」を表す名詞節が必要で、後ろにorがある。whether A or Bが名詞節を導くので正解。",
     "traps": [
-     "either A or Bは名詞節を導けない。orだけを見て選ばせるひっかけ。",
-     "bothはandと組になる。",
+     "eitherはeither A or B（AかBのどちらか）の形で名詞や句をつなぐだけで、節を導いてindicate（記入する）の目的語を作ることはできない。空所の後ろにthey will attend …という主語＋動詞の節があるので、「〜かどうか」を表す名詞節の接続詞whetherが必要だ。後ろのorだけを見て選ばせるひっかけだ。",
+     "bothはandと組になり、both A and B（AとBの両方）の形で使う。この文は後ろにorがあり、午前と午後のどちらに出席するかを選ぶ内容なので、「両方」という意味とも合わない。またbothは節を導けないので、indicateの目的語になれない。",
      null,
-     "unlessは副詞節を導く接続詞なので、indicateの目的語になれない。"
+     "unlessは「〜しない限り」という条件の副詞節を導く接続詞なので、indicate（記入する）の目的語になる名詞節を導けない。入れると「午前か午後のセッションに出席しないなら用紙に記入せよ」という的外れな意味になる。unlessはUnless you cancel, the fee will be chargedのように条件を言うときに使う。"
     ]
    },
    "vocab": [

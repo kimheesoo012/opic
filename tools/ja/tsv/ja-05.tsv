@@ -1,110 +1,110 @@
-p5-085|t1	bothはandと組になる。
-p5-085|t3	unlessは副詞節を導く接続詞なので、indicateの目的語になれない。
+p5-085|t1	bothはandと組になり、both A and B（AとBの両方）の形で使う。この文は後ろにorがあり、午前と午後のどちらに出席するかを選ぶ内容なので、「両方」という意味とも合わない。またbothは節を導けないので、indicateの目的語になれない。
+p5-085|t3	unlessは「〜しない限り」という条件の副詞節を導く接続詞なので、indicate（記入する）の目的語になる名詞節を導けない。入れると「午前か午後のセッションに出席しないなら用紙に記入せよ」という的外れな意味になる。unlessはUnless you cancel, the fee will be chargedのように条件を言うときに使う。
 p5-086|why	用紙（form）に「記入を済ませる」はcomplete a form。記入してから返却するという流れにも合う。
-p5-086|t1	performは「（業務・公演を）行う」なので用紙と合わない。
-p5-086|t2	conductは「（調査・会議を）実施する」で、conduct a surveyのように使う。用紙には使わない。
-p5-086|t3	achieveは「（目標を）達成する」なのでformと結びつかない。
+p5-086|t1	performは「（業務・公演を）行う、やり遂げる」という意味で、perform a task、perform surgeryのように仕事や動作を目的語にとる。書類のformを目的語にすると「用紙を演じる・遂行する」となり不自然だ。用紙に記入するのはcomplete a formまたはfill out a formだ。
+p5-086|t2	conductは「（調査・会議・検査を）実施する」という意味で、conduct a survey、conduct an interviewのように活動を目的語にとる。registration form（登録用紙）は実施する活動ではなく記入する書類なので、conductとは結びつかない。記入してからreturn it（返却する）という流れにもcompleteが合う。
+p5-086|t3	achieveは「（目標・成果を）達成する」という意味で、achieve a goal、achieve successのように努力して手に入れるものと使う。form（用紙）は達成するものではないので、achieve the formでは意味が通じない。「完了する」と似て見えても、書類を最後まで記入するという意味を持つのはcompleteだけだ。
 p5-087|why	accommodateは「（人数を）収容する」という他動詞で、up to 500 guestsを目的語にとる。施設の収容人数を言うときの代表的な動詞。
-p5-087|t1	attendは「出席する」なので、ホテルが客に出席するという意味になり合わない。
-p5-087|t2	reside（住む）は自動詞なので目的語をとれない（reside in）。
-p5-087|t3	consistはconsist of（〜から成る）の形でだけ使う自動詞。
+p5-087|t1	attendは「（会議・イベントに）出席する」という意味で、人が主語になりattend a conferenceのように使う。この文は主語がホテルで、目的語がup to 500 guests（最大500人の客）なので、「ホテルが客に出席する」という的外れな意味になる。施設が人数を受け入れられるという意味はaccommodateやholdで表す。
+p5-087|t2	resideは「住む、居住する」という自動詞で、reside in Londonのように前置詞と一緒に使い、目的語を直接とれない。空所の後ろに目的語up to 500 guestsがあるので形が合わず、意味も「ホテルが客を住む」となり不自然だ。客がホテルに「泊まる」こととホテルが客を「収容する」ことを混同させるひっかけだ。
+p5-087|t3	consistはconsist of（〜から成る）の形でだけ使う自動詞なので、目的語を直接とれない。The package consists of three itemsのように、全体が何でできているかを言うときに使う。この文はホテルの宴会場が客500人を「収容できる」という意味なので、accommodateが正しい。
 p5-088|why	空所の後ろに人の目的語（staff）+ that節が来る。この形をとる動詞はinform（inform 人 that …）。
-p5-088|t0	explainは人を直接目的語にとらない（explain to staff that …）。
-p5-088|t1	announceも人の目的語を直接とらない（announce to staff that …）。
-p5-088|t3	said（say）も人を直接目的語にしない（say to staff またはtell staff）。
+p5-088|t0	explain（説明する）は人を直接目的語にとらず、explain to staff that …やexplain the rule to staffのようにtoを使って聞き手を表す。空所の後ろに人の目的語staffがすぐ来てthat節が続くので、explained staff that …は誤った形だ。「人 + that節」を直接とる動詞はinform、notify、tellだ。
+p5-088|t1	announce（発表する、知らせる）は知らせる内容を目的語にとり、announce that …やannounce the closure to staffのように使い、人を直接目的語にとれない。そのためannounced staff that …は誤った形だ。意味は似ているが、人の目的語staffのすぐ後ろにthat節が来る形はinformed staff that …だ。
+p5-088|t3	said（say）は「言う」という意味で、言った内容を目的語にとってsaid that …と使い、聞き手はsay to staffのようにtoで表す。そのためsaid staff that …は誤った形だ。人を直接目的語にとる似た意味の動詞はtell（told staff that …）だ。
 p5-089|why	addressは「（問題に）対処する」という他動詞で、the issueを直接目的語にとる。
-p5-089|t0	attendはこの意味ではattend to the issueのように前置詞toが必要。
-p5-089|t1	dealはdeal with the issueの形で使う必要がある。
-p5-089|t2	respondはrespond toのように前置詞が必要。意味が似た自動詞がひっかけ。
+p5-089|t0	attendは「出席する」という他動詞（attend a meeting）として使うか、「対処する、世話をする」という意味ならattend to the issueのように前置詞toが必要だ。空所の後ろにthe issueがすぐ来るので、attend the issueは「問題に出席する」という不自然な意味になる。問題を直接目的語にとって「対処する」という意味を持つ動詞はaddressだ。
+p5-089|t1	dealは「対処する」という意味のときはdeal with the issueのように必ずwithと一緒に使う自動詞だ。空所の後ろにwithなしでthe issueがすぐ来るので、deal the issueは誤った形だ。意味が正解のaddressと同じなので選びやすいが、前置詞が抜けているので入らない。直接目的語を置くとdeal the cards（カードを配る）のように別の意味になる。
+p5-089|t2	respondは「応答する、対応する」という自動詞で、respond to the requestのように前置詞toが必要だ。空所の後ろにthe issueがすぐ来るので、respond the issueは誤った形だ。文の後半のservice request（サービス依頼）を見て「依頼に応じる」を思い浮かべ、選びやすいひっかけだ。
 p5-090|why	attribute A to Bは「AをBのおかげ（せい）だと考える」という意味。成功をデザインチームの努力のおかげだとしたという意味になる。
-p5-090|t0	contribute A to Bは「AをBに寄付・貢献する」で、「成功を努力に寄付した」となり意味が通じない。形が似た紛らわしい語。
-p5-090|t2	distribute A to Bは「AをBに配る」なので意味が合わない。
-p5-090|t3	recognizeはrecognize A for Bの形でほめるときに使い、toとは結びつかない。
+p5-090|t0	contribute A to Bは「A（お金・時間・アイデア）をBに寄付する、貢献する」という意味だ。入れると「CEOが発売の成功をデザインチームの努力に寄付した」となり意味が通じない。attributeとつづりが似ていて、どちらもA to Bの形をとる紛らわしい語で、contributeはcontribute ideas to the projectのように使う。
+p5-090|t2	distribute A to Bは「AをBに配る、配布する」という意味で、distribute flyers to customersのように使う。入れると「成功をデザインチームの努力に配った」となり意味が合わない。A to Bの形と-tributeという形が同じだけの紛らわしい語だ。
+p5-090|t3	recognizeには「（功績を）認める、表彰する」という意味があってもっともらしく見えるが、recognize the team for its hard workのように人を目的語にし、forで理由を表す。recognize A to Bという形はないので、空所の後ろのto the hard workとつながらない。「AをBのおかげにする」はattribute A to Bだ。
 p5-091|why	空所の後ろのfrom + -ingと結びつく自動詞はrefrain（控える）。refrain from doingはお知らせによく出る表現。
-p5-091|t0	preventはprevent 目的語 from -ingの形なので目的語が必要。
-p5-091|t1	avoidは直接動名詞を目的語にとる（avoid using）。fromが付くと誤り。
-p5-091|t3	stopも直接動名詞をとる（stop using）。
+p5-091|t0	preventはprevent + 目的語 + from -ing（〜が…するのを防ぐ）の形で、防ぐ対象を目的語にとる必要がある。この文は空所のすぐ後ろにfrom usingが来ていて目的語がない。prevent others from using phonesのように目的語があれば可能だが、自分が控える行動にはrefrain from -ingを使う。
+p5-091|t1	avoid（避ける）は他動詞なので、動名詞を直接目的語にとる（avoid using mobile phones）。fromが入ったavoid from usingは誤った形だ。意味は「控える」と似ていて選びやすいが、空所の後ろのfromと結びつく自動詞はrefrainだけだ。
+p5-091|t3	stopは「やめる」という意味で、stop using phonesのように動名詞を直接目的語にとる。fromと一緒に使うならstop others from usingのように間に目的語が必要なので、stop from usingは誤った形だ。またお知らせで「〜をお控えください」と丁寧に頼むときは、refrain from -ingが決まった表現だ。
 p5-092|why	under warrantyは「保証期間中の」という意味。保証期間中なので修理が無料という因果関係が成り立つ。
-p5-092|t1	under discountという表現はない（at a discount）。
-p5-092|t2	under inspection（点検中）は使えるが、「点検中なので修理が無料」という理由の関係が成り立たない。
-p5-092|t3	under deliveryという表現は使わない。
+p5-092|t1	discountは「割引」という名詞で、「割引価格で」はat a discountと言い、under discountという表現は使わない。また割引は値段を下げることなので、修理がfree of charge（無料）である理由にならない。無料修理の理由になるのは、保証期間中を表すunder warrantyだ。
+p5-092|t2	inspectionは「点検、検査」という意味で、under inspection（点検中）という表現は実際に使う。しかし「プリンターが点検中なので修理が無料だ」という理由の関係は成り立たない。soの前後が原因と結果でつながるには、「保証期間中」を表すunder warrantyが必要だ。
+p5-092|t3	deliveryは「配達、配送」という意味で、under deliveryという表現は使わず、「配送中」はin transitやout for deliveryで表す。またすでに使っているプリンターの修理が無料だという内容と配送は関係がない。underと結びついて無料修理の理由になる名詞はwarrantyだ。
 p5-093|why	a wide range ofは「幅広い、さまざまな〜」という決まった表現。小規模事業者にさまざまな金融サービスを提供するという意味で、range（範囲）がwide（広い）と結びつく。
-p5-093|t0	fieldは「分野」で、a wide field of servicesとは言わない。
-p5-093|t1	distance（距離）はサービスの多様さと関係ない。
-p5-093|t2	levelは「水準」なので、a wide level ofでは意味が成り立たない。
+p5-093|t0	fieldは「分野」という意味で、the field of finance（金融分野）のように1つの領域を言う。a wide field of servicesと言うと「サービスの広い分野」という不自然な表現になり、いろいろな種類のサービスを提供するという意味を表せない。「さまざまな〜」はa wide range of、a wide variety ofで表す。
+p5-093|t1	distanceは「距離」という意味で、a long distance（遠い距離）のように空間の離れ具合を言う。a wide distance of financial servicesは「金融サービスの広い距離」となり、サービスの多様さとまったく関係がない。wideと組み合わせて種類の幅を表す名詞はrangeだ。
+p5-093|t2	levelは「水準、程度」という意味で、a high level of service（高い水準のサービス）のようにhighやlowと組む。wideとは合わないので、a wide level ofでは意味が成り立たない。サービスの「質」ではなく「種類が多いこと」を言う文なので、a wide range ofが正しい。
 p5-094|why	領収書は出張経費を「証明するもの」。as proof of（〜の証拠として）が文脈に合う。
-p5-094|t0	reason（理由）は、領収書が経費の理由になるわけではないので不自然。
-p5-094|t2	cause（原因）も領収書と経費の関係に合わない。
-p5-094|t3	fact（事実）は 'as fact of' という表現では使わない。
+p5-094|t0	reasonは「理由」という意味で、the reason for the delay（遅れの理由）のように使う。as reason ofと言うと「領収書が出張経費の理由」という意味になるが、領収書はお金を使った理由ではなく、使ったことを示す書類だ。またreasonはふつうofではなくforと一緒に使う。
+p5-094|t2	causeは「原因」という意味で、the cause of the problem（問題の原因）のように物事を引き起こしたものを言う。領収書が出張経費を発生させた原因ではないので、as cause of their travel expensesでは意味が通じない。支出を証明する書類という意味はas proof ofが表す。
+p5-094|t3	factは「事実」という可算名詞で、the fact that …（〜という事実）のように使い、as fact ofという表現は使わない。領収書は「事実」そのものではなく、事実を裏づける証拠だ。何かを証明する資料として保管するという意味は、as proof of（〜の証拠として）が決まった表現だ。
 p5-095|why	in compliance with（〜に従って、〜を順守して）は規則・法律と一緒に使う決まった表現。規則を守れず罰金を払ったという流れ。
-p5-095|t0	obedience（服従）は人・命令に使い、in obedience withという表現は使わない（in obedience to）。
-p5-095|t1	permission（許可）にはin permission withという表現がない。
-p5-095|t2	attentionは「注意」なので、規則順守の意味にならない。
+p5-095|t0	obedienceは「服従、従順」という意味で、主に人や命令に従うことを言い、in obedience to ordersのようにtoと一緒に使う。in obedience withという表現はなく、会社が環境規制を守る場面にも合わない。規則・法律を守るという意味はin compliance withだ。
+p5-095|t1	permissionは「許可」という意味で、with permission（許可を得て）、permission to doのように使い、in permission withという表現はない。また「規制の許可の中で運営する」という意味にしても、「規制を守らず罰金を科された」という流れと合わない。in ___ withと組になるのはcomplianceだ。
+p5-095|t2	attentionは「注意、関心」という意味で、pay attention to（〜に注意を払う）のように使い、in attention withという表現はない。規則に「注意を払うこと」と規則を「守ること」は違うので、罰金の理由を説明できない。規則の順守はin compliance withで表す。
 p5-096|why	be given full responsibility for -ing（〜の全責任を任される）が自然な表現。イベント準備の責任者を任されたという意味。
-p5-096|t1	obligationは「（法的・道義的な）義務」で、ふつうan obligation to doの形をとり、full obligation forは不自然。
-p5-096|t2	dutyも「義務」だが、full duty for -ingとは言わない。意味が似た名詞で迷わせるひっかけ。
-p5-096|t3	reliance（依存）はreliance onの形で使い、意味も合わない。
+p5-096|t1	obligationは「（法的・道義的な）義務」という意味で、ふつうhave an obligation to do（〜する義務がある）のようにto不定詞と使う。行事の準備を「任された」という意味でbe given full obligation for -ingとは言わない。仕事を責任を持って任されるという意味はresponsibility for -ingが表す。
+p5-096|t2	dutyも「義務、職務」という意味だが、ふつうduties（担当業務）やa duty to doの形で使い、full duty for -ingとは言わない。意味が似た名詞で迷わせるひっかけだ。fullと一緒に「全面的な責任」を表し、for -ingとつながるのはresponsibilityだ。
+p5-096|t3	relianceは「依存、信頼」という意味で、reliance on suppliers（供給業者への依存）のようにonと一緒に使う。full reliance for organizingは「準備への全面的な依存」となり、Kwanさんが行事を任されたという意味にならない。仕事を任されて責任を持つという意味はresponsibilityだ。
 p5-097|why	出席できなかった人に送るのは会議の「要約」。summaryが正解。
-p5-097|t0	summitは「首脳会談、頂上」で、つづりが似たひっかけ。
-p5-097|t2	sample（見本）は会議の内容と合わない。
-p5-097|t3	symbol（象徴）は文脈と関係ない。
+p5-097|t0	summitは「首脳会談」または「（山の）頂上」という意味で、summaryと前半のつづりが同じことを狙ったひっかけだ。A summit of the meetingは「会議の首脳会談」となり意味が通じない。欠席者に送るのは会議の内容をまとめたsummary（要約）だ。
+p5-097|t2	sampleは「見本、サンプル」という意味で、a sample of the product（製品の見本）のように物の一部を見せるときに使う。会議は見本を切り取って送れる物ではないので、A sample of the meetingは不自然だ。出席できなかった人に会議の内容を伝えるのはsummaryだ。
+p5-097|t3	symbolは「象徴、記号」という意味で、a symbol of peace（平和の象徴）のように使う。A symbol of the meetingは「会議の象徴」となり、欠席者に送る資料という文脈と関係がない。sで始まる似た形の名詞を並べたひっかけで、正解は会議の要約を表すsummaryだ。
 p5-098|why	現在時制is closedと「5月に再開する」という未来の予定が続くので、「現在」を意味するcurrentlyが正解。
-p5-098|t0	previously（以前に）は過去時制と合う。
-p5-098|t1	lately（最近）は主に現在完了と使う（has lately been）。
-p5-098|t3	formerly（かつて）は過去の状態を言うので、今休館中という意味と合わない。
+p5-098|t0	previouslyは「以前に」という意味で、The museum was previously closedのように過去時制と一緒に過去のことを言う。この文は現在時制のis closedで、but will reopen in May（5月に再開する）と続き、今の状態を言っているので合わない。現在の状態はcurrently（現在）で表す。
+p5-098|t1	latelyは「最近」という意味で、主に現在完了と一緒に使う（The museum has been busy lately）。「最近しばらく続いていること」を言うので、今休館中だという現在の状態を表すis closedとは合わない。late（遅い）に-lyが付いた形だが、「遅く」という意味でもない。
+p5-098|t3	formerlyは「以前は、かつて」という意味で、The building was formerly a bank（その建物はかつて銀行だった）のように今は違う過去の状態を言う。この文は今休館中で5月に再開するという内容なので、「以前休館していた」という意味と合わない。現在時制is closedと合うのはcurrentlyだ。
 p5-099|why	reduce, increase, improveのような変化を表す動詞は、significantly（大幅に）とよく結びつく。
-p5-099|t0	highlyはhighly recommended, highly qualifiedのように一部の形容詞・分詞とだけ結びつき、reduceとは使わない。
-p5-099|t2	extremelyは主に形容詞を強調する（extremely busy）。動詞reducedの修飾は不自然。
-p5-099|t3	deeplyは感情（deeply moved）と合い、数値の減少とは合わない。
+p5-099|t0	highlyは「非常に、高く」という意味だが、highly recommended（強く勧められる）、highly qualified（資格が十分な）のように評価や程度を表す形容詞・分詞と組み合わせる。reduceのように数値が増減する動詞は修飾しないので、has highly reducedは不自然だ。増減の幅を言うときはsignificantlyやconsiderablyを使う。
+p5-099|t2	extremelyは「極めて、非常に」という意味で、extremely busy、extremely importantのように主に形容詞の程度を強める。動詞reducedを修飾してhas extremely reducedと言うのは不自然だ。減った幅が大きいという意味はsignificantly（かなり）やconsiderablyで表す。
+p5-099|t3	deeplyは「深く」という意味で、deeply moved（深く感動した）、deeply concernedのように感情や関わりの程度を表す。処理時間のように数値で測る量が減ることとは合わないので、has deeply reducedは不自然だ。数値の増減の幅はsignificantlyで言う。
 p5-100|why	「予約した時間の15分前に来て」という意味なので、「予定された」を意味するscheduledが正解。
-p5-100|t0	punctual（時間を守る）は人に使う形容詞なので、appointment timeを修飾するのは不自然。
-p5-100|t1	eventual（最終的な）は予約時間と合わない。
-p5-100|t3	frequent（頻繁な）は繰り返しの回数を言う形容詞なので、1つの予約時刻（appointment time）を修飾すると意味が通じない。
+p5-100|t0	punctualは「時間を守る」という意味で、a punctual employeeのように人（や行動）を表す。時刻そのものが時間を守ることはできないので、your punctual appointment timeは不自然だ。「時間」という言葉につられて選びやすいひっかけで、予約した時刻はscheduled（予定された）で表す。
+p5-100|t1	eventualは「結局の、最終的な」という意味で、the eventual winner（最終的な優勝者）のようにいくつかの過程を経た末の結果を言う。前もって決めた予約時刻を「最終的な予約時間」と言うと意味が合わない。決めておいた時刻より15分早く来るようにという文なので、scheduledが正しい。
+p5-100|t3	frequentは「頻繁な」という意味で、frequent visitors（よく来る客）のように何度も繰り返すことを言う。この文のyour appointment timeは1回の予約時刻なので、「頻繁な予約時間」では意味が通じない。at least fifteen minutes before（少なくとも15分前に）の基準になるのは予定された時刻、つまりscheduledだ。
 p5-101|why	形容詞helpfulの程度を強調する副詞が必要。remarkably（驚くほど）が「特に荷物が遅れたとき」というほめる文脈に合う。
-p5-101|t1	densely（密集して）はdensely populatedのように密度に使う。
-p5-101|t2	mutually（お互いに）はmutually beneficialのように相互の関係に使う。
-p5-101|t3	vacantly（ぼんやりと）は意味が文脈と正反対。
+p5-101|t1	denselyは「密集して、ぎっしりと」という意味で、densely populated（人口が密集した）のように人や物が集まっている程度を言う。スタッフの親切さを表すhelpfulの前に使うと「ぎっしり親切だった」となり意味が通じない。ほめる程度を高める副詞はremarkably（驚くほど）だ。
+p5-101|t2	mutuallyは「お互いに、相互に」という意味で、mutually beneficial（お互いに有益な）のように双方がやり取りする関係に使う。この文はスタッフが客に親切だったという内容なので、「お互いに親切だった」という意味と合わない。helpfulの程度を強めるにはremarkablyが必要だ。
+p5-101|t3	vacantlyは「ぼんやりと、うつろに」という意味で、stare vacantly（ぼんやり見つめる）のように使う。「ぼんやり親切だった」では意味をなさず、特に荷物が遅れたときに助けてくれたスタッフをほめる文脈とも正反対だ。親切さの程度を高めるremarkablyが正しい。
 p5-102|why	so we plan to renew the contract（だから契約を更新する予定）という結果になるには、締め切りを「一貫して」守っていたはず。consistentlyが正解。
-p5-102|t0	hardly（ほとんど〜ない）は否定の意味なので、契約更新という結果と矛盾する。
-p5-102|t1	rarely（めったに〜ない）も否定の意味なので、後ろのso節と合わない。
-p5-102|t2	nearly metは「ほぼ守った（実際には守れなかった）」という意味なので、更新の理由として弱い。意味を逆に取りやすいひっかけ。
+p5-102|t0	hardlyは「ほとんど〜ない」という否定の副詞なので、has hardly met its delivery deadlinesは「納期をほとんど守れなかった」となる。するとso we plan to renew the contract（だから契約を更新する予定だ）という結果と矛盾する。hardlyは契約を打ち切る理由（so we will end the contract）なら合う。
+p5-102|t1	rarelyは「めったに〜ない」という否定の頻度の副詞なので、「納期をめったに守らなかった」という意味になる。納期を守らない業者と契約を更新するというso節と前後が合わない。契約更新の理由になるには、「一貫して」守ったというconsistentlyが必要だ。
+p5-102|t2	nearlyは「ほぼ」という意味で、has nearly met its deadlinesは「納期をもう少しで守るところだった」、つまり実際には守れなかったという意味になる。「ほぼ」を肯定と勘違いしやすいひっかけで、それでは契約更新の理由にならない。nearlyはnearly 100 percentのように数値の前で「〜に近い」と言うときに自然だ。
 p5-103|why	12人全員が賛成したという後ろの説明に合うのは、「満場一致の」を意味するunanimous。
-p5-103|t0	anonymous（匿名の）はつづりが似た紛らわしい語で、公開投票の文脈と合わない。
-p5-103|t1	numerousは可算名詞の複数形と使う（numerous members）。不可算のsupportは修飾できない。
-p5-103|t2	partial（部分的な）は「全員賛成」という内容と矛盾する。
+p5-103|t0	anonymousは「匿名の」という意味で、an anonymous donor（匿名の寄付者）のように名前が知られていない場合に使う。unanimousとつづりが似た紛らわしい語で、anonymous supportは「匿名の支持」となり、12人全員が賛成したという後ろの説明とつながらない。全員賛成はunanimous（満場一致の）で表す。
+p5-103|t1	numerousは「多数の」という意味で、numerous membersのように可算名詞の複数形を修飾する。support（支持）は不可算名詞なので、numerous supportは誤った形だ。「多くの人が賛成した」という意味につられやすいが、12人「全員」という情報まで含む語はunanimousだ。
+p5-103|t2	partialは「部分的な」という意味で、partial supportは「一部の支持」になる。これはwith all twelve members voting in favor（12人全員が賛成票を投じて）という後ろの説明と真っ向から矛盾する。一部だけが賛成したならa majority（過半数）のように言い、全員賛成はunanimousだ。
 p5-104|why	「注文する」はplace an orderが決まった表現。正午前に注文した客は翌営業日に受け取るという意味で、関係詞節who ___ an orderの動詞の位置なので動詞の原形placeが入る。
-p5-104|t1	put an orderとは言わない（put in an orderは可能だがinが抜けている）。
-p5-104|t2	set an orderは「順番を決める」のように聞こえるだけで、「注文する」ではない。
-p5-104|t3	give an orderは「命令を出す」という意味。orderの別の意味を使ったひっかけ。
+p5-104|t1	putは「置く」という意味で、put an orderという表現は使わない。put in an order（注文を入れる）という句動詞はあるが、inが抜けているのでこの文には入らない。「注文する」はplace an orderが決まった表現だ。
+p5-104|t2	setは「決める、置く」という意味で、set a date（日付を決める）、set a goalのように使い、set an orderは「注文する」という意味にならない。orderを「順番」と見ると「順番を決める」のように聞こえるが、その意味もふつうput things in orderで表す。客が注文をするのはplace an orderだ。
+p5-104|t3	give an orderは「命令を出す」という意味で、orderの「命令」という別の意味を使ったひっかけだ。入れると「正午前に命令を出す客」となり、翌営業日に商品を受け取るという内容と合わない。商品を「注文する」はplace an orderだ。
 p5-105|why	conduct a survey（アンケート調査を実施する）はよく出るコロケーション。
-p5-105|t0	attendは会議・イベントに「出席する」で、surveyとは結びつかない。
-p5-105|t2	raiseはraise funds, raise concernsのように使い、アンケート調査とは合わない。
-p5-105|t3	gain（得る）はgain experienceのように使う。
+p5-105|t0	attendは「（会議・イベントに）出席する」という意味で、attend a meetingのように使う。アンケート調査は出席するイベントではなく実施する活動なので、attend a surveyは不自然だ。研究チームが調査を「実施する」という意味は、conduct a surveyが決まったコロケーションだ。
+p5-105|t2	raiseは「上げる、集める、提起する」という意味で、raise funds（資金を集める）、raise concerns（懸念を提起する）のように使う。raise a surveyという表現はなく、2,000人を対象にアンケート調査を実施するという意味にならない。調査・研究・インタビューを実施する動詞はconductだ。
+p5-105|t3	gainは「得る」という意味で、gain experience（経験を積む）、gain accessのように何かを得る対象を目的語にとる。gain a surveyは「アンケート調査を得る」となり、研究チームが調査を実施するという意味にならない。調査結果を得るならgain insights from a surveyのように言い、調査そのものを行うのはconductだ。
 p5-106|why	法律・規則が「施行される、効力を生じる」はtake effect。主語がsafety regulationsで日付（January 1）があるので、施行の時期を述べる文。
-p5-106|t0	take placeはイベント・出来事が「行われる、起こる」に使う。規則の施行には使わないひっかけ。
-p5-106|t1	take actionは人が「措置をとる」なので、規則が主語にはなれない。
-p5-106|t3	take partは「参加する」（take part in）で、人が主語。
+p5-106|t0	take placeはイベントや出来事が「行われる、起こる」という意味で、The conference will take place in Mayのように使う。規則が行われるというのは不自然なので、safety regulationsが主語のこの文には合わない。日付（January 1）と一緒に規則・法律が「施行される」という意味はtake effectだ。
+p5-106|t1	take actionは「措置をとる」という意味で、The company took action to fix the problemのように人や組織が主語になる。規則そのものが措置をとることはできないので、The regulations will take actionは不自然だ。規則が「効力を持つ」という意味はtake effectだ。
+p5-106|t3	take partはtake part in the workshop（ワークショップに参加する）のように人が主語になって「参加する」という意味で、ふつう後ろにinが続く。規則が何かに参加するという意味は文脈に合わず、この文にはinも参加する対象もない。規則の施行はtake effectで表す。
 p5-107|why	strictly limited（厳しく制限された）は、座席・人数の制限を知らせるときの代表的なコロケーション。
-p5-107|t1	closelyはclosely monitored, closely relatedのように使う。
-p5-107|t2	eagerly（熱心に、心待ちに）はeagerly awaitedのように期待を表す。
-p5-107|t3	deeplyは感情と合う副詞。
+p5-107|t1	closelyは「綿密に、密接に」という意味で、closely monitored（綿密に監視される）、closely related（密接に関係した）のように観察や関係の近さを言う。limitedとは合わず、closely limitedとは言わない。座席や人数を厳しく制限するという意味はstrictly limitedだ。
+p5-107|t2	eagerlyは「熱心に、心待ちに」という意味で、eagerly awaited（心待ちにされている）のように期待する気持ちを表す。座席が「熱心に制限された」という意味になり、意味をなさない。早く返事をする理由になるのは、座席が「厳しく制限されている」というstrictly limitedだ。
+p5-107|t3	deeplyは「深く」という意味で、deeply grateful（深く感謝している）、deeply movedのように感情の程度を表す。座席数の制限のような規則や数量に関わるlimitedとは合わないので、deeply limitedは不自然だ。規則による制限はstrictly（厳しく）で強める。
 p5-108|why	raise concerns（懸念を示す）はよく出るコロケーション。raiseは目的語をとる他動詞。
-p5-108|t0	risenは自動詞riseの過去分詞なので、目的語concernsをとれない。
-p5-108|t2	arisenも自動詞arise（生じる）の過去分詞なので目的語をとれない。Concerns have arisenなら可能。
-p5-108|t3	liftはlift a ban（禁止を解除する）のように使い、「懸念を持ち上げる」とは言わない。
+p5-108|t0	risenは「上がる、起きる」という自動詞riseの過去分詞（rise-rose-risen）なので、目的語をとれない。空所の後ろに目的語concernsがあるので、have risen concernsは誤った形だ。Prices have risenのように主語自体が上がるときに使い、目的語をとる他動詞はraise（raised）だ。
+p5-108|t2	arisenは「（問題が）生じる」という自動詞ariseの過去分詞なので、目的語をとれない。Concerns have arisen（懸念が生じた）のように懸念が主語なら可能だが、社員が主語でconcernsが目的語のこの文には合わない。人が懸念を「提起する」はraise concernsだ。
+p5-108|t3	liftは「持ち上げる、解除する」という他動詞で、lift a box、lift a ban（禁止を解除する）のように使う。目的語はとれるが、lifted concernsと言うと「懸念を持ち上げた」となり、「懸念を提起する」という意味にならない。concernsと組になる動詞はraiseだ。
 p5-109|why	reach an agreement（合意に達する）は決まったコロケーション。reachは他動詞なので直接目的語をとる。
-p5-109|t0	arriveは自動詞なので、arrive at an agreementのように前置詞が必要。
-p5-109|t1	came（come）はcome to an agreementの形でtoが必要。
-p5-109|t3	wentは意味も形も合わない。
+p5-109|t0	arriveは「到着する」という自動詞なので目的語を直接とれず、arrive at an agreementのように前置詞atが必要だ。空所の後ろにan agreementがすぐ来るので、arrived an agreementは誤った形だ。前置詞なしで目的語をとる他動詞はreach（reached）だ。
+p5-109|t1	came（come）も自動詞なので、come to an agreement（合意に達する）のように前置詞toが必要だ。空所の後ろにtoなしでan agreementがすぐ来るので、came an agreementは誤った形だ。意味は似ているが、直接目的語をとるのはreachedだけだ。
+p5-109|t3	went（go）は「行く」という自動詞で、go to an agreementという表現もないので、「合意に達する」という意味を作れない。went an agreementは意味も形も誤りだ。「合意に達する」はreach an agreement、come to an agreement、arrive at an agreementで表す。
 p5-110|why	空所の後ろに目的語がないので自動詞が必要。rise（上がる）の過去分詞risenが正解。
-p5-110|t0	raisedは他動詞raise（上げる）の過去分詞なので目的語が必要。rise/raiseの混同を狙ったひっかけ。
-p5-110|t1	aroused（呼び起こす）は他動詞で、感情・関心に使う。
-p5-110|t2	roseはriseの過去形なので、haveの後ろ（現在完了）には入らない。現在完了には過去分詞risenが必要。
+p5-110|t0	raisedは「上げる」という他動詞raiseの過去分詞なので、後ろに上げる対象（目的語）が必要だ（The company has raised prices）。この文は価格がひとりでに上がったことで、空所の後ろに目的語がなく副詞sharplyしかないので合わない。目的語なしの「上がる」は自動詞riseで、haveの後ろには過去分詞risenが来る。
+p5-110|t1	arousedは「（感情・関心を）呼び起こす」という他動詞arouseの過去分詞で、arouse interest、arouse suspicionのように使う。目的語が必要で感情に使う語なので、燃料価格が上がったこの文とは形も意味も合わない。価格が「上がる」はrise（risen）だ。
+p5-110|t2	roseはriseの過去形なので「上がった」という意味は合うが、haveの後ろの現在完了の位置には過去分詞が必要なので、have roseは誤った形だ。over the past two months（この2か月間）という期間の表現があるので、現在完了have risenが使われている。過去形roseはPrices rose sharply last monthのようにhaveなしで使う。
 p5-111|why	willの後ろの動詞の原形の位置で、「中小企業に影響を与える」という意味が必要。affectが正解。
-p5-111|t0	effectは主に名詞（影響）で、動詞では「（変化を）もたらす」という意味なので、effect businessesでは意味が合わない。
-p5-111|t1	infectは「感染させる」で、つづりのひっかけ。
-p5-111|t3	effectiveは形容詞なのでwillの後ろには入らない。
+p5-111|t0	effectは主に「影響、効果」という名詞で、have an effect on（〜に影響を与える）のように使う。動詞として使うとeffect change（変化をもたらす）のように「結果を生み出す」という意味なので、effect small businessesは「中小企業を生み出す」のようになり合わない。「〜に影響を与える」という動詞はaffectだ。
+p5-111|t1	infectは「感染させる、（病気を）うつす」という動詞で、a virus that infects computersのように使う。税法が中小企業を「感染させる」という意味になり、文脈と合わない。affect、effectと後半のつづりが似ていることを狙ったひっかけだ。
+p5-111|t3	effectiveは「効果的な、施行される」という形容詞なので、助動詞willのすぐ後ろの動詞の原形の位置には入らない。形容詞を使うならwill be effective（施行される）のようにbe動詞が必要だが、そうすると後ろのsmall businessesとつながらない。動詞の原形affectが正しい。
 p5-112|why	割引の「規模がかなりの」という意味のconsiderableがdiscountsを修飾する。
-p5-112|t0	considerate（思いやりのある）は人の性格に使う紛らわしい語。
-p5-112|t1	consideringは前置詞・接続詞（〜を考えると）なので、名詞の前の形容詞の位置に合わない。
-p5-112|t2	consideredは「熟考した上での」という意味で、割引とは合わない。
+p5-112|t0	considerateは「思いやりのある、配慮のある」という意味で、a considerate hostのように人の性格や態度を言う。considerate discountsは「思いやりのある割引」となり不自然だ。割引の幅が「かなりの」という意味はconsiderableで、2つの語はつづりが似ていてよく組で出題される。
+p5-112|t1	consideringは「〜を考えると」という前置詞・接続詞で、considering the cost（費用を考えると）のように文の前や後ろに付く。offersとdiscountsの間の、名詞を修飾する形容詞の位置には合わない。現在分詞と見ても「考えている割引」となり意味が通じない。
+p5-112|t2	consideredは形容詞として使うと「熟考した上での」という意味で、a considered decision（慎重に下した決定）のように判断や意見に使う。considered discountsは「熟考した割引」となり、1週間以上泊まる客への特典という文脈と合わない。割引の規模が大きいという意味はconsiderableだ。

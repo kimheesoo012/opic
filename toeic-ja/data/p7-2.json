@@ -35,10 +35,10 @@
      "explanation": {
       "why": "'the left earpiece stopped working after only two weeks' と言っている。ヘッドホンの一部（左のイヤーピース）が動かなくなった。",
       "traps": [
-       "二重請求についての記述はない。",
+       "この選択肢は「一つの商品で二重に請求された」という意味だ。手紙に支払いの問題はまったく出てこず、むしろ保証により“we will replace them at no cost”（無料で交換する）と述べている。Mr. Millsが伝えた問題は左のイヤーピースが動かなくなったことだ。",
        null,
-       "配送の遅れの話はない。5月28日に買ったヘッドホンが2週間で故障したことが問題。",
-       "付属品は「返送するときに一緒に入れるように」という案内に出てくるだけで、入っていなかったという苦情ではない。"
+       "この選択肢は「注文品が約束より遅れて届いた」という意味だ。手紙には“purchased on May 28”（5月28日に購入）という日付があるだけで、配送の遅れの話はない。問題は“the left earpiece stopped working after only two weeks”、つまり2週間で左のイヤーピースが壊れたことだ。",
+       "この選択肢は「梱包から付属品の一部がなくなっていた」という意味だ。付属品は“Be sure to include all accessories”（付属品はすべて必ず入れて）という返送の案内に出てくるだけだ。なかったという苦情ではなく、ヘッドホンを送るときに充電ケーブルとケースも入れてという依頼だ。"
       ]
      },
      "para": [
@@ -68,10 +68,10 @@
      "explanation": {
       "why": "保証期間内なので 'at no cost'（無料）で交換すると言っている。修理費を払うようにという依頼はない。",
       "traps": [
-       "'please print the attached prepaid shipping label' と頼んでいる。",
-       "'Be sure to include all accessories, such as the charging cable' と言っている。",
+       "この選択肢は「配送ラベルを印刷する」という意味だ。手紙に“please print the attached prepaid shipping label”（添付の料金前払いの配送ラベルを印刷して）とはっきり頼まれている。頼まれていることなので、NOT問題の答えではない。",
+       "この選択肢は「充電ケーブルを同封する」という意味だ。手紙に“Be sure to include all accessories, such as the charging cable and carrying case”とあるので、充電ケーブルを入れるよう頼まれている。NOT問題で述べられている項目なので答えではない。",
        null,
-       "'send the headphones to our service center' と頼んでいる。"
+       "この選択肢は「サービスセンターにヘッドホンを送る」という意味だ。手紙に“send the headphones to our service center, in their original packaging if possible”と頼んでいるので、述べられている項目だ。したがってNOT問題の答えにはならない。"
       ]
      },
      "trans": "Millsさんが求められていないことは。",
@@ -95,9 +95,9 @@
      "explanation": {
       "why": "5月28日に購入し、1年保証が適用されると言っているので、購入から1年たっていないことが分かる。",
       "traps": [
-       "割引で買ったかどうかは書かれていない。",
-       "製造中止かどうかは書かれていない。交換品を送ると言っている。",
-       "2週間使った後に故障したのであり、配送中の破損の話はない。",
+       "この選択肢は「割引価格で買った」という意味だ。手紙には“the wireless headphones you purchased on May 28”と購入日があるだけで、価格や割引の情報はない。根拠がないので推測できない。",
+       "この選択肢は「もう製造されていない」という意味だ。製造中止についての記述はなく、むしろ“Your replacement will be shipped within three business days”（交換品は3営業日以内に発送される）と、交換品を送れるとしている。製造中止と考える根拠はない。",
+       "この選択肢は「配送中に壊れた」という意味だ。問題は“the left earpiece stopped working after only two weeks”で、使っているうちに2週間で壊れたのだ。配送中の破損の話はなく、手紙の配送（shipping）に関する内容は返送ラベルと交換品の発送だけだ。",
        null
       ]
      },
@@ -147,10 +147,10 @@
      "explanation": {
       "why": "需要に追いつけなくなり（could not keep up with demand）、もっと大きい建物（a larger building）に移って従業員を雇った。需要に応えるためにもっと広いスペースが必要だった。",
       "traps": [
-       "家賃の話はない。移転の理由として出てくるのは、需要に追いつけなかったことだけ。",
-       "レストランを開こうとしたという内容はない。レストランにはパンを納めているだけ。",
+       "この選択肢は「Maple Avenueの家賃が上がった」という意味だ。本文に家賃の話はない。移転の直前に書かれている理由は“the couple soon could not keep up with demand”（夫婦はすぐに需要に追いつけなくなった）だけなので、根拠のない推測だ。",
+       "この選択肢は「レストランを開きたかった」という意味だ。本文のrestaurantsは“supplies bread to more than 40 restaurants”（40を超えるレストランにパンを供給している）という現在の事業内容に出てくるだけだ。自分でレストランを開こうとした話はなく、移転後は従業員を雇ってパン屋を大きくした。",
        null,
-       "建物の売却についての記述はない。"
+       "この選択肢は「元の建物が売却された」という意味だ。建物の売却には触れていない。本文は評判で需要が増えて追いつけなくなり、“they moved to a larger building on Grant Street”（Grant Streetのより大きな建物に移った）と述べているので、移転の理由は場所の不足だ。"
       ]
      },
      "para": [
@@ -182,9 +182,9 @@
       "why": "「40軒以上のレストランにパンを納めている」という意味なので、provides（提供する）が最も近い。supply A to B = provide A to B。",
       "traps": [
        null,
-       "stores（保管する）は供給とは違う。",
-       "orders（注文する）は方向が逆（レストランが注文する側）。",
-       "equips（備え付ける）はequip A with Bの形で使い、パンをレストランにequipすることはできない。"
+       "storesは「保管する、蓄える」という意味だ。“supplies bread to more than 40 restaurants”はパンをレストランに「供給する」という意味で、パンがSunfieldからレストランへ渡ることだ。storesにするとパンをレストランに保管するという変な意味になり、供給と保管は別の行為だ。",
+       "ordersは「注文する」という意味だ。パンを注文するのはレストランの側で、Sunfieldは供給する側なので、ordersにすると行為の向きが逆になる。supply bread to restaurantsはprovide bread to restaurantsと言い換えられるので、providesが正しい。",
+       "equipsは「（設備を）備え付ける」という意味で、equip a kitchen with ovens（台所にオーブンを備える）のようにequip A with Bの形で使う。パンは設備ではなく、equip bread to restaurantsという形も使わない。supply A to B（AをBに供給する）と同じ意味はprovide A to Bだ。"
       ]
      },
      "trans": "第2段落の \"supplies\" に最も意味が近いのは。",
@@ -209,10 +209,10 @@
      "explanation": {
       "why": "与えられた文は、需要が多すぎたことの具体例。「口コミで広まり需要に追いつけなかった」の直後、「もっと大きい建物に移転した」の前の[2]に入れると、原因 → 具体例 → 結果の流れが完成する。",
       "traps": [
-       "[1]は店を始めたばかりの時点なので、口コミが広がる前に客が1時間も並んだというのは流れに合わない。",
+       "[1]の前の文は1987年にRosaとHector DiazがMaple Avenueで小さな店を始めたという内容だ。まだサワードウの評判が広まる（word spread）前なので、ここに客が1時間以上並んだという文が来ると「人気→需要超過」の順序が逆になる。需要に追いつけなくなったという文の後の[2]が正しい。",
        null,
-       "[3]は現在の6店舗の話なので、過去時制waitedと時点が合わない。",
-       "[4]の前は手作りの方法を守る話なので、並ぶ客とつながらない。"
+       "[3]の前の文は“Today, Sunfield operates six locations across the city”という現在の状況だ。挿入文のwaitedは過去形で現在の話と時点が合わず、6店舗・40のレストランへの供給という成長の内容ともつながらない。行列の話は移転前の過去の例だ。",
+       "[4]の前の文は成長しても最初と同じレシピですべてのパンを手で焼いているという内容で、後は娘のElena Diazが2016年に社長になったという内容だ。昔客が並んだという文は手作りの方法や経営の引き継ぎとつながらない。需要に追いつけなくなったという文の直後に来るべきだ。"
       ]
      },
      "trans": "[1]、[2]、[3]、[4] のうち、次の文が入る位置として最も適切なのは。",
@@ -236,9 +236,9 @@
      "explanation": {
       "why": "最後の文で、娘のElena Diazが2016年に会社の社長（president）になったと言っている。",
       "traps": [
-       "1987年の創業者は両親のRosaとHector Diaz。",
-       "1店舗だけを管理しているという内容はない。",
-       "むしろ創業当時と同じレシピを守っていると言っている。",
+       "この選択肢は「Elena Diazが1987年にパン屋を創業した」という意味だ。本文は1987年に店を営んでいたのは“Rosa and Hector Diaz”で、Elenaは“Their daughter”（彼らの娘）だと述べている。創業者は両親なので、同じ姓（Diaz）を利用したひっかけだ。",
+       "この選択肢は「一つの店舗だけを管理している」という意味だ。本文は“Elena Diaz, became president of the company in 2016”と、会社全体の社長になったと述べている。会社は市内に6店舗あるので、一店舗だけを担当するという根拠はない。",
+       "この選択肢は「新しいパンのレシピを作った」という意味だ。本文はむしろ“following the same recipes the Diaz family has used from the beginning”（Diaz家が最初から使ってきた同じレシピに従っている）と述べている。新しいレシピの話はなく、本文と逆の内容だ。",
        null
       ]
      },
@@ -290,9 +290,9 @@
       "why": "本社（Halifax）、名前（Coastal Air）、就航都市の数（38）はすべて記事に出てくるが、航空券の値下げについての記述はない。",
       "traps": [
        null,
-       "'will be based at Coastal's current headquarters in Halifax' とある。",
-       "'Together, they will serve 38 cities' とある。",
-       "'will keep the Coastal Air name' とある。"
+       "この選択肢は「本社がHalifaxにある」という意味だ。第1段落に“will be based at Coastal's current headquarters in Halifax”（CoastalのHalifaxにある現在の本社を拠点とする）とある。記事に書かれている内容なので、NOT問題の答えではない。",
+       "この選択肢は「38都市に就航する」という意味だ。第2段落の最後に“Together, they will serve 38 cities”とある。二社の路線を合わせて38都市になるので述べられている内容であり、NOT問題の答えではない。",
+       "この選択肢は「Coastal Airという名前を使う」という意味だ。第1段落に“The combined airline will keep the Coastal Air name”（合併後の航空会社はCoastal Airの名前を残す）とある。述べられている内容なので、NOT問題の答えではない。"
       ]
      },
      "trans": "合併後の航空会社について述べられていないものは。",
@@ -320,9 +320,9 @@
      "explanation": {
       "why": "「既存のSkyline Expressの航空券はすべてhonoredされる」という文脈で、honorは「（券・契約などを）有効と認める、受け付ける」という意味。acceptedが最も近い。",
       "traps": [
-       "respected（尊敬される）はhonorの代表的な意味だが、航空券には合わない。辞書で1番目に載っている意味のひっかけ。",
-       "praised（ほめられる）も人や業績に使う意味。",
-       "awarded（授与される）は賞を与えるときの意味。",
+       "respectedは「尊敬される」という意味で、honorの代表的な意味「尊敬する」から来ている。しかし“all current Skyline Express tickets would be honored”の主語は人ではなく航空券で、合併後も今の航空券を「有効なものとして受け付ける」という意味だ。航空券を尊敬するという意味にはならないので、辞書で1番目に載っている意味のひっかけだ。",
+       "praisedは「ほめられる」という意味で、人や業績に使う。この文は合併で欠航になる便はなく、今のSkyline Expressの航空券もそのまま「認めて使えるようにする」という内容だ。praisedにすると航空券をほめるという意味になり、文脈に合わない。",
+       "awardedは「（賞などが）授与された」という意味で、honorが「賞を与えてたたえる」という意味のときに連想しやすい。しかしここでは、すでに販売された航空券を合併後も有効なものとして「受け付ける」という意味だ。航空券が賞として与えられるわけではないので、acceptedが正しい。",
        null
       ]
      },
@@ -347,10 +347,10 @@
      "explanation": {
       "why": "2つの航空会社は 'largely different routes'（ほぼ異なる路線）を運航していると言っている。つまり重なる路線はほとんどない。",
       "traps": [
-       "2社の設立年は書かれていない。記事に出てくる時期は合併の時期（年末）とポイント統合（1月）だけ。",
-       "HalifaxはCoastal Airの本社。",
+       "この選択肢は「二社は同じ年に設立された」という意味だ。記事に二社の設立年はまったく出てこない。時期として出てくるのは合併の時期（“by the end of the year”）、ポイントの統合（1月）、承認の決定（3か月以内）だけなので根拠がない。",
+       "この選択肢は「二社とも本社がHalifaxにある」という意味だ。記事は“Coastal's current headquarters in Halifax”と、HalifaxがCoastal Airの本社だと述べているだけだ。Skyline Expressの本社の場所は書かれていないので、both（両方）は根拠がない。",
        null,
-       "最後の段落で、まだ政府機関の承認が必要だと言っている。"
+       "この選択肢は「すでに政府の承認を得た」という意味だ。最後の段落は“The agreement still requires approval from the national transportation authority”（合意にはまだ国の運輸当局の承認が必要だ）と述べ、決定は3か月以内に出る見込みだ。still requiresとalready receivedは正反対なので誤り。"
       ]
      },
      "para": [
@@ -380,10 +380,10 @@
      "explanation": {
       "why": "'Frequent-flyer points … will be combined into a single account … beginning in January' と言っている。マイレージの統合 = ロイヤルティプログラムのポイントの統合。",
       "traps": [
-       "承認の判断は3か月以内に出る予定と言っているだけ。",
+       "この選択肢は「1月に合併が最終承認を受ける」という意味だ。承認については運輸当局が“is expected to issue its decision within three months”（3か月以内に決定を出す見込みだ）とあるだけだ。1月という時期はポイントの統合のことなので、内容を取り違えさせるひっかけだ。",
        null,
-       "欠航になる便はないと言っている。",
-       "新路線の開設の話はない。"
+       "この選択肢は「Skyline Expressの一部の便が欠航になる」という意味だ。記事は“no flights would be canceled as a result of the merger”（合併で欠航になる便はない）と述べている。時期に関係なく本文と正反対なので誤り。",
+       "この選択肢は「中部地域への新路線が始まる」という意味だ。記事の“Skyline Express focuses on routes to the central provinces”は、Skyline Expressがすでに運航している路線の説明だ。1月に新路線ができるという内容はなく、1月に起こるのはポイントの統合だ。"
       ]
      },
      "para": [
@@ -435,9 +435,9 @@
       "why": "新しいデザイナーがMr. Malhotraのチームとカタログ作りで密に仕事をするから（since the new designer will work closely with your team）と理由を述べている。",
       "traps": [
        null,
-       "マーケティング部の人は代わりに入れるCarla。",
-       "カタログをデザインしたという記述はない。これから一緒に作業するということ。",
-       "候補者の推薦の話はない。候補者3人はMs. Bensonが絞り込んだ（We have narrowed the list）。"
+       "この選択肢は「Mr. Malhotraはマーケティング部の部長だ」という意味だ。マーケティング部は“I can ask Carla from the marketing department to take your place”で、Mr. Malhotraの代わりに入れるCarlaの所属として出てくる。彼の役職は書かれていないので、別の人の情報を結びつけたひっかけだ。",
+       "この選択肢は「今の製品カタログをデザインした」という意味だ。本文は“the new designer will work closely with your team on the product catalog”と、新しいデザイナーがこれから彼のチームとカタログの仕事をすると述べているだけだ。彼が今のカタログを作ったという内容はない。",
+       "この選択肢は「候補者の一人を推薦した」という意味だ。推薦の話はなく、“We have narrowed the list of candidates for the graphic designer position to three”と、候補を三人に絞ったのはMs. Benson側だ。彼を呼ぶ理由は新しいデザイナーと一緒に働くことになるからだ。"
       ]
      },
      "para": [
@@ -467,9 +467,9 @@
      "explanation": {
       "why": "木曜日の午後に業者との打ち合わせがあり、「最後の面接」にいられないかもしれないと言っている。最後で、しかも午後の面接は2時。",
       "traps": [
-       "10時は午前の面接なので、業者との打ち合わせ（午後）と重ならない。",
-       "11時30分の面接は約1時間なので、午後の予定の前に終わる。",
-       "Ms. Bensonが午後の打ち合わせのために代わりの人（Carla）まで提案しているので、全部に出席するのは難しいと分かる。",
+       "10時の面接は午前の最初の面接だ。Mr. Malhotraの予定の問題は“a vendor meeting on Thursday afternoon”（木曜午後の業者との打ち合わせ）で、Ms. Bensonも“if you can't stay for the last interview”と最後の面接だけを心配している。午前の面接は午後の打ち合わせと重ならないので出席できる。",
+       "11時30分の面接は午前の面接で、各面接は“about an hour”（約1時間）なので12時30分ごろに終わる。業者との打ち合わせは木曜の午後で、Ms. Bensonが心配したのは“the last interview”（最後の面接）だけだ。したがって11時30分の面接には出席できる。",
+       "この選択肢は「すべての面接に出席できる」という意味だ。しかしMs. Bensonは木曜午後の打ち合わせのため最後の面接にいられないかもしれないとして、“I can ask Carla from the marketing department to take your place”と代わりの人まで提案している。午後2時の面接は出席が難しい可能性が高い。",
        null
       ]
      },
@@ -494,10 +494,10 @@
      "explanation": {
       "why": "メールの日付が火曜日で、「明日の朝までに候補者のポートフォリオを送る」と言っている。ポートフォリオ = 作品のサンプル。",
       "traps": [
-       "面接の質問リストは書かれていない。",
+       "この選択肢は「面接の質問リスト」だ。メールに面接の質問リストはまったく出てこない。明日（水曜）の朝までに送ると言っているのは“I'll send you the candidates' portfolios by tomorrow morning”、つまり候補者のポートフォリオだ。",
        null,
-       "カタログはこれから作業する対象で、送るとは言っていない。",
-       "業者（vendor）はMr. Malhotraの打ち合わせ相手として出てくるだけ。"
+       "この選択肢は「製品カタログのコピー」だ。カタログは“will work closely with your team on the product catalog”で新しいデザイナーがこれから一緒に取り組む対象として出てくるだけで、送るという話はない。送るのは候補者のポートフォリオ（作品の見本）だ。",
+       "この選択肢は「業者の契約書」だ。業者（vendor）は“I know you have a vendor meeting on Thursday afternoon”でMr. Malhotraの午後の打ち合わせ相手として出てくるだけで、契約書の話はない。vendorという本文の語を使い回したひっかけだ。"
       ]
      },
      "para": [
@@ -550,10 +550,10 @@
      "explanation": {
       "why": "平日の営業時間の延長、クラスの予約受付期間の拡大など、クラブのサービスの変更点を知らせるお知らせ。",
       "traps": [
-       "インストラクターの紹介はない。お知らせに人名は出てこない。",
-       "月会費は変わらない（will not change）と言っている。逆の内容のひっかけ。",
+       "この選択肢は「新しいフィットネスのインストラクターを紹介するため」という意味だ。お知らせに人の名前や講師の紹介はまったくない。group exercise classesは出てくるが、“reserve group exercise classes up to seven days in advance”のようにクラスの予約のルールが変わるという内容だ。",
+       "この選択肢は「料金の値上げを説明するため」という意味だ。最後の段落に“Monthly membership fees will not change”（月会費は変わらない）とはっきり書かれている。本文の語feesを使って内容を逆にしたひっかけだ。",
        null,
-       "新しい支店の話はない。お知らせは既存のクラブの営業時間と予約規則の変更について。"
+       "この選択肢は「新しい店舗を宣伝するため」という意味だ。お知らせは今のWestgate Fitness Clubの平日の営業時間（“will extend its weekday hours”）と予約のルールが変わるという内容だ。新しい店舗の話はまったくない。"
       ]
      },
      "trans": "お知らせの主な目的は何か。",
@@ -578,10 +578,10 @@
      "explanation": {
       "why": "'Weekend hours will remain unchanged' と言っているので、週末の営業時間の延長は変更点ではない。",
       "traps": [
-       "平日の開館が6時 → 5時30分に早まる。",
+       "この選択肢は「平日の開館時間が早くなる」という意味だ。お知らせに“The club will open at 5:30 A.M. instead of 6:00 A.M.”とあり、6時から5時30分に早まると述べている。述べられた変更なので、NOT問題の答えではない。",
        null,
-       "平日の閉館が10時 → 11時に遅くなる。",
-       "予約できる期間が2日前 → 7日前に延びた。"
+       "この選択肢は「平日の閉館時間が遅くなる」という意味だ。お知らせに“close at 11:00 P.M. instead of 10:00 P.M.”とあり、夜10時から11時に遅くなると述べている。述べられた変更なので、NOT問題の答えではない。",
+       "この選択肢は「クラスをより早くから予約できる」という意味だ。お知らせでは“up to seven days in advance”（最大7日前まで）に変わり、“Previously, reservations could be made only two days ahead”（以前は2日前までしかできなかった）とある。述べられた変更なので答えではない。"
       ]
      },
      "trans": "変更点として述べられていないものは。",
@@ -606,9 +606,9 @@
       "why": "予約後に前もってキャンセルせずに欠席すると、「1週間クラスを予約できない」と言っている。一時的な予約制限。",
       "traps": [
        null,
-       "罰金の話はない。会費に関する記述は「変わらない」だけ。",
-       "会員資格の取り消しは書かれていない。",
-       "メールでの警告についての記述はない。"
+       "この選択肢は「罰金を科される」という意味だ。お知らせに罰金の話はなく、料金に関する記述は“Monthly membership fees will not change”だけだ。欠席したときの措置は“will not be able to book classes for one week”（1週間クラスを予約できない）だ。",
+       "この選択肢は「会員資格が取り消される」という意味だ。お知らせの措置は“will not be able to book classes for one week”で、1週間予約だけができなくなる一時的な制限だ。会員資格そのものが取り消されるという内容はなく、cancelingという本文の語を利用したひっかけだ。",
+       "この選択肢は「メールで警告を受ける」という意味だ。お知らせにメールや警告の話はない。予約は“through our mobile app”（モバイルアプリで）行うとあり、欠席者への措置は1週間の予約禁止だけだ。"
       ]
      },
      "para": [
@@ -657,9 +657,9 @@
      "explanation": {
       "why": "'to celebrate the completion of a major project' と目的を述べている。プロジェクトの完了 = 仕事のプロジェクトが終わったこと。",
       "traps": [
-       "一緒に行ったのは同僚（colleagues）で、顧客ではない。",
-       "面接の話はない。一緒に行った12人は採用候補ではなく同僚（colleagues）。",
-       "料理教室の話はない。料理（salmon, risotto）は出てくるが、食べたのであって習ったのではない。",
+       "この選択肢は「新しい顧客に会うため」という意味だ。本文は“I hosted a dinner for twelve colleagues”と、一緒にいたのは12人の同僚だと述べている。顧客との面会ではなく、大きなプロジェクトの完了を祝う同僚との夕食だ。",
+       "この選択肢は「採用候補者を面接するため」という意味だ。面接の話はなく、一緒にいた12人は採用候補ではなく同僚（colleagues）だ。訪れた目的は“to celebrate the completion of a major project”（大きなプロジェクトの完了を祝うため）とはっきり書かれている。",
+       "この選択肢は「料理教室に参加するため」という意味だ。本文にgrilled salmon、mushroom risottoなどの料理が出てくるが、“The food was excellent”という食事の評価で、料理を習ったのではない。訪れた目的はプロジェクトの完了を祝う夕食だ。",
        null
       ]
      },
@@ -690,10 +690,10 @@
      "explanation": {
       "why": "「いくつもの特別な食事の要望をそつなく処理した」という意味なので、dealt with（対応した）が最も近い。",
       "traps": [
-       "touched（触った）はhandleの「手で扱う」という物理的な意味なので、要望には合わない。",
-       "carried（運んだ）では要望を処理するという意味にならない。",
+       "touchedは「触った」という意味で、handleの「手で触る、扱う」という物理的な意味（例：handle with care）に近い。しかし“handled several special dietary requests with ease”の目的語は手で触れない「特別な食事の要望」だ。要望は「処理する」ものなので、dealt withが正しい。",
+       "carriedは「運んだ」という意味だ。給仕係のPriyaが料理を運んだという連想で選びやすいが、目的語は料理ではなく“several special dietary requests”（いくつかの特別な食事の要望）だ。要望を運ぶという意味にはならないので、「対応した」のdealt withが正しい。",
        null,
-       "sold（売った）は文脈と関係ない。"
+       "soldは「売った」という意味だ。“handled several special dietary requests with ease”は、給仕係が特別な食事の要望に楽々と対応したというほめ言葉だ。要望を売るという意味は文脈と関係なく、レストランという場面から「販売」を連想させる誤答だ。"
       ]
      },
      "trans": "第2段落の \"handled\" に最も意味が近いのは。",
@@ -717,9 +717,9 @@
      "explanation": {
       "why": "唯一の不満（My only complaint）は、前菜の後メイン料理が出るまでに40分近くかかったこと。メイン料理を長く待ったという内容が正解と一致する。",
       "traps": [
-       "部屋は「ちょうどよい広さ（perfect size）」だったと言っている。",
-       "予約が漏れていたという話はない。むしろ依頼どおりにテーブルが用意されていた。",
-       "デザートは無料（complimentary）で出された。",
+       "この選択肢は「個室が狭すぎた」という意味だ。本文は“The private dining room was the perfect size”（個室はちょうどよい広さだった）と述べているので正反対だ。不満はメイン料理が遅れて出てきたことだけだった。",
+       "この選択肢は「予約が見つからなかった」という意味だ。むしろ“the staff had arranged the tables exactly as I had requested over the phone”（電話で頼んだとおりにスタッフがテーブルを用意していた）と述べている。予約はきちんと処理されていたので本文と逆だ。",
+       "この選択肢は「デザートが高すぎた」という意味だ。本文ではマネージャーが“offered complimentary desserts for the entire table”（テーブル全員に無料のデザートを出した）とある。complimentaryは「無料の」という意味なので、デザートの値段への不満はありえない。",
        null
       ]
      },
@@ -751,9 +751,9 @@
       "why": "スタッフが「私が電話で頼んだとおりに（as I had requested over the phone）」テーブルを並べたと言っているので、電話で予約・依頼したことが分かる。",
       "traps": [
        null,
-       "常連客だという根拠はない。「また予約する」はこれからの予定。",
-       "飲食業で働いているという根拠はない。",
-       "料理はすばらしかった（excellent）と言っている。"
+       "この選択肢は「そのレストランの常連客だ」という意味だ。本文に以前来たことがあるという内容はない。最後の“I would definitely book Juniper Bistro again”はこれからまた予約するという予定で、何度も来ているという根拠ではない。",
+       "この選択肢は「飲食業界で働いている」という意味だ。彼は同僚とプロジェクトの完了を祝い、“for a work event”（仕事のイベントで）また予約すると言っているが、その仕事が飲食業だという情報はない。料理を詳しく評価しているだけでは職業は推測できない。",
+       "この選択肢は「料理のほとんどが気に入らなかった」という意味だ。本文は“The food was excellent, especially the grilled salmon and the mushroom risotto”と料理をほめている。唯一の不満（My only complaint）はメイン料理が遅れたことなので本文と逆だ。"
       ]
      },
      "para": [
@@ -804,10 +804,10 @@
      "explanation": {
       "why": "最初の文で基調講演者としての参加を確定すると述べ、その後に発表時間・会場・資料の提出・宿泊などの詳細を案内している。",
       "traps": [
-       "論文の提出の依頼はない。スライドの提出を頼んでいる。",
+       "この選択肢は「研究論文の提出を依頼するため」という意味だ。手紙はすでに基調講演者として参加が決まったことを確認するもので、提出を頼んでいるのは論文ではなく“Please send your presentation slides”（発表のスライドを送ってほしい）だ。これも手紙の細かい連絡の一つにすぎない。",
        null,
-       "むしろ委員会が航空運賃と宿泊費を負担する。",
-       "会場変更の話はない。Carlton Convention Centerは最初から決まっている会場として紹介されている。"
+       "この選択肢は「旅費の支払いを求めるため」という意味だ。手紙は逆に“the committee will cover your round-trip airfare and two nights at the Carlton Hotel”と、委員会が往復の航空運賃と2泊の宿泊を負担すると述べている。お金を求める内容はない。",
+       "この選択肢は「会場の変更を知らせるため」という意味だ。会場は“to be held on November 14 at the Carlton Convention Center”と最初から決まった場所として紹介されるだけで、変わったという話はない。発表会場のGrand Hallも案内であって変更ではない。"
       ]
      },
      "trans": "手紙の目的は何か。",
@@ -831,10 +831,10 @@
      "explanation": {
       "why": "11月7日までに発表スライドを技術担当者に送るよう頼んでいる。スライド = 発表資料。",
       "traps": [
-       "宿泊は委員会が用意するので、自分で予約する必要はない。",
-       "航空便の確定の依頼はこの日付と結びつかない。",
+       "この選択肢は「ホテルの部屋を予約する」という意味だ。宿泊は“two nights at the Carlton Hotel”を委員会が用意するとあるので、Dr. Achebeが自分で予約する必要はない。11月7日までに頼まれているのは発表スライドの提出だ。",
+       "この選択肢は「帰りの便を確定する」という意味だ。手紙の航空便に関する内容は委員会が“round-trip airfare”（往復の航空運賃）を負担することだけで、11月7日という期限は“Please send your presentation slides”に付いたものだ。帰りの便を確定せよという依頼はない。",
        null,
-       "Mr. Kangにはスライドを「送る」のであって、直接会うのではない。"
+       "この選択肢は「Mr. Kangに直接会う」という意味だ。Mr. Lewis Kangは技術担当者で、彼にスライドを「送って」“so that they can be tested on our equipment”（機材でテストできるように）してほしいということだ。直接会うようにという依頼はない。"
       ]
      },
      "para": [
@@ -864,9 +864,9 @@
      "explanation": {
       "why": "航空運賃（round-trip airfare）、宿泊（two nights at the Carlton Hotel）、空港の送迎（A car will meet you）は書かれているが、食事の提供は出てこない。",
       "traps": [
-       "'cover your round-trip airfare' と言っている。",
-       "'two nights at the Carlton Hotel' は宿泊の提供。",
-       "'A car will meet you at the airport' は空港からの交通手段の提供。",
+       "この選択肢は「航空運賃」だ。手紙に“the committee will cover your round-trip airfare”（委員会が往復の航空運賃を負担する）とあるので、提供すると述べられた項目だ。NOT問題の答えではない。",
+       "この選択肢は「宿泊」だ。手紙に“two nights at the Carlton Hotel, which is connected to the convention center”とあり、コンベンションセンターとつながったホテルの2泊を用意すると述べている。accommodationはそれを言い換えたものなので、NOT問題の答えではない。",
+       "この選択肢は「空港からの交通手段」だ。手紙に“A car will meet you at the airport when you arrive”（到着時に車が空港に迎えに行く）とあるので、空港からの交通手段を用意すると述べられている。NOT問題の答えではない。",
        null
       ]
      },
@@ -893,10 +893,10 @@
      "explanation": {
       "why": "the driverは直前の文の「空港に迎えに行く車」の運転手を指す。空港の送迎の案内の直後の[3]が適切。",
       "traps": [
-       "[1]は参加確定のあいさつの直後なので、運転手（the driver）はまだ出てきていない。",
-       "[2]は発表時間の案内の直後なので、航空便の情報とつながらない。",
+       "[1]の前の文は11月14日のフォーラムの基調講演者として参加が決まったというあいさつだ。挿入文のthe driver（その運転手）は前に車の出迎えが出てきて初めて指すものができるが、[1]までは空港の送迎の話がない。そのため航空便の情報を送ってという依頼が突然出てくることになる。",
+       "[2]の前の文は発表が9時30分からGrand Hallで約45分行われ、15分の質疑応答が続くという内容だ。発表の予定と航空便の情報の依頼は関係がなく、the driverが指す車もまだ出てこない。車の出迎えの文は第3段落にある。",
        null,
-       "[4]は結びのあいさつの後なので、空港の送迎の文から離れ、the driverが指すものが遠くなる。"
+       "[4]の前の文は“We are honored to have you join us”という結びのあいさつだ。空港の送迎の文との間が切れてthe driverが指すものが遠くなり、結びのあいさつの後にまた事務的な依頼をするのも不自然だ。車の出迎えの案内の直後の[3]に入れると流れが自然だ。"
       ]
      },
      "trans": "[1]、[2]、[3]、[4] のうち、次の文が入る位置として最も適切なのは。",

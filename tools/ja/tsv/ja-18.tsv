@@ -1,110 +1,110 @@
 p7-d06-3|why	2人が乗る7時30分のバスは、表に 'Express, no stops' と書かれている。
-p7-d06-3|t1	月間定期券があればすべてのバスに乗れるという意味で、必須ではない。
-p7-d06-3|t2	現金のみなのは運転手から直接買うとき。
-p7-d06-3|t3	8時50分に着くので打ち合わせの前。
+p7-d06-3|t1	選択肢はそのバスに乗るには定期券が必要だという意味だ。時刻表の案内は“Passengers with a monthly pass may board any bus”（定期券があればどのバスにも乗れる）と述べている。定期券を持つ人の特典で必須条件ではなく、2人はオンラインで切符を買う。
+p7-d06-3|t2	選択肢はそのバスが現金しか受け付けないという意味だ。時刻表のcash onlyは“Tickets may be purchased online or from the driver (cash only)”で、運転手から直接買う場合だけの話だ。オンラインでも買え、7:30のバスだけの話でもない。
+p7-d06-3|t3	選択肢はそのバスが会議の開始後に着くという意味だ。2人が乗る7:30 A.M.のバスは“8:50 A.M.”に着き、会議は9:30だ。歩いて10分かかっても30分以上余裕があるので会議の前に着く。会議に遅れるのは9:00のバスだ。
 p7-d06-4|why	'parking downtown is difficult'（中心部の駐車は難しい）と理由を述べている。駐車場所を見つけにくいという意味。
-p7-d06-4|t0	車の修理の話はない。運転したくない理由は駐車の問題だけ。
-p7-d06-4|t1	速さの比較はない。バスを選んだ理由は中心部の駐車が難しいから。
-p7-d06-4|t2	Mr. Reyesが運転しないとは言っていない。
+p7-d06-4|t0	選択肢は彼女の車が修理中だという意味だ。メールに車の修理の話はない。運転したくない理由は“I'd rather not drive, since parking downtown is difficult”のsince以下、つまり中心街は駐車が難しいということだけだ。
+p7-d06-4|t1	選択肢はバスが車より速いという意味だ。7:30のバスが“Express, no stops”（ノンストップの急行）なので速そうだが、メールはバスと車の速さを比べていない。彼女が述べた理由は“since parking downtown is difficult”（中心街は駐車が難しいから）だ。
+p7-d06-4|t2	選択肢はMr. Reyesが運転しないという意味だ。メールにMr. Reyesが運転するかどうかは書かれていない。運転したくないのはMs. Grant自身の選択（“I'd rather not drive”）で、理由は中心街の駐車の問題だ。
 p7-d06-5|why	運転手から買うときは現金のみだが、Ms. Grantが今夜オンラインで2枚買っておくと言っている。
-p7-d06-5|t0	定期券の話はない。定期券は時刻表の案内にしか出てこない。
-p7-d06-5|t1	平日無料の話はない。チケットはオンラインか運転手から買う必要がある。
-p7-d06-5|t2	運転手は現金のみ受け付けると表の案内に書かれている。
+p7-d06-5|t0	選択肢はMr. Reyesが定期券を持っているという意味だ。定期券は時刻表の案内“Passengers with a monthly pass may board any bus”に一般的な決まりとして出てくるだけで、Mr. Reyesが持っているとは書かれていない。現金がいらないのはMs. Grantが切符を先に買うからだ。
+p7-d06-5|t1	選択肢は平日はバスが無料だという意味だ。時刻表の題名の“Weekday Departures”（平日の出発便）を見て引かれるかもしれないが、案内文は“Tickets may be purchased online or from the driver”と、切符を買う必要があると述べている。平日無料の話はない。
+p7-d06-5|t2	選択肢は運転手がクレジットカードを受け付けるという意味だ。時刻表の案内に、運転手から買う場合はcash only（現金のみ）とあるので本文と正反対だ。現金がいらないのはMs. Grantが“I'll buy both tickets online tonight”と言ったからだ。
 p7-d07-1|why	見積書の表でHedge trimming（生け垣の手入れ）の頻度（Frequency）はMonthly、つまり月1回。
-p7-d07-1|t1	週1回（Weekly）は芝刈り（Lawn mowing）の頻度。
-p7-d07-1|t2	年2回（Twice a year）は季節の植え付け（Seasonal planting）の頻度。
-p7-d07-1|t3	必要に応じて（As needed）は除雪（Snow removal）の頻度。
+p7-d07-1|t1	選択肢は週1回だ。表でWeekly（毎週）はLawn mowing（芝刈り）の頻度だ。Hedge trimming（生け垣の手入れ）の行のFrequencyはMonthlyなので、別の行の値を読んだ誤答だ。
+p7-d07-1|t2	選択肢は年2回だ。表でTwice a yearはSeasonal planting（季節の植え付け）の頻度だ。質問はHedge trimmingについてで、その行の頻度はMonthly（毎月）なので、すぐ下の行を読み違えた誤答だ。
+p7-d07-1|t3	選択肢は必要なときだけだ。表で“As needed, Nov.–Mar.”（11～3月、必要に応じて）はSnow removal（除雪）の頻度だ。Hedge trimmingはMonthlyと決まった周期があるので合わない。
 p7-d07-2|why	除雪（300ドル）を除くと月910ドルで、2年契約の割引10%を適用すると819ドル。
-p7-d07-2|t1	910ドルは割引を適用していない金額。
-p7-d07-2|t2	1,089ドルは除雪を除かずに割引だけ適用した金額。
-p7-d07-2|t3	1,210ドルは元の見積もりのまま。
+p7-d07-2|t1	910ドルは元の見積もり1,210ドルから除雪（Snow removal）の300ドルだけを引いた額だ。しかしMs. Mendesは“please include the discount you mentioned in the revised figure”と、2年契約の10%割引も入れるよう求めている。910 × 0.9 = 819ドルになるはずだ。
+p7-d07-2|t2	1,089ドルは元の合計1,210ドルに10%割引だけを適用した額だ（1,210 × 0.9）。メールで“we have decided to handle snow removal ourselves”と除雪を外すよう求めているので、先に300ドルを引いてから割引する必要がある。
+p7-d07-2|t3	1,210ドルは見積書の“Total monthly cost: $1,210”そのままだ。Ms. Mendesは除雪を外し（“Please revise the estimate without that service”）、割引も入れるよう求めているので、修正後の金額はこれより低くなるはずだ。
 p7-d07-3|why	'our maintenance crew already has the equipment' と理由を述べている。
-p7-d07-3|t0	降雪量の話はない。自分たちで行う理由は、すでに機材を持っているから。
-p7-d07-3|t1	見積もりには11〜3月の除雪が含まれている。
-p7-d07-3|t3	理事会はほとんどを承認した。価格を断ったとは言っていない。
+p7-d07-3|t0	選択肢はその地域ではほとんど雪が降らないという意味だ。メールに降雪量の話はなく、除雪を自分たちでする理由は“since our maintenance crew already has the equipment”（保守チームがすでに機材を持っているから）だ。見積もりにも11～3月の除雪が入っている。
+p7-d07-3|t1	選択肢はGreenleafが冬には除雪サービスをしないという意味だ。見積書の表にはSnow removalが“As needed, Nov.–Mar.”（11～3月、必要に応じて）として月300ドルで入っている。冬のサービスを提供しているので本文と矛盾する。
+p7-d07-3|t3	選択肢は理事会が価格を拒否したという意味だ。メールは“Our board has approved most of it”（理事会がほとんどを承認した）と述べている。除雪だけを外す理由も価格ではなく、機材をすでに持っているからだ。
 p7-d07-4|why	割引を受けるには2年契約が必要（見積書）。Ms. Mendesは費用が下がるなら長期契約を望むと言い、割引を反映してほしいと頼んでいる。
-p7-d07-4|t0	作業開始は5月1日（begin on May 1）。4月ではない。
-p7-d07-4|t2	除雪は外してほしい（without that service）と言っている。
-p7-d07-4|t3	一括払いの話はない。見積もりは月額（monthly cost）で書かれている。
+p7-d07-4|t0	選択肢は契約が4月に始まるという意味だ。見積書とメールの日付（April 3, April 12）が4月なので引かれやすいが、メールは“We would like work to begin on May 1”（5月1日に作業を始めてほしい）と述べている。
+p7-d07-4|t2	選択肢は契約に除雪が含まれるという意味だ。メールは除雪を自分たちでするとして“Please revise the estimate without that service”（そのサービスを除いて見積もりを修正してほしい）と書いている。that serviceは前の文のsnow removalを指すので、本文と逆だ。
+p7-d07-4|t3	選択肢は費用を一括で払うという意味だ。一括払いの話はどこにもなく、見積書は“Total monthly cost: $1,210”のように費用を月単位（monthly cost）で示している。長期契約だから一括払いだという根拠はない。
 p7-d07-5|why	見積もりは4月3日作成で30日間有効。メールは4月12日に送っているので有効期間内。
-p7-d07-5|t0	ほとんどを承認した（approved most of it）と言っている。拒否ではない。
-p7-d07-5|t1	生け垣の手入れの頻度の変更の依頼はない。
-p7-d07-5|t2	5月1日の開始を希望している（begin on May 1）。すぐに開始ではない。
+p7-d07-5|t0	選択肢はメールが見積もりを断っているという意味だ。Ms. Mendesは“Our board has approved most of it”（理事会がほとんどを承認した）と述べ、除雪だけを外して割引を入れた修正を求めている。一部修正の依頼で、断りではない。
+p7-d07-5|t1	選択肢はメールが生け垣の手入れを毎週してほしいと求めているという意味だ。メールの依頼は除雪の除外、割引の反映、5月1日開始の三つだけで、生け垣の手入れの頻度には触れていない。Weeklyは表でLawn mowing（芝刈り）の頻度だ。
+p7-d07-5|t2	選択肢はすぐに作業を始めるよう求めているという意味だ。メールは4月12日に送られ、“We would like work to begin on May 1”と開始日を5月1日にしている。すぐではなく約3週間後だ。
 p7-d08-1|why	新しいステーションを40か所加えて合計120か所になると言っているので、現在は120 − 40 = 80か所。本文にない数字を計算で求める問題。
-p7-d08-1|t0	40は新しく追加するステーションの数。現在の数ではない。
-p7-d08-1|t2	120は拡大後の合計。現在の数はそこから40を引いた値。
-p7-d08-1|t3	160は120に40を足した誤った計算。
+p7-d08-1|t0	40は“will add 40 new bike-share stations this summer”（この夏に新しいステーションを40か所追加する）の増える数だ。質問は現在（currently）のステーション数を聞いているので、拡張後の合計120から40を引いて80になるはずだ。
+p7-d08-1|t2	120は“bringing the total to 120”（合計120か所になる）の拡張後の合計だ。この数にはこの夏に追加される40か所が含まれているので、現在の数は120 − 40 = 80だ。本文に見える数字をそのまま選ぶと引っかかるわなだ。
+p7-d08-1|t3	160は120に40を足した数だ。しかし“bringing the total to 120”は40か所を足した結果が120になるという意味なので、足すのではなく引く必要がある。現在の数は120 − 40 = 80だ。
 p7-d08-2|why	Ms. DuarteはMillbraeに住んでいる。記事ではMillbraeは今停留所がない東側の地区だと書かれている。
-p7-d08-2|t0	40は新しくできる停留所の数。
-p7-d08-2|t1	東側（eastern）の地区だと言っている。西側ではない。
-p7-d08-2|t3	Millbraeは新しいステーションが主に置かれる地区として紹介されている。拡大の対象。
+p7-d08-2|t0	選択肢は彼女の地区にすでにステーションが40か所あるという意味だ。40は市全体で新たに追加される数で、記事はMillbraeを“which currently have no stations”（現在ステーションがない）地区としている。現在0か所なので本文と矛盾する。
+p7-d08-2|t1	選択肢は彼女の地区が市の西部にあるという意味だ。記事は“the eastern neighborhoods of Brookside and Millbrae”と、Millbraeが東部（eastern）の地区だと述べている。Ms. Duarteは“I live in Millbrae”と言っているので、西部は誤りだ。
+p7-d08-2|t3	選択肢は彼女の地区が拡張の対象ではないという意味だ。記事は新しいステーションが“mainly in the eastern neighborhoods of Brookside and Millbrae”に置かれると述べ、彼女も“our neighborhood will finally get bike-share stations”と喜んでいる。拡張の中心地域だ。
 p7-d08-3|why	彼女は4月2日の公聴会で提案すると言っていて、記事ではその会議は市役所で開かれると書かれている。
-p7-d08-3|t0	Millbrae駅は停留所を提案する場所。
-p7-d08-3|t1	交通局はメールを受け取る所。
-p7-d08-3|t3	オンラインでの提出の話はない。彼女は会議に直接出席して提案すると言っている。
+p7-d08-3|t0	選択肢はMillbrae駅で提案するという意味だ。彼女は“to suggest a station near Millbrae Station”と言っているので、Millbrae駅はステーションの設置を提案する場所で、提案を行う場所ではない。提案は4月2日の会議で行い、その会議は市役所で開かれる。
+p7-d08-3|t1	選択肢は交通局で提案するという意味だ。交通局（Lexford Transportation Office）はこのメールの送り先にすぎない。彼女は“I plan to attend the April 2 meeting”と言い、記事にはその会議が“a public meeting on April 2 at City Hall”（市役所）とある。
+p7-d08-3|t3	選択肢はオンラインで提案するという意味だ。オンラインで提出する話は二つの文書のどこにもない。彼女は“I plan to attend the April 2 meeting to suggest a station”と、会議に直接出席して提案すると言っており、その会場はCity Hallだ。
 p7-d08-4|why	7月1日から1回の利用料金が2.00ドルから2.50ドルに上がると言っている。7月1日以降も1回ごとに払うなら2.50ドル。
-p7-d08-4|t0	2.00ドルは値上げ前の料金。
-p7-d08-4|t2	4.00ドルは本文にない金額。
-p7-d08-4|t3	60ドルは年間会員権の値段。
+p7-d08-4|t0	2.00ドルは“the price of a single ride will rise from $2.00 to $2.50 on July 1”の値上げ前の料金だ。質問は7月1日以降（after July 1）の料金を聞いているので、fromの後ではなくtoの後の2.50ドルを見る必要がある。
+p7-d08-4|t2	4.00ドルは本文のどこにもない金額だ。1回料金2.00ドルを2回払った額のように作った数字で、記事に出てくる1回料金は値上げ前の2.00ドルと“on July 1”以降の2.50ドルだけだ。
+p7-d08-4|t3	60ドルは“Annual memberships will remain $60”（年間会員は60ドルのまま）の会員料金だ。質問は会員ではなく1回料金（pay per ride）を払い続ける場合の金額を聞いているので合わない。
 p7-d08-5|why	彼女は週に約4回乗る。1回2.50ドルなら1か月で40ドルを超えるので、年60ドルの会員権のほうがずっと安い。
-p7-d08-5|t0	会員権に電車の切符が含まれるとは言っていない。
-p7-d08-5|t1	1回券は値段が上がるだけ。
-p7-d08-5|t2	雇用主の補助の話はない。会員になろうとする理由は、よく乗るので費用が節約できるから。
+p7-d08-5|t0	選択肢は会員資格に電車の切符が含まれるという意味だ。電車は彼女が“mostly to and from the train station”（主に駅との行き来に使う）と、自転車で通る経路として出てくるだけだ。記事にある会員の情報は“Annual memberships will remain $60”だけだ。
+p7-d08-5|t1	選択肢は1回利用がなくなるという意味だ。記事は“the price of a single ride will rise from $2.00 to $2.50”と、1回料金が上がると述べているだけだ。1回利用は続けられ、彼女も“If so, I may switch”と切り替えるか迷っている。
+p7-d08-5|t2	選択肢は彼女の会社が会員料金を払ってくれるという意味だ。メールに雇用主の話はない。会員に切り替える理由は、週に約4回（“about four times a week”）乗るので、1回2.50ドルずつ払うと年60ドルの会員よりずっと高くなるからだ。
 p7-t04-1|why	求人の業務はワークショップの企画（planning workshops）、ボランティアガイドの研修（training volunteer guides）、予約の管理（managing bookings）。展示のデザインはない。
-p7-t04-1|t1	'planning hands-on science workshops' に出てくる。
-p7-t04-1|t2	'training volunteer guides' に出てくる。
-p7-t04-1|t3	'managing workshop bookings' に出てくる。
+p7-t04-1|t1	選択肢はワークショップの企画だ。求人のResponsibilitiesに“planning hands-on science workshops for school groups”（学校団体向けの体験型科学ワークショップの企画）が最初に挙げられている。記載された業務なので、NOT問題の正解ではない。
+p7-t04-1|t2	選択肢はボランティアの研修だ。求人に“training volunteer guides”（ボランティアガイドの研修）が業務として出てくる。volunteer guidesをvolunteersと短く言い換えたもので、記載された業務なので正解ではない。
+p7-t04-1|t3	選択肢は予約の管理だ。求人に“managing workshop bookings”（ワークショップの予約管理）が最後の業務として出てくる。workshopを省いてbookingsとしただけで同じ内容なので、正解ではない。
 p7-t04-2|why	求人では子ども向け教育の経験2年以上を求めていて、Ms. Shahは3年間小学校で理科を教えた。
-p7-t04-2|t0	スペイン語は歓迎条件で、彼女は触れていない。
-p7-t04-2|t1	生物学の学位は理系の学位の条件を満たすが、それを超えるとは言いにくい。
-p7-t04-2|t3	勤務時間の話は彼女のメールにない。
+p7-t04-2|t0	選択肢は語学の条件だ。求人の“Fluency in Spanish is a plus”はスペイン語が必須ではなく歓迎条件だという意味で、Ms. Shahのメールにはスペイン語の話がまったくない。触れてもいない項目を上回っているとは言えない。
+p7-t04-2|t1	選択肢は学位の分野の条件だ。求人は“a degree in science or education”を求め、Ms. Shahは“I hold a degree in biology”と述べている。生物学は科学の分野なので条件を満たすだけで、上回るとは言いにくい。数字で比べて上回っているのは経験年数だ。
+p7-t04-2|t3	選択肢は週の勤務時間だ。求人には“Part-time, 25 hours per week”とあるが、Ms. Shahのメールは勤務時間に触れていない。彼女が述べたのは土曜日に働けるかどうかだけで、時間の条件を上回るという根拠はない。
 p7-t04-3|why	求人の歓迎条件はスペイン語の能力だが、Ms. Shahのメールでは触れていない。ほかはすべて扱っている。
-p7-t04-3|t0	土曜日に勤務できると言っている。
-p7-t04-3|t1	生物学の学位（degree in biology）があると言っている。理系の学位の要件に触れている。
-p7-t04-3|t2	小学校の教師の経験と家族向けツアーの経験を述べている。
+p7-t04-3|t0	選択肢は土曜日に働けるかどうかだ。求人は“ability to work some Saturdays”を求め、Ms. Shahは“would be happy to work Saturdays”（土曜日も喜んで働く）と直接答えている。メールで触れている項目なので正解ではない。
+p7-t04-3|t1	選択肢は科学の学位だ。求人の“a degree in science or education”に対して、Ms. Shahは“I hold a degree in biology”と述べている。biology（生物学）はscienceの一分野なので、この条件に触れており正解ではない。
+p7-t04-3|t2	選択肢は子どもを教えた経験だ。求人は“at least two years of experience teaching children”を求め、Ms. Shahは小学校で3年間理科を教えた（“the past three years teaching science at Crestview Elementary School”）と述べている。メールで触れている項目だ。
 p7-t04-4|why	面接で、スタッフを10歳の生徒に見立てて10分間の模擬活動を行うよう言っている。
-p7-t04-4|t1	博物館のツアーを行う話はない。
-p7-t04-4|t2	文章のサンプルの提出の依頼はない。面接で行うのは模擬活動。
-p7-t04-4|t3	本物の生徒ではなく、スタッフの前で行う。
+p7-t04-4|t1	選択肢は博物館のツアーを案内するという意味だ。ツアーはMs. Shahのメールで、Riverside Aquariumでの過去の経験（“I led tours for visiting families”）として出てくるだけだ。面接案内のメールが求めているのは“lead a ten-minute sample activity”（10分間の模擬活動を行う）だ。
+p7-t04-4|t2	選択肢は文章のサンプルを提出するという意味だ。面接案内に書類提出の依頼はなく、“Please bring any materials you need”は模擬活動に必要な道具を持ってくるようにという意味だ。面接ですることは職員の前での10分間の模擬活動だ。
+p7-t04-4|t3	選択肢は生徒のグループに会うという意味だ。面接案内は“for a small group of staff members, as if they were ten-year-old students”と述べている。本物の生徒ではなく、職員を10歳の生徒に見立てて活動するのだ。as if（まるで～のように）を見落とすと引っかかるわなだ。
 p7-t04-5|why	応募の締め切りは5月9日（Apply by May 9）で、Ms. Shahは5月6日にメールを送っている。締め切り前に受け付けられた。
-p7-t04-5|t0	推薦状の添付の話はない。履歴書だけを添付した。
-p7-t04-5|t2	メールで応募している（E-mail 1）。郵送ではない。
-p7-t04-5|t3	週25時間のパートタイムの職。
+p7-t04-5|t0	選択肢は応募書類に推薦状が含まれていたという意味だ。求人は“a cover letter and résumé”を求めており、Ms. Shahのメールには“My résumé is attached”（履歴書を添付した）とあるだけだ。推薦状（letters of reference）はどこにも出てこない。
+p7-t04-5|t2	選択肢は応募書類を郵送したという意味だ。求人は“sending a cover letter and résumé to jobs@haldenmuseum.example”とメールアドレスに送るよう指示しており、Ms. Shahもそのアドレスにメールを送っている。郵送の話はない。
+p7-t04-5|t3	選択肢は正社員（full-time）の職への応募だったという意味だ。求人の冒頭に“Part-time, 25 hours per week”（週25時間のパートタイム）とある。full-timeとPart-timeは正反対なので本文と矛盾する。
 p7-t05-1|why	規則に、4時間を超える予約にはオフィスマネージャーの承認が必要（require approval from the office manager）と書かれている。
-p7-t05-1|t0	30日は予約できる最大の期間。
-p7-t05-1|t1	ビデオ会議システムはC室の情報。
-p7-t05-1|t3	料金の話はない。規則は予約期間、承認、キャンセルについてのもの。
+p7-t05-1|t0	選択肢は少なくとも30日前に予約する必要があるという意味だ。規則は“up to 30 days in advance”（最大30日前まで）と述べており、30日は予約できる最も早い時点だ。at least（少なくとも）とup to（最大で）を入れ替えたわなで、4時間を超える予約とも関係ない。
+p7-t05-1|t1	選択肢はビデオ会議システムだ。規則の“Room C is the only room with a video conferencing system”はC室の設備の説明で、予約時間とは関係ない。4時間を超える予約に必要なのは“approval from the office manager”（オフィスマネージャーの承認）だ。
+p7-t05-1|t3	選択肢は料金の支払いだ。規則のどこにも料金の話はなく、内容は予約できる期間、4時間超の承認、部屋の設備と定員、キャンセルの決まりだけだ。4時間を超える予約については“Bookings longer than four hours require approval from the office manager”とある。
 p7-t05-2|why	ビデオ会議が必要だが、ビデオ機器はC室にしかない。火曜日の1〜3時はC室が空いている。
-p7-t05-2|t1	A室にはビデオ機器がない。ビデオ機器がある部屋はC室だけ。
-p7-t05-2|t2	B室も機器がなく、その時間は財務チームが使う。
-p7-t05-2|t3	D室にはビデオ機器がない。機器がある部屋はC室だけ。
+p7-t05-2|t1	Room Aは火曜日の1–3の時間帯が空いているが、ビデオ会議の設備がない。Ms. Leeは“we'll be meeting the partners by video”と言い、規則に“Room C is the only room with a video conferencing system”とあるので、ビデオ会議はC室でしかできない。
+p7-t05-2|t2	Room Bはビデオ設備もなく、予約表で1–3の時間帯はすでにFinance（財務チーム）で埋まっている。ビデオ設備がある部屋はRoom Cだけで、その時間C室は空いている。
+p7-t05-2|t3	Room Dは30人まで座れる一番大きい部屋で、1–3の時間帯も空いているが、ビデオ設備がない。人数（8人）よりビデオ会議の条件が決め手で、“Room C is the only room with a video conferencing system”だ。
 p7-t05-3|why	Ms. Leeは、マーケティングチームは3〜5時の予約が要らなくなりそうだと言っていて、規則では使わない予約は24時間前までに取り消す必要がある。
-p7-t05-3|t0	部屋を移るようにという話はない。
-p7-t05-3|t2	シンガポールとの通話はMs. Leeのチームの仕事。
-p7-t05-3|t3	顧客がキャンセルしたので、延長する理由がない。
+p7-t05-3|t0	選択肢はマーケティングチームがD室に移るという意味だ。Ms. Leeは“Their client canceled”（彼らの顧客がキャンセルした）と、マーケティングチームの3–5の予約は不要だろうと言っている。会議自体がなくなったので部屋を移る理由はない。
+p7-t05-3|t2	選択肢はマーケティングチームがシンガポールとの通話に参加するという意味だ。シンガポールのパートナーとの通話は1–3に行うMs. Leeのチームの予定（“a call with our partners in Singapore”）だ。マーケティングチームは3–5の予約にしか関係せず、通話に参加する話はない。
+p7-t05-3|t3	選択肢はマーケティングチームが予約を延長するという意味だ。顧客がキャンセルしたので（“Their client canceled”）3–5の時間帯は不要になり、延長する理由はない。規則はむしろ使わない予約は“at least 24 hours in advance”までにキャンセルするよう求めている。
 p7-t05-4|why	シンガポールのパートナーとビデオで会う（a call with our partners in Singapore）と言っている。別の国にいるパートナー。
-p7-t05-4|t0	新入社員の話はない。会う相手はシンガポールのパートナー。
-p7-t05-4|t1	ITチームは午前にC室で研修をする。
-p7-t05-4|t2	キャンセルした顧客はマーケティングチームの顧客。
+p7-t05-4|t0	選択肢は新入社員に会うという意味だ。メールにも予約表にも新入社員の話はない。Ms. Leeのチームが火曜日の1時から3時に会う相手は“our partners in Singapore”（シンガポールのパートナー）だ。
+p7-t05-4|t1	選択肢はITチームに会うという意味だ。ITチームは予約表でC室の9–11、11–1の時間帯に“IT training”（IT研修）を行うチームとして出てくるだけだ。Ms. Leeのチームの会議は1–3で、相手はシンガポールのパートナーだ。
+p7-t05-4|t2	選択肢はキャンセルした顧客に会うという意味だ。“Their client canceled”のTheirはマーケティングチームを指すので、キャンセルした顧客はマーケティングチームの顧客だ。Ms. Leeのチームが会うのは“a call with our partners in Singapore”のパートナーだ。
 p7-t05-5|why	C室以外の部屋は12人座れて（all other rooms seat 12）、Ms. Leeのチームは8人。必要な人数より多く座れる。
-p7-t05-5|t0	30人はD室（Room D seats 30）の定員。C室は12人。
-p7-t05-5|t1	C室にだけビデオ機器がある。機器がないという説明は逆。
-p7-t05-5|t3	財務チーム（Finance）はB室を使う。C室は1〜3時は空いている。
+p7-t05-5|t0	選択肢はその部屋が30人まで座れるという意味だ。規則の“Room D seats 30; all other rooms seat 12”で、30人はD室の定員だ。Ms. Leeが使う部屋はビデオ設備のあるC室で、C室は12人だ。
+p7-t05-5|t1	選択肢はその部屋にビデオ設備がないという意味だ。Ms. Leeが使うC室は“the only room with a video conferencing system”（ビデオ会議システムのある唯一の部屋）だ。ビデオ会議のために選んだ部屋なので、正反対の説明だ。
+p7-t05-5|t3	選択肢はその部屋を財務チームが予約しているという意味だ。予約表で1–3の時間帯のFinance（財務チーム）はRoom Bの行にある。Room Cの1–3の欄は空いていて、Ms. Leeが使える。同じ時間帯の別の行を読んだわなだ。
 p7-t06-1|why	ウェブページに、ブースの料金にはテーブル1台、いす2脚、電源（one table, two chairs, and electricity）が含まれると書かれている。基本的な家具と電源。
-p7-t06-1|t1	駐車場の話はない。料金に含まれるのはテーブル、いす、電源。
-p7-t06-1|t2	装飾の話はない。ウェブページにブースの装飾の記述はない。
-p7-t06-1|t3	食事の話はない。料金に含まれるのは家具と電源だけ。
+p7-t06-1|t1	選択肢は無料駐車場だ。ウェブページは“Prices include one table, two chairs, and electricity”と述べ、価格に含まれるのはテーブル、いす、電気だけだ。駐車（parking）はどこにも出てこず、freeが付いているのは無料の入場バッジ（free admission badges）だ。
+p7-t06-1|t2	選択肢はブースの装飾だ。価格に含まれるのは“one table, two chairs, and electricity”で、装飾（decorations）の話はない。正解のBasic furniture and powerがまさにこの三つの言い換えだ。
+p7-t06-1|t3	選択肢はスタッフの昼食だ。ウェブページに食事の話はまったくない。出展者に別に提供されるのは“four free admission badges”（無料の入場バッジ4枚）で、価格に含まれるのはテーブル、いす、電気だけだ。
 p7-t06-2|why	6月30日より前の予約だけが15%割引（book before June 30 save 15%）だが、Mr. Holtのメールは7月3日。割引の締め切りを過ぎてから予約した。
-p7-t06-2|t0	いちばん高いブースはLarge。彼はCornerを取った。
-p7-t06-2|t1	前払いの条件は割引とは関係ない。
-p7-t06-2|t2	バッジの追加は割引の有無と関係ない。
+p7-t06-2|t0	選択肢は一番高いブースを選んだので割引がなかったという意味だ。表で一番高いのはLarge（$2,100）で、請求書によると彼が受けたのはCorner booth（$1,500）だ。そもそも割引の条件はブースの種類ではなく“book before June 30”（6月30日より前の予約）だ。
+p7-t06-2|t1	選択肢は前払いしなかったので割引がなかったという意味だ。割引の条件は“Exhibitors who book before June 30 save 15%”で予約の時期に関するもので、前払いの話はない。請求書の支払期限（August 15）も割引とは関係ない。
+p7-t06-2|t2	選択肢は追加のバッジを頼んだので割引がなかったという意味だ。追加バッジは“additional badges cost $40 each”により別に請求されるだけで（2枚、80ドル）、ブースの割引とは関係ない。割引の有無は6月30日より前に予約したかどうかだけで決まる。
 p7-t06-3|why	無料のバッジは4つだが、ブースのスタッフは6人。2つを40ドルずつ追加して80ドルが請求された。
-p7-t06-3|t0	ブースの種類によるバッジ料金の違いはない。
-p7-t06-3|t2	バッジの紛失の話はない。80ドルは追加バッジ2つ分の料金。
-p7-t06-3|t3	来場者用ではなくスタッフ用。
+p7-t06-3|t0	選択肢はコーナーブースはバッジ代が別にかかるという意味だ。ウェブページはブースの種類に関係なく“Each exhibitor receives four free admission badges; additional badges cost $40 each”と述べている。80ドルはスタッフ6人のうち無料の4枚を超える2枚分（2 × 40）だ。
+p7-t06-3|t2	選択肢はバッジを2枚なくしたという意味だ。請求書の“Additional badges (2)”を見て引かれるかもしれないが、紛失の話はない。Mr. Holtが“We will have six staff members working at the booth”と言っているので、無料の4枚では2枚足りないのだ。
+p7-t06-3|t3	選択肢は来場者用のバッジを注文したという意味だ。追加バッジはブースで働くスタッフ6人（“six staff members working at the booth”）のためのものだ。来場者用のバッジの話は本文にない。
 p7-t06-4|why	2つの通路から見えるよう2面が開いた場所を希望し、もっと広いスペースは要らないと言っている。請求書でもCorner boothが請求されている。
-p7-t06-4|t0	Standardは開いている面が1つ。
-p7-t06-4|t1	Largeはより広いスペースなので、要らないと言っている。
-p7-t06-4|t3	屋外のブースはない。ブースの種類はStandard、Large、Cornerの3つ。
+p7-t06-4|t0	Standardは3 m × 3 mの基本ブースで、開いている面についての説明がない。Mr. Holtは“please assign us a space with two open sides”と2面が開いた場所を希望しており、表で“two open sides”が付いているのはCornerだけだ。請求書にもCorner boothが請求されている。
+p7-t06-4|t1	Largeは6 m × 3 mで一番広いブースだ。しかしMr. Holtは“We do not need more floor space than that”（それ以上の広さは必要ない）と言っている。請求書にも$2,100ではなくCorner booth $1,500が請求されている。
+p7-t06-4|t3	Outdoor（屋外）ブースは表にない種類だ。ウェブページのブースはStandard、Large、Cornerの三つだけで、屋外スペースについての記述もない。請求書には“Corner booth”が請求されている。
 p7-t06-5|why	請求書に 'Payment due by August 15'（8月15日までに支払い）と書かれている。
-p7-t06-5|t1	7月5日は請求書の発行日。
+p7-t06-5|t1	7月5日（July 5）は請求書の上部の“Date: July 5”、つまり請求書の発行日だ。支払期限は同じ請求書の“Payment due by August 15”（8月15日までに支払う）だ。同じ文書の別の日付を選んだわなだ。

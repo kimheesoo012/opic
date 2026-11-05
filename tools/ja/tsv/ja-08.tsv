@@ -1,110 +1,110 @@
 p5-168|why	Only + 副詞が文頭に来ると助動詞が主語の前に出る。後ろが動詞の原形beginで、recentlyは過去のことなのでdid。
-p5-168|t0	hasの後ろには過去分詞（begun）が来る必要がある。
-p5-168|t2	doesは現在の習慣を表すので、recentlyと合わない。
-p5-168|t3	wasの後ろにはbeginは来ない。
+p5-168|t0	hasは完了の助動詞なので、倒置されると後に過去分詞が来る（Only recently has the company begun 〜）。空所の後が動詞の原形beginなので、hasとは結びつかない。beginとbegunの違いを見落とすと選びやすい。
+p5-168|t2	doesは動詞の原形と結びつく点は正しいが、現在形だ。Only recently（最近になってようやく）は最近の過去に起きたことを述べるので、過去の助動詞didが必要だ。doesはOnly rarely does he travelのように現在の習慣を言うときに使う。
+p5-168|t3	wasはbe動詞なので、倒置されると後に-ing（進行形）か過去分詞（受動態）が来る。空所の後が動詞の原形beginなので、was beginは成り立たない。一般動詞beginを倒置するときはdo、does、didを使う。
 p5-169|why	Not until 〜が前に来ると主節が倒置される。後ろの動詞の原形startと組み合わさる過去の助動詞did。
-p5-169|t0	hadの後ろには過去分詞が来る必要がある。
-p5-169|t1	wasの後ろにはstartは来ない。
-p5-169|t2	hasの後ろにも過去分詞が来る必要がある。
+p5-169|t0	hadは過去完了の助動詞なので、倒置されると後に過去分詞（started）が来る。空所の後が動詞の原形startなので、had startは成り立たない。時制が過去なのでhadにつられやすいが、原形と組み合わさるのはdidだ。
+p5-169|t1	wasはbe動詞なので、倒置されると後に-ingか過去分詞が来る（was the team starting）。空所の後が動詞の原形startなので、wasとは結びつかない。一般動詞startの倒置には助動詞didが必要だ。
+p5-169|t2	hasは現在完了の助動詞なので後に過去分詞（started）が必要だが、空所の後は動詞の原形startだ。またthe contract was signedという過去の出来事の後のことを述べているので、現在が基準のhasとは時制も合わない。
 p5-170|why	否定語Seldomの後ろで倒置。後ろにbeen receivedがあるので完了の助動詞が必要で、主語such a large orderは単数なのでhas。
-p5-170|t0	haveは複数の主語に使う。orderは単数。
-p5-170|t2	didの後ろには動詞の原形が来る必要がある。
-p5-170|t3	doesの後ろにも動詞の原形が来る必要がある。
+p5-170|t0	haveは完了の助動詞なので後のbeen receivedと結びつく点は正しいが、複数の主語に使う。倒置された主語such a large orderはa＋単数名詞なので単数で、hasが必要だ。倒置文では主語が助動詞の後にあるので、主語と動詞の一致を見落としやすい。
+p5-170|t2	didは一般動詞を倒置するときに使い、後に動詞の原形が来る（Seldom did we receive 〜）。空所の後はbeen receivedという過去分詞の形なので、didとは結びつかない。beenと組み合わさるのは完了の助動詞haveかhasだ。
+p5-170|t3	doesも一般動詞の倒置に使い、後に動詞の原形が必要だ（Seldom does it rain here）。空所の後のbeen receivedとは結びつかない。時制も現在なので「1日でこれほど大きな注文を受けたことはめったにない」という経験を表せない。
 p5-171|why	So + 形容詞が文頭に出て、be動詞と主語が倒置されている。元の文はThe new model was so popular that 〜。主語が単数で過去なのでwas。
-p5-171|t1	wereは複数の主語に使う。
-p5-171|t2	didは一般動詞の倒置に使い、形容詞の補語とは組み合わない。
-p5-171|t3	hadの後ろには過去分詞が来る必要がある。
+p5-171|t1	wereは複数の主語や仮定法に使うbe動詞だ。倒置された主語the new modelは単数なのでwasが必要だ。元の文The new model was so popular that 〜に戻すと数の一致がはっきりする。wereはSo popular were the new modelsのように主語が複数のときに使う。
+p5-171|t2	didは一般動詞を倒置するときに使う助動詞で、後に動詞の原形が必要だ。この文はSo popularという形容詞の補語が前に出たbe動詞の文なので、didは使えない。didはSo quickly did it sell that 〜のように副詞＋一般動詞のときに使う。
+p5-171|t3	hadは完了の助動詞なので、倒置されると後に過去分詞が必要だ（So popular had the model become that 〜）。空所の後には過去分詞がなく主語the new modelとthat節だけが続くので、hadでは文が成り立たない。形容詞popularを主語と結ぶのはbe動詞だ。
 p5-172|why	後ろにthanがあるので比較級が必要。1音節の形容詞lightの比較級は-erを付けたlighter。
-p5-172|t0	lightは原級なのでthanと一緒に使わない。
-p5-172|t1	lightestは最上級。
-p5-172|t3	lightの比較級はlighterで、more lightとは書かない。
+p5-172|t0	lightは「軽い」という形容詞の原級だ。空所の後にthan（〜より）があるので比較級が必要で、原級はthanと一緒に使わない。原級はas light as（〜と同じくらい軽い）のようにas 〜 asの間で使う。
+p5-172|t1	lightestは最上級（最も軽い）だ。最上級はthe lightest of all modelsのようにtheと範囲を一緒に使うが、この文はthan the previous modelで2つを比べているので比較級が必要だ。冠詞theもないので最上級の位置ではない。
+p5-172|t3	more lightはmore＋原級の形だ。lightのような1音節の形容詞は-erを付けて比較級を作り、moreは使わない。moreはmore expensive、more comfortableのような長い形容詞に使う。またmore lightは「より多くの光」という名詞句にも読める。
 p5-173|why	the + ___ + of the weekは範囲の中で「最も〜な」を表す最上級の形なので、busiestが正解。
-p5-173|t0	busyは原級なので、the ___ of the weekのように「〜の中で最も」を表す最上級の位置に合わない。
-p5-173|t1	busierは比較級なので、比較の対象thanが必要。
-p5-173|t3	busyの最上級はbusiest。
+p5-173|t0	busyは「忙しい」という原級だ。the ___ day of the weekは「1週間で最も〜な日」という最上級の位置なので、原級は合わない。原級はSaturday is usually busy（土曜はたいてい忙しい）のように比較なしで使うときに正しい。
+p5-173|t1	busierは比較級（より忙しい）なので、thanと一緒に2つを比べるときに使う（busier than Monday）。この文にはthanがなく、前にtheがあり、of the week（1週間のうちで）という範囲があるので最上級が必要だ。
+p5-173|t3	most busyはmost＋原級の形だ。busyのように-yで終わる2音節の形容詞は、yをiに変えて-estを付けた形で最上級を作り、mostは使わない。mostはthe most popularのような長い形容詞に使う。
 p5-174|why	as 〜 asの間には原級の形容詞が来る。be動詞の補語なので形容詞spacious。
-p5-174|t0	more spaciousは比較級なので、as 〜 asの間には使わない。
-p5-174|t1	most spaciousは最上級。
-p5-174|t2	spaciouslyは副詞なのでbe動詞の補語になれない。
+p5-174|t0	more spaciousは比較級（より広い）だ。as 〜 asの間には原級しか使わないので、not as more spacious asは誤った形だ。比較級はmore spacious than the old oneのようにthanと一緒に使う。
+p5-174|t1	most spaciousは最上級（最も広い）だ。as 〜 asの間には原級が来るので、最上級は使えない。最上級はthe most spacious office in the building（建物で最も広いオフィス）のようにtheと範囲を一緒に使う。
+p5-174|t2	spaciouslyは「広々と」という副詞だ。as 〜 asを外すとThe new office is not spaciousとなり、be動詞isの補語の位置なので形容詞が必要だ。副詞は補語になれない。副詞はa spaciously designed lobby（広々と設計されたロビー）のように分詞を修飾するときに使う。
 p5-175|why	Of the three（3人の中で）という範囲があるので、最上級the most qualified。
-p5-175|t1	the moreは2つの間の比較に使う。3つ以上なら最上級。
-p5-175|t2	muchは比較級を強調する語で、the much qualifiedという形はない。
-p5-175|t3	veryの前にtheを付けたthe very qualifiedという形にはしない。
+p5-175|t1	moreは比較級を作る。the more qualifiedは「2人のうちでより適任の」のように2つを比べるときだけtheと一緒に使う。Of the three finalists（最終候補3人のうちで）は3人以上の範囲なので最上級が必要だ。
+p5-175|t2	muchは比較級を強調したり（much better）、不可算名詞の量を表したりする（much time）。the much qualifiedという形はなく、3人の中の1位も表せない。muchはmuch more qualified（はるかに適任の）のように比較級の前で使う。
+p5-175|t3	veryは原級を強調する副詞だ（very qualified）。the very qualifiedではOf the threeという範囲の中で「最も」という意味を作れない。範囲の中の1位は最上級で表す。veryはShe is very qualifiedのように比較なしで使う。
 p5-176|why	applicationsは可算名詞の複数形で、可算名詞の複数形の「多くの」はmany。インターンシップへの応募をたくさん受け取ったという意味。
-p5-176|t0	muchは不可算名詞に使う。
-p5-176|t2	a littleも不可算名詞に使う。
-p5-176|t3	everyは単数名詞と使う。
+p5-176|t0	muchは「多くの」という意味だが、不可算名詞（much information、much time）に使う。applicationsは複数の可算名詞なのでmuchとは使えない。日本語ではどちらも「多くの」なので混同しやすい。
+p5-176|t2	a littleは「少しの」という意味で不可算名詞に使う（a little time）。applicationsは複数の可算名詞なので合わず、可算名詞の「少し」はa fewで表す（a few applications）。
+p5-176|t3	everyは「すべての」という意味だが、後に単数名詞が来る（every application）。空所の後のapplicationsは複数形なのでeveryとは結びつかない。またこの文は今年受け取った応募書類の量を述べているので、意味の上でも「多くの」が必要だ。
 p5-177|why	informationは不可算名詞で、動詞も単数のis。不可算名詞と使えるa lot ofが正解。
-p5-177|t0	manyは可算名詞の複数形に使う。
-p5-177|t1	a fewも可算名詞の複数形に使う。
-p5-177|t3	severalも可算名詞の複数形に使う。
+p5-177|t0	manyは複数の可算名詞（many applications）に使う。informationは不可算名詞なので複数形もなく、manyとは使えない。動詞も単数のisなので、不可算名詞に合う数量表現が必要だ。日本語で「情報」を数えられそうに感じても、英語では数えられない名詞だ。
+p5-177|t1	a fewは「いくつかの」という意味で、複数の可算名詞に使う（a few questions）。informationは不可算名詞なので合わない。不可算名詞の「少し」はa little informationのようにa littleで表す。
+p5-177|t3	severalは「いくつかの」という意味で、複数の可算名詞に使う（several brochures）。informationは不可算名詞なのでseveralとは使えず、後の単数動詞isとも合わない。several pieces of informationのように単位を表す名詞を入れれば使える。
 p5-178|why	so it was canceled（だから中止された）という結果になるには、申込者が「ほとんどいない」必要がある。否定の意味のFew。
-p5-178|t0	A fewは「何人かいる」という肯定の意味なので、中止の理由にならない。aの有無で意味が変わる代表的なひっかけ。
-p5-178|t2	Manyは中止と反対の意味。
-p5-178|t3	Severalも「何人かいる」という肯定の意味。
+p5-178|t0	A fewは「何人かいる」という肯定の意味だ。何人かは申し込んだという意味なので、so it was canceled（だから中止された）という結果の理由にならない。aの有無で意味が変わる代表的なわなだ。A few employees signed up, so we held the workshopのように肯定的な結果と使う。
+p5-178|t2	Manyは「多くの」という意味だ。多くの社員が申し込んだならワークショップを開く理由になり、so it was canceled（だから中止された）とは逆になる。複数の可算名詞employeesと形は合うが、意味が結果とぶつかる。
+p5-178|t3	Severalは「いくつかの」という肯定の意味で、ある程度申込者がいたことを表す。so it was canceledという結果を説明するには「ほとんどいない」という否定の意味が必要だ。形はemployeesと合うが、結果と論理が合わない。
 p5-179|why	名詞companyの前で限定詞の働きをするNoが必要。No other companyは「ほかのどの会社も〜ない」。
-p5-179|t0	Noneは代名詞なので名詞の前には入らない（None of the companiesは可能）。
-p5-179|t1	Nothingは代名詞なので名詞を修飾できない。
-p5-179|t2	Notは副詞なので、名詞の前の限定詞の位置には入らない。
+p5-179|t0	Noneは「何も（誰も）〜ない」という代名詞なので単独で使い、名詞の前には置けない。None other companyは誤った形で、None of the companies（その会社のどれも）のようにofと一緒に使う。意味が似ているので選びやすいわなだ。
+p5-179|t1	Nothingは「何も〜ない」という代名詞なので、名詞companyを修飾できない。Nothing other companyは成り立たない。NothingはNothing is impossible（不可能なことはない）のように単独で主語として使う。
+p5-179|t2	Notは副詞なので動詞・形容詞などを否定し、名詞の前の限定詞の位置には来ない。Not other companyは誤った形で、名詞を否定する限定詞は別にある。NotはNot every company offers it（すべての会社が提供しているわけではない）のようにeveryなどの限定詞の前なら使える。
 p5-180|why	後ろのorと組になるeither A or B（AまたはB）。電話かメールのどちらかで連絡できるという意味。
-p5-180|t1	neitherはnorと組になる。
-p5-180|t2	bothはandと組になる。
-p5-180|t3	not onlyはbut alsoと組になる。
+p5-180|t1	neitherはneither A nor B（AもBも〜ない）の形でnorと組になる否定の表現だ。空所の後ろにはnorではなくorがあるので組が合わない。意味の面でも「電話でもメールでも連絡できない」となり、連絡方法を案内する文と食い違う。後ろにnorがあるときに選ぶ。
+p5-180|t2	bothはboth A and B（AとBの両方）の形でandと組になる。この文はby phoneとby e-mailをorでつないでいるので、bothを入れると組が合わない。また「どちらか一方で連絡できる」という選択の意味も出ない。both lighter and cheaperのように後ろにandがあるときに選ぶ。
+p5-180|t3	not onlyはnot only A but (also) B（AだけでなくBも）の形でbut alsoと組になる。この文にはbut alsoがなくorしかないので、構文が完成しない。not onlyはBを強調する追加の意味なので、「どちらか一方」を選ぶorとも合わない。後ろにbut alsoがあるときに選ぶ。
 p5-181|why	後ろにandがあるのでboth A and B（AもBも）。より軽く、より安いという2つの長所を一度に述べている。
-p5-181|t1	eitherはorと組になる。
-p5-181|t2	neitherはnorと組になる。
-p5-181|t3	whetherはorと組になり、名詞節・副詞節を導く。
+p5-181|t1	eitherはeither A or B（AまたはB）の形でorと組になる。空所の後ろのlighterとcheaperはandでつながっているので組が合わない。また新モデルが軽くて安いという2つの長所を一緒に言う文なのに、eitherはどちらか一方を選ぶ意味なので内容とも食い違う。either by phone or by e-mailのようにorがあるときに選ぶ。
+p5-181|t2	neitherはneither A nor B（AもBも〜ない）の形でnorと組になる。この文はandでつながっているので組が合わず、意味も「軽くも安くもない」という否定になり、新モデルの長所を言う流れと反対だ。後ろにnorがあるときに選ぶ。
+p5-181|t3	whetherはwhether A or B（AかBか）の形でorと組になり、名詞節・副詞節を導く。この文はlighterとcheaperがandでつながっているので組が合わず、空所の後ろは主語・動詞のそろった節ではなく形容詞の比較級なので、whetherが導くものもない。decide whether to stay or leaveのように「〜かどうか」を言うときに使う。
 p5-182|why	Neitherと組になるのはnor。neither A nor Bは「AもBも〜ない」という意味で、2人とも出席できなかったという内容。
-p5-182|t0	orはeitherと組になる。
-p5-182|t1	andはbothと組になる。
-p5-182|t3	butはnot only 〜 but alsoで使う。
+p5-182|t0	orはeither A or B（AまたはB）でeitherと組になる接続詞だ。文の初めにNeitherがあるので、組になるのはnorでなければならず、Neither 〜 orは誤った組み合わせだ。文頭がEitherならorが正解になるので、前にある相関語を先に確認する必要がある。
+p5-182|t1	andはboth A and B（AとBの両方）でbothと組になる。Neitherとは結びつかず、andを入れると「HanさんとLopezさんの両方」という肯定の意味になり、Neitherの否定の意味とぶつかる。文頭がBothならandが正しく、そのときは動詞も複数形のwereになる。
+p5-182|t3	butはnot only A but (also) B（AだけでなくBも）でnot onlyと組になるか、「しかし」という対比を表す。前にNeitherがあるので組になれず、2人を対比する文でもない。「AではなくB」という意味のnot A but Bの構文でもbutを使う。
 p5-183|why	not only A but also Bの構文。AとBの位置にfor + 名詞が並列になっている。
-p5-183|t0	and alsoはnot onlyと組にならない。
-p5-183|t2	orはeitherと組になる。
-p5-183|t3	as wellはB as well as Aの形で使い、not onlyとは組にならない。
+p5-183|t0	and alsoは「そして〜も」という意味で内容を付け加えるときに使うが、not onlyと組になる相関表現ではない。前にnot only for managersがあるので、組になるのはbut alsoでなければならない。andもalsoも「追加」の意味を持つので正解に見えやすいひっかけだ。
+p5-183|t2	orはeither A or B（AまたはB）でeitherと組になり、「どちらか一方」を意味する。この文はnot onlyで始まり、管理職と新入社員の「両方」が対象だという意味なので、orとは合わない。前にeitherがあるときに選ぶ。
+p5-183|t3	as wellは「〜もまた」という意味で文末に付けるか、B as well as A（AだけでなくBも）の形で使う。not onlyとは組にならないので、not only for managers as well for new employeesは誤りだ。for new employees as well as for managersのようにすれば同じ意味を表せる。
 p5-184|why	シートベルト（seat belt）を「締める」はfasten。fasten one's seat beltは機内アナウンスに出てくる決まった表現。
-p5-184|t0	closeはドア・窓を閉めるときに使う。
-p5-184|t1	tieはひも・リボンを結ぶときに使う。
-p5-184|t2	lockは鍵をかけるときに使う。
+p5-184|t0	closeは「閉める」という意味で、close the door（ドアを閉める）、close the windowのように開いているものを閉めるときに使う。シートベルトは閉めるものではなく、バックルを留めて「締める」ものなので、close their seat beltsは不自然だ。機内放送の決まった表現はfasten your seat beltだ。
+p5-184|t1	tieは「結ぶ」という意味で、tie a ribbon、tie one's shoelaces（靴ひもを結ぶ）のようにひもやリボンを結び目にするときに使う。シートベルトは結ばずにバックルで留めるので、tieはseat beltsと組み合わない。ベルトをひものように「結ぶ」イメージにつられて選びやすいひっかけだ。
+p5-184|t2	lockは「鍵をかける」という意味で、lock the door（ドアに鍵をかける）のように鍵やロックで閉めるときに使う。シートベルトを体に締める動作は鍵をかけることではないので、lock their seat beltsは不自然だ。バックルがカチッと留まる感じから選びやすいが、決まった表現はfastenだ。
 p5-185|why	会社が労働者を「雇う」はhire。2つ目の工場のために新しい従業員50人を雇うという意味で、plan toの後ろなので動詞の原形が来る。
-p5-185|t0	applyはapply for（応募する）のように応募者側が使う動詞。
-p5-185|t2	attendはイベントに出席するときに使う。
-p5-185|t3	retire（退職する）は自動詞。
+p5-185|t0	applyはapply for a job（仕事に応募する）のように応募者側が使う動詞だ。主語は会社のKestrel Foodsで、目的語が50 new workersなので「労働者50人に応募する」となり意味が通じない。また「応募する」の意味ではforが必要で、人を直接目的語にとらない。
+p5-185|t2	attendはattend a meeting（会議に出席する）のように行事や集まりに「出席する」という意味だ。会社が新しい労働者50人に「出席する」というのは意味をなさない。2つ目の工場のために人を採用するという文脈にはhire（雇う）が合う。
+p5-185|t3	retireは「引退する、退職する」という意味の自動詞で、ふつうretire next yearのように目的語なしで使う。空所の後ろの50 new workersを目的語にとれず、新しく人を採用するという意味とも正反対だ。社員が会社を去る内容で使う語だ。
 p5-186|why	remind A of B（AにBを思い出させる）が空所の後ろのme ofと合う。
-p5-186|t0	rememberは人 + ofの形をとらない。
-p5-186|t1	mentionはmention B to Aの形。
-p5-186|t2	notice（気づく）はofと結びつかない。
+p5-186|t0	rememberは「覚えている」という意味で、remember the meeting timeのように覚える内容を直接目的語にとる。remember me ofという「人 + of」の形はなく、Could you remember meでは「私のことを覚えていてくれますか」という見当違いの意味になる。人に思い出させてほしいときはremind A of Bを使う。
+p5-186|t1	mentionは「言及する」という意味で、mention B to A（AにBを言う）の形を使う。mention me ofのように人を直接目的語にとってofを付ける形はない。mention the meeting time to meなら文法的に正しいが、空所の後ろのme ofとは合わない。
+p5-186|t2	noticeは「気づく」という意味で、notice a changeのように気づいた対象を直接目的語にとる。notice me ofという形はなく、名詞のnotice（通知）と混同して「知らせる」と勘違いしやすい。「知らせる」の意味でofを使う動詞はnotify（notify me of the change）で、思い出させてほしいという依頼にはremindが合う。
 p5-187|why	空所の後ろの目的語the login problemを直接とる他動詞が必要。resolve（解決する）。
-p5-187|t1	respondはrespond toのように前置詞が必要。
-p5-187|t2	reactもreact toのように使う自動詞。
-p5-187|t3	resultはresult in/fromのように使う自動詞で、意味も合わない。
+p5-187|t1	respondは「応答する、対応する」という意味の自動詞で、respond to the problemのようにtoが必要だ。空所の後ろには前置詞なしでthe login problemが直接来るので、respondは入らない。意味の面でも問題に「対応する」ことと「解決する」ことは違う。
+p5-187|t2	reactは「反応する」という意味の自動詞で、react to the newsのようにtoと一緒に使う。目的語のthe login problemを直接とれず、意味も「反応する」なので、サポートチームに問題の処理を頼む文と合わない。respondと同じく、後ろにtoがあるときだけ候補になる。
+p5-187|t3	resultはresult in（〜をもたらす）やresult from（〜から生じる）のように前置詞と一緒に使う自動詞だ。the login problemを直接目的語にとれず、result inを使ったとしても「ログインの問題を引き起こす」となり、解決を頼む文と反対だ。resolveと前半のつづりが似ていて選びやすい。
 p5-188|why	購入の証明（proof of purchase）として保管するのはレシート（receipt）。つづりが似たrecipe・reception・recipientと区別する問題。
-p5-188|t0	recipeは「料理のレシピ」なので、購入の証明とは関係ない。receiptとつづりが似ていて選びやすいひっかけ。
-p5-188|t1	receptionは受付・歓迎会。
-p5-188|t3	recipientは受取人。
+p5-188|t0	recipeは「料理の作り方、レシピ」という意味なので、proof of purchase（購入の証明）として保管するものではない。receiptとつづりが似ていて、receiptのpは発音しないので音でも混同しやすいひっかけだ。a recipe for pasta（パスタのレシピ）のように料理の文脈で使う。
+p5-188|t1	receptionは「受付、フロント」や「歓迎会」という意味の名詞だ。your receptionを購入の証明として保管するというのは意味が通じない。reception desk（受付）、a wedding reception（結婚披露宴）のように使い、receiveから来た語なのでreceiptと混同しやすい。
+p5-188|t3	recipientは「受取人、受け取る人」という意味で、人を指す。人を購入の証明として「保管する」というのは意味をなさない。the recipient of the award（受賞者）、e-mail recipients（メールの受信者）のように、何かを受け取る人を言うときに使う。
 p5-189|why	ホテルが満室なので別の「宿泊先」を探す必要があったという意味。accommodations（宿泊施設）。
-p5-189|t1	accommodateは動詞なので、otherの後ろの名詞の位置には入らない。
-p5-189|t2	accountants（会計士）は文脈と関係ない。
-p5-189|t3	accounts（口座、取引先）も文脈と関係ない。
+p5-189|t1	accommodateは「収容する、宿泊させる」という意味の動詞だ。otherの後ろは名詞が来る位置なので、動詞は入らない。The hotel can accommodate 200 guests（そのホテルは200人を収容できる）のように、主語や助動詞の後ろの動詞の位置で使う。
+p5-189|t2	accountantsは「会計士たち」という意味の名詞だ。品詞としてはotherの後ろに入れるが、ホテルが満室だったので別の「会計士」を探さなければならなかったというのは意味が通じない。accommodationsと前半のつづり（acc-）が同じで、紛らわしくした選択肢だ。
+p5-189|t3	accountsは「口座、取引先、アカウント」という意味の名詞だ。名詞の位置には合うが、ホテルが満室で探す必要があるのは口座ではなく泊まる場所だ。open a bank account（銀行口座を開く）のように金融や顧客の文脈で使う。
 p5-190|why	ホテルの宴会場（ballroom）で「開かれる」のは晩さん会（banquet）。annual banquetは「年次晩さん会」という意味でよく使われる。
-p5-190|t0	bouquetは花束なので開催されない。
-p5-190|t1	budget（予算）は開かれるイベントではない。
-p5-190|t2	bonus（賞与）も開催されるものではない。
+p5-190|t0	bouquetは「花束」という意味なので、will be held（開催される）の主語にはなれない。花束は贈ったりもらったりするもので、宴会場で「開かれる」行事ではない。banquetとつづり・発音が似ていて紛らわしくした選択肢で、a bouquet of roses（バラの花束）のように使う。
+p5-190|t1	budgetは「予算」という意味で、annual budget（年間予算）という組み合わせ自体は自然だ。しかし予算は立てたり承認したりするもので、ホテルのballroom（宴会場）で「開かれる」行事ではない。annualの後ろによく来る語なので選びやすいが、will be held in the ballroomと合わない。
+p5-190|t2	bonusは「賞与、ボーナス」という意味で、annual bonus（年間の賞与）のようには使える。しかし賞与は社員が受け取るお金で、ballroomで開催される行事ではないので、will be heldの主語として合わない。receive a bonus（ボーナスを受け取る）のように使う。
 p5-191|why	社用車を使う前に上司から得る必要があるのは許可（permission）。obtain permission fromは自然な組み合わせ。
-p5-191|t0	admissionは入場（許可）で、施設に入るときに使う。
-p5-191|t1	submissionは提出（物）なので、上司から受け取るものではない。
-p5-191|t3	commissionは手数料・委員会なので文脈と合わない。
+p5-191|t0	admissionは「入場、入学（の許可）」という意味で、施設や学校に入ることを言う。社用車を使う前に上司からもらうのは使用の「許可」で、入場の許可ではない。admission fee（入場料）、free admission（入場無料）のように入る文脈で使う。
+p5-191|t1	submissionは「提出、提出物」という意味で、社員が出す側の語だ。obtain ... from a supervisorは上司から「もらう」という意味なので、上司から提出物をもらうというのは方向が合わない。the deadline for submission（提出の締め切り）のように使う。
+p5-191|t3	commissionは「手数料、委員会」という意味だ。社用車を使う前に上司から手数料や委員会を得るというのは意味が通じない。earn a commission on sales（販売手数料を得る）のように営業成績に関してよく使い、-missionで終わるのでpermissionと混同しやすい。
 p5-192|why	「めったに故障しない」とつながるのは、「信頼できる」を意味するreliable。
-p5-192|t0	responsible（責任のある）は人に使う。
-p5-192|t2	respective（それぞれの）は名詞の前でだけ使い、補語には使わない。
-p5-192|t3	reversible（裏返せる）はプリンターの性能を説明できない。
+p5-192|t0	responsibleは「責任のある、責任感のある」という意味で、a responsible employeeのように主に人に使うか、be responsible for（〜を担当する）の形で使う。プリンターが「責任感がある」というのは不自然で、後ろのrarely breaks down（めったに故障しない）ともつながらない。機械の性能をほめるときはreliableを使う。
+p5-192|t2	respectiveは「それぞれの」という意味で、their respective departments（それぞれの部署）のように名詞の前でだけ使う。veryの後ろの補語の位置には入らず、「プリンターがとてもそれぞれの」では意味が通じない。reliableと同じre-で始まり、紛らわしくした選択肢だ。
+p5-192|t3	reversibleは「裏返せる、元に戻せる」という意味で、a reversible jacket（リバーシブルのジャケット）のように使う。後ろのrarely breaks downは故障が少ないという信頼性の話なので、「裏返せる」という性質とはつながらない。形容詞の位置には合うが、意味が合わない選択肢だ。
 p5-193|why	shortly afterは「〜の直後に」という意味。チケットが発売直後に売り切れたという内容なので、時間を表す副詞shortlyが合う。
-p5-193|t0	lately（最近）は主に現在完了と使い、afterとは結びつかない。
-p5-193|t1	nearly（ほぼ）はnearly sold outのように使えるが、afterの前では「直後」という意味にならない。
-p5-193|t2	hardly（ほとんど〜ない）は否定の意味なので文脈と合わない。
+p5-193|t0	latelyは「最近」という意味で、I haven't seen him latelyのように主に現在完了と一緒に文末で使う。afterと結びついて「〜の直後に」という意味を作れないので、sold out lately afterは誤った表現だ。late（遅く）と形が似ていて、時を表す副詞と勘違いしやすい。
+p5-193|t1	nearlyは「ほぼ」という意味で、The tickets nearly sold out（チケットはほぼ売り切れた）のように動詞や数量の前で使う。空所はsold outの後ろ、afterの前で、時間の間隔を言う位置だが、nearly afterでは「直後」という意味にならない。時間の間隔が短かったことはshortly afterやsoon afterで表す。
+p5-193|t2	hardlyは「ほとんど〜ない」という否定の意味を持つ副詞で、I could hardly hearのように使う。この文は販売直後に売り切れたという肯定の事実を言っているので、否定の意味が入る位置ではなく、hardly afterという組み合わせもない。hard（熱心に、固い）から「熱心に」の意味だと勘違いしやすい。
 p5-194|why	「早く処理できるように」書類を「すぐに」返送してほしいという意味なので、promptly（すぐに）が正解。後ろのso that … quicklyと呼応する。
-p5-194|t1	mostly（ほとんど）は意味が合わない。
-p5-194|t2	closely（綿密に）はreturnと合わない。
-p5-194|t3	likelyは「たぶん」という意味なので、依頼の文と合わない。
+p5-194|t1	mostlyは「主に、ほとんど」という意味で、The staff are mostly studentsのように割合を言うときに使う。「署名した用紙をほとんど返送せよ」となって不自然で、後ろのso that we can process your order quickly（すばやく処理できるように）が求める「すぐに」という意味もない。
+p5-194|t2	closelyは「綿密に、密接に」という意味で、work closely with（〜と緊密に協力する）、examine closely（よく調べる）のように使う。return the signed form closelyは「用紙を綿密に返送する」となり不自然だ。すばやく処理するには用紙を早く送る必要があるので、時間を表すpromptlyが必要だ。
+p5-194|t3	likelyは「〜しそうな」という意味の形容詞で、主にbe likely to（〜する可能性が高い）の形で使う。-lyで終わるので副詞に見えるが、Pleaseで始まる依頼の文に「たぶん」という推量の意味を入れると意味が合わない。Prices are likely to riseのように可能性を言うときに使う。
 p5-195|why	数字（20 percent）の前で「約」を意味するapproximatelyが正解。売上が約20パーセント増えたという意味。
-p5-195|t0	extremelyは形容詞を強調し、数字の前には使わない。
+p5-195|t0	extremelyは「極めて、非常に」という意味で、extremely busy（非常に忙しい）のように形容詞・副詞の程度を強調する。byの後ろで数字の20 percentを修飾しないので、by extremely 20 percentは誤った表現だ。数字の前で「約、およそ」を表すときはapproximatelyやaboutを使う。

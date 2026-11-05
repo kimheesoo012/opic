@@ -1,110 +1,110 @@
-p5-085|t1	both는 and와 짝을 이룬다.
-p5-085|t3	unless는 부사절 접속사라 indicate의 목적어가 될 수 없다.
+p5-085|t1	both는 and와 짝을 이루어 both A and B(A와 B 둘 다)로 쓴다. 이 문장은 뒤에 or가 있고, 오전과 오후 중 어느 쪽에 참석할지 고르는 내용이라 '둘 다'라는 뜻과도 맞지 않는다. 또 both는 절을 이끌지 못해 indicate의 목적어가 될 수 없다.
+p5-085|t3	unless는 '~하지 않으면'이라는 조건의 부사절 접속사라 indicate(표시하다)의 목적어인 명사절을 이끌지 못한다. 넣으면 '오전이나 오후 세션에 참석하지 않으면 양식에 표시하라'라는 엉뚱한 뜻이 된다. unless는 Unless you cancel, the fee will be charged처럼 조건을 말할 때 쓴다.
 p5-086|why	양식(form)을 '작성하다, 기입을 마치다'는 complete a form이다. 작성한 뒤 반납하라는 흐름에도 맞는다.
-p5-086|t1	perform은 '(업무·공연을) 수행하다'로 양식과 어울리지 않는다.
-p5-086|t2	conduct는 '(조사·회의를) 실시하다'로 conduct a survey처럼 쓴다. 양식에는 쓰지 않는다.
-p5-086|t3	achieve는 '(목표를) 달성하다'라 form과 결합하지 않는다.
+p5-086|t1	perform은 '(업무·공연을) 수행하다, 해내다'라는 뜻으로 perform a task, perform surgery처럼 일이나 동작을 목적어로 받는다. 서류인 form을 목적어로 하면 '양식을 공연하다·수행하다'가 되어 어색하다. 양식의 빈칸을 채워 넣는 것은 complete a form 또는 fill out a form이다.
+p5-086|t2	conduct는 '(조사·회의·검사를) 실시하다'라는 뜻으로 conduct a survey, conduct an interview처럼 활동을 목적어로 받는다. registration form(등록 양식)은 실시하는 활동이 아니라 작성하는 서류이므로 conduct와 결합하지 않는다. 작성한 뒤 return it(돌려주다)이라는 흐름에도 complete가 맞다.
+p5-086|t3	achieve는 '(목표·성과를) 달성하다'라는 뜻으로 achieve a goal, achieve success처럼 노력해서 이루는 대상과 쓴다. form(양식)은 달성하는 대상이 아니므로 achieve the form은 뜻이 통하지 않는다. '완료하다'와 비슷해 보여도, 서류를 끝까지 작성한다는 의미는 complete만 가진다.
 p5-087|why	accommodate는 '(인원을) 수용하다'라는 타동사로 up to 500 guests를 목적어로 받는다. 시설의 수용 인원을 말할 때 쓰는 대표 동사.
-p5-087|t1	attend는 '참석하다'라 호텔이 손님을 참석한다는 뜻이 되어 맞지 않는다.
-p5-087|t2	reside(거주하다)는 자동사라 목적어를 취하지 못한다(reside in).
-p5-087|t3	consist는 consist of(~로 구성되다) 형태로만 쓰는 자동사다.
+p5-087|t1	attend는 '(회의·행사에) 참석하다'라는 뜻으로 사람이 주어가 되어 attend a conference처럼 쓴다. 이 문장은 주어가 호텔이고 목적어가 up to 500 guests(최대 500명의 손님)라서 '호텔이 손님에 참석한다'는 엉뚱한 뜻이 된다. 시설이 인원을 받을 수 있다는 뜻은 accommodate나 hold로 나타낸다.
+p5-087|t2	reside는 '거주하다, 살다'라는 자동사로 reside in London처럼 전치사와 함께 쓰고 목적어를 바로 받지 못한다. 빈칸 뒤에 목적어 up to 500 guests가 있으므로 구조가 맞지 않고, 뜻도 '호텔이 손님을 거주하다'가 되어 어색하다. 손님이 호텔에 '머무는' 것과 호텔이 손님을 '수용하는' 것을 혼동하게 만드는 함정이다.
+p5-087|t3	consist는 consist of(~로 구성되다)의 형태로만 쓰는 자동사라 목적어를 바로 받지 못한다. The package consists of three items처럼 전체가 무엇으로 이루어졌는지를 말할 때 쓴다. 이 문장은 호텔 연회장이 손님 500명을 '수용할 수 있다'는 뜻이므로 accommodate가 맞다.
 p5-088|why	빈칸 뒤에 사람 목적어(staff) + that절이 온다. 이 구조를 취하는 동사는 inform(inform 사람 that …)이다.
-p5-088|t0	explain은 사람을 바로 목적어로 받지 않는다(explain to staff that …).
-p5-088|t1	announce도 사람 목적어를 바로 취하지 않는다(announce to staff that …).
-p5-088|t3	said(say)도 사람을 바로 목적어로 쓰지 않는다(say to staff 또는 tell staff).
+p5-088|t0	explain(설명하다)은 사람을 바로 목적어로 받지 않고 explain to staff that …이나 explain the rule to staff처럼 to를 써서 듣는 사람을 나타낸다. 빈칸 뒤에 사람 목적어 staff가 바로 오고 that절이 이어지므로 explained staff that …은 틀린 구조다. '사람 + that절'을 바로 받는 동사는 inform, notify, tell이다.
+p5-088|t1	announce(발표하다, 알리다)는 알리는 내용을 목적어로 받아 announce that …이나 announce the closure to staff처럼 쓰며, 사람을 바로 목적어로 받지 못한다. 그래서 announced staff that …은 틀린 구조다. 뜻은 비슷하지만 사람 목적어 staff 바로 뒤에 that절이 오는 형태는 informed staff that …이다.
+p5-088|t3	said(say)는 '말하다'라는 뜻으로 말한 내용을 목적어로 받아 said that …으로 쓰며, 듣는 사람은 say to staff처럼 to로 나타낸다. 그래서 said staff that …은 틀린 구조다. 사람을 바로 목적어로 받는 비슷한 뜻의 동사는 tell(told staff that …)이다.
 p5-089|why	address는 '(문제를) 다루다, 처리하다'라는 타동사로 the issue를 바로 목적어로 받는다.
-p5-089|t0	attend는 이 뜻일 때 attend to the issue처럼 전치사 to가 필요하다.
-p5-089|t1	deal은 deal with the issue 형태로 써야 한다.
-p5-089|t2	respond는 respond to처럼 전치사가 필요하다. 뜻이 비슷한 자동사들이 함정.
+p5-089|t0	attend는 '참석하다'라는 타동사(attend a meeting)로 쓰거나, '처리하다, 돌보다'라는 뜻일 때는 attend to the issue처럼 전치사 to가 필요하다. 빈칸 뒤에 the issue가 바로 오므로 attend the issue는 '문제에 참석하다'라는 어색한 뜻이 된다. 문제를 바로 목적어로 받아 '처리하다'라는 뜻을 가진 동사는 address다.
+p5-089|t1	deal은 '처리하다'라는 뜻일 때 deal with the issue처럼 반드시 with와 함께 쓰는 자동사다. 빈칸 뒤에 with 없이 the issue가 바로 오므로 deal the issue는 틀린 형태다. 뜻이 정답 address와 같아 고르기 쉽지만 전치사가 빠져 있어 들어갈 수 없다. 목적어를 바로 쓰면 deal the cards(카드를 나눠 주다)처럼 다른 뜻이 된다.
+p5-089|t2	respond는 '응답하다, 대응하다'라는 자동사로 respond to the request처럼 전치사 to가 필요하다. 빈칸 뒤에 the issue가 바로 오므로 respond the issue는 틀린 형태다. 문장 뒤쪽의 service request(서비스 요청)를 보고 '요청에 응답하다'를 떠올려 고르기 쉬운 함정이다.
 p5-090|why	attribute A to B는 'A를 B의 덕분(탓)으로 돌리다'라는 뜻이다. 성공을 디자인팀의 노고 덕분으로 돌렸다는 의미가 된다.
-p5-090|t0	contribute A to B는 'A를 B에 기부·기여하다'라 '성공을 노고에 기부했다'가 되어 뜻이 통하지 않는다. 모양이 비슷한 혼동 어휘.
-p5-090|t2	distribute A to B는 'A를 B에게 나눠 주다'라 의미가 맞지 않는다.
-p5-090|t3	recognize는 recognize A for B 형태로 칭찬할 때 쓰며 to와 결합하지 않는다.
+p5-090|t0	contribute A to B는 'A(돈·시간·아이디어)를 B에 기부하다, 기여하다'라는 뜻이다. 넣으면 'CEO가 출시의 성공을 디자인팀의 노고에 기부했다'가 되어 뜻이 통하지 않는다. attribute와 철자가 비슷하고 둘 다 A to B 형태를 취해 헷갈리기 쉬운 혼동 어휘이며, contribute는 contribute ideas to the project처럼 쓴다.
+p5-090|t2	distribute A to B는 'A를 B에게 나눠 주다, 배포하다'라는 뜻으로 distribute flyers to customers처럼 쓴다. 넣으면 '성공을 디자인팀의 노고에게 나눠 주었다'가 되어 의미가 맞지 않는다. A to B 형태와 -tribute라는 모양만 같은 혼동 어휘다.
+p5-090|t3	recognize는 '(공로를) 인정하다, 표창하다'라는 뜻이 있어 그럴듯해 보이지만, recognize the team for its hard work처럼 사람을 목적어로 하고 for로 이유를 나타낸다. recognize A to B라는 형태는 없으므로 빈칸 뒤의 to the hard work와 연결되지 않는다. 'A를 B의 덕분으로 돌리다'는 attribute A to B다.
 p5-091|why	빈칸 뒤 from + -ing와 결합하는 자동사는 refrain(삼가다)이다. refrain from doing은 공지에 자주 나오는 표현.
-p5-091|t0	prevent는 prevent 목적어 from -ing 형태라 목적어가 필요하다.
-p5-091|t1	avoid는 바로 동명사를 목적어로 받는다(avoid using). from이 붙으면 틀린다.
-p5-091|t3	stop도 바로 동명사를 받는다(stop using).
+p5-091|t0	prevent는 prevent + 목적어 + from -ing(~가 …하지 못하게 막다)의 형태로 막는 대상을 목적어로 받아야 한다. 이 문장은 빈칸 바로 뒤에 from using이 와서 목적어가 없다. prevent others from using phones처럼 목적어가 있으면 가능하지만, 자신이 삼가는 행동에는 refrain from -ing를 쓴다.
+p5-091|t1	avoid(피하다)는 타동사라 동명사를 바로 목적어로 받는다(avoid using mobile phones). from이 끼어든 avoid from using은 틀린 형태다. 뜻은 '삼가다'와 비슷해 고르기 쉽지만, 빈칸 뒤 from과 결합하는 자동사는 refrain뿐이다.
+p5-091|t3	stop은 '멈추다'라는 뜻으로 stop using phones처럼 동명사를 바로 목적어로 받는다. from과 함께 쓰려면 stop others from using처럼 사이에 목적어가 있어야 하므로 stop from using은 틀린 형태다. 또 공지문에서 '~을 삼가 달라'고 정중하게 요청할 때는 refrain from -ing가 정해진 표현이다.
 p5-092|why	under warranty는 '품질 보증 기간 중인'이라는 뜻이다. 보증 기간이라서 수리가 무료라는 인과 관계가 성립한다.
-p5-092|t1	under discount라는 표현은 없다(at a discount).
-p5-092|t2	under inspection(점검 중)은 쓸 수 있지만 '점검 중이라 수리가 무료'라는 이유 관계가 성립하지 않는다.
-p5-092|t3	under delivery라는 표현은 쓰지 않는다.
+p5-092|t1	discount는 '할인'이라는 명사로, '할인된 가격으로'는 at a discount라고 하며 under discount라는 표현은 쓰지 않는다. 또 할인은 값을 깎아 주는 것일 뿐 수리가 free of charge(무료)인 이유가 되지 못한다. 무료 수리의 이유가 되는 것은 품질 보증 기간 중을 뜻하는 under warranty다.
+p5-092|t2	inspection은 '점검, 검사'라는 뜻이고 under inspection(점검 중)이라는 표현은 실제로 쓴다. 하지만 '프린터가 점검 중이라서 수리가 무료다'라는 이유 관계가 성립하지 않는다. so 앞뒤가 원인과 결과로 이어지려면 '보증 기간 중'이라는 under warranty가 들어가야 한다.
+p5-092|t3	delivery는 '배달, 배송'이라는 뜻으로, under delivery라는 표현은 쓰지 않고 '배송 중'은 in transit나 out for delivery로 나타낸다. 또 이미 사용 중인 프린터의 수리가 무료라는 내용과 배송은 관계가 없다. under와 결합해 무료 수리의 이유가 되는 명사는 warranty다.
 p5-093|why	a wide range of는 '다양한, 폭넓은 ~'이라는 정해진 표현이다. 소규모 사업체에 여러 가지 금융 서비스를 제공한다는 뜻으로, range(범위)가 wide(넓은)와 짝을 이룬다.
-p5-093|t0	field는 '분야'라 a wide field of services는 쓰지 않는 표현이다.
-p5-093|t1	distance(거리)는 서비스의 다양함과 무관하다.
-p5-093|t2	level은 '수준'이라 a wide level of는 의미가 성립하지 않는다.
+p5-093|t0	field는 '분야'라는 뜻으로 the field of finance(금융 분야)처럼 한 영역을 말한다. a wide field of services라고 하면 '서비스의 넓은 분야'라는 어색한 표현이 되어, 여러 종류의 서비스를 제공한다는 뜻을 나타내지 못한다. '다양한 ~'은 a wide range of, a wide variety of로 쓴다.
+p5-093|t1	distance는 '거리'라는 뜻으로 a long distance(먼 거리)처럼 공간의 떨어진 정도를 말한다. a wide distance of financial services는 '금융 서비스의 넓은 거리'가 되어 서비스의 다양함과 아무 관계가 없다. wide와 어울려 종류의 폭을 나타내는 명사는 range다.
+p5-093|t2	level은 '수준, 정도'라는 뜻으로 a high level of service(높은 수준의 서비스)처럼 high, low와 짝을 이룬다. wide와는 어울리지 않아 a wide level of는 의미가 성립하지 않는다. 서비스의 '질'이 아니라 '종류가 많음'을 말하는 문장이므로 a wide range of가 맞다.
 p5-094|why	영수증은 출장 경비를 '증명하는 것'이다. as proof of(~의 증거로)가 문맥에 맞다.
-p5-094|t0	reason(이유)은 영수증이 경비의 이유가 되는 것이 아니므로 어색하다.
-p5-094|t2	cause(원인)도 영수증과 경비의 관계와 맞지 않는다.
-p5-094|t3	fact(사실)는 'as fact of'라는 표현으로 쓰지 않는다.
+p5-094|t0	reason은 '이유'라는 뜻으로 the reason for the delay(지연의 이유)처럼 쓴다. as reason of라고 하면 '영수증이 출장 경비의 이유'라는 뜻이 되는데, 영수증은 돈을 쓴 이유가 아니라 썼다는 것을 보여 주는 서류다. 또 reason은 보통 of가 아니라 for와 함께 쓴다.
+p5-094|t2	cause는 '원인'이라는 뜻으로 the cause of the problem(문제의 원인)처럼 일이 일어나게 한 것을 말한다. 영수증이 출장 경비를 발생시킨 원인은 아니므로 as cause of their travel expenses는 뜻이 통하지 않는다. 지출을 증명하는 서류라는 뜻은 as proof of가 나타낸다.
+p5-094|t3	fact는 '사실'이라는 가산 명사로 the fact that …(~라는 사실)처럼 쓰며, as fact of라는 표현은 쓰지 않는다. 영수증은 '사실' 그 자체가 아니라 사실을 뒷받침하는 증거물이다. 무엇을 증명하는 자료로 보관한다는 뜻은 as proof of(~의 증거로)가 정해진 표현이다.
 p5-095|why	in compliance with(~을 준수하여)는 규정·법과 함께 쓰는 정해진 표현이다. 규정을 지키지 못해 벌금을 냈다는 흐름.
-p5-095|t0	obedience(복종)는 사람·명령에 쓰고 in obedience with라는 표현은 쓰지 않는다(in obedience to).
-p5-095|t1	permission(허가)은 in permission with라는 표현이 없다.
-p5-095|t2	attention은 '주의'라 규정 준수의 의미가 되지 않는다.
+p5-095|t0	obedience는 '복종, 순종'이라는 뜻으로 주로 사람이나 명령에 따르는 것을 말하며, in obedience to orders처럼 to와 함께 쓴다. in obedience with라는 표현은 없고, 회사가 환경 규정을 지키는 상황에도 어울리지 않는다. 규정·법을 준수한다는 뜻은 in compliance with다.
+p5-095|t1	permission은 '허가'라는 뜻으로 with permission(허가를 받아), permission to do처럼 쓰며 in permission with라는 표현은 없다. 또 '규정의 허가 속에서 운영하다'라는 뜻으로 보아도 '규정을 지키지 않아 벌금을 냈다'는 흐름과 맞지 않는다. in ___ with와 짝을 이루는 것은 compliance다.
+p5-095|t2	attention은 '주의, 관심'이라는 뜻으로 pay attention to(~에 주의를 기울이다)처럼 쓰며 in attention with라는 표현은 없다. 규정에 '주의를 기울이는 것'과 규정을 '지키는 것'은 다르므로 벌금의 이유를 설명하지 못한다. 규정 준수는 in compliance with로 나타낸다.
 p5-096|why	be given full responsibility for -ing(~을 전적으로 책임지게 되다)가 자연스러운 표현이다. 행사 준비의 책임자를 맡았다는 뜻.
-p5-096|t1	obligation은 '(법적·도덕적) 의무'로 보통 an obligation to do 형태이며 full obligation for는 어색하다.
-p5-096|t2	duty도 '의무'이지만 full duty for -ing로 쓰지 않는다. 뜻이 비슷한 명사로 헷갈리게 하는 함정.
-p5-096|t3	reliance(의존)는 reliance on 형태로 쓰며 의미도 맞지 않는다.
+p5-096|t1	obligation은 '(법적·도덕적) 의무'라는 뜻으로 보통 have an obligation to do(~할 의무가 있다)처럼 to부정사와 쓴다. 행사 준비를 '맡았다'는 뜻으로 be given full obligation for -ing라고 하지 않는다. 일을 책임지고 맡는다는 뜻은 responsibility for -ing가 나타낸다.
+p5-096|t2	duty도 '의무, 직무'라는 뜻이지만 보통 duties(맡은 업무)나 a duty to do 형태로 쓰며, full duty for -ing라는 표현은 쓰지 않는다. 뜻이 비슷한 명사로 헷갈리게 하는 함정이다. full과 함께 '전적인 책임'을 뜻하고 for -ing와 이어지는 것은 responsibility다.
+p5-096|t3	reliance는 '의존, 신뢰'라는 뜻으로 reliance on suppliers(공급업체에 대한 의존)처럼 on과 함께 쓴다. full reliance for organizing은 '준비에 대한 전적인 의존'이 되어 Kwan 씨가 행사를 맡았다는 뜻이 되지 않는다. 일을 맡아 책임진다는 뜻은 responsibility다.
 p5-097|why	참석하지 못한 사람에게 보내는 것은 회의의 '요약본'이다. summary가 정답.
-p5-097|t0	summit은 '정상 회담·정상'으로 철자가 비슷한 함정이다.
-p5-097|t2	sample(견본)은 회의 내용과 어울리지 않는다.
-p5-097|t3	symbol(상징)은 문맥과 무관하다.
+p5-097|t0	summit은 '정상 회담' 또는 '(산의) 정상'이라는 뜻으로, summary와 앞부분 철자가 같은 것을 노린 함정이다. A summit of the meeting은 '회의의 정상 회담'이 되어 뜻이 통하지 않는다. 불참자에게 보내는 것은 회의 내용을 간추린 summary(요약)다.
+p5-097|t2	sample은 '견본, 샘플'이라는 뜻으로 a sample of the product(제품 견본)처럼 물건의 일부를 보여 줄 때 쓴다. 회의는 견본을 떼어 보낼 수 있는 물건이 아니므로 A sample of the meeting은 어색하다. 참석하지 못한 사람에게 회의 내용을 전하는 것은 summary다.
+p5-097|t3	symbol은 '상징, 기호'라는 뜻으로 a symbol of peace(평화의 상징)처럼 쓴다. A symbol of the meeting은 '회의의 상징'이 되어 불참자에게 보낼 자료라는 문맥과 관계가 없다. s로 시작하는 비슷한 모양의 명사를 늘어놓은 함정이며, 정답은 회의 요약본을 뜻하는 summary다.
 p5-098|why	현재 시제 is closed와 '5월에 재개관한다'는 미래 계획이 이어지므로 '현재'를 뜻하는 currently가 정답이다.
-p5-098|t0	previously(이전에)는 과거 시제와 어울린다.
-p5-098|t1	lately(최근에)는 주로 현재완료와 쓰인다(has lately been).
-p5-098|t3	formerly(예전에)는 과거 상태를 말해 현재 휴관 중이라는 뜻과 맞지 않는다.
+p5-098|t0	previously는 '이전에'라는 뜻으로 The museum was previously closed처럼 과거 시제와 함께 지난 일을 말한다. 이 문장은 현재 시제 is closed이고 but will reopen in May(5월에 다시 연다)로 이어져 지금의 상태를 말하므로 맞지 않는다. 현재 상태는 currently(현재)로 나타낸다.
+p5-098|t1	lately는 '최근에'라는 뜻으로 주로 현재완료와 함께 쓴다(The museum has been busy lately). '최근 한동안 계속된 일'을 말하므로, 지금 휴관 중이라는 현재의 상태를 나타내는 is closed와는 어울리지 않는다. late(늦은)에 -ly가 붙은 모양이지만 '늦게'라는 뜻도 아니다.
+p5-098|t3	formerly는 '예전에, 이전에는'이라는 뜻으로 The building was formerly a bank(그 건물은 예전에 은행이었다)처럼 지금은 아닌 과거 상태를 말한다. 이 문장은 지금 휴관 중이고 5월에 다시 연다는 내용이라 '예전에 휴관했다'는 뜻과 맞지 않는다. 현재 시제 is closed와 어울리는 것은 currently다.
 p5-099|why	reduce, increase, improve 같은 변화 동사는 significantly(상당히)와 자주 결합한다.
-p5-099|t0	highly는 highly recommended, highly qualified처럼 일부 형용사·분사와만 결합하며 reduce와는 쓰지 않는다.
-p5-099|t2	extremely는 주로 형용사를 강조한다(extremely busy). 동사 reduced 수식은 어색하다.
-p5-099|t3	deeply는 감정(deeply moved)과 어울리고 수치 감소와는 맞지 않는다.
+p5-099|t0	highly는 '매우, 높이'라는 뜻이지만 highly recommended(적극 추천되는), highly qualified(자격이 충분한)처럼 평가나 정도를 나타내는 형용사·분사와 짝을 이룬다. reduce처럼 수치가 늘고 주는 동사는 꾸미지 않아 has highly reduced는 어색하다. 증감의 폭을 말할 때는 significantly나 considerably를 쓴다.
+p5-099|t2	extremely는 '극도로, 매우'라는 뜻으로 extremely busy, extremely important처럼 주로 형용사의 정도를 강조한다. 동사 reduced를 꾸며 has extremely reduced라고 하면 어색하다. 줄어든 폭이 크다는 뜻은 significantly(상당히)나 considerably로 나타낸다.
+p5-099|t3	deeply는 '깊이'라는 뜻으로 deeply moved(깊이 감동한), deeply concerned처럼 감정이나 관여의 정도를 나타낸다. 처리 시간처럼 수치로 재는 양이 줄어드는 것과는 어울리지 않아 has deeply reduced는 어색하다. 수치의 증감 폭은 significantly로 말한다.
 p5-100|why	'예약된 시간보다 15분 일찍 오라'는 뜻이므로 '예정된'을 뜻하는 scheduled가 정답이다.
-p5-100|t0	punctual(시간을 잘 지키는)은 사람에게 쓰는 형용사로 appointment time을 꾸미기 어색하다.
-p5-100|t1	eventual(최종적인)은 예약 시간과 어울리지 않는다.
-p5-100|t3	frequent(잦은)는 반복 횟수를 말하는 형용사라 하나의 예약 시각(appointment time)을 꾸미면 뜻이 통하지 않는다.
+p5-100|t0	punctual은 '시간을 잘 지키는'이라는 뜻으로 a punctual employee처럼 사람(이나 행동)을 묘사한다. 시각 자체가 시간을 지킬 수는 없으므로 your punctual appointment time은 어색하다. '시간'이라는 말에 끌려 고르기 쉬운 함정이며, 예약해 둔 시각은 scheduled(예정된)로 나타낸다.
+p5-100|t1	eventual은 '결국의, 최종적인'이라는 뜻으로 the eventual winner(최종 우승자)처럼 여러 과정을 거친 끝의 결과를 말한다. 미리 잡아 둔 예약 시각을 '최종적인 예약 시간'이라고 하면 뜻이 맞지 않는다. 정해 둔 시각보다 15분 일찍 오라는 문장이므로 scheduled가 맞다.
+p5-100|t3	frequent는 '잦은, 빈번한'이라는 뜻으로 frequent visitors(자주 오는 방문객)처럼 여러 번 반복되는 일을 말한다. 이 문장의 your appointment time은 한 번의 예약 시각이라 '잦은 예약 시간'은 뜻이 통하지 않는다. at least fifteen minutes before(최소 15분 전에)의 기준이 되는 것은 예정된 시각, 즉 scheduled다.
 p5-101|why	형용사 helpful의 정도를 강조하는 부사가 필요하다. remarkably(놀랄 만큼)가 '특히 짐이 늦었을 때'라는 칭찬 문맥에 맞다.
-p5-101|t1	densely(빽빽하게)는 densely populated처럼 밀도에 쓴다.
-p5-101|t2	mutually(서로)는 mutually beneficial처럼 상호 관계에 쓴다.
-p5-101|t3	vacantly(멍하니)는 의미가 문맥과 정반대다.
+p5-101|t1	densely는 '빽빽하게, 밀집하여'라는 뜻으로 densely populated(인구가 밀집한)처럼 사람이나 물건이 모여 있는 정도를 말한다. 직원들의 친절함을 나타내는 helpful 앞에 쓰면 '빽빽하게 친절했다'가 되어 뜻이 통하지 않는다. 칭찬의 정도를 높이는 부사는 remarkably(놀랄 만큼)다.
+p5-101|t2	mutually는 '서로, 상호 간에'라는 뜻으로 mutually beneficial(서로에게 이로운)처럼 양쪽이 주고받는 관계에 쓴다. 이 문장은 직원들이 손님에게 친절했다는 내용이라 '서로 친절했다'는 뜻과 맞지 않는다. helpful의 정도를 강조하려면 remarkably가 필요하다.
+p5-101|t3	vacantly는 '멍하니, 넋을 놓고'라는 뜻으로 stare vacantly(멍하니 바라보다)처럼 쓴다. '멍하니 친절했다'는 말이 되지 않고, 특히 짐이 늦었을 때 도와준 직원을 칭찬하는 문맥과도 정반대다. 친절함의 정도를 높이는 remarkably가 맞다.
 p5-102|why	so we plan to renew the contract(그래서 계약을 갱신할 계획)라는 결과가 나오려면 마감을 '꾸준히' 지켰어야 한다. consistently가 정답이다.
-p5-102|t0	hardly(거의 ~않다)는 부정 의미라 계약 갱신이라는 결과와 모순된다.
-p5-102|t1	rarely(좀처럼 ~않다)도 부정 의미라 뒤의 so 절과 맞지 않는다.
-p5-102|t2	nearly met은 '거의 지켰다(실제로는 못 지켰다)'는 뜻이라 갱신의 이유로 약하다. 의미를 반대로 착각하기 쉬운 함정.
+p5-102|t0	hardly는 '거의 ~않다'라는 부정의 부사라 has hardly met its delivery deadlines는 '납품 기한을 거의 지키지 못했다'가 된다. 그러면 so we plan to renew the contract(그래서 계약을 갱신할 계획이다)라는 결과와 모순된다. hardly는 계약을 끝내는 이유(so we will end the contract)라면 어울린다.
+p5-102|t1	rarely는 '좀처럼 ~않다'라는 부정의 빈도 부사라 '납품 기한을 좀처럼 지키지 않았다'는 뜻이 된다. 기한을 잘 지키지 않는 업체와 계약을 갱신한다는 so 절과 앞뒤가 맞지 않는다. 계약 갱신의 이유가 되려면 '꾸준히' 지켰다는 consistently가 필요하다.
+p5-102|t2	nearly는 '거의'라는 뜻으로 has nearly met its deadlines는 '기한을 거의 지킬 뻔했다', 즉 실제로는 지키지 못했다는 뜻이 된다. '거의'를 긍정으로 착각하기 쉬운 함정이며, 그러면 계약 갱신의 이유가 되지 못한다. nearly는 nearly 100 percent처럼 수치 앞에서 '~에 가까운'을 말할 때 자연스럽다.
 p5-103|why	열두 명 모두 찬성했다는 뒤의 설명과 맞는 것은 '만장일치의'를 뜻하는 unanimous다.
-p5-103|t0	anonymous(익명의)는 철자가 비슷한 혼동 어휘로, 공개 투표 문맥과 맞지 않는다.
-p5-103|t1	numerous는 복수 가산 명사와 쓴다(numerous members). 불가산 support를 꾸밀 수 없다.
-p5-103|t2	partial(부분적인)은 '전원 찬성'이라는 내용과 모순된다.
+p5-103|t0	anonymous는 '익명의'라는 뜻으로 an anonymous donor(익명의 기부자)처럼 이름이 알려지지 않은 경우에 쓴다. unanimous와 철자가 비슷한 혼동 어휘이며, anonymous support는 '익명의 지지'가 되어 열두 명 전원이 찬성했다는 뒤의 설명과 연결되지 않는다. 전원 찬성은 unanimous(만장일치의)로 나타낸다.
+p5-103|t1	numerous는 '수많은'이라는 뜻으로 numerous members처럼 복수 가산 명사를 꾸민다. support(지지)는 불가산 명사라 numerous support는 틀린 형태다. '많은 사람이 찬성했다'는 뜻에 끌리기 쉽지만, 열두 명 '전원'이라는 정보까지 담은 말은 unanimous다.
+p5-103|t2	partial은 '부분적인'이라는 뜻으로 partial support는 '일부의 지지'가 된다. 이는 with all twelve members voting in favor(12명 전원이 찬성표를 던져)라는 뒤의 설명과 정면으로 모순된다. 일부만 찬성했다면 a majority(과반수)처럼 말하며, 전원 찬성은 unanimous다.
 p5-104|why	'주문하다'는 place an order가 정해진 표현이다. 정오 전에 주문한 고객은 다음 영업일에 받는다는 뜻이고, 관계절 who ___ an order의 동사 자리라 동사원형 place가 들어간다.
-p5-104|t1	put an order라고는 쓰지 않는다(put in an order는 가능하지만 in이 빠져 있다).
-p5-104|t2	set an order는 '순서를 정하다'처럼 들릴 뿐 '주문하다'가 아니다.
-p5-104|t3	give an order는 '명령을 내리다'라는 뜻이다. order의 다른 의미를 이용한 함정.
+p5-104|t1	put은 '놓다, 두다'라는 뜻으로 put an order라는 표현은 쓰지 않는다. put in an order(주문을 넣다)라는 구동사는 있지만 in이 빠져 있어 이 문장에는 들어갈 수 없다. '주문하다'는 place an order가 정해진 표현이다.
+p5-104|t2	set은 '정하다, 놓다'라는 뜻으로 set a date(날짜를 정하다), set a goal처럼 쓰며, set an order는 '주문하다'라는 뜻이 되지 않는다. order를 '순서'로 보면 '순서를 정하다'처럼 들리지만 그 뜻도 보통 put things in order로 나타낸다. 고객이 주문을 하는 것은 place an order다.
+p5-104|t3	give an order는 '명령을 내리다'라는 뜻으로, order의 '명령'이라는 다른 의미를 이용한 함정이다. 넣으면 '정오 전에 명령을 내리는 고객'이 되어 다음 영업일에 상품을 받는다는 내용과 맞지 않는다. 상품을 '주문하다'는 place an order다.
 p5-105|why	conduct a survey(설문 조사를 실시하다)는 자주 출제되는 콜로케이션이다.
-p5-105|t0	attend는 회의·행사에 '참석하다'로 survey와 결합하지 않는다.
-p5-105|t2	raise는 raise funds, raise concerns처럼 쓰며 설문 조사와는 어울리지 않는다.
-p5-105|t3	gain(얻다)은 gain experience처럼 쓴다.
+p5-105|t0	attend는 '(회의·행사에) 참석하다'라는 뜻으로 attend a meeting처럼 쓴다. 설문 조사는 참석하는 행사가 아니라 실시하는 활동이므로 attend a survey는 어색하다. 연구팀이 조사를 '실시하다'라는 뜻은 conduct a survey가 정해진 콜로케이션이다.
+p5-105|t2	raise는 '올리다, 모으다, 제기하다'라는 뜻으로 raise funds(자금을 모으다), raise concerns(우려를 제기하다)처럼 쓴다. raise a survey라는 표현은 없어 2,000명 대상의 설문 조사를 실시한다는 뜻이 되지 않는다. 조사·연구·인터뷰를 실시하는 동사는 conduct다.
+p5-105|t3	gain은 '얻다'라는 뜻으로 gain experience(경험을 쌓다), gain access처럼 무언가를 얻는 대상을 목적어로 받는다. gain a survey는 '설문 조사를 얻다'가 되어 연구팀이 조사를 실시한다는 뜻이 되지 않는다. 조사 결과를 얻는다면 gain insights from a survey처럼 말하며, 조사 자체를 하는 것은 conduct다.
 p5-106|why	법·규정이 '시행되다, 효력이 발생하다'는 take effect다. 주어가 safety regulations이고 날짜(January 1)가 있어 시행 시점을 말하는 문장이다.
-p5-106|t0	take place는 행사·사건이 '열리다, 일어나다'에 쓴다. 규정의 시행에는 쓰지 않는 함정.
-p5-106|t1	take action은 사람이 '조치를 취하다'라 규정이 주어일 수 없다.
-p5-106|t3	take part는 '참가하다'(take part in)로 사람이 주어다.
+p5-106|t0	take place는 행사나 사건이 '열리다, 일어나다'라는 뜻으로 The conference will take place in May처럼 쓴다. 규정이 열린다는 것은 말이 안 되므로 safety regulations가 주어인 이 문장에는 맞지 않는다. 날짜(January 1)와 함께 규정·법이 '시행되다'라는 뜻은 take effect다.
+p5-106|t1	take action은 '조치를 취하다'라는 뜻으로 The company took action to fix the problem처럼 사람이나 조직이 주어가 된다. 규정 자체가 조치를 취할 수는 없으므로 The regulations will take action은 어색하다. 규정이 '효력을 갖게 되다'라는 뜻은 take effect다.
+p5-106|t3	take part는 take part in the workshop(워크숍에 참가하다)처럼 사람이 주어가 되어 '참가하다'라는 뜻이고, 보통 in이 뒤따른다. 규정이 무언가에 참가한다는 뜻은 문맥과 맞지 않으며 이 문장에는 in과 참가할 대상도 없다. 규정의 시행은 take effect로 나타낸다.
 p5-107|why	strictly limited(엄격히 제한된)는 좌석·인원 제한을 알릴 때 쓰는 대표 콜로케이션이다.
-p5-107|t1	closely는 closely monitored, closely related처럼 쓴다.
-p5-107|t2	eagerly(열심히, 간절히)는 eagerly awaited처럼 기대를 나타낸다.
-p5-107|t3	deeply는 감정과 어울리는 부사다.
+p5-107|t1	closely는 '면밀히, 밀접하게'라는 뜻으로 closely monitored(면밀히 감시되는), closely related(밀접하게 관련된)처럼 관찰이나 관계의 가까움을 말한다. limited와는 어울리지 않아 closely limited라고 쓰지 않는다. 좌석이나 인원을 엄격히 제한한다는 뜻은 strictly limited다.
+p5-107|t2	eagerly는 '열렬히, 간절히'라는 뜻으로 eagerly awaited(손꼽아 기다려지는)처럼 기대하는 마음을 나타낸다. 좌석이 '간절히 제한되었다'는 뜻이 되어 말이 되지 않는다. 일찍 회신하라는 이유가 되는 것은 좌석이 '엄격히 제한되어 있다'는 strictly limited다.
+p5-107|t3	deeply는 '깊이'라는 뜻으로 deeply grateful(깊이 감사하는), deeply moved처럼 감정의 정도를 나타낸다. 좌석 수 제한처럼 규칙이나 수량과 관련된 limited와는 어울리지 않아 deeply limited는 어색하다. 규칙에 따른 제한은 strictly(엄격히)로 강조한다.
 p5-108|why	raise concerns(우려를 제기하다)는 자주 나오는 콜로케이션이다. raise는 목적어를 받는 타동사.
-p5-108|t0	risen은 자동사 rise의 과거분사라 목적어 concerns를 받을 수 없다.
-p5-108|t2	arisen도 자동사 arise(발생하다)의 과거분사라 목적어를 취하지 못한다. Concerns have arisen은 가능.
-p5-108|t3	lift는 lift a ban(금지를 해제하다)처럼 쓰며 '우려를 들어 올리다'는 쓰지 않는다.
+p5-108|t0	risen은 '오르다, 일어나다'라는 자동사 rise의 과거분사(rise-rose-risen)라 목적어를 받을 수 없다. 빈칸 뒤에 목적어 concerns가 있으므로 have risen concerns는 틀린 형태다. Prices have risen처럼 주어 스스로 오를 때 쓰며, 목적어를 받는 타동사는 raise(raised)다.
+p5-108|t2	arisen은 '(문제가) 발생하다'라는 자동사 arise의 과거분사라 목적어를 취하지 못한다. Concerns have arisen(우려가 생겼다)처럼 우려가 주어일 때는 가능하지만, 직원이 주어이고 concerns가 목적어인 이 문장에는 맞지 않는다. 사람이 우려를 '제기하다'는 raise concerns다.
+p5-108|t3	lift는 '들어 올리다, 해제하다'라는 타동사로 lift a box, lift a ban(금지를 해제하다)처럼 쓴다. 목적어를 받을 수는 있지만 lifted concerns라고 하면 '우려를 들어 올렸다'가 되어 '우려를 제기하다'라는 뜻이 되지 않는다. concerns와 짝을 이루는 동사는 raise다.
 p5-109|why	reach an agreement(합의에 이르다)는 정해진 콜로케이션이다. reach는 타동사라 바로 목적어를 받는다.
-p5-109|t0	arrive는 자동사라 arrive at an agreement처럼 전치사가 필요하다.
-p5-109|t1	came(come)은 come to an agreement 형태로 to가 있어야 한다.
-p5-109|t3	went는 의미·구조 모두 맞지 않는다.
+p5-109|t0	arrive는 '도착하다'라는 자동사라 목적어를 바로 받지 못하고 arrive at an agreement처럼 전치사 at이 필요하다. 빈칸 뒤에 an agreement가 바로 오므로 arrived an agreement는 틀린 형태다. 전치사 없이 목적어를 받는 타동사는 reach(reached)다.
+p5-109|t1	came(come)도 자동사라 come to an agreement(합의에 이르다)처럼 전치사 to가 있어야 한다. 빈칸 뒤에 to 없이 an agreement가 바로 오므로 came an agreement는 틀린 형태다. 뜻은 비슷하지만 바로 목적어를 받는 것은 reached뿐이다.
+p5-109|t3	went(go)는 '가다'라는 자동사로, go to an agreement라는 표현도 없어 '합의에 이르다'라는 뜻을 만들지 못한다. went an agreement는 의미와 구조 모두 틀린다. '합의에 이르다'는 reach an agreement, come to an agreement, arrive at an agreement로 나타낸다.
 p5-110|why	빈칸 뒤에 목적어가 없으므로 자동사가 필요하다. rise(오르다)의 과거분사 risen이 정답이다.
-p5-110|t0	raised는 타동사 raise(올리다)의 과거분사라 목적어가 필요하다. rise/raise 혼동 함정.
-p5-110|t1	aroused(불러일으키다)는 타동사이고 감정·관심에 쓴다.
-p5-110|t2	rose는 rise의 과거형이라 have 뒤(현재완료)에 올 수 없다. 현재완료에는 과거분사 risen이 필요하다.
+p5-110|t0	raised는 '올리다'라는 타동사 raise의 과거분사라 뒤에 올리는 대상(목적어)이 필요하다(The company has raised prices). 이 문장은 가격이 스스로 오른 것이고 빈칸 뒤에 목적어 없이 부사 sharply만 있으므로 맞지 않는다. 목적어 없이 '오르다'는 자동사 rise이며, have 뒤에는 과거분사 risen이 온다.
+p5-110|t1	aroused는 '(감정·관심을) 불러일으키다'라는 타동사 arouse의 과거분사로 arouse interest, arouse suspicion처럼 쓴다. 목적어가 필요하고 감정에 쓰는 말이라, 연료 가격이 오른 이 문장과는 구조와 뜻이 모두 맞지 않는다. 가격이 '오르다'는 rise(risen)다.
+p5-110|t2	rose는 rise의 과거형이라 '올랐다'라는 뜻은 맞지만, have 뒤의 현재완료 자리에는 과거분사가 와야 하므로 have rose는 틀린 형태다. over the past two months(지난 두 달 동안)라는 기간 표현 때문에 현재완료 have risen이 쓰였다. 과거형 rose는 Prices rose sharply last month처럼 have 없이 쓴다.
 p5-111|why	will 뒤 동사원형 자리이고 '중소기업에 영향을 미치다'라는 뜻이 필요하다. affect가 정답이다.
-p5-111|t0	effect는 주로 명사(영향)이며, 동사일 때는 '(변화를) 일으키다'라는 뜻이라 effect businesses는 의미가 맞지 않는다.
-p5-111|t1	infect는 '감염시키다'로 철자 함정이다.
-p5-111|t3	effective는 형용사라 will 뒤에 올 수 없다.
+p5-111|t0	effect는 주로 '영향, 효과'라는 명사로 have an effect on(~에 영향을 미치다)처럼 쓴다. 동사로 쓰면 effect change(변화를 일으키다)처럼 '결과를 가져오다'라는 뜻이라, effect small businesses는 '중소기업을 만들어 내다'처럼 되어 맞지 않는다. '~에 영향을 미치다'라는 동사는 affect다.
+p5-111|t1	infect는 '감염시키다, (병을) 옮기다'라는 동사로 a virus that infects computers처럼 쓴다. 세법이 중소기업을 '감염시킨다'는 뜻이 되어 문맥과 맞지 않는다. affect, effect와 끝 철자가 비슷한 것을 노린 함정이다.
+p5-111|t3	effective는 '효과적인, 시행되는'이라는 형용사라 조동사 will 바로 뒤의 동사원형 자리에 올 수 없다. 형용사를 쓰려면 will be effective(시행될 것이다)처럼 be동사가 필요하지만, 그러면 뒤의 small businesses와 연결되지 않는다. 동사원형 affect가 맞다.
 p5-112|why	할인 '규모가 상당한'이라는 뜻의 considerable이 discounts를 꾸민다.
-p5-112|t0	considerate(사려 깊은)는 사람의 성격에 쓰는 혼동 어휘다.
-p5-112|t1	considering은 전치사·접속사(~을 고려하면)로 명사 앞 형용사 자리에 맞지 않는다.
-p5-112|t2	considered는 '숙고한 끝의'라는 뜻으로 할인과 어울리지 않는다.
+p5-112|t0	considerate는 '사려 깊은, 배려하는'이라는 뜻으로 a considerate host처럼 사람의 성격이나 태도를 말한다. considerate discounts는 '배려심 있는 할인'이 되어 어색하다. 할인 폭이 '상당한'이라는 뜻은 considerable이며, 두 단어는 철자가 비슷해 자주 짝지어 출제된다.
+p5-112|t1	considering은 '~을 고려하면'이라는 전치사·접속사로 considering the cost(비용을 고려하면)처럼 문장 앞이나 뒤에 붙는다. offers와 discounts 사이, 명사를 꾸미는 형용사 자리에는 맞지 않는다. 현재분사로 보아도 '고려하고 있는 할인'이 되어 뜻이 통하지 않는다.
+p5-112|t2	considered는 형용사로 쓰면 '숙고한 끝의'라는 뜻으로 a considered decision(신중히 내린 결정)처럼 판단·의견에 쓴다. considered discounts는 '심사숙고한 할인'이 되어 일주일 이상 묵는 손님에게 주는 혜택이라는 문맥과 어울리지 않는다. 할인의 규모가 크다는 뜻은 considerable이다.

@@ -18,9 +18,9 @@
     "why": "曜日の入った時（Friday afternoon）の前にはonを使う。曜日・日付にはon、月・年や単独のafternoonにはin、時刻にはatを使うという規則。",
     "traps": [
      null,
-     "inはthe afternoonのように曜日のない1日の時間帯や、月・年の前に使う。",
-     "atは時刻（at 3 P.M.）の前に使う。",
-     "toは方向を表し、時は表さない。"
+     "inはin the afternoonのように曜日なしで1日のうちの時間帯を言うときや、in May、in 2025のように月・年の前に使う。ここではFriday afternoonのように曜日が付いて特定の日の時間帯になっているのでonを使う。afternoonだけを見てinを選びやすいわなだ。",
+     "atはat 3 P.M.、at noonのように時刻や1つの時点の前に使う。Friday afternoonは曜日の入った特定の日の時間帯なので、atではなくonを使う。会議の時刻まで言うならat 2 P.M. on Fridayのようにatとonを一緒に使える。",
+     "toは「〜へ、〜まで」という方向や到達点を表す前置詞で、行事が開かれる時を表さない。be held to Friday afternoonは成り立たない。toはfrom Monday to Friday（月曜から金曜まで）のように範囲の終わりを言うときに使う。"
     ]
    },
    "trans": "四半期の営業会議は金曜日の午後に開かれる。"
@@ -42,9 +42,9 @@
    "explanation": {
     "why": "more than ten yearsは数字で表した期間。期間の前にはforを使う。",
     "traps": [
-     "sinceの後ろには始まりの時点（since 2015）が来る。",
-     "duringの後ろには出来事・特定の期間（during the meeting）が来る。",
-     "whileは接続詞なので名詞句を受けられない。",
+     "sinceは「〜以来」という意味で、後には期間ではなく始まりの時点が来る（since 2015、since last year）。more than ten years（10年以上）は長さを表す期間なのでsinceと合わない。現在完了has workedを見てsinceを選びやすいわなだ。",
+     "duringは「〜の間」という前置詞だが、during the meeting、during the summerのように出来事や特定の期間の名前が後に来る。more than ten yearsのように数字で表した期間の長さの前にはforを使う。how long（どのくらいの間）に対する答えがforだ。",
+     "whileは「〜している間」という接続詞なので、後に主語と動詞のある節が来る（while he was in Seoul）。空所の後のmore than ten yearsは名詞句なので接続詞はとれない。意味がduringと似ているので混同しやすい。",
      null
     ]
    },
@@ -67,10 +67,10 @@
    "explanation": {
     "why": "in the absence of（〜がない状況で）は決まった前置詞の表現。部長の不在中にKimさんが会議の議長を務めたという意味。",
     "traps": [
-     "on the absence ofという表現は使わない。",
-     "at the absence ofという表現はない。",
+     "Onはon Friday、on the tableのように日付や表面を表す前置詞だ。absenceと組み合わせたon the absence ofという表現は使わない。「〜がいない状況で」はin the absence ofという決まった表現だ。on behalf of（〜の代わりに）と混同して選びやすい。",
+     "Atはat noon、at the officeのように1つの時点や地点を表す前置詞だ。at the absence ofという表現はなく、absenceはinと組み合わせてin the absence of（〜がいないときに）として使う。at the request of（〜の依頼で）のような別の慣用表現と混同しやすい。",
      null,
-     "by the absence ofは「不在によって」と手段のように読めて文脈と合わず、慣用表現でもない。"
+     "Byは「〜によって、〜で」という行為者・手段の前置詞だ。by the absence ofは「不在によって」という不自然な意味になり、慣用表現でもない。部長がいない間にKim氏が会議の議長を務めたという状況なので、in the absence ofが必要だ。byはby means of（〜を使って）のように手段を言うときに使う。"
     ]
    },
    "vocab": [
@@ -102,10 +102,10 @@
    "explanation": {
     "why": "主節がwould + 動詞の原形なので、現在の事実の反対を仮定する仮定法過去。be動詞は主語に関係なくwere。",
     "traps": [
-     "amはふつうの条件文の形なので、主節のwouldと合わない。",
+     "amは現在形で、If I am 〜は実際に起こり得る条件を表す。しかし主節がwould accept（would＋原形）で、「私があなたの立場なら」は現在の事実に反する仮定なので仮定法過去が必要だ。amはIf I am late, I will call youのように主節がwillのときに使う。",
      null,
-     "if節にはwillを使わない。",
-     "hadは後ろに過去分詞が必要で、in your positionとは組み合わない。"
+     "will beは未来形だ。if節では未来のことでもwillを使わず、主節のwould acceptと対になるのは仮定法過去のbe動詞wereだ。willはIf I am free, I will goのように主節で使う。",
+     "hadはhad＋過去分詞（仮定法過去完了）か「持っていた」という動詞だ。had in your positionは過去分詞も目的語もないので成り立たない。仮定法過去完了ならIf I had been in your position, I would have acceptedのように主節もwould have＋過去分詞にする必要がある。"
     ]
    },
    "trans": "私があなたの立場なら、Lumen Techの採用の申し出を受けるだろう。"
@@ -127,9 +127,9 @@
    "explanation": {
     "why": "if節がhad left（仮定法過去完了）なので、主節はwould have + p.p.になる。",
     "traps": [
-     "would catchは仮定法過去の主節の形。",
-     "will catchはふつうの未来の条件文の形。",
-     "caughtは単純過去なので、仮定の結果を表せない。",
+     "would catchは仮定法過去の主節の形で、現在の事実の反対を表す。if節がhad left（仮定法過去完了）なので「あのとき早く出ていたら終電に乗れただろう」という過去の事実の反対であり、主節もwould have＋過去分詞が必要だ。would catchはIf we left now, we would catch the trainのようにif節が過去形のときに使う。",
+     "will catchは実際に起こり得る未来の条件文の主節の形だ（If we leave now, we will catch the train）。if節のhad leftは過去の事実に反する仮定なので、willとは組み合わない。終電はすでに逃した状況だ。",
+     "caughtは単純過去形なので「終電に乗った」という実際の事実になる。しかしif節のhad leftは実際には早く出なかったという仮定なので、結果も「乗れただろう」という仮定でなければならない。単純過去はWe left early and caught the trainのように実際に起きたことに使う。",
      null
     ]
    },
@@ -152,10 +152,10 @@
    "explanation": {
     "why": "If it had not been for（〜がなかったら）のIfを省略するとHad it not been forになる。主節もwould have closed。",
     "traps": [
-     "Were it not forは可能だが、後ろにbeenは来ない。",
-     "Shouldの後ろには動詞の原形が来る必要がある。",
+     "Were it not for 〜（〜がなければ）はIf it were not forからIfを省略した仮定法過去の倒置形で、実際に使われる。しかし空所の後にbeenがあり、Were it not been forとなると成り立たない。主節would have closedも過去のことなので、had beenを使う仮定法過去完了が必要だ。",
+     "Shouldを文頭に置く倒置はIf 〜 should（万一〜なら）からIfを省略したもので、後に動詞の原形が来る（Should you need help, 〜）。空所の後のit not beenは過去分詞beenなので、Shouldとは結びつかない。過去の事実の反対なのでHadが必要だ。",
      null,
-     "Ifを使うならIf it had not beenとなり、If it not beenは誤った形。"
+     "Ifを使うならIf it had not been for 〜としなければならず、hadのないIf it not been forは動詞のない誤った形だ。空所の後にhadがないことこそ、Ifが省略されてHadが前に出た倒置構造だという手がかりだ。"
     ]
    },
    "vocab": [
@@ -188,9 +188,9 @@
     "why": "request, require, recommendの後ろのthat節には（should +）動詞の原形を使う。予算は提出「される」側なのでbe submitted。",
     "traps": [
      null,
-     "is submittedは数を一致させた現在形。要求の動詞の後ろのthat節では原形を使う。",
-     "was submittedは過去なので、これからすることと合わない。",
-     "submitsは能動態なので、予算が提出する主体になる。"
+     "is submittedは主語the revised budgetに数を合わせた現在の受動態だ。request、require、recommendのように要求・提案を表す動詞の後のthat節には（should）＋原形を使うので、isではなくbeが来る。主語が単数なのでisにつられやすいわなだ。",
+     "was submittedは過去の受動態だ。主節のrequestedが過去なので時制をそろえて選びやすいが、要求動詞の後のthat節には時制に関係なく（should）＋原形を使う。しかもby noon on Thursday（木曜の正午までに）は依頼した時点から見てこれからすることだ。",
+     "submitsは能動態の3人称単数現在形だ。予算が提出する主体になって意味が合わず、目的語もなく、要求動詞の後のthat節では原形を使うという規則にも反する。予算は提出される対象なので、受動の原形be submittedが必要だ。"
     ]
    },
    "tags": [
@@ -215,10 +215,10 @@
    "explanation": {
     "why": "Only + 副詞が文頭に来ると助動詞が主語の前に出る。後ろが動詞の原形beginで、recentlyは過去のことなのでdid。",
     "traps": [
-     "hasの後ろには過去分詞（begun）が来る必要がある。",
+     "hasは完了の助動詞なので、倒置されると後に過去分詞が来る（Only recently has the company begun 〜）。空所の後が動詞の原形beginなので、hasとは結びつかない。beginとbegunの違いを見落とすと選びやすい。",
      null,
-     "doesは現在の習慣を表すので、recentlyと合わない。",
-     "wasの後ろにはbeginは来ない。"
+     "doesは動詞の原形と結びつく点は正しいが、現在形だ。Only recently（最近になってようやく）は最近の過去に起きたことを述べるので、過去の助動詞didが必要だ。doesはOnly rarely does he travelのように現在の習慣を言うときに使う。",
+     "wasはbe動詞なので、倒置されると後に-ing（進行形）か過去分詞（受動態）が来る。空所の後が動詞の原形beginなので、was beginは成り立たない。一般動詞beginを倒置するときはdo、does、didを使う。"
     ]
    },
    "trans": "会社は最近になってようやく製品のオンライン販売を始めた。"
@@ -240,9 +240,9 @@
    "explanation": {
     "why": "Not until 〜が前に来ると主節が倒置される。後ろの動詞の原形startと組み合わさる過去の助動詞did。",
     "traps": [
-     "hadの後ろには過去分詞が来る必要がある。",
-     "wasの後ろにはstartは来ない。",
-     "hasの後ろにも過去分詞が来る必要がある。",
+     "hadは過去完了の助動詞なので、倒置されると後に過去分詞（started）が来る。空所の後が動詞の原形startなので、had startは成り立たない。時制が過去なのでhadにつられやすいが、原形と組み合わさるのはdidだ。",
+     "wasはbe動詞なので、倒置されると後に-ingか過去分詞が来る（was the team starting）。空所の後が動詞の原形startなので、wasとは結びつかない。一般動詞startの倒置には助動詞didが必要だ。",
+     "hasは現在完了の助動詞なので後に過去分詞（started）が必要だが、空所の後は動詞の原形startだ。またthe contract was signedという過去の出来事の後のことを述べているので、現在が基準のhasとは時制も合わない。",
      null
     ]
    },
@@ -265,10 +265,10 @@
    "explanation": {
     "why": "否定語Seldomの後ろで倒置。後ろにbeen receivedがあるので完了の助動詞が必要で、主語such a large orderは単数なのでhas。",
     "traps": [
-     "haveは複数の主語に使う。orderは単数。",
+     "haveは完了の助動詞なので後のbeen receivedと結びつく点は正しいが、複数の主語に使う。倒置された主語such a large orderはa＋単数名詞なので単数で、hasが必要だ。倒置文では主語が助動詞の後にあるので、主語と動詞の一致を見落としやすい。",
      null,
-     "didの後ろには動詞の原形が来る必要がある。",
-     "doesの後ろにも動詞の原形が来る必要がある。"
+     "didは一般動詞を倒置するときに使い、後に動詞の原形が来る（Seldom did we receive 〜）。空所の後はbeen receivedという過去分詞の形なので、didとは結びつかない。beenと組み合わさるのは完了の助動詞haveかhasだ。",
+     "doesも一般動詞の倒置に使い、後に動詞の原形が必要だ（Seldom does it rain here）。空所の後のbeen receivedとは結びつかない。時制も現在なので「1日でこれほど大きな注文を受けたことはめったにない」という経験を表せない。"
     ]
    },
    "tags": [
@@ -294,9 +294,9 @@
     "why": "So + 形容詞が文頭に出て、be動詞と主語が倒置されている。元の文はThe new model was so popular that 〜。主語が単数で過去なのでwas。",
     "traps": [
      null,
-     "wereは複数の主語に使う。",
-     "didは一般動詞の倒置に使い、形容詞の補語とは組み合わない。",
-     "hadの後ろには過去分詞が来る必要がある。"
+     "wereは複数の主語や仮定法に使うbe動詞だ。倒置された主語the new modelは単数なのでwasが必要だ。元の文The new model was so popular that 〜に戻すと数の一致がはっきりする。wereはSo popular were the new modelsのように主語が複数のときに使う。",
+     "didは一般動詞を倒置するときに使う助動詞で、後に動詞の原形が必要だ。この文はSo popularという形容詞の補語が前に出たbe動詞の文なので、didは使えない。didはSo quickly did it sell that 〜のように副詞＋一般動詞のときに使う。",
+     "hadは完了の助動詞なので、倒置されると後に過去分詞が必要だ（So popular had the model become that 〜）。空所の後には過去分詞がなく主語the new modelとthat節だけが続くので、hadでは文が成り立たない。形容詞popularを主語と結ぶのはbe動詞だ。"
     ]
    },
    "tags": [
@@ -321,10 +321,10 @@
    "explanation": {
     "why": "後ろにthanがあるので比較級が必要。1音節の形容詞lightの比較級は-erを付けたlighter。",
     "traps": [
-     "lightは原級なのでthanと一緒に使わない。",
-     "lightestは最上級。",
+     "lightは「軽い」という形容詞の原級だ。空所の後にthan（〜より）があるので比較級が必要で、原級はthanと一緒に使わない。原級はas light as（〜と同じくらい軽い）のようにas 〜 asの間で使う。",
+     "lightestは最上級（最も軽い）だ。最上級はthe lightest of all modelsのようにtheと範囲を一緒に使うが、この文はthan the previous modelで2つを比べているので比較級が必要だ。冠詞theもないので最上級の位置ではない。",
      null,
-     "lightの比較級はlighterで、more lightとは書かない。"
+     "more lightはmore＋原級の形だ。lightのような1音節の形容詞は-erを付けて比較級を作り、moreは使わない。moreはmore expensive、more comfortableのような長い形容詞に使う。またmore lightは「より多くの光」という名詞句にも読める。"
     ]
    },
    "trans": "新しいノートパソコンは前のモデルより軽い。"
@@ -346,10 +346,10 @@
    "explanation": {
     "why": "the + ___ + of the weekは範囲の中で「最も〜な」を表す最上級の形なので、busiestが正解。",
     "traps": [
-     "busyは原級なので、the ___ of the weekのように「〜の中で最も」を表す最上級の位置に合わない。",
-     "busierは比較級なので、比較の対象thanが必要。",
+     "busyは「忙しい」という原級だ。the ___ day of the weekは「1週間で最も〜な日」という最上級の位置なので、原級は合わない。原級はSaturday is usually busy（土曜はたいてい忙しい）のように比較なしで使うときに正しい。",
+     "busierは比較級（より忙しい）なので、thanと一緒に2つを比べるときに使う（busier than Monday）。この文にはthanがなく、前にtheがあり、of the week（1週間のうちで）という範囲があるので最上級が必要だ。",
      null,
-     "busyの最上級はbusiest。"
+     "most busyはmost＋原級の形だ。busyのように-yで終わる2音節の形容詞は、yをiに変えて-estを付けた形で最上級を作り、mostは使わない。mostはthe most popularのような長い形容詞に使う。"
     ]
    },
    "trans": "土曜日はふつう、その店にとって週で一番忙しい日だ。"
@@ -371,9 +371,9 @@
    "explanation": {
     "why": "as 〜 asの間には原級の形容詞が来る。be動詞の補語なので形容詞spacious。",
     "traps": [
-     "more spaciousは比較級なので、as 〜 asの間には使わない。",
-     "most spaciousは最上級。",
-     "spaciouslyは副詞なのでbe動詞の補語になれない。",
+     "more spaciousは比較級（より広い）だ。as 〜 asの間には原級しか使わないので、not as more spacious asは誤った形だ。比較級はmore spacious than the old oneのようにthanと一緒に使う。",
+     "most spaciousは最上級（最も広い）だ。as 〜 asの間には原級が来るので、最上級は使えない。最上級はthe most spacious office in the building（建物で最も広いオフィス）のようにtheと範囲を一緒に使う。",
+     "spaciouslyは「広々と」という副詞だ。as 〜 asを外すとThe new office is not spaciousとなり、be動詞isの補語の位置なので形容詞が必要だ。副詞は補語になれない。副詞はa spaciously designed lobby（広々と設計されたロビー）のように分詞を修飾するときに使う。",
      null
     ]
    },
@@ -404,9 +404,9 @@
     "why": "Of the three（3人の中で）という範囲があるので、最上級the most qualified。",
     "traps": [
      null,
-     "the moreは2つの間の比較に使う。3つ以上なら最上級。",
-     "muchは比較級を強調する語で、the much qualifiedという形はない。",
-     "veryの前にtheを付けたthe very qualifiedという形にはしない。"
+     "moreは比較級を作る。the more qualifiedは「2人のうちでより適任の」のように2つを比べるときだけtheと一緒に使う。Of the three finalists（最終候補3人のうちで）は3人以上の範囲なので最上級が必要だ。",
+     "muchは比較級を強調したり（much better）、不可算名詞の量を表したりする（much time）。the much qualifiedという形はなく、3人の中の1位も表せない。muchはmuch more qualified（はるかに適任の）のように比較級の前で使う。",
+     "veryは原級を強調する副詞だ（very qualified）。the very qualifiedではOf the threeという範囲の中で「最も」という意味を作れない。範囲の中の1位は最上級で表す。veryはShe is very qualifiedのように比較なしで使う。"
     ]
    },
    "tags": [
@@ -431,10 +431,10 @@
    "explanation": {
     "why": "applicationsは可算名詞の複数形で、可算名詞の複数形の「多くの」はmany。インターンシップへの応募をたくさん受け取ったという意味。",
     "traps": [
-     "muchは不可算名詞に使う。",
+     "muchは「多くの」という意味だが、不可算名詞（much information、much time）に使う。applicationsは複数の可算名詞なのでmuchとは使えない。日本語ではどちらも「多くの」なので混同しやすい。",
      null,
-     "a littleも不可算名詞に使う。",
-     "everyは単数名詞と使う。"
+     "a littleは「少しの」という意味で不可算名詞に使う（a little time）。applicationsは複数の可算名詞なので合わず、可算名詞の「少し」はa fewで表す（a few applications）。",
+     "everyは「すべての」という意味だが、後に単数名詞が来る（every application）。空所の後のapplicationsは複数形なのでeveryとは結びつかない。またこの文は今年受け取った応募書類の量を述べているので、意味の上でも「多くの」が必要だ。"
     ]
    },
    "trans": "今年は夏のインターンシップにたくさんの応募があった。"
@@ -456,10 +456,10 @@
    "explanation": {
     "why": "informationは不可算名詞で、動詞も単数のis。不可算名詞と使えるa lot ofが正解。",
     "traps": [
-     "manyは可算名詞の複数形に使う。",
-     "a fewも可算名詞の複数形に使う。",
+     "manyは複数の可算名詞（many applications）に使う。informationは不可算名詞なので複数形もなく、manyとは使えない。動詞も単数のisなので、不可算名詞に合う数量表現が必要だ。日本語で「情報」を数えられそうに感じても、英語では数えられない名詞だ。",
+     "a fewは「いくつかの」という意味で、複数の可算名詞に使う（a few questions）。informationは不可算名詞なので合わない。不可算名詞の「少し」はa little informationのようにa littleで表す。",
      null,
-     "severalも可算名詞の複数形に使う。"
+     "severalは「いくつかの」という意味で、複数の可算名詞に使う（several brochures）。informationは不可算名詞なのでseveralとは使えず、後の単数動詞isとも合わない。several pieces of informationのように単位を表す名詞を入れれば使える。"
     ]
    },
    "trans": "当社のウェブサイトには就職フェアに関する情報がたくさんあります。"
@@ -481,10 +481,10 @@
    "explanation": {
     "why": "so it was canceled（だから中止された）という結果になるには、申込者が「ほとんどいない」必要がある。否定の意味のFew。",
     "traps": [
-     "A fewは「何人かいる」という肯定の意味なので、中止の理由にならない。aの有無で意味が変わる代表的なひっかけ。",
+     "A fewは「何人かいる」という肯定の意味だ。何人かは申し込んだという意味なので、so it was canceled（だから中止された）という結果の理由にならない。aの有無で意味が変わる代表的なわなだ。A few employees signed up, so we held the workshopのように肯定的な結果と使う。",
      null,
-     "Manyは中止と反対の意味。",
-     "Severalも「何人かいる」という肯定の意味。"
+     "Manyは「多くの」という意味だ。多くの社員が申し込んだならワークショップを開く理由になり、so it was canceled（だから中止された）とは逆になる。複数の可算名詞employeesと形は合うが、意味が結果とぶつかる。",
+     "Severalは「いくつかの」という肯定の意味で、ある程度申込者がいたことを表す。so it was canceledという結果を説明するには「ほとんどいない」という否定の意味が必要だ。形はemployeesと合うが、結果と論理が合わない。"
     ]
    },
    "tags": [
@@ -509,9 +509,9 @@
    "explanation": {
     "why": "名詞companyの前で限定詞の働きをするNoが必要。No other companyは「ほかのどの会社も〜ない」。",
     "traps": [
-     "Noneは代名詞なので名詞の前には入らない（None of the companiesは可能）。",
-     "Nothingは代名詞なので名詞を修飾できない。",
-     "Notは副詞なので、名詞の前の限定詞の位置には入らない。",
+     "Noneは「何も（誰も）〜ない」という代名詞なので単独で使い、名詞の前には置けない。None other companyは誤った形で、None of the companies（その会社のどれも）のようにofと一緒に使う。意味が似ているので選びやすいわなだ。",
+     "Nothingは「何も〜ない」という代名詞なので、名詞companyを修飾できない。Nothing other companyは成り立たない。NothingはNothing is impossible（不可能なことはない）のように単独で主語として使う。",
+     "Notは副詞なので動詞・形容詞などを否定し、名詞の前の限定詞の位置には来ない。Not other companyは誤った形で、名詞を否定する限定詞は別にある。NotはNot every company offers it（すべての会社が提供しているわけではない）のようにeveryなどの限定詞の前なら使える。",
      null
     ]
    },
@@ -535,9 +535,9 @@
     "why": "後ろのorと組になるeither A or B（AまたはB）。電話かメールのどちらかで連絡できるという意味。",
     "traps": [
      null,
-     "neitherはnorと組になる。",
-     "bothはandと組になる。",
-     "not onlyはbut alsoと組になる。"
+     "neitherはneither A nor B（AもBも〜ない）の形でnorと組になる否定の表現だ。空所の後ろにはnorではなくorがあるので組が合わない。意味の面でも「電話でもメールでも連絡できない」となり、連絡方法を案内する文と食い違う。後ろにnorがあるときに選ぶ。",
+     "bothはboth A and B（AとBの両方）の形でandと組になる。この文はby phoneとby e-mailをorでつないでいるので、bothを入れると組が合わない。また「どちらか一方で連絡できる」という選択の意味も出ない。both lighter and cheaperのように後ろにandがあるときに選ぶ。",
+     "not onlyはnot only A but (also) B（AだけでなくBも）の形でbut alsoと組になる。この文にはbut alsoがなくorしかないので、構文が完成しない。not onlyはBを強調する追加の意味なので、「どちらか一方」を選ぶorとも合わない。後ろにbut alsoがあるときに選ぶ。"
     ]
    },
    "trans": "お客様は電話またはメールのどちらかでご連絡いただけます。"
@@ -560,9 +560,9 @@
     "why": "後ろにandがあるのでboth A and B（AもBも）。より軽く、より安いという2つの長所を一度に述べている。",
     "traps": [
      null,
-     "eitherはorと組になる。",
-     "neitherはnorと組になる。",
-     "whetherはorと組になり、名詞節・副詞節を導く。"
+     "eitherはeither A or B（AまたはB）の形でorと組になる。空所の後ろのlighterとcheaperはandでつながっているので組が合わない。また新モデルが軽くて安いという2つの長所を一緒に言う文なのに、eitherはどちらか一方を選ぶ意味なので内容とも食い違う。either by phone or by e-mailのようにorがあるときに選ぶ。",
+     "neitherはneither A nor B（AもBも〜ない）の形でnorと組になる。この文はandでつながっているので組が合わず、意味も「軽くも安くもない」という否定になり、新モデルの長所を言う流れと反対だ。後ろにnorがあるときに選ぶ。",
+     "whetherはwhether A or B（AかBか）の形でorと組になり、名詞節・副詞節を導く。この文はlighterとcheaperがandでつながっているので組が合わず、空所の後ろは主語・動詞のそろった節ではなく形容詞の比較級なので、whetherが導くものもない。decide whether to stay or leaveのように「〜かどうか」を言うときに使う。"
     ]
    },
    "trans": "新モデルは旧モデルより軽く、しかも安い。"
@@ -584,10 +584,10 @@
    "explanation": {
     "why": "Neitherと組になるのはnor。neither A nor Bは「AもBも〜ない」という意味で、2人とも出席できなかったという内容。",
     "traps": [
-     "orはeitherと組になる。",
-     "andはbothと組になる。",
+     "orはeither A or B（AまたはB）でeitherと組になる接続詞だ。文の初めにNeitherがあるので、組になるのはnorでなければならず、Neither 〜 orは誤った組み合わせだ。文頭がEitherならorが正解になるので、前にある相関語を先に確認する必要がある。",
+     "andはboth A and B（AとBの両方）でbothと組になる。Neitherとは結びつかず、andを入れると「HanさんとLopezさんの両方」という肯定の意味になり、Neitherの否定の意味とぶつかる。文頭がBothならandが正しく、そのときは動詞も複数形のwereになる。",
      null,
-     "butはnot only 〜 but alsoで使う。"
+     "butはnot only A but (also) B（AだけでなくBも）でnot onlyと組になるか、「しかし」という対比を表す。前にNeitherがあるので組になれず、2人を対比する文でもない。「AではなくB」という意味のnot A but Bの構文でもbutを使う。"
     ]
    },
    "trans": "HanさんもLopezさんも会議に出席できなかった。"
@@ -609,10 +609,10 @@
    "explanation": {
     "why": "not only A but also Bの構文。AとBの位置にfor + 名詞が並列になっている。",
     "traps": [
-     "and alsoはnot onlyと組にならない。",
+     "and alsoは「そして〜も」という意味で内容を付け加えるときに使うが、not onlyと組になる相関表現ではない。前にnot only for managersがあるので、組になるのはbut alsoでなければならない。andもalsoも「追加」の意味を持つので正解に見えやすいひっかけだ。",
      null,
-     "orはeitherと組になる。",
-     "as wellはB as well as Aの形で使い、not onlyとは組にならない。"
+     "orはeither A or B（AまたはB）でeitherと組になり、「どちらか一方」を意味する。この文はnot onlyで始まり、管理職と新入社員の「両方」が対象だという意味なので、orとは合わない。前にeitherがあるときに選ぶ。",
+     "as wellは「〜もまた」という意味で文末に付けるか、B as well as A（AだけでなくBも）の形で使う。not onlyとは組にならないので、not only for managers as well for new employeesは誤りだ。for new employees as well as for managersのようにすれば同じ意味を表せる。"
     ]
    },
    "tags": [
@@ -637,9 +637,9 @@
    "explanation": {
     "why": "シートベルト（seat belt）を「締める」はfasten。fasten one's seat beltは機内アナウンスに出てくる決まった表現。",
     "traps": [
-     "closeはドア・窓を閉めるときに使う。",
-     "tieはひも・リボンを結ぶときに使う。",
-     "lockは鍵をかけるときに使う。",
+     "closeは「閉める」という意味で、close the door（ドアを閉める）、close the windowのように開いているものを閉めるときに使う。シートベルトは閉めるものではなく、バックルを留めて「締める」ものなので、close their seat beltsは不自然だ。機内放送の決まった表現はfasten your seat beltだ。",
+     "tieは「結ぶ」という意味で、tie a ribbon、tie one's shoelaces（靴ひもを結ぶ）のようにひもやリボンを結び目にするときに使う。シートベルトは結ばずにバックルで留めるので、tieはseat beltsと組み合わない。ベルトをひものように「結ぶ」イメージにつられて選びやすいひっかけだ。",
+     "lockは「鍵をかける」という意味で、lock the door（ドアに鍵をかける）のように鍵やロックで閉めるときに使う。シートベルトを体に締める動作は鍵をかけることではないので、lock their seat beltsは不自然だ。バックルがカチッと留まる感じから選びやすいが、決まった表現はfastenだ。",
      null
     ]
    },
@@ -662,10 +662,10 @@
    "explanation": {
     "why": "会社が労働者を「雇う」はhire。2つ目の工場のために新しい従業員50人を雇うという意味で、plan toの後ろなので動詞の原形が来る。",
     "traps": [
-     "applyはapply for（応募する）のように応募者側が使う動詞。",
+     "applyはapply for a job（仕事に応募する）のように応募者側が使う動詞だ。主語は会社のKestrel Foodsで、目的語が50 new workersなので「労働者50人に応募する」となり意味が通じない。また「応募する」の意味ではforが必要で、人を直接目的語にとらない。",
      null,
-     "attendはイベントに出席するときに使う。",
-     "retire（退職する）は自動詞。"
+     "attendはattend a meeting（会議に出席する）のように行事や集まりに「出席する」という意味だ。会社が新しい労働者50人に「出席する」というのは意味をなさない。2つ目の工場のために人を採用するという文脈にはhire（雇う）が合う。",
+     "retireは「引退する、退職する」という意味の自動詞で、ふつうretire next yearのように目的語なしで使う。空所の後ろの50 new workersを目的語にとれず、新しく人を採用するという意味とも正反対だ。社員が会社を去る内容で使う語だ。"
     ]
    },
    "trans": "Kestrel Foodsは2つ目の工場のために新しい従業員50人を雇う予定だ。"
@@ -687,9 +687,9 @@
    "explanation": {
     "why": "remind A of B（AにBを思い出させる）が空所の後ろのme ofと合う。",
     "traps": [
-     "rememberは人 + ofの形をとらない。",
-     "mentionはmention B to Aの形。",
-     "notice（気づく）はofと結びつかない。",
+     "rememberは「覚えている」という意味で、remember the meeting timeのように覚える内容を直接目的語にとる。remember me ofという「人 + of」の形はなく、Could you remember meでは「私のことを覚えていてくれますか」という見当違いの意味になる。人に思い出させてほしいときはremind A of Bを使う。",
+     "mentionは「言及する」という意味で、mention B to A（AにBを言う）の形を使う。mention me ofのように人を直接目的語にとってofを付ける形はない。mention the meeting time to meなら文法的に正しいが、空所の後ろのme ofとは合わない。",
+     "noticeは「気づく」という意味で、notice a changeのように気づいた対象を直接目的語にとる。notice me ofという形はなく、名詞のnotice（通知）と混同して「知らせる」と勘違いしやすい。「知らせる」の意味でofを使う動詞はnotify（notify me of the change）で、思い出させてほしいという依頼にはremindが合う。",
      null
     ]
    },
@@ -713,9 +713,9 @@
     "why": "空所の後ろの目的語the login problemを直接とる他動詞が必要。resolve（解決する）。",
     "traps": [
      null,
-     "respondはrespond toのように前置詞が必要。",
-     "reactもreact toのように使う自動詞。",
-     "resultはresult in/fromのように使う自動詞で、意味も合わない。"
+     "respondは「応答する、対応する」という意味の自動詞で、respond to the problemのようにtoが必要だ。空所の後ろには前置詞なしでthe login problemが直接来るので、respondは入らない。意味の面でも問題に「対応する」ことと「解決する」ことは違う。",
+     "reactは「反応する」という意味の自動詞で、react to the newsのようにtoと一緒に使う。目的語のthe login problemを直接とれず、意味も「反応する」なので、サポートチームに問題の処理を頼む文と合わない。respondと同じく、後ろにtoがあるときだけ候補になる。",
+     "resultはresult in（〜をもたらす）やresult from（〜から生じる）のように前置詞と一緒に使う自動詞だ。the login problemを直接目的語にとれず、result inを使ったとしても「ログインの問題を引き起こす」となり、解決を頼む文と反対だ。resolveと前半のつづりが似ていて選びやすい。"
     ]
    },
    "tags": [
@@ -740,10 +740,10 @@
    "explanation": {
     "why": "購入の証明（proof of purchase）として保管するのはレシート（receipt）。つづりが似たrecipe・reception・recipientと区別する問題。",
     "traps": [
-     "recipeは「料理のレシピ」なので、購入の証明とは関係ない。receiptとつづりが似ていて選びやすいひっかけ。",
-     "receptionは受付・歓迎会。",
+     "recipeは「料理の作り方、レシピ」という意味なので、proof of purchase（購入の証明）として保管するものではない。receiptとつづりが似ていて、receiptのpは発音しないので音でも混同しやすいひっかけだ。a recipe for pasta（パスタのレシピ）のように料理の文脈で使う。",
+     "receptionは「受付、フロント」や「歓迎会」という意味の名詞だ。your receptionを購入の証明として保管するというのは意味が通じない。reception desk（受付）、a wedding reception（結婚披露宴）のように使い、receiveから来た語なのでreceiptと混同しやすい。",
      null,
-     "recipientは受取人。"
+     "recipientは「受取人、受け取る人」という意味で、人を指す。人を購入の証明として「保管する」というのは意味をなさない。the recipient of the award（受賞者）、e-mail recipients（メールの受信者）のように、何かを受け取る人を言うときに使う。"
     ]
    },
    "trans": "購入の証明としてレシートを保管してください。"
@@ -766,9 +766,9 @@
     "why": "ホテルが満室なので別の「宿泊先」を探す必要があったという意味。accommodations（宿泊施設）。",
     "traps": [
      null,
-     "accommodateは動詞なので、otherの後ろの名詞の位置には入らない。",
-     "accountants（会計士）は文脈と関係ない。",
-     "accounts（口座、取引先）も文脈と関係ない。"
+     "accommodateは「収容する、宿泊させる」という意味の動詞だ。otherの後ろは名詞が来る位置なので、動詞は入らない。The hotel can accommodate 200 guests（そのホテルは200人を収容できる）のように、主語や助動詞の後ろの動詞の位置で使う。",
+     "accountantsは「会計士たち」という意味の名詞だ。品詞としてはotherの後ろに入れるが、ホテルが満室だったので別の「会計士」を探さなければならなかったというのは意味が通じない。accommodationsと前半のつづり（acc-）が同じで、紛らわしくした選択肢だ。",
+     "accountsは「口座、取引先、アカウント」という意味の名詞だ。名詞の位置には合うが、ホテルが満室で探す必要があるのは口座ではなく泊まる場所だ。open a bank account（銀行口座を開く）のように金融や顧客の文脈で使う。"
     ]
    },
    "trans": "ホテルが満室だったので、私たちは別の宿泊先を探さなければならなかった。"
@@ -790,9 +790,9 @@
    "explanation": {
     "why": "ホテルの宴会場（ballroom）で「開かれる」のは晩さん会（banquet）。annual banquetは「年次晩さん会」という意味でよく使われる。",
     "traps": [
-     "bouquetは花束なので開催されない。",
-     "budget（予算）は開かれるイベントではない。",
-     "bonus（賞与）も開催されるものではない。",
+     "bouquetは「花束」という意味なので、will be held（開催される）の主語にはなれない。花束は贈ったりもらったりするもので、宴会場で「開かれる」行事ではない。banquetとつづり・発音が似ていて紛らわしくした選択肢で、a bouquet of roses（バラの花束）のように使う。",
+     "budgetは「予算」という意味で、annual budget（年間予算）という組み合わせ自体は自然だ。しかし予算は立てたり承認したりするもので、ホテルのballroom（宴会場）で「開かれる」行事ではない。annualの後ろによく来る語なので選びやすいが、will be held in the ballroomと合わない。",
+     "bonusは「賞与、ボーナス」という意味で、annual bonus（年間の賞与）のようには使える。しかし賞与は社員が受け取るお金で、ballroomで開催される行事ではないので、will be heldの主語として合わない。receive a bonus（ボーナスを受け取る）のように使う。",
      null
     ]
    },
@@ -815,10 +815,10 @@
    "explanation": {
     "why": "社用車を使う前に上司から得る必要があるのは許可（permission）。obtain permission fromは自然な組み合わせ。",
     "traps": [
-     "admissionは入場（許可）で、施設に入るときに使う。",
-     "submissionは提出（物）なので、上司から受け取るものではない。",
+     "admissionは「入場、入学（の許可）」という意味で、施設や学校に入ることを言う。社用車を使う前に上司からもらうのは使用の「許可」で、入場の許可ではない。admission fee（入場料）、free admission（入場無料）のように入る文脈で使う。",
+     "submissionは「提出、提出物」という意味で、社員が出す側の語だ。obtain ... from a supervisorは上司から「もらう」という意味なので、上司から提出物をもらうというのは方向が合わない。the deadline for submission（提出の締め切り）のように使う。",
      null,
-     "commissionは手数料・委員会なので文脈と合わない。"
+     "commissionは「手数料、委員会」という意味だ。社用車を使う前に上司から手数料や委員会を得るというのは意味が通じない。earn a commission on sales（販売手数料を得る）のように営業成績に関してよく使い、-missionで終わるのでpermissionと混同しやすい。"
     ]
    },
    "tags": [
@@ -843,10 +843,10 @@
    "explanation": {
     "why": "「めったに故障しない」とつながるのは、「信頼できる」を意味するreliable。",
     "traps": [
-     "responsible（責任のある）は人に使う。",
+     "responsibleは「責任のある、責任感のある」という意味で、a responsible employeeのように主に人に使うか、be responsible for（〜を担当する）の形で使う。プリンターが「責任感がある」というのは不自然で、後ろのrarely breaks down（めったに故障しない）ともつながらない。機械の性能をほめるときはreliableを使う。",
      null,
-     "respective（それぞれの）は名詞の前でだけ使い、補語には使わない。",
-     "reversible（裏返せる）はプリンターの性能を説明できない。"
+     "respectiveは「それぞれの」という意味で、their respective departments（それぞれの部署）のように名詞の前でだけ使う。veryの後ろの補語の位置には入らず、「プリンターがとてもそれぞれの」では意味が通じない。reliableと同じre-で始まり、紛らわしくした選択肢だ。",
+     "reversibleは「裏返せる、元に戻せる」という意味で、a reversible jacket（リバーシブルのジャケット）のように使う。後ろのrarely breaks downは故障が少ないという信頼性の話なので、「裏返せる」という性質とはつながらない。形容詞の位置には合うが、意味が合わない選択肢だ。"
     ]
    },
    "trans": "新しいプリンターはとても信頼できて、めったに故障しない。"
@@ -868,9 +868,9 @@
    "explanation": {
     "why": "shortly afterは「〜の直後に」という意味。チケットが発売直後に売り切れたという内容なので、時間を表す副詞shortlyが合う。",
     "traps": [
-     "lately（最近）は主に現在完了と使い、afterとは結びつかない。",
-     "nearly（ほぼ）はnearly sold outのように使えるが、afterの前では「直後」という意味にならない。",
-     "hardly（ほとんど〜ない）は否定の意味なので文脈と合わない。",
+     "latelyは「最近」という意味で、I haven't seen him latelyのように主に現在完了と一緒に文末で使う。afterと結びついて「〜の直後に」という意味を作れないので、sold out lately afterは誤った表現だ。late（遅く）と形が似ていて、時を表す副詞と勘違いしやすい。",
+     "nearlyは「ほぼ」という意味で、The tickets nearly sold out（チケットはほぼ売り切れた）のように動詞や数量の前で使う。空所はsold outの後ろ、afterの前で、時間の間隔を言う位置だが、nearly afterでは「直後」という意味にならない。時間の間隔が短かったことはshortly afterやsoon afterで表す。",
+     "hardlyは「ほとんど〜ない」という否定の意味を持つ副詞で、I could hardly hearのように使う。この文は販売直後に売り切れたという肯定の事実を言っているので、否定の意味が入る位置ではなく、hardly afterという組み合わせもない。hard（熱心に、固い）から「熱心に」の意味だと勘違いしやすい。",
      null
     ]
    },
@@ -894,9 +894,9 @@
     "why": "「早く処理できるように」書類を「すぐに」返送してほしいという意味なので、promptly（すぐに）が正解。後ろのso that … quicklyと呼応する。",
     "traps": [
      null,
-     "mostly（ほとんど）は意味が合わない。",
-     "closely（綿密に）はreturnと合わない。",
-     "likelyは「たぶん」という意味なので、依頼の文と合わない。"
+     "mostlyは「主に、ほとんど」という意味で、The staff are mostly studentsのように割合を言うときに使う。「署名した用紙をほとんど返送せよ」となって不自然で、後ろのso that we can process your order quickly（すばやく処理できるように）が求める「すぐに」という意味もない。",
+     "closelyは「綿密に、密接に」という意味で、work closely with（〜と緊密に協力する）、examine closely（よく調べる）のように使う。return the signed form closelyは「用紙を綿密に返送する」となり不自然だ。すばやく処理するには用紙を早く送る必要があるので、時間を表すpromptlyが必要だ。",
+     "likelyは「〜しそうな」という意味の形容詞で、主にbe likely to（〜する可能性が高い）の形で使う。-lyで終わるので副詞に見えるが、Pleaseで始まる依頼の文に「たぶん」という推量の意味を入れると意味が合わない。Prices are likely to riseのように可能性を言うときに使う。"
     ]
    },
    "trans": "ご注文を迅速に処理できるよう、署名済みの用紙をすぐにご返送ください。"
@@ -918,10 +918,10 @@
    "explanation": {
     "why": "数字（20 percent）の前で「約」を意味するapproximatelyが正解。売上が約20パーセント増えたという意味。",
     "traps": [
-     "extremelyは形容詞を強調し、数字の前には使わない。",
+     "extremelyは「極めて、非常に」という意味で、extremely busy（非常に忙しい）のように形容詞・副詞の程度を強調する。byの後ろで数字の20 percentを修飾しないので、by extremely 20 percentは誤った表現だ。数字の前で「約、およそ」を表すときはapproximatelyやaboutを使う。",
      null,
-     "highlyも形容詞・分詞を強調し、数字は修飾しない。",
-     "completelyは数字の前には使わない。"
+     "highlyは「非常に、高く」という意味で、highly recommended、highly qualifiedのように評価を表す形容詞・分詞を強調する。数字の20 percentは修飾しないので、by highly 20 percentは誤った表現だ。「売上が高く伸びた」という感じから選びやすいが、数字の前にはapproximatelyのような概数の表現が来る。",
+     "completelyは「完全に」という意味で、completely different、completely finishedのように状態が完全であることを強調する。数字の前には使わないので、by completely 20 percentは誤った表現で、「完全に20パーセント」というのも意味が通じない。数字の前にはapproximately、nearly、aboutのように程度を概算する副詞が来る。"
     ]
    },
    "tags": [
@@ -946,10 +946,10 @@
    "explanation": {
     "why": "pay attention to（〜に注意を払う）が決まった組み合わせなので、paysが正解。",
     "traps": [
-     "hold attentionは「注意を引きつけておく」という意味で、toと結びついて「〜に注意を払う」にはならない。",
-     "take attentionという表現は使わない。",
+     "holdはhold a meeting（会議を開く）、hold someone's attention（人の注意を引きつけておく）のように使う。hold attentionは他人の関心を引きつけることで「〜に注意を払う」ではなく、後ろにtoを付けてholds close attention toとは言わない。注意を払う側はpay attention toを使う。",
+     "takeはtake care of（〜の世話をする）、take note of（〜に注目する）のようにいろいろな表現に使われるが、take attention toという組み合わせはない。意味の近いtake note ofと混ざって選びやすいひっかけだ。attentionと組んで「注意を払う」を作る動詞はpayだ。",
      null,
-     "make attentionという表現もない。"
+     "makeはmake an effort（努力する）、make a decision（決定する）のように多くの名詞と結びつくが、make attentionという表現はない。「注意をする」という言い方につられて選びやすい。attentionはpayと組んでpay close attention to（〜に細心の注意を払う）の形で使う。"
     ]
    },
    "trans": "当社は顧客の意見に細心の注意を払っている。"
@@ -971,10 +971,10 @@
    "explanation": {
     "why": "come into effect（施行される）が決まった組み合わせ。intoと一緒に使うのはcome。",
     "traps": [
-     "takeはtake effectの形で使い、intoは付かない。",
-     "make into effectという表現はない。",
+     "takeはtake effect（効力を生じる、施行される）のようにintoなしでeffectを直接目的語にとる。空所の後ろにintoがあるので、take into effectは誤った組み合わせだ。The law will take effect next Januaryなら同じ意味の正しい文になるので、意味だけで選びやすいひっかけだ。",
+     "makeはmake an effort（努力する）のように多くの名詞と結びつくが、make into effectという表現はない。make A into B（AをBにする）の形は目的語が必要なので、この文にも合わない。法律が「施行される」はcome into effectやtake effectで表す。",
      null,
-     "put into effectは「施行する」という他動詞の表現なので目的語が必要。法律が主語だと合わない。"
+     "put into effectは「〜を施行する」という他動詞の表現で、The government will put the law into effectのように施行する側が主語、法律が目的語になる。この文は法律（The new data protection law）が主語で目的語がないので、putは合わない。法律が主語のときはcome into effect（施行される）を使う。"
     ]
    },
    "tags": [
@@ -999,10 +999,10 @@
    "explanation": {
     "why": "give a presentation（発表をする）が決まった組み合わせ。willの後ろの動詞の原形の位置で、発表という名詞と組になる動詞はgive。",
     "traps": [
-     "take a presentationという表現は使わない。",
+     "take a presentationという表現は使わない。takeはtake a break（休憩する）、take a course（講座を受ける）のように使い、Nakamuraさんは発表を「する」側なので、発表するはgive a presentationだ。発表を「聞く」側もtakeではなくattend a presentationと言う。",
      null,
-     "raiseはraise a questionのように使う。",
-     "placeはplace an orderのように使う。"
+     "raiseは「上げる、提起する」という意味で、raise a question（質問を提起する）、raise prices（価格を上げる）のように使う。raise a presentationという組み合わせはなく、「発表を上げる」という見当違いの意味になる。presentationと組む動詞はgiveやmakeだ。",
+     "placeはplace an order（注文する）、place an ad（広告を出す）のように使う動詞だ。place a presentationという表現はなく、「発表を置く」という意味になって文が成り立たない。発表をする人が主語のときはgive a presentationだ。"
     ]
    },
    "trans": "Nakamuraさんが春のマーケティングキャンペーンについて発表する。"
@@ -1025,9 +1025,9 @@
     "why": "highly recommended（強く推薦された）が決まった組み合わせ。highlyは「非常に」という意味で、recommended, qualified, successfulなどを強調する。",
     "traps": [
      null,
-     "largely（主に）は程度ではなく割合を言う。",
-     "heavilyはheavily relyのように量・重さに使う。",
-     "deeplyはdeeply movedのように感情に使い、recommendedとは結びつかない。"
+     "largelyは「主に、大部分は」という意味で、The project was largely successful（そのプロジェクトはおおむね成功した）のように割合や範囲を言う。推薦の程度を強調しないので、largely recommendedは「おおむね推薦された」となり不自然だ。large（大きい）から「大いに」という意味だと勘違いしやすい。",
+     "heavilyは「激しく、大量に」という意味で、heavily rely on（大きく依存する）、rain heavily（雨が激しく降る）のように量や重さ、強さに使う。称賛や評価を強調しないので、heavily recommendedは不自然だ。よい評価を強調するときはhighly recommendedを使う。",
+     "deeplyは「深く」という意味で、deeply moved（深く感動した）、deeply concerned（深く心配している）のように感情を強調する。recommendedは感情ではなく評価を表すので、deeply recommendedという組み合わせは使わない。感情の形容詞・分詞が後ろに来るときに選ぶ。"
     ]
    },
    "tags": [
@@ -1052,9 +1052,9 @@
    "explanation": {
     "why": "ツアー料金に朝食と夕食が「含まれる」という意味なので、includesが正解。主語The priceが単数なので-sが付いた形。",
     "traps": [
-     "concludes（締めくくる）はつづりが似た紛らわしい語。",
-     "encloses（同封する）は手紙・封筒に使う。",
-     "intrudes（侵入する）は自動詞なので目的語をとらない。",
+     "concludeは「締めくくる、結論を出す」という意味で、The meeting concluded at five（会議は5時に終わった）のように使う。ツアーの料金が朝食と夕食を「締めくくる」というのは意味が通じない。includesと-cludesの部分が同じで、紛らわしくした選択肢だ。",
+     "encloseは「同封する、囲む」という意味で、I have enclosed a copy of the invoice（請求書の写しを同封しました）のように手紙・封筒に何かを入れるときに使う。料金（The price）が食事を同封するというのは意味をなさない。料金に何が入っているかを言うときはincludeを使う。",
+     "intrudeは「侵入する、邪魔する」という意味の自動詞で、intrude on someone's privacy（プライバシーを侵害する）のように前置詞と一緒に使う。目的語のbreakfast and dinnerを直接とれず、意味も合わない。つづりが似た紛らわしい語として入れた選択肢だ。",
      null
     ]
    },
@@ -1078,9 +1078,9 @@
     "why": "部署を「率いる」はlead。来週から営業部を率いるという意味で、willの後ろなので動詞の原形が来る。",
     "traps": [
      null,
-     "lend（貸す）はつづりが似た紛らわしい語。",
-     "load（積む）は荷物に使う。",
-     "loan（貸し付ける）はお金に使う。"
+     "lendは「貸す」という意味で、lend him some money（彼にお金を貸す）のように物やお金を貸すときに使う。営業部を「貸す」というのは意味が通じない。leadとつづりが1文字だけ違い、紛らわしくした選択肢だ。",
+     "loadは「積む」という意味で、load boxes onto a truck（箱をトラックに積む）のように荷物や貨物に使う。営業部を「積む」というのは意味をなさない。人が部署やチームを率いることはlead the departmentやhead the departmentで表す。",
+     "loanは「貸し付ける、貸す」という意味で、loan money to a companyのように主にお金に使い、名詞では「貸付（金）、ローン」だ。営業部を貸し付けるというのは意味が通じない。apply for a loan（ローンを申し込む）のように金融の文脈でよく見る語だ。"
     ]
    },
    "trans": "Okoroさんは来週から営業部を率いる。"
@@ -1102,9 +1102,9 @@
    "explanation": {
     "why": "スタッフを修飾する「熟練した、経験豊富な」はexperienced。5か国語を話すスタッフという後ろの内容とも合う。",
     "traps": [
-     "experiential（経験に基づく）は学習方法などに使い、人は修飾しない。",
-     "experimentは名詞・動詞なので形容詞の位置に合わない。",
-     "experimental（実験的な）は従業員を説明する語として不自然。",
+     "experientialは「経験に基づく、体験の」という意味で、experiential learning（体験学習）のように学習方法や活動を修飾する。人を修飾して「経験豊富な」という意味を表さないので、an experiential staffは不自然だ。熟練した従業員はexperienced staffと言う。",
+     "experimentは「実験（する）」という意味の名詞・動詞だ。冠詞のanと名詞のstaffの間は形容詞の位置なので、experimentを入れるとan experiment staffという成り立たない組み合わせになる。conduct an experiment（実験を行う）のように使う。",
+     "experimentalは「実験的な、試験段階の」という意味の形容詞で、an experimental drug（試験段階の薬）のように使う。形容詞の位置には合うが、「実験的な従業員」は5か国語を話すという後ろの内容と合わない。従業員の能力を言うときはexperienced（熟練した）を使う。",
      null
     ]
    },
@@ -1127,10 +1127,10 @@
    "explanation": {
     "why": "be responsible for（〜に責任を持つ、〜を担当する）が決まった表現。新入社員全員の研修を担当しているという意味。",
     "traps": [
-     "responsive（反応が早い）はtoと使い、forとは結びつかない。",
+     "responsiveは「反応が早い、すぐに対応する」という意味で、be responsive to customer needs（顧客の要望によく応える）のようにtoと一緒に使う。forと結びついて「〜を担当する」という意味を作れないので、is responsive for trainingは誤った表現だ。業務の担当はbe responsible forで表す。",
      null,
-     "respective（それぞれの）は名詞の前でだけ使う。",
-     "respectful（礼儀正しい）はof・toと使い、意味も合わない。"
+     "respectiveは「それぞれの」という意味で、their respective offices（それぞれの事務所）のように名詞の前でだけ使う。isの後ろの補語の位置には入らず、forと結びつくこともない。responsibleと前半のつづり（resp-）が同じで、紛らわしくした選択肢だ。",
+     "respectfulは「礼儀正しい、敬意を払う」という意味で、be respectful of others（他人を尊重する）のようにof・toと使う。「Kwonさんは新入社員の研修に礼儀正しい」となって文脈と合わず、for trainingとも結びつかない。respect（尊敬）から来た語だ。"
     ]
    },
    "tags": [
@@ -1155,10 +1155,10 @@
    "explanation": {
     "why": "「営業経験3年以上を求める」のは職（position）。求人広告でpositionは「職、ポジション」という意味で使われる。",
     "traps": [
-     "situation（状況）は経験を求めない。",
-     "condition（条件）はrequiresの主語として不自然で、the condition requiresでは意味が通じない。",
+     "situationは「状況、立場」という意味で、the current economic situation（現在の経済状況）のように使う。状況が「3年以上の営業経験を求める」というのは意味が通じない。経験の条件を掲げる主体は募集している職、つまりpositionだ。",
+     "conditionは「条件、状態」という意味で、3年の経験そのものが「条件」なのであって、条件が経験を求めるわけではない。the condition requiresは「その状態が〜を必要とする」と読めて、採用の文脈では意味が通じない。経験を求めるという内容から「条件」を連想して選びやすいひっかけだ。",
      null,
-     "location（場所）は文脈と関係ない。"
+     "locationは「場所、位置」という意味で、a convenient location（便利な場所）のように使う。場所が営業経験を求めるというのは意味をなさない。positionと語尾の-tionが同じで紛らわしくした選択肢で、求人広告で経験を求めるのはposition（職）だ。"
     ]
    },
    "trans": "その職には少なくとも3年の営業経験が必要だ。"
@@ -1180,9 +1180,9 @@
    "explanation": {
     "why": "アップデートがシステムの速度を大きく「向上させる」はimprove。willの後ろの動詞の原形の位置で、後ろのsignificantly（大幅に）と合う。",
     "traps": [
-     "approve（承認する）はつづりが似た紛らわしい語。",
-     "prove（証明する）は、速度を目的語にすると意味が通じない。",
-     "remove（取り除く）は速度に使うと意味が成り立たない。",
+     "approveは「承認する」という意味で、approve the budget（予算を承認する）、approve of（〜に賛成する）のように使う。ソフトウェアの更新がシステムの速度を「承認する」というのは意味が通じず、significantly（大幅に）とも合わない。improveと-proveの部分が同じで、紛らわしくした選択肢だ。",
+     "proveは「証明する、〜だとわかる」という意味で、prove that the plan works（計画がうまくいくことを証明する）のように使う。更新がシステムの速度を「証明する」というのは意味が通じず、程度を表すsignificantlyとも合わない。improveの中にproveが入っているので選びやすいひっかけだ。",
+     "removeは「取り除く、なくす」という意味で、remove the old files（古いファイルを削除する）のように使う。「システムの速度を大幅に取り除く」というのは意味が成り立たない。速度・品質・効率のようによくなる対象にはimprove（向上させる）を使う。",
      null
     ]
    },

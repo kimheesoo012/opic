@@ -1,22 +1,22 @@
-p7-t06-5|t2	6月30日は割引の締め切り日。
-p7-t06-5|t3	9月12日は見本市の開始日。
+p7-t06-5|t2	6月30日（June 30）はウェブページの“Exhibitors who book before June 30 save 15%”に出てくる早期予約割引の締め切りだ。支払期限とは関係なく、請求書には“Payment due by August 15”とある。
+p7-t06-5|t3	9月12日（September 12）はウェブページの“September 12–14”、つまり博覧会が始まる日だ。支払いはそれより前の“Payment due by August 15”までにしなければならない。本文の日付を役割を確かめずに選ぶと引っかかるわなだ。
 p7-t07-1|why	新入社員Dana Coleの名刺500枚を注文するメール。印刷物を注文することが目的。
-p7-t07-1|t0	配送の遅れの心配は、後のテキストメッセージのやりとりに出てくる。
-p7-t07-1|t2	住所変更の依頼はない。自宅に送るという話は、後のテキストメッセージでMr. Takedaが提案したもの。
-p7-t07-1|t3	顧客に紹介する文章ではない。
+p7-t07-1|t0	選択肢は配送の遅れに苦情を言うメールという意味だ。メールは10月1日に送った注文で、まだ発送前だ。到着の遅れを心配する内容は後のテキストメッセージ（“might not arrive until the 11th”）に出てくるもので、それも苦情ではない。
+p7-t07-1|t2	選択肢は配送先の住所を変えるメールという意味だ。メールに住所の話はない。自宅に送るという話は後のテキストメッセージでMr. Takedaが“I can have them sent to your home address instead”と提案したもので、Ms. ColeはNo needと断っている。
+p7-t07-1|t3	選択肢は新しい社員を顧客に紹介するメールという意味だ。Dana Coleの名前は出てくるが、送り先は印刷会社（orders@printhaus.example）で、内容は“I'd like to order 500 business cards for our new employee”だ。顧客への紹介ではなく名刺の注文だ。
 p7-t07-2|why	'the same design as our last order (#7781)' と言っているので、以前にも注文したことがある。
-p7-t07-2|t0	Brightwater Consultingは顧客の会社。
-p7-t07-2|t1	新入社員1人の名刺を注文している。
-p7-t07-2|t2	同じデザインを使うように言っているので、ロゴの変更ではない。
+p7-t07-2|t0	選択肢はBrightwater Consultingが印刷会社だという意味だ。印刷会社は注文を受けるPrintHausで、Brightwater Consultingは名刺を注文する顧客だ。差出人も“Jun Takeda, Office Manager, Brightwater Consulting”で、注文する側の人だ。
+p7-t07-2|t1	選択肢はアナリストを何人も採用しているという意味だ。メールは“our new employee, Dana Cole”と、新しい社員1人の名刺だけを注文している。Senior Analystは彼女の肩書きにすぎず、何人も採用するという根拠はない。
+p7-t07-2|t2	選択肢は最近ロゴを変えたという意味だ。メールは“Please use the same design as our last order (#7781)”と前回と同じデザインを求め、変えるのは肩書きだけだ。ロゴが変わったのなら同じデザインを使うよう頼まないはずだ。
 p7-t07-3|why	彼は10月10日までに受け取りたかったが、配達予定日は9〜11日で、追跡ページでは11日着になる可能性があるとしている。
-p7-t07-3|t0	配送確認書に肩書きがSenior Analystと正しく書かれている。
-p7-t07-3|t1	配送確認書に会社名（Brightwater Consulting）が正しく書かれている。
-p7-t07-3|t3	破損の話はない。心配しているのは到着日だけ。
+p7-t07-3|t0	選択肢は肩書きが間違って印刷されたという意味だ。発送確認書に“title: Senior Analyst”とあり、メールで頼んだ肩書きと一致している。テキストメッセージでも肩書きの問題は出てこず、心配しているのは到着日だ。
+p7-t07-3|t1	選択肢は注文が別の会社に送られたという意味だ。発送確認書に“Order #8120 — Brightwater Consulting”と会社名が正しく書かれている。Mr. Takedaが心配しているのは“might not arrive until the 11th”、つまり到着の時期だ。
+p7-t07-3|t3	選択肢は名刺が破損したという意味だ。名刺はまだ配送中で（“Estimated delivery: October 9–11”）、破損の話はどこにもない。彼が心配する理由は、10月10日までに必要と頼んだのに11日に届くかもしれないからだ。
 p7-t07-4|why	11日に届くかもしれないと言われ、「ぎりぎりだ、学会は14日に始まる」と答えている。必要な日の直前に受け取ることになるという意味。
-p7-t07-4|t1	家と事務所の距離の話はない。
-p7-t07-4|t2	学会の日程は知っている。学会が14日に始まると自分で言っている。
-p7-t07-4|t3	注文の変更の話はない。自宅に送るという提案も断っている。
+p7-t07-4|t1	選択肢は事務所が自宅から遠すぎるという意味だ。自宅はMr. Takedaが“I can have them sent to your home address instead”と提案したときに初めて出てくるもので、Ms. Coleはむしろ“I'll pick them up at the office on the 13th”と事務所に取りに行くと言っている。距離の問題には触れていない。
+p7-t07-4|t2	選択肢は彼女が会議のことを聞いていないという意味だ。しかし彼女はすぐ続けて“The conference starts on the 14th”と会議の日付を自分で言っている。会議の日程を知っているからこそ、11日の到着はぎりぎりだと言ったのだ。
+p7-t07-4|t3	選択肢は彼女が注文を変えたいという意味だ。会話に注文変更の話はなく、自宅に送るという提案にもNo need（必要ない）と答えている。“That's cutting it close”は時間がぎりぎりだという意味にすぎず、変更の依頼ではない。
 p7-t07-5|why	13日は彼女の初出勤日（my first day）で、その日に事務所で名刺を受け取る（I'll pick them up at the office on the 13th）と言っている。
-p7-t07-5|t0	学会は14日に始まる。13日は初出勤日。
-p7-t07-5|t1	肩書きの変更の話はない。肩書き（Senior Analyst）はすでに名刺に正しく印刷されている。
-p7-t07-5|t2	配送の追跡はMr. Takedaが確認した。
+p7-t07-5|t0	選択肢は会議に出席するという意味だ。Ms. Coleは“The conference starts on the 14th”と言っているので、会議は翌日に始まる。13日は“my first day”（初出勤の日）で、その日に事務所で名刺を受け取る予定だ。
+p7-t07-5|t1	選択肢は肩書きを変えるという意味だ。肩書きは最初の注文で“Senior Analyst”にするよう頼んだもので、発送確認書にもすでにtitle: Senior Analystとある。13日に肩書きを変えるという話はない。
+p7-t07-5|t2	選択肢はオンラインで荷物を追跡するという意味だ。追跡ページを確認したのはMr. Takedaで、彼が“the tracking page says your business cards might not arrive until the 11th”と知らせている。Ms. Coleが13日にすることは名刺を受け取ることだ。

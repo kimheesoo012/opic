@@ -111,9 +111,9 @@
       "why": "最初のメールは、新しいオフィスのための注文書を処理してほしい（Please process the attached order）という内容。請求書を見ると、いす・机・照明などの事務用家具。",
       "traps": [
        null,
-       "配送への苦情は2通目のメールの内容。",
-       "ニュースレターは割引情報の出どころとして触れられただけ。",
-       "カタログの依頼はない。注文書を添付したと言っているので、すでに品目は決まっている。"
+       "選択肢は「配達について苦情を言うため」だ。配達の問題（“we received eight standing desks rather than the four we ordered”）はOctober 9に送った2通目のメールの内容だ。1通目のメールは配達前のOctober 2に送ったものなので、まだ苦情を言うことはなかった。",
+       "選択肢は「会報について問い合わせるため」だ。1通目のメールのnewsletterは“the loyalty discount mentioned in your September newsletter”（9月の会報に載っていた常連割引）のように、割引情報の出どころとして出てくるだけだ。会報そのものを尋ねる文はなく、目的は注文の処理の依頼だ。",
+       "選択肢は「製品カタログを求めるため」だ。1通目のメールは“Please process the attached order”（添付の注文を処理してほしい）と言っているので、すでに買う品物を決めている。catalog（カタログ）を送ってほしいという話はない。"
       ]
      },
      "trans": "Parkさんはなぜ最初のメールを送ったのか。",
@@ -137,10 +137,10 @@
      "explanation": {
       "why": "最初のメールで 'As a returning customer'（リピーターとして）と言っていて、請求書にはロイヤルティ割引が適用されている。以前にSupply Hubで買ったことがある。",
       "traps": [
-       "オフィスの広さの比較はない。新しいオフィス（new office on Bay Street）に移るという話だけ。",
+       "選択肢は「より小さいオフィスに移る」という内容だ。1通目のメールには“our new office on Bay Street”（Bay Streetの新しいオフィス）とあるだけで、前のオフィスと広さを比べる内容はない。smaller（より小さい）という比較の根拠がないので誤りだ。",
        null,
-       "ニュースレターはSupply Hubが発行したもの。",
-       "請求書の割引率は5パーセント（Loyalty discount (5%)）。10パーセントではない。"
+       "選択肢は「Corvus Designが月刊の会報を出している」という内容だ。1通目のメールの“your September newsletter”（貴社の9月の会報）のyourは、受信者のSupply Hubを指す。会報を出しているのはSupply Hubで、Corvus Designはそれを読んだ客だ。",
+       "選択肢は「10パーセントの割引を受けた」という内容だ。請求書には“Loyalty discount (5%)”と割引率が5%と書かれ、金額も3,160ドルから158ドルを引いたものだ。10という数字は1通目のメールの配達期限October 10から来たもので、割引率とは関係ない。"
       ]
      },
      "para": [
@@ -170,9 +170,9 @@
      "explanation": {
       "why": "2通目のメールで、スタンディングデスクが4台ではなく8台届いたと言っている。請求書でスタンディングデスクの単価は420ドル。",
       "traps": [
-       "150ドルはいすの単価。いすはもともと8脚注文していて、8という数字が重なるひっかけ。",
-       "35ドルは照明の単価で、照明は数量ではなく破損の問題。",
-       "問題になっているのはスタンディングデスクの数量だけ。",
+       "150ドルは請求書のErgonomic chair（人間工学に基づいた椅子）の単価だ。椅子は8脚注文しており、2通目のメールの“we received eight standing desks”（スタンディングデスクが8台届いた）のeightと数が同じなので紛らわしい。数量が違ったのは椅子ではなく、4台注文したスタンディングデスクだ。",
+       "35ドルは請求書のDesk lamp（デスクランプ）の単価だ。ランプは“one of the lamps has a cracked base”（ランプの1つは台座が割れている）のように破損の問題があっただけで、数量が違ったという話はない。数量が違ったのはスタンディングデスクだ。",
+       "選択肢は「すべての品物」だ。2通目のメールが数量の問題として挙げたのは“eight standing desks rather than the four we ordered”（注文した4台ではなく8台のスタンディングデスク）だけだ。椅子の数量には触れておらず、ランプは破損の問題なので、すべてとは言えない。",
        null
       ]
      },
@@ -198,9 +198,9 @@
      "explanation": {
       "why": "最初のメールで社員が10月10日に入居すると言っていて、2通目のメール（10月9日）でも「明日社員が来る前に」と言っている。",
       "traps": [
-       "10月2日は最初のメールを送った日。",
-       "10月3日は請求書の発行日。",
-       "10月9日は配送日。日付がいくつも出てくるクロスリファレンス問題の代表的なひっかけ。",
+       "October 2はMs. Parkが1通目のメールを送った日付だ。そのメールでスタッフの入居日は“by October 10, which is when our staff will move in”（スタッフが入居する10月10日）と別に述べている。注文した日にすぎず、勤務開始日ではない。",
+       "October 3はSupply Hubの請求書（Invoice #7781）が発行された日付だ。スタッフの勤務開始とは関係のない日付で、スタッフの入居日は1通目のメールでOctober 10だと述べている。",
+       "October 9は請求書の“Scheduled delivery: October 9”（配達予定日）であり、2通目のメールを送った日だ。そのメールで“before our staff arrive tomorrow”（明日スタッフが来る前に）と言っているので、スタッフは翌日の10月10日から働く。日付が多く出てくる連携問題の典型的なひっかけだ。",
        null
       ]
      },
@@ -226,9 +226,9 @@
       "why": "照明の1つの台座が割れていたので、交換品を送ってほしいと頼んでいる（余った机の回収もalsoで依頼）。",
       "traps": [
        null,
-       "いすについての問題の指摘はない。",
-       "追加の割引の依頼はない。割引は最初のメールですでに適用を頼み、請求書に反映されている。",
-       "むしろ明日までに送ってほしいと言っている。"
+       "選択肢は「椅子の返金」だ。2通目のメールが求めたのは、余分なスタンディングデスクの引き取り（“Could you arrange for the extra desks to be picked up?”）と、割れたランプの交換だ。chairs（椅子）についての指摘やrefund（返金）の依頼はない。",
+       "選択肢は「追加の割引」だ。割引は1通目のメールで常連割引を求め、請求書に“Loyalty discount (5%)”としてすでに反映されている。2通目のメールは余分なデスクの引き取りとランプの交換を頼んでいるだけで、追加の割引の話はない。",
+       "選択肢は「配達日を遅らせること」だ。2通目のメールはむしろ交換品を“before our staff arrive tomorrow”（明日スタッフが来る前に）送ってほしいと言っている。早く受け取りたいのでlater（より遅い）とは逆で、配達についても“Thank you for the quick service.”と満足を示している。"
       ]
      },
      "para": [
@@ -354,10 +354,10 @@
      "explanation": {
       "why": "記事で 'For the first time'（初めて）リバーサイド公園で無料の野外上映を行うと言っている。",
       "traps": [
-       "今年が10回目（tenth annual event）。for the first timeを映画祭そのものに結びつけるひっかけ。",
-       "6月5日から8日までの4日間。",
+       "選択肢は「今年初めて開かれる」という内容だ。記事は“will hold its tenth annual event”（10回目の年次イベントを開く）と言っているので、今年は10回目だ。記事の“For the first time”は映画祭ではなくRiverside Parkでの無料の野外上映にかかる語で、これを映画祭全体に結びつけさせるひっかけだ。",
+       "選択肢は「2週間続く」という内容だ。記事によると映画祭の期間は“from June 5 to 8”（6月5日から8日まで）の4日間だ。two weeks（2週間）という期間はどこにも出てこない。",
        null,
-       "45本のうち「何本か」がドキュメンタリーなだけ。"
+       "選択肢は「ドキュメンタリーだけを上映する」という内容だ。記事は45本の映画について“including several documentaries about environmental issues”（環境問題に関するドキュメンタリー数本を含む）と言っているので、ドキュメンタリーは一部だ。予定表にもThe Last Orchard、City of Glassのようにdocumentaryの表示がない映画がある。"
       ]
      },
      "para": [
@@ -387,10 +387,10 @@
      "explanation": {
       "why": "記事でパスは5月31日までしか販売されないと言っていて、Mr. Whitfieldは6月2日にメールを送っている。販売期限が過ぎている。",
       "traps": [
-       "売り切れたという情報はない。販売期限が過ぎただけ。",
+       "選択肢は「売り切れた」という内容だ。メールの“they're no longer being sold”（もう販売されていない）は売り切れのように聞こえるが、記事に“Passes are available only until May 31.”（パスは5月31日までしか買えない）とあり、メールの日付はJune 2だ。販売期限が過ぎたのであって、sold out（売り切れ）という情報はない。",
        null,
-       "ウェブサイトの問題は書かれていない。",
-       "値段のせいだとは言っていない。パスを買えなかった理由は「もう販売していない（no longer being sold）」こと。"
+       "選択肢は「ウェブサイトが動かなかった」という内容だ。メールにはパスを買おうとしたが“they're no longer being sold”（もう販売されていない）とあるだけで、Web site（ウェブサイト）や技術的な問題には触れていない。原因は5月31日という販売期限が過ぎたことだ。",
+       "選択肢は「高すぎた」という内容だ。記事に“a festival pass, which allows entry to all screenings, costs $80”（すべての上映に入れるパスは80ドル）と値段は出てくるが、Mr. Whitfieldが値段を問題にした言葉はない。彼はパスを買おうとしたが、販売期限（5月31日）が過ぎていて買えなかった。"
       ]
      },
      "trans": "Whitfieldさんはなぜ映画祭のパスを買えなかったのか。",
@@ -418,10 +418,10 @@
      "explanation": {
       "why": "土曜日のドキュメンタリーは1時のOcean Voices（Regal Theater）と7時のNorthern Lights（Riverside Park、無料）。最初の映画だけチケットを買えばよいので、2人 × 12ドル = 24ドル。",
       "traps": [
-       "12ドルは1人分のチケット代。「2人とも」という条件を見落とすひっかけ。",
+       "12ドルは記事の“Tickets for individual screenings cost $12”（個別上映のチケットは12ドル）にある1人1本分の値段だ。Mr. Whitfieldは自分とMs. Kimの2人分を買う必要があるので、12ドル × 2 = 24ドルになる。2人分という条件を見落とすと選んでしまうひっかけだ。",
        null,
-       "80ドルはパスの値段だが、パスはもう販売していない。",
-       "160ドルはパス2枚の値段。"
+       "80ドルは記事に出てくるfestival pass（映画祭パス）1枚の値段だ。しかしメールでパスは“they're no longer being sold”（もう販売されていない）と言っており、彼は個別上映のチケットを買うと書いている。パスの値段は計算に使わない。",
+       "160ドルは80ドルのパス2枚分の値段だ。最初の予定どおり2人分のパスを買っていれば合うが、パスの販売は終わっている。土曜日は無料のNorthern Lightsを除き、Ocean Voicesのチケット2枚（12ドル × 2）だけ買えばよい。"
       ]
      },
      "trans": "Whitfieldさんが自分とKimさんの土曜日のチケットに使う金額はいくらと考えられるか。",
@@ -447,9 +447,9 @@
       "why": "彼が見ようとしている2本目のドキュメンタリーNorthern Lightsが、7時にリバーサイド公園で上映される。",
       "traps": [
        null,
-       "Regal Theaterは1時の映画の会場。",
-       "Arcadia Cinemaは9時30分のCity of Glassの会場で、彼はドキュメンタリーを2本見ようとしている。",
-       "夕食は2本の映画の「間」にしようと言っているので、7時には映画を見ている。"
+       "Regal Theaterは予定表で1:00 P.M.のOcean Voicesと4:00 P.M.のThe Last Orchardが上映される場所だ。Mr. Whitfieldは1時のドキュメンタリーをここで見るが、7:00 P.M.には2本目のドキュメンタリーNorthern Lightsを見るためRiverside Parkにいるはずだ。",
+       "Arcadia Cinemaは9:30 P.M.にCity of Glassが上映される場所だ。City of Glassはdocumentaryの表示がない映画で、Mr. Whitfieldは“I'd really like to see the two documentaries”（2本のドキュメンタリーを見たい）と言っている。時間も7時ではないので誤りだ。",
+       "選択肢は「レストランにいる」という内容だ。メールで夕食は“between the two films”（2本の映画の間に）食べようと言っているので、1時の映画と7時の映画の間の時間だ。7:00 P.M.にはRiverside ParkでNorthern Lightsが始まるので、レストランではなく公園にいるはずだ。"
       ]
      },
      "trans": "Whitfieldさんは土曜日の午後7時にどこにいると考えられるか。",
@@ -474,10 +474,10 @@
      "explanation": {
       "why": "2本の映画の間に夕食をとろうと（get dinner between the two films）提案している。",
       "traps": [
-       "パスはもう販売していない。",
-       "彼はドキュメンタリーを2本見ようとしている。",
+       "選択肢は「オンラインでパスを買おう」というものだ。Mr. Whitfieldはすでにパスを買おうとして失敗し、“I'll buy tickets for individual screenings instead.”（代わりに個別上映のチケットを買う）と言っている。パスはもう売っておらず、online（オンライン）という語もない。",
+       "選択肢は「City of Glassを見よう」というものだ。City of Glassは9:30 P.M.にArcadia Cinemaで上映される映画で、documentaryの表示がない。Mr. Whitfieldが見たいと言ったのは環境に関する2本のドキュメンタリーなので、この映画は提案していない。",
        null,
-       "Arcadia Cinemaで会おうという話はない。"
+       "選択肢は「Arcadia Cinemaで会おう」というものだ。メールに待ち合わせ場所の話はなく、彼が見る映画はRegal TheaterとRiverside Parkで上映される。Arcadia CinemaはCity of Glassの上映場所にすぎない。"
       ]
      },
      "para": [
@@ -546,9 +546,9 @@
      "explanation": {
       "why": "若手エンジニアとベテラン社員を結ぶメンタリングプログラムを新しく始める（is launching）と知らせるメモ。",
       "traps": [
-       "昇進の発表はない。メンタリングプログラムの案内。",
-       "勤務時間の変更の話はない。",
-       "新しいエンジニアの採用ではなく、社内の社員向けのプログラム。",
+       "選択肢は「昇進を発表するため」だ。メモのsenior staff（上級社員）やmentor（メンター）という語から昇進を連想しやすいが、メモは“Halvorsen Engineering is launching a mentorship program”（メンター制度を始める）と新しい制度を案内している。誰かが昇進したという内容はない。",
+       "選択肢は「勤務時間の変更を説明するため」だ。メモに出てくる時間の情報は“meet for one hour every two weeks for six months”（6か月間、2週間ごとに1時間会う）というメンター面談の予定だけだ。勤務時間（working hours）が変わるという話はない。",
+       "選択肢は「新しいエンジニアを採用するため」だ。メモの宛先は“All Halvorsen Engineering staff”（全社員）で、内容は社内の“junior engineers with senior staff”（若手エンジニアと上級社員）を組み合わせる社内制度だ。外部からの採用とは関係ない。",
        null
       ]
      },
@@ -580,9 +580,9 @@
       "why": "メモではメンターの資格は勤続8年以上で、申込書ではMr. Navarroの勤続年数は9年。資格を満たしている。",
       "traps": [
        null,
-       "昨年秋に入社したのはメンティーのHannah Ito。",
-       "締め切りは1月24日で、彼は1月21日に提出した。",
-       "彼の部署はStructural Design。"
+       "選択肢は「Mr. Navarroは去年の秋に入社した」という内容だ。メールの“who joined the Structural Design department last fall”（去年の秋にStructural Design部に入った）は、メンティーのHannah Itoの説明だ。Mr. Navarroは申込書に“Years with Halvorsen: 9”（勤続9年）と書いているので、別の人の情報を結びつけたひっかけだ。",
+       "選択肢は「締め切り後に申込書を出した」という内容だ。メモの締め切りは“by January 24”（1月24日まで）で、申込書の提出日は“Submitted: January 21”（1月21日）だ。締め切りの3日前に出しているので遅れていない。",
+       "選択肢は「人事部で働いている」という内容だ。メモの送り主はHuman Resourcesで、メールもHR Coordinatorが送っているが、Mr. Navarroの部署は申込書に“Department: Structural Design”と書かれている。人事部は制度を運営する側だ。"
       ]
      },
      "trans": "Navarroさんについて何が述べられているか。",
@@ -607,10 +607,10 @@
      "explanation": {
       "why": "Ms. Itoは特にプロジェクトのスケジュール管理を学びたいと思っていて、申込書にはMr. Navarroの専門分野としてproject schedulingが書かれている。",
       "traps": [
-       "働いている階についての情報はない。",
-       "名前で指名したという内容はない。関心のある分野を言っただけ。",
+       "選択肢は「同じ階で働いている」という内容だ。2人が同じStructural Design部であることはわかるが、floor（階）についての情報は3つの文書のどこにもない。組み合わせの根拠としてメールが挙げているのは、Ms. Itoの関心分野であるproject schedulingだ。",
+       "選択肢は「Ms. Itoが彼を名指しで希望した」という内容だ。メールは“she is especially interested in learning about project scheduling”（特にプロジェクトの日程管理を学びたがっている）と、彼女が関心分野を伝えたとだけ書いている。Mr. Navarroを直接希望したという内容はない。",
        null,
-       "今の上司だという情報はない。同じ部署（Structural Design）だということしか分からない。"
+       "選択肢は「彼が今の彼女の上司だ」という内容だ。2人が同じ部署（Structural Design）だということしかわからず、supervisor（上司）という関係の情報はない。組み合わせの理由と考えられるのは、申込書の“Areas of expertise: bridge design, project scheduling”とMs. Itoの関心分野が一致している点だ。"
       ]
      },
      "trans": "ItoさんはなぜNavarroさんと組まされたと考えられるか。",
@@ -635,10 +635,10 @@
      "explanation": {
       "why": "申込書の希望曜日は水曜日だが、メールでMs. Itoが3月まで毎週水曜日に研修コースを受けると言っている。",
       "traps": [
-       "出張の話はない。水曜日が使えない理由はMs. Itoの研修コース。",
+       "選択肢は「Mr. Navarroが出張する」という内容だ。申込書にもメールにもtraveling（出張、旅行）の話はない。メールは“Because she attends a training course on Wednesdays until March”（彼女が3月まで毎週水曜日に研修を受けるので）と、理由がMs. Itoの側にあると述べている。",
        null,
-       "会議室の予約の問題は書かれていない。",
-       "MarchはMs. Itoの研修が終わる時期で、プログラムが始まる時期ではない。"
+       "選択肢は「会議室がすでに予約されている」という内容だ。meeting rooms（会議室）には一切触れていない。水曜日ではなく木曜日に会う必要がある理由は、Ms. Itoが“attends a training course on Wednesdays until March”（3月まで毎週水曜日に研修を受ける）からだ。",
+       "選択肢は「制度が3月まで始まらない」という内容だ。March（3月）はMs. Itoの研修が終わる時期だ。メモによると組み合わせは“Pairs will be announced on February 3.”（2月3日に発表）で、メールも最初の面談を設定するよう求めているので、制度は3月より前に始まる。"
       ]
      },
      "para": [
@@ -669,10 +669,10 @@
      "explanation": {
       "why": "メモで、メンターとメンティーは6か月間、2週間ごとに1時間（one hour every two weeks）会うと言っている。",
       "traps": [
-       "毎週（every week）ではなく2週間ごと（every two weeks）。",
+       "選択肢は「毎週」だ。メモは“one hour every two weeks”（2週間ごとに1時間）と言っている。every weekとevery two weeksを混同させるひっかけで、会う曜日が水曜日から木曜日に変わっても間隔は同じだ。",
        null,
-       "月に1回とは言っていない。",
-       "6か月間定期的に会う。"
+       "選択肢は「月に1回」だ。メモの面談の間隔は“every two weeks”（2週間ごと）なので、月に2回ほど会うことになる。once a month（月に1回）という語は本文にない。",
+       "選択肢は「1回だけ」だ。メモは“for six months”（6か月間）定期的に会うと言っている。メールの“your first session”（最初の面談）や“first few meetings”（最初の数回の面談）という表現からも、何回も会うことがわかる。"
       ]
      },
      "trans": "NavarroさんとItoさんはどのくらいの頻度で会うか。",
