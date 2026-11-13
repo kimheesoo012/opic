@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><title>부품 패널</title>
+<style>
+:root{--bg:#151a28;--card:#1d2334;--card2:#242b40;--line:rgba(255,255,255,.1);--ink:#f4f7ff;--mu:rgba(225,232,255,.55);--hl:#74c0fc;--ok:#8ce99a;--warm:#ffd8a8}
+*{box-sizing:border-box}
+body{margin:0;background:#0d111b;color:var(--ink);font-family:-apple-system,"Hiragino Sans","Apple SD Gothic Neo",sans-serif;padding:24px}
+.panel{width:980px;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:26px 28px}
+.mincho{font-family:"Hiragino Mincho ProN","Noto Serif CJK JP",serif}
+.eq{display:flex;align-items:center;gap:18px;margin-bottom:22px}
+.eq .g{font-size:96px;line-height:1}
+.eq .op{font-size:40px;color:var(--mu)}
+.eq .res{color:var(--hl)}
+.eq .cap{font-size:15px;color:var(--mu);text-align:center;margin-top:6px}
+.top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.top .ko{font-size:22px;font-weight:700}
+.top .ord{font-size:15px;color:var(--mu)}
+.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.ph{display:flex;gap:16px;align-items:center}
+.ph .g{font-size:84px;line-height:1;width:96px;text-align:center}
+.ph .nm{font-size:21px;font-weight:700}
+.tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.tag{font-size:13.5px;padding:3px 9px;border-radius:999px;background:rgba(116,192,252,.16);color:var(--hl)}
+.tag.r{background:rgba(255,216,168,.16);color:var(--warm)}
+.sub{margin-top:14px;padding:10px 12px;background:var(--card2);border-radius:10px;font-size:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.sub b{font-size:30px;font-weight:400}
+.sub .s{display:flex;align-items:center;gap:6px}
+.sub .s span{color:var(--mu);font-size:14px}
+.in{margin-top:14px}
+.in .lb{font-size:14px;color:var(--mu);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:28px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.06);border-radius:10px}
+.chip:hover{background:rgba(116,192,252,.25)}
+.more{font-size:14px;color:var(--mu);align-self:center;margin-left:4px}
+.up{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+</style></head><body>
+<div id="out" style="display:flex;flex-direction:column;gap:24px"></div>
+<script>
+const DATA = __DATA__;
+const {D, KO} = DATA;
+const esc = s => String(s||"");
+function chips(list, n){
+  return `<div class="chips">${list.map(c=>`<div class="chip mincho" title="${esc(KO[c])}">${c}</div>`).join("")}${n>list.length?`<div class="more">외 ${n-list.length}자</div>`:""}</div>`;
+}
+function subLine(sub){
+  if(!sub||!sub.length) return "";
+  return `<div class="sub">${sub.map(s=>`<div class="s"><b class="mincho">${s.c}</b><span>${esc(s.ko)}</span></div>`).join('<span style="color:var(--mu)">+</span>')}</div>`;
+}
+function render(e){
+  const ps=e.parts;
+  const eq = ps.map(p=>`<div><div class="g mincho">${p.c}</div><div class="cap">${esc(p.ko).split(" (")[0].split(" / ")[0]}</div></div>`).join('<div class="op">+</div>')
+    + `<div class="op">=</div><div><div class="g mincho res">${e.k}</div><div class="cap">${esc(e.ko).split(" / ")[0]}</div></div>`;
+  const cards = ps.map(p=>`<div class="pc">
+      <div class="ph"><div class="g mincho">${p.c}</div><div><div class="nm">${esc(p.ko)}</div>
+        <div class="tags">${p.pos?`<span class="tag">${p.pos}</span>`:""}${p.rad?`<span class="tag r">부수</span>`:""}${p.orig?`<span class="tag">원래 모양 ${p.orig}</span>`:""}</div></div></div>
+      ${subLine(p.sub)}
+      ${p.in?`<div class="in"><div class="lb">${p.c} 포함 ${p.inN}자</div>${chips(p.in,p.inN)}</div>`:""}
+    </div>`).join("");
+  const up = e.in?`<div class="up"><div class="in" style="margin-top:0"><div class="lb">${e.k} 포함 ${e.inN}자</div>${chips(e.in,e.inN)}</div></div>`:"";
+  return `<div class="panel"><div class="top"><div class="ko">${esc(e.ko)}</div><div class="ord">부품 순서 ${e.ord||"-"}번째 / 2136</div></div>
+    <div class="eq">${eq}</div><div class="parts">${cards}</div>${up}</div>`;
+}
+document.getElementById("out").innerHTML = ["議","続","街"].map(k=>render(D[k])).join("");
+</script></body></html>
