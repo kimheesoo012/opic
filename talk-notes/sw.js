@@ -1,6 +1,6 @@
 /* 오프라인 실행용 서비스 워커 (tools/build-sw.cjs가 만든다. 직접 고치지 말 것)
    앱 파일은 미리 저장하고, 글꼴(Google Fonts)은 처음 받을 때 저장한다. */
-const VERSION = 'talk-notes-f9f0e9958e';
+const VERSION = 'talk-notes-eb441578e1';
 const FONTS = 'talk-notes-fonts';
 const ASSETS = [
   './',
