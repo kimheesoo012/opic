@@ -64,7 +64,8 @@ export const PAIRS = [
   ['older', 'order', 'R/L'], ['alone', 'along', '끝소리'], ['walk', 'work', '모음'], ['small', 'smart', '모음'],
   ['false', 'force', '모음'], ['code', 'cold', '모음'], ['had', 'add', '첫소리'], ['live', 'leave', '모음'],
   ['fill', 'feel', '모음'], ['can', "can't", '끝소리'], ['vibe', 'five', '첫소리'], ['genres', 'jungles', '모음'],
-  ['sequels', 'secrets', '자음'], ['favorite', 'fabric', '자음'], ['celebrity', 'celebrate', '끝소리']
+  ['sequels', 'secrets', '자음'], ['favorite', 'fabric', '자음'], ['celebrity', 'celebrate', '끝소리'],
+  ['reading', 'leading', 'R/L'], ['calm', 'come', '모음'], ['fun', 'fund', '끝소리']
 ];
 
 /* ── 표현 ─────────────────────── */

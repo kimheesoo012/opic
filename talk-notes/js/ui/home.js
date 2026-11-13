@@ -1,7 +1,7 @@
 /* 오늘: 레벨·XP·연속 학습, 오늘의 학습, 이번 주, 숙련도, 오늘의 표현, 최근 수업 */
 import { S, todayLog, streak } from '../core/store.js';
 import { LESSONS } from '../data/notes.js';
-import { PHRASES, buildToday, lessonProgress, resolve, MODES } from '../core/deck.js';
+import { CARDS, PHRASES, buildToday, lessonProgress, resolve, MODES } from '../core/deck.js';
 import { dayNum, isDue } from '../core/srs.js';
 import { levelInfo, encouragement, lastDays, weekdayOf, skills, overall, masteredCount, seenCount, STREAK_STEPS, FREEZE_MAX } from '../core/game.js';
 import { esc, sayBtn, pct } from './ui.js';
@@ -63,7 +63,7 @@ export default {
 
     <div class="sec-h"><h2>실력</h2><a href="#/stats?to=skills">자세히 ›</a></div>
     <div class="panel">
-      <div class="row" style="margin-bottom:8px"><div style="flex:1"><b>전체 숙련도 ${ov}%</b><div class="tiny muted">633문장을 얼마나 오래 기억하고 있는지 (익힘 = 21일+)</div></div></div>
+      <div class="row" style="margin-bottom:8px"><div style="flex:1"><b>전체 숙련도 ${ov}%</b><div class="tiny muted">${CARDS.length}문장을 얼마나 오래 기억하고 있는지 (익힘 = 21일+)</div></div></div>
       <div class="meter lv" style="height:10px"><i style="width:${ov}%"></i></div>
       <hr class="sep">
       <div class="tiny muted" style="margin-bottom:4px">숙련도가 낮은 실수 유형 3개</div>

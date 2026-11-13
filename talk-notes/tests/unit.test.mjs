@@ -10,15 +10,15 @@ import { CARDS, CARD, PHRASES, PATTERNS, PRON_ROWS, PAIRS, clozeOf, clozeBank, p
 const blankS = () => ({ settings: { newOrder: 'recent' }, srs: {}, stars: {}, tagStats: {} });
 
 test('원본 노트 내용이 빠짐없이 들어 있다', () => {
-  assert.equal(LESSONS.length, 10);
-  assert.equal(CARDS.length, 633);
-  assert.deepEqual(LESSONS.map(l => l.cards.length), [73, 64, 68, 47, 55, 70, 84, 59, 67, 46]);
+  assert.equal(LESSONS.length, 11);
+  assert.equal(CARDS.length, 702);
+  assert.deepEqual(LESSONS.map(l => l.cards.length), [73, 64, 68, 47, 55, 70, 84, 59, 67, 46, 69]);
   assert.equal(MIST.length, 11);
-  assert.equal(GROW.length, 12);
-  assert.equal(PHR.length, 6);
-  assert.equal(PHRASES.length, 36);
+  assert.equal(GROW.length, 15);
+  assert.equal(PHR.length, 7);
+  assert.equal(PHRASES.length, 42);
   assert.equal(PRON.length, 3);
-  assert.equal(PRON_ROWS.length, 36);
+  assert.equal(PRON_ROWS.length, 45);
   assert.equal(Object.keys(TAGS).length, 13);
   for (const c of CARDS) {
     for (const k of ['c', 'o', 'f', 't', 'e', 'n', 'nk', 'g']) assert.ok(k in c, c.id + ' ' + k);
@@ -92,10 +92,10 @@ test('간격 반복', () => {
 
 test('문제 목록과 세션', () => {
   const S = blankS();
-  assert.equal(poolFor('speak', {}, S).length, 633);
+  assert.equal(poolFor('speak', {}, S).length, 702);
   assert.equal(poolFor('speak', { lesson: 0 }, S).length, 73);
-  assert.equal(poolFor('speak', { tag: 'cond' }, S).length, 11);
-  assert.equal(poolFor('pron', {}, S).length, 36);
+  assert.equal(poolFor('speak', { tag: 'cond' }, S).length, 13);
+  assert.equal(poolFor('pron', {}, S).length, 45);
   assert.equal(poolFor('pair', {}, S).length, PAIRS.length);
   assert.equal(poolFor('phrase', { group: 0 }, S).length, 6);
   assert.equal(poolFor('pattern', {}, S).length, PATTERNS.length);
@@ -105,7 +105,7 @@ test('문제 목록과 세션', () => {
   const s1 = buildSession('speak', {}, S, { size: 10, order: 'due' });
   assert.equal(s1.length, 10);
   assert.ok(s1.every(k => !resolve(k).card.ok));
-  assert.equal(resolve(s1[0]).card.li, 9);
+  assert.equal(resolve(s1[0]).card.li, 10);
   // 복습할 것이 먼저
   const k = itemKey('speak', '0807-3');
   S.srs[k] = Object.assign(fresh(), { n: 1, d: dayNum() - 1, i: 1 });

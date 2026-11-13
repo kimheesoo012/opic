@@ -55,9 +55,9 @@ const ok = (cond, msg) => { if (cond) console.log('  ✓ ' + msg); else { fails+
       ok(ov <= 0, `${h} 가로 넘침 없음 (${ov})`);
     }
     await p.goto(base + '#/note?t=les');
-    ok(await p.locator('.ncard').count() === 46, '최근 수업 문장 46개 표시');
+    ok(await p.locator('.ncard').count() === 69, '최근 수업 문장 69개 표시');
     await p.click('.chip:has-text("관사")');
-    ok(await p.locator('.ncard').count() === 13, '관사 필터 13개');
+    ok(await p.locator('.ncard').count() === 22, '관사 필터 22개');
     await p.click('[data-tg="hideKr"]');
     ok(await p.evaluate(() => getComputedStyle(document.querySelector('.ncard .kr.hideable')).display === 'none'), '해석 숨기기');
     await p.click('[data-tg="hideKr"]');
