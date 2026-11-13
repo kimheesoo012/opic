@@ -28,7 +28,7 @@ body{margin:0;background:var(--paper);color:var(--ink);
   font-size:16px;line-height:1.6;-webkit-tap-highlight-color:transparent;
   padding-bottom:calc(var(--tab-h) + env(safe-area-inset-bottom,0px))}
 body.in-session{padding-bottom:env(safe-area-inset-bottom,0px)}
-.en{font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-size:17.5px;line-height:1.55;letter-spacing:.005em}
+.en{font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17.5px;line-height:1.55;letter-spacing:.005em}
 .kr{font-size:14.5px;color:var(--muted)}
 .muted{color:var(--muted)} .small{font-size:13.5px} .tiny{font-size:12px}
 a{color:var(--blue)}
@@ -212,8 +212,8 @@ table.t td.act{width:1%;white-space:nowrap}
 .q .hint{font-size:13.5px;color:var(--muted)}
 .q .body{flex:1}
 .answer-area{margin:14px 0 6px}
-.answer-area textarea{width:100%;min-height:90px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:12px;font:inherit;font-size:17px;font-family:"Source Serif 4",Georgia,serif;resize:vertical}
-.live{min-height:56px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;font-family:"Source Serif 4",Georgia,serif;font-size:18px;background:var(--card)}
+.answer-area textarea{width:100%;min-height:90px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:12px;font:inherit;font-size:17px;resize:vertical}
+.live{min-height:56px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;font-size:18px;background:var(--card)}
 .live .interim{color:var(--faint)}
 .live.empty-live{color:var(--faint);font-family:inherit;font-size:14.5px}
 .micwrap{display:flex;flex-direction:column;align-items:center;gap:6px;margin:16px 0 4px}
@@ -233,19 +233,19 @@ table.t td.act{width:1%;white-space:nowrap}
 .result.bad{background:var(--wrongbg);border-color:transparent}
 .result.mid{background:var(--warnbg);border-color:transparent}
 .result .score{font-weight:700;font-size:15px}
-.diff{font-family:"Source Serif 4",Georgia,serif;font-size:17.5px;line-height:1.8;margin-top:4px}
+.diff{font-size:17.5px;line-height:1.8;margin-top:4px}
 .diff .ins{background:var(--wrongbg);color:var(--wrong);border-radius:3px;padding:0 3px;text-decoration:underline dotted}
 .diff .del{color:var(--faint);text-decoration:line-through}
 .diff .eq{color:var(--ink)}
 .legend{font-size:12px;color:var(--muted);margin-top:4px}
 .legend .ins{color:var(--wrong)} .legend .del{text-decoration:line-through}
-.cloze{font-family:"Source Serif 4",Georgia,serif;font-size:20px;line-height:2.1;margin:12px 0}
+.cloze{font-size:20px;line-height:2.1;margin:12px 0}
 .cloze .blank{display:inline-block;min-width:80px;border-bottom:2px solid var(--blue);text-align:center;padding:0 6px;color:var(--blue);margin:0 2px;cursor:pointer;line-height:1.5}
 .cloze .blank.cur{background:var(--bluebg);border-radius:4px 4px 0 0}
 .cloze .blank.right{color:var(--good);border-color:var(--good)}
 .cloze .blank.wrongf{color:var(--wrong);border-color:var(--wrong)}
 .bank{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
-.bank button{min-height:46px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-family:"Source Serif 4",Georgia,serif;font-size:17px;cursor:pointer}
+.bank button{min-height:46px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-size:17px;cursor:pointer}
 .bank button.used{opacity:.3}
 .bank button.trap{border-color:var(--wrong);color:var(--wrong)}
 .bank button.ans{border-color:var(--good);color:var(--good)}
@@ -255,10 +255,10 @@ table.t td.act{width:1%;white-space:nowrap}
 .ox button.pick-ok{border-color:var(--good);background:var(--goodbg)}
 .ox button.pick-bad{border-color:var(--wrong);background:var(--wrongbg)}
 .choices{display:flex;flex-direction:column;gap:10px;margin:14px 0}
-.choices button{min-height:56px;text-align:left;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-family:"Source Serif 4",Georgia,serif;font-size:17.5px;line-height:1.45}
+.choices button{min-height:56px;text-align:left;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:17.5px;line-height:1.45}
 .choices button.right{border-color:var(--good);background:var(--goodbg)}
 .choices button.wrongc{border-color:var(--wrong);background:var(--wrongbg)}
-.bigword{font-family:"Source Serif 4",Georgia,serif;font-size:40px;text-align:center;margin:18px 0 4px;line-height:1.2}
+.bigword{font-size:40px;text-align:center;margin:18px 0 4px;line-height:1.2}
 .heard{text-align:center;font-size:14px;color:var(--muted)}
 .listen-big{display:flex;justify-content:center;margin:18px 0}
 .listen-big button{width:96px;height:96px;border-radius:50%;border:0;background:var(--bluebg);color:var(--blue);font-size:38px;cursor:pointer}
